@@ -49,7 +49,7 @@ python do_sca_cppcheck() {
     _args += ["--max-configs=1"]
     _args += ["--std={}".format(d.getVar("SCA_CPPCHECK_LANG_STD"))]
     _args += [get_platform_type(d)]    
-    _args += ["--supress={}".format(x) for x in _supress]
+    _args += ["--suppress={}".format(x) for x in _supress]
     result_raw_file = os.path.join(d.getVar("T", True), "sca_raw_cppcheck.xml")
     d.setVar("SCA_RAW_RESULT", result_raw_file)
     _args += ["--output-file={}".format(result_raw_file)]

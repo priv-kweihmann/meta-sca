@@ -33,20 +33,23 @@ def do_sca_conv_cppcheck(d):
         "debug": "ignore"
     }
 
-    data = ElementTree.parse(d.getVar("SCA_RAW_RESULT")).getroot()
-    for node in data.findall(".//error"):
-        try:
-            loc = node.find("location")
-            g = CppCheckItem()
-            g.Column = "1" ## there no info on that
-            g.File = os.path.join(buildpath, loc.attrib.get("file"))
-            g.Line = loc.attrib.get("line")
-            g.Message = "[Package:%s Tool:cppcheck] %s" % (package_name, node.attrib.get("msg"))
-            g.Severity = node.attrib.get("severity")
-            g.ID = "CPPCheck.CPPCheck.%s" % node.attrib.get("id")
-            items.append(g)     
-        except:
-            pass     
+    try:
+        data = ElementTree.parse(d.getVar("SCA_RAW_RESULT")).getroot()
+        for node in data.findall(".//error"):
+            try:
+                loc = node.find("location")
+                g = CppCheckItem()
+                g.Column = "1" ## there no info on that
+                g.File = os.path.join(buildpath, loc.attrib.get("file"))
+                g.Line = loc.attrib.get("line")
+                g.Message = "[Package:%s Tool:cppcheck] %s" % (package_name, node.attrib.get("msg"))
+                g.Severity = node.attrib.get("severity")
+                g.ID = "CPPCheck.CPPCheck.%s" % node.attrib.get("id")
+                items.append(g)     
+            except:
+                pass
+    except:
+        pass
 
     filenames = list(set([x.File for x in items]))
 

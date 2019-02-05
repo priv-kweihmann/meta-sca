@@ -9,7 +9,7 @@ BBCLASSEXTEND = "native"
 
 inherit pkgconfig
 
-DEPENDS = "libpcre-native"
+DEPENDS = "libpcre"
 
 ## we don't need debug packages
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
