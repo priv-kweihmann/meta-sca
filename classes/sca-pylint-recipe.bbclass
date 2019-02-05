@@ -1,6 +1,17 @@
 inherit sca-pylint-core
 inherit sca-global
 
+## Add ids to suppress on a recipe level
+SCA_PYLINT_EXTRA_SUPPRESS ?= ""
+## Add ids to lead to a fatal on a recipe level
+SCA_PYLINT_EXTRA_FATAL ?= ""
+## Folder to scan
+SCA_PYLINT_ROOTPATH ?= "${B}"
+## PYTHONHOME-path to use
+SCA_PYLINT_HOMEPATH ?= "${STAGING_LIBDIR}/python.3.5"
+## The Librarypath to use
+SCA_PYLINT_LIBATH ?= "${STAGING_LIBDIR}/python.3.5/:${STAGING_LIBDIR}/python.3.5/site-packages/"
+
 python do_sca_deploy_pylint_recipe() {
     import os
     import shutil
