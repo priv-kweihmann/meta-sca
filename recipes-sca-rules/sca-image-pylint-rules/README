@@ -1,0 +1,5 @@
+Fine tune usage of pylint (on image-levle)
+There are several files in the files-subdirectory
+
+You can add/remove/replace any of the content from these
+files in your own layer by appending this recipe
