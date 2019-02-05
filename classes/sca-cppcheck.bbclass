@@ -25,6 +25,8 @@ inherit sca-global
 python do_sca_cppcheck() {
     import os
     import subprocess
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_CPPCHECK_EXTRA_SUPPRESS"))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_CPPCHECK_EXTRA_FATAL"))
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cppcheck-suppress"))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cppcheck-fatal"))
 

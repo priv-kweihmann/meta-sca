@@ -36,9 +36,9 @@ def xml_combine(d, *args):
     else:
         return ""
 
-def _combine_x_entries(d, extra_key):
+def _combine_x_entries(d, input_file, extra_key):
     import os
-    _filename = d.getVar("SCA_FATAL_FILE", True)
+    _filename = d.getVar(input_file, True)
     _extra = d.getVar(extra_key, True) or ""
     res = []
     if _filename:
@@ -90,10 +90,10 @@ def get_files_by_extention_or_shebang(d, path, shebang, extentions, excludes=[])
     return sorted(list(set(res)))
 
 def get_suppress_entries(d):
-    return _combine_x_entries(d, "SCA_EXTRA_SUPPRESS")
+    return _combine_x_entries(d, "SCA_SUPRESS_FILE", "SCA_EXTRA_SUPPRESS")
 
 def get_fatal_entries(d):
-    return _combine_x_entries(d, "SCA_EXTRA_FATAL")
+    return _combine_x_entries(d, "SCA_FATAL_FILE", "SCA_EXTRA_FATAL")
 
 def _get_x_from_result(d, xml_path = ".//", lookup_key = "severity", match_key = ""):
     from xml.etree.ElementTree import Element, SubElement, Comment, tostring

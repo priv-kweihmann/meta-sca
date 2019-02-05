@@ -4,6 +4,8 @@ inherit sca-conv-checkstyle-pylint
 python do_sca_pylint_core() {
     import os
     import subprocess
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_PYLINT_EXTRA_SUPPRESS"))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_PYLINT_EXTRA_FATAL"))
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pylint-suppress"))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pylint-fatal"))
 
