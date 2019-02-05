@@ -2,7 +2,7 @@
 
 inherit sca-global
 
-SCA_ENABLED_MODULES ?= "gcc cpplint cppcheck pylint"
+SCA_ENABLED_MODULES ?= "gcc cpplint cppcheck pylint shellcheck"
 SCA_SOURCES_DIR ?= "${B}"
 
 SCA_MODE = "recipe"
