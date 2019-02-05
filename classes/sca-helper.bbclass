@@ -42,11 +42,11 @@ def _combine_x_entries(d, input_file, extra_key):
     _extra = d.getVar(extra_key, True) or ""
     res = []
     if _filename:
-        _rules_file = os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), _filename)
+        _rules_file = _filename
         with open(_rules_file) as f:
             res = f.readlines()
     res += _extra.split(" ")
-    res = [x for x in res if x]
+    res = [x.strip() for x in res if x]
     return res
 
 def get_files_by_shabang(d, path, pattern, excludes=[]):

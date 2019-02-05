@@ -1,7 +1,7 @@
 ## This class contains methods for filtering file
 ## according to their license
 
-def sca_filter_by_license_image(d, licenses)
+def sca_filter_by_license_image(d, licenses):
     import oe.packagedata
     import bb
     import os
