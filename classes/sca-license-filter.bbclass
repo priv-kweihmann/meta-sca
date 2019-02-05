@@ -8,10 +8,12 @@ def sca_filter_by_license_image(d, licenses)
 
     if d.getVar("LICENSE_CREATE_PACKAGE") != "1" or \
        d.getVar("COPY_LIC_MANIFEST") != 1:
-       bb.fatal("License-Filter can only be used with LICENSE_CREATE_PACKAGE and COPY_LIC_MANIFEST set to '1'")
+       bb.warn("License-Filter can only be used with LICENSE_CREATE_PACKAGE and COPY_LIC_MANIFEST set to '1'")
+       return []
 
     if not d.getVar("IMAGE_ROOTFS"):
-        bb.fatal("License-Filter can only be applied on image-level")
+        bb.warn("License-Filter can only be applied on image-level")
+        return []
 
     ## extract installed package list from rootfs
     pack_list = []
