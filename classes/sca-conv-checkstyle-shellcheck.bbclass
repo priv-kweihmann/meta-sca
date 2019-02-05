@@ -12,16 +12,21 @@ def do_sca_conv_shellcheck(d):
     package_name = d.getVar("PN", True)
     buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
-    data = ElementTree.ElementTree(ElementTree.parse(d.getVar("SCA_RAW_RESULT"))).getroot()
-    items = []
+    try:
+        data = ElementTree.ElementTree(ElementTree.parse(d.getVar("SCA_RAW_RESULT"))).getroot()
+        items = []
 
-    for f in data.findall(".//file"):
-        if ElementTree.tostring(f) in items:
-            for h in f:
-                f.remove(h)
-            continue
-        items.append(ElementTree.tostring(f))
-    data = data.getroot()
+        for f in data.findall(".//file"):
+            if ElementTree.tostring(f) in items:
+                for h in f:
+                    f.remove(h)
+                continue
+            items.append(ElementTree.tostring(f))
+        data = data.getroot()
+    except:
+        data = Element("checkstyle")
+        data.set("version", "4.3")
+    
     try:
         return checkstyle_prettify(d, data).decode("utf-8")
     except:

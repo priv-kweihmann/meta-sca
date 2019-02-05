@@ -1,4 +1,5 @@
 inherit sca-conv-checkstyle-shellcheck
+inherit sca-license-filter
 
 python do_sca_shellcheck_core() {
     import os
@@ -28,7 +29,7 @@ python do_sca_shellcheck_core() {
                 cmd_output = e.stdout or ""
             xml_output = xml_combine(d, xml_output, cmd_output)
     result_raw_file = os.path.join(d.getVar("T"), "sca_raw_shellcheck.xml")
-    d.setVar("SCA_CPPCHECK_RAW_RESULT", result_raw_file)
+    d.setVar("SCA_RAW_RESULT", result_raw_file)
     with open(result_raw_file, "w") as o:
         o.write(xml_output)
     xml_output = do_sca_conv_shellcheck(d)
@@ -50,7 +51,7 @@ python do_sca_shellcheck_core() {
     if warn_log:
         bb.warning("SCA has found {}".format(",".join(warn_log)))
     
-    if any(_fatal):
+    if any(_fatals):
         bb.fatal("SCA has following fatal errors: {}".format("\n".join(_fatals)))
 }
 

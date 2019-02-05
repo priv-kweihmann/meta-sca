@@ -15,24 +15,29 @@ python do_sca_deploy_shellcheck_recipe() {
     from xml.dom import minidom
 
     for _file in ["sca_raw_shellcheck.xml", "sca_checkstyle_shellcheck.xml"]:
-        data = ElementTree.parse(os.path.join(d.getVar("T"), _file)).getroot()
-        for node in data.findall(".//error"):
-            ## Patch to common format
-            node["message"] = "[Package:'{}' Tool:shellcheck] {}".format(d.getVar("PN"), node["message"])
-            node["source"] = "ShellCheck.{}".format(node["source"])
-
-        res = ""
         try:
-            res = prettify(top).decode("utf-8")
+            data = ElementTree.parse(os.path.join(d.getVar("T"), _file)).getroot()
+            for node in data.findall(".//error"):
+                ## Patch to common format
+                node["message"] = "[Package:'{}' Tool:shellcheck] {}".format(d.getVar("PN"), node["message"])
+                node["source"] = "ShellCheck.{}".format(node["source"])
+
+            res = ""
+            try:
+                res = prettify(top).decode("utf-8")
+            except:
+                res = prettify(top)
+            with open(os.path.join(d.getVar("T"), _file), "w") as f:
+                f.write(res)
         except:
-            res = prettify(top)
-        with open(os.path.join(d.getVar("T"), _file), "w") as f:
-            f.write(res)
+            pass
 
     raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "shellcheck", "raw", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "checkstyle", "raw", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    shutil.copy(os.path.join(d.getVar("T"), "sca_raw_shellcheck.xml"), raw_target)
-    shutil.copy(os.path.join(d.getVar("T"), "sca_checkstyle_shellcheck.xml"), cs_target)
+    cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "shellcheck", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
+    if os.path.exists(os.path.join(d.getVar("T"), "sca_raw_shellcheck.xml")):
+        shutil.copy(os.path.join(d.getVar("T"), "sca_raw_shellcheck.xml"), raw_target)
+    if os.path.exists(os.path.join(d.getVar("T"), "sca_checkstyle_shellcheck.xml")):
+        shutil.copy(os.path.join(d.getVar("T"), "sca_checkstyle_shellcheck.xml"), cs_target)
 
     do_sca_export_sources(d, cs_target)
 }
