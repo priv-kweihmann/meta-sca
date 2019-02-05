@@ -88,7 +88,7 @@ For further explanations on the variables see the manpage of cppcheck
 | SCA_CPPCHECK_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_CPPCHECK_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_CPPCHECK_ADD_INCLUDES | Additional paths leading to includes | space-separated-list | ""
-| SCA_CPPCHECK_LANG_STD | C standard to check on | string | "c99"
+| SCA_CPPCHECK_LANG_STD | C standard to check on | space separated list | "c99"
 
 ### Avaiable configuration for gcc
 __TDB__

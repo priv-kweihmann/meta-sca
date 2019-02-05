@@ -6,6 +6,7 @@ SCA_CPPCHECK_EXTRA_FATAL ?= ""
 ## can be seperated by spaces
 SCA_CPPCHECK_ADD_INCLUDES ?= ""
 ## Set default language support level
+## For multiple use a space separated list
 ## Possible entries are posix,c89,c99,c11,c++03,c++11,c++14
 SCA_CPPCHECK_LANG_STD ?= "c99"
 
@@ -47,7 +48,8 @@ python do_sca_cppcheck() {
     _args += ["--xml-version=2"]
     _args += ["--force"]
     _args += ["--max-configs=1"]
-    _args += ["--std={}".format(d.getVar("SCA_CPPCHECK_LANG_STD"))]
+    for item in d.getVar("SCA_CPPCHECK_LANG_STD").split(" "):
+        _args += ["--std={}".format(item)]
     _args += [get_platform_type(d)]    
     _args += ["--suppress={}".format(x) for x in _supress]
     result_raw_file = os.path.join(d.getVar("T", True), "sca_raw_cppcheck.xml")
