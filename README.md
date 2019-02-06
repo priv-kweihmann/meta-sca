@@ -93,7 +93,7 @@ For further explanations on the variables see the manpage of cppcheck
 ### Available configuration for gcc
 __TDB__
 
-### Avaiable configuration for pylint (recipe)
+### Available configuration for pylint (recipe)
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_PYLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
