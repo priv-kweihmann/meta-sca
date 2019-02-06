@@ -1,4 +1,4 @@
 DEBFILE = "shellcheck_${PV}_armhf.deb"
 SRC_URI = "http://ftp.debian.org/debian/pool/main/s/shellcheck/${DEBFILE}"
-SRC_URI[md5sum] = "20f7573c92f16b4dfdca5085bb9973f5"
-SRC_URI[sha256sum] = "5129a588e02e1804dfde1fb8d8d8f0740c9027e7b7c4d16ed6867c2ff5745c28"
+SRC_URI[md5sum] = "f0c0ea92ea1b15ed8c8e73b258d1d638"
+SRC_URI[sha256sum] = "7fbcc581c3f0200c92291d6b64ca3d8de1e43015bb1e3e5f5d1bce6daffe7598"

@@ -13,7 +13,7 @@ FILES_${PN}-man = "${mandir}/**"
 FILES_${PN} = "${bindir}/shellcheck"
 
 ## We know it's already stripped - because we're using prebuild things
-INSANE_SKIP_${PN} += "already-stripped"
+INSANE_SKIP_${PN} += "already-stripped file-rdeps arch"
 
 do_install() {
     install -d ${D}${bindir}
