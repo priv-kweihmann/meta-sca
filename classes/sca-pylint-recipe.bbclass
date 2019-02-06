@@ -24,7 +24,7 @@ python do_sca_deploy_pylint_recipe() {
     do_sca_export_sources(d, cs_target)
 }
 
-addtask do_sca_pylint_core do_install after do_compile
+addtask do_sca_pylint_core before do_install after do_compile
 addtask do_sca_deploy_pylint_recipe before do_package after do_sca_pylint_core
 
 DEPENDS += "sca-recipe-pylint-rules-native"
