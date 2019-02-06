@@ -9,6 +9,11 @@ SCA_AUTO_INH_ON_RECIPE ?= "1"
 ## Just apply the one of the following license
 SCA_AUTO_LICENSE_FILTER ?= "CLOSED"
 
+## All findings below this level will be dropped
+## from checkstyle-result
+## possible options error, warning or info
+SCA_WARNING_LEVEL ?= "warning"
+
 inherit sca-conv-checkstyle-helper
 
 def do_sca_export_sources(d, _file):

@@ -9,3 +9,9 @@ def checkstyle_prettify(d, elem):
     rough_string = ElementTree.tostring(elem, 'utf-8')
     reparsed = minidom.parseString(rough_string)
     return reparsed.toprettyxml(indent="  ")
+
+def checkstyle_allowed_warning_level(d):
+    opts = ["info", "warning", "error"]
+    while (opts and d.getVar("SCA_WARNING_LEVEL") != opts[0]):
+        opts = opts[1:]
+    return opts

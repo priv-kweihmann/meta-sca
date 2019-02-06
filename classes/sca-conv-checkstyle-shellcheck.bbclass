@@ -17,7 +17,7 @@ def do_sca_conv_shellcheck(d):
         items = []
 
         for f in data.findall(".//file"):
-            if ElementTree.tostring(f) in items:
+            if ElementTree.tostring(f) in items or f.attrib["severity"] not in checkstyle_allowed_warning_level(d):
                 for h in f:
                     f.remove(h)
                 continue

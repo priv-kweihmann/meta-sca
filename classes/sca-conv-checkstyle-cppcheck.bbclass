@@ -45,7 +45,8 @@ def do_sca_conv_cppcheck(d):
                 g.Message = "[Package:%s Tool:cppcheck] %s" % (package_name, node.attrib.get("msg"))
                 g.Severity = node.attrib.get("severity")
                 g.ID = "CPPCheck.CPPCheck.%s" % node.attrib.get("id")
-                items.append(g)     
+                if g.Severity in checkstyle_allowed_warning_level(d):
+                    items.append(g)     
             except:
                 pass
     except:

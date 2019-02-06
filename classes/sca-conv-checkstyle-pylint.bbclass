@@ -54,7 +54,8 @@ def do_sca_conv_pylint(d):
         g.Message = "[Package:%s Tool:pylint] %s - ID %s" % (package_name, m.group("message"), m.group("raw_severity"))
         g.Severity = severity_map[m.group("raw_severity")[0]]
         g.ID = "pylint.pylint.%s" % m.group("raw_severity_id")
-        items.append(g)
+        if g.Severity in checkstyle_allowed_warning_level(d):
+            items.append(g)
 
     filenames = list(set([x.File for x in items]))
 

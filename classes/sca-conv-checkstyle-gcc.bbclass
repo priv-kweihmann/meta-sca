@@ -42,7 +42,8 @@ def do_sca_conv_gcc(d):
             g.Message = "[Package:%s Tool:gcc] %s" % (package_name, m.group("message"))
             g.Severity = m.group("severity")
             g.ID = "GCC.GCC.%s" % m.group("id")
-            items.append(g)
+            if g.Severity in checkstyle_allowed_warning_level(d):
+                items.append(g)
         except:
             pass
 
