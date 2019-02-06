@@ -46,7 +46,7 @@ Edit the file conf/__local.conf__ and add the following line
 ```shell
 INHERIT += "sca"
 ```
-this will run static code analysis on __all__ the recipes avaiable and used in your workspace.
+this will run static code analysis on __all__ the recipes available and used in your workspace.
 It might be a good idea to do this if you like to wait of a very long time on your build - maybe nightly builds or similar
 
 ## Use on particular recipes in your workspace
@@ -57,14 +57,14 @@ inherit sca
 ```
 Now the power of static code analysis will be applied to exactly this image
 
-## Avaiable configuration variables
+## Available configuration variables
 
 The behavior of the analysis can be controlled by several __bitbake__-variables
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:|
 | SCA_ENABLE  | Does globally enable the analysis | string | "1"
-| SCA_AUTO_INH_ON_IMAGE | Do automatically enable analyis on image-recipes | string | "1"
+| SCA_AUTO_INH_ON_IMAGE | Do automatically enable analysis on image-recipes | string | "1"
 | SCA_AUTO_INH_ON_RECIPE | Do automatically enable analysis on other recipes | string | "1"
 | SCA_EXPORT_DIR | Directory where to store the results of analysis | path | \${DEPLOY_DIR_IMAGE}/sca
 | SCA_EXPORT_FINDING_SRC | Do copy the source-files of any finding to deploy-dir. This proved to helpful when integrating into Jenkins. | string | "1"
@@ -72,13 +72,13 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_ENABLED_MODULES | The analysis modules to be activated | space-separated-string | "shellcheck pylint" for images, "gcc cpplint cppcheck pylint shellcheck" for other recipe 
 | SCA_SOURCES_DIR | Path where to find the source-files to be checked | path | "\${B}" for recipes, "\${IMAGE_ROOTFS}" for images
 
-### Avaiable configuration for cpplint
+### Available configuration for cpplint
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_CPPLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_CPPLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
-| SCA_CPPLINT_FILE_FILTER | List of file-extentions to be checked | space-separated-list | ".c .cpp .h .hpp"
+| SCA_CPPLINT_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".c .cpp .h .hpp"
 
 ### Available configuration for cppcheck
 For further explanations on the variables see the manpage of cppcheck
@@ -90,7 +90,7 @@ For further explanations on the variables see the manpage of cppcheck
 | SCA_CPPCHECK_ADD_INCLUDES | Additional paths leading to includes | space-separated-list | ""
 | SCA_CPPCHECK_LANG_STD | C standard to check on | space separated list | "c99"
 
-### Avaiable configuration for gcc
+### Available configuration for gcc
 __TDB__
 
 ### Avaiable configuration for pylint (recipe)
@@ -102,7 +102,7 @@ __TDB__
 | SCA_PYLINT_HOMEPATH | Directory of python installation | path | \${STAGING_LIBDIR}/python.3.5
 | SCA_PYLINT_LIBATH | List of library paths for python | ':' separated list | \${STAGING_LIBDIR}/python.3.5/:\${STAGING_LIBDIR}/python.3.5/site-packages/
 
-### Avaiable configuration for pylint (image)
+### Available configuration for pylint (image)
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_PYLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
@@ -111,7 +111,7 @@ __TDB__
 | SCA_PYLINT_HOMEPATH | Directory of python installation | path | \${IMAGE_ROOTFS}/python.3.5
 | SCA_PYLINT_LIBATH | List of library paths for python | ':' separated list | \${IMAGE_ROOTFS}/python.3.5/:\${IMAGE_ROOTFS}/python.3.5/site-packages/
 
-### Avaiable configuration for shellcheck
+### Available configuration for shellcheck
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_SHELLCHECK_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
