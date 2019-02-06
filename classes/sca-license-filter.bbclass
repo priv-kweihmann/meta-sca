@@ -44,10 +44,15 @@ def sca_filter_by_license_image(d, licenses):
 
     return list(set(ignores))
 
+def sca_filter_by_license_recipe(d, licenses):
+    if d.getVar("LICENSE") in licenses:
+        return []
+    return [ 1 ] ## return dummy value
+
+
 def sca_filter_by_license(d, licenses):
     if d.getVar("SCA_MODE") == "image":
         return sca_filter_by_license_image(d, licenses)
     else:
-        ## FIXME
-        return []
+        return sca_filter_by_license_recipe(d, licenses)
     
