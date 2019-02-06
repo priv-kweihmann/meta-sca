@@ -12,8 +12,7 @@ SRC_URI[sha256sum] = "35b032003d6a863f5dcd7ec11abd5cd5893428beaa31ab164982403bcb
 DEPENDS += "python3-native \
             pywrapt-native \
             pytest-runner-native \
-            pylazy-object-proxy-native \
-            pysix-native"
+            pylazy-object-proxy-native"
 
 PYPI_PACKAGE = "astroid"
 
