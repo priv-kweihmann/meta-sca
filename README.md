@@ -92,7 +92,10 @@ For further explanations on the variables see the manpage of cppcheck
 | SCA_CPPCHECK_LANG_STD | C standard to check on | space separated list | "c99"
 
 ### Available configuration for gcc
-__TDB__
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_GCC_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_GCC_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 
 ### Available configuration for pylint (recipe)
 | var | purpose | type | default |

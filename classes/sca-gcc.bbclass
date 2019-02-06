@@ -2,15 +2,28 @@ inherit sca-helper
 inherit sca-conv-checkstyle-gcc
 inherit sca-global
 
+## Add ids to suppress on a recipe level
+SCA_GCC_EXTRA_SUPPRESS ?= ""
+## Add ids to lead to a fatal on a recipe level
+SCA_GCC_EXTRA_FATAL ?= ""
+
 python do_sca_gcc() {
     import re
     import bb
     import os
 
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_GCC_EXTRA_SUPPRESS"))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_GCC_EXTRA_FATAL"))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gcc-suppress"))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gcc-fatal"))
+
+    _supress = get_suppress_entries(d)
+    _fatal = get_fatal_entries(d)
+
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_gcc.txt")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     
-    if not os.path.exists(os.path.join(d.getVar("T"), "logg.do_compile")):
+    if not os.path.exists(os.path.join(d.getVar("T"), "log.do_compile")):
         with open(tmp_result, "w") as f:
             f.write("")
         content = ""
@@ -18,14 +31,17 @@ python do_sca_gcc() {
         f = open("%s/log.do_compile" % d.getVar("T"), "r")
         content = f.read()
         f.close()
-
-    f = open(tmp_result, "w")
-    x = re.findall(r"^.*:\d+:\d+:\s+(?:warning|error).*$", content, re.MULTILINE)
-    if len(x) > 0:
-        f.write("\n".join(x))
-    else:
-        f.write("")
-    f.close()
+    
+    pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<column>\d+):\s+(?P<severity>\w+):\s+(?P<message>.*)\s\[-(?P<id>.*)\]"
+    with open(tmp_result, "w") as f:
+        x = re.findall(r"^.*:\d+:\d+:\s+(?:warning|error).*$", content, re.MULTILINE)
+        for l in x:
+            for m in re.finditer(pattern, l, re.MULTILINE):
+                if not m.group("id") in _supress:
+                    f.write(l + "\n")
+        if not x:
+            f.write("")
+        f.close()
 
     result_file = os.path.join(d.getVar("T", True), "sca_checkstyle_gcc.xml")
     d.setVar("SCA_RESULT_FILE", result_file)
@@ -35,8 +51,7 @@ python do_sca_gcc() {
 
     ## Evaluate
     _warnings = get_warnings_from_result(d)
-    ## FIXME
-    _fatals = get_fatal_from_result(d , [])
+    _fatals = get_fatal_from_result(d , _fatal)
     _errors = get_errors_from_result(d)
 
     warn_log = []
@@ -65,3 +80,5 @@ python do_sca_deploy_gcc() {
 
 addtask do_sca_gcc before do_install after do_compile
 addtask do_sca_deploy_gcc after do_sca_gcc before do_package
+
+DEPENDS += "sca-recipe-gcc-rules-native"
