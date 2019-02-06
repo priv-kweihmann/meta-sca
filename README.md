@@ -15,7 +15,7 @@ In your __bblayers.conf__-file add the following line
 BBLAYERS += "<full path to sca-layer>/meta-sca"
 ```
 
-## Avaiable tools
+## Available tools
 
 The layer can check on a recipe-level or on an image-level.
 On image-level the whole root-filesystem could be taken into account, which in most cases can't be granted on a recipe-level.
