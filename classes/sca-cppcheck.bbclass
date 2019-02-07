@@ -58,19 +58,26 @@ python do_sca_cppcheck() {
     _args += ["."]
 
     ## Run
-    if not os.path.exists("std.cfg"):
-        os.symlink(os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "cfg", "std.cfg"), "std.cfg")
+    if os.path.exists("std.cfg"):
+        os.remove("std.cfg")
+    os.symlink(os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "cfg", "std.cfg"), "std.cfg")
     cur_dir = os.getcwd()
     os.chdir(d.getVar("B", True))
-    if not os.path.exists("std.cfg"):
-        os.symlink(os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "cfg", "std.cfg"), "std.cfg")
+    if os.path.exists("std.cfg"):
+        os.remove("std.cfg")
+    os.symlink(os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "cfg", "std.cfg"), "std.cfg")
     cmd_output = ""
     try:
         cmd_output = subprocess.check_output(_args, universal_newlines=True)
     except subprocess.CalledProcessError as e:
         cmd_output = e.stdout or ""
         bb.warn(cmd_output)
+
+    if os.path.exists("std.cfg"):
+        os.remove("std.cfg")
     os.chdir(cur_dir)
+    if os.path.exists("std.cfg"):
+        os.remove("std.cfg")
     
     result_file = os.path.join(d.getVar("T", True), "sca_checkstyle_cppcheck.xml")
     d.setVar("SCA_RESULT_FILE", result_file)
