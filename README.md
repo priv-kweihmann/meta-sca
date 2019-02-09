@@ -72,6 +72,7 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_ENABLED_MODULES | The analysis modules to be activated | space-separated-string | "shellcheck pylint" for images, "gcc cpplint cppcheck pylint shellcheck" for other recipe 
 | SCA_SOURCES_DIR | Path where to find the source-files to be checked | path | "\${B}" for recipes, "\${IMAGE_ROOTFS}" for images
 | SCA_WARNING_LEVEL | Filter for severity of findings | string: info, warning or error | "warning"
+| SCA_AUTO_LICENSE_FILTER | Filter according to recipe license if sca should invoked | license-string | "CLOSED"
 
 ### Available configuration for cpplint
 
