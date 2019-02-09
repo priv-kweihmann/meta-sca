@@ -60,12 +60,18 @@ python do_sca_cppcheck() {
     ## Run
     if os.path.exists("std.cfg"):
         os.remove("std.cfg")
-    os.symlink(os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "cfg", "std.cfg"), "std.cfg")
+    try:
+        os.symlink(os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "cfg", "std.cfg"), "std.cfg")
+    except FileExistsError:
+        pass
     cur_dir = os.getcwd()
     os.chdir(d.getVar("B", True))
     if os.path.exists("std.cfg"):
         os.remove("std.cfg")
-    os.symlink(os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "cfg", "std.cfg"), "std.cfg")
+    try:
+        os.symlink(os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "cfg", "std.cfg"), "std.cfg")
+    except FileExistsError:
+        pass
     cmd_output = ""
     try:
         cmd_output = subprocess.check_output(_args, universal_newlines=True)
