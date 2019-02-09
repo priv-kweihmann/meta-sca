@@ -1,11 +1,12 @@
 SUMMARY = "Ruleset for pylint"
-DESCRIPTION = " Rules to configured how pylint is affecting the build"
-AUTHOR = "Konrad Weihmann <kweihmann@phoenixcontact.com>"
+DESCRIPTION = " Rules to configure how pylint is affecting the build"
+AUTHOR = "Konrad Weihmann <kweihmann@outlook.com>"
 
 SRC_URI = "file://suppress \
            file://fatal"
 
-LICENSE = "CLOSED"
+LICENSE ?= "BSD-2-Clause"
+LIC_FILES_CHKSUM ?= "file://${COMMON_LICENSE_DIR}/BSD-2-Clause;md5=8bef8e6712b1be5aa76af1ebde9d6378"
 
 BBCLASSEXTEND = "native"
 
