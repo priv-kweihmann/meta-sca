@@ -19,10 +19,10 @@ python do_sca_deploy_shellcheck_image() {
         if not os.path.exists(os.path.join(d.getVar("T"), _file)):
             continue
         data = ElementTree.parse(os.path.join(d.getVar("T"), _file)).getroot()
-        # for node in data.findall(".//error"):
-        #     ## Patch to common format
-        #     node["message"] = "[Package:'{}' Tool:shellcheck] {}".format(d.getVar("PN"), node["message"])
-        #     node["source"] = "ShellCheck.{}".format(node["source"])
+        for node in data.findall(".//error"):
+            ## Patch to common format
+            node.attrib["message"] = "[Package:'{}' Tool:shellcheck] {}".format(d.getVar("PN"), node.attrib["message"])
+            node.attrib["source"] = "ShellCheck.{}".format(node.attrib["source"])
 
         res = ""
         try:
