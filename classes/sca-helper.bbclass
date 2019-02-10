@@ -100,12 +100,14 @@ def _get_x_from_result(d, xml_path = ".//", lookup_key = "severity", match_key =
     from xml.etree import ElementTree
     from xml.dom import minidom
     _filename = d.getVar("SCA_RESULT_FILE", True)
+    res = []
     if _filename:
         data = ElementTree.parse(_filename).getroot()
-        for node in data.findall(".//"):
-            ## FIXME get a grip on the severity attribute and count them
-            pass
-    return []
+        for node in data.findall(".//error"):
+            if lookup_key in node.attrib:
+                if node.attrib[lookup_key] == match_key:
+                    res.append(node.attrib["message"])
+    return res
 
 def get_warnings_from_result(d):
     return _get_x_from_result(d, match_key = "warning")
@@ -113,8 +115,8 @@ def get_warnings_from_result(d):
 def get_errors_from_result(d):
     return _get_x_from_result(d, match_key = "error")
 
-def get_fatal_from_result(d, fatal_ids):
+def get_fatal_from_result(d, prefix, fatal_ids):
     res = []
     for i in fatal_ids:
-        res += _get_x_from_result(d, lookup_key = "id", match_key = i)
+        res += _get_x_from_result(d, lookup_key = "source", match_key = "{}.{}".format(prefix, i))
     return list(set(res))

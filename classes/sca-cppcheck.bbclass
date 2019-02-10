@@ -93,7 +93,7 @@ python do_sca_cppcheck() {
 
     ## Evaluate
     _warnings = get_warnings_from_result(d)
-    _fatals = get_fatal_from_result(d, _fatal)
+    _fatals = get_fatal_from_result(d, "CPPCheck.CPPCheck", _fatal)
     _errors = get_errors_from_result(d)
 
     warn_log = []
@@ -102,7 +102,7 @@ python do_sca_cppcheck() {
     if any(_errors):
         warn_log.append("{} error(s)".format(len(_errors)))
     if warn_log:
-        bb.warning("SCA has found {}".format(",".join(warn_log)))
+        bb.warn("SCA has found {}".format(",".join(warn_log)))
     
     if any(_fatal):
         bb.fatal("SCA has following fatal errors: {}".format("\n".join(_fatals)))
