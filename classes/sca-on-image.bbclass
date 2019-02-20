@@ -11,6 +11,9 @@ SCA_MODE = "image"
 def sca_on_image_init(d):
     import bb
     from bb.parse.parse_py import BBHandler
+    enabledModules = []
     for item in d.getVar("SCA_ENABLED_MODULES").split(" "):
-        bb.note("Using SCA Module {}".format(item))
         BBHandler.inherit("sca-{}-image".format(item), "sca-on-image", 1, d)
+        enabledModules.append(item)
+    if any(enabledModules):
+        bb.note("Using SCA Module(s) {}".format(",".join(enabledModules)))

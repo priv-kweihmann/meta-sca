@@ -18,13 +18,21 @@ def sca_on_recipe_init(d):
     if not any(sca_filter_by_license(d, d.getVar("SCA_AUTO_LICENSE_FILTER").split(" "))):
         ## do not apply when license is not matching
         return
+    enabledModules = []
     for item in d.getVar("SCA_ENABLED_MODULES").split(" "):
+        okay = False
         try:
             BBHandler.inherit("sca-{}".format(item), "sca-on-recipe", 1, d)
+            okay = True
         except bb.parse.ParseError:
             pass
         try: 
             ## In case there is a split between image/recipe modules
             BBHandler.inherit("sca-{}-recipe".format(item), "sca-on-recipe", 1, d)
+            okay = True
         except bb.parse.ParseError:
             pass
+        if okay:
+            enabledModules.append(item)
+    if any(enabledModules):
+        bb.note("Using SCA Module(s) {}".format(",".join(enabledModules)))
