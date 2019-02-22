@@ -3,7 +3,7 @@
 inherit sca-global
 inherit sca-license-filter
 
-SCA_ENABLED_MODULES ?= "eslint cpplint cppcheck gcc pylint shellcheck"
+SCA_ENABLED_MODULES ?= "cve-check eslint cpplint cppcheck gcc pylint shellcheck"
 SCA_SOURCES_DIR ?= "${B}"
 
 SCA_MODE = "recipe"

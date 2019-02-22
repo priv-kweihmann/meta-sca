@@ -35,6 +35,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * cpplint (c/c++)
  * cppcheck (c/c++)
  * eslint (javascript/html)
+ * cve-check (check for unpatched cve's)
 
 each tool does have it's own benefits and flaws so don't be mad if you have 10k+ findings on the initial run.
 
@@ -71,7 +72,7 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_EXPORT_DIR | Directory where to store the results of analysis | path | \${DEPLOY_DIR_IMAGE}/sca
 | SCA_EXPORT_FINDING_SRC | Do copy the source-files of any finding to deploy-dir. This proved to helpful when integrating into Jenkins. | string | "1"
 | SCA_EXPORT_FINDING_DIR | The folder where to store the original source-files of findings | path | \${DEPLOY_DIR_IMAGE}/sca/sources/\${PN}/
-| SCA_ENABLED_MODULES | The analysis modules to be activated | space-separated-string | "shellcheck pylint" for images, "gcc cpplint cppcheck pylint shellcheck" for other recipe 
+| SCA_ENABLED_MODULES | The analysis modules to be activated | space-separated-string | "eslint shellcheck pylint" for images, "eslint gcc cpplint cppcheck pylint shellcheck cve-check" for other recipe 
 | SCA_SOURCES_DIR | Path where to find the source-files to be checked | path | "\${B}" for recipes, "\${IMAGE_ROOTFS}" for images
 | SCA_WARNING_LEVEL | Filter for severity of findings | string: info, warning or error | "warning"
 | SCA_AUTO_LICENSE_FILTER | Filter according to recipe license if sca should invoked | license-string | "CLOSED"
@@ -130,6 +131,9 @@ For further explanations on the variables see the manpage of cppcheck
 | SCA_ESLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_ESLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | "":
 | SCA_ESLINT_CONFIG_FILE | Configuration-file to be used. See recipe eslint-native for details | string: eslint-standard.json, eslint-plain.json, eslint-airbnb.json, eslint-google.json | eslint-plain.json
+
+### Available configuration for cve-check
+n.a. this module does not need configuration, nor does it support suppression or fatal error handling
 
 ## Suppression and fatal-error
 Every tool has the possibility to suppress some of the findings.
