@@ -1,2 +1,1 @@
-recipes-foo/foo/acl_%.bbappend
-recipes-foo/foo/core-image-minimal.bbappend
+recipes-foo/foo/*

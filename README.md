@@ -23,16 +23,18 @@ On the other hand some static code analysis does not make any sense on an image-
 
 ### Tools for image recipes
 
- * pylint
- * shellcheck
+ * pylint (python)
+ * shellcheck (shell)
+ * eslint (javascript/html)
 
 ### Tools for all other recipes
 
- * pylint
- * shellcheck
+ * pylint (python)
+ * shellcheck (shell)
  * gcc (getting compiler warnings/errors)
- * cpplint
- * cppcheck
+ * cpplint (c/c++)
+ * cppcheck (c/c++)
+ * eslint (javascript/html)
 
 each tool does have it's own benefits and flaws so don't be mad if you have 10k+ findings on the initial run.
 
@@ -121,6 +123,13 @@ For further explanations on the variables see the manpage of cppcheck
 | ------------- |:-------------:| -----:| -----:
 | SCA_SHELLCHECK_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_SHELLCHECK_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | "":
+
+### Available configuration for eslint
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_ESLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_ESLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | "":
+| SCA_ESLINT_CONFIG_FILE | Configuration-file to be used. See recipe eslint-native for details | string: eslint-standard.json, eslint-plain.json, eslint-airbnb.json, eslint-google.json | eslint-plain.json
 
 ## Suppression and fatal-error
 Every tool has the possibility to suppress some of the findings.

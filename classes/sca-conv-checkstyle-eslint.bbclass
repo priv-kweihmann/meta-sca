@@ -3,7 +3,7 @@
 
 inherit sca-conv-checkstyle-helper
 
-def do_sca_conv_shellcheck(d):
+def do_sca_conv_eslint(d):
     import os
     from xml.etree.ElementTree import Element, SubElement, Comment, tostring
     from xml.etree import ElementTree
@@ -23,7 +23,7 @@ def do_sca_conv_shellcheck(d):
                 continue
             items.append(ElementTree.tostring(f))
         data = data.getroot()
-    except:
+    except Exception as e:
         data = Element("checkstyle")
         data.set("version", "4.3")
     
