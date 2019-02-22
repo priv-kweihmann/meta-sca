@@ -26,6 +26,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * pylint (python)
  * shellcheck (shell)
  * eslint (javascript/html)
+ * bitbake (handle bitbake issues)
 
 ### Tools for all other recipes
 
@@ -36,6 +37,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * cppcheck (c/c++)
  * eslint (javascript/html)
  * cve-check (check for unpatched cve's)
+ * bitbake (handle bitbake issues)
 
 each tool does have it's own benefits and flaws so don't be mad if you have 10k+ findings on the initial run.
 
@@ -133,6 +135,9 @@ For further explanations on the variables see the manpage of cppcheck
 | SCA_ESLINT_CONFIG_FILE | Configuration-file to be used. See recipe eslint-native for details | string: eslint-standard.json, eslint-plain.json, eslint-airbnb.json, eslint-google.json | eslint-plain.json
 
 ### Available configuration for cve-check
+n.a. this module does not need configuration, nor does it support suppression or fatal error handling
+
+### Available configuration for bitbake
 n.a. this module does not need configuration, nor does it support suppression or fatal error handling
 
 ## Suppression and fatal-error
