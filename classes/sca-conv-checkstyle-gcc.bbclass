@@ -29,23 +29,24 @@ def do_sca_conv_gcc(d):
         "warning" : "warning",
     }
 
-    f = open(d.getVar("SCA_RAW_RESULT_FILE"), "r")
-    content = f.read()
-    f.close()
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        f = open(d.getVar("SCA_RAW_RESULT_FILE"), "r")
+        content = f.read()
+        f.close()
 
-    for m in re.finditer(pattern, content, re.MULTILINE):
-        try:
-            g = GccItem()
-            g.Column = m.group("column")
-            g.File = os.path.join(buildpath, m.group("file"))
-            g.Line = m.group("line")
-            g.Message = "[Package:%s Tool:gcc] %s" % (package_name, m.group("message"))
-            g.Severity = m.group("severity")
-            g.ID = "GCC.GCC.%s" % m.group("id")
-            if g.Severity in checkstyle_allowed_warning_level(d):
-                items.append(g)
-        except:
-            pass
+        for m in re.finditer(pattern, content, re.MULTILINE):
+            try:
+                g = GccItem()
+                g.Column = m.group("column")
+                g.File = os.path.join(buildpath, m.group("file"))
+                g.Line = m.group("line")
+                g.Message = "[Package:%s Tool:gcc] %s" % (package_name, m.group("message"))
+                g.Severity = m.group("severity")
+                g.ID = "GCC.GCC.%s" % m.group("id")
+                if g.Severity in checkstyle_allowed_warning_level(d):
+                    items.append(g)
+            except:
+                pass
 
     filenames = list(set([x.File for x in items]))
 

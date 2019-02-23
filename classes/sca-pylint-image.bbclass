@@ -21,9 +21,14 @@ python do_sca_deploy_pylint_image() {
     os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "pylint", "checkstyle"), exist_ok=True)
     raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "pylint", "raw", "{}-{}.txt".format(d.getVar("PN"), d.getVar("PV")))
     cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "pylint", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    shutil.copy(os.path.join(d.getVar("T"), "sca_raw_pylint.txt"), raw_target)
-    shutil.copy(os.path.join(d.getVar("T"), "sca_checkstyle_pylint.xml"), cs_target)
-    do_sca_export_sources(d, cs_target)
+    src_raw = os.path.join(d.getVar("T"), "sca_raw_pylint.txt")
+    src_conv = os.path.join(d.getVar("T"), "sca_checkstyle_pylint.xml")
+    if os.path.exists(src_raw):
+        shutil.copy(src_raw, raw_target)
+    if os.path.exists(src_conv):
+        shutil.copy(src_conv, cs_target)
+    if os.path.exists(cs_target):
+        do_sca_export_sources(d, cs_target)
 }
 
 addtask do_sca_pylint_core before do_image_complete after do_image

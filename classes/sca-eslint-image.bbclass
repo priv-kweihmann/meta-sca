@@ -34,10 +34,14 @@ python do_sca_deploy_eslint_image() {
 
     raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "eslint", "raw", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
     cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "eslint", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    shutil.copy(os.path.join(d.getVar("T"), "sca_raw_eslint.xml"), raw_target)
-    shutil.copy(os.path.join(d.getVar("T"), "sca_checkstyle_eslint.xml"), cs_target)
-
-    do_sca_export_sources(d, cs_target)
+    src_raw = os.path.join(d.getVar("T"), "sca_raw_eslint.xml")
+    src_conv = os.path.join(d.getVar("T"), "sca_checkstyle_eslint.xml")
+    if os.path.exists(src_raw):
+        shutil.copy(src_raw, raw_target)
+    if os.path.exists(src_conv):
+        shutil.copy(src_conv, cs_target)
+    if os.path.exists(cs_target):
+        do_sca_export_sources(d, cs_target)
 }
 
 addtask do_sca_eslint_core before before do_image_complete after do_image

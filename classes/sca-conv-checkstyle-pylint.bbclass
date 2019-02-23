@@ -34,8 +34,11 @@ def do_sca_conv_pylint(d):
         "C" : "info"
     }
 
-    with open(d.getVar("SCA_RAW_RESULT_FILE")) as i:
-        content = i.read()
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        with open(d.getVar("SCA_RAW_RESULT_FILE")) as i:
+            content = i.read()
+    else:
+        content = ""
 
     for m in re.finditer(pattern, content, re.MULTILINE):
         g = PylintItem()

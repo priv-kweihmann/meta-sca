@@ -49,8 +49,8 @@ def do_sca_conv_cppcheck(d):
                     items.append(g)     
             except:
                 pass
-    except:
-        pass
+    except Exception as e:
+        bb.note("Exception on parsing SCA result {}".format(e))
 
     filenames = list(set([x.File for x in items]))
 

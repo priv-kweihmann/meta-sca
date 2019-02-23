@@ -34,12 +34,14 @@ python do_sca_deploy_shellcheck_recipe() {
 
     raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "shellcheck", "raw", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
     cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "shellcheck", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    if os.path.exists(os.path.join(d.getVar("T"), "sca_raw_shellcheck.xml")):
-        shutil.copy(os.path.join(d.getVar("T"), "sca_raw_shellcheck.xml"), raw_target)
-    if os.path.exists(os.path.join(d.getVar("T"), "sca_checkstyle_shellcheck.xml")):
-        shutil.copy(os.path.join(d.getVar("T"), "sca_checkstyle_shellcheck.xml"), cs_target)
-
-    do_sca_export_sources(d, cs_target)
+    src_raw = os.path.join(d.getVar("T"), "sca_raw_shellcheck.xml")
+    src_conv = os.path.join(d.getVar("T"), "sca_checkstyle_shellcheck.xml")
+    if os.path.exists(src_raw):
+        shutil.copy(src_raw, raw_target)
+    if os.path.exists(src_conv):
+        shutil.copy(src_conv, cs_target)
+    if os.path.exists(cs_target):
+        do_sca_export_sources(d, cs_target)
 }
 
 addtask do_sca_shellcheck_core before do_install after do_compile

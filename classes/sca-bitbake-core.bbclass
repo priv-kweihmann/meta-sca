@@ -46,8 +46,6 @@ def sca_bitbake_create_file(d, content):
 
     filenames = list(set([x.File for x in items]))
 
-    bb.warn("{}".format(items))
-
     top = Element("checkstyle")
     top.set("version", "4.3")
 
@@ -88,7 +86,12 @@ python do_sca_deploy_bitbake() {
     os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "bitbake", "checkstyle"), exist_ok=True)
     raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "bitbake", "raw", "{}-{}.txt".format(d.getVar("PN"), d.getVar("PV")))
     cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "bitbake", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    shutil.copy(os.path.join(d.getVar("T"), "sca_raw_bitbake.xml"), raw_target)
-    shutil.copy(os.path.join(d.getVar("T"), "sca_checkstyle_bitbake.xml"), cs_target)
-    do_sca_export_sources(d, cs_target)
+    src_raw = os.path.join(d.getVar("T"), "sca_raw_bitbake.xml")
+    src_conv = os.path.join(d.getVar("T"), "sca_checkstyle_bitbake.xml")
+    if os.path.exists(src_raw):
+        shutil.copy(src_raw, raw_target)
+    if os.path.exists(src_conv):
+        shutil.copy(src_conv, cs_target)
+    if os.path.exists(cs_target):
+        do_sca_export_sources(d, cs_target)
 }

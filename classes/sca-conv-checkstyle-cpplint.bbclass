@@ -34,24 +34,26 @@ def do_sca_conv_cpplint(d):
         "2" : "info",
         "1" : "ignore"
     }
-
-    data = ElementTree.ElementTree(ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE"))).getroot()
-    for node in data.findall(".//testcase"):
-        fail = node.find("failure")
-        if not fail is None:
-            for m in re.finditer(pattern, fail.text, re.MULTILINE):
-                try:
-                    g = CppLintItem()
-                    g.Column = "1" ## there no info on that#
-                    g.File = node.attrib.get("name")
-                    g.Line = m.group("line")
-                    g.Message = "[Package:%s Tool:cpplint] %s" % (package_name, m.group("message"))
-                    g.Severity = m.group("severity")
-                    g.ID = "CPPLint.CPPLint.%s" % m.group("id")
-                    if g.Severity in checkstyle_allowed_warning_level(d):
-                        items.append(g)
-                except:
-                    pass
+    try:
+        data = ElementTree.ElementTree(ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE"))).getroot()
+        for node in data.findall(".//testcase"):
+            fail = node.find("failure")
+            if not fail is None:
+                for m in re.finditer(pattern, fail.text, re.MULTILINE):
+                    try:
+                        g = CppLintItem()
+                        g.Column = "1" ## there no info on that#
+                        g.File = node.attrib.get("name")
+                        g.Line = m.group("line")
+                        g.Message = "[Package:%s Tool:cpplint] %s" % (package_name, m.group("message"))
+                        g.Severity = m.group("severity")
+                        g.ID = "CPPLint.CPPLint.%s" % m.group("id")
+                        if g.Severity in checkstyle_allowed_warning_level(d):
+                            items.append(g)
+                    except:
+                        pass
+    except Exception as e:
+        bb.note("Exception on parsing SCA result {}".format(e))
 
     filenames = list(set([x.File for x in items]))
 

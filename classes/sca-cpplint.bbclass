@@ -77,9 +77,14 @@ python do_sca_deploy_cpplint() {
     os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "cpplint", "checkstyle"), exist_ok=True)
     raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "cpplint", "raw", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
     cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "cpplint", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    shutil.copy(os.path.join(d.getVar("T"), "sca_raw_cpplint.xml"), raw_target)
-    shutil.copy(os.path.join(d.getVar("T"), "sca_checkstyle_cpplint.xml"), cs_target)
-    do_sca_export_sources(d, cs_target)
+    src_raw = os.path.join(d.getVar("T"), "sca_raw_cpplint.xml")
+    src_conv = os.path.join(d.getVar("T"), "sca_checkstyle_cpplint.xml")
+    if os.path.exists(src_raw):
+        shutil.copy(src_raw, raw_target)
+    if os.path.exists(src_conv):
+        shutil.copy(src_conv, cs_target)
+    if os.path.exists(cs_target):
+        do_sca_export_sources(d, cs_target)
 }
 
 addtask do_sca_cpplint before do_install after do_compile

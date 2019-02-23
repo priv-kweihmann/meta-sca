@@ -115,9 +115,14 @@ python do_sca_deploy_cppcheck() {
     os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "cppcheck", "checkstyle"), exist_ok=True)
     raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "cppcheck", "raw", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
     cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "cppcheck", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    shutil.copy(os.path.join(d.getVar("T"), "sca_raw_cppcheck.xml"), raw_target)
-    shutil.copy(os.path.join(d.getVar("T"), "sca_checkstyle_cppcheck.xml"), cs_target)
-    do_sca_export_sources(d, cs_target)
+    src_raw = os.path.join(d.getVar("T"), "sca_raw_cppcheck.xml")
+    src_conv = os.path.join(d.getVar("T"), "sca_checkstyle_cppcheck.xml")
+    if os.path.exists(src_raw):
+        shutil.copy(src_raw, raw_target)
+    if os.path.exists(src_conv):
+        shutil.copy(src_conv, cs_target)
+    if os.path.exists(cs_target):
+        do_sca_export_sources(d, cs_target)
 }
 
 addtask do_sca_cppcheck before do_install after do_compile
