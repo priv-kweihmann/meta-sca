@@ -38,7 +38,7 @@ python do_sca_pylint_core() {
         f.write("[sys.path.insert(0, a) for a in \"{}\".split(\":\")];\n".format(d.getVar("SCA_PYLINT_LIBATH")))
 
     _args += get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*/python3", ".py",
-                                               sca_filter_by_license(d, d.getVar("SCA_AUTO_LICENSE_FILTER").split(" ")))
+                                               sca_filter_by_license(d))
 
     try:
         cmd_output = subprocess.check_output(_args, universal_newlines=True)

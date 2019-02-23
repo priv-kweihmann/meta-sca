@@ -15,7 +15,7 @@ def sca_on_recipe_init(d):
     if pn.endswith("-native") or pn.endswith("-nativesdk"):
         ## Do not inherit on native or SDK targets
         return
-    if not any(sca_filter_by_license(d, d.getVar("SCA_AUTO_LICENSE_FILTER").split(" "))):
+    if not any(sca_filter_by_license(d)):
         ## do not apply when license is not matching
         return
     enabledModules = []

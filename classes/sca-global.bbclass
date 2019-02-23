@@ -7,7 +7,7 @@ SCA_AUTO_INH_ON_IMAGE ?= "1"
 SCA_AUTO_INH_ON_RECIPE ?= "1"
 
 ## Just apply the one of the following license
-SCA_AUTO_LICENSE_FILTER ?= "CLOSED"
+SCA_AUTO_LICENSE_FILTER ?= "*"
 
 ## All findings below this level will be dropped
 ## from checkstyle-result

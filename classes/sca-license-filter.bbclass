@@ -1,6 +1,19 @@
 ## This class contains methods for filtering file
 ## according to their license
 
+def sca_get_module_licenses(d):
+    return d.getVar("LICENSE").replace(" ", "").split("&")
+
+def sca_license_filter_match(d, pkglic=[]):
+    import re
+    modlics = pkglic or sca_get_module_licenses(d)
+    for item in d.getVar("SCA_AUTO_LICENSE_FILTER").split(" "):
+        for lic in modlics:
+            if re.match(lic, item, 0):
+                return True
+    return False
+	
+
 def sca_filter_by_license_image(d, licenses):
     import oe.packagedata
     import bb
@@ -27,7 +40,7 @@ def sca_filter_by_license_image(d, licenses):
     for item in pack_list:
         try:
             pkgdata = oe.packagedata.read_subpkgdata_dict(item, d)
-            if pkgdata["LICENSE"] not in licenses:
+            if not sca_license_filter_match(d, [ pkgdata["LICENSE"] ]):
                 file_list = pkgdata["FILES_INFO"]
                 if isinstance(file_list, str):
                     import ast
@@ -44,15 +57,15 @@ def sca_filter_by_license_image(d, licenses):
 
     return list(set(ignores))
 
-def sca_filter_by_license_recipe(d, licenses):
-    if not d.getVar("LICENSE") in licenses:
+def sca_filter_by_license_recipe(d):
+    if not sca_license_filter_match(d):
         return []
     return [ 1 ] ## return dummy value
 
 
-def sca_filter_by_license(d, licenses):
+def sca_filter_by_license(d):
     if d.getVar("SCA_MODE") == "image":
-        return sca_filter_by_license_image(d, licenses)
+        return sca_filter_by_license_image(d)
     else:
-        return sca_filter_by_license_recipe(d, licenses)
+        return sca_filter_by_license_recipe(d)
     
