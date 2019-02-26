@@ -14,7 +14,7 @@ def sca_license_filter_match(d, pkglic=[]):
     return False
 	
 
-def sca_filter_by_license_image(d, licenses):
+def sca_filter_by_license_image(d):
     import oe.packagedata
     import bb
     import os

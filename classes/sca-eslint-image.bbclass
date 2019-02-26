@@ -18,19 +18,22 @@ python do_sca_deploy_eslint_image() {
     for _file in ["sca_raw_eslint.xml", "sca_checkstyle_eslint.xml"]:
         if not os.path.exists(os.path.join(d.getVar("T"), _file)):
             continue
-        data = ElementTree.parse(os.path.join(d.getVar("T"), _file)).getroot()
-        for node in data.findall(".//error"):
-            ## Patch to common format
-            node.attrib["message"] = "[Package:'{}' Tool:eslint] {}".format(d.getVar("PN"), node.attrib["message"])
-            node.attrib["source"] = "ShellCheck.{}".format(node.attrib["source"])
-
-        res = ""
         try:
-            res = checkstyle_prettify(d, data).decode("utf-8")
+            data = ElementTree.parse(os.path.join(d.getVar("T"), _file)).getroot()
+            for node in data.findall(".//error"):
+                ## Patch to common format
+                node.attrib["message"] = "[Package:'{}' Tool:eslint] {}".format(d.getVar("PN"), node.attrib["message"])
+                node.attrib["source"] = "ShellCheck.{}".format(node.attrib["source"])
+
+            res = ""
+            try:
+                res = checkstyle_prettify(d, data).decode("utf-8")
+            except:
+                res = checkstyle_prettify(d, data)
+            with open(os.path.join(d.getVar("T"), _file), "w") as f:
+                f.write(res)
         except:
-            res = checkstyle_prettify(d, data)
-        with open(os.path.join(d.getVar("T"), _file), "w") as f:
-            f.write(res)
+            pass
 
     raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "eslint", "raw", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
     cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "eslint", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
