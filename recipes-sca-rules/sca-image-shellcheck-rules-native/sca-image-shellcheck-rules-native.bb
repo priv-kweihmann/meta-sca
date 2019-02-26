@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for cpplint"
-DESCRIPTION = " Rules to configure how cpplint is affecting the build"
+SUMMARY = "Ruleset for shellcheck"
+DESCRIPTION = " Rules to configure how shellcheck is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"
@@ -7,15 +7,15 @@ SRC_URI = "file://suppress \
 LICENSE ?= "BSD-2-Clause"
 LIC_FILES_CHKSUM ?= "file://${COMMON_LICENSE_DIR}/BSD-2-Clause;md5=8bef8e6712b1be5aa76af1ebde9d6378"
 
-BBCLASSEXTEND = "native"
+inherit native
 
 ## Don't cache - always make it clean
 BB_DONT_CACHE = "1"
 
 do_install() {
     install -d "${D}${datadir}"
-    install "${WORKDIR}/fatal" "${D}${datadir}/cpplint-fatal"
-    install "${WORKDIR}/suppress" "${D}${datadir}/cpplint-suppress"
+    install "${WORKDIR}/suppress" "${D}${datadir}/shellcheck-image-suppress"
+    install "${WORKDIR}/fatal" "${D}${datadir}/shellcheck-image-fatal"
 }
 
 FILES_${PN} = "${datadir}/**"

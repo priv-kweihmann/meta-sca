@@ -13,7 +13,7 @@ SRC_URI[sha256sum] = "6f4e1cf41095eb2f342d667d7e1cdf1269441598f5ac77a7885b53598f
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a58572e3501e262ddd5da01be644887d"
 
-BBCLASSEXTEND = "native"
+inherit native
 
 FILES_${PN} = "${bindir}/**"
 ## we don't need debug packages

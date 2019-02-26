@@ -25,4 +25,4 @@ inherit pypi
 
 FILES_${PN} += "${datadir}/pylint"
 
-BBCLASSEXTEND = "native nativesdk"
+inherit native

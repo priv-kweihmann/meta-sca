@@ -5,11 +5,11 @@ HOMEPAGE = " http://cppcheck.sourceforge.net/"
 BUGTRACKER = " https://trac.cppcheck.net/"
 LICENSE = "GPLv3"
 
-BBCLASSEXTEND = "native"
+inherit native
 
 inherit pkgconfig
 
-DEPENDS = "libpcre"
+DEPENDS = "libpcre-native"
 
 ## we don't need debug packages
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"

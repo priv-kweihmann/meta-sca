@@ -5,9 +5,9 @@ HOMEPAGE = " https://www.shellcheck.net/"
 BUGTRACKER = " https://github.com/koalaman/shellcheck/issues"
 LICENSE = "GPLv3"
 
-BBCLASSEXTEND = "native"
+inherit native
 
-DEPENDS += "gmp libffi dpkg-native dpkg"
+DEPENDS += "gmp-native libffi-native dpkg-native dpkg-native"
 
 FILES_${PN}-man = "${mandir}/**"
 FILES_${PN} = "${bindir}/shellcheck"
