@@ -3,6 +3,8 @@ inherit sca-global
 inherit sca-eslint-core
 inherit sca-conv-checkstyle-helper
 
+SCA_DEPLOY_TASK = "do_sca_deploy_eslint_image"
+
 python do_sca_deploy_eslint_image() {
     import os
     import shutil

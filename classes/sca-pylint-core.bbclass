@@ -66,9 +66,10 @@ python do_sca_pylint_core() {
         warn_log.append("{} error(s)".format(len(_errors)))
     if warn_log and should_emit_to_console(d):
         bb.warn("SCA has found {}".format(",".join(warn_log)))
-    
-    if any(_fatal) and should_emit_to_console(d):
-        bb.fatal("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+
+    if any(_fatal):
+        bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK"), d)
+        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
 }
 
 ## addtask do_static_code_analysis_pylint before do_install after do_compile

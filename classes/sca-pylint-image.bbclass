@@ -14,6 +14,8 @@ SCA_PYLINT_LIBATH ?= "${IMAGE_ROOTFS}/usr/lib/python.3.5/:${IMAGE_ROOTFS}/usr/li
 ## Extra options to be passed to pylint
 SCA_PYLINT_EXTRA ?= "--errors-only"
 
+SCA_DEPLOY_TASK = "do_sca_deploy_pylint_image"
+
 python do_sca_deploy_pylint_image() {
     import os
     import shutil

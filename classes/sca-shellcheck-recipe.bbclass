@@ -2,6 +2,8 @@ inherit sca-helper
 inherit sca-global
 inherit sca-shellcheck-core
 
+SCA_DEPLOY_TASK = "do_sca_deploy_shellcheck_recipe"
+
 python do_sca_deploy_shellcheck_recipe() {
     import os
     import shutil

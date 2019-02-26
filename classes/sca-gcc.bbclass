@@ -62,8 +62,9 @@ python do_sca_gcc() {
     if warn_log and should_emit_to_console(d):
         bb.warn("SCA has found {}".format(",".join(warn_log)))
     
-    if any(_fatals) and should_emit_to_console(d):
-        bb.fatal("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+    if any(_fatal):
+        bb.build.exec_func("do_sca_deploy_gcc", d)
+        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
 }
 
 python do_sca_deploy_gcc() {

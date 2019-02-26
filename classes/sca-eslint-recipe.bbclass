@@ -2,6 +2,8 @@ inherit sca-helper
 inherit sca-global
 inherit sca-eslint-core
 
+SCA_DEPLOY_TASK = "do_sca_deploy_eslint_recipe"
+
 python do_sca_deploy_eslint_recipe() {
     import os
     import shutil

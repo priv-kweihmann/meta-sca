@@ -12,6 +12,8 @@ SCA_PYLINT_HOMEPATH ?= "${STAGING_LIBDIR}/python.3.5"
 ## The Librarypath to use
 SCA_PYLINT_LIBATH ?= "${STAGING_LIBDIR}/python.3.5/:${STAGING_LIBDIR}/python.3.5/site-packages/"
 
+SCA_DEPLOY_TASK = "do_sca_deploy_pylint_recipe"
+
 python do_sca_deploy_pylint_recipe() {
     import os
     import shutil

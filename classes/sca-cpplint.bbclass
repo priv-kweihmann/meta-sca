@@ -66,8 +66,9 @@ python do_sca_cpplint() {
     if warn_log and should_emit_to_console(d):
         bb.warn("SCA has found {}".format(",".join(warn_log)))
     
-    if any(_fatal) and should_emit_to_console(d):
-        bb.fatal("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+    if any(_fatal):
+        bb.build.exec_func("do_sca_deploy_cpplint", d)
+        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
 }
 
 python do_sca_deploy_cpplint() {

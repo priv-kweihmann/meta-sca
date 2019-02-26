@@ -3,6 +3,8 @@ inherit sca-global
 inherit sca-shellcheck-core
 inherit sca-conv-checkstyle-helper
 
+SCA_DEPLOY_TASK = "do_sca_deploy_shellcheck_image"
+
 python do_sca_deploy_shellcheck_image() {
     import os
     import shutil
