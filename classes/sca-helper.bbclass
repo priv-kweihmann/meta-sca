@@ -15,6 +15,11 @@ def get_build_dir(d):
     dl_dir = os.path.dirname(dl_dir)
     return os.path.commonprefix([source, dl_dir])
 
+def should_emit_to_console(d):
+    if "bitbake" in d.getVar("SCA_ENABLED_MODULES").split(" "):
+        return False
+    return True
+
 def xml_combine(d, *args):
     import sys
     from xml.etree import ElementTree

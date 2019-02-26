@@ -1,5 +1,6 @@
 inherit sca-conv-checkstyle-shellcheck
 inherit sca-license-filter
+inherit sca-helper
 
 python do_sca_shellcheck_core() {
     import os
@@ -44,14 +45,14 @@ python do_sca_shellcheck_core() {
     _errors = get_errors_from_result(d)
 
     warn_log = []
-    if any(_warnings):
+    if any(_warnings) and should_emit_to_console(d):
         warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors):
+    if any(_errors) and should_emit_to_console(d):
         warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log:
+    if warn_log and should_emit_to_console(d):
         bb.warn("SCA has found {}".format(",".join(warn_log)))
     
-    if any(_fatals):
+    if any(_fatals) and should_emit_to_console(d):
         bb.fatal("SCA has following fatal errors: {}".format("\n".join(_fatals)))
 }
 
