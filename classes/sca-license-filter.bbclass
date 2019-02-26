@@ -9,7 +9,7 @@ def sca_license_filter_match(d, pkglic=[]):
     modlics = pkglic or sca_get_module_licenses(d)
     for item in d.getVar("SCA_AUTO_LICENSE_FILTER").split(" "):
         for lic in modlics:
-            if re.match(lic, item, 0):
+            if re.match(item, lic, 0):
                 return True
     return False
 	

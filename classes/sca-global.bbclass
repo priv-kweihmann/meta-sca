@@ -6,8 +6,8 @@ SCA_EXPORT_FINDING_DIR ?= "${DEPLOY_DIR_IMAGE}/sca/sources/${PN}/"
 SCA_AUTO_INH_ON_IMAGE ?= "1"
 SCA_AUTO_INH_ON_RECIPE ?= "1"
 
-## Just apply the one of the following license
-SCA_AUTO_LICENSE_FILTER ?= "*"
+## Just apply the one of the following license (regex)
+SCA_AUTO_LICENSE_FILTER ?= ".*"
 
 ## All findings below this level will be dropped
 ## from checkstyle-result
