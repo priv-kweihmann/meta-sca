@@ -19,29 +19,34 @@ BBLAYERS += "<full path to sca-layer>/meta-sca"
 
 The layer can check on a recipe-level or on an image-level.
 On image-level the whole root-filesystem could be taken into account, which in most cases can't be granted on a recipe-level.
-On the other hand some static code analysis does not make any sense on an image-level - so this layer does have different tools for both level available
+On the other hand some static code analysis does not make any sense on an image-level - so this layer does have different tools for both level available. In square brackets the corresponding setting in this layer is given
 
 ### Tools for image recipes
 
- * pylint (python)
- * shellcheck (shell)
- * eslint (javascript/html)
- * bitbake (handle bitbake issues)
+ * pylint (python) [pylint]
+ * shellcheck (shell) [shellcheck]
+ * eslint (javascript/html) [eslint]
+ * bitbake (handle bitbake issues) [bitbake]
 
 ### Tools for all other recipes
 
- * pylint (python)
- * shellcheck (shell)
- * gcc (getting compiler warnings/errors)
- * cpplint (c/c++)
- * cppcheck (c/c++)
- * eslint (javascript/html)
- * cve-check (check for unpatched cve's)
- * bitbake (handle bitbake issues)
- * kconfighard (check hardening of kernel)
- * pysymcheck (check elf-files for used functions)
+ * pylint (python) [pylint]
+ * shellcheck (shell) [shellcheck]
+ * gcc (getting compiler warnings/errors) [gcc]
+ * cpplint (c/c++) [cpplint]
+ * cppcheck (c/c++) [cppcheck]
+ * eslint (javascript/html) [eslint]
+ * cve-check (check for unpatched cve's) [cve-check]
+ * bitbake (handle bitbake issues) [bitbake]
+ * kconfig-hardened-check (check hardening of kernel) [kconfighard]
+ * pysymbolcheck (check elf-files for used functions) [pysymcheck]
+ * clang-tidy (c/c++) [clang]
 
 each tool does have it's own benefits and flaws so don't be mad if you have 10k+ findings on the initial run.
+
+# Optional requirements
+
+To make the integration of clang-module (clang-tidy) work you need to add the [meta-clang](https://github.com/kraj/meta-clang) layer to your bblayer-file. If not present the clang integration will be silently disabled
 
 # Configuration
 
@@ -154,6 +159,15 @@ n.a. this module does not need configuration, nor does it support suppression or
 | SCA_PYSYMCHECK_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_PYSYMCHECK_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_PYSYMCHECK_RULE_FILE | Configuration-file to be used. Must be installed to \<root\>/usr/bin/pysymbolcheck/ | string: basic_rules.json | "basic_rules.json"
+
+### Available configuration for clang
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_CLANG_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_CLANG_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_CLANG_ADD_INCLUDES | List of additional include paths | space-separated-list | ""
+| SCA_CLANG_CHECKERS | List of clang-tidy checkers to execute | space-separated-list | see sca-clang.bbclass for details
+| SCA_CLANG_FILE_FILTER | List of file extentions to check | space-separated-list | ".c .cpp"
 
 ## Suppression and fatal-error
 Every tool has the possibility to suppress some of the findings.

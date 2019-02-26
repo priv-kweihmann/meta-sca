@@ -14,6 +14,10 @@ def sca_on_image_init(d):
     enabledModules = []
     for item in d.getVar("SCA_ENABLED_MODULES").split(" "):
         BBHandler.inherit("sca-{}-image".format(item), "sca-on-image", 1, d)
+        func = "sca-{}-init".format(item).replace("-", "_")
+        if d.getVar(func, False) is not None:
+            bb.build.exec_func(func, d, pythonexception=True)
+        okay = True
         enabledModules.append(item)
     if any(enabledModules):
-        bb.note("Using SCA Module(s) {}".format(",".join(enabledModules)))
+        bb.note("Using SCA Module(s) {}".format(",".join(sorted(enabledModules))))
