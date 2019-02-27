@@ -1,3 +1,5 @@
+DEPENDS += "python-magic-native"
+
 def get_relative_source_path(d):
     import os
     source = d.getVar("S")
@@ -73,6 +75,19 @@ def get_files_by_shabang(d, path, pattern, excludes=[]):
                             res.append(_filename)
             except:
                 pass
+    return res
+
+def get_files_by_mimetype(d, path, mime, excludes=[]):
+    import os
+    import magic
+    res = []
+    for root, dirs, files in os.walk(path, topdown=True):
+        for item in files:
+            _filename = os.path.join(root, item)
+            if _filename in excludes:
+                continue
+            if magic.from_file(_filename, mime=True) in mime:
+                res.append(_filename)
     return res
 
 def get_files_by_extention(d, path, pattern, excludes=[]):
