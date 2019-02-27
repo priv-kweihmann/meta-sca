@@ -75,7 +75,7 @@ def get_files_by_shabang(d, path, pattern, excludes=[]):
                             res.append(_filename)
             except:
                 pass
-    return res
+    return [x for x in res if os.path.isfile(x)]
 
 def get_files_by_mimetype(d, path, mime, excludes=[]):
     import os
@@ -88,7 +88,7 @@ def get_files_by_mimetype(d, path, mime, excludes=[]):
                 continue
             if magic.from_file(_filename, mime=True) in mime:
                 res.append(_filename)
-    return res
+    return [x for x in res if os.path.isfile(x)]
 
 def get_files_by_extention(d, path, pattern, excludes=[]):
     import os
@@ -103,7 +103,7 @@ def get_files_by_extention(d, path, pattern, excludes=[]):
             _filename, _file_extension = os.path.splitext(_filepath)
             if _file_extension in pattern:
                 res.append(_filepath)
-    return res
+    return [x for x in res if os.path.isfile(x)]
 
 def get_files_by_extention_or_shebang(d, path, shebang, extentions, excludes=[]):
     res = get_files_by_shabang(d, path, shebang, excludes) + get_files_by_extention(d, path, extentions, excludes)
