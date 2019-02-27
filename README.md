@@ -39,6 +39,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * cve-check (check for unpatched cve's)
  * bitbake (handle bitbake issues)
  * kconfighard (check hardening of kernel)
+ * pysymcheck (check elf-files for used functions)
 
 each tool does have it's own benefits and flaws so don't be mad if you have 10k+ findings on the initial run.
 
