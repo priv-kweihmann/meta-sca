@@ -38,6 +38,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * eslint (javascript/html)
  * cve-check (check for unpatched cve's)
  * bitbake (handle bitbake issues)
+ * kconfighard (check hardening of kernel)
 
 each tool does have it's own benefits and flaws so don't be mad if you have 10k+ findings on the initial run.
 
@@ -139,6 +140,12 @@ n.a. this module does not need configuration, nor does it support suppression or
 
 ### Available configuration for bitbake
 n.a. this module does not need configuration, nor does it support suppression or fatal error handling
+
+### Available configuration for kconfighard
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_KCONFIGHARD_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_KCONFIGHARD_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 
 ## Suppression and fatal-error
 Every tool has the possibility to suppress some of the findings.
