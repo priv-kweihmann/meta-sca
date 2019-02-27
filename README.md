@@ -147,6 +147,13 @@ n.a. this module does not need configuration, nor does it support suppression or
 | SCA_KCONFIGHARD_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_KCONFIGHARD_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 
+### Available configuration for pysymcheck
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_PYSYMCHECK_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_PYSYMCHECK_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_PYSYMCHECK_RULE_FILE | Configuration-file to be used. Must be installed to \<root\>/usr/bin/pysymbolcheck/ | string: basic_rules.json | "basic_rules.json"
+
 ## Suppression and fatal-error
 Every tool has the possibility to suppress some of the findings.
 Besides that some findings could be configured to terminate the build, e.g. when a nullptr-dereference is found in C-code.
