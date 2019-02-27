@@ -49,7 +49,7 @@ python do_sca_deploy_shellcheck_image() {
         do_sca_export_sources(d, cs_target)
 }
 
-addtask do_sca_shellcheck_core before before do_image_complete after do_image
+addtask do_sca_shellcheck_core before do_image_complete after do_image
 addtask do_sca_deploy_shellcheck_image before do_image_complete after do_sca_shellcheck_core
 
 DEPENDS += "sca-image-shellcheck-rules-native"
