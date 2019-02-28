@@ -23,24 +23,25 @@ On the other hand some static code analysis does not make any sense on an image-
 
 ### Tools for image recipes
 
+ * bitbake (handle bitbake issues) [bitbake]
+ * eslint (javascript/html) [eslint]
  * pylint (python) [pylint]
  * shellcheck (shell) [shellcheck]
- * eslint (javascript/html) [eslint]
- * bitbake (handle bitbake issues) [bitbake]
 
 ### Tools for all other recipes
 
- * pylint (python) [pylint]
- * shellcheck (shell) [shellcheck]
- * gcc (getting compiler warnings/errors) [gcc]
- * cpplint (c/c++) [cpplint]
- * cppcheck (c/c++) [cppcheck]
- * eslint (javascript/html) [eslint]
- * cve-check (check for unpatched cve's) [cve-check]
  * bitbake (handle bitbake issues) [bitbake]
- * kconfig-hardened-check (check hardening of kernel) [kconfighard]
- * pysymbolcheck (check elf-files for used functions) [pysymcheck]
  * clang-tidy (c/c++) [clang]
+ * cppcheck (c/c++) [cppcheck]
+ * cpplint (c/c++) [cpplint]
+ * cve-check (check for unpatched cve's) [cve-check]
+ * eslint (javascript/html) [eslint]
+ * flint++ (c/c++) [flint]
+ * gcc (getting compiler warnings/errors) [gcc]
+ * kconfig-hardened-check (check hardening of kernel) [kconfighard]
+ * pylint (python) [pylint]
+ * pysymbolcheck (check elf-files for used functions) [pysymcheck]
+ * shellcheck (shell) [shellcheck]
 
 each tool does have it's own benefits and flaws so don't be mad if you have 10k+ findings on the initial run.
 
@@ -168,6 +169,12 @@ n.a. this module does not need configuration, nor does it support suppression or
 | SCA_CLANG_ADD_INCLUDES | List of additional include paths | space-separated-list | ""
 | SCA_CLANG_CHECKERS | List of clang-tidy checkers to execute | space-separated-list | see sca-clang.bbclass for details
 | SCA_CLANG_FILE_FILTER | List of file extentions to check | space-separated-list | ".c .cpp"
+
+### Available configuration for flint++
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_FLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_FLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 
 ## Suppression and fatal-error
 Every tool has the possibility to suppress some of the findings.
