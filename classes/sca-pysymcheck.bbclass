@@ -3,7 +3,7 @@ SCA_PYSYMCHECK_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_PYSYMCHECK_EXTRA_FATAL ?= ""
 ## Used rule file
-SCA_PYSYMCHECK_RULE_FILE ?= "basic-rules.json"
+SCA_PYSYMCHECK_RULE_FILE ?= "basic_rules.json"
 
 inherit sca-helper
 inherit sca-conv-checkstyle-pysymcheck
@@ -23,6 +23,9 @@ python do_sca_pysymcheck() {
     _args = ["python3", os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "pysymbolcheck", "pysymbolcheck.py")]
     _args += ["--libpath", ":".join([d.getVar("STAGING_LIBDIR_NATIVE")])]
     _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "pysymbolcheck", d.getVar("SCA_PYSYMCHECK_RULE_FILE"))]
+
+    if not os.path.exists(os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "pysymbolcheck", d.getVar("SCA_PYSYMCHECK_RULE_FILE"))):
+        bb.warn("Rule-File {} does not exists - Empty results will be expected".format(d.getVar("SCA_PYSYMCHECK_RULE_FILE")))
 
     _files = get_files_by_mimetype(d, d.getVar("B"), ["application/x-executable", 'application/x-sharedlib'], [])
     ## Run

@@ -14,7 +14,7 @@ def do_sca_conv_pysymcheck(d):
     buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     items = []
-    pattern = r"^(?P<file>.*):(?P<severity>.*):(?P<id>,*):\s+(?P<message>.*)"
+    pattern = r"^(?P<file>.*):(?P<severity>.*):(?P<id>.*):\s+(?P<message>.*)"
 
     class SymItem():
         File = ""
