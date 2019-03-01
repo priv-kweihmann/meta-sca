@@ -3,7 +3,7 @@
 inherit sca-global
 
 SCA_PACKAGE_LICENSE_FILTER = "CLOSED"
-SCA_ENABLED_MODULES ?= "bitbake eslint pylint shellcheck"
+SCA_ENABLED_MODULES ?= "bandit bitbake eslint pylint shellcheck"
 SCA_SOURCES_DIR ?= "${IMAGE_ROOTFS}"
 
 SCA_MODE = "image"
