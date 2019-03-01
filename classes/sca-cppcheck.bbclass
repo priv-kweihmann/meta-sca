@@ -77,7 +77,6 @@ python do_sca_cppcheck() {
         cmd_output = subprocess.check_output(_args, universal_newlines=True)
     except subprocess.CalledProcessError as e:
         cmd_output = e.stdout or ""
-        bb.warn(cmd_output)
 
     if os.path.exists("std.cfg"):
         os.remove("std.cfg")

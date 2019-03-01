@@ -30,9 +30,12 @@ def do_sca_conv_oclint(d):
     }
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        io = None
+        io = {}
         with open(d.getVar("SCA_RAW_RESULT_FILE")) as i:
-            io = json.load(i)
+            try:
+                io = json.load(i)
+            except:
+                pass
         
         if "violation" in io.keys():
             for item in io["violation"]:
