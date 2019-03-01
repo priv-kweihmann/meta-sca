@@ -41,6 +41,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * kconfig-hardened-check (check hardening of kernel) [kconfighard]
  * pylint (python) [pylint]
  * pysymbolcheck (check elf-files for used functions) [pysymcheck]
+ * oclint (c/c++/obj-c) [oclint]
  * shellcheck (shell) [shellcheck]
 
 each tool does have it's own benefits and flaws so don't be mad if you have 10k+ findings on the initial run.
@@ -175,6 +176,14 @@ n.a. this module does not need configuration, nor does it support suppression or
 | ------------- |:-------------:| -----:| -----:
 | SCA_FLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_FLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+
+### Available configuration for oclint
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_OCLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_OCLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_OCLINT_ADD_INCLUDES | List of additional include paths | space-separated-list | ""
+| SCA_OCLINT_FILE_FILTER | List of file extentions to check | space-separated-list | ".c .cpp"
 
 ## Suppression and fatal-error
 Every tool has the possibility to suppress some of the findings.
