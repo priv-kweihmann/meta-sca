@@ -23,6 +23,7 @@ On the other hand some static code analysis does not make any sense on an image-
 
 ### Tools for image recipes
 
+ * bandit (python/security) [bandit]
  * bitbake (handle bitbake issues) [bitbake]
  * eslint (javascript/html) [eslint]
  * pylint (python) [pylint]
@@ -30,6 +31,7 @@ On the other hand some static code analysis does not make any sense on an image-
 
 ### Tools for all other recipes
 
+ * bandit (python/security) [bandit]
  * bitbake (handle bitbake issues) [bitbake]
  * clang-tidy (c/c++) [clang]
  * cppcheck (c/c++) [cppcheck]
@@ -184,6 +186,12 @@ n.a. this module does not need configuration, nor does it support suppression or
 | SCA_OCLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_OCLINT_ADD_INCLUDES | List of additional include paths | space-separated-list | ""
 | SCA_OCLINT_FILE_FILTER | List of file extentions to check | space-separated-list | ".c .cpp"
+
+### Available configuration for bandit
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_BANDIT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_BANDIT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 
 ## Suppression and fatal-error
 Every tool has the possibility to suppress some of the findings.
