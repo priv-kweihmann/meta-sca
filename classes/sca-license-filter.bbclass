@@ -4,6 +4,9 @@
 def sca_get_module_licenses(d):
     return d.getVar("LICENSE").replace(" ", "").split("&")
 
+def sca_is_wildcard_lic(d):
+    return any([x for x in d.getVar("SCA_AUTO_LICENSE_FILTER").split(" ") if x == ".*"])
+
 def sca_license_filter_match(d, pkglic=[]):
     import re
     modlics = pkglic or sca_get_module_licenses(d)
@@ -12,15 +15,15 @@ def sca_license_filter_match(d, pkglic=[]):
             if re.match(item, lic, 0):
                 return True
     return False
-	
+    
 
 def sca_filter_by_license_image(d):
     import oe.packagedata
     import bb
     import os
 
-    if d.getVar("LICENSE_CREATE_PACKAGE") != "1" or \
-       d.getVar("COPY_LIC_MANIFEST") != 1:
+    if not sca_is_wildcard_lic(d) and (d.getVar("LICENSE_CREATE_PACKAGE") != "1" or \
+       d.getVar("COPY_LIC_MANIFEST") != 1):
        bb.warn("License-Filter can only be used with LICENSE_CREATE_PACKAGE and COPY_LIC_MANIFEST set to '1'")
        return []
 
@@ -30,11 +33,12 @@ def sca_filter_by_license_image(d):
 
     ## extract installed package list from rootfs
     pack_list = []
-    with open(os.path.join(d.getVar("IMAGE_ROOTFS"), "usr/share/common-licenses/license.manifest"), "r") as i:
-        for item in i.readlines():
-            if not item.startswith("PACKAGE NAME: "):
-                continue
-            pack_list.append(item.replace("PACKAGE NAME: ", "").strip())
+    if os.path.exists(os.path.join(d.getVar("IMAGE_ROOTFS"), "usr/share/common-licenses/license.manifest")):
+        with open(os.path.join(d.getVar("IMAGE_ROOTFS"), "usr/share/common-licenses/license.manifest"), "r") as i:
+            for item in i.readlines():
+                if not item.startswith("PACKAGE NAME: "):
+                    continue
+                pack_list.append(item.replace("PACKAGE NAME: ", "").strip())
 
     ignores = []
     for item in pack_list:
