@@ -2,7 +2,7 @@ SUMMARY = "script for checking on linux kernel hardening"
 HOMEPAGE = "https://github.com/a13xp0p0v/kconfig-hardened-check"
 
 SRC_URI = "git://github.com/a13xp0p0v/kconfig-hardened-check.git;protocol=http;branch=master"
-SRCREV = "60a83b77a98aeb52dd1cb262febee0e15a99f302"
+SRCREV = "257c011fd0f24066420e755f29a60cbe61561fa6"
 
 PV = "27022019"
 
