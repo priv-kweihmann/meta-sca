@@ -21,24 +21,16 @@ def sca_filter_by_license_image(d):
     import oe.packagedata
     import bb
     import os
+    import json
 
-    if not sca_is_wildcard_lic(d) and (d.getVar("LICENSE_CREATE_PACKAGE") != "1" or \
-       d.getVar("COPY_LIC_MANIFEST") != 1):
-       bb.warn("License-Filter can only be used with LICENSE_CREATE_PACKAGE and COPY_LIC_MANIFEST set to '1'")
-       return []
-
-    if not d.getVar("IMAGE_ROOTFS"):
+    if not d.getVar("IMAGE_ROOTFS") or not os.path.exists(d.getVar("SCA_IMAGE_PKG_LIST")):
         bb.warn("License-Filter can only be applied on image-level")
         return []
 
     ## extract installed package list from rootfs
     pack_list = []
-    if os.path.exists(os.path.join(d.getVar("IMAGE_ROOTFS"), "usr/share/common-licenses/license.manifest")):
-        with open(os.path.join(d.getVar("IMAGE_ROOTFS"), "usr/share/common-licenses/license.manifest"), "r") as i:
-            for item in i.readlines():
-                if not item.startswith("PACKAGE NAME: "):
-                    continue
-                pack_list.append(item.replace("PACKAGE NAME: ", "").strip())
+    with open(d.getVar("SCA_IMAGE_PKG_LIST")) as i:
+        pack_list = json.load(i).keys()
 
     ignores = []
     for item in pack_list:
@@ -57,7 +49,7 @@ def sca_filter_by_license_image(d):
                     else:
                         ignores.append(k)
         except Exception as e:
-            bb.warn("{} -> {}".format(item, e))
+            bb.note("{} -> {} - {}".format(item, e, oe.packagedata.read_subpkgdata_dict(item, d)))
 
     return list(set(ignores))
 

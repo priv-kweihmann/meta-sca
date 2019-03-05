@@ -2,17 +2,6 @@ inherit sca-helper
 inherit sca-conv-checkstyle-helper
 inherit sca-global
 
-ROOTFS_POSTPROCESS_COMMAND =+ " do_sca_image_pkg_list; "
-
-SCA_IMAGE_SUMMARY_PKG_LIST = "${T}/pkgs.json"
-
-python do_sca_image_pkg_list() {
-    import json
-    from oe.rootfs import image_list_installed_packages
-    with open(d.getVar("SCA_IMAGE_SUMMARY_PKG_LIST"), "w") as o:
-        json.dump(image_list_installed_packages(d), o)
-}
-
 python sca_image_summary_init() {
     for item in d.getVar("SCA_ENABLED_MODULES").split(" "):
         for taskstr in ["do_sca_deploy_{}".format(item), "do_sca_deploy_{}_image".format(item)]:
@@ -29,7 +18,7 @@ python do_sca_image_summary() {
 
     xml_output = ""
     _json = {}
-    with open(d.getVar("SCA_IMAGE_SUMMARY_PKG_LIST")) as i:
+    with open(d.getVar("SCA_IMAGE_PKG_LIST")) as i:
         _json = json.load(i)
 
     for rpm, v in _json.items():
