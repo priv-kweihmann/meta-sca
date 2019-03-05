@@ -14,6 +14,12 @@ SCA_AUTO_LICENSE_FILTER ?= ".*"
 ## possible options error, warning or info
 SCA_WARNING_LEVEL ?= "warning"
 
+## Enable an extra report per image
+SCA_ENABLE_IMAGE_SUMMARY ?= "1"
+
+## List of overall available modules
+SCA_AVAILABLE_MODULES = "bandit bitbake clang cppcheck cpplint cve-check eslint flint gcc kconfighard oclint pylint shellcheck"
+
 inherit sca-conv-checkstyle-helper
 
 def do_sca_export_sources(d, _file):
@@ -33,6 +39,8 @@ def do_sca_export_sources(d, _file):
                 if not os.path.exists(node.attrib["name"]):
                     continue
                 _targetfilename = os.path.relpath(node.attrib["name"], d.getVar("SCA_SOURCES_DIR"))
+                if node.attrib["name"] == _targetfilename:
+                    continue
                 if _targetfilename.startswith("/"):
                     _targetfilename = _targetfilename[1:]
                 _targetfilename = os.path.join(d.getVar("SCA_EXPORT_FINDING_DIR", True), _targetfilename)

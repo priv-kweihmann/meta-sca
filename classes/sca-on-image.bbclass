@@ -21,3 +21,8 @@ def sca_on_image_init(d):
         enabledModules.append(item)
     if any(enabledModules):
         bb.note("Using SCA Module(s) {}".format(",".join(sorted(enabledModules))))
+    if d.getVar("SCA_ENABLE_IMAGE_SUMMARY") == "1":
+        BBHandler.inherit("sca-{}".format("image-summary"), "sca-on-image", 1, d)
+        func = "sca-{}-init".format("image-summary").replace("-", "_")
+        if d.getVar(func, False) is not None:
+            bb.build.exec_func(func, d, pythonexception=True)

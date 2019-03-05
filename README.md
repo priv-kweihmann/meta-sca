@@ -26,6 +26,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * bandit (python/security) [bandit]
  * bitbake (handle bitbake issues) [bitbake]
  * eslint (javascript/html) [eslint]
+ * image-summary (aggregate all findings for package in an image) [image-summary]
  * pylint (python) [pylint]
  * shellcheck (shell) [shellcheck]
 
@@ -89,6 +90,8 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_SOURCES_DIR | Path where to find the source-files to be checked | path | "\${B}" for recipes, "\${IMAGE_ROOTFS}" for images
 | SCA_WARNING_LEVEL | Filter for severity of findings | string: info, warning or error | "warning"
 | SCA_AUTO_LICENSE_FILTER | Filter according to recipe license if sca should invoked | space separated regular expression | ".*"
+| SCA_ENABLE_IMAGE_SUMMARY | En/disable the image-summary module | string | "1"
+| SCA_AVAILABLE_MODULES | List of all available modules | fixed string | Shall not be configured by user
 
 ### Available configuration for cpplint
 
