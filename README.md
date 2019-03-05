@@ -29,6 +29,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * image-summary (aggregate all findings for package in an image) [image-summary]
  * pylint (python) [pylint]
  * shellcheck (shell) [shellcheck]
+ * xmlint (xml) [xmllint]
 
 ### Tools for all other recipes
 
@@ -46,6 +47,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * pysymbolcheck (check elf-files for used functions) [pysymcheck]
  * oclint (c/c++/obj-c) [oclint]
  * shellcheck (shell) [shellcheck]
+ * xmlint (xml) [xmllint]
 
 each tool does have it's own benefits and flaws so don't be mad if you have 10k+ findings on the initial run.
 
@@ -195,6 +197,14 @@ n.a. this module does not need configuration, nor does it support suppression or
 | ------------- |:-------------:| -----:| -----:
 | SCA_BANDIT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_BANDIT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+
+### Available configuration for cpplint
+
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_XMLLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_XMLLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_XMLLINT_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".xml"
 
 ## Suppression and fatal-error
 Every tool has the possibility to suppress some of the findings.

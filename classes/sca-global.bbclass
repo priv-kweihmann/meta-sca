@@ -18,7 +18,7 @@ SCA_WARNING_LEVEL ?= "warning"
 SCA_ENABLE_IMAGE_SUMMARY ?= "1"
 
 ## List of overall available modules
-SCA_AVAILABLE_MODULES = "bandit bitbake clang cppcheck cpplint cve-check eslint flint gcc kconfighard oclint pylint shellcheck"
+SCA_AVAILABLE_MODULES = "bandit bitbake clang cppcheck cpplint cve-check eslint flint gcc kconfighard oclint pylint shellcheck xmllint"
 
 inherit sca-conv-checkstyle-helper
 
