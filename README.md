@@ -27,6 +27,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * bitbake (handle bitbake issues) [bitbake]
  * eslint (javascript/html) [eslint]
  * image-summary (aggregate all findings for package in an image) [image-summary]
+ * oelint-adv (linting bitbake recipes) [oelint]
  * pylint (python) [pylint]
  * shellcheck (shell) [shellcheck]
  * xmlint (xml) [xmllint]
@@ -43,6 +44,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * flint++ (c/c++) [flint]
  * gcc (getting compiler warnings/errors) [gcc]
  * kconfig-hardened-check (check hardening of kernel) [kconfighard]
+ * oelint-adv (linting bitbake recipes) [oelint]
  * pylint (python) [pylint]
  * pysymbolcheck (check elf-files for used functions) [pysymcheck]
  * oclint (c/c++/obj-c) [oclint]
@@ -198,13 +200,20 @@ n.a. this module does not need configuration, nor does it support suppression or
 | SCA_BANDIT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_BANDIT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 
-### Available configuration for cpplint
+### Available configuration for xmllint
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_XMLLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_XMLLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_XMLLINT_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".xml"
+
+### Available configuration for oelint
+
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_OELINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_OELINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 
 ## Suppression and fatal-error
 Every tool has the possibility to suppress some of the findings.

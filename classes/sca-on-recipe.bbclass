@@ -3,7 +3,8 @@
 inherit sca-global
 inherit sca-license-filter
 
-SCA_ENABLED_MODULES ?= "bandit bitbake cve-check clang eslint flint cpplint cppcheck gcc kconfighard pylint pysymcheck oclint shellcheck xmllint"
+SCA_ENABLED_MODULES ?= "bandit bitbake cve-check clang eslint flint cpplint cppcheck gcc kconfighard oelint \
+                        pylint pysymcheck oclint shellcheck xmllint"
 SCA_SOURCES_DIR ?= "${B}"
 
 SCA_MODE = "recipe"
@@ -19,7 +20,7 @@ def sca_on_recipe_init(d):
         ## do not apply when license is not matching
         return
     enabledModules = []
-    for item in d.getVar("SCA_ENABLED_MODULES").split(" "):
+    for item in [x.strip() for x in d.getVar("SCA_ENABLED_MODULES").split(" ") if x]:
         okay = False
         try:
             BBHandler.inherit("sca-{}".format(item), "sca-on-recipe", 1, d)
