@@ -39,11 +39,12 @@ def do_sca_export_sources(d, _file):
                 if not os.path.exists(node.attrib["name"]):
                     continue
                 _targetfilename = os.path.relpath(node.attrib["name"], d.getVar("SCA_SOURCES_DIR"))
-                if node.attrib["name"] == _targetfilename:
-                    continue
                 if _targetfilename.startswith("/"):
                     _targetfilename = _targetfilename[1:]
                 _targetfilename = os.path.join(d.getVar("SCA_EXPORT_FINDING_DIR", True), _targetfilename)
+                _targetfilename = _targetfilename.replace("../", "")
+                if node.attrib["name"] == _targetfilename:
+                    continue
                 os.makedirs(os.path.dirname(_targetfilename), exist_ok=True)
                 shutil.copy(node.attrib["name"], _targetfilename)
                 ## Adjust the file attribute
