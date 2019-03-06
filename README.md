@@ -96,6 +96,7 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_AUTO_LICENSE_FILTER | Filter according to recipe license if sca should invoked | space separated regular expression | ".*"
 | SCA_ENABLE_IMAGE_SUMMARY | En/disable the image-summary module | string | "1"
 | SCA_AVAILABLE_MODULES | List of all available modules | fixed string | Shall not be configured by user
+| SCA_STD_PYTHON_INTERPRETER | Standard python interpreter to be used in SCA | python or python3 | "python3"
 
 ### Available configuration for cpplint
 

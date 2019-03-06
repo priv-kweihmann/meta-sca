@@ -5,7 +5,7 @@ inherit sca-helper
 SCA_BANDIT_EXTRA_SUPPRESS ?= ""
 SCA_BANDIT_EXTRA_FATAL ?= ""
 
-DEPENDS += "bandit-native"
+DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-bandit-native"
 
 python do_sca_bandit_core() {
     import os

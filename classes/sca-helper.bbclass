@@ -1,4 +1,4 @@
-DEPENDS += "python-magic-native"
+DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-python-magic-native"
 
 def get_relative_source_path(d):
     import os

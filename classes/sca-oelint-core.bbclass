@@ -5,9 +5,9 @@ inherit sca-helper
 SCA_OELINT_EXTRA_SUPPRESS ?= ""
 SCA_OELINT_EXTRA_FATAL ?= ""
 
-DEPENDS += "oelint-adv-native"
+DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-oelint-adv-native"
 
-inherit python3native
+inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
 
 python do_sca_oelint_core() {
     import os

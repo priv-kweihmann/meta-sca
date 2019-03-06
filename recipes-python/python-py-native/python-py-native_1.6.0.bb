@@ -1,4 +1,4 @@
-inherit pypi setuptools3
+inherit pypi setuptools
 require python-py-native.inc
 
 SRC_URI[md5sum] = "5ccd0cd5373c55171cf9fd61b9f19a1b"
