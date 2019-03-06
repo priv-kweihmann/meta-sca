@@ -4,10 +4,10 @@ HOMEPAGE = "https://github.com/timothycrosley/isort"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=197c46995787b46a2dbf0d519c1754cf"
 
-PV = "4.3.10"
+PV = "4.3.11"
 
-SRC_URI[md5sum] = "54c000374fb51f6ea22a59e46709888a"
-SRC_URI[sha256sum] = "144c4295314c0ed34fb034f838b2b7e242c52dd3eafdd6f5d49078692f582c0c"
+SRC_URI[md5sum] = "bb06686483856de4ab3d10a711fe97f2"
+SRC_URI[sha256sum] = "909141ae3ac8c78daa9a6ae61371ad6daa628f533f6d3e01e5a0d073864ef26b"
 
 PYPI_PACKAGE = "isort"
 
