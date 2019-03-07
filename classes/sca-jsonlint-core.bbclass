@@ -24,7 +24,7 @@ python do_sca_jsonlint_core() {
                                             sca_filter_by_license(d)):
             try:
                 with open(_f) as i:
-                    json.load(_f)
+                    json.load(i)
             except json.JSONDecodeError as e:
                 o.write("{}:{}:{}:error:jsonlint.parsererror:{}\n".format(e.doc, e.lineno, e.colno, e.msg))
 
