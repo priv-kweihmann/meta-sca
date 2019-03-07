@@ -1,5 +1,3 @@
-PV = "0.5.0-3"
-
 ## Include arch depending sources
 include ${@'shellcheck-native_arch_%s.inc' % d.getVar('BUILD_ARCH')}
 

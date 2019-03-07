@@ -4,8 +4,6 @@ HOMEPAGE = "https://github.com/a13xp0p0v/kconfig-hardened-check"
 SRC_URI = "git://github.com/a13xp0p0v/kconfig-hardened-check.git;protocol=http;branch=master"
 SRCREV = "257c011fd0f24066420e755f29a60cbe61561fa6"
 
-PV = "27022019"
-
 S = "${WORKDIR}/git"
 B = "${S}"
 

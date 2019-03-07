@@ -3,8 +3,6 @@ DESCRIPTION = " Static code analyzer for C/C++."
 HOMEPAGE = "https://github.com/JossWhittle/FlintPlusPlus"
 LICENSE = "BSL-1.0"
 
-PV = "280222019"
-
 S = "${WORKDIR}/git"
 B = "${S}"
 

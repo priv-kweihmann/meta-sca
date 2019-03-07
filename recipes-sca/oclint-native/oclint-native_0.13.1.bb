@@ -3,8 +3,6 @@ DESCRIPTION = "A static source code analysis tool to improve quality and reduce 
 HOMEPAGE = "http://oclint.org/"
 LICENSE = "BSD-3-Clause"
 
-PV = "0.13.1"
-
 S = "${WORKDIR}/git"
 B = "${S}"
 
