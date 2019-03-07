@@ -4,8 +4,8 @@ inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
 
-SCA_ENABLED_MODULES ?= "bandit bitbake cve-check clang eslint flint cpplint cppcheck gcc kconfighard oelint \
-                        pylint pysymcheck oclint shellcheck xmllint"
+SCA_ENABLED_MODULES ?= "bandit bitbake cve-check clang eslint flint cpplint cppcheck gcc \
+                        jsonlint kconfighard oelint pylint pysymcheck oclint shellcheck xmllint"
 SCA_SOURCES_DIR ?= "${B}"
 
 SCA_MODE = "recipe"

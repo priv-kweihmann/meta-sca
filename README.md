@@ -27,6 +27,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * bitbake (handle bitbake issues) [bitbake]
  * eslint (javascript/html) [eslint]
  * image-summary (aggregate all findings for package in an image) [image-summary]
+ * json-parser (json) [jsonlint]
  * oelint-adv (linting bitbake recipes) [oelint]
  * pylint (python) [pylint]
  * shellcheck (shell) [shellcheck]
@@ -43,6 +44,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * eslint (javascript/html) [eslint]
  * flint++ (c/c++) [flint]
  * gcc (getting compiler warnings/errors) [gcc]
+ * json-parser (json) [jsonlint]
  * kconfig-hardened-check (check hardening of kernel) [kconfighard]
  * oelint-adv (linting bitbake recipes) [oelint]
  * pylint (python) [pylint]
@@ -215,6 +217,12 @@ n.a. this module does not need configuration, nor does it support suppression or
 | ------------- |:-------------:| -----:| -----:
 | SCA_OELINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_OELINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+
+### Available configuration for jsonlint
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_JSONLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_JSONLINT_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".json"
 
 ## Suppression and fatal-error
 Every tool has the possibility to suppress some of the findings.
