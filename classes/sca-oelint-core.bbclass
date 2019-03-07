@@ -25,9 +25,7 @@ python do_sca_oelint_core() {
     result_raw_file = os.path.join(d.getVar("T"), "sca_raw_oelint.txt")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
 
-    _app = os.path.join(d.getVar("STAGING_DIR_NATIVE"), d.getVar("PYTHON_SITEPACKAGES_DIR")[1:], "oelint_adv") + "/"
-    _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "python3-native", "python3")]
-    _args += [_app]
+    _args = ['oelint-adv']
     for item in _supress:
         _args += ["--suppress={}".format(item)]
     _args += ["--output={}".format(result_raw_file)]
