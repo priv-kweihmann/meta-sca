@@ -90,12 +90,12 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_EXPORT_DIR | Directory where to store the results of analysis | path | \${DEPLOY_DIR_IMAGE}/sca
 | SCA_EXPORT_FINDING_SRC | Do copy the source-files of any finding to deploy-dir. This proved to helpful when integrating into Jenkins. | string | "1"
 | SCA_EXPORT_FINDING_DIR | The folder where to store the original source-files of findings | path | \${DEPLOY_DIR_IMAGE}/sca/sources/\${PN}/
-| SCA_ENABLED_MODULES | The analysis modules to be activated | space-separated-string | "eslint shellcheck pylint" for images, "eslint gcc cpplint cppcheck pylint shellcheck cve-check" for other recipe 
+| SCA_ENABLED_MODULES | The analysis modules to be activated | space-separated-string | see sca-on-image.bbclass or sca-on-recipe.bbclass
 | SCA_SOURCES_DIR | Path where to find the source-files to be checked | path | "\${B}" for recipes, "\${IMAGE_ROOTFS}" for images
 | SCA_WARNING_LEVEL | Filter for severity of findings | string: info, warning or error | "warning"
 | SCA_AUTO_LICENSE_FILTER | Filter according to recipe license if sca should invoked | space separated regular expression | ".*"
 | SCA_ENABLE_IMAGE_SUMMARY | En/disable the image-summary module | string | "1"
-| SCA_AVAILABLE_MODULES | List of all available modules | fixed string | Shall not be configured by user
+| SCA_AVAILABLE_MODULES | List of all available modules, use to globally enable/dsiable modules | space-separated-string | all available modules
 | SCA_STD_PYTHON_INTERPRETER | Standard python interpreter to be used in SCA | python or python3 | "python3"
 
 ### Available configuration for cpplint

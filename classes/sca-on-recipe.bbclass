@@ -1,6 +1,7 @@
 ## Configuration for static code analysis on recipe-level
 
 inherit sca-global
+inherit sca-helper
 inherit sca-license-filter
 
 SCA_ENABLED_MODULES ?= "bandit bitbake cve-check clang eslint flint cpplint cppcheck gcc kconfighard oelint \
@@ -20,7 +21,7 @@ def sca_on_recipe_init(d):
         ## do not apply when license is not matching
         return
     enabledModules = []
-    for item in [x.strip() for x in d.getVar("SCA_ENABLED_MODULES").split(" ") if x]:
+    for item in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")):
         okay = False
         try:
             BBHandler.inherit("sca-{}".format(item), "sca-on-recipe", 1, d)

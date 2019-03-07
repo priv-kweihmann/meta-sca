@@ -21,7 +21,7 @@ SCA_ENABLE_IMAGE_SUMMARY ?= "1"
 SCA_STD_PYTHON_INTERPRETER ?= "python3"
 
 ## List of overall available modules
-SCA_AVAILABLE_MODULES = "bandit bitbake clang cppcheck cpplint cve-check eslint flint gcc kconfighard oclint pylint shellcheck xmllint"
+SCA_AVAILABLE_MODULES ?= "bandit bitbake clang cppcheck cpplint cve-check eslint flint gcc kconfighard oclint pylint shellcheck xmllint"
 
 inherit sca-conv-checkstyle-helper
 

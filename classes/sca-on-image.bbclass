@@ -1,6 +1,7 @@
 ## Configuration for static code analysis on image-level
 
 inherit sca-global
+inherit sca-helper
 
 SCA_PACKAGE_LICENSE_FILTER = "CLOSED"
 SCA_ENABLED_MODULES ?= "bandit bitbake eslint oelint pylint shellcheck xmllint"
@@ -12,7 +13,7 @@ def sca_on_image_init(d):
     import bb
     from bb.parse.parse_py import BBHandler
     enabledModules = []
-    for item in [x.strip() for x in d.getVar("SCA_ENABLED_MODULES").split(" ") if x]:
+    for item in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")):
         BBHandler.inherit("sca-{}-image".format(item), "sca-on-image", 1, d)
         func = "sca-{}-init".format(item).replace("-", "_")
         if d.getVar(func, False) is not None:
