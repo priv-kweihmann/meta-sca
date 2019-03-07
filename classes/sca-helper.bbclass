@@ -27,7 +27,7 @@ def intersect_lists(d, l1, l2):
         l1 = [x for x in l1.split(" ") if x]
     if isinstance(l2, str):
         l2 = [x for x in l2.split(" ") if x]
-    return list(set(l1).intersection(l2))
+    return sorted(list(set(l1).intersection(l2)))
 
 def xml_combine(d, *args):
     import sys
