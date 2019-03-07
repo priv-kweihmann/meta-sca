@@ -42,7 +42,7 @@ def do_sca_conv_bandit(d):
                 if filename.startswith("./"):
                     filename = os.path.join(buildpath, filename[2:])
                 g.File = filename
-                g.Line = item["line_number"]
+                g.Line = str(item["line_number"])
                 g.Message = "[Package:%s Tool:bandit] %s" % (package_name, item["issue_text"])
                 g.Severity = severity_map[item["issue_severity"]]
                 g.ID = "bandit.bandit.%s" % item["test_id"]
