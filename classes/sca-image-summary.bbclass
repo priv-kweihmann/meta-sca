@@ -3,7 +3,7 @@ inherit sca-conv-checkstyle-helper
 inherit sca-global
 
 python sca_image_summary_init() {
-    for item in d.getVar("SCA_ENABLED_MODULES").split(" "):
+    for item in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")):
         for taskstr in ["do_sca_deploy_{}".format(item), "do_sca_deploy_{}_image".format(item)]:
             task = d.getVar(taskstr, False)
             if task is not None:
@@ -22,7 +22,7 @@ python do_sca_image_summary() {
         _json = json.load(i)
 
     for rpm, v in _json.items():
-        for mod in d.getVar("SCA_AVAILABLE_MODULES").split(" "):
+        for mod in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")):
             fp = os.path.join(d.getVar("SCA_EXPORT_DIR"), mod, "checkstyle", "{}-{}.xml".format(rpm, v["ver"]))
             if os.path.exists(fp):
                 new_data = Element("checkstyle")
