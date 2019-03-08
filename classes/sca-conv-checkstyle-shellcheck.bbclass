@@ -19,14 +19,21 @@ def do_sca_conv_shellcheck(d):
         data = ElementTree.ElementTree(ElementTree.parse(d.getVar("SCA_RAW_RESULT"))).getroot()
         items = []
 
-        for f in data.findall(".//error"):
-            if ElementTree.tostring(f) in items or f.attrib["severity"] not in checkstyle_allowed_warning_level(d):
-                for h in f:
-                    f.remove(h)
-                continue
-            else:
-                items.append(ElementTree.tostring(f))
-                new_data.append(f)
+        for _file in data.findall(".//file"):
+            inserted = False
+            new_file = Element("file")
+            new_file.set("name", _file.attrib["name"])
+            for f in _file.findall(".//error"):
+                if ElementTree.tostring(f) in items or f.attrib["severity"] not in checkstyle_allowed_warning_level(d):
+                    for h in f:
+                        f.remove(h)
+                    continue
+                else:
+                    items.append(ElementTree.tostring(f))
+                    if not inserted:
+                        new_data.append(new_file)
+                        inserted = True
+                    new_file.append(f)
     except:
         pass
         
