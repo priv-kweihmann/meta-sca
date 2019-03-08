@@ -12,4 +12,11 @@ PYPI_PACKAGE = "bandit"
 inherit native
 inherit pypi
 
-FILES_${PN} += "${datadir}/bandit"
+SRC_URI += "file://bandit.sca.description"
+
+FILES_${PN} += "${datadir}"
+
+do_install_append() {
+    install -d ${D}${datadir}
+    install ${WORKDIR}/bandit.sca.description ${D}${datadir}
+}

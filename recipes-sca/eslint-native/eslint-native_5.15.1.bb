@@ -1,7 +1,8 @@
 SUMMARY = "Native variant of eslint"
 DESCRIPTION = "Native build of eslint."
 
-SRC_URI = "file://configs/*"
+SRC_URI = "file://configs/* \
+           file://eslint.sca.description"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
@@ -79,5 +80,6 @@ do_install() {
     mkdir -p ${D}${datadir}/eslint/configs
     cp -Ra ${B}/* ${D}${datadir}/eslint
     cp -a ${WORKDIR}/configs/* ${D}${datadir}/eslint/configs
+    install ${WORKDIR}/eslint.sca.description ${D}${datadir}
 }
 

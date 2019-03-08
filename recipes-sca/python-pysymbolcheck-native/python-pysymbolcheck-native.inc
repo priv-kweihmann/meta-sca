@@ -1,7 +1,8 @@
 SUMMARY = "Tool for checking elf-symbols against rules"
 HOMEPAGE = "https://github.com/priv-kweihmann/pysymbolcheck"
 
-SRC_URI = "git://github.com/priv-kweihmann/pysymbolcheck.git;protocol=http;branch=master;tag=${PV}"
+SRC_URI = "git://github.com/priv-kweihmann/pysymbolcheck.git;protocol=http;branch=master;tag=${PV} \
+           file://pysymcheck.sca.description"
 
 S = "${WORKDIR}/git"
 B = "${S}"
@@ -13,7 +14,7 @@ inherit native
 
 RDEPENDS_${PN} += "${PYTHON_PN}-core-native ${PYTHON_PN}-jsonmerge-native \
                    ${PYTHON_PN}-pyelftools-native ${PYTHON_PN}-ctypes-native"
-FILES_${PN} = "${bindir}"
+FILES_${PN} = "${bindir} ${datadir}"
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
@@ -21,4 +22,7 @@ do_compile[noexec] = "1"
 do_install() {
     mkdir -p ${D}${bindir}/pysymbolcheck
     cp -R ${B}/* ${D}${bindir}/pysymbolcheck
+
+    install -d ${D}${datadir}
+    install ${WORKDIR}/pysymcheck.sca.description ${D}${datadir}
 }

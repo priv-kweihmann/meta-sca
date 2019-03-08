@@ -20,13 +20,15 @@ do_compile() {
 	oe_runmake
 }
 
-FILES_${PN} = "${bindir}/**"
+FILES_${PN} = "${bindir}/** ${datadir}"
 
 
 do_install() {
     install -d ${D}${bindir}
+    install -d ${D}${datadir}
     install ${B}/cppcheck ${D}${bindir}
     cp -R ${B}/addons ${D}${bindir}
     cp -R ${B}/cfg ${D}${bindir}
     install -D ${B}/htmlreport/cppcheck-htmlreport ${D}${bindir}
+    install ${WORKDIR}/cppcheck.sca.description ${D}${datadir}
 }

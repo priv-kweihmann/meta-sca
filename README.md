@@ -2,7 +2,7 @@
 
 ## Purpose
 This layer does offer some static code analysis tools, which can be easily configured and integrated into YOCTO/Open-Embedded build system.
-The layer is designed to be easily (and fully configurable).
+The layer is designed to be easy to integrate (and fully configurable).
 All results are stored to __SCA_EXPORT_DIR__ (which defaults to __${DEPLOY_DIR_IMAGE}/sca__). The results will be stored in the raw-format of the corresponding tool and in checkstyle-format.
 Any result-file can be easily integrated into e.g. Jenkins or other CI-tools
 
@@ -86,26 +86,28 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:|
-| SCA_ENABLE  | Does globally enable the analysis | string | "1"
 | SCA_AUTO_INH_ON_IMAGE | Do automatically enable analysis on image-recipes | string | "1"
 | SCA_AUTO_INH_ON_RECIPE | Do automatically enable analysis on other recipes | string | "1"
-| SCA_EXPORT_DIR | Directory where to store the results of analysis | path | \${DEPLOY_DIR_IMAGE}/sca
-| SCA_EXPORT_FINDING_SRC | Do copy the source-files of any finding to deploy-dir. This proved to helpful when integrating into Jenkins. | string | "1"
-| SCA_EXPORT_FINDING_DIR | The folder where to store the original source-files of findings | path | \${DEPLOY_DIR_IMAGE}/sca/sources/\${PN}/
-| SCA_ENABLED_MODULES | The analysis modules to be activated | space-separated-string | see sca-on-image.bbclass or sca-on-recipe.bbclass
-| SCA_SOURCES_DIR | Path where to find the source-files to be checked | path | "\${B}" for recipes, "\${IMAGE_ROOTFS}" for images
-| SCA_WARNING_LEVEL | Filter for severity of findings | string: info, warning or error | "warning"
 | SCA_AUTO_LICENSE_FILTER | Filter according to recipe license if sca should invoked | space separated regular expression | ".*"
-| SCA_ENABLE_IMAGE_SUMMARY | En/disable the image-summary module | string | "1"
 | SCA_AVAILABLE_MODULES | List of all available modules, use to globally enable/dsiable modules | space-separated-string | all available modules
+| SCA_ENABLE | Does globally enable the analysis | string | "1"
+| SCA_ENABLE_BESTOF | Enables/disables the BestOf mode (see chapter BestOf Mode) | string | "0"
+| SCA_ENABLE_IMAGE_SUMMARY | En/disable the image-summary module | string | "1"
+| SCA_ENABLED_MODULES | The analysis modules to be activated | space-separated-string | see sca-on-image.bbclass or sca-on-recipe.bbclass
+| SCA_EXPORT_DIR | Directory where to store the results of analysis | path | \${DEPLOY_DIR_IMAGE}/sca
+| SCA_EXPORT_FINDING_DIR | The folder where to store the original source-files of findings | path | \${DEPLOY_DIR_IMAGE}/sca/sources/\${PN}/
+| SCA_EXPORT_FINDING_SRC | Do copy the source-files of any finding to deploy-dir. This proved to helpful when integrating into Jenkins. | string | "1"
+| SCA_SOURCES_DIR | Path where to find the source-files to be checked | path | "\${B}" for recipes, "\${IMAGE_ROOTFS}" for images
 | SCA_STD_PYTHON_INTERPRETER | Standard python interpreter to be used in SCA | python or python3 | "python3"
+| SCA_WARNING_LEVEL | Filter for severity of findings | string: info, warning or error | "warning"
+
 
 ### Available configuration for cpplint
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_CPPLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_CPPLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_CPPLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_CPPLINT_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".c .cpp .h .hpp"
 
 ### Available configuration for cppcheck
@@ -113,47 +115,47 @@ For further explanations on the variables see the manpage of cppcheck
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_CPPCHECK_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
-| SCA_CPPCHECK_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_CPPCHECK_ADD_INCLUDES | Additional paths leading to includes | space-separated-list | ""
+| SCA_CPPCHECK_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_CPPCHECK_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_CPPCHECK_LANG_STD | C standard to check on | space separated list | "c99"
 
 ### Available configuration for gcc
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_GCC_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_GCC_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_GCC_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 
 ### Available configuration for pylint (recipe)
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_PYLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_PYLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
-| SCA_PYLINT_ROOTPATH | Root path from where checks should be performed | path | \${B}
+| SCA_PYLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_PYLINT_HOMEPATH | Directory of python installation | path | \${STAGING_LIBDIR}/python.3.5
 | SCA_PYLINT_LIBATH | List of library paths for python | ':' separated list | \${STAGING_LIBDIR}/python.3.5/:\${STAGING_LIBDIR}/python.3.5/site-packages/
+| SCA_PYLINT_ROOTPATH | Root path from where checks should be performed | path | \${B}
 
 ### Available configuration for pylint (image)
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_PYLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_PYLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
-| SCA_PYLINT_ROOTPATH | Root path from where checks should be performed | path | \${IMAGE_ROOTFS}
+| SCA_PYLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_PYLINT_HOMEPATH | Directory of python installation | path | \${IMAGE_ROOTFS}/python.3.5
 | SCA_PYLINT_LIBATH | List of library paths for python | ':' separated list | \${IMAGE_ROOTFS}/python.3.5/:\${IMAGE_ROOTFS}/python.3.5/site-packages/
+| SCA_PYLINT_ROOTPATH | Root path from where checks should be performed | path | \${IMAGE_ROOTFS}
 
 ### Available configuration for shellcheck
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_SHELLCHECK_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_SHELLCHECK_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | "":
+| SCA_SHELLCHECK_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 
 ### Available configuration for eslint
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_ESLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
-| SCA_ESLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | "":
 | SCA_ESLINT_CONFIG_FILE | Configuration-file to be used. See recipe eslint-native for details | string: eslint-standard.json, eslint-plain.json, eslint-airbnb.json, eslint-google.json | eslint-plain.json
+| SCA_ESLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | "":
+| SCA_ESLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 
 ### Available configuration for cve-check
 n.a. this module does not need configuration, nor does it support suppression or fatal error handling
@@ -164,59 +166,59 @@ n.a. this module does not need configuration, nor does it support suppression or
 ### Available configuration for kconfighard
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_KCONFIGHARD_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_KCONFIGHARD_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_KCONFIGHARD_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 
 ### Available configuration for pysymcheck
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_PYSYMCHECK_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_PYSYMCHECK_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_PYSYMCHECK_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_PYSYMCHECK_RULE_FILE | Configuration-file to be used. Must be installed to \<root\>/usr/bin/pysymbolcheck/ | string: basic_rules.json | "basic_rules.json"
 
 ### Available configuration for clang
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_CLANG_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
-| SCA_CLANG_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_CLANG_ADD_INCLUDES | List of additional include paths | space-separated-list | ""
 | SCA_CLANG_CHECKERS | List of clang-tidy checkers to execute | space-separated-list | see sca-clang.bbclass for details
+| SCA_CLANG_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_CLANG_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_CLANG_FILE_FILTER | List of file extentions to check | space-separated-list | ".c .cpp"
 
 ### Available configuration for flint++
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_FLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_FLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_FLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 
 ### Available configuration for oclint
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_OCLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
-| SCA_OCLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_OCLINT_ADD_INCLUDES | List of additional include paths | space-separated-list | ""
+| SCA_OCLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_OCLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_OCLINT_FILE_FILTER | List of file extentions to check | space-separated-list | ".c .cpp"
 
 ### Available configuration for bandit
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BANDIT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_BANDIT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_BANDIT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 
 ### Available configuration for xmllint
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_XMLLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_XMLLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_XMLLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_XMLLINT_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".xml"
 
 ### Available configuration for oelint
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_OELINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_OELINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_OELINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 
 ### Available configuration for jsonlint
 | var | purpose | type | default |
@@ -279,6 +281,28 @@ Also the corresponding path in each checkstyle-XML-document will be adjusted to 
 With this help e.g. Jenkins will be capable of giving you inline snippets to the findings.
 
 If you don't need this feature you should leave it disabled.
+
+## BestOf mode
+BestOf mode is an advanced filter for findings. In this mode only the findings are listed where more than one tool has reported a finding in source code.
+
+You can call it the lazy programmers mode.
+Main purpose of this module is to filter out the findings, which have been reported by one tool only. So the result of BestOf mode should give you a very strong hint that the finding reported is real.
+
+You can either filter by a minimum number of tools that should have reported a finding (threshold), or by a percentage of tools that reported a finding (ratio).
+
+The filtering is done on the basis of checked language (e.g. C, shell, python, a.s.o).
+If there is only 1 tool available for the language the results will remain untouched/unfiltered.
+
+This mode might be helpful for people who are drowning in false positives or are simply overwhelmed by the amount of findings.
+
+__NOTE: the chance that this mode does also filter out important messages is extremely high. So use it with caution__
+
+Following configuration exists
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_BESTOF_MODE | Filter mode | threshold or ratio | "threshold"
+| SCA_BESTOF_RATIO | Percentage of tools that reported a finding  | float 0.0-1.0 | "0.5"
+| SCA_BESTOF_THRESHOLD_MIN | Minimum value of tools that reported a finding | number | "2"
 
 ## Further development
 

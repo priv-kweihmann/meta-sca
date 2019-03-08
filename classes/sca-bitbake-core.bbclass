@@ -95,3 +95,5 @@ python do_sca_deploy_bitbake() {
     if os.path.exists(cs_target):
         do_sca_export_sources(d, cs_target)
 }
+
+DEPENDS += "bitbake-sca-native"

@@ -7,10 +7,12 @@ LICENSE = "GPLv3"
 
 inherit native
 
+SRC_URI += "file://shellcheck.sca.description"
+
 DEPENDS += "gmp-native libffi-native dpkg-native dpkg-native"
 
 FILES_${PN}-man = "${mandir}/**"
-FILES_${PN} = "${bindir}/shellcheck"
+FILES_${PN} = "${bindir}/shellcheck ${datadir}"
 
 ## We know it's already stripped - because we're using prebuild things
 INSANE_SKIP_${PN} += "already-stripped file-rdeps arch"
@@ -20,4 +22,6 @@ do_install() {
     cp -R ${B}/usr/bin/* ${D}${bindir}
     install -d ${D}${mandir}
     cp -R ${B}/usr/share/man/* ${D}${mandir}
+    install -d ${D}${datadir}
+    install ${WORKDIR}/shellcheck.sca.description ${D}${datadir}
 }

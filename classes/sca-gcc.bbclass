@@ -87,4 +87,4 @@ python do_sca_deploy_gcc() {
 addtask do_sca_gcc before do_install after do_compile
 addtask do_sca_deploy_gcc after do_sca_gcc before do_package
 
-DEPENDS += "sca-recipe-gcc-rules-native"
+DEPENDS += "sca-recipe-gcc-rules-native gcc-sca-native"

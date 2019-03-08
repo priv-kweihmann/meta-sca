@@ -6,7 +6,8 @@ LICENSE = "BSD-3-Clause"
 S = "${WORKDIR}/git"
 B = "${S}"
 
-SRC_URI = "git://github.com/oclint/oclint.git;protocol=http;branch=master;tag=v${PV}"
+SRC_URI = "git://github.com/oclint/oclint.git;protocol=http;branch=master;tag=v${PV} \
+           file://oclint.sca.description"
 
 LIC_FILES_CHKSUM = "file://oclint-core/LICENSE;md5=5ecaa320936c751d876affd32feff035"
 
@@ -27,10 +28,12 @@ do_compile() {
     cd -
 }
 
-FILES_${PN} = "${bindir}"
-
+FILES_${PN} = "${bindir} ${datadir}"
 
 do_install() {
     mkdir -p ${D}${bindir}/oclint
     cp -Ra ${B}/build/oclint-release/* ${D}${bindir}/oclint
+
+    install -d ${D}${datadir}
+    install ${WORKDIR}/oclint.sca.description ${D}${datadir}
 }

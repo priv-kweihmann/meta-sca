@@ -17,6 +17,9 @@ SCA_WARNING_LEVEL ?= "warning"
 ## Enable an extra report per image
 SCA_ENABLE_IMAGE_SUMMARY ?= "1"
 
+## Enable an extra report from bestof-module
+SCA_ENABLE_BESTOF ?= "0"
+
 ## Standard python interpreter to be used in SCA
 SCA_STD_PYTHON_INTERPRETER ?= "python3"
 

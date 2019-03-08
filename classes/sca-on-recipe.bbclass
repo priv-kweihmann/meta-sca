@@ -42,5 +42,10 @@ def sca_on_recipe_init(d):
             pass
         if okay:
             enabledModules.append(item)
+    if d.getVar("SCA_ENABLE_IMAGE_SUMMARY") == "1":
+        BBHandler.inherit("sca-{}-recipe".format("bestof"), "sca-on-recipe", 1, d)
+        func = "sca-{}-init".format("bestof").replace("-", "_")
+        if d.getVar(func, False) is not None:
+            bb.build.exec_func(func, d, pythonexception=True)
     if any(enabledModules):
         bb.note("Using SCA Module(s) {}".format(",".join(sorted(enabledModules))))

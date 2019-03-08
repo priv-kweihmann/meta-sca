@@ -51,3 +51,5 @@ python do_sca_jsonlint_core() {
         bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK"), d)
         bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
 }
+
+DEPENDS += "json-sca-native"
