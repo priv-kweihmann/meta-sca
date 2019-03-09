@@ -52,4 +52,4 @@ python do_sca_jsonlint_core() {
         bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
 }
 
-DEPENDS += "json-sca-native"
+DEPENDS += "jsonlint-sca-native"
