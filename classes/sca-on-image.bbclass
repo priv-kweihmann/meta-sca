@@ -5,7 +5,7 @@ inherit sca-helper
 inherit sca-blackllist
 
 SCA_PACKAGE_LICENSE_FILTER = "CLOSED"
-SCA_ENABLED_MODULES ?= "bandit bitbake eslint jsonlint oelint pylint shellcheck xmllint"
+SCA_ENABLED_MODULES ?= "bandit bitbake eslint gixy jsonlint oelint pylint shellcheck xmllint"
 SCA_SOURCES_DIR ?= "${IMAGE_ROOTFS}"
 
 SCA_MODE = "image"

@@ -26,6 +26,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * bandit (python/security) [bandit]
  * bitbake (handle bitbake issues) [bitbake]
  * eslint (javascript/html) [eslint]
+ * gixy (nginx-confif security) [gixy]
  * image-summary (aggregate all findings for package in an image) [image-summary]
  * json-parser (json) [jsonlint]
  * oelint-adv (linting bitbake recipes) [oelint]
@@ -257,6 +258,15 @@ __NOTE:__ this tool does not support suppression or fatal error handling
 | SCA_JSONLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_JSONLINT_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".json"
 | SCA_BLACKLIST_jsonlint | Blacklist filter for this tool | space-separated-list | ""
+
+### Available configuration for gixy
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_GIXY_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_GIXY_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".json"
+| SCA_BLACKLIST_gixy | Blacklist filter for this tool | space-separated-list | ""
+| SCA_GIXY_NGINX_CONF | NGINX config file to be checked | string | "/etc/nginx/nginx.conf"
+
 
 ## Suppression and fatal-error
 Every tool has the possibility to suppress some of the findings.

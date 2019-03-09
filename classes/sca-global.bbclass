@@ -34,6 +34,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           eslint \
                           flint \
                           gcc \
+                          gixy \
                           jsonlint \
                           kconfighard \
                           oclint \
