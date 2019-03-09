@@ -298,6 +298,7 @@ This mode might be helpful for people who are drowning in false positives or are
 __NOTE: the chance that this mode does also filter out important messages is extremely high. So use it with caution__
 
 Following configuration exists
+
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_BESTOF_MODE | Filter mode | threshold or ratio | "threshold"
