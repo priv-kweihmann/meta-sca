@@ -39,6 +39,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           oclint \
                           oelint \
                           pylint \
+                          pysymcheck \
                           shellcheck \
                           xmllint"
 
