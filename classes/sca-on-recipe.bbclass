@@ -3,6 +3,7 @@
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-blackllist
 
 SCA_ENABLED_MODULES ?= "bandit bitbake cve-check clang eslint flint cpplint cppcheck gcc \
                         jsonlint kconfighard oelint pylint pysymcheck oclint shellcheck xmllint"
@@ -13,15 +14,10 @@ SCA_MODE = "recipe"
 def sca_on_recipe_init(d):
     import bb
     from bb.parse.parse_py import BBHandler
-    pn = d.getVar("PN")
-    if pn.endswith("-native") or pn.endswith("-nativesdk"):
-        ## Do not inherit on native or SDK targets
-        return
-    if not any(sca_filter_by_license(d)):
-        ## do not apply when license is not matching
-        return
     enabledModules = []
     for item in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")):
+        if sca_is_module_blacklisted(d, item) or not any(sca_filter_by_license(d)):
+            continue
         okay = False
         try:
             BBHandler.inherit("sca-{}".format(item), "sca-on-recipe", 1, d)
