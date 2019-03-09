@@ -60,7 +60,10 @@ python do_sca_bestof_core() {
     _tools = {}
     ## Read tool data
     for mod in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")):
-        with open(os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "{}.sca.description".format(mod))) as i:
+        fp = os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "{}.sca.description".format(mod))
+        if not os.path.exists(fp):
+            continue
+        with open(fp) as i:
             _tools[mod] = json.load(i)
 
     ## aquire data
