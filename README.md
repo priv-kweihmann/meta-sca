@@ -174,12 +174,14 @@ For further explanations on the variables see the manpage of cppcheck
 
 ### Available configuration for cve-check
 __NOTE:__ this tool does not support suppression or fatal error handling
+
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_BLACKLIST_cve_check | Blacklist filter for this tool | space-separated-list | ""
 
 ### Available configuration for bitbake
 __NOTE:__ this tool does not support suppression or fatal error handling
+
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_BLACKLIST_cve_check | Blacklist filter for this tool | space-separated-list | ""
