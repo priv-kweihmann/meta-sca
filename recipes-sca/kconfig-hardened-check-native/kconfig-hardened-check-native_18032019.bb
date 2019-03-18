@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/a13xp0p0v/kconfig-hardened-check"
 
 SRC_URI = "git://github.com/a13xp0p0v/kconfig-hardened-check.git;protocol=http;branch=master \
            file://kconfighard.sca.description"
-SRCREV = "257c011fd0f24066420e755f29a60cbe61561fa6"
+SRCREV = "4d3138f62afa719ec5bf696ced214f7342d98dec"
 
 S = "${WORKDIR}/git"
 B = "${S}"
