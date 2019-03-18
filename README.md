@@ -26,7 +26,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * bandit (python/security) [bandit]
  * bitbake (handle bitbake issues) [bitbake]
  * eslint (javascript/html) [eslint]
- * gixy (nginx-confif security) [gixy]
+ * gixy (nginx-config security) [gixy]
  * image-summary (aggregate all findings for package in an image) [image-summary]
  * json-parser (json) [jsonlint]
  * oelint-adv (linting bitbake recipes) [oelint]
@@ -90,7 +90,7 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_AUTO_INH_ON_IMAGE | Do automatically enable analysis on image-recipes | string | "1"
 | SCA_AUTO_INH_ON_RECIPE | Do automatically enable analysis on other recipes | string | "1"
 | SCA_AUTO_LICENSE_FILTER | Filter according to recipe license if sca should invoked | space separated regular expression | ".*"
-| SCA_AVAILABLE_MODULES | List of all available modules, use to globally enable/dsiable modules | space-separated-string | all available modules
+| SCA_AVAILABLE_MODULES | List of all available modules, use to globally enable/disable modules | space-separated-string | all available modules
 | SCA_ENABLE | Does globally enable the analysis | string | "1"
 | SCA_ENABLE_BESTOF | Enables/disables the BestOf mode (see chapter BestOf Mode) | string | "0"
 | SCA_ENABLE_IMAGE_SUMMARY | En/disable the image-summary module | string | "1"
@@ -209,7 +209,7 @@ __NOTE:__ this tool does not support suppression or fatal error handling
 | SCA_CLANG_CHECKERS | List of clang-tidy checkers to execute | space-separated-list | see sca-clang.bbclass for details
 | SCA_CLANG_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_CLANG_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
-| SCA_CLANG_FILE_FILTER | List of file extentions to check | space-separated-list | ".c .cpp"
+| SCA_CLANG_FILE_FILTER | List of file extensions to check | space-separated-list | ".c .cpp"
 | SCA_BLACKLIST_clang | Blacklist filter for this tool | space-separated-list | "linux-*"
 
 ### Available configuration for flint++
@@ -225,7 +225,7 @@ __NOTE:__ this tool does not support suppression or fatal error handling
 | SCA_OCLINT_ADD_INCLUDES | List of additional include paths | space-separated-list | ""
 | SCA_OCLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_OCLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
-| SCA_OCLINT_FILE_FILTER | List of file extentions to check | space-separated-list | ".c .cpp"
+| SCA_OCLINT_FILE_FILTER | List of file extensions to check | space-separated-list | ".c .cpp"
 | SCA_BLACKLIST_oclint | Blacklist filter for this tool | space-separated-list | "linux-*"
 
 ### Available configuration for bandit
