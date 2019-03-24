@@ -43,6 +43,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           pysymcheck \
                           rats \
                           shellcheck \
+                          tscancode \
                           xmllint"
 
 inherit sca-conv-checkstyle-helper

@@ -19,6 +19,7 @@ SCA_BLACKLIST_pylint ?= "linux-.*"
 SCA_BLACKLIST_pysymcheck ?= ""
 SCA_BLACKLIST_rats ?= ""
 SCA_BLACKLIST_shellcheck ?= ""
+SCA_BLACKLIST_tscanscode ?= "linux-.*"
 SCA_BLACKLIST_xmllint ?= ""
 
 def sca_is_module_blacklisted(d, tool):

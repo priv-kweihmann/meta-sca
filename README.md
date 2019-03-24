@@ -53,6 +53,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * oclint (c/c++/obj-c) [oclint]
  * rats (security for c/php/python/perl/ruby) [rats]
  * shellcheck (shell) [shellcheck]
+ * tscancode (c,c#,lua) [tscancode]
  * xmlint (xml) [xmllint]
 
 each tool does have it's own benefits and flaws so don't be mad if you have 10k+ findings on the initial run.
@@ -272,8 +273,18 @@ __NOTE:__ this tool does not support suppression or fatal error handling
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_RATS_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
-| SCA_RATS_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".json"
+| SCA_RATS_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_BLACKLIST_rats | Blacklist filter for this tool | space-separated-list | ""
+
+### Available configuration for tscancode
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_TSCANCODE_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_TSCANCODE_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_TSCANCODE_INCLUDE_PATHS | Extra include paths **WARNING: this will heavily slow down thw check** | space-separated-list | ""
+| SCA_TSCANCODE_CONFIG_FILES | Files to check for configuration symbols (header or KConfig) | space-separated-list | ".config config.h"
+| SCA_TSCANCODE_SYMBOL_PREFIX | Prefix found symbols with | string | "ENABLE_"
+| SCA_BLACKLIST_tscancode | Blacklist filter for this tool | space-separated-list | "linux-*"
 
 ## Suppression and fatal-error
 Every tool has the possibility to suppress some of the findings.
