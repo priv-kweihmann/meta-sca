@@ -51,6 +51,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * pylint (python) [pylint]
  * pysymbolcheck (check elf-files for used functions) [pysymcheck]
  * oclint (c/c++/obj-c) [oclint]
+ * rats (security for c/php/python/perl/ruby) [rats]
  * shellcheck (shell) [shellcheck]
  * xmlint (xml) [xmllint]
 
@@ -267,6 +268,12 @@ __NOTE:__ this tool does not support suppression or fatal error handling
 | SCA_BLACKLIST_gixy | Blacklist filter for this tool | space-separated-list | ""
 | SCA_GIXY_NGINX_CONF | NGINX config file to be checked | string | "/etc/nginx/nginx.conf"
 
+### Available configuration for rats
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_RATS_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_RATS_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".json"
+| SCA_BLACKLIST_rats | Blacklist filter for this tool | space-separated-list | ""
 
 ## Suppression and fatal-error
 Every tool has the possibility to suppress some of the findings.
