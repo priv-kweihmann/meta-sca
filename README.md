@@ -50,6 +50,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * oelint-adv (linting bitbake recipes) [oelint]
  * pylint (python) [pylint]
  * pysymbolcheck (check elf-files for used functions) [pysymcheck]
+ * pytype (python) [pytype]
  * oclint (c/c++/obj-c) [oclint]
  * rats (security for c/php/python/perl/ruby) [rats]
  * shellcheck (shell) [shellcheck]
@@ -285,6 +286,13 @@ __NOTE:__ this tool does not support suppression or fatal error handling
 | SCA_TSCANCODE_CONFIG_FILES | Files to check for configuration symbols (header or KConfig) | space-separated-list | ".config config.h"
 | SCA_TSCANCODE_SYMBOL_PREFIX | Prefix found symbols with | string | "ENABLE_"
 | SCA_BLACKLIST_tscancode | Blacklist filter for this tool | space-separated-list | "linux-*"
+
+### Available configuration for pytype
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_PYTYPE_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_PYTYPE_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_BLACKLIST_pytype | Blacklist filter for this tool | space-separated-list | ""
 
 ## Suppression and fatal-error
 Every tool has the possibility to suppress some of the findings.

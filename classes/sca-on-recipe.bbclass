@@ -6,7 +6,7 @@ inherit sca-license-filter
 inherit sca-blackllist
 
 SCA_ENABLED_MODULES ?= "bandit bitbake cve-check clang eslint flint cpplint cppcheck gcc \
-                        jsonlint kconfighard oelint pylint pysymcheck oclint rats shellcheck \
+                        jsonlint kconfighard oelint pylint pysymcheck pytype oclint rats shellcheck \
                         tscancode xmllint"
 SCA_SOURCES_DIR ?= "${B}"
 
