@@ -27,6 +27,7 @@ SCA_STD_PYTHON_INTERPRETER ?= "python3"
 SCA_AVAILABLE_MODULES ?= "\
                           bandit \
                           bitbake \
+                          clang \
                           cppcheck \
                           cpplint \
                           cve-check \
