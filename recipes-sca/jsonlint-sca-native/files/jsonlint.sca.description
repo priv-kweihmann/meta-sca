@@ -1,3 +1,6 @@
 {
-    "languages": ["json"]
+    "languages": ["json"],
+    "buildspeed" : "fast",
+    "execspeed": "fast",
+    "quality": "normal"
 }

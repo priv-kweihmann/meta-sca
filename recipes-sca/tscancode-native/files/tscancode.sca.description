@@ -1,3 +1,6 @@
 {
-    "languages": ["C", "C#", "lua"]
+    "languages": ["C", "C#", "lua"],
+    "buildspeed" : "normal",
+    "execspeed": "normal",
+    "quality": "normal"
 }

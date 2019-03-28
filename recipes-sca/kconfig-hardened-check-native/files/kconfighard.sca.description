@@ -1,3 +1,6 @@
 {
-    "languages": ["kernel"]
+    "languages": ["kernel"],
+    "buildspeed" : "fast",
+    "execspeed": "fast",
+    "quality": "good"
 }

@@ -1,3 +1,6 @@
 {
-    "languages": ["i18n", "g18n"]
+    "languages": ["i18n", "g18n"],
+    "buildspeed" : "fast",
+    "execspeed": "fast",
+    "quality": "normal"
 }

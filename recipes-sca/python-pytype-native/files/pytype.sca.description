@@ -1,3 +1,6 @@
 {
-    "languages": ["python"]
+    "languages": ["python"],
+    "buildspeed" : "normal",
+    "execspeed": "slow",
+    "quality": "good"
 }

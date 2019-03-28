@@ -1,3 +1,6 @@
 {
-    "languages": ["bitbake"]
+    "languages": ["bitbake"],
+    "buildspeed" : "fast",
+    "execspeed": "normal",
+    "quality": "good"
 }

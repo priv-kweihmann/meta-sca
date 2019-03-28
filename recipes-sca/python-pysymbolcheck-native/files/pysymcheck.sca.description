@@ -1,3 +1,6 @@
 {
-    "languages": ["elf"]
+    "languages": ["elf"],
+    "buildspeed" : "fast",
+    "execspeed": "fast",
+    "quality": "normal"
 }
