@@ -293,7 +293,7 @@ __NOTE:__ this tool does not support suppression or fatal error handling
 | ------------- |:-------------:| -----:| -----:
 | SCA_PYTYPE_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_PYTYPE_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
-| SCA_BLACKLIST_pytype | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLACKLIST_pytype | Blacklist filter for this tool | space-separated-list | "linux-*"
 
 ### Available configuration for zrd
 | var | purpose | type | default |
