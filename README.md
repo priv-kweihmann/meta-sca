@@ -56,6 +56,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * shellcheck (shell) [shellcheck]
  * tscancode (c,c#,lua) [tscancode]
  * xmlint (xml) [xmllint]
+ * zeroresourcedetector (g18n/i18n) [zrd]
 
 each tool does have it's own benefits and flaws so don't be mad if you have 10k+ findings on the initial run.
 
@@ -293,6 +294,13 @@ __NOTE:__ this tool does not support suppression or fatal error handling
 | SCA_PYTYPE_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_PYTYPE_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_BLACKLIST_pytype | Blacklist filter for this tool | space-separated-list | ""
+
+### Available configuration for zrd
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_ZRD_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_ZRD_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_BLACKLIST_zrd | Blacklist filter for this tool | space-separated-list | ""
 
 ## Suppression and fatal-error
 Every tool has the possibility to suppress some of the findings.

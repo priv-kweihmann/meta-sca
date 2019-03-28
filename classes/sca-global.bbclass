@@ -45,7 +45,8 @@ SCA_AVAILABLE_MODULES ?= "\
                           rats \
                           shellcheck \
                           tscancode \
-                          xmllint"
+                          xmllint \
+                          zrd"
 
 inherit sca-conv-checkstyle-helper
 
