@@ -147,3 +147,6 @@ def get_fatal_from_result(d, prefix, fatal_ids):
     for i in fatal_ids:
         res += _get_x_from_result(d, lookup_key = "source", match_key = "{}.{}".format(prefix, i))
     return list(set(res))
+
+def clean_split(d, _var):
+    return [x for x in d.getVar(_var).split(" ") if x]

@@ -15,9 +15,20 @@ def do_sca_conv_eslint(d):
     try:
         data = ElementTree.ElementTree(ElementTree.parse(d.getVar("SCA_RAW_RESULT"))).getroot()
         items = []
-
+        _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
+        ## Filter out files
+        for f in data.findall(".//file"):
+            if ElementTree.tostring(f) in items or \
+                f.attrib["name"] in _excludes:
+                for h in f:
+                    f.remove(h)
+                continue
+            items.append(ElementTree.tostring(f))
+        ## Filter out items
+        data = data.getroot()
         for f in data.findall(".//error"):
-            if ElementTree.tostring(f) in items or f.attrib["severity"] not in checkstyle_allowed_warning_level(d):
+            if ElementTree.tostring(f) in items or \
+               f.attrib["severity"] not in checkstyle_allowed_warning_level(d):
                 for h in f:
                     f.remove(h)
                 continue

@@ -27,7 +27,8 @@ python do_sca_pysymcheck() {
     if not os.path.exists(os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "pysymbolcheck", d.getVar("SCA_PYSYMCHECK_RULE_FILE"))):
         bb.warn("Rule-File {} does not exists - Empty results will be expected".format(d.getVar("SCA_PYSYMCHECK_RULE_FILE")))
 
-    _files = get_files_by_mimetype(d, d.getVar("B"), ["application/x-executable", 'application/x-sharedlib'], [])
+    _files = get_files_by_mimetype(d, d.getVar("B"), ["application/x-executable", 'application/x-sharedlib'],\
+                                   sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     ## Run
     cmd_output = ""
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_pysymcheck.txt")

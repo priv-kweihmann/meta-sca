@@ -102,6 +102,7 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_EXPORT_DIR | Directory where to store the results of analysis | path | \${DEPLOY_DIR_IMAGE}/sca
 | SCA_EXPORT_FINDING_DIR | The folder where to store the original source-files of findings | path | \${DEPLOY_DIR_IMAGE}/sca/sources/\${PN}/
 | SCA_EXPORT_FINDING_SRC | Do copy the source-files of any finding to deploy-dir. This proved to helpful when integrating into Jenkins. | string | "1"
+| SCA_FILE_FILTER | List of glob-expression of file to skip for testing | space separated list | "tests/* test/* doc/* testsuite/* \*\*/tests/* \*\*/test/* \*\*/doc/* \*\*/testsuite/*"
 | SCA_SOURCES_DIR | Path where to find the source-files to be checked | path | "\${B}" for recipes, "\${IMAGE_ROOTFS}" for images
 | SCA_STD_PYTHON_INTERPRETER | Standard python interpreter to be used in SCA | python or python3 | "python3"
 | SCA_WARNING_LEVEL | Filter for severity of findings | string: info, warning or error | "warning"
@@ -115,67 +116,71 @@ To exclude __all__ tools from a recipe use the following variable
 
 The effective configuration is a merge of the global blacklist and the tool specific blacklist
 
+Also you can skip testing certain files. You can set this globally by appending to **SCA_FILE_FILTER** or on a recipe level 
+by defining a variable called **SCA_FILE_FILTER_EXTRA**.
+
 ### Available configuration for cpplint
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_cpplint | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_CPPLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_CPPLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_CPPLINT_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".c .cpp .h .hpp"
-| SCA_BLACKLIST_cpplint | Blacklist filter for this tool | space-separated-list | "linux-*"
 
 ### Available configuration for cppcheck
 For further explanations on the variables see the manpage of cppcheck
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_cppcheck | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_CPPCHECK_ADD_INCLUDES | Additional paths leading to includes | space-separated-list | ""
 | SCA_CPPCHECK_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_CPPCHECK_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_CPPCHECK_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".c .cpp .h .hpp"
 | SCA_CPPCHECK_LANG_STD | C standard to check on | space separated list | "c99"
-| SCA_BLACKLIST_cppcheck | Blacklist filter for this tool | space-separated-list | "linux-*"
 
 ### Available configuration for gcc
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_gcc | Blacklist filter for this tool | space-separated-list | ""
 | SCA_GCC_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_GCC_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
-| SCA_BLACKLIST_gcc | Blacklist filter for this tool | space-separated-list | ""
 
 ### Available configuration for pylint (recipe)
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_pylint | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_PYLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_PYLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_PYLINT_HOMEPATH | Directory of python installation | path | \${STAGING_LIBDIR}/python.3.5
 | SCA_PYLINT_LIBATH | List of library paths for python | ':' separated list | \${STAGING_LIBDIR}/python.3.5/:\${STAGING_LIBDIR}/python.3.5/site-packages/
 | SCA_PYLINT_ROOTPATH | Root path from where checks should be performed | path | \${B}
-| SCA_BLACKLIST_pylint | Blacklist filter for this tool | space-separated-list | "linux-*"
 
 ### Available configuration for pylint (image)
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_pylint | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_PYLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_PYLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_PYLINT_HOMEPATH | Directory of python installation | path | \${IMAGE_ROOTFS}/python.3.5
 | SCA_PYLINT_LIBATH | List of library paths for python | ':' separated list | \${IMAGE_ROOTFS}/python.3.5/:\${IMAGE_ROOTFS}/python.3.5/site-packages/
 | SCA_PYLINT_ROOTPATH | Root path from where checks should be performed | path | \${IMAGE_ROOTFS}
-| SCA_BLACKLIST_pylint | Blacklist filter for this tool | space-separated-list | "linux-*"
 
 ### Available configuration for shellcheck
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_shellcheck | Blacklist filter for this tool | space-separated-list | ""
 | SCA_SHELLCHECK_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | "":
 | SCA_SHELLCHECK_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
-| SCA_BLACKLIST_shellcheck | Blacklist filter for this tool | space-separated-list | ""
 
 ### Available configuration for eslint
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_eslint | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_ESLINT_CONFIG_FILE | Configuration-file to be used. See recipe eslint-native for details | string: eslint-standard.json, eslint-plain.json, eslint-airbnb.json, eslint-google.json | eslint-plain.json
 | SCA_ESLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | "":
 | SCA_ESLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
-| SCA_BLACKLIST_eslint | Blacklist filter for this tool | space-separated-list | "linux-*"
 
 ### Available configuration for cve-check
 __NOTE:__ this tool does not support suppression or fatal error handling
@@ -194,43 +199,44 @@ __NOTE:__ this tool does not support suppression or fatal error handling
 ### Available configuration for kconfighard
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_kconfighard | Blacklist filter for this tool | space-separated-list | ""
 | SCA_KCONFIGHARD_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_KCONFIGHARD_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
-| SCA_BLACKLIST_kconfighard | Blacklist filter for this tool | space-separated-list | ""
 
 ### Available configuration for pysymcheck
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_pysymcheck | Blacklist filter for this tool | space-separated-list | ""
 | SCA_PYSYMCHECK_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_PYSYMCHECK_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_PYSYMCHECK_RULE_FILE | Configuration-file to be used. Must be installed to \<root\>/usr/bin/pysymbolcheck/ | string: basic_rules.json | "basic_rules.json"
-| SCA_BLACKLIST_pysymcheck | Blacklist filter for this tool | space-separated-list | ""
 
 ### Available configuration for clang
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_clang | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_CLANG_ADD_INCLUDES | List of additional include paths | space-separated-list | ""
 | SCA_CLANG_CHECKERS | List of clang-tidy checkers to execute | space-separated-list | see sca-clang.bbclass for details
 | SCA_CLANG_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_CLANG_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_CLANG_FILE_FILTER | List of file extensions to check | space-separated-list | ".c .cpp"
-| SCA_BLACKLIST_clang | Blacklist filter for this tool | space-separated-list | "linux-*"
 
 ### Available configuration for flint++
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_flint | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_FLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_FLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
-| SCA_BLACKLIST_flint | Blacklist filter for this tool | space-separated-list | "linux-*"
+| SCA_FLINT_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".c .cpp .h .hpp"
 
 ### Available configuration for oclint
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_oclint | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_OCLINT_ADD_INCLUDES | List of additional include paths | space-separated-list | ""
 | SCA_OCLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_OCLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_OCLINT_FILE_FILTER | List of file extensions to check | space-separated-list | ".c .cpp"
-| SCA_BLACKLIST_oclint | Blacklist filter for this tool | space-separated-list | "linux-*"
 
 ### Available configuration for bandit
 | var | purpose | type | default |
@@ -243,64 +249,65 @@ __NOTE:__ this tool does not support suppression or fatal error handling
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_xmllint | Blacklist filter for this tool | space-separated-list | ""
 | SCA_XMLLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_XMLLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_XMLLINT_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".xml"
-| SCA_BLACKLIST_xmllint | Blacklist filter for this tool | space-separated-list | ""
 
 ### Available configuration for oelint
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_oelint | Blacklist filter for this tool | space-separated-list | ""
 | SCA_OELINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_OELINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
-| SCA_BLACKLIST_oelint | Blacklist filter for this tool | space-separated-list | ""
 
 ### Available configuration for jsonlint
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_jsonlint | Blacklist filter for this tool | space-separated-list | ""
 | SCA_JSONLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_JSONLINT_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".json"
-| SCA_BLACKLIST_jsonlint | Blacklist filter for this tool | space-separated-list | ""
 
 ### Available configuration for gixy
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_gixy | Blacklist filter for this tool | space-separated-list | ""
 | SCA_GIXY_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_GIXY_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".json"
-| SCA_BLACKLIST_gixy | Blacklist filter for this tool | space-separated-list | ""
 | SCA_GIXY_NGINX_CONF | NGINX config file to be checked | string | "/etc/nginx/nginx.conf"
 
 ### Available configuration for rats
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_rats | Blacklist filter for this tool | space-separated-list | ""
 | SCA_RATS_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_RATS_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
-| SCA_BLACKLIST_rats | Blacklist filter for this tool | space-separated-list | ""
 
 ### Available configuration for tscancode
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_tscancode | Blacklist filter for this tool | space-separated-list | "linux-*"
+| SCA_TSCANCODE_CONFIG_FILES | Files to check for configuration symbols (header or KConfig) | space-separated-list | ".config config.h"
 | SCA_TSCANCODE_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_TSCANCODE_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_TSCANCODE_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".cpp .cxx .cc .c++ .c .tpp .txx"
 | SCA_TSCANCODE_INCLUDE_PATHS | Extra include paths **WARNING: this will heavily slow down thw check** | space-separated-list | ""
-| SCA_TSCANCODE_CONFIG_FILES | Files to check for configuration symbols (header or KConfig) | space-separated-list | ".config config.h"
 | SCA_TSCANCODE_SYMBOL_PREFIX | Prefix found symbols with | string | "ENABLE_"
-| SCA_BLACKLIST_tscancode | Blacklist filter for this tool | space-separated-list | "linux-*"
 
 ### Available configuration for pytype
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_pytype | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_PYTYPE_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_PYTYPE_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
-| SCA_BLACKLIST_pytype | Blacklist filter for this tool | space-separated-list | "linux-*"
 
 ### Available configuration for zrd
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_zrd | Blacklist filter for this tool | space-separated-list | ""
 | SCA_ZRD_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_ZRD_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
-| SCA_BLACKLIST_zrd | Blacklist filter for this tool | space-separated-list | ""
 
 ## Suppression and fatal-error
 Every tool has the possibility to suppress some of the findings.

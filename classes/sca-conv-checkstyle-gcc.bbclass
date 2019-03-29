@@ -29,6 +29,8 @@ def do_sca_conv_gcc(d):
         "warning" : "warning",
     }
 
+    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
+
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         f = open(d.getVar("SCA_RAW_RESULT_FILE"), "r")
         content = f.read()
@@ -43,6 +45,8 @@ def do_sca_conv_gcc(d):
                 g.Message = "[Package:%s Tool:gcc] %s" % (package_name, m.group("message"))
                 g.Severity = m.group("severity")
                 g.ID = "GCC.GCC.%s" % m.group("id")
+                if g.File in _excludes:
+                    continue
                 if g.Severity in checkstyle_allowed_warning_level(d):
                     items.append(g)
             except:

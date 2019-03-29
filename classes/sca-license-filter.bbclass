@@ -56,7 +56,7 @@ def sca_filter_by_license_image(d):
 def sca_filter_by_license_recipe(d):
     if not sca_license_filter_match(d):
         return []
-    return [ 1 ] ## return dummy value
+    return [ "1" ] ## return dummy value
 
 
 def sca_filter_by_license(d):

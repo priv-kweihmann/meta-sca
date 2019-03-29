@@ -21,7 +21,7 @@ python do_sca_shellcheck_core() {
     xml_output = ""
     for k,v in { "bash": "*./bash", "sh": "*./sh", "ksh": "*./ksh"}.items():
         for item in get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), v, ".sh",
-                                                      sca_filter_by_license(d)):
+                                                      sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))):
             _t_args = _args + ["-s", k, item]
             cmd_output = ""
             try:

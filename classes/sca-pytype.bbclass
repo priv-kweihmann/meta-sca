@@ -38,7 +38,8 @@ python do_sca_pytype() {
     _args += ["-P", ":".join(_paths)]
     _args += ["-o", os.path.join(d.getVar("T"), "pytypeout")]
     
-    for _f in get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*python", [".py"], []):
+    for _f in get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*python", [".py"], \
+                                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))):
         try:
             cmd_output += subprocess.check_output(_args + [_f], universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:

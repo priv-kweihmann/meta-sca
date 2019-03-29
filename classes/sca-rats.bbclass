@@ -24,7 +24,9 @@ python do_sca_rats() {
     _args = ["rats"]
     _args += ["--xml"]
 
-    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), ".c", excludes=[])
+    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
+
+    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), ".c", _excludes)
     ## C
     if any(_files):
         try:
@@ -35,7 +37,7 @@ python do_sca_rats() {
             cmd_output = e.stdout or ""
         xml_output = xml_combine(d, xml_output, cmd_output)
 
-    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*perl", ".perl .pl", excludes=[])
+    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*perl", ".perl .pl", _excludes)
     ## Perl
     if any(_files):
         try:
@@ -46,7 +48,7 @@ python do_sca_rats() {
             cmd_output = e.stdout or ""
         xml_output = xml_combine(d, xml_output, cmd_output)
 
-    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*python", ".py", excludes=[])
+    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*python", ".py", _excludes)
     ## Python
     if any(_files):
         try:
@@ -57,7 +59,7 @@ python do_sca_rats() {
             cmd_output = e.stdout or ""
         xml_output = xml_combine(d, xml_output, cmd_output)
 
-    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*php", ".php", excludes=[])
+    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*php", ".php", _excludes)
     ## Php
     if any(_files):
         try:
@@ -68,7 +70,7 @@ python do_sca_rats() {
             cmd_output = e.stdout or ""
         xml_output = xml_combine(d, xml_output, cmd_output)
 
-    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*ruby", ".ruby", excludes=[])
+    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*ruby", ".ruby", _excludes)
     ## Ruby
     if any(_files):
         try:

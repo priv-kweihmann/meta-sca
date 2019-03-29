@@ -2,6 +2,7 @@
 
 inherit sca-global
 inherit sca-helper
+inherit sca-file-filter
 inherit sca-blackllist
 
 SCA_PACKAGE_LICENSE_FILTER = "CLOSED"

@@ -42,7 +42,8 @@ python do_sca_clang() {
        _args += ["-extra-arg", "-I{}".format(item)]
 
     compile_json = []
-    for _f in get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_CLANG_FILE_FILTER").split(" "), []):
+    for _f in get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_CLANG_FILE_FILTER").split(" "), \
+                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))):
         compile_json.append(
             {
                 "directory": d.getVar("B"),

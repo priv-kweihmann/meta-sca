@@ -29,7 +29,7 @@ python do_sca_bandit_core() {
     if any(_supress):
         _args += ["--skip", ",".join(_supress)]
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*python3", ".py",
-                                                      sca_filter_by_license(d))
+                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     with open(d.getVar("SCA_RAW_RESULT_FILE"), "w") as o:
         json.dump([], o)

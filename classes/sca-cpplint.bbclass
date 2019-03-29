@@ -33,12 +33,11 @@ python do_sca_cpplint() {
     cmd_output = ""
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_cpplint.xml")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
-    for root, dirs, files in os.walk(os.getcwd(), topdown=True):
-        for name in files:
-            _filepath = os.path.join(root, name)
-            _filename, _file_extension = os.path.splitext(_filepath)
-            if _file_extension in d.getVar("SCA_CPPLINT_FILE_FILTER").split(" "):
-                _args += [_filepath]
+    _files = get_files_by_extention(d, 
+                                    d.getVar("SCA_SOURCES_DIR"), 
+                                    clean_split(d, "SCA_CPPLINT_FILE_FILTER"), 
+                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+    _args += _files
     try:
         cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
     except subprocess.CalledProcessError as e:

@@ -28,6 +28,7 @@ def do_sca_conv_flint(d):
     severity_map = {
         "Error" : "error",
         "Warning" : "warning",
+        "Advice" : "info"
     }
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):

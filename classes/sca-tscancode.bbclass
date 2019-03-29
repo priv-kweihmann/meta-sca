@@ -8,6 +8,8 @@ SCA_TSCANCODE_INCLUDE_PATHS ?= ""
 SCA_TSCANCODE_CONFIG_FILES ?= ".config config.h"
 ## Prefix found symbol with
 SCA_TSCANCODE_SYMBOL_PREFIX ?= "ENABLE_"
+## File filter
+SCA_TSCANCODE_FILE_FILTER = ".cpp .cxx .cc .c++ .c .tpp .txx"
 
 inherit sca-helper
 inherit sca-conv-checkstyle-tscancode
@@ -57,7 +59,10 @@ python do_sca_tscancode() {
         _args += ["-D{}{}".format(d.getVar("SCA_TSCANCODE_SYMBOL_PREFIX"), sym)]
     for x in [x for x in d.getVar("SCA_TSCANCODE_INCLUDE_PATHS") if x]:
         _args += ["-I", x]
-    _args += [d.getVar("SCA_SOURCES_DIR")]
+    _args += get_files_by_extention(d, 
+                                    d.getVar("SCA_SOURCES_DIR"), 
+                                    clean_split(d, "SCA_TSCANCODE_FILE_FILTER"), 
+                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## create tmpdir
     _cfgdir = os.path.join(d.getVar("T"), "tscancode", "cfg")

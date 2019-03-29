@@ -9,6 +9,8 @@ SCA_CPPCHECK_ADD_INCLUDES ?= ""
 ## For multiple use a space separated list
 ## Possible entries are posix,c89,c99,c11,c++03,c++11,c++14
 SCA_CPPCHECK_LANG_STD ?= "c99"
+## File extension filter list (whitespace separated)
+SCA_CPPCHECK_FILE_FILTER ?= ".c .cpp .h .hpp"
 
 def get_platform_type(d):
     ## Let's assume that 64bit platforms 
@@ -55,7 +57,14 @@ python do_sca_cppcheck() {
     result_raw_file = os.path.join(d.getVar("T", True), "sca_raw_cppcheck.xml")
     d.setVar("SCA_RAW_RESULT", result_raw_file)
     _args += ["--output-file={}".format(result_raw_file)]
-    _args += ["."]
+    _files = get_files_by_extention(d, 
+                                    d.getVar("SCA_SOURCES_DIR"), 
+                                    clean_split(d, "SCA_CPPCHECK_FILE_FILTER"), 
+                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+    _file_list = os.path.join(d.getVar("T"), ".cppcheck_filelist")
+    with open(_file_list, "w") as o:
+        o.write("\n".join(_files))
+    _args += ["--file-list={}".format(_file_list)]
 
     ## Run
     if os.path.exists("std.cfg"):

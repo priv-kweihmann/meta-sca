@@ -26,7 +26,8 @@ python do_sca_xmllint_core() {
     _args += ["--noout"]
     _args += ["--valid"]
 
-    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_XMLLINT_FILE_FILTER"), sca_filter_by_license(d))
+    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_XMLLINT_FILE_FILTER"), \
+                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     cmd_output = ""
     if any(_files):
         _args += _files    

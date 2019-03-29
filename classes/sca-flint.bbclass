@@ -2,6 +2,8 @@
 SCA_FLINT_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_FLINT_EXTRA_FATAL ?= ""
+## File extension filter list (whitespace separated)
+SCA_FLINT_FILE_FILTER ?= ".c .cpp .h .hpp"
 
 inherit sca-helper
 inherit sca-conv-checkstyle-flint
@@ -20,9 +22,12 @@ python do_sca_flint() {
 
     _args = ["flint++"]
     _args += ["-r"]
-    _args += ["-l", "2"]
+    _args += ["-l", "3"]
     _args += ["-v"]
-    _args += [d.getVar("SCA_SOURCES_DIR")]
+    _args += get_files_by_extention(d, 
+                                    d.getVar("SCA_SOURCES_DIR"), 
+                                    clean_split(d, "SCA_FLINT_FILE_FILTER"), 
+                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run
     cur_dir = os.getcwd()

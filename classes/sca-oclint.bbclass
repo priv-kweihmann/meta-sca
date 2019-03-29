@@ -39,7 +39,8 @@ python do_sca_oclint() {
        _args += ["-extra-arg", "-I{}".format(item)]
 
     compile_json = []
-    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_OCLINT_FILE_FILTER").split(" "), [])
+    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_OCLINT_FILE_FILTER").split(" "), \
+                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     for _f in _files:
         compile_json.append(
             {

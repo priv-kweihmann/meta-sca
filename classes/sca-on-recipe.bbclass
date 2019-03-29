@@ -2,7 +2,7 @@
 
 inherit sca-global
 inherit sca-helper
-inherit sca-license-filter
+inherit sca-file-filter
 inherit sca-blackllist
 
 SCA_ENABLED_MODULES ?= "bandit bitbake cve-check clang eslint flint cpplint cppcheck gcc \
