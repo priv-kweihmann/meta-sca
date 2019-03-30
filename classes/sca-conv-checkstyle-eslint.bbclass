@@ -13,7 +13,7 @@ def do_sca_conv_eslint(d):
     buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     try:
-        data = ElementTree.ElementTree(ElementTree.parse(d.getVar("SCA_RAW_RESULT"))).getroot()
+        data = ElementTree.ElementTree(ElementTree.parse(d.getVar("SCA_RAW_RESULT")))
         items = []
         _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
         ## Filter out files
@@ -35,6 +35,7 @@ def do_sca_conv_eslint(d):
             items.append(ElementTree.tostring(f))
         data = data.getroot()
     except Exception as e:
+        ##bb.warn(str(e))
         data = Element("checkstyle")
         data.set("version", "4.3")
     
