@@ -5,7 +5,7 @@ inherit sca-helper
 inherit sca-file-filter
 inherit sca-blackllist
 
-SCA_ENABLED_MODULES ?= "bandit bitbake cve-check clang eslint flint cpplint cppcheck gcc \
+SCA_ENABLED_MODULES ?= "bandit bitbake cspell cve-check clang eslint flint cpplint cppcheck gcc \
                         jsonlint kconfighard oelint pylint pysymcheck pytype oclint rats shellcheck \
                         tscancode xmllint zrd"
 SCA_SOURCES_DIR ?= "${B}"

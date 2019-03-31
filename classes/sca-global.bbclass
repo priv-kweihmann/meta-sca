@@ -30,6 +30,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           clang \
                           cppcheck \
                           cpplint \
+                          cspell \
                           cve-check \
                           eslint \
                           flint \

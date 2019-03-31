@@ -55,7 +55,7 @@ def _combine_x_entries(d, input_file, extra_key):
     _filename = d.getVar(input_file, True)
     _extra = d.getVar(extra_key, True) or ""
     res = []
-    if _filename:
+    if os.path.isfile(_filename):
         _rules_file = _filename
         with open(_rules_file) as f:
             res = f.readlines()

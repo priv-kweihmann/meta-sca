@@ -1,0 +1,6 @@
+{
+    "languages": ["spelling"],
+    "buildspeed" : "normal",
+    "execspeed": "normal",
+    "quality": "normal"
+}
