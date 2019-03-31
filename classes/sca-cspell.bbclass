@@ -96,7 +96,7 @@ python do_sca_cspell() {
         _check_files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), _shebang, _files,
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
         if any(_check_files):
-            bb.warn("Running cspell for {}".format(k))
+            bb.note("Running cspell for {}".format(k))
             write_config(_config, {k:v for k,v in _lang_configs.items() if k in _dicts.split(" ")}, _config_file)
             _t_args = _args + _check_files
             try:
