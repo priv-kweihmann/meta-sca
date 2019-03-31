@@ -45,6 +45,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           pytype \
                           rats \
                           shellcheck \
+                          textlint \
                           tscancode \
                           xmllint \
                           zrd"

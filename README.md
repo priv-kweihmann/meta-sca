@@ -55,6 +55,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * oclint (c/c++/obj-c) [oclint]
  * rats (security for c/php/python/perl/ruby) [rats]
  * shellcheck (shell) [shellcheck]
+ * textlint (spelling) [textlint]
  * tscancode (c,c#,lua) [tscancode]
  * xmlint (xml) [xmllint]
  * zeroresourcedetector (g18n/i18n) [zrd]
@@ -369,6 +370,15 @@ Following variables are therefore languages are exposed by default
 __NOTE__: By the default this module does only generate warnings of level **"info"**. 
 So if you like them to be deployed you have to set **SCA_WARNING_LEVEL** to __"info"__ globally or in the 
 recipe.
+
+### Available configuration for textlint
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_textlint | Blacklist filter for this tool | space-separated-list | ""
+| SCA_TEXTLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_TEXTLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_TEXTLINT_ONLINE | Allow rules which requires online access to work | 0 or 1 | "1"
+| SCA_TEXTLINT_RULES | List of rules to check on | space-separated-list | see sca-textlint.bbclass for details
 
 ## Suppression and fatal-error
 Every tool has the possibility to suppress some of the findings.
