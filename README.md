@@ -23,6 +23,7 @@ On the other hand some static code analysis does not make any sense on an image-
 
 ### Tools for image recipes
 
+ * ansible (security) [ansible]
  * bandit (python/security) [bandit]
  * bitbake (handle bitbake issues) [bitbake]
  * eslint (javascript/html) [eslint]
@@ -379,6 +380,16 @@ recipe.
 | SCA_TEXTLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_TEXTLINT_ONLINE | Allow rules which requires online access to work | 0 or 1 | "1"
 | SCA_TEXTLINT_RULES | List of rules to check on | space-separated-list | see sca-textlint.bbclass for details
+
+### Available configuration for ansible
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_ansible | Blacklist filter for this tool | space-separated-list | ""
+| SCA_ANSIBLE_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_ANSIBLE_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_ANSIBLE_PLAYBOOKS | Listt of glob-expr to search for playbooks | space-separated-list | "*.yaml"
+
+**Note**: __A detailed description of how things are working regarding ansible and playbooks will follow soon__
 
 ## Suppression and fatal-error
 Every tool has the possibility to suppress some of the findings.
