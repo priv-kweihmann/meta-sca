@@ -1,0 +1,49 @@
+- name: sysconf network security
+  gather_facts: false
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+    - name: "[error] Enable Virtual Memory Region Placement"
+      sysctl:
+        name: "kernel.randomize_va_space"
+        value: 2
+        sysctl_file: "{{ sysconfdir }}/sysctl.conf"
+
+    - name: "[error] Restrict Core Dumps"
+      sysctl:
+        name: "fs.suid_dumpable"
+        value: 0
+        sysctl_file: "{{ sysconfdir }}/sysctl.conf"
+    
+    - name: "[error] Disable Magic Sysrq"
+      sysctl:
+        name: "kernel.sysrq"
+        value: 0
+        sysctl_file: "{{ sysconfdir }}/sysctl.conf"
+
+    - name: "[error] Limit use of kernel addresses to root only"
+      sysctl:
+        name: "kernel.kptr_restrict"
+        value: 1
+        sysctl_file: "{{ sysconfdir }}/sysctl.conf"
+
+    - name: "[error] Protect zero page usage"
+      sysctl:
+        name: "vm.mmap_min_addr"
+        value: 65535
+        sysctl_file: "{{ sysconfdir }}/sysctl.conf"
+
+    - name: "[error] Protect hardlinks"
+      sysctl:
+        name: "fs.protected_hardlinks"
+        value: 1
+        sysctl_file: "{{ sysconfdir }}/sysctl.conf"
+
+
+    - name: "[error] Protect symlinks"
+      sysctl:
+        name: "fs.protected_symlinks"
+        value: 1
+        sysctl_file: "{{ sysconfdir }}/sysctl.conf"
+
