@@ -1,0 +1,59 @@
+- name: passwd security
+  gather_facts: false
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - stat:
+        path: "{{ sysconfdir }}/shadow"
+      register: shadow_result
+    - stat:
+        path: "{{ sysconfdir }}/gshadow"
+      register: gshadow_result
+    
+    - name: "[error] passwd is owned by root"
+      file:
+        path: "{{ sysconfdir }}/passwd"
+        owner: 0
+
+    - name: "[error] group is owned by root"
+      file:
+        path: "{{ sysconfdir }}/group"
+        owner: 0
+
+    - name: "[error] shadow is owned by root"
+      file:
+        path: "{{ sysconfdir }}/shadow"
+        owner: 0
+      when:
+        - shadow_result.stat.exists == true
+
+    - name: "[error] gshadow is owned by root"
+      file:
+        path: "{{ sysconfdir }}/gshadow"
+        owner: 0
+      when:
+        - gshadow_result.stat.exists == true
+    
+    - name: "[error] passwd has file mode 644"
+      file:
+        path: "{{ sysconfdir }}/passwd"
+        mode: 0644
+
+    - name: "[error] group has file mode 644"
+      file:
+        path: "{{ sysconfdir }}/group"
+        mode: 0644
+
+    - name: "[error] shadow has file mode 600"
+      file:
+        path: "{{ sysconfdir }}/shadow"
+        mode: 0600
+      when:
+        - shadow_result.stat.exists == true
+
+    - name: "[error] gshadow has file mode 600"
+      file:
+        path: "{{ sysconfdir }}/gshadow"
+        mode: 0600
+      when:
+        - gshadow_result.stat.exists == true
