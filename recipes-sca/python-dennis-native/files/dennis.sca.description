@@ -1,0 +1,6 @@
+{
+    "languages": ["i18n"],
+    "buildspeed" : "fast",
+    "execspeed": "fast",
+    "quality": "good"
+}
