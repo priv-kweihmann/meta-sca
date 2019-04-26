@@ -27,6 +27,7 @@ SCA_BLACKLIST_systemdlint ?= ""
 SCA_BLACKLIST_textlint ?= ""
 SCA_BLACKLIST_tscanscode ?= "linux-.*"
 SCA_BLACKLIST_xmllint ?= ""
+SCA_BLACKLIST_yamllint ?= ""
 SCA_BLACKLIST_zrd ?= ""
 
 def sca_is_module_blacklisted(d, tool):

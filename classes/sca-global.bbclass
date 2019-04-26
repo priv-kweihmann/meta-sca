@@ -51,6 +51,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           textlint \
                           tscancode \
                           xmllint \
+                          yamllint \
                           zrd"
 
 inherit sca-conv-checkstyle-helper

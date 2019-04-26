@@ -7,7 +7,7 @@ inherit sca-blackllist
 
 SCA_ENABLED_MODULES ?= "bandit bitbake cspell cve-check clang dennis eslint flint cpplint cppcheck gcc \
                         jsonlint kconfighard oelint pylint pysymcheck pytype oclint rats shellcheck \
-                        textlint tscancode xmllint zrd"
+                        textlint tscancode xmllint yamllint zrd"
 SCA_SOURCES_DIR ?= "${B}"
 
 SCA_MODE = "recipe"

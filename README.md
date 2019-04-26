@@ -34,7 +34,8 @@ On the other hand some static code analysis does not make any sense on an image-
  * pylint (python) [pylint]
  * shellcheck (shell) [shellcheck]
  * systemdlint (systemd) [systemdlint]
- * xmlint (xml) [xmllint]
+ * xmllint (xml) [xmllint]
+ * yamllint (xml) [yamllint]
 
 ### Tools for all other recipes
 
@@ -60,7 +61,8 @@ On the other hand some static code analysis does not make any sense on an image-
  * shellcheck (shell) [shellcheck]
  * textlint (spelling) [textlint]
  * tscancode (c,c#,lua) [tscancode]
- * xmlint (xml) [xmllint]
+ * xmllint (xml) [xmllint]
+ * yamllint (xml) [yamllint]
  * zeroresourcedetector (g18n/i18n) [zrd]
 
 each tool does have it's own benefits and flaws so don't be mad if you have 10k+ findings on the initial run.
@@ -426,6 +428,15 @@ __NOTE:__ this tool does not support suppression or fatal error handling
 | SCA_XMLLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_XMLLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_XMLLINT_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".xml"
+
+### Available configuration for yamllint
+
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_yamllint | Blacklist filter for this tool | space-separated-list | ""
+| SCA_YAMLLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_YAMLLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_YAMLLINT_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".yaml"
 
 ### Available configuration for zrd
 
