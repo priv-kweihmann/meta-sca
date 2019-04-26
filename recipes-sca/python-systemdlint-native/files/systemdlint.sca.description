@@ -1,5 +1,5 @@
 {
-    "languages": ["bitbake"],
+    "languages": ["systemd"],
     "buildspeed" : "fast",
     "execspeed": "normal",
     "quality": "good"
