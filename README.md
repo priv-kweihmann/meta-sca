@@ -33,6 +33,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * oelint-adv (linting bitbake recipes) [oelint]
  * pylint (python) [pylint]
  * shellcheck (shell) [shellcheck]
+ * systemdlint (systemd) [systemdlint]
  * xmlint (xml) [xmllint]
 
 ### Tools for all other recipes
@@ -374,6 +375,17 @@ __NOTE:__ this tool does not support suppression or fatal error handling
 | SCA_BLACKLIST_shellcheck | Blacklist filter for this tool | space-separated-list | ""
 | SCA_SHELLCHECK_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | "":
 | SCA_SHELLCHECK_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+
+### Available configuration for systemdlint
+
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_systemdlint | Blacklist filter for this tool | space-separated-list | ""
+| SCA_SYSTEMDLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | "":
+| SCA_SYSTEMDLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_SYSTEMDLINT_SYSTEMD_VERSION | Specifies the version of systemd to be checked against. Leave empty to disable | version string | ""
+| SCA_SYSTEMDLINT_FILES | File extensions to check on | space-separated-list | ".automount .conf .link .mount .network .path .service .slice .socket .swap .target .timer"
+| SCA_SYSTEMDLINT_PATHS | Paths to search for systemd-files | space-separated-list | ${SCA_SOURCES_DIR}/${sysconfdir}/systemd ${SCA_SOURCES_DIR}/${libdir}/systemd ${SCA_SOURCES_DIR}/run/systemd
 
 ### Available configuration for textlint
 

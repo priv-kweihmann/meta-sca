@@ -6,7 +6,7 @@ inherit sca-file-filter
 inherit sca-blackllist
 
 SCA_PACKAGE_LICENSE_FILTER = "CLOSED"
-SCA_ENABLED_MODULES ?= "ansible bandit bitbake eslint gixy jsonlint oelint pylint shellcheck xmllint"
+SCA_ENABLED_MODULES ?= "ansible bandit bitbake eslint gixy jsonlint oelint pylint shellcheck systemdlint xmllint"
 SCA_SOURCES_DIR ?= "${IMAGE_ROOTFS}"
 
 SCA_MODE = "image"
