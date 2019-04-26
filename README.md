@@ -35,7 +35,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * shellcheck (shell) [shellcheck]
  * systemdlint (systemd) [systemdlint]
  * xmllint (xml) [xmllint]
- * yamllint (xml) [yamllint]
+ * yamllint (yaml) [yamllint]
 
 ### Tools for all other recipes
 
@@ -62,7 +62,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * textlint (spelling) [textlint]
  * tscancode (c,c#,lua) [tscancode]
  * xmllint (xml) [xmllint]
- * yamllint (xml) [yamllint]
+ * yamllint (yaml) [yamllint]
  * zeroresourcedetector (g18n/i18n) [zrd]
 
 each tool does have it's own benefits and flaws so don't be mad if you have 10k+ findings on the initial run.
