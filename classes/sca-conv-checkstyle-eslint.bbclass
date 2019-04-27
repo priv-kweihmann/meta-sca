@@ -12,34 +12,33 @@ def do_sca_conv_eslint(d):
     package_name = d.getVar("PN", True)
     buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
+    new_data = Element("checkstyle")
+    new_data.set("version", "4.3")
+
     try:
         data = ElementTree.ElementTree(ElementTree.parse(d.getVar("SCA_RAW_RESULT")))
-        items = []
         _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
-        ## Filter out files
-        for f in data.findall(".//file"):
-            if ElementTree.tostring(f) in items or \
-                f.attrib["name"] in _excludes:
-                for h in f:
-                    f.remove(h)
+        _severities = checkstyle_allowed_warning_level(d)
+
+        for _file in data.findall(".//file"):
+            if _file.attrib["name"] in _excludes:
                 continue
-            items.append(ElementTree.tostring(f))
-        ## Filter out items
-        data = data.getroot()
-        for f in data.findall(".//error"):
-            if ElementTree.tostring(f) in items or \
-               f.attrib["severity"] not in checkstyle_allowed_warning_level(d):
-                for h in f:
-                    f.remove(h)
-                continue
-            items.append(ElementTree.tostring(f))
-        data = data.getroot()
+            inserted = False
+            new_file = Element("file")
+            new_file.set("name", _file.attrib["name"])
+            for f in _file.findall(".//error"):
+                if f.attrib["severity"] not in _severities:
+                    continue
+                if f.attrib["source"] in _supress:
+                    continue
+                if not inserted:
+                    new_data.append(new_file)
+                    inserted = True
+                new_file.append(f)
     except Exception as e:
-        ##bb.warn(str(e))
-        data = Element("checkstyle")
-        data.set("version", "4.3")
+        bb.note(str(e))
     
     try:
-        return checkstyle_prettify(d, data).decode("utf-8")
+        return checkstyle_prettify(d, new_data).decode("utf-8")
     except:
-        return checkstyle_prettify(d, data)
+        return checkstyle_prettify(d, new_data)
