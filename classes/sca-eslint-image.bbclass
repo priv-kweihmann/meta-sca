@@ -25,7 +25,7 @@ python do_sca_deploy_eslint_image() {
             for node in data.findall(".//error"):
                 ## Patch to common format
                 node.attrib["message"] = "[Package:'{}' Tool:eslint] {}".format(d.getVar("PN"), node.attrib["message"])
-                node.attrib["source"] = "ShellCheck.{}".format(node.attrib["source"])
+                node.attrib["source"] = "eslint.{}".format(node.attrib["source"])
 
             res = ""
             try:
