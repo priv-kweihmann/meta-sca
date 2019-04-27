@@ -38,6 +38,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           flint \
                           gcc \
                           gixy \
+                          htmlhint \
                           jsonlint \
                           kconfighard \
                           oclint \

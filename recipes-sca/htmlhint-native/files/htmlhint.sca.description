@@ -1,0 +1,6 @@
+{
+    "languages": ["html"],
+    "buildspeed" : "normal",
+    "execspeed": "fast",
+    "quality": "good"
+}

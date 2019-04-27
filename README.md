@@ -28,6 +28,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * bitbake (handle bitbake issues) [bitbake]
  * eslint (javascript/html) [eslint]
  * gixy (nginx-config security) [gixy]
+ * htmlhint (html) [htmlhint]
  * image-summary (aggregate all findings for package in an image) [image-summary]
  * json-parser (json) [jsonlint]
  * oelint-adv (linting bitbake recipes) [oelint]
@@ -50,13 +51,14 @@ On the other hand some static code analysis does not make any sense on an image-
  * eslint (javascript/html) [eslint]
  * flint++ (c/c++) [flint]
  * gcc (getting compiler warnings/errors) [gcc]
+ * htmlhint (html) [htmlhint]
  * json-parser (json) [jsonlint]
  * kconfig-hardened-check (check hardening of kernel) [kconfighard]
+ * oclint (c/c++/obj-c) [oclint]
  * oelint-adv (linting bitbake recipes) [oelint]
  * pylint (python) [pylint]
  * pysymbolcheck (check elf-files for used functions) [pysymcheck]
  * pytype (python) [pytype]
- * oclint (c/c++/obj-c) [oclint]
  * rats (security for c/php/python/perl/ruby) [rats]
  * shellcheck (shell) [shellcheck]
  * textlint (spelling) [textlint]
@@ -297,6 +299,14 @@ __NOTE:__ this tool does not support suppression or fatal error handling
 | SCA_GIXY_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_GIXY_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".json"
 | SCA_GIXY_NGINX_CONF | NGINX config file to be checked | string | "/etc/nginx/nginx.conf"
+
+### Available configuration for htmlhint
+
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_htmlhint | Blacklist filter for this tool | space-separated-list | ""
+| SCA_HTMLHINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_HTMLHINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 
 ### Available configuration for jsonlint
 
