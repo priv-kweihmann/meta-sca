@@ -16,17 +16,10 @@ SCA_TEXTLINT_RULES ?= "textlint-rule-no-todo textlint-rule-no-start-duplicated-c
                        textlint-rule-stop-words textlint-rule-en-capitalization"
 SCA_TEXTLINT_ONLINE ?= "1"
 
-python do_prepare_recipe_sysroot_append() {
-    import glob
-    import os
+inherit npm-helper
 
-    ## Rewrite all of the packages-paths if we have to
-    for item in glob.glob(os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "textlint") + "/**/package.json", recursive=True):
-        content = ""
-        with open(item, "r") as i:
-            content = i.read().replace("%SYSROOT%", d.getVar("STAGING_DATADIR_NATIVE"))
-        with open(item, "w") as o:
-            o.write(content)
+python do_prepare_recipe_sysroot_append() {
+    npm_prerun_fix_paths(d, d.getVar("STAGING_DATADIR_NATIVE"), "textlint")
 }
 
 def write_config(_base, _extra_dicts, _target):
@@ -143,4 +136,4 @@ python do_sca_deploy_textlint() {
 addtask do_sca_textlint before do_install after do_compile
 addtask do_sca_deploy_textlint before do_package after do_sca_textlint
 
-DEPENDS += "nodejs-native textlint-native sca-recipe-textlint-rules-native"
+DEPENDS += "textlint-native sca-recipe-textlint-rules-native"

@@ -15,17 +15,10 @@ SCA_CSPELL_LANG_PYTHON_shebang ?= ".*python"
 SCA_CSPELL_LANG_TXT_dicts ?= ""
 SCA_CSPELL_LANG_TXT_files ?= ".txt .md .rst"
 
-python do_prepare_recipe_sysroot_append() {
-    import glob
-    import os
+inherit npm-helper
 
-    ## Rewrite all of the packages-paths if we have to
-    for item in glob.glob(os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "cspell") + "/**/package.json", recursive=True):
-        content = ""
-        with open(item, "r") as i:
-            content = i.read().replace("%SYSROOT%", d.getVar("STAGING_DATADIR_NATIVE"))
-        with open(item, "w") as o:
-            o.write(content)
+python do_prepare_recipe_sysroot_append() {
+    npm_prerun_fix_paths(d, d.getVar("STAGING_DATADIR_NATIVE"), "cspell")
 }
 
 def write_config(_base, _extra_dicts, _target):
@@ -154,4 +147,4 @@ python do_sca_deploy_cspell() {
 addtask do_sca_cspell before do_install after do_compile
 addtask do_sca_deploy_cspell before do_package after do_sca_cspell
 
-DEPENDS += "nodejs-native cspell-native sca-recipe-cspell-rules-native"
+DEPENDS += "cspell-native sca-recipe-cspell-rules-native"

@@ -5,20 +5,13 @@ inherit sca-helper
 SCA_HTMLHINT_EXTRA_SUPPRESS ?= ""
 SCA_HTMLHINT_EXTRA_FATAL ?= ""
 
-python do_prepare_recipe_sysroot_append() {
-    import glob
-    import os
+inherit npm-helper
 
-    ## Rewrite all of the packages-paths if we have to
-    for item in glob.glob(os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "htmlhint") + "/**/package.json", recursive=True):
-        content = ""
-        with open(item, "r") as i:
-            content = i.read().replace("%SYSROOT%", d.getVar("STAGING_DATADIR_NATIVE"))
-        with open(item, "w") as o:
-            o.write(content)
+python do_prepare_recipe_sysroot_append() {
+    npm_prerun_fix_paths(d, d.getVar("STAGING_DATADIR_NATIVE"), "htmlhint")
 }
 
-DEPENDS += "nodejs-native htmlhint-native"
+DEPENDS += "htmlhint-native"
 
 python do_sca_htmlhint_core() {
     import os
