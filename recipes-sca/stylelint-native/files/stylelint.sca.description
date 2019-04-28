@@ -1,0 +1,6 @@
+{
+    "languages": ["css", "scss"],
+    "buildspeed" : "normal",
+    "execspeed": "fast",
+    "quality": "good"
+}

@@ -34,6 +34,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * oelint-adv (linting bitbake recipes) [oelint]
  * pylint (python) [pylint]
  * shellcheck (shell) [shellcheck]
+ * stylelint (css, scss) [stylelint]
  * systemdlint (systemd) [systemdlint]
  * xmllint (xml) [xmllint]
  * yamllint (yaml) [yamllint]
@@ -61,6 +62,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * pytype (python) [pytype]
  * rats (security for c/php/python/perl/ruby) [rats]
  * shellcheck (shell) [shellcheck]
+ * stylelint (css, scss) [stylelint]
  * textlint (spelling) [textlint]
  * tscancode (c,c#,lua) [tscancode]
  * xmllint (xml) [xmllint]
@@ -396,6 +398,16 @@ __NOTE:__ this tool does not support suppression or fatal error handling
 | SCA_BLACKLIST_shellcheck | Blacklist filter for this tool | space-separated-list | ""
 | SCA_SHELLCHECK_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | "":
 | SCA_SHELLCHECK_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+
+### Available configuration for stylelint
+
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_stylelint | Blacklist filter for this tool | space-separated-list | ""
+| SCA_STYLELINT_CONFIG | Config to use | 'stylelint-config-standard' or 'stylelint-config-recommended' | "stylelint-config-standard"
+| SCA_STYLELINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | "":
+| SCA_STYLELINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_STYLELINT_FILE_FILTER | Files to scan | space-separated-list | ".css .scss .html .htm"
 
 ### Available configuration for systemdlint
 
