@@ -28,6 +28,7 @@ SCA_ENABLED_MODULES ?= "\
                         pytype \
                         rats \
                         shellcheck \
+                        standard \
                         stylelint \
                         textlint \
                         tscancode \

@@ -18,6 +18,7 @@ SCA_ENABLED_MODULES ?= "\
                         oelint \
                         pylint \
                         shellcheck \
+                        standard \
                         stylelint \
                         systemdlint \
                         xmllint \

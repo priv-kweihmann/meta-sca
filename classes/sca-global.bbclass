@@ -49,6 +49,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           pytype \
                           rats \
                           shellcheck \
+                          standard \
                           stylelint \
                           systemdlint \
                           textlint \
