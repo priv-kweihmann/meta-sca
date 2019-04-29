@@ -14,7 +14,7 @@ python do_sca_deploy_yamllint_image() {
 
     raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "yamllint", "raw", "{}-{}.txt".format(d.getVar("PN"), d.getVar("PV")))
     cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "yamllint", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    src_raw = os.path.join(d.getVar("T"), "sca_raw_yamllint.tt")
+    src_raw = os.path.join(d.getVar("T"), "sca_raw_yamllint.txt")
     src_conv = os.path.join(d.getVar("T"), "sca_checkstyle_yamllint.xml")
     if os.path.exists(src_raw):
         shutil.copy(src_raw, raw_target)
