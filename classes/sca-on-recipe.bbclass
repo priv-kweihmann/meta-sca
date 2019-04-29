@@ -14,6 +14,7 @@ SCA_ENABLED_MODULES ?= "\
                         cspell \
                         cve-check \
                         dennis \
+                        detectsecrets \
                         eslint \
                         flint \
                         gcc \

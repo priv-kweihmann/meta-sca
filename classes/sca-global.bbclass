@@ -34,6 +34,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           cspell \
                           cve-check \
                           dennis \
+                          detectsecrets \
                           eslint \
                           flint \
                           gcc \

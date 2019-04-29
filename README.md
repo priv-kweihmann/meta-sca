@@ -26,6 +26,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * ansible (security) [ansible]
  * bandit (python/security) [bandit]
  * bitbake (handle bitbake issues) [bitbake]
+ * detect-secrets (detecting and preventing secrets in code) [detectsecrets]
  * eslint (javascript/html) [eslint]
  * gixy (nginx-config security) [gixy]
  * htmlhint (html) [htmlhint]
@@ -49,6 +50,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * cspell (spelling in c/c++/html/python/txt/md) [cspell]
  * cve-check (check for unpatched cve's) [cve-check]
  * dennis (i18n) [dennis]
+ * detect-secrets (detecting and preventing secrets in code) [detectsecrets]
  * eslint (javascript/html) [eslint]
  * flint++ (c/c++) [flint]
  * gcc (getting compiler warnings/errors) [gcc]
@@ -266,6 +268,14 @@ __NOTE:__ this tool does not support suppression or fatal error handling
 | SCA_BLACKLIST_dennis | Blacklist filter for this tool | space-separated-list | ""
 | SCA_DENNIS_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | "":
 | SCA_DENNIS_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+
+### Available configuration for detectsecrets
+
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_detectsecrets | Blacklist filter for this tool | space-separated-list | ""
+| SCA_DETECTSECRETS_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | "":
+| SCA_DETECTSECRETS_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 
 ### Available configuration for eslint
 

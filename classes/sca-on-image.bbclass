@@ -10,6 +10,7 @@ SCA_ENABLED_MODULES ?= "\
                         ansible \
                         bandit \
                         bitbake \
+                        detectsecrets \
                         eslint \
                         gixy \
                         htmlhint \
