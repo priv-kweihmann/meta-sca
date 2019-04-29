@@ -47,7 +47,7 @@ python do_compile() {
     # npm --prefix . install textlint-rule-apostrophe@1.0.0
     # npm --prefix . install textlint-rule-diacritics@0.0.2
     # npm --prefix . install textlint-rule-stop-words@1.0.12
-    # npm --prefix . install textlint-rule-en-capitalization@2.0.1
+    # npm --prefix . install textlint-rule-en-capitalization@2.0.2
 
     online_pkgs = ["textlint-rule-no-dead-link"]
     plugins = ["textlint-plugin-html", "textlint-plugin-rst"]
@@ -146,7 +146,7 @@ python do_compile() {
         "passive-voice": "0.1.0",
         "number-is-nan": "1.0.1",
         "universalify": "0.1.2",
-        "textlint-rule-en-capitalization": "2.0.1",
+        "textlint-rule-en-capitalization": "2.0.2",
         "is-hexadecimal": "1.0.2",
         "has-flag": "3.0.0",
         "minimist": "1.2.0",
