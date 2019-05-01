@@ -83,6 +83,17 @@ To make the integration of clang-module (clang-tidy) work you need to add the [m
 
 There are several ways to integrate static code analysis into your code base.
 
+## Configuration wizard
+
+You can find a configuration wizard script at 
+
+``` shell
+<layer-root>/script/configure
+```
+
+Just execute it and copy the stated result into either your local.conf or your distribution-config.
+**NOTE**: the script requires __python3__ to be installed on your system.
+
 ## Use on all recipes in your workspace
 
 Edit the file conf/__local.conf__ and add the following line
