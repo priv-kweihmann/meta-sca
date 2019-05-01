@@ -1,6 +1,6 @@
 {
     "languages": ["css", "scss"],
-    "buildspeed" : "normal",
-    "execspeed": "fast",
-    "quality": "good"
+    "buildspeed" : 8,
+    "execspeed": 6,
+    "quality": 8
 }

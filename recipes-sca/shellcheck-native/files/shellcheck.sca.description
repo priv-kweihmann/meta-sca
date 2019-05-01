@@ -1,6 +1,6 @@
 {
     "languages": ["shell"],
-    "buildspeed" : "fast",
-    "execspeed": "fast",
-    "quality": "good"
+    "buildspeed" : 9,
+    "execspeed": 8,
+    "quality": 9
 }

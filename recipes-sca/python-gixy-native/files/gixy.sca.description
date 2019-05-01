@@ -1,6 +1,6 @@
 {
     "languages": ["nginx"],
-    "buildspeed" : "fast",
-    "execspeed": "fast",
-    "quality": "normal"
+    "buildspeed" : 8,
+    "execspeed": 8,
+    "quality": 6
 }

@@ -1,6 +1,6 @@
 {
     "languages": ["C", "perl", "php", "python", "ruby"],
-    "buildspeed" : "fast",
-    "execspeed": "fast",
-    "quality": "normal"
+    "buildspeed" : 8,
+    "execspeed": 7,
+    "quality": 6
 }

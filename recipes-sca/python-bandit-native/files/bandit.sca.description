@@ -1,6 +1,6 @@
 {
     "languages": ["python_sec"],
-    "buildspeed" : "fast",
-    "execspeed": "fast",
-    "quality": "good"
+    "buildspeed" : 8,
+    "execspeed": 8,
+    "quality": 8
 }

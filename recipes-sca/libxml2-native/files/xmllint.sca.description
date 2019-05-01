@@ -1,6 +1,6 @@
 {
     "languages": ["xml"],
-    "buildspeed" : "normal",
-    "execspeed": "fast",
-    "quality": "normal"
+    "buildspeed" : 7,
+    "execspeed": 10,
+    "quality": 7
 }

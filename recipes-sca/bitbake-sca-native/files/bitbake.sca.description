@@ -1,6 +1,6 @@
 {
     "languages": ["console"],
-    "buildspeed" : "fast",
-    "execspeed": "fast",
-    "quality": "good"
+    "buildspeed" : 10,
+    "execspeed": 10,
+    "quality": 9
 }

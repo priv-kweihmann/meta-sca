@@ -1,6 +1,6 @@
 {
     "languages": ["html"],
-    "buildspeed" : "normal",
-    "execspeed": "fast",
-    "quality": "good"
+    "buildspeed" : 6,
+    "execspeed": 9,
+    "quality": 8
 }

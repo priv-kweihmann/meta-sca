@@ -1,6 +1,6 @@
 {
     "languages": ["javascript"],
-    "buildspeed" : "normal",
-    "execspeed": "normal",
-    "quality": "good"
+    "buildspeed" : 3,
+    "execspeed": 8,
+    "quality": 8
 }

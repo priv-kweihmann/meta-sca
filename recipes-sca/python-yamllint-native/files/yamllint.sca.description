@@ -1,6 +1,6 @@
 {
     "languages": ["yaml"],
-    "buildspeed" : "fast",
-    "execspeed": "normal",
-    "quality": "good"
+    "buildspeed" : 10,
+    "execspeed": 8,
+    "quality": 8
 }

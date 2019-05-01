@@ -1,6 +1,6 @@
 {
     "languages": ["spelling"],
-    "buildspeed" : "normal",
-    "execspeed": "normal",
-    "quality": "normal"
+    "buildspeed" : 7,
+    "execspeed": 7,
+    "quality": 4
 }
