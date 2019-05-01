@@ -1,4 +1,4 @@
-inherit setuptools3
+inherit setuptools
 require python-setuptools-scm-native.inc
 
 SRC_URI[md5sum] = "cfec5d2dbbd0a85c40066f79035b5878"
