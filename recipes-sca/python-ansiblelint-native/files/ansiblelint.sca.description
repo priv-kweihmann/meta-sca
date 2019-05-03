@@ -1,0 +1,6 @@
+{
+    "languages": ["ansible"],
+    "buildspeed" : 6,
+    "execspeed": 6,
+    "quality": 10
+}

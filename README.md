@@ -24,6 +24,7 @@ On the other hand some static code analysis does not make any sense on an image-
 ### Tools for image recipes
 
  * ansible (security) [ansible]
+ * ansible-lint (ansible) [ansiblelint]
  * bandit (python/security) [bandit]
  * bitbake (handle bitbake issues) [bitbake]
  * detect-secrets (detecting and preventing secrets in code) [detectsecrets]
@@ -43,6 +44,7 @@ On the other hand some static code analysis does not make any sense on an image-
 
 ### Tools for all other recipes
 
+ * ansible-lint (ansible) [ansiblelint]
  * bandit (python/security) [bandit]
  * bitbake (handle bitbake issues) [bitbake]
  * clang-tidy (c/c++) [clang]
@@ -152,9 +154,18 @@ by defining a variable called **SCA_FILE_FILTER_EXTRA**.
 | SCA_BLACKLIST_ansible | Blacklist filter for this tool | space-separated-list | ""
 | SCA_ANSIBLE_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_ANSIBLE_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
-| SCA_ANSIBLE_PLAYBOOKS | Listt of glob-expr to search for playbooks | space-separated-list | "*.yaml"
+| SCA_ANSIBLE_PLAYBOOKS | List of glob-expr to search for playbooks | space-separated-list | "*.yaml"
 
 **Note**: __A detailed description of how things are working regarding ansible and playbooks will follow soon__
+
+### Available configuration for ansiblelint
+
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_ansiblelint | Blacklist filter for this tool | space-separated-list | ""
+| SCA_ANSIBLELINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_ANSIBLELINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_ANSIBLELINT_FILE_FILTER | List of file extensions to search for playbooks | space-separated-list | ".yaml"
 
 ### Available configuration for bandit
 

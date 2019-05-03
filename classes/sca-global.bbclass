@@ -26,6 +26,7 @@ SCA_STD_PYTHON_INTERPRETER ?= "python3"
 ## List of overall available modules
 SCA_AVAILABLE_MODULES ?= "\
                           ansible \
+                          ansiblelint \
                           bandit \
                           bitbake \
                           clang \

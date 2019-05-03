@@ -6,6 +6,7 @@ inherit sca-file-filter
 inherit sca-blackllist
 
 SCA_ENABLED_MODULES ?= "\
+                        ansiblelint \
                         bandit \
                         bitbake \
                         clang \

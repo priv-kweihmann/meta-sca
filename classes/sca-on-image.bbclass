@@ -8,6 +8,7 @@ inherit sca-blackllist
 SCA_PACKAGE_LICENSE_FILTER = "CLOSED"
 SCA_ENABLED_MODULES ?= "\
                         ansible \
+                        ansiblelint \
                         bandit \
                         bitbake \
                         detectsecrets \

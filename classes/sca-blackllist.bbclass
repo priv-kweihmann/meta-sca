@@ -2,6 +2,7 @@
 ## All configuration is described through space-separated regular expression
 SCA_BLACKLIST ?= ".*-native "
 SCA_BLACKLIST_ansible ?= ""
+SCA_BLACKLIST_ansiblelint ?= ""
 SCA_BLACKLIST_bandit ?= "linux-.*"
 SCA_BLACKLIST_bitbake ?= ""
 SCA_BLACKLIST_clang ?= "linux-.*"
