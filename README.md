@@ -1,12 +1,24 @@
 # meta-sca
 
 ## Purpose
+
 This layer does offer some static code analysis tools, which can be easily configured and integrated into YOCTO/Open-Embedded build system.
 The layer is designed to be easy to integrate (and fully configurable).
 All results are stored to __SCA_EXPORT_DIR__ (which defaults to __${DEPLOY_DIR_IMAGE}/sca__). The results will be stored in the raw-format of the corresponding tool and in checkstyle-format.
 Any result-file can be easily integrated into e.g. Jenkins or other CI-tools
 
+### Licensing
+
+This layer does only provide open source tools.
+The layer itself is licensed under BSD.
+
+### Zero impact
+
+This layer provides only **-native** tools, so actually none of the build binaries will be deployed to your target.
+Everything happens on the build machine.
+
 ## Prerequisites
+
 You need the current standard __poky__-layer installed onto your local build environment
 
 ## Installation
