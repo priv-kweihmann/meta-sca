@@ -49,6 +49,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           pysymcheck \
                           pytype \
                           rats \
+                          ropgadget \
                           shellcheck \
                           standard \
                           stylelint \

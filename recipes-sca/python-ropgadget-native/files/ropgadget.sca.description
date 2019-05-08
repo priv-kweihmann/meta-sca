@@ -1,0 +1,6 @@
+{
+    "languages": ["hacking"],
+    "buildspeed" : 8,
+    "execspeed": 5,
+    "quality": 9
+}

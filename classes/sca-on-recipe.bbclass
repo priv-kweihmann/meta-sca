@@ -28,6 +28,7 @@ SCA_ENABLED_MODULES ?= "\
                         pysymcheck \
                         pytype \
                         rats \
+                        ropgadget \
                         shellcheck \
                         standard \
                         stylelint \

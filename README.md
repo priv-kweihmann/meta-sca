@@ -66,6 +66,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * pysymbolcheck (check elf-files for used functions) [pysymcheck]
  * pytype (python) [pytype]
  * rats (security for c/php/python/perl/ruby) [rats]
+ * ropgadget (determine exploitability with ROP in binary) [ropgadget]
  * shellcheck (shell) [shellcheck]
  * standard (javascript) [standard]
  * stylelint (css, scss) [stylelint]
@@ -424,6 +425,22 @@ __NOTE:__ this tool does not support suppression or fatal error handling
 | SCA_BLACKLIST_rats | Blacklist filter for this tool | space-separated-list | ""
 | SCA_RATS_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_RATS_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+
+### Available configuration for ropgadget
+
+This module is somehow different. First of all it does not support suppression or fatal-error-handling.
+Secondly it tries to get all code which is somehow exploitable by ROP (return oriented programming).
+If the number of findings exceeds the configured threshold value a warning is issued.
+The findings themselves are only created as "info" level findings. 
+So if you actually want to see the details you can have a look into the raw-file or you have to 
+configure SCA_WARNING_LEVEL to "info".
+
+**NOTE**: a large value does not actually mean that your binary can be exploited, but a larger number actually raises the probality a lot that it could be done
+
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_ropgagdet | Blacklist filter for this tool | space-separated-list | "linux-*"
+| SCA_ROPGADGET_WARNING_THRESHOLD | Threshold value when to issue a warning | integer | "500"
 
 ### Available configuration for shellcheck
 
