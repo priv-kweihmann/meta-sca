@@ -17,6 +17,7 @@ SCA_ENABLED_MODULES ?= "\
                         htmlhint \
                         jsonlint \
                         oelint \
+                        proselint \
                         pylint \
                         shellcheck \
                         standard \

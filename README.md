@@ -46,6 +46,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * image-summary (aggregate all findings for package in an image) [image-summary]
  * json-parser (json) [jsonlint]
  * [oelint-adv](https://github.com/priv-kweihmann/oelint-adv) (linting bitbake recipes) [oelint]
+ * [proselint](https://github.com/amperser/proselint/) (spelling) [proselint]
  * [pylint](https://github.com/PyCQA/pylint) (python) [pylint]
  * [shellcheck](https://github.com/koalaman/shellcheck) (shell) [shellcheck]
  * [standard](https://github.com/standard/standard) (javascript) [standard]
@@ -74,6 +75,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [kconfig-hardened-check](https://github.com/a13xp0p0v/kconfig-hardened-check) (check hardening of kernel) [kconfighard]
  * [oclint](https://github.com/oclint/oclint) (c/c++/obj-c) [oclint]
  * [oelint-adv](https://github.com/priv-kweihmann/oelint-adv) (linting bitbake recipes) [oelint]
+ * [proselint](https://github.com/amperser/proselint/) (spelling) [proselint]
  * [pylint](https://github.com/PyCQA/pylint) (python) [pylint]
  * [pysymbolcheck](https://github.com/priv-kweihmann/pysymbolcheck) (check elf-files for used functions) [pysymcheck]
  * [pytype](https://github.com/google/pytype) (python) [pytype]
@@ -390,6 +392,15 @@ __NOTE:__ this tool does not support suppression or fatal error handling
 | SCA_BLACKLIST_oelint | Blacklist filter for this tool | space-separated-list | ""
 | SCA_OELINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_OELINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+
+### Available configuration for proselint
+
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_proselint | Blacklist filter for this tool | space-separated-list | ""
+| SCA_PROSELINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_PROSELINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_PROSELINT_FILE_FILTER | List of file extensions to check | space-separated-list | ".txt .md .rst .me"
 
 ### Available configuration for pylint (image)
 

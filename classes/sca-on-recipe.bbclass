@@ -24,6 +24,7 @@ SCA_ENABLED_MODULES ?= "\
                         kconfighard \
                         oclint \
                         oelint \
+                        proselint \
                         pylint \
                         pysymcheck \
                         pytype \
