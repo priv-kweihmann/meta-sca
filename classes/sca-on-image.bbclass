@@ -18,6 +18,7 @@ SCA_ENABLED_MODULES ?= "\
                         jsonlint \
                         oelint \
                         proselint \
+                        pyfindinjection \
                         pylint \
                         shellcheck \
                         standard \

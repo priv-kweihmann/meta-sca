@@ -25,6 +25,7 @@ SCA_ENABLED_MODULES ?= "\
                         oclint \
                         oelint \
                         proselint \
+                        pyfindinjection \
                         pylint \
                         pysymcheck \
                         pytype \

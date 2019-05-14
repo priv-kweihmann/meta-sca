@@ -46,6 +46,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           oclint \
                           oelint \
                           proselint \
+                          pyfindinjection \
                           pylint \
                           pysymcheck \
                           pytype \
