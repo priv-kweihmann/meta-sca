@@ -27,10 +27,13 @@ def convert_veryraw(d, bin, content):
     if os.path.isfile(_dbg):
         for m in re.finditer(r"^(?P<addr>0x\w+)\s+:\s+(?P<msg>.*)", content, re.MULTILINE):
             _t_args = _args + ["-e", _dbg, m.group("addr")]
-            _out = subprocess.check_output(_t_args, universal_newlines=True)
-            for im in re.finditer(r"(?P<file>.*):(?P<line>\d+)", _out):
-                _file = os.path.abspath(im.group("file"))
-                output += "{} - {}:{} - {}\n".format(bin, _file, im.group("line"), m.group("msg"))
+            try:
+                _out = subprocess.check_output(_t_args, universal_newlines=True)
+                for im in re.finditer(r"(?P<file>.*):(?P<line>\d+)", _out):
+                    _file = os.path.abspath(im.group("file"))
+                    output += "{} - {}:{} - {}\n".format(bin, _file, im.group("line"), m.group("msg"))
+            except:
+                pass
     return output
 
 python do_sca_ropgadget() {
