@@ -93,8 +93,11 @@ def get_files_by_mimetype(d, path, mime, excludes=[]):
             _filename = os.path.join(root, item)
             if _filename in excludes:
                 continue
-            if magic.from_file(_filename, mime=True) in mime:
-                res.append(_filename)
+            try:
+                if magic.from_file(_filename, mime=True) in mime:
+                    res.append(_filename)
+            except:
+                pass
     return [x for x in res if os.path.isfile(x)]
 
 def get_files_by_extention(d, path, pattern, excludes=[]):
