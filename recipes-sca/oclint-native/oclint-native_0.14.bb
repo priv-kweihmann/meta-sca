@@ -9,7 +9,7 @@ B = "${S}"
 SRC_URI = "git://github.com/oclint/oclint.git;protocol=http;branch=master;tag=v${PV} \
            file://oclint.sca.description"
 
-LIC_FILES_CHKSUM = "file://oclint-core/LICENSE;md5=5ecaa320936c751d876affd32feff035"
+LIC_FILES_CHKSUM = "file://oclint-core/LICENSE;md5=306b716fe6dadad0d53616d809e59c9d"
 
 DEPENDS += "subversion-native cmake-native python3-native ninja-native"
 
