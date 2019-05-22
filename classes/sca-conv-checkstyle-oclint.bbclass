@@ -48,7 +48,7 @@ def do_sca_conv_oclint(d):
                     msg = item["message"].strip() or item["rule"]
                     g.Message = "[Package:%s Tool:oclint] %s" % (package_name, msg)
                     g.Severity = severity_map[str(item["priority"])]
-                    g.ID = "Clang.Clang.%s" % item["rule"].replace(" ", "_")
+                    g.ID = "OCLint.OCLint.%s" % item["rule"].replace(" ", "_")
                     if g.ID in get_suppress_entries(d):
                         continue
                     if g.Severity in checkstyle_allowed_warning_level(d):
