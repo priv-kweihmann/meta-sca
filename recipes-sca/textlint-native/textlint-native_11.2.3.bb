@@ -2,7 +2,8 @@ SUMMARY = "The pluggable natural language linter for text and markdown."
 DESCRIPTION = "The pluggable natural language linter for text and markdown."
 HOMEPAGE = "https://github.com/textlint/textlint"
 
-SRC_URI = "file://textlint.sca.description"
+SRC_URI = "file://textlint.sca.description \
+           file://textlint.sca.score"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
@@ -549,5 +550,6 @@ do_install() {
     mkdir -p ${D}${datadir}/textlint/
     cp -Ra ${B}/* ${D}${datadir}/textlint
     install ${WORKDIR}/textlint.sca.description ${D}${datadir}
+    install ${WORKDIR}/textlint.sca.score ${D}${datadir}
 }
 

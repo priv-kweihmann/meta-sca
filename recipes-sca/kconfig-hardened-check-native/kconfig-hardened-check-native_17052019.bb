@@ -2,7 +2,8 @@ SUMMARY = "script for checking on linux kernel hardening"
 HOMEPAGE = "https://github.com/a13xp0p0v/kconfig-hardened-check"
 
 SRC_URI = "git://github.com/a13xp0p0v/kconfig-hardened-check.git;protocol=http;branch=master \
-           file://kconfighard.sca.description"
+           file://kconfighard.sca.description \
+           file://kconfighard.sca.score"
 SRCREV = "a0ce919fcf2207ea18ad917f7451a5bbfa80593b"
 
 S = "${WORKDIR}/git"
@@ -24,4 +25,5 @@ do_install() {
     cp -R ${B}/* ${D}${bindir}/kconfig-hardening-check
     install -d ${D}${datadir}
     install ${WORKDIR}/kconfighard.sca.description ${D}${datadir}/
+    install ${WORKDIR}/kconfighard.sca.score ${D}${datadir}/
 }

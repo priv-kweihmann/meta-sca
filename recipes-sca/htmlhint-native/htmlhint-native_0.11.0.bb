@@ -1,7 +1,8 @@
 SUMMARY = "Native variant of htmlhint"
 DESCRIPTION = "Native build of htmlhint."
 
-SRC_URI = "file://htmlhint.sca.description"
+SRC_URI = "file://htmlhint.sca.description \
+           file://htmlhint.sca.score"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"

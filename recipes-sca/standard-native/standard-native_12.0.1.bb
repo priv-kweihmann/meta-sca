@@ -1,7 +1,8 @@
 SUMMARY = "Native variant of standard"
 DESCRIPTION = "Native build of standard."
 
-SRC_URI = "file://standard.sca.description"
+SRC_URI = "file://standard.sca.description \
+           file://standard.sca.score"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
@@ -213,5 +214,6 @@ do_install() {
     mkdir -p ${D}${datadir}/standard
     cp -Ra ${B}/* ${D}${datadir}/standard
     install ${WORKDIR}/standard.sca.description ${D}${datadir}
+    install ${WORKDIR}/standard.sca.score ${D}${datadir}
 }
 

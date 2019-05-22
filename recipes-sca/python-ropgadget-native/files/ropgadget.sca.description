@@ -1,5 +1,6 @@
 {
-    "languages": ["hacking"],
+    "languages": [ "binary" ],
+    "scope": [ "security" ],
     "buildspeed" : 8,
     "execspeed": 5,
     "quality": 9

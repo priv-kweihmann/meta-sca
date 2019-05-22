@@ -11,11 +11,13 @@ PYPI_PACKAGE = "py-find-injection"
 inherit pypi
 
 FILES_${PN} += "${datadir}"
-SRC_URI += "file://pyfindinjection.sca.description"
+SRC_URI += "file://pyfindinjection.sca.description \
+            file://pyfindinjection.sca.score"
 
 inherit native
 
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/pyfindinjection.sca.description ${D}${datadir}
+    install ${WORKDIR}/pyfindinjection.sca.score ${D}${datadir}
 }

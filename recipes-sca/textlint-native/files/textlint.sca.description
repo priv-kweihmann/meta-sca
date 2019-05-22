@@ -1,5 +1,6 @@
 {
-    "languages": ["spelling"],
+    "languages": [ "spelling" ],
+    "scope": [ "style" ],
     "buildspeed" : 4,
     "execspeed": 6,
     "quality": 10

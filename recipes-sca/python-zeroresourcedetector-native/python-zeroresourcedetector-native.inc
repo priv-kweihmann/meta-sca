@@ -2,7 +2,8 @@ SUMMARY = "Static code analysis tool for g11n/i18n issues in resource files."
 HOMEPAGE = "https://github.com/0Cubed/ZeroResourceDetector"
 
 SRC_URI = "git://github.com/0Cubed/ZeroResourceDetector.git;protocol=http;branch=master; \
-           file://zrd.sca.description"
+           file://zrd.sca.description \
+           file://zrd.sca.score"
 
 SRCREV = "117218499db07c34f072026e618546deeb682fab"
 
@@ -26,4 +27,5 @@ do_install() {
 
     install -d ${D}${datadir}
     install ${WORKDIR}/zrd.sca.description ${D}${datadir}
+    install ${WORKDIR}/zrd.sca.score ${D}${datadir}
 }

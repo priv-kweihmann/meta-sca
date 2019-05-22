@@ -1,5 +1,6 @@
 {
-    "languages": ["python"],
+    "languages": [ "python" ],
+    "scope": [ "functional" ],
     "buildspeed" : 6,
     "execspeed": 4,
     "quality": 9

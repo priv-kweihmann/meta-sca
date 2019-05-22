@@ -12,11 +12,13 @@ DEPENDS += "${PYTHON_PN}-pyyaml-native \
 inherit native
 inherit pypi
 
-SRC_URI += "file://yamllint.sca.description"
+SRC_URI += "file://yamllint.sca.description \
+            file://yamllint.sca.score"
 
 FILES_${PN} += "${datadir}"
 
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/yamllint.sca.description ${D}${datadir}
+    install ${WORKDIR}/yamllint.sca.score ${D}${datadir}
 }

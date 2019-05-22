@@ -1,5 +1,6 @@
 {
-    "languages": ["html"],
+    "languages": [ "html" ],
+    "scope": [ "functional", "style" ],
     "buildspeed" : 6,
     "execspeed": 9,
     "quality": 8

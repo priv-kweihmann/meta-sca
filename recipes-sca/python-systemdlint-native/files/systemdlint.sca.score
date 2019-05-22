@@ -1,0 +1,25 @@
+{
+    "security": [ 
+        "systemdlint.systemdlint.FullPrivileges",
+        "systemdlint.systemdlint.WrongFileMask"
+    ],
+    "functional": [
+        "systemdlint.systemdlint.InvalidNumericBase",
+        "systemdlint.systemdlint.InvalidSetting",
+        "systemdlint.systemdlint.InvalidValue",
+        "systemdlint.systemdlint.MandatoryOptionMissing",
+        "systemdlint.systemdlint.NoExecutable",
+        "systemdlint.systemdlint.OptionDeprecated",
+        "systemdlint.systemdlint.OptionTooNew",
+        "systemdlint.systemdlint.ReferencedUnitNotFound",
+        "systemdlint.systemdlint.SettingRequires",
+        "systemdlint.systemdlint.SettingRestricted",
+        "systemdlint.systemdlint.SyntaxError",
+        "systemdlint.systemdlint.UnitSectionMissing",
+        "systemdlint.systemdlint.UnknownUnitType",
+        "systemdlint.systemdlint.ExecNotFound"
+    ],
+    "style": [
+        "systemdlint.systemdlint.*"        
+    ]
+}

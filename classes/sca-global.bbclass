@@ -20,6 +20,9 @@ SCA_ENABLE_IMAGE_SUMMARY ?= "1"
 ## Enable an extra report from bestof-module
 SCA_ENABLE_BESTOF ?= "0"
 
+## Enable an score calculation
+SCA_ENABLE_SCORE ?= "1"
+
 ## Standard python interpreter to be used in SCA
 SCA_STD_PYTHON_INTERPRETER ?= "python3"
 
@@ -52,6 +55,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           pytype \
                           rats \
                           ropgadget \
+                          score \
                           shellcheck \
                           standard \
                           stylelint \

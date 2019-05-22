@@ -4,7 +4,8 @@ DESCRIPTION = "Based on the OpenEmbedded Styleguide and work done by oe-stylize-
 HOMEPAGE = "https://github.com/priv-kweihmann/oelint-adv"
 
 SRC_URI = "git://github.com/priv-kweihmann/oelint-adv.git;protocol=http;branch=master;tag=${PV} \
-           file://oelint.sca.description"
+           file://oelint.sca.description \
+           file://oelint.sca.score"
 
 S = "${WORKDIR}/git"
 B = "${S}"
@@ -21,4 +22,5 @@ FILES_${PN} += "${datadir}"
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/oelint.sca.description ${D}${datadir}
+    install ${WORKDIR}/oelint.sca.score ${D}${datadir}
 }

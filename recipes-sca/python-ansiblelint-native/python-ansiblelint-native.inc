@@ -24,11 +24,13 @@ PYPI_PACKAGE = "ansible-lint"
 inherit pypi
 
 FILES_${PN} += "${datadir}"
-SRC_URI += "file://ansiblelint.sca.description"
+SRC_URI += "file://ansiblelint.sca.description \
+            file://ansiblelint.sca.score"
 
 inherit native
 
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/ansiblelint.sca.description ${D}${datadir}
+    install ${WORKDIR}/ansiblelint.sca.score ${D}${datadir}
 }

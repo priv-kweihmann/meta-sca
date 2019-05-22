@@ -7,7 +7,8 @@ S = "${WORKDIR}/git"
 B = "${S}"
 
 SRC_URI = "git://github.com/JossWhittle/FlintPlusPlus.git;protocol=http;branch=master \
-           file://flint.sca.description"
+           file://flint.sca.description \
+           file://flint.sca.score"
 SRCREV = "e209329bdf0d1c53c43474519bd875b692f9d61e"
 
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e4224ccaecb14d942c71d31bef20d78c"
@@ -33,4 +34,5 @@ do_install() {
     install -d ${D}${datadir}
     install ${B}/flint/flint++ ${D}${bindir}
     install ${WORKDIR}/flint.sca.description ${D}${datadir}/
+    install ${WORKDIR}/flint.sca.score ${D}${datadir}/
 }

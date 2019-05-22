@@ -83,6 +83,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [pytype](https://github.com/google/pytype) (python) [pytype]
  * [rats](https://github.com/redNixon/rats) (security for c/php/python/perl/ruby) [rats]
  * [ropgadget](https://github.com/JonathanSalwan/ROPgadget) (determine exploitability with ROP in binary) [ropgadget]
+ * score (calculate a score for a module, like pylint does) [score]
  * [shellcheck](https://github.com/koalaman/shellcheck) (shell) [shellcheck]
  * [standard](https://github.com/standard/standard) (javascript) [standard]
  * [stylelint](https://github.com/stylelint/stylelint) (css, scss) [stylelint]
@@ -143,6 +144,7 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_ENABLE | Does globally enable the analysis | string | "1"
 | SCA_ENABLE_BESTOF | Enables/disables the BestOf mode (see chapter BestOf Mode) | string | "0"
 | SCA_ENABLE_IMAGE_SUMMARY | En/disable the image-summary module | string | "1"
+| SCA_ENABLE_SCORE | En/disable the module score (see __score__ for details) | string | "1"
 | SCA_ENABLED_MODULES | The analysis modules to be activated | space-separated-string | see sca-on-image.bbclass or sca-on-recipe.bbclass
 | SCA_EXPORT_DIR | Directory where to store the results of analysis | path | \${DEPLOY_DIR_IMAGE}/sca
 | SCA_EXPORT_FINDING_DIR | The folder where to store the original source-files of findings | path | \${DEPLOY_DIR_IMAGE}/sca/sources/\${PN}/
@@ -474,6 +476,46 @@ configure SCA_WARNING_LEVEL to "info".
 | ------------- |:-------------:| -----:| -----:
 | SCA_BLACKLIST_ropgagdet | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_ROPGADGET_WARNING_THRESHOLD | Threshold value when to issue a warning | integer | "500"
+
+### Available configuration for score
+
+**NOTE**: This module does not support suppression or fatal error
+
+This module does try to calculate a score (like pylint does) for all found finding by the configured tool.
+It divides the score into 3 sections
+
+ * security - covering all the issues that might be security relevant
+ * functional - functional defects
+ * style - only stylistic issues
+
+You can configure a threshold value to issue a warning or an error when the calculated score is below.
+This should help you identifing modules that are or bad quality in a certain way.
+
+Do not expect any other output of this module than a warning or an error in build console (if you have the bitbake module enabled also there).
+
+The default settings are taken from the individual tool setting files.
+
+Following variables can be used
+
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_score | Blacklist filter for this tool | space-separated-list | ""
+| SCA_SCORE_ERROR_PEN | Score penalty multiplier for an error | float | "7"
+| SCA_SCORE_EXTRA_FUNCTIONAL | Extra finding IDs to put into functional classification | space-separated-list | ""
+| SCA_SCORE_EXTRA_SECURITY | Extra finding IDs to put into security classification | space-separated-list | ""
+| SCA_SCORE_EXTRA_STYLE | Extra finding IDs to put into style classification | space-separated-list | ""
+| SCA_SCORE_FUNCTIONAL_ERROR | Threshold when to issue an error at functional score | float | "35"
+| SCA_SCORE_FUNCTIONAL_PEN | Score penalty for a functional issue | float | "5"
+| SCA_SCORE_FUNCTIONAL_WARN | Threshold when to issue a warning at functional score | float | "60"
+| SCA_SCORE_INFO_PEN | Score penalty multiplier for an info | float | "1"
+| SCA_SCORE_SECURITY_ERROR | Threshold when to issue an error at security score | float | "50"
+| SCA_SCORE_SECURITY_PEN | Score penalty for a security issue | float | "100"
+| SCA_SCORE_SECURITY_WARN | Threshold when to issue a warning at security score | float | "70"
+| SCA_SCORE_SECURITY_WARN | Threshold when to issue a warning at security score | float | "70"
+| SCA_SCORE_STYLE_ERROR | Threshold when to issue an error at style score | float | "15"
+| SCA_SCORE_STYLE_PEN | Score penalty for a style issue | float | "1"
+| SCA_SCORE_STYLE_WARN | Threshold when to issue a warning at style score | float | "40"
+| SCA_SCORE_WARNING_PEN | Score penalty multiplier for a warning | float | "5"
 
 ### Available configuration for shellcheck
 

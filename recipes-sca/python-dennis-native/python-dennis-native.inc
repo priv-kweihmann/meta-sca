@@ -11,11 +11,13 @@ PYPI_PACKAGE = "dennis"
 inherit native
 inherit pypi
 
-SRC_URI += "file://dennis.sca.description"
+SRC_URI += "file://dennis.sca.description \
+            file://dennis.sca.score"
 
 FILES_${PN} += "${datadir}"
 
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/dennis.sca.description ${D}${datadir}
+    install ${WORKDIR}/dennis.sca.score ${D}${datadir}
 }

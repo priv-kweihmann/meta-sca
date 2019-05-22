@@ -1,5 +1,6 @@
 {
-    "languages": ["elf"],
+    "languages": [ "binary" ],
+    "scope": [ "security" ],
     "buildspeed" : 10,
     "execspeed": 10,
     "quality": 5

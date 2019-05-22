@@ -11,11 +11,13 @@ DEPENDS += "${PYTHON_PN}-native ${PYTHON_PN}-pyyaml-native"
 inherit native
 inherit pypi
 
-SRC_URI += "file://detectsecrets.sca.description"
+SRC_URI += "file://detectsecrets.sca.description \
+            file://detectsecrets.sca.score"
 
 FILES_${PN} += "${datadir}"
 
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/detectsecrets.sca.description ${D}${datadir}
+    install ${WORKDIR}/detectsecrets.sca.score ${D}${datadir}
 }

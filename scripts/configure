@@ -15,6 +15,7 @@ class ToolDescriptions(object):
         for item in glob.glob(os.path.join(rootpath, "**/*.sca.description"), recursive=True):
             k = os.path.basename(item).split(".")[0]
             v = None
+            print(item)
             with open(item) as i:
                 v = json.load(i)
             data[k] = v
@@ -160,7 +161,8 @@ if __name__ == '__main__':
 
     _questions = {
         "SCA_AVAILABLE_MODULES": [
-            InputElement("What languages to you want to check?", dataobj=_tools, dataget={"ListTools": "languages"}, dataset={"GetTools": "languages"}, endkey='q'),
+            InputElement("What content to you want to check?", dataobj=_tools, dataget={"ListTools": "languages"}, dataset={"GetTools": "languages"}, endkey='q'),
+            InputElement("What scope of checks would like to perform?", dataobj=_tools, dataget={"ListTools": "scope"}, dataset={"GetTools": "scope"}, endkey='q'),
             InputElement("How fast should the tools be build? [0=slow, 10=instantly]", dataobj=_tools, dataget={"ListToolsRange": "buildspeed"}, dataset={"GetToolsGE": "buildspeed"}),
             InputElement("How fast should the tools be executed? [0=slow, 10=instantly]", dataobj=_tools, dataget={"ListToolsRange": "execspeed"}, dataset={"GetToolsGE": "execspeed"}),
             InputElement("What quality do you expect of the tools? [0=error-prone, 10=always-true]", dataobj=_tools, dataget={"ListToolsRange": "quality"}, dataset={"GetToolsGE": "quality"}),

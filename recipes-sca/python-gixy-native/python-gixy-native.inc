@@ -19,6 +19,7 @@ inherit pypi
 
 FILES_${PN} += "${datadir}"
 SRC_URI += "file://gixy.sca.description \
+            file://gixy.sca.score \
             file://0001-No-argparse-needed.patch \
             file://0002-Add-root_dir-support.patch"
 
@@ -27,4 +28,5 @@ inherit native
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/gixy.sca.description ${D}${datadir}
+    install ${WORKDIR}/gixy.sca.score ${D}${datadir}
 }

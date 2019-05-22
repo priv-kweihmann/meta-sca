@@ -2,7 +2,8 @@ SUMMARY = "Native variant of cspell"
 DESCRIPTION = "Native build of cspell."
 HOMEPAGE = "https://github.com/Jason3S/cspell"
 
-SRC_URI = "file://cspell.sca.description"
+SRC_URI = "file://cspell.sca.description \
+           file://cspell.sca.score"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
@@ -129,5 +130,6 @@ do_install() {
     mkdir -p ${D}${datadir}/cspell/
     cp -Ra ${B}/* ${D}${datadir}/cspell
     install ${WORKDIR}/cspell.sca.description ${D}${datadir}
+    install ${WORKDIR}/cspell.sca.score ${D}${datadir}
 }
 

@@ -2,7 +2,8 @@ SUMMARY = "Rough Auditing Tool For Security"
 DESCRIPTION = "Rough Auditing Tool For Security"
 
 SRC_URI = "git://github.com/redNixon/rats.git;protocol=http;branch=master \
-           file://rats.sca.description"
+           file://rats.sca.description \
+           file://rats.sca.score"
 SRCREV = "6bb2d62938156ecd16afb4ee4af9eeb98d9b5f06"
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
 
@@ -31,6 +32,7 @@ do_install() {
 	install ${B}/rats.1	${D}/${mandir}/man1
     
     install ${WORKDIR}/rats.sca.description ${D}${datadir}/
+    install ${WORKDIR}/rats.sca.score ${D}${datadir}/
 }
 
 

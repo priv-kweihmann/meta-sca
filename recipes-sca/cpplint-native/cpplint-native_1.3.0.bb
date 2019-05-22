@@ -7,7 +7,9 @@ BUGTRACKER = "https://github.com/cpplint/cpplint/issues"
 PV = "1.3.0"
 
 SRC_URI = " https://github.com/cpplint/cpplint/archive/${PV}.tar.gz;name=release \
-            file://cpplint.sca.description"
+            file://cpplint.sca.description \
+            file://cpplint.sca.score"
+
 SRC_URI[release.md5sum] = "4bc405b4cf5e3cbd3327f976fe6552bd"
 SRC_URI[release.sha256sum] = "6f4e1cf41095eb2f342d667d7e1cdf1269441598f5ac77a7885b53598f68b84c"
 
@@ -28,5 +30,6 @@ do_install() {
     chmod 777 ${B}/cpplint.py
     install ${B}/cpplint.py ${D}${bindir}/
     install ${WORKDIR}/cpplint.sca.description ${D}${datadir}/
+    install ${WORKDIR}/cpplint.sca.score ${D}${datadir}/
 }
 

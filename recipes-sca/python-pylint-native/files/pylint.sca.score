@@ -1,0 +1,10 @@
+{
+    "functional": [
+        "pylint.pylint.E.*",
+        "pylint.pylint.F.*",
+        "pylint.pylint.W.*"
+    ],
+    "style": [
+        "pylint.pylint.*"
+    ]
+}

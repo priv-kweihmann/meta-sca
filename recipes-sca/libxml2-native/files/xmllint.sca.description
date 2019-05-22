@@ -1,5 +1,6 @@
 {
-    "languages": ["xml"],
+    "languages": [ "xml" ],
+    "scope": [ "functional" ],
     "buildspeed" : 7,
     "execspeed": 10,
     "quality": 7

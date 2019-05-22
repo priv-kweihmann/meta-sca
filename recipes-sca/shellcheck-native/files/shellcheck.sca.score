@@ -1,0 +1,3 @@
+{
+    "functional": [ "ShellCheck.ShellCheck.*" ]
+}

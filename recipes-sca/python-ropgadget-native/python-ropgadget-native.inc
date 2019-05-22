@@ -11,11 +11,13 @@ DEPENDS += "${PYTHON_PN}-native ${PYTHON_PN}-capstone-native"
 inherit native
 inherit pypi
 
-SRC_URI += "file://ropgadget.sca.description"
+SRC_URI += "file://ropgadget.sca.description \
+            file://ropgadget.sca.score"
 
 FILES_${PN} += "${datadir}"
 
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/ropgadget.sca.description ${D}${datadir}
+    install ${WORKDIR}/ropgadget.sca.score ${D}${datadir}
 }

@@ -7,7 +7,8 @@ LICENSE = "GPLv3"
 
 inherit native
 
-SRC_URI += "file://shellcheck.sca.description"
+SRC_URI += "file://shellcheck.sca.description \
+            file://shellcheck.sca.score"
 
 DEPENDS += "gmp-native libffi-native dpkg-native dpkg-native"
 
@@ -24,4 +25,5 @@ do_install() {
     cp -R ${B}/usr/share/man/* ${D}${mandir}
     install -d ${D}${datadir}
     install ${WORKDIR}/shellcheck.sca.description ${D}${datadir}
+    install ${WORKDIR}/shellcheck.sca.score ${D}${datadir}
 }

@@ -1,6 +1,7 @@
 SUMMARY = "Ansible playbooks"
 
 SRC_URI = "file://ansible.sca.description \
+           file://ansible.sca.score \
            file://etc_security.yaml \
            file://cron_security.yaml \
            file://modprobe.yaml \
@@ -30,5 +31,6 @@ do_install() {
         install -m 0644 ${item} ${D}${datadir}/ansible_sec/$(basename ${item})
     done
     install ${WORKDIR}/ansible.sca.description ${D}${datadir}/
+    install ${WORKDIR}/ansible.sca.score ${D}${datadir}/
 }
 

@@ -1,5 +1,6 @@
 {
-    "languages": ["javascript"],
+    "languages": [ "javascript" ],
+    "scope": [ "functional", "style" ],
     "buildspeed" : 4,
     "execspeed": 6,
     "quality": 8

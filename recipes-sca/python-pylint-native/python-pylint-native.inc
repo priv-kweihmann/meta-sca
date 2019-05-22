@@ -18,11 +18,13 @@ PYPI_PACKAGE = "pylint"
 inherit pypi
 
 FILES_${PN} += "${datadir}"
-SRC_URI += "file://pylint.sca.description"
+SRC_URI += "file://pylint.sca.description \
+            file://pylint.sca.score"
 
 inherit native
 
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/pylint.sca.description ${D}${datadir}
+    install ${WORKDIR}/pylint.sca.score ${D}${datadir}
 }

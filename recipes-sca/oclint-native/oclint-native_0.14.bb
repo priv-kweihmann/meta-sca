@@ -7,7 +7,8 @@ S = "${WORKDIR}/git"
 B = "${S}"
 
 SRC_URI = "git://github.com/oclint/oclint.git;protocol=http;branch=master;tag=v${PV} \
-           file://oclint.sca.description"
+           file://oclint.sca.description \
+           file://oclint.sca.score"
 
 LIC_FILES_CHKSUM = "file://oclint-core/LICENSE;md5=306b716fe6dadad0d53616d809e59c9d"
 
@@ -36,4 +37,5 @@ do_install() {
 
     install -d ${D}${datadir}
     install ${WORKDIR}/oclint.sca.description ${D}${datadir}
+    install ${WORKDIR}/oclint.sca.score ${D}${datadir}
 }

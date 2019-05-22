@@ -1,5 +1,6 @@
 {
-    "languages": ["python_sec"],
+    "languages": [ "python" ],
+    "scope": [ "security" ],
     "buildspeed" : 8,
     "execspeed": 8,
     "quality": 8

@@ -18,11 +18,13 @@ DEPENDS += "${PYTHON_PN}-six-native \
 inherit native
 inherit pypi
 
-SRC_URI += "file://pytype.sca.description"
+SRC_URI += "file://pytype.sca.description \
+            file://pytype.sca.score"
 
 FILES_${PN} += "${datadir}"
 
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/pytype.sca.description ${D}${datadir}
+    install ${WORKDIR}/pytype.sca.score ${D}${datadir}
 }

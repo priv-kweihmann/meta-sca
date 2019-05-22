@@ -2,7 +2,8 @@ SUMMARY = "Tool for checking elf-symbols against rules"
 HOMEPAGE = "https://github.com/priv-kweihmann/pysymbolcheck"
 
 SRC_URI = "git://github.com/priv-kweihmann/pysymbolcheck.git;protocol=http;branch=master;tag=${PV} \
-           file://pysymcheck.sca.description"
+           file://pysymcheck.sca.description \
+           file://pysymcheck.sca.score"
 
 S = "${WORKDIR}/git"
 B = "${S}"
@@ -25,4 +26,5 @@ do_install() {
 
     install -d ${D}${datadir}
     install ${WORKDIR}/pysymcheck.sca.description ${D}${datadir}
+    install ${WORKDIR}/pysymcheck.sca.score ${D}${datadir}
 }

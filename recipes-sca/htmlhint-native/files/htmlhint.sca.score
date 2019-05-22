@@ -1,0 +1,10 @@
+{
+    "functional": [
+        "htmlhint.htmlhint.tag-pair",
+        "htmlhint.htmlhint.spec-char-escape",
+        "htmlhint.htmlhint.id-unique"
+    ],
+    "style": [
+        "htmlhint.htmlhint.*"
+    ]
+}

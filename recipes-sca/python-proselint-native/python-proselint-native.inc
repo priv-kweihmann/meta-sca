@@ -14,11 +14,13 @@ PYPI_PACKAGE = "proselint"
 inherit pypi
 
 FILES_${PN} += "${datadir}"
-SRC_URI += "file://proselint.sca.description"
+SRC_URI += "file://proselint.sca.description \
+            file://proselint.sca.score"
 
 inherit native
 
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/proselint.sca.description ${D}${datadir}
+    install ${WORKDIR}/proselint.sca.score ${D}${datadir}
 }

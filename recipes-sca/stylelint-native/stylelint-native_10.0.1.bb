@@ -1,7 +1,8 @@
 SUMMARY = "Native variant of stylelint"
 DESCRIPTION = "Native build of stylelint."
 
-SRC_URI = "file://stylelint.sca.description"
+SRC_URI = "file://stylelint.sca.description \
+           file://stylelint.sca.score"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
@@ -348,5 +349,6 @@ do_install() {
     mkdir -p ${D}${datadir}/stylelint
     cp -Ra ${B}/* ${D}${datadir}/stylelint
     install ${WORKDIR}/stylelint.sca.description ${D}${datadir}
+    install ${WORKDIR}/stylelint.sca.score ${D}${datadir}
 }
 

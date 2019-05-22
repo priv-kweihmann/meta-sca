@@ -31,6 +31,7 @@ SCA_ENABLED_MODULES ?= "\
                         pytype \
                         rats \
                         ropgadget \
+                        score \
                         shellcheck \
                         standard \
                         stylelint \

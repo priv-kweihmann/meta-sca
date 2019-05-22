@@ -1,5 +1,6 @@
 {
-    "languages": ["css", "scss"],
+    "languages": [ "css", "scss" ],
+    "scope": [ "style" ],
     "buildspeed" : 8,
     "execspeed": 6,
     "quality": 8
