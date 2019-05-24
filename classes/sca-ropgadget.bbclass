@@ -16,7 +16,7 @@ def convert_veryraw(d, bin, content):
     import os
     import re
     import subprocess
-    _addr2line = os.environ.get("AR", "-ar").replace("-ar", "-addr2line")
+    _addr2line = os.environ.get("AS", "-as").replace("-as", "-addr2line").strip()
     _args = [_addr2line]
     ## Find debug symbol file
     _relpath = os.path.relpath(bin, 
@@ -32,8 +32,8 @@ def convert_veryraw(d, bin, content):
                 for im in re.finditer(r"(?P<file>.*):(?P<line>\d+)", _out):
                     _file = os.path.abspath(im.group("file"))
                     output += "{} - {}:{} - {}\n".format(bin, _file, im.group("line"), m.group("msg"))
-            except:
-                pass
+            except Exception as e:
+                bb.note(str(e))
     return output
 
 python do_sca_ropgadget() {
