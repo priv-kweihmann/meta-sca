@@ -1,0 +1,68 @@
+From acbb788698a2da389720af19734564e1096c6695 Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Sun, 2 Jun 2019 10:11:55 +0200
+Subject: [PATCH] Makefile fixes
+
+---
+ Makefile | 26 +++++++++++++-------------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index a72cc6c..8897b04 100644
+--- a/Makefile
++++ b/Makefile
+@@ -94,17 +94,19 @@ else ifeq ($(CXX), c++)
+ endif
+ 
+ ifeq ($(HAVE_RULES),yes)
+-    override CXXFLAGS += -DHAVE_RULES -DTIXML_USE_STL $(shell pcre-config --cflags)
++    override CXXFLAGS += -DHAVE_RULES -DTIXML_USE_STL $(shell pkg-config libpcre --cflags)
+     ifdef LIBS
+-        LIBS += $(shell pcre-config --libs)
++        LIBS += $(shell pkg-config libpcre --libs)
+     else
+-        LIBS=$(shell pcre-config --libs)
++        LIBS=$(shell pkg-config libpcre --libs)
+     endif
+ endif
+ 
+-ifndef PREFIX
+-    PREFIX=/usr
+-endif
++DESTDIR?= ""
++prefix?= "/usr"
++bindir?= "$(prefix)/bin"
++BINDIR=$(bindir)
++PREFIX=$(prefix)
+ 
+ ifndef INCLUDE_FOR_LIB
+     INCLUDE_FOR_LIB=-Ilib -Iexternals/simplecpp -Iexternals/tinyxml
+@@ -118,8 +120,6 @@ ifndef INCLUDE_FOR_TEST
+     INCLUDE_FOR_TEST=-Ilib -Icli -Iexternals/simplecpp -Iexternals/tinyxml
+ endif
+ 
+-BIN=$(DESTDIR)$(PREFIX)/bin
+-
+ # For 'make man': sudo apt-get install xsltproc docbook-xsl docbook-xml on Linux
+ DB2MAN?=/usr/share/sgml/docbook/stylesheet/xsl/nwalsh/manpages/docbook.xsl
+ XP=xsltproc -''-nonet -''-param man.charmap.use.subset "0"
+@@ -292,11 +292,11 @@ tags:
+ 	ctags -R --exclude=doxyoutput --exclude=test/cfg --exclude=test/synthetic cli externals gui lib test
+ 
+ install: cppcheck
+-	install -d ${BIN}
+-	install cppcheck ${BIN}
+-	install addons/*.py ${BIN}
+-	install addons/*/*.py ${BIN}
+-	install htmlreport/cppcheck-htmlreport ${BIN}
++	install -d ${DESTDIR}${BINDIR}
++	install cppcheck ${DESTDIR}${BINDIR}
++	install addons/*.py ${DESTDIR}${BINDIR}
++	install addons/*/*.py ${DESTDIR}${BINDIR}
++	install htmlreport/cppcheck-htmlreport ${DESTDIR}${BINDIR}
+ ifdef CFGDIR 
+ 	install -d ${DESTDIR}${CFGDIR}
+ 	install -m 644 cfg/* ${DESTDIR}${CFGDIR}
+-- 
+2.7.4
+
