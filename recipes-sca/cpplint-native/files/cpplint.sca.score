@@ -10,6 +10,6 @@
         "cpplint.cpplint.runtime.memset"
     ],
     "style": [
-        "cpplint.cpplint.*"
+        "cpplint.cpplint..*"
     ]
 }

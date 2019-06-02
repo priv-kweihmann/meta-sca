@@ -65,7 +65,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [cppcheck](https://github.com/danmar/cppcheck) (c/c++) [cppcheck]
  * [cpplint](https://github.com/cpplint/cpplint) (c/c++) [cpplint]
  * [cspell](https://github.com/Jason3S/cspell) (spelling in c/c++/html/python/txt/md) [cspell]
- * [cve-check](https://github.com/clearlinux/cve-check-tool) (check for unpatched cve's) [cve-check]
+ * [cve-check](https://github.com/clearlinux/cve-check-tool) (check for unpatched cve's) [cvecheck]
  * [dennis](https://github.com/willkg/dennis/) (i18n) [dennis]
  * [detect-secrets](https://github.com/Yelp/detect-secrets) (detecting and preventing secrets in code) [detectsecrets]
  * [eslint](https://github.com/eslint/eslint) (javascript/html) [eslint]
@@ -296,13 +296,13 @@ __NOTE__: By the default this module does only generate warnings of level **"inf
 So if you like them to be deployed you have to set **SCA_WARNING_LEVEL** to __"info"__ globally or in the 
 recipe.
 
-### Available configuration for cve-check
+### Available configuration for cvecheck
 
 __NOTE:__ this tool does not support suppression or fatal error handling
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLACKLIST_cve_check | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLACKLIST_cvecheck | Blacklist filter for this tool | space-separated-list | ""
 
 ### Available configuration for dennis
 
@@ -508,7 +508,7 @@ Following variables can be used
 | SCA_SCORE_FUNCTIONAL_PEN | Score penalty for a functional issue | float | "5"
 | SCA_SCORE_FUNCTIONAL_WARN | Threshold when to issue a warning at functional score | float | "60"
 | SCA_SCORE_INFO_PEN | Score penalty multiplier for an info | float | "1"
-| SCA_SCORE_SECURITY_ERROR | Threshold when to issue an error at security score | float | "50"
+| SCA_SCORE_SECURITY_ERROR | Threshold when to issue an error at security score | float | "48"
 | SCA_SCORE_SECURITY_PEN | Score penalty for a security issue | float | "100"
 | SCA_SCORE_SECURITY_WARN | Threshold when to issue a warning at security score | float | "70"
 | SCA_SCORE_SECURITY_WARN | Threshold when to issue a warning at security score | float | "70"

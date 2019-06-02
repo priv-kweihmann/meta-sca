@@ -1,5 +1,4 @@
 inherit sca-helper
-inherit sca-conv-checkstyle-helper
 inherit sca-global
 
 python sca_image_summary_init() {
@@ -11,52 +10,38 @@ python sca_image_summary_init() {
 }
 
 python do_sca_image_summary() {
-    from xml.etree.ElementTree import Element, SubElement, Comment, tostring
-    from xml.etree import ElementTree
-    from xml.dom import minidom
     import json
 
-    xml_output = ""
+    imgsum = []
     _json = {}
     with open(d.getVar("SCA_IMAGE_PKG_LIST")) as i:
         _json = json.load(i)
 
     for rpm, v in _json.items():
-        for mod in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")):
-            fp = os.path.join(d.getVar("SCA_EXPORT_DIR"), mod, "checkstyle", "{}-{}.xml".format(rpm, v["ver"]))
+        for mod in d.getVar("SCA_AVAILABLE_MODULES"):
+            fp = os.path.join(d.getVar("SCA_EXPORT_DIR"), mod, "datamodel", "{}-{}.dm".format(rpm, v["ver"]))
             if os.path.exists(fp):
-                new_data = Element("checkstyle")
-                new_data.set("version", "4.3")
-                data = ElementTree.ElementTree(ElementTree.parse(fp).getroot())
-                for f in data.findall(".//error"):
-                    if f.attrib["severity"] in checkstyle_allowed_warning_level(d):
-                        new_data.append(f)
-                tmp_xml = ""
-                try:
-                    tmp_xml = checkstyle_prettify(d, new_data).decode("utf-8")
-                except:
-                    tmp_xml = checkstyle_prettify(d, new_data)
-                xml_output = xml_combine(d, xml_output, tmp_xml)
-    
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "image-summary", "checkstyle"), exist_ok=True)
-    cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "image-summary", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
+                imgsum += sca_get_datamodel(d, fp)
+    for mod in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")):
+        fp = os.path.join(d.getVar("T"), "{}.dm".format(mod))
+        if os.path.exists(fp):
+            imgsum += sca_get_datamodel(d, fp)
 
-    with open(cs_target, "w") as o:
-        o.write(xml_output)
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/image-summary.dm".format(d.getVar("T")))
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(sca_save_model_to_string(d, model=imgsum))
 
-    d.setVar("SCA_RESULT_FILE", cs_target)
+    sca_task_aftermath(d, "image-summary", [])
+}
 
-    if xml_output:
-        _warnings = get_warnings_from_result(d)
-        _errors = get_errors_from_result(d)
+SCA_DEPLOY_TASK = "do_sca_deploy_image_summary"
 
-        warn_log = []
-        if any(_warnings):
-            warn_log.append("{} warning(s)".format(len(_warnings)))
-        if any(_errors):
-            warn_log.append("{} error(s)".format(len(_errors)))
-        if warn_log and should_emit_to_console(d):
-            bb.warn("Image contains {}".format(",".join(warn_log)))
+python do_sca_deploy_image_summary() {
+    sca_conv_deploy(d, "image-summary", "notexists")
 }
 
 addtask do_sca_image_summary after do_rootfs before do_image_complete
+addtask do_sca_deploy_image_summary before do_image_complete after do_sca_image_summary
+
+

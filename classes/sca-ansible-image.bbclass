@@ -39,6 +39,10 @@ _SCA_ANSIBLE_GLOBAL_VARS = "base_prefix prefix exec_prefix base_bindir base_sbin
 
 SCA_ANSIBLE_PLAYBOOKS ?= "*.yaml"
 
+inherit sca-conv-to-export
+inherit sca-datamodel
+inherit sca-global
+inherit sca-helper
 
 def create_inventory(d, target_path):
     import yaml
@@ -55,9 +59,96 @@ def create_inventory(d, target_path):
     with open(target_path, "w") as out:
         yaml.dump(inv, out)
 
-inherit sca-helper
-inherit sca-conv-checkstyle-ansible
-inherit sca-global
+def _split_name(_in):
+    import re
+    m = re.match(r"^\[(?P<severity>.*)\]\s*(?P<msg>.*)", _in)
+    return (m.group("severity"), m.group("msg"))
+
+def _get_clean_name(_in):
+    import string
+    res = ""
+    for i in _in:
+        if i in string.ascii_letters or i in string.digits:
+            res += i
+    return res.lower()
+
+def _get_finding_id(d, pb_key, tk_node, item):
+    res = [_get_clean_name(pb_key["name"])]
+    _, msg = _split_name(tk_node["name"])
+    res.append(_get_clean_name(msg))
+    return ".".join(res)
+
+def _get_finding_filename(d, pb_key, tk_node, item):
+    return item["path"]
+
+def _get_finding_message(d, pb_key, tk_node, item):
+    res = []
+    for k,v in item["diff"]["after"].items():
+        if k == "path":
+            continue
+        res.append("{} should be {}".format(k,v))
+    return ",".join(res)
+
+def _get_finding_severity(d, pb_key, tk_node, item):
+    sev, _ = _split_name(tk_node["name"])
+    return sev
+
+def do_sca_conv_ansible(d):
+    import os
+    import re
+    import json
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    severity_map = {
+        "error" : "error",
+        "warning" : "warning",
+        "info": "info"
+    }
+
+    __suppress = get_suppress_entries(d)
+    __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
+
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        jobj = []
+        with open(d.getVar("SCA_RAW_RESULT_FILE")) as f:
+            try:
+                jobj = json.load(f)
+            except Exception as e:
+                bb.note(str(e))
+        for k, v in jobj.items():
+            for _play in v["plays"]:
+                _pb_key = _play["play"]
+                for _task in _play["tasks"]:
+                    _tk_node = _task["task"]
+                    try:
+                        _items =  _task["hosts"]["127.0.0.1"]
+                        if "results" in _items.keys():
+                            _items = _items["results"]
+                        for item in _items:
+                            if not isinstance(item, dict):
+                                continue
+                            if not "changed" in item or not item["changed"]:
+                                continue
+                            g = sca_get_model_class(d,
+                                                    PackageName=package_name,
+                                                    Tool="ansible",
+                                                    BuildPath=buildpath,
+                                                    File=_get_finding_filename(d, _pb_key, _tk_node, item),
+                                                    Message=_get_finding_message(d, _pb_key, _tk_node, item),
+                                                    ID=_get_finding_id(d, _pb_key, _tk_node, item),
+                                                    Severity=_get_finding_severity(d, _pb_key, _tk_node, item))
+                            if g.GetPlainID() in __suppress:
+                                continue
+                            if g.File in __excludes:
+                                continue
+                            if g.Severity in sca_allowed_warning_level(d):
+                                sca_add_model_class(d, g)
+                    except Exception as e:
+                        bb.note(str(e))
+
+    return sca_save_model_to_string(d)
 
 python do_sca_ansible() {
     import os
@@ -68,9 +159,6 @@ python do_sca_ansible() {
     d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_CPPCHECK_EXTRA_FATAL"))
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "ansible-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "ansible-{}-fatal".format(d.getVar("SCA_MODE"))))
-
-    _supress = get_suppress_entries(d)
-    _fatal = get_fatal_entries(d)
 
     _inventory = "ansible_inv.yaml"
     create_inventory(d, _inventory)
@@ -106,45 +194,20 @@ python do_sca_ansible() {
         json.dump(json_output, o)
     
     os.remove(_inventory)
-    result_file = os.path.join(d.getVar("T", True), "sca_checkstyle_ansible.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    conv_output = do_sca_conv_ansible(d)
-    with open(result_file, "w") as o:
-        o.write(conv_output)
 
-    ## Evaluate
-    _warnings = get_warnings_from_result(d)
-    _fatals = get_fatal_from_result(d, "ansible.", _fatal)
-    _errors = get_errors_from_result(d)
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/ansible.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_ansible(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
 
-    warn_log = []
-    if any(_warnings) and should_emit_to_console(d):
-        warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors) and should_emit_to_console(d):
-        warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log and should_emit_to_console(d):
-        bb.warn("SCA has found {}".format(",".join(warn_log)))
-    
-    if any(_fatals):
-        bb.build.exec_func("do_sca_deploy_ansible", d)
-        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+    sca_task_aftermath(d, "ansible", get_fatal_entries(d))
 }
 
+SCA_DEPLOY_TASK = "do_sca_deploy_ansible"
+
 python do_sca_deploy_ansible() {
-    import os
-    import shutil
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "ansible", "raw"), exist_ok=True)
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "ansible", "checkstyle"), exist_ok=True)
-    raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "ansible", "raw", "{}-{}.json".format(d.getVar("PN"), d.getVar("PV")))
-    cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "ansible", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    src_raw = os.path.join(d.getVar("T"), "sca_raw_ansible.json")
-    src_conv = os.path.join(d.getVar("T"), "sca_checkstyle_ansible.xml")
-    if os.path.exists(src_raw):
-        shutil.copy(src_raw, raw_target)
-    if os.path.exists(src_conv):
-        shutil.copy(src_conv, cs_target)
-    if os.path.exists(cs_target):
-        do_sca_export_sources(d, cs_target)
+    sca_conv_deploy(d, "ansible", "json")
 }
 
 addtask do_sca_ansible before do_image_complete after do_image

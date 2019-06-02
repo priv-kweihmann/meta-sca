@@ -1,1 +1,3 @@
 recipes-foo/foo/*
+TODO
+classes/staging.bbclass

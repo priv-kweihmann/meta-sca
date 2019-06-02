@@ -13,7 +13,7 @@ SCA_ENABLED_MODULES ?= "\
                         cppcheck \
                         cpplint \
                         cspell \
-                        cve-check \
+                        cvecheck \
                         dennis \
                         detectsecrets \
                         eslint \

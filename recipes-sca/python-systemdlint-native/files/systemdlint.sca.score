@@ -20,6 +20,6 @@
         "systemdlint.systemdlint.ExecNotFound"
     ],
     "style": [
-        "systemdlint.systemdlint.*"        
+        "systemdlint.systemdlint..*"        
     ]
 }

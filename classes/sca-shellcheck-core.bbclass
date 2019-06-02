@@ -1,6 +1,44 @@
-inherit sca-conv-checkstyle-shellcheck
-inherit sca-license-filter
+inherit sca-conv-to-export
+inherit sca-datamodel
+inherit sca-global
 inherit sca-helper
+inherit sca-license-filter
+
+def do_sca_conv_shellcheck(d):
+    import os
+    import re
+    from xml.etree.ElementTree import Element, SubElement, Comment, tostring
+    from xml.etree import ElementTree
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        try:
+            data = ElementTree.ElementTree(ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE"))).getroot()
+            items = []
+
+            for _file in data.findall(".//file"):
+                for f in _file.findall(".//error"):
+                    try:
+                        g = sca_get_model_class(d,
+                                                PackageName=package_name,
+                                                Tool="shellcheck",
+                                                BuildPath=buildpath,
+                                                File=_file.attrib.get("name"),
+                                                Column=f.attrib.get("column"),
+                                                Line=f.attrib.get("line"),
+                                                Message=f.attrib.get("message"),
+                                                ID=f.attrib.get("source"),
+                                                Severity=f.attrib.get("severity"))
+                        if g.Severity in sca_allowed_warning_level(d):
+                            sca_add_model_class(d, g)
+                    except Exception as exp:
+                        bb.warn(str(exp))
+        except:
+            pass
+
+    return sca_save_model_to_string(d)
 
 python do_sca_shellcheck_core() {
     import os
@@ -10,13 +48,12 @@ python do_sca_shellcheck_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "shellcheck-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "shellcheck-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _supress = get_suppress_entries(d)
-    _fatal = get_fatal_entries(d)
+    _suppress = get_suppress_entries(d)
 
     _args = ["shellcheck"]
     _args += ["-f", "checkstyle"]
-    if any(_supress):
-        _args += ["--exclude=SC{}".format(",SC".join(_supress))]
+    if any(_suppress):
+        _args += ["--exclude=SC{}".format(",SC".join(_suppress))]
     
     xml_output = ""
     for k,v in { "bash": "*./bash", "sh": "*./sh", "ksh": "*./ksh"}.items():
@@ -30,31 +67,17 @@ python do_sca_shellcheck_core() {
                 cmd_output = e.stdout or ""
             xml_output = xml_combine(d, xml_output, cmd_output)
     result_raw_file = os.path.join(d.getVar("T"), "sca_raw_shellcheck.xml")
-    d.setVar("SCA_RAW_RESULT", result_raw_file)
+    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
     with open(result_raw_file, "w") as o:
         o.write(xml_output)
-    xml_output = do_sca_conv_shellcheck(d)
-    result_file = os.path.join(d.getVar("T"), "sca_checkstyle_shellcheck.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    with open(result_file, "w") as o:
-        o.write(xml_output)
-
-    ## Evaluate
-    _warnings = get_warnings_from_result(d)
-    _fatals = get_fatal_from_result(d, "ShellCheck.", _fatal)
-    _errors = get_errors_from_result(d)
-
-    warn_log = []
-    if any(_warnings) and should_emit_to_console(d):
-        warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors) and should_emit_to_console(d):
-        warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log and should_emit_to_console(d):
-        bb.warn("SCA has found {}".format(",".join(warn_log)))
     
-    if any(_fatals):
-        bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK"), d)
-        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/shellcheck.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_shellcheck(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
+
+    sca_task_aftermath(d, "shellcheck", get_fatal_entries(d))
 }
 
 DEPENDS += "shellcheck-native"

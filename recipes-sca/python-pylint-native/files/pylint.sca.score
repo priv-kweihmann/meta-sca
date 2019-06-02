@@ -5,6 +5,6 @@
         "pylint.pylint.W.*"
     ],
     "style": [
-        "pylint.pylint.*"
+        "pylint.pylint..*"
     ]
 }

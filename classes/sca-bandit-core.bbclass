@@ -1,11 +1,57 @@
-inherit sca-conv-checkstyle-bandit
-inherit sca-license-filter
-inherit sca-helper
-
 SCA_BANDIT_EXTRA_SUPPRESS ?= ""
 SCA_BANDIT_EXTRA_FATAL ?= ""
 
+inherit sca-conv-to-export
+inherit sca-datamodel
+inherit sca-global
+inherit sca-helper
+inherit sca-license-filter
+
 DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-bandit-native"
+
+def do_sca_conv_bandit(d):
+    import os
+    import re
+    import json
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    severity_map = {
+        "LOW" : "info",
+        "MEDIUM" : "warning",
+        "HIGH": "error"
+    }
+
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        with open(d.getVar("SCA_RAW_RESULT_FILE")) as f:
+            try:
+                jobj = json.load(f)
+            except Exception as e:
+                bb.warn(str(e))
+                pass
+            if isinstance(jobj, dict):
+                if "results" in jobj.keys():
+                    for item in jobj["results"]:
+                        try:
+                            filename = item["filename"]
+                            if filename.startswith("./"):
+                                filename = os.path.join(buildpath, filename[2:])
+                            g = sca_get_model_class(d,
+                                                    PackageName=package_name,
+                                                    Tool="bandit",
+                                                    BuildPath=buildpath,
+                                                    File=filename,
+                                                    Line=str(item["line_number"]),
+                                                    Message=item["issue_text"],
+                                                    ID=item["test_id"],
+                                                    Severity=severity_map[item["issue_severity"]])
+                            if g.Severity in sca_allowed_warning_level(d):
+                                sca_add_model_class(d, g)
+                        except Exception as exp:
+                            bb.warn(str(exp))
+
+    return sca_save_model_to_string(d)
 
 python do_sca_bandit_core() {
     import os
@@ -17,8 +63,7 @@ python do_sca_bandit_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "bandit-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "bandit-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _supress = get_suppress_entries(d)
-    _fatal = get_fatal_entries(d)
+    _suppress = get_suppress_entries(d)
 
     result_raw_file = os.path.join(d.getVar("T"), "sca_raw_bandit.json")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
@@ -26,8 +71,8 @@ python do_sca_bandit_core() {
     _args = ["bandit"]
     _args += ["-f", "json"]
     _args += ["-o", result_raw_file]
-    if any(_supress):
-        _args += ["--skip", ",".join(_supress)]
+    if any(_suppress):
+        _args += ["--skip", ",".join(_suppress)]
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*python3", ".py",
                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
@@ -42,26 +87,11 @@ python do_sca_bandit_core() {
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
 
-    xml_output = do_sca_conv_bandit(d)
-    result_file = os.path.join(d.getVar("T"), "sca_checkstyle_bandit.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    with open(result_file, "w") as o:
-        o.write(xml_output)
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/bandit.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_bandit(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
 
-    ## Evaluate
-    _warnings = get_warnings_from_result(d)
-    _fatals = get_fatal_from_result(d, "bandit.bandit.", _fatal)
-    _errors = get_errors_from_result(d)
-
-    warn_log = []
-    if any(_warnings):
-        warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors):
-        warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log and should_emit_to_console(d):
-        bb.warn("SCA has found {}".format(",".join(warn_log)))
-    
-    if any(_fatals):
-        bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK"), d)
-        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+    sca_task_aftermath(d, "bandit", get_fatal_entries(d))
 }

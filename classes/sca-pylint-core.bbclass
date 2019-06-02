@@ -1,6 +1,45 @@
+inherit sca-conv-to-export
+inherit sca-datamodel
+inherit sca-global
 inherit sca-helper
-inherit sca-conv-checkstyle-pylint
 inherit sca-license-filter
+
+def do_sca_conv_pylint(d):
+    import os
+    import re
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    pattern = r"^(?P<file>.*):(?P<line>\d+):\s+\[(?P<raw_severity>\w+)\((?P<raw_severity_id>.*)\).*\]\s+(?P<message>.*)"
+
+    severity_map = {
+        "F" : "error",
+        "E" : "error",
+        "W" : "warning",
+        "R" : "info",
+        "C" : "info"
+    }
+
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+            for m in re.finditer(pattern, f.read(), re.MULTILINE):
+                try:
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            Tool="pylint",
+                                            BuildPath=buildpath,
+                                            File=m.group("file"),
+                                            Line=m.group("line"),
+                                            Message=m.group("message"),
+                                            ID=m.group("raw_severity_id"),
+                                            Severity=severity_map[m.group("raw_severity")])
+                    if g.Severity in sca_allowed_warning_level(d):
+                        sca_add_model_class(d, g)
+                except Exception as exp:
+                    bb.warn(str(exp))
+
+    return sca_save_model_to_string(d)
 
 python do_sca_pylint_core() {
     import os
@@ -10,14 +49,13 @@ python do_sca_pylint_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pylint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pylint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _supress = get_suppress_entries(d)
-    _fatal = get_fatal_entries(d)
+    _suppress = get_suppress_entries(d)
 
     _args = ["python3", "-m", "pylint"]
     _args += ["--output-format=parseable"]
     _args += ["--score=no"]
-    if any(_supress):
-        _args += ["--disable={}".format(",".join(_supress))]
+    if any(_suppress):
+        _args += ["--disable={}".format(",".join(_suppress))]
     _args += ["--rcfile={}/pylint.rc".format(d.getVar("T"))]
     _args += get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*python3", [".py"])
     if d.getVar("SCA_PYLINT_EXTRA"):
@@ -48,28 +86,13 @@ python do_sca_pylint_core() {
         o.write(cmd_output)
     os.chdir(cur_dir)
     
-    result_file = os.path.join(d.getVar("T", True), "sca_checkstyle_pylint.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    conv_output = do_sca_conv_pylint(d)
-    with open(result_file, "w") as o:
-        o.write(conv_output)
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/pylint.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_pylint(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
 
-    ## Evaluate
-    _warnings = get_warnings_from_result(d)
-    _fatals = get_fatal_from_result(d, "pylint.pylint", _fatal)
-    _errors = get_errors_from_result(d)
-
-    warn_log = []
-    if any(_warnings) and should_emit_to_console(d):
-        warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors) and should_emit_to_console(d):
-        warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log and should_emit_to_console(d):
-        bb.warn("SCA has found {}".format(",".join(warn_log)))
-
-    if any(_fatals):
-        bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK"), d)
-        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+    sca_task_aftermath(d, "pylint", get_fatal_entries(d))
 }
 
 ## addtask do_static_code_analysis_pylint before do_install after do_compile

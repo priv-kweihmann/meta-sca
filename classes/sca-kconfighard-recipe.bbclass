@@ -3,9 +3,10 @@ SCA_KCONFIGHARD_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_KCONFIGHARD_EXTRA_FATAL ?= ""
 
-inherit sca-helper
-inherit sca-conv-checkstyle-kconfighard
+inherit sca-conv-to-export
+inherit sca-datamodel
 inherit sca-global
+inherit sca-helper
 
 DEPENDS += "kconfig-hardened-check-native sca-recipe-kconfighard-rules-native"
 
@@ -23,6 +24,56 @@ def get_architeture(d):
         bb.note("Unknown Arch {} can't do kconfig-hardened-check".format(arch))
         return ""
 
+def do_sca_conv_kconfighard(d):
+    import os
+    import re
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    items = []
+    pattern = r"^\s*(?P<symbol>CONFIG_[A-Z0-9_]+)\s*\|\s*(?P<exp>.*?\s*)\|\s*(?P<source>\w+\s*)\|.*\|\|\s*(?P<result>.*)"
+
+    severity_map = {
+        "defconfig" : "error",
+        "kspp": "warning",
+        "my": "warning",
+        "grsecurity" : "warning",
+        "lockdown" : "warning"
+    }
+
+    __suppress = get_suppress_entries(d)
+
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+            for m in re.finditer(pattern, f.read(), re.MULTILINE):
+                try:
+                    result_fail = m.group("result").strip().startswith("FAIL:")
+                    if not result_fail:
+                        continue
+                    clean_result = m.group("result").strip().replace("FAIL:", "").replace("OK:", "").replace("\"", "").strip()
+                    
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            Tool="kconfighard",
+                                            File=buildpath,
+                                            BuildPath=d.getVar("B"),
+                                            Message="{} should be {} but is {}".format(m.group("symbol"), m.group("exp").strip(), clean_result),
+                                            ID=m.group("symbol"))
+                    if m.group("source") in severity_map.keys():
+                        g.Severity = severity_map[m.group("source")]
+                    else:
+                        ## default to warning
+                        g.Severity = "warning"
+                    if g.GetPlainID() in __suppress:
+                        continue
+                    if g.Severity in sca_allowed_warning_level(d):
+                        sca_add_model_class(d, g)
+                except Exception as exp:
+                    bb.warn(str(exp))
+
+    return sca_save_model_to_string(d)
+
 python do_sca_kconfighard() {
     import os
     import subprocess
@@ -32,9 +83,6 @@ python do_sca_kconfighard() {
         d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_CPPLINT_EXTRA_FATAL"))
         d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "kconfighard-{}-suppress".format(d.getVar("SCA_MODE"))))
         d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "kconfighard-{}-fatal".format(d.getVar("SCA_MODE"))))
-
-        _supress = get_suppress_entries(d)
-        _fatal = get_fatal_entries(d)
 
         tmp_result = os.path.join(d.getVar("T", True), "sca_raw_kconfighard.txt")
         d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
@@ -59,44 +107,20 @@ python do_sca_kconfighard() {
         org_source_value = d.getVar("SCA_SOURCES_DIR")
         ## patch the source of the config-file
         d.setVar("SCA_SOURCES_DIR", os.path.join(d.getVar("B"), ".config"))
-        conv_output = do_sca_conv_kconfighard(d)
-        with open(result_file, "w") as o:
-            o.write(conv_output)
-        d.setVar("SCA_SOURCES_DIR", org_source_value)
 
-        ## Evaluate
-        _warnings = get_warnings_from_result(d)
-        _fatals = get_fatal_from_result(d, "Kconfighard.Kconfighard", _fatal)
-        _errors = get_errors_from_result(d)
+        ## Create data model
+        d.setVar("SCA_DATAMODEL_STORAGE", "{}/kconfighard.dm".format(d.getVar("T")))
+        dm_output = do_sca_conv_kconfighard(d)
+        with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+            o.write(dm_output)
 
-        warn_log = []
-        if any(_warnings) and should_emit_to_console(d):
-            warn_log.append("{} warning(s)".format(len(_warnings)))
-        if any(_errors) and should_emit_to_console(d):
-            warn_log.append("{} error(s)".format(len(_errors)))
-        if warn_log and should_emit_to_console(d):
-            bb.warn("SCA has found {}".format(",".join(warn_log)))
-        
-        if any(_fatals):
-            bb.build.exec_func("do_sca_deploy_kconfighard", d)
-            bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+        sca_task_aftermath(d, "kconfighard", get_fatal_entries(d))
 }
 
+SCA_DEPLOY_TASK = "do_sca_deploy_kconfighard"
+
 python do_sca_deploy_kconfighard() {
-    import os
-    import shutil
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "kconfighard", "raw"), exist_ok=True)
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "kconfighard", "checkstyle"), exist_ok=True)
-    raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "kconfighard", "raw", "{}-{}.txt".format(d.getVar("PN"), d.getVar("PV")))
-    cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "kconfighard", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    src_raw = os.path.join(d.getVar("T"), "sca_raw_kconfighard.txt")
-    src_conv = os.path.join(d.getVar("T"), "sca_checkstyle_kconfighard.xml")
-    if os.path.exists(src_raw):
-        shutil.copy(src_raw, raw_target)
-    if os.path.exists(src_conv):
-        shutil.copy(src_conv, cs_target)
-    if os.path.exists(cs_target):
-        do_sca_export_sources(d, cs_target)
+    sca_conv_deploy(d, "kconfighard", "txt")
 }
 
 addtask do_sca_kconfighard before do_compile after do_configure

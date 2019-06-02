@@ -12,6 +12,11 @@ SCA_CPPCHECK_LANG_STD ?= "c99"
 ## File extension filter list (whitespace separated)
 SCA_CPPCHECK_FILE_FILTER ?= ".c .cpp .h .hpp"
 
+inherit sca-conv-to-export
+inherit sca-datamodel
+inherit sca-global
+inherit sca-helper
+
 def get_platform_type(d):
     ## Let's assume that 64bit platforms 
     ## end with a 64 in their platform name
@@ -21,9 +26,46 @@ def get_platform_type(d):
     else:
         return "unix32"
 
-inherit sca-helper
-inherit sca-conv-checkstyle-cppcheck
-inherit sca-global
+def do_sca_conv_cppcheck(d):
+    import os
+    import re
+    from xml.etree.ElementTree import Element, SubElement, Comment, tostring
+    from xml.etree import ElementTree
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    items = []
+
+    severity_map = {
+        "error" : "error",
+        "warning" : "warning",
+        "style" : "info",
+        "performance" : "info",
+        "portability" : "info",
+        "information" : "info",
+        "debug": "ignore"
+    }
+
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        data = ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE")).getroot()
+        for node in data.findall(".//error"):
+            try:
+                for loc in node.findall(".//location"):
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            Tool="cppcheck",
+                                            BuildPath=buildpath,
+                                            File=os.path.join(buildpath, loc.attrib.get("file")),
+                                            Line=loc.attrib.get("line"),
+                                            Message=node.attrib.get("msg"),
+                                            ID=node.attrib.get("id"),
+                                            Severity=severity_map[node.attrib.get("severity")])
+                    if g.Severity in sca_allowed_warning_level(d):
+                        sca_add_model_class(d, g)
+            except Exception as exp:
+                bb.warn(str(exp))
+    return sca_save_model_to_string(d)
 
 python do_sca_cppcheck() {
     import os
@@ -33,8 +75,7 @@ python do_sca_cppcheck() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cppcheck-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cppcheck-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _supress = get_suppress_entries(d)
-    _fatal = get_fatal_entries(d)
+    _suppress = get_suppress_entries(d)
     _user_rules = os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cppcheck-user-rules.xml")
     _add_include = d.getVar("SCA_CPPCHECK_ADD_INCLUDES", True).split(" ")
 
@@ -53,9 +94,9 @@ python do_sca_cppcheck() {
     for item in d.getVar("SCA_CPPCHECK_LANG_STD").split(" "):
         _args += ["--std={}".format(item)]
     _args += [get_platform_type(d)]    
-    _args += ["--suppress={}".format(x) for x in _supress]
+    _args += ["--suppress={}".format(x) for x in _suppress]
     result_raw_file = os.path.join(d.getVar("T", True), "sca_raw_cppcheck.xml")
-    d.setVar("SCA_RAW_RESULT", result_raw_file)
+    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
     _args += ["--output-file={}".format(result_raw_file)]
     _files = get_files_by_extention(d, 
                                     d.getVar("SCA_SOURCES_DIR"), 
@@ -92,46 +133,20 @@ python do_sca_cppcheck() {
     os.chdir(cur_dir)
     if os.path.exists("std.cfg"):
         os.remove("std.cfg")
-    
-    result_file = os.path.join(d.getVar("T", True), "sca_checkstyle_cppcheck.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    conv_output = do_sca_conv_cppcheck(d)
-    with open(result_file, "w") as o:
-        o.write(conv_output)
 
-    ## Evaluate
-    _warnings = get_warnings_from_result(d)
-    _fatals = get_fatal_from_result(d, "CPPCheck.CPPCheck", _fatal)
-    _errors = get_errors_from_result(d)
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/cppcheck.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_cppcheck(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
 
-    warn_log = []
-    if any(_warnings) and should_emit_to_console(d):
-        warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors) and should_emit_to_console(d):
-        warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log and should_emit_to_console(d):
-        bb.warn("SCA has found {}".format(",".join(warn_log)))
-    
-    if any(_fatals):
-        bb.build.exec_func("do_sca_deploy_cppcheck", d)
-        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+    sca_task_aftermath(d, "cppcheck", get_fatal_entries(d))
 }
 
+SCA_DEPLOY_TASK = "do_sca_deploy_cppcheck"
+
 python do_sca_deploy_cppcheck() {
-    import os
-    import shutil
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "cppcheck", "raw"), exist_ok=True)
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "cppcheck", "checkstyle"), exist_ok=True)
-    raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "cppcheck", "raw", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "cppcheck", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    src_raw = os.path.join(d.getVar("T"), "sca_raw_cppcheck.xml")
-    src_conv = os.path.join(d.getVar("T"), "sca_checkstyle_cppcheck.xml")
-    if os.path.exists(src_raw):
-        shutil.copy(src_raw, raw_target)
-    if os.path.exists(src_conv):
-        shutil.copy(src_conv, cs_target)
-    if os.path.exists(cs_target):
-        do_sca_export_sources(d, cs_target)
+    sca_conv_deploy(d, "cppcheck", "xml")
 }
 
 addtask do_sca_cppcheck before do_install after do_compile

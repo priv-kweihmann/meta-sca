@@ -3,11 +3,40 @@ SCA_PYTYPE_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_PYTYPE_EXTRA_FATAL ?= ""
 
-inherit sca-helper
-inherit sca-conv-checkstyle-pytype
+inherit sca-conv-to-export
+inherit sca-datamodel
 inherit sca-global
+inherit sca-helper
 
 inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
+
+def do_sca_conv_pytype(d):
+    import os
+    import re
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    pattern = r"^File\s+\"(?P<file>.*)\",\s+line\s+(?P<line>\d+),\s+in\s+(?P<name>[\w\<\>]+):\s+(?P<msg>.*)\s+\[(?P<id>.*)]"
+
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+            for m in re.finditer(pattern, f.read(), re.MULTILINE):
+                try:
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            Tool="pytype",
+                                            File=m.group("file"),
+                                            Line=m.group("line"),
+                                            Message="{}:{}".format(m.group("name"), m.group("msg")),
+                                            ID=m.group("id"),
+                                            Severity="warning")
+                    if g.Severity in sca_allowed_warning_level(d):
+                        sca_add_model_class(d, g)
+                except Exception as exp:
+                    bb.warn(str(exp))
+
+    return sca_save_model_to_string(d)
 
 python do_sca_pytype() {
     import os
@@ -17,8 +46,7 @@ python do_sca_pytype() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pytype-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pytype-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _supress = get_suppress_entries(d)
-    _fatal = get_fatal_entries(d)
+    _suppress = get_suppress_entries(d)
 
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_pytype.txt")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
@@ -33,8 +61,8 @@ python do_sca_pytype() {
     _args = ["pytype"]
     _args += ["--keep-going"]
     _args += ["-V", d.getVar("PYTHON_BASEVERSION")]
-    if any(_supress):
-        _args += ["-D", ",".join(_supress)]
+    if any(_suppress):
+        _args += ["-D", ",".join(_suppress)]
     _args += ["-P", ":".join(_paths)]
     _args += ["-o", os.path.join(d.getVar("T"), "pytypeout")]
     
@@ -48,45 +76,19 @@ python do_sca_pytype() {
     with open(tmp_result, "w") as o:
         o.write(cmd_output)
     
-    result_file = os.path.join(d.getVar("T", True), "sca_checkstyle_pytype.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    conv_output = do_sca_conv_pytype(d)
-    with open(result_file, "w") as o:
-        o.write(conv_output)
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/pytype.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_pytype(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
 
-    ## Evaluate
-    _warnings = get_warnings_from_result(d)
-    _fatals = get_fatal_from_result(d, "pytype.pytype", _fatal)
-    _errors = get_errors_from_result(d)
-
-    warn_log = []
-    if any(_warnings) and should_emit_to_console(d):
-        warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors) and should_emit_to_console(d):
-        warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log and should_emit_to_console(d):
-        bb.warn("SCA has found {}".format(",".join(warn_log)))
-    
-    if any(_fatals):
-        bb.build.exec_func("do_sca_deploy_pytype", d)
-        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+    sca_task_aftermath(d, "pytype", get_fatal_entries(d))
 }
 
+SCA_DEPLOY_TASK = "do_sca_deploy_pytype"
+
 python do_sca_deploy_pytype() {
-    import os
-    import shutil
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "pytype", "raw"), exist_ok=True)
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "pytype", "checkstyle"), exist_ok=True)
-    raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "pytype", "raw", "{}-{}.json".format(d.getVar("PN"), d.getVar("PV")))
-    cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "pytype", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    src_raw = os.path.join(d.getVar("T"), "sca_raw_pytype.json")
-    src_conv = os.path.join(d.getVar("T"), "sca_checkstyle_pytype.xml")
-    if os.path.exists(src_raw):
-        shutil.copy(src_raw, raw_target)
-    if os.path.exists(src_conv):
-        shutil.copy(src_conv, cs_target)
-    if os.path.exists(cs_target):
-        do_sca_export_sources(d, cs_target)
+    sca_conv_deploy(d, "pytype", "txt")
 }
 
 addtask do_sca_pytype before do_install after do_configure

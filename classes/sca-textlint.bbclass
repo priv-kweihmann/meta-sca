@@ -1,7 +1,3 @@
-inherit sca-conv-checkstyle-textlint
-inherit sca-license-filter
-inherit sca-helper
-
 SCA_TEXTLINT_RULES ?= "textlint-rule-no-todo textlint-rule-no-start-duplicated-conjunction \
                        textlint-rule-max-number-of-lines textlint-rule-max-comma \
                        textlint-rule-no-exclamation-question-mark textlint-rule-ng-word \
@@ -17,6 +13,11 @@ SCA_TEXTLINT_RULES ?= "textlint-rule-no-todo textlint-rule-no-start-duplicated-c
 SCA_TEXTLINT_ONLINE ?= "1"
 
 inherit npm-helper
+inherit sca-conv-to-export
+inherit sca-datamodel
+inherit sca-global
+inherit sca-helper
+inherit sca-license-filter
 
 python do_prepare_recipe_sysroot_append() {
     npm_prerun_fix_paths(d, d.getVar("STAGING_DATADIR_NATIVE"), "textlint")
@@ -33,6 +34,55 @@ def write_config(_base, _extra_dicts, _target):
     with open(_target, "w") as o:
         json.dump(obj, o)
 
+def do_sca_conv_textlint(d):
+    import os
+    import re
+    import json
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    severity_map = {
+        "0" : "info",
+        "1" : "warning",
+        "2": "warning" ## Originally this is error
+    }
+
+    _suppress = get_suppress_entries(d)
+    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
+
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        jobj = []
+        with open(d.getVar("SCA_RAW_RESULT_FILE")) as f:
+            try:
+                jobj = json.load(f)
+            except Exception as e:
+                pass
+        for item in jobj:
+            g = TextlintItem()
+            g_files = item["filePath"]
+            for msg in item["messages"]:
+                try:
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            Tool="textlint",
+                                            BuildPath=buildpath,
+                                            Column=str(msg["column"]),
+                                            Line=str(msg["line"]),
+                                            Message=msg["message"],
+                                            ID=msg["ruleId"],
+                                            Severity=severity_map[str(msg["severity"])])
+                    if g.File in _excludes:
+                        continue
+                    if g.GetPlainID() in _suppress:
+                        continue
+                    if g.Severity in sca_allowed_warning_level(d):
+                        sca_add_model_class(d, g)
+                except Exception as exp:
+                    bb.warn(str(exp))
+    
+    return sca_save_model_to_string(d)
+
 python do_sca_textlint() {
     import os
     import subprocess
@@ -42,9 +92,6 @@ python do_sca_textlint() {
     d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_SHELLCHECK_EXTRA_FATAL"))
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "textlint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "textlint-{}-fatal".format(d.getVar("SCA_MODE"))))
-
-    _supress = get_suppress_entries(d)
-    _fatal = get_fatal_entries(d)
 
     _config = {
         "filters": { "textlint-filter-rule-comments": True },
@@ -86,51 +133,19 @@ python do_sca_textlint() {
     except subprocess.CalledProcessError as e:
         cmd_output += e.stdout or ""
 
-    xml_output = do_sca_conv_textlint(d)
-    result_file = os.path.join(d.getVar("T"), "sca_checkstyle_textlint.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    with open(result_file, "w") as o:
-        o.write(xml_output)
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/textlint.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_textlint(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
 
-    ## Evaluate
-    _warnings = get_warnings_from_result(d)
-    _fatals = get_fatal_from_result(d, "ShellCheck.", _fatal)
-    _errors = get_errors_from_result(d)
-
-    warn_log = []
-    if any(_warnings) and should_emit_to_console(d):
-        warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors) and should_emit_to_console(d):
-        warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log and should_emit_to_console(d):
-        bb.warn("SCA has found {}".format(",".join(warn_log)))
-    
-    if any(_fatals):
-        bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK"), d)
-        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+    sca_task_aftermath(d, "textlint", get_fatal_entries(d))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_textlint"
 
 python do_sca_deploy_textlint() {
-    import os
-    import shutil
-
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "textlint", "raw"), exist_ok=True)
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "textlint", "checkstyle"), exist_ok=True)
-
-    import os
-    
-    raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "textlint", "raw", "{}-{}.json".format(d.getVar("PN"), d.getVar("PV")))
-    cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "textlint", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    src_raw = os.path.join(d.getVar("T"), "sca_raw_textlint.json")
-    src_conv = os.path.join(d.getVar("T"), "sca_checkstyle_textlint.xml")
-    if os.path.exists(src_raw):
-        shutil.copy(src_raw, raw_target)
-    if os.path.exists(src_conv):
-        shutil.copy(src_conv, cs_target)
-    if os.path.exists(cs_target):
-        do_sca_export_sources(d, cs_target)
+    sca_conv_deploy(d, "textlint", "json")
 }
 
 addtask do_sca_textlint before do_install after do_compile

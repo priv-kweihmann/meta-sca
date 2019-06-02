@@ -1,5 +1,4 @@
 inherit sca-helper
-inherit sca-conv-checkstyle-helper
 inherit sca-global
 
 SCA_SCORE_EXTRA_FUNCTIONAL ?= ""
@@ -18,7 +17,7 @@ SCA_SCORE_SECURITY_WARN ?= "70"
 SCA_SCORE_FUNCTIONAL_WARN ?= "60"
 SCA_SCORE_STYLE_WARN ?= "30"
 
-SCA_SCORE_SECURITY_ERROR ?= "50"
+SCA_SCORE_SECURITY_ERROR ?= "48"
 SCA_SCORE_FUNCTIONAL_ERROR ?= "35"
 SCA_SCORE_STYLE_ERROR ?= "15"
 
@@ -67,14 +66,11 @@ def score_sum_up_lang(d, xml):
     return res
 
 def score_get_classifier_match(d, tooldb, finding, default="functional"):
-    from xml.etree.ElementTree import Element, SubElement, Comment, tostring
-    from xml.etree import ElementTree
-    from xml.dom import minidom
     import re
     ## First security, functional 2nd, aso
     for k in ["security", "functional", "style"]:
         for x in tooldb[k]:
-            if re.match(x, finding.attrib["source"]):
+            if re.match(x, finding.GetFormattedID()):
                 return k
     return default
 
@@ -85,33 +81,37 @@ def score_get_score(d, item, lines):
     return float(item)
 
 def score_calc_score(d, tooldb, lines):
-    from xml.etree.ElementTree import Element, SubElement, Comment, tostring
-    from xml.etree import ElementTree
-    from xml.dom import minidom
-
     _db = {
         "functional": 0.0,
         "security": 0.0,
         "style": 0.0
     }
 
+    data = []
+
+    ## Sanity fix
+    if lines < 1:
+        lines = 1
+
     for mod in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")):
-        fp = os.path.join(d.getVar("SCA_EXPORT_DIR"), mod, "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
+        fp = os.path.join(d.getVar("T"), "{}.dm".format(mod))
         if os.path.exists(fp):
-            data = ElementTree.ElementTree(ElementTree.parse(fp).getroot())
-            for f in data.findall(".//file"):
-                _file = f.attrib["name"]
-                for x in f.findall(".//error"):
-                    cl = score_get_classifier_match(d, tooldb, x)
-                    ety = x.attrib["severity"]
-                    score = score_get_score(d, d.getVar("SCA_SCORE_{}_PEN".format(cl.upper())), lines) * \
-                            score_get_score(d, d.getVar("SCA_SCORE_{}_PEN".format(ety.upper())), lines)
-                    _db[cl] += score
+            data += sca_get_datamodel(d, fp)
+
+    for f in data:
+        cl = score_get_classifier_match(d, tooldb, f)
+        ety = f.Severity
+        score = score_get_score(d, d.getVar("SCA_SCORE_{}_PEN".format(cl.upper())), lines) * \
+                score_get_score(d, d.getVar("SCA_SCORE_{}_PEN".format(ety.upper())), lines)
+        _db[cl] += score
+           
     ## Calc the final score -> (100.0 - (score / total lines))
     for k, v in _db.items():
         if v == 0:
             v = 1.0
         _db[k] = 100.0 - (v * 100.0 / float(lines))
+        if _db[k] < 0.0:
+            _db[k] = 0.0
     return _db
 
 DEPENDS += "python3-pygount-native"

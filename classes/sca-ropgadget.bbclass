@@ -2,9 +2,10 @@
 ## all other findings are reported as info-only
 SCA_ROPGADGET_WARNING_THRESHOLD ?= "500"
 
-inherit sca-helper
-inherit sca-conv-checkstyle-ropgadget
+inherit sca-conv-to-export
+inherit sca-datamodel
 inherit sca-global
+inherit sca-helper
 
 inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
 
@@ -36,6 +37,62 @@ def convert_veryraw(d, bin, content):
                 bb.note(str(e))
     return output
 
+def do_sca_conv_ropgadget(d):
+    import os
+    import re
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    pattern = r"^(?P<bin>.*)\s+-\s+(?P<file>.*):(?P<line>\d+)\s+-\s+(?P<msg>.*)"
+
+    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
+
+    _findings = {}
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+            for m in re.finditer(pattern, f.read(), re.MULTILINE):
+                try:
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            Tool="ropgadget",
+                                            BuildPath=buildpath,
+                                            File=m.group("file"),
+                                            Line=m.group("line"),
+                                            Message=m.group("msg"),
+                                            ID="ropprone",
+                                            Severity="info")
+                    if g.File in _excludes:
+                        continue
+                    if not m.group("bin") in _findings.keys():
+                        _findings[m.group("bin")] = 0
+                    _findings[m.group("bin")] += 1
+                    if g.Severity in sca_allowed_warning_level(d):
+                        sca_add_model_class(d, g)
+                except Exception as exp:
+                    bb.warn(str(exp))
+    
+    _threshold = 99999999999
+    try:
+        _threshold = int(d.getVar("SCA_ROPGADGET_WARNING_THRESHOLD"))
+    except:
+        pass
+
+    for k, v in _findings.items():
+        if v > _threshold:
+            g = sca_get_model_class(d,
+                                    PackageName=package_name,
+                                    Tool="ropgadget",
+                                    File=k,
+                                    BuildPath=buildpath,
+                                    Message="executable exceeded ROP exploit threshold ({}/{})".format(package_name, v, _threshold),
+                                    ID="thresholdexceeded",
+                                    Severity="warning")
+            if g.Severity in sca_allowed_warning_level(d):
+                sca_add_model_class(d, g)
+
+    return sca_save_model_to_string(d)
+
 python do_sca_ropgadget() {
     import os
     import subprocess
@@ -65,40 +122,19 @@ python do_sca_ropgadget() {
     with open(tmp_result, "w") as o:
         o.write(cmd_output)
     
-    result_file = os.path.join(d.getVar("T", True), "sca_checkstyle_ropgadget.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    conv_output = do_sca_conv_ropgadget(d)
-    with open(result_file, "w") as o:
-        o.write(conv_output)
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/ropgadget.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_ropgadget(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
 
-    # ## Evaluate
-    _warnings = get_warnings_from_result(d)
-    _errors = get_errors_from_result(d)
-
-    warn_log = []
-    if any(_warnings) and should_emit_to_console(d):
-        warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors) and should_emit_to_console(d):
-        warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log and should_emit_to_console(d):
-        bb.warn("SCA has found {}".format(",".join(warn_log)))
+    sca_task_aftermath(d, "ropgadget", get_fatal_entries(d))
 }
 
+SCA_DEPLOY_TASK = "do_sca_deploy_ropgadget"
+
 python do_sca_deploy_ropgadget() {
-    import os
-    import shutil
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "ropgadget", "raw"), exist_ok=True)
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "ropgadget", "checkstyle"), exist_ok=True)
-    raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "ropgadget", "raw", "{}-{}.txt".format(d.getVar("PN"), d.getVar("PV")))
-    cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "ropgadget", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    src_raw = os.path.join(d.getVar("T"), "sca_raw_ropgadget.txt")
-    src_conv = os.path.join(d.getVar("T"), "sca_checkstyle_ropgadget.xml")
-    if os.path.exists(src_raw):
-        shutil.copy(src_raw, raw_target)
-    if os.path.exists(src_conv):
-        shutil.copy(src_conv, cs_target)
-    if os.path.exists(cs_target):
-        do_sca_export_sources(d, cs_target)
+    sca_conv_deploy(d, "ropgadget", "txt")
 }
 
 addtask do_sca_ropgadget before do_package_qa after do_package

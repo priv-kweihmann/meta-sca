@@ -1,99 +1,73 @@
 ## This class does parse the bitbake log for WARNING and ERROR strings
-
-inherit sca-helper
-inherit sca-global
-inherit sca-conv-checkstyle-helper
-
 CONLOG = "${LOG_DIR}/cooker/${MACHINE}/console-latest.log"
 
-def sca_bitbake_create_file(d, content):
+inherit sca-conv-to-export
+inherit sca-datamodel
+inherit sca-global
+inherit sca-helper
+
+def do_sca_conv_bitbake(d):
     import os
     import re
-    from xml.etree.ElementTree import Element, SubElement, Comment, tostring
-    from xml.etree import ElementTree
-    from xml.dom import minidom
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
 
-    package_name = d.getVar("PN", True)
-    buildpath = d.getVar("SCA_SOURCES_DIR", True)
-
-    items = []
     pattern = r"^(?P<severity>WARNING|ERROR):\s+{}-{}-{}\s+(?P<task>.*):\s+(?P<message>.*)$".format(d.getVar("PN"), d.getVar("PKGV"), d.getVar("PR"))
-
-    class BitbakeItem():
-        File = ""
-        Line = "1"
-        Column = "1"
-        Severity = ""
-        Message = ""
-        ID = ""
 
     severity_map = {
         "ERROR" : "error",
         "WARNING" : "warning",
     }
 
-    for m in re.finditer(pattern, content, re.MULTILINE):
-        try:
-            g = BitbakeItem()
-            g.File = d.getVar("FILE")
-            g.Message = "[Package:%s Tool:bitbake] %s: %s" % (package_name, m.group("task"), m.group("message"))
-            g.Severity = severity_map[m.group("severity")]
-            g.ID = "bitbake.bitbake.%s" % m.group("severity")
-            if g.Severity in checkstyle_allowed_warning_level(d):
-                items.append(g)
-        except Exception as e:
-            pass
+    _suppress = get_suppress_entries(d)
+    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
-    filenames = list(set([x.File for x in items]))
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+            for m in re.finditer(pattern, f.read(), re.MULTILINE):
+                try:
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            Tool="bitbake",
+                                            BuildPath=buildpath,
+                                            File=d.getVar("FILE"),
+                                            Message="{}: {}".format(m.group("task"), m.group("message")),
+                                            ID=m.group("severity"),
+                                            Severity=severity_map[m.group("severity")])
+                    if g.File in _excludes:
+                        continue
+                    if g.GetPlainID() in _suppress:
+                        continue
+                    if g.Severity in sca_allowed_warning_level(d):
+                        sca_add_model_class(d, g)
+                except Exception as exp:
+                    bb.warn(str(exp))
 
-    top = Element("checkstyle")
-    top.set("version", "4.3")
-
-    for _file in filenames:
-        _fe = SubElement(top, "file", { "name": _file })
-        for _fileE in [x for x in items if x.File == _file ]:
-            _fee = SubElement(_fe, "error", {
-                "column": _fileE.Column,
-                "line": _fileE.Line,
-                "message": _fileE.Message,
-                "severity": _fileE.Severity,
-                "source": _fileE.ID
-            })
-    try:
-        return checkstyle_prettify(d, top).decode("utf-8")
-    except:
-        return checkstyle_prettify(d, top)
+    return sca_save_model_to_string(d)
 
 python do_sca_bitbake () {
     content = ""
     with open(d.getVar("CONLOG")) as f:
         content = f.read()
-    output = sca_bitbake_create_file(d, content)
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_bitbake.xml")
-    d.setVar("SCA_RAW_RESULT", result_raw_file)
+    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_bitbake.txt")
+    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
     with open(result_raw_file, "w") as o:
-        o.write(output)
-    result_file = os.path.join(d.getVar("T"), "sca_checkstyle_bitbake.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    with open(result_file, "w") as o:
-        o.write(output)
+        o.write(content)
+
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/bitbake.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_bitbake(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
+
+    sca_task_aftermath(d, "bitbake", get_fatal_entries(d))
 }
 
+SCA_DEPLOY_TASK = "do_sca_deploy_gcc"
+
 python do_sca_deploy_bitbake() {
-    import os
-    import shutil
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "bitbake", "raw"), exist_ok=True)
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "bitbake", "checkstyle"), exist_ok=True)
-    raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "bitbake", "raw", "{}-{}.txt".format(d.getVar("PN"), d.getVar("PV")))
-    cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "bitbake", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    src_raw = os.path.join(d.getVar("T"), "sca_raw_bitbake.xml")
-    src_conv = os.path.join(d.getVar("T"), "sca_checkstyle_bitbake.xml")
-    if os.path.exists(src_raw):
-        shutil.copy(src_raw, raw_target)
-    if os.path.exists(src_conv):
-        shutil.copy(src_conv, cs_target)
-    if os.path.exists(cs_target):
-        do_sca_export_sources(d, cs_target)
+    sca_conv_deploy(d, "bitbake", "txt")
 }
 
 DEPENDS += "bitbake-sca-native"

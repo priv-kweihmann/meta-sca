@@ -1,3 +1,6 @@
+inherit sca-conv-to-export
+inherit sca-datamodel
+
 DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-python-magic-native"
 
 def get_relative_source_path(d):
@@ -52,10 +55,10 @@ def xml_combine(d, *args):
 
 def _combine_x_entries(d, input_file, extra_key):
     import os
-    _filename = d.getVar(input_file, True)
-    _extra = d.getVar(extra_key, True) or ""
+    _filename = d.getVar(input_file)
+    _extra = d.getVar(extra_key) or ""
     res = []
-    if os.path.isfile(_filename):
+    if _filename and os.path.isfile(_filename):
         _rules_file = _filename
         with open(_rules_file) as f:
             res = f.readlines()
@@ -125,18 +128,9 @@ def get_suppress_entries(d):
 def get_fatal_entries(d):
     return _combine_x_entries(d, "SCA_FATAL_FILE", "SCA_EXTRA_FATAL")
 
-def _get_x_from_result(d, xml_path = ".//", lookup_key = "severity", match_key = ""):
-    from xml.etree.ElementTree import Element, SubElement, Comment, tostring
-    from xml.etree import ElementTree
-    from xml.dom import minidom
-    _filename = d.getVar("SCA_RESULT_FILE", True)
-    res = []
-    if _filename:
-        data = ElementTree.parse(_filename).getroot()
-        for node in data.findall(".//error"):
-            if lookup_key in node.attrib:
-                if node.attrib[lookup_key] == match_key:
-                    res.append(node.attrib["message"])
+def _get_x_from_result(d, lookup_key = "severity", match_key = ""):
+    _dm = sca_get_datamodel(d, d.getVar("SCA_DATAMODEL_STORAGE"))
+    res = [x for x in _dm if lookup_key in x.__dict__.keys() and x.__dict__[lookup_key] == match_key]
     return res
 
 def get_warnings_from_result(d):
@@ -145,11 +139,38 @@ def get_warnings_from_result(d):
 def get_errors_from_result(d):
     return _get_x_from_result(d, match_key = "error")
 
-def get_fatal_from_result(d, prefix, fatal_ids):
+def get_fatal_from_result(d, fatal_ids):
     res = []
     for i in fatal_ids:
-        res += _get_x_from_result(d, lookup_key = "source", match_key = "{}.{}".format(prefix, i))
+        res += _get_x_from_result(d, lookup_key = "source", match_key = i)
     return list(set(res))
 
 def clean_split(d, _var):
     return [x for x in d.getVar(_var).split(" ") if x]
+
+def sca_task_aftermath(d, tool, fatals=None):
+    ## Write to final export
+    result_file = os.path.join(d.getVar("T"), sca_conv_export_get_deployname(d, tool))
+    d.setVar("SCA_RESULT_FILE", result_file)
+    with open(result_file, "w") as o:
+        o.write(sca_conv_to_export(d))
+
+    ## Evaluate
+    _warnings = get_warnings_from_result(d)
+    _errors = get_errors_from_result(d)
+    if fatals:
+        _fatals = get_fatal_from_result(d, fatals)
+    else:
+        _fatals = []
+
+    warn_log = []
+    if any(_warnings) and should_emit_to_console(d):
+        warn_log.append("{} warning(s)".format(len(_warnings)))
+    if any(_errors) and should_emit_to_console(d):
+        warn_log.append("{} error(s)".format(len(_errors)))
+    if warn_log and should_emit_to_console(d):
+        bb.warn("SCA has found {}".format(",".join(warn_log)))
+    
+    if any(_fatals):
+        bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK"), d)
+        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))

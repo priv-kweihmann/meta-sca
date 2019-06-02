@@ -21,6 +21,6 @@
         "ansiblelint.ansiblelint.602"
     ],
     "style": [
-        "ansiblelint.ansiblelint.*"
+        "ansiblelint.ansiblelint..*"
     ]
 }

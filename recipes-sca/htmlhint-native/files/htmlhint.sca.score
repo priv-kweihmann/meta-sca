@@ -5,6 +5,6 @@
         "htmlhint.htmlhint.id-unique"
     ],
     "style": [
-        "htmlhint.htmlhint.*"
+        "htmlhint.htmlhint..*"
     ]
 }

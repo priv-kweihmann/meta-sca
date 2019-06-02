@@ -1,3 +1,3 @@
 {
-    "style": ["oelint.oelint.*"]
+    "style": ["oelint.oelint..*"]
 }

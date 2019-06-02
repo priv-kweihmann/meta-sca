@@ -1,26 +1,56 @@
-inherit sca-conv-checkstyle-xmllint
-inherit sca-license-filter
-inherit sca-helper
-
 SCA_XMLLINT_EXTRA_SUPPRESS ?= ""
 SCA_XMLLINT_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)
-SCA_XMLLINT_FILE_FILTER ?= ".c .cpp .h .hpp"
+SCA_XMLLINT_FILE_FILTER ?= ".xml"
+
+inherit sca-conv-to-export
+inherit sca-datamodel
+inherit sca-global
+inherit sca-helper
+inherit sca-license-filter
 
 DEPENDS += "libxml2-native"
+
+def do_sca_conv_xmllint(d):
+    import os
+    import re
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    pattern = r"^(?P<file>.*):(?P<line>\d+):\s+(?P<id>.*)\s+:\s+(?P<msg>.*)"
+
+    __suppress = get_suppress_entries(d)
+
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+            for m in re.finditer(pattern, f.read(), re.MULTILINE):
+                try:
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            Tool="xmllint",
+                                            BuildPath=buildpath,
+                                            Line=m.group("line"),
+                                            Message=m.group("msg"),
+                                            ID=m.group("id"),
+                                            Severity="error")
+                    if g.GetPlainID() in __suppress:
+                        continue
+                    if g.Severity in sca_allowed_warning_level(d):
+                        sca_add_model_class(d, g)
+                except Exception as exp:
+                    bb.warn(str(exp))
+
+    return sca_save_model_to_string(d)
 
 python do_sca_xmllint_core() {
     import os
     import subprocess
-    import json
 
     d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_XMLLINT_EXTRA_SUPPRESS"))
     d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_XMLLINT_EXTRA_FATAL"))
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "xmllint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "xmllint-{}-fatal".format(d.getVar("SCA_MODE"))))
-
-    _supress = get_suppress_entries(d)
-    _fatal = get_fatal_entries(d)
 
     _args = ["xmllint"]
     _args += ["--noout"]
@@ -37,30 +67,15 @@ python do_sca_xmllint_core() {
             cmd_output = e.stdout or ""
 
     result_raw_file = os.path.join(d.getVar("T"), "sca_raw_xmllint.txt")
-    d.setVar("SCA_RAW_RESULT", result_raw_file)
+    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
     with open(result_raw_file, "w") as o:
         o.write(cmd_output)
 
-    xml_output = do_sca_conv_xmllint(d)
-    result_file = os.path.join(d.getVar("T"), "sca_checkstyle_xmllint.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    with open(result_file, "w") as o:
-        o.write(xml_output)
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/xmllint.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_xmllint(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
 
-    ## Evaluate
-    _warnings = get_warnings_from_result(d)
-    _fatals = get_fatal_from_result(d, "xmllint.", _fatal)
-    _errors = get_errors_from_result(d)
-
-    warn_log = []
-    if any(_warnings):
-        warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors):
-        warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log and should_emit_to_console(d):
-        bb.warn("SCA has found {}".format(",".join(warn_log)))
-    
-    if any(_fatals):
-        bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK"), d)
-        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+    sca_task_aftermath(d, "xmllint", get_fatal_entries(d))
 }

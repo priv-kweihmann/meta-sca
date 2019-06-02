@@ -1,13 +1,49 @@
-inherit sca-conv-checkstyle-oelint
-inherit sca-license-filter
-inherit sca-helper
-
 SCA_OELINT_EXTRA_SUPPRESS ?= ""
 SCA_OELINT_EXTRA_FATAL ?= ""
 
 DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-oelint-adv-native"
 
+inherit sca-conv-to-export
+inherit sca-datamodel
+inherit sca-helper
+inherit sca-license-filter
 inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
+
+def do_sca_conv_oelint(d):
+    import os
+    import re
+
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    items = []
+    pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<severity>(warning|error|info)):(?P<id>.*):(?P<message>.*)$"
+
+    severity_map = {
+        "error" : "error",
+        "warning" : "warning",
+        "info": "info"
+    }
+
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+            for m in re.finditer(pattern, f.read(), re.MULTILINE):
+                try:
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            Tool="oelint",
+                                            File=m.group("file"),
+                                            Line=m.group("line"),
+                                            Message=m.group("message"),
+                                            ID=m.group("id"),
+                                            Severity=severity_map[m.group("severity")])
+                    if g.Severity in sca_allowed_warning_level(d):
+                        sca_add_model_class(d, g)
+                except Exception as exp:
+                    bb.warn(str(exp))
+
+    return sca_save_model_to_string(d)
+
 
 python do_sca_oelint_core() {
     import os
@@ -19,14 +55,13 @@ python do_sca_oelint_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "oelint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "oelint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _supress = get_suppress_entries(d)
-    _fatal = get_fatal_entries(d)
-
     result_raw_file = os.path.join(d.getVar("T"), "sca_raw_oelint.txt")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
 
+    __suppress = get_suppress_entries(d)
+
     _args = ['oelint-adv']
-    for item in _supress:
+    for item in __suppress:
         _args += ["--suppress={}".format(item)]
     _args += ["--output={}".format(result_raw_file)]
     _files = [x.strip() for x in d.getVar("BBINCLUDED").split(" ") if x.strip().endswith(".bb") or x.strip().endswith(".bbappend")]
@@ -41,26 +76,11 @@ python do_sca_oelint_core() {
         except subprocess.CalledProcessError as e:
             pass
 
-    xml_output = do_sca_conv_oelint(d)
-    result_file = os.path.join(d.getVar("T"), "sca_checkstyle_oelint.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    with open(result_file, "w") as o:
-        o.write(xml_output)
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/oelint.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_oelint(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
 
-    ## Evaluate
-    _warnings = get_warnings_from_result(d)
-    _fatals = get_fatal_from_result(d, "oelint.oelint.", _fatal)
-    _errors = get_errors_from_result(d)
-
-    warn_log = []
-    if any(_warnings):
-        warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors):
-        warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log and should_emit_to_console(d):
-        bb.warn("SCA has found {}".format(",".join(warn_log)))
-    
-    if any(_fatals):
-        bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK"), d)
-        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+    sca_task_aftermath(d, "oelint", get_fatal_entries(d))
 }

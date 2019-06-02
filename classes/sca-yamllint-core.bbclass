@@ -1,15 +1,56 @@
-inherit sca-conv-checkstyle-yamllint
-inherit sca-license-filter
-inherit sca-helper
-
 SCA_YAMLLINT_EXTRA_SUPPRESS ?= ""
 SCA_YAMLLINT_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)
 SCA_YAMLLINT_FILE_FILTER ?= ".yaml"
 
+inherit sca-conv-to-export
+inherit sca-datamodel
+inherit sca-global
+inherit sca-helper
+inherit sca-license-filter
+
 inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
 
 DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-yamllint-native"
+
+def do_sca_conv_yamllint(d):
+    import os
+    import re
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<column>\d+):\s+\[(?P<severity>\w+)\]\s+(?P<msg>.*)\s\((?P<id>.*)\)"
+
+    severity_map = {
+        "error" : "error",
+        "warning" : "warning",
+    }
+
+    __suppress = get_suppress_entries(d)
+
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+            for m in re.finditer(pattern, f.read(), re.MULTILINE):
+                try:
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            Tool="yamllint",
+                                            BuildPath=buildpath,
+                                            File=m.group("file"),
+                                            Column=m.group("column"),
+                                            Line=m.group("line"),
+                                            Message=m.group("msg"),
+                                            ID=m.group("id"),
+                                            Severity=severity_map[m.group("severity")])
+                    if g.GetPlainID() in __suppress:
+                        continue
+                    if g.Severity in sca_allowed_warning_level(d):
+                        sca_add_model_class(d, g)
+                except Exception as exp:
+                    bb.warn(str(exp))
+
+    return sca_save_model_to_string(d)
 
 python do_sca_yamllint_core() {
     import os
@@ -20,9 +61,6 @@ python do_sca_yamllint_core() {
     d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_YAMLLINT_EXTRA_FATAL"))
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "yamllint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "yamllint-{}-fatal".format(d.getVar("SCA_MODE"))))
-
-    _supress = get_suppress_entries(d)
-    _fatal = get_fatal_entries(d)
 
     _args = ["yamllint"]
     _args += ["-f", "parsable"]
@@ -38,30 +76,15 @@ python do_sca_yamllint_core() {
             cmd_output = e.stdout or ""
 
     result_raw_file = os.path.join(d.getVar("T"), "sca_raw_yamllint.txt")
-    d.setVar("SCA_RAW_RESULT", result_raw_file)
+    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
     with open(result_raw_file, "w") as o:
         o.write(cmd_output)
 
-    xml_output = do_sca_conv_yamllint(d)
-    result_file = os.path.join(d.getVar("T"), "sca_checkstyle_yamllint.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    with open(result_file, "w") as o:
-        o.write(xml_output)
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/yamllint.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_yamllint(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
 
-    ## Evaluate
-    _warnings = get_warnings_from_result(d)
-    _fatals = get_fatal_from_result(d, "yamllint.", _fatal)
-    _errors = get_errors_from_result(d)
-
-    warn_log = []
-    if any(_warnings):
-        warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors):
-        warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log and should_emit_to_console(d):
-        bb.warn("SCA has found {}".format(",".join(warn_log)))
-    
-    if any(_fatals):
-        bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK"), d)
-        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+    sca_task_aftermath(d, "yamllint", get_fatal_entries(d))
 }

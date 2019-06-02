@@ -1,5 +1,4 @@
 inherit sca-helper
-inherit sca-conv-checkstyle-helper
 inherit sca-global
 
 ## BestOf mode - threshold or ratio
@@ -18,12 +17,13 @@ def calc_hit_count(d, tools, hits):
         return float(d.getVar("SCA_BESTOF_RATIO")) < float(len(hits) / len(tools))
     return False
 
-def insert_finding(d, tool, _file, xmlmatch, tools, findings):
-    _severity = xmlmatch.attrib["severity"]
-    _msg = xmlmatch.attrib["message"]
-    _line = xmlmatch.attrib["line"]
-    _col = xmlmatch.attrib["column"]
-    _id = xmlmatch.attrib["source"]
+def insert_finding(d, tool, obj, tools, findings):
+    _severity = obj.Severity
+    _msg = obj.Message
+    _line = obj.Line
+    _col = obj.Column
+    _id = obj.GetPlainID()
+    _file = obj.GetPath()
 
     if not tool in tools.keys():
         return findings
@@ -50,11 +50,11 @@ def insert_finding(d, tool, _file, xmlmatch, tools, findings):
 
 
 python do_sca_bestof_core() {
-    from xml.etree.ElementTree import Element, SubElement, Comment, tostring
-    from xml.etree import ElementTree
-    from xml.dom import minidom
     import json
     import os
+
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
 
     _findings = {}
     _tools = {}
@@ -68,21 +68,18 @@ python do_sca_bestof_core() {
 
     ## aquire data
     for mod in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")):
-        fp = os.path.join(d.getVar("SCA_EXPORT_DIR"), mod, "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
+        fp = os.path.join(d.getVar("T"), "{}.dm".format(mod))
         if os.path.exists(fp):
-            data = ElementTree.ElementTree(ElementTree.parse(fp).getroot())
-            for f in data.findall(".//file"):
-                _file = f.attrib["name"]
-                for x in f.findall(".//error"):
-                    _findings = insert_finding(d, mod, _file, x, _tools, _findings)
+            _data = sca_get_datamodel(d, fp)
+            for f in _data:
+                _findings = insert_finding(d, mod, f, _tools, _findings)
+                   
 
     with open(os.path.join(d.getVar("T"), "bestof.json"), "w") as o:
         json.dump(_findings, o)
-    
-    top = Element("checkstyle")
-    top.set("version", "4.3")
 
     ## match up
+    items = []
     _languages = []
     for _t in _tools.keys():
         _languages += _tools[_t]["languages"]
@@ -94,8 +91,6 @@ python do_sca_bestof_core() {
         for item in _findings[lang]:
             _tools_in_occ = list(set([x["tool"] for x in item["occ"]]))
             if calc_hit_count(d, _overall_tools, _tools_in_occ):
-                _fe = SubElement(top, "file", { "name": item["file"] })
-                ## calc new severity
                 _nseverity = ""
                 if any([x for x in item["occ"] if x["severity"] == "error"]):
                     _nseverity = "error"
@@ -104,41 +99,26 @@ python do_sca_bestof_core() {
                 else:
                     _nseverity = "info"
 
-                ## New message
                 _nMsg = sorted(item["occ"], key=lambda x: x["tool"], reverse=False)[0]["msg"]
                 _nMsg = _nMsg[_nMsg.find("]") + 1:].strip()
                 _nMsg = "[Package:{} Tools:{}] {}".format(d.getVar("PN"), ",".join(list(set([x["tool"] for x in item["occ"]]))), _nMsg) 
-                
-                _fee = SubElement(_fe, "error", {
-                    "column": item["col"],
-                    "line": item["line"],
-                    "message": _nMsg,
-                    "severity": _nseverity,
-                    "source": sorted(item["occ"], key=lambda x: x["tool"], reverse=False)[0]["id"]
-                })
-    xml_output = ""
-    try:
-        xml_output = checkstyle_prettify(d, top).decode("utf-8")
-    except:
-        xml_output = checkstyle_prettify(d, top)
+
+                g = sca_get_model_class(d,
+                                        PackageName=package_name,
+                                        Tool="bestof",
+                                        BuildPath=buildpath,
+                                        Column=item["col"],
+                                        File=item["file"],
+                                        Line=item["line"],
+                                        Message=_nMsg,
+                                        ID=sorted(item["occ"], key=lambda x: x["tool"], reverse=False)[0]["id"],
+                                        Severity=_nseverity)
+                if g.Severity in sca_allowed_warning_level(d):
+                    sca_add_model_class(d, g)
+
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/bestof.dm".format(d.getVar("T")))
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(sca_save_model_to_string(d))
     
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "bestof", "checkstyle"), exist_ok=True)
-    cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "bestof", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-
-    with open(cs_target, "w") as o:
-        o.write(xml_output)
-
-    d.setVar("SCA_RESULT_FILE", cs_target)
-
-    if xml_output:
-        _warnings = get_warnings_from_result(d)
-        _errors = get_errors_from_result(d)
-
-        warn_log = []
-        if any(_warnings):
-            warn_log.append("{} warning(s)".format(len(_warnings)))
-        if any(_errors):
-            warn_log.append("{} error(s)".format(len(_errors)))
-        if warn_log and should_emit_to_console(d):
-            bb.warn("SCA BestOf reported {}".format(",".join(warn_log)))
+    sca_task_aftermath(d, "bestof", get_fatal_entries(d))
 }

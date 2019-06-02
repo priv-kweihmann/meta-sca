@@ -9,4 +9,11 @@ python sca_bestof_init() {
                 d.appendVarFlag("do_sca_bestof_core", "depends", " {}:{}".format(d.getVar("PN"), taskstr))
 }
 
+SCA_DEPLOY_TASK = "do_sca_deploy_bestof_image"
+
+python do_sca_deploy_bestof_image() {
+    sca_conv_deploy(d, "bestof", "json")
+}
+
 addtask do_sca_bestof_core before do_image_complete after do_image
+addtask do_sca_deploy_bestof_image before do_image_complete after do_sca_bestof_core

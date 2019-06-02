@@ -1,11 +1,50 @@
-inherit sca-conv-checkstyle-jsonlint
-inherit sca-license-filter
-inherit sca-helper
-
 ## Add ids to lead to a fatal on a recipe level
 SCA_JSONLINT_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)
 SCA_JSONLINT_FILE_FILTER ?= ".json"
+
+inherit sca-conv-to-export
+inherit sca-datamodel
+inherit sca-global
+inherit sca-helper
+inherit sca-license-filter
+
+def do_sca_conv_jsonlint(d):
+    import os
+    import re
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    items = []
+    pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<col>\d+):(?P<severity>(warning|error|info)):(?P<id>.*):(?P<message>.*)$"
+
+    severity_map = {
+        "error" : "error",
+        "warning" : "warning",
+        "info": "info"
+    }
+
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+            for m in re.finditer(pattern, f.read(), re.MULTILINE):
+                try:
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            Column=m.group("col"),
+                                            Tool="jsonlint",
+                                            BuildPath=buildpath,
+                                            File=m.group("file"),
+                                            Line=m.group("line"),
+                                            Message=m.group("message"),
+                                            ID=m.group("id"),
+                                            Severity=severity_map[m.group("severity")])
+                    if g.Severity in sca_allowed_warning_level(d):
+                        sca_add_model_class(d, g)
+                except Exception as exp:
+                    bb.warn(str(exp))
+
+    return sca_save_model_to_string(d)
 
 python do_sca_jsonlint_core() {
     import os
@@ -13,8 +52,6 @@ python do_sca_jsonlint_core() {
 
     d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_JSONLINT_EXTRA_FATAL"))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "jsonlint-{}-fatal".format(d.getVar("SCA_MODE"))))
-
-    _fatal = get_fatal_entries(d)
 
     result_raw_file = os.path.join(d.getVar("T"), "sca_raw_jsonlint.txt")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
@@ -28,28 +65,13 @@ python do_sca_jsonlint_core() {
             except json.JSONDecodeError as e:
                 o.write("{}:{}:{}:error:jsonlint.parsererror:{}\n".format(e.doc, e.lineno, e.colno, e.msg))
 
-    xml_output = do_sca_conv_jsonlint(d)
-    result_file = os.path.join(d.getVar("T"), "sca_checkstyle_jsonlint.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    with open(result_file, "w") as o:
-        o.write(xml_output)
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/jsonlint.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_jsonlint(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
 
-    ## Evaluate
-    _warnings = get_warnings_from_result(d)
-    _fatals = get_fatal_from_result(d, "jsonlint.jsonlint.", _fatal)
-    _errors = get_errors_from_result(d)
-
-    warn_log = []
-    if any(_warnings):
-        warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors):
-        warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log and should_emit_to_console(d):
-        bb.warn("SCA has found {}".format(",".join(warn_log)))
-    
-    if any(_fatals):
-        bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK"), d)
-        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+    sca_task_aftermath(d, "jsonlint", get_fatal_entries(d))
 }
 
 DEPENDS += "jsonlint-sca-native"

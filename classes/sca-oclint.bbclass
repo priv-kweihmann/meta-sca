@@ -8,9 +8,57 @@ SCA_OCLINT_ADD_INCLUDES ?= ""
 ## File extension filter
 SCA_OCLINT_FILE_FILTER ?= ".c .cpp"
 
-inherit sca-helper
-inherit sca-conv-checkstyle-oclint
+inherit sca-conv-to-export
+inherit sca-datamodel
 inherit sca-global
+inherit sca-helper
+
+def do_sca_conv_oclint(d):
+    import os
+    import re
+    import json
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    items = []
+
+    severity_map = {
+        "1" : "error",
+        "2" : "warning",
+        "3" : "info"
+    }
+
+    __suppress = get_suppress_entries(d)
+
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        io = {}
+        with open(d.getVar("SCA_RAW_RESULT_FILE")) as i:
+            try:
+                io = json.load(i)
+            except:
+                pass
+        if "violation" in io.keys():
+            for item in io["violation"]:
+                try:
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            Tool="oclint",
+                                            BuildPath=buildpath,
+                                            File=item["path"],
+                                            Column=str(item["startColumn"]),
+                                            Line=str(item["startLine"]),
+                                            Message=item["message"].strip() or item["rule"],
+                                            ID=item["rule"].replace(" ", "_"),
+                                            Severity=severity_map[str(item["priority"])])
+                    if g.GetPlainID() in __suppress:
+                        continue
+                    if g.Severity in sca_allowed_warning_level(d):
+                        sca_add_model_class(d, g)
+                except Exception as e:
+                    bb.note(str(e))
+
+    return sca_save_model_to_string(d)
 
 python do_sca_oclint() {
     import os
@@ -22,8 +70,6 @@ python do_sca_oclint() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "oclint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "oclint-{}-suppress".format(d.getVar("SCA_MODE"))))
 
-    _supress = get_suppress_entries(d)
-    _fatal = get_fatal_entries(d)
     _add_include = d.getVar("SCA_OCLINT_ADD_INCLUDES", True).split(" ")
 
     inc_dirs = [d.getVar("SCA_SOURCES_DIR"), 
@@ -73,45 +119,19 @@ python do_sca_oclint() {
     with open(raw_file, "w") as o:
         o.write(cmd_output)
     
-    result_file = os.path.join(d.getVar("T", True), "sca_checkstyle_oclint.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    conv_output = do_sca_conv_oclint(d)
-    with open(result_file, "w") as o:
-        o.write(conv_output)
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/oclint.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_oclint(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
 
-    ## Evaluate
-    _warnings = get_warnings_from_result(d)
-    _fatals = get_fatal_from_result(d, "OCLint.OCLint", _fatal)
-    _errors = get_errors_from_result(d)
-
-    warn_log = []
-    if any(_warnings):
-        warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors):
-        warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log and should_emit_to_console(d):
-        bb.warn("SCA has found {}".format(",".join(warn_log)))
-    
-    if any(_fatals):
-        bb.build.exec_func("do_sca_deploy_oclint", d)
-        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+    sca_task_aftermath(d, "oclint", get_fatal_entries(d))
 }
 
+SCA_DEPLOY_TASK = "do_sca_deploy_oclint"
+
 python do_sca_deploy_oclint() {
-    import os
-    import shutil
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "oclint", "raw"), exist_ok=True)
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "oclint", "checkstyle"), exist_ok=True)
-    raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "oclint", "raw", "{}-{}.json".format(d.getVar("PN"), d.getVar("PV")))
-    cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "oclint", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    src_raw = os.path.join(d.getVar("T"), "sca_raw_oclint.json")
-    src_conv = os.path.join(d.getVar("T"), "sca_checkstyle_oclint.xml")
-    if os.path.exists(src_raw):
-        shutil.copy(src_raw, raw_target)
-    if os.path.exists(src_conv):
-        shutil.copy(src_conv, cs_target)
-    if os.path.exists(cs_target):
-        do_sca_export_sources(d, cs_target)
+    sca_conv_deploy(d, "oclint", "json")
 }
 
 addtask do_sca_oclint before do_install after do_compile

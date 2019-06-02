@@ -1,11 +1,57 @@
-inherit sca-helper
-inherit sca-conv-checkstyle-pyfindinjection
-inherit sca-license-filter
-
 ## Add ids to suppress on a recipe level
 SCA_PYFINDINJECTION_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_PYFINDINJECTION_EXTRA_FATAL ?= ""
+
+inherit sca-conv-to-export
+inherit sca-datamodel
+inherit sca-global
+inherit sca-helper
+inherit sca-license-filter
+
+def do_sca_conv_pyfindinjection(d):
+    import os
+    import re
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    pattern = r"^(?P<file>.*):(?P<line>\d*)\t+(?P<msg>.*)"
+
+    severity_map = {
+        "string interpolation of SQL query" : {"error", "string.interpolation"},
+        "string concatenation of SQL query" : ("error", "string.concat"),
+        "str.format called on SQL query" : ("error", "string.format"),
+        "eval() is just generally evil" : ("error", "evil.eval"),
+    }
+
+    _suppress = get_suppress_entries(d)
+    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
+
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+            for m in re.finditer(pattern, f.read(), re.MULTILINE):
+                try:
+                    _sev, _id = severity_map[m.group("msg")]
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            Tool="pyfindinjection",
+                                            BuildPath=buildpath,
+                                            File=m.group("file"),
+                                            Line=m.group("line"),
+                                            Message=m.group("msg"),
+                                            ID=_id,
+                                            Severity=_sev)
+                    if g.File in _excludes:
+                        continue
+                    if g.GetPlainID() in _suppress:
+                        continue
+                    if g.Severity in sca_allowed_warning_level(d):
+                        sca_add_model_class(d, g)
+                except Exception as exp:
+                    bb.warn(str(exp))
+
+    return sca_save_model_to_string(d)
 
 python do_sca_pyfindinjection_core() {
     import os
@@ -15,13 +61,10 @@ python do_sca_pyfindinjection_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pyfindinjection-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pyfindinjection-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _supress = get_suppress_entries(d)
-    _fatal = get_fatal_entries(d)
-
     _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "python-native", "python")]
     _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "py-find-injection")]
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_checkstyle_pyfindinjection.txt")
+    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_pyfindinjection.txt")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
 
     cmd_output = ""
@@ -37,28 +80,13 @@ python do_sca_pyfindinjection_core() {
     with open(result_raw_file, "w") as o:
         o.write(cmd_output)
     
-    result_file = os.path.join(d.getVar("T", True), "sca_checkstyle_pyfindinjection.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    conv_output = do_sca_conv_pyfindinjection(d)
-    with open(result_file, "w") as o:
-        o.write(conv_output)
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/pyfindinjection.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_pyfindinjection(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
 
-    ## Evaluate
-    _warnings = get_warnings_from_result(d)
-    _fatals = get_fatal_from_result(d, "pyfindinjection.pyfindinjection", _fatal)
-    _errors = get_errors_from_result(d)
-
-    warn_log = []
-    if any(_warnings) and should_emit_to_console(d):
-        warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors) and should_emit_to_console(d):
-        warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log and should_emit_to_console(d):
-        bb.warn("SCA has found {}".format(",".join(warn_log)))
-
-    if any(_fatals):
-        bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK"), d)
-        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+    sca_task_aftermath(d, "pyfindinjection", get_fatal_entries(d))
 }
 
 DEPENDS += "python-pyfindinjection-native"

@@ -1,29 +1,66 @@
-inherit sca-conv-checkstyle-ansiblelint
-inherit sca-license-filter
-inherit sca-helper
-
 SCA_ANSIBLELINT_EXTRA_SUPPRESS ?= ""
 SCA_ANSIBLELINT_EXTRA_FATAL ?= ""
 SCA_ANSIBLELINT_FILE_FILTER ?= ".yaml"
 
-inherit pythonnative
+inherit sca-conv-to-export
+inherit sca-datamodel
+inherit sca-global
+inherit sca-helper
+inherit sca-license-filter
 
 DEPENDS += "python-ansiblelint-native"
+
+def do_sca_conv_ansiblelint(d):
+    import os
+    import re
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    pattern = r"^(?P<file>.*):(?P<line>\d+):\s*\[(?P<severity>.)(?P<id>\d+)\]\s+(?P<msg>.*)"
+
+    severity_map = {
+        "E" : "error",
+        "W" : "warning",
+    }
+
+    _suppress = get_suppress_entries(d)
+    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
+
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+            for m in re.finditer(pattern, f.read(), re.MULTILINE):
+                try:
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            Tool="ansiblelint",
+                                            BuildPath=buildpath,
+                                            File=m.group("file"),
+                                            Line=m.group("line"),
+                                            Message=m.group("msg"),
+                                            ID=m.group("id"),
+                                            Severity=severity_map[m.group("severity")])
+                    if g.File in _excludes:
+                        continue
+                    if g.GetPlainID() in _suppress:
+                        continue
+                    if g.Severity in sca_allowed_warning_level(d):
+                        sca_add_model_class(d, g)
+                except Exception as exp:
+                    bb.warn(str(exp))
+
+    return sca_save_model_to_string(d)
 
 python do_sca_ansiblelint_core() {
     import os
     import subprocess
-    import json
 
     d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_ANSIBLELINT_EXTRA_SUPPRESS"))
     d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_ANSIBLELINT_EXTRA_FATAL"))
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "ansiblelint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "ansiblelint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _supress = get_suppress_entries(d)
-    _fatal = get_fatal_entries(d)
-
-    _args = [d.getVar("PYTHON")]
+    _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "python-native", "python")]
     _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "ansible-lint")]
     _args += ["-p"]
     _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_ANSIBLELINT_FILE_FILTER"),
@@ -42,26 +79,11 @@ python do_sca_ansiblelint_core() {
     with open(result_raw_file, "w") as o:
         o.write(cmd_output)
 
-    xml_output = do_sca_conv_ansiblelint(d)
-    result_file = os.path.join(d.getVar("T"), "sca_checkstyle_ansiblelint.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    with open(result_file, "w") as o:
-        o.write(xml_output)
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/ansiblelint.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_ansiblelint(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
 
-    ## Evaluate
-    _warnings = get_warnings_from_result(d)
-    _fatals = get_fatal_from_result(d, "ansiblelint.", _fatal)
-    _errors = get_errors_from_result(d)
-
-    warn_log = []
-    if any(_warnings):
-        warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors):
-        warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log and should_emit_to_console(d):
-        bb.warn("SCA has found {}".format(",".join(warn_log)))
-    
-    if any(_fatals):
-        bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK"), d)
-        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+    sca_task_aftermath(d, "ansiblelint", get_fatal_entries(d))
 }

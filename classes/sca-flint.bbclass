@@ -5,9 +5,51 @@ SCA_FLINT_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)
 SCA_FLINT_FILE_FILTER ?= ".c .cpp .h .hpp"
 
-inherit sca-helper
-inherit sca-conv-checkstyle-flint
+inherit sca-conv-to-export
+inherit sca-datamodel
 inherit sca-global
+inherit sca-helper
+
+def do_sca_conv_flint(d):
+    import os
+    import re
+    import hashlib
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    items = []
+    pattern = r"^\[(?P<severity>.*)\s+\]\s+(?P<file>.*):(?P<line>\d+):\s+(?P<msg>.*)"
+
+    severity_map = {
+        "Error" : "error",
+        "Warning" : "warning",
+        "Advice" : "info"
+    }
+
+    __suppress = get_suppress_entries(d)
+
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+            for m in re.finditer(pattern, f.read(), re.MULTILINE):
+                try:
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            Tool="flint",
+                                            BuildPath=buildpath,
+                                            File=m.group("file"),
+                                            Line=m.group("line"),
+                                            Message=m.group("msg"),
+                                            ID=hashlib.md5(str.encode(m.group("msg"))).hexdigest(),
+                                            Severity=severity_map[m.group("severity").strip()])
+                    if g.GetPlainID() in __suppress:
+                        continue
+                    if g.Severity in sca_allowed_warning_level(d):
+                        sca_add_model_class(d, g)
+                except Exception:
+                    pass
+
+    return sca_save_model_to_string(d)
 
 python do_sca_flint() {
     import os
@@ -16,9 +58,6 @@ python do_sca_flint() {
     d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_FLINT_EXTRA_FATAL"))
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "flint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "flint-{}-fatal".format(d.getVar("SCA_MODE"))))
-
-    _supress = get_suppress_entries(d)
-    _fatal = get_fatal_entries(d)
 
     _args = ["flint++"]
     _args += ["-r"]
@@ -43,45 +82,19 @@ python do_sca_flint() {
         o.write(cmd_output)
     os.chdir(cur_dir)
     
-    result_file = os.path.join(d.getVar("T", True), "sca_checkstyle_flint.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    conv_output = do_sca_conv_flint(d)
-    with open(result_file, "w") as o:
-        o.write(conv_output)
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/flint.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_flint(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
 
-    ## Evaluate
-    _warnings = get_warnings_from_result(d)
-    _fatals = get_fatal_from_result(d, "Flint++.Flint++", _fatal)
-    _errors = get_errors_from_result(d)
-
-    warn_log = []
-    if any(_warnings) and should_emit_to_console(d):
-        warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors) and should_emit_to_console(d):
-        warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log and should_emit_to_console(d):
-        bb.warn("SCA has found {}".format(",".join(warn_log)))
-    
-    if any(_fatals):
-        bb.build.exec_func("do_sca_deploy_flint", d)
-        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+    sca_task_aftermath(d, "flint", get_fatal_entries(d))
 }
 
+SCA_DEPLOY_TASK = "do_sca_deploy_flint"
+
 python do_sca_deploy_flint() {
-    import os
-    import shutil
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "flint", "raw"), exist_ok=True)
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "flint", "checkstyle"), exist_ok=True)
-    raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "flint", "raw", "{}-{}.txt".format(d.getVar("PN"), d.getVar("PV")))
-    cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "flint", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    src_raw = os.path.join(d.getVar("T"), "sca_raw_flint.txt")
-    src_conv = os.path.join(d.getVar("T"), "sca_checkstyle_flint.xml")
-    if os.path.exists(src_raw):
-        shutil.copy(src_raw, raw_target)
-    if os.path.exists(src_conv):
-        shutil.copy(src_conv, cs_target)
-    if os.path.exists(cs_target):
-        do_sca_export_sources(d, cs_target)
+    sca_conv_deploy(d, "flint", "txt")
 }
 
 addtask do_sca_flint before do_install after do_compile

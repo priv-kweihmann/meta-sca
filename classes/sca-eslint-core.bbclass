@@ -1,7 +1,3 @@
-inherit sca-conv-checkstyle-eslint
-inherit sca-license-filter
-inherit sca-helper
-
 ## Set the config file to be used - the files must be placed at ${STAGING_DATADIR_NATIVE}/eslint/configs
 ## See eslint-native recipe for details
 SCA_ESLINT_CONFIG_FILE ?= "eslint-plain.json"
@@ -9,12 +5,66 @@ SCA_ESLINT_EXTRA_SUPPRESS ?= ""
 SCA_ESLINT_EXTRA_FATAL ?= ""
 
 inherit npm-helper
+inherit sca-conv-to-export
+inherit sca-datamodel
+inherit sca-global
+inherit sca-helper
+inherit sca-license-filter
+
+DEPENDS += "eslint-native"
 
 python do_prepare_recipe_sysroot_append() {
     npm_prerun_fix_paths(d, d.getVar("STAGING_DATADIR_NATIVE"), "eslint")
 }
 
-DEPENDS += "eslint-native"
+def do_sca_conv_eslint(d):
+    import os
+    import re
+    from xml.etree.ElementTree import Element, SubElement, Comment, tostring
+    from xml.etree import ElementTree
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    items = []
+    pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<column>\d+):\s+(?P<severity>\w+):\s+(?P<message>.*)\s\[-(?P<id>.*)\]"
+
+    severity_map = {
+        "error" : "error",
+        "warning" : "warning",
+        "info": "info"
+    }
+
+    __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
+    __suppress = get_suppress_entries(d)
+
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        try:
+            data = ElementTree.ElementTree(ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE")))
+            for _file in data.findall(".//file"):
+                if _file.attrib["name"] in _excludes:
+                    continue
+                try:
+                    for f in _file.findall(".//error"):
+                        g = sca_get_model_class(d,
+                                                PackageName=package_name,
+                                                Tool="eslint",
+                                                BuildPath=buildpath,
+                                                File=_file.attrib["name"],
+                                                Line=f.attrib["line"],
+                                                Column=f.attrib["column"],
+                                                Message=f.attrib["message"],
+                                                ID=f.attrib["source"],
+                                                Severity=f.attrib["severity"])
+                        if g.GetPlainID() in __suppress:
+                            continue
+                        if g.Severity in sca_allowed_warning_level(d):
+                            sca_add_model_class(d, g)
+                except Exception as exp:
+                    bb.warn(str(exp))
+        except:
+            pass
+    return sca_save_model_to_string(d)
 
 python do_sca_eslint_core() {
     import os
@@ -25,9 +75,6 @@ python do_sca_eslint_core() {
     d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_ESLINT_EXTRA_FATAL"))
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "eslint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "eslint-{}-fatal".format(d.getVar("SCA_MODE"))))
-
-    _supress = get_suppress_entries(d)
-    _fatal = get_fatal_entries(d)
 
     _args = [os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "eslint", "node_modules", ".bin", "eslint")]
     _args += ["-c", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "eslint", "configs", d.getVar("SCA_ESLINT_CONFIG_FILE"))]
@@ -41,29 +88,15 @@ python do_sca_eslint_core() {
     except subprocess.CalledProcessError as e:
         cmd_output = e.stdout or ""
     result_raw_file = os.path.join(d.getVar("T"), "sca_raw_eslint.xml")
-    d.setVar("SCA_RAW_RESULT", result_raw_file)
+    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
     with open(result_raw_file, "w") as o:
         o.write(cmd_output)
-    xml_output = do_sca_conv_eslint(d)
-    result_file = os.path.join(d.getVar("T"), "sca_checkstyle_eslint.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    with open(result_file, "w") as o:
-        o.write(xml_output)
-
-    ## Evaluate
-    _warnings = get_warnings_from_result(d)
-    _fatals = get_fatal_from_result(d, "eslint.", _fatal)
-    _errors = get_errors_from_result(d)
-
-    warn_log = []
-    if any(_warnings) and should_emit_to_console(d):
-        warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors) and should_emit_to_console(d):
-        warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log and should_emit_to_console(d):
-        bb.warn("SCA has found {}".format(",".join(warn_log)))
     
-    if any(_fatals):
-        bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK"), d)
-        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/eslint.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_eslint(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
+
+    sca_task_aftermath(d, "eslint", get_fatal_entries(d))
 }

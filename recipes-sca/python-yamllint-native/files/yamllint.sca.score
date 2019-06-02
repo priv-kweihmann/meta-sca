@@ -1,3 +1,3 @@
 {
-    "style": ["yamllint.yamllint.*"]
+    "style": ["yamllint.yamllint..*"]
 }

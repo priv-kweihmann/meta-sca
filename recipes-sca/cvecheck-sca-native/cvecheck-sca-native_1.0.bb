@@ -1,7 +1,7 @@
-SUMMARY = "SCA description for cve-check"
+SUMMARY = "SCA description for cvecheck"
 
-SRC_URI = "file://cve-check.sca.description \
-           file://cve-check.sca.score"
+SRC_URI = "file://cvecheck.sca.description \
+           file://cvecheck.sca.score"
 
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/BSD-2-Clause;md5=8bef8e6712b1be5aa76af1ebde9d6378"
@@ -15,7 +15,7 @@ do_compile[noexec] = "1"
 
 do_install() {
     install -d ${D}${datadir}
-    install ${WORKDIR}/cve-check.sca.description ${D}${datadir}/
-    install ${WORKDIR}/cve-check.sca.score ${D}${datadir}/
+    install ${WORKDIR}/cvecheck.sca.description ${D}${datadir}/
+    install ${WORKDIR}/cvecheck.sca.score ${D}${datadir}/
 }
 

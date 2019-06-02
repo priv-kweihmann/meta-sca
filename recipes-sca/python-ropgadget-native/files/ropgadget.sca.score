@@ -1,4 +1,4 @@
 {
     "security": ["ropgadget.ropgadget.thresholdexceeded"],
-    "style": ["ropgadget.ropgadget.*"]
+    "style": ["ropgadget.ropgadget..*"]
 }

@@ -9,4 +9,11 @@ python sca_bestof_init() {
                 d.appendVarFlag("do_sca_bestof_core", "depends", " {}:{}".format(d.getVar("PN"), taskstr))
 }
 
+SCA_DEPLOY_TASK = "do_sca_deploy_bestof_recipe"
+
+python do_sca_deploy_bestof_recipe() {
+    sca_conv_deploy(d, "bestof", "json")
+}
+
 addtask do_sca_bestof_core after do_install before do_package_write_rpm
+addtask do_sca_deploy_bestof_recipe before do_package_write_rpm after do_sca_bestof_core

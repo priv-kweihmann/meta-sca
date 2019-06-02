@@ -1,12 +1,13 @@
-inherit sca-conv-checkstyle-standard
-inherit sca-license-filter
-inherit sca-helper
-
 SCA_STANDARD_EXTRA_SUPPRESS ?= ""
 SCA_STANDARD_EXTRA_FATAL ?= ""
 SCA_STANDARD_FILE_FILTER ?= ".js .jsx"
 
 inherit npm-helper
+inherit sca-conv-to-export
+inherit sca-datamodel
+inherit sca-global
+inherit sca-helper
+inherit sca-license-filter
 
 python do_prepare_recipe_sysroot_append() {
     npm_prerun_fix_paths(d, d.getVar("STAGING_DATADIR_NATIVE"), "standard")
@@ -14,18 +15,48 @@ python do_prepare_recipe_sysroot_append() {
 
 DEPENDS += "standard-native"
 
+def do_sca_conv_standard(d):
+    import os
+    import re
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<col>\d+):\s+(?P<msg>.*)\s+\((?P<id>.*)\)"
+
+    _suppress = get_suppress_entries(d)
+
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+            for m in re.finditer(pattern, f.read(), re.MULTILINE):
+                try:
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            File=m.group("file"),
+                                            BuildPath=buildpath,
+                                            Column=m.group("col"),
+                                            Tool="standard",
+                                            Line=m.group("line"),
+                                            Message=m.group("msg"),
+                                            ID=m.group("id"),
+                                            Severity="warning")
+                    if g.GetPlainID() in _suppress:
+                        continue
+                    if g.Severity in sca_allowed_warning_level(d):
+                        sca_add_model_class(d, g)
+                except Exception as exp:
+                    bb.warn(str(exp))
+
+    return sca_save_model_to_string(d)
+
 python do_sca_standard_core() {
     import os
     import subprocess
-    import json
 
     d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_STANDARD_EXTRA_SUPPRESS"))
     d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_STANDARD_EXTRA_FATAL"))
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "standard-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "standard-{}-fatal".format(d.getVar("SCA_MODE"))))
-
-    _supress = get_suppress_entries(d)
-    _fatal = get_fatal_entries(d)
 
     _args = [os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "standard", "node_modules", ".bin", "standard")]
     _args += ["--verbose"]
@@ -41,29 +72,15 @@ python do_sca_standard_core() {
             cmd_output = e.stdout or ""
 
     result_raw_file = os.path.join(d.getVar("T"), "sca_raw_standard.txt")
-    d.setVar("SCA_RAW_RESULT", result_raw_file)
+    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
     with open(result_raw_file, "w") as o:
         o.write(cmd_output)
-    xml_output = do_sca_conv_standard(d)
-    result_file = os.path.join(d.getVar("T"), "sca_checkstyle_standard.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    with open(result_file, "w") as o:
-        o.write(xml_output)
 
-    ## Evaluate
-    _warnings = get_warnings_from_result(d)
-    _fatals = get_fatal_from_result(d, "standard.", _fatal)
-    _errors = get_errors_from_result(d)
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/standard.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_standard(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
 
-    warn_log = []
-    if any(_warnings) and should_emit_to_console(d):
-        warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors) and should_emit_to_console(d):
-        warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log and should_emit_to_console(d):
-        bb.warn("SCA has found {}".format(",".join(warn_log)))
-    
-    if any(_fatals):
-        bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK"), d)
-        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+    sca_task_aftermath(d, "standard", get_fatal_entries(d))
 }

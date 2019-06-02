@@ -1,7 +1,3 @@
-inherit sca-conv-checkstyle-cspell
-inherit sca-license-filter
-inherit sca-helper
-
 SCA_CSPELL_CHECK_LANG ?= "CPP HTML PYTHON TXT"
 
 ## Lang spec implementation
@@ -16,6 +12,11 @@ SCA_CSPELL_LANG_TXT_dicts ?= ""
 SCA_CSPELL_LANG_TXT_files ?= ".txt .md .rst"
 
 inherit npm-helper
+inherit sca-conv-to-export
+inherit sca-datamodel
+inherit sca-global
+inherit sca-helper
+inherit sca-license-filter
 
 python do_prepare_recipe_sysroot_append() {
     npm_prerun_fix_paths(d, d.getVar("STAGING_DATADIR_NATIVE"), "cspell")
@@ -31,6 +32,37 @@ def write_config(_base, _extra_dicts, _target):
         obj["dictionaryDefinitions"].append(v)
     with open(_target, "w") as o:
         json.dump(obj, o)
+
+def do_sca_conv_cspell(d):
+    import os
+    import re
+    
+    package_name = d.getVar("PN")
+    buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    items = []
+    pattern = r"^(?P<file>.*)\:(?P<line>\d+):(?P<column>\d+)\s+-\s+(?P<id>.*)\s+\((?P<msg>.*)\)"
+
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+            for m in re.finditer(pattern, f.read(), re.MULTILINE):
+                try:
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            Tool="cspell",
+                                            BuildPath=buildpath,
+                                            File=m.group("file"),
+                                            Column=m.group("column"),
+                                            Line=m.group("line"),
+                                            Message=m.group("msg"),
+                                            ID=m.group("id").replace(" ", "_"),
+                                            Severity="info")
+                    if g.Severity in sca_allowed_warning_level(d):
+                        sca_add_model_class(d, g)
+                except Exception:
+                    pass
+
+    return sca_save_model_to_string(d)
 
 python do_sca_cspell() {
     import os
@@ -102,46 +134,19 @@ python do_sca_cspell() {
     with open(result_raw_file, "w") as o:
         o.write(cmd_output)
 
-    xml_output = do_sca_conv_cspell(d)
-    result_file = os.path.join(d.getVar("T"), "sca_checkstyle_cspell.xml")
-    d.setVar("SCA_RESULT_FILE", result_file)
-    with open(result_file, "w") as o:
-        o.write(xml_output)
+    ## Create data model
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/cspell.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_cspell(d)
+    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        o.write(dm_output)
 
-    ## Evaluate
-    _warnings = get_warnings_from_result(d)
-    _errors = get_errors_from_result(d)
-
-    warn_log = []
-    if any(_warnings) and should_emit_to_console(d):
-        warn_log.append("{} warning(s)".format(len(_warnings)))
-    if any(_errors) and should_emit_to_console(d):
-        warn_log.append("{} error(s)".format(len(_errors)))
-    if warn_log and should_emit_to_console(d):
-        bb.warn("SCA has found {}".format(",".join(warn_log)))
+    sca_task_aftermath(d, "cspell")
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_cspell"
 
 python do_sca_deploy_cspell() {
-    import os
-    import shutil
-
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "cspell", "raw"), exist_ok=True)
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), "cspell", "checkstyle"), exist_ok=True)
-
-    import os
-    
-    raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "cspell", "raw", "{}-{}.txt".format(d.getVar("PN"), d.getVar("PV")))
-    cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), "cspell", "checkstyle", "{}-{}.xml".format(d.getVar("PN"), d.getVar("PV")))
-    src_raw = os.path.join(d.getVar("T"), "sca_raw_cspell.txt")
-    src_conv = os.path.join(d.getVar("T"), "sca_checkstyle_cspell.xml")
-    if os.path.exists(src_raw):
-        shutil.copy(src_raw, raw_target)
-    if os.path.exists(src_conv):
-        shutil.copy(src_conv, cs_target)
-    if os.path.exists(cs_target):
-        do_sca_export_sources(d, cs_target)
+    sca_conv_deploy(d, "cspell", "txt")
 }
 
 addtask do_sca_cspell before do_install after do_compile
