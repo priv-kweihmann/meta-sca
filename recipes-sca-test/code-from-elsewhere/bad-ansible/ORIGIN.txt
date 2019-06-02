@@ -1,0 +1,1 @@
+https://raw.githubusercontent.com/tonykay/bad-ansible/master/main.yml

@@ -1,0 +1,7 @@
+[Unit]
+FooOption=bla
+Description=Foooooo
+
+[Service]
+Type=noneshot
+ExecStart=/usr/sbin/doesreallynotexist

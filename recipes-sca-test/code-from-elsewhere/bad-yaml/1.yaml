@@ -1,0 +1,11 @@
+- name: fooooooo
+  gather_facts false
+  connection: local
+  tasks
+
+ - file:
+        path: "{{ sysconfdir }}"
+        state: somewhere
+    
+    - when:
+        - item.state == "file"
