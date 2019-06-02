@@ -5,7 +5,7 @@ LICENSE = "BSD-3-Clause"
 
 SRC_URI += "git://github.com/roskakori/pygount.git;protocol)=https;tag=v${PV}"
 
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=e1d7b7bffbfeaa14083fd2bd3236aea8"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5510aea7872dec3824ddae907359253d"
 
 DEPENDS += "\
             ${PYTHON_PN}-native \
