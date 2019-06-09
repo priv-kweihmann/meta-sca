@@ -34,6 +34,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           ansible \
                           ansiblelint \
                           bandit \
+                          bashate \
                           bitbake \
                           clang \
                           cppcheck \

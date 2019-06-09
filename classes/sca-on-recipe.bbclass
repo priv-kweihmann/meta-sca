@@ -8,6 +8,7 @@ inherit sca-blackllist
 SCA_ENABLED_MODULES ?= "\
                         ansiblelint \
                         bandit \
+                        bashate \
                         bitbake \
                         clang \
                         cppcheck \

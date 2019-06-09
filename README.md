@@ -38,6 +38,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * ansible (security) [ansible]
  * [ansible-lint](https://github.com/ansible/ansible-lint) (ansible) [ansiblelint]
  * [bandit](https://github.com/PyCQA/bandit) (python/security) [bandit]
+ * [bashate](http://docs.openstack.org/developer/bashate/) (shell) [bashate]
  * bitbake (handle bitbake issues) [bitbake]
  * [detect-secrets](https://github.com/Yelp/detect-secrets) (detecting and preventing secrets in code) [detectsecrets]
  * [eslint](https://github.com/eslint/eslint) (javascript/html) [eslint]
@@ -60,6 +61,7 @@ On the other hand some static code analysis does not make any sense on an image-
 
  * [ansible-lint](https://github.com/ansible/ansible-lint) (ansible) [ansiblelint]
  * [bandit](https://github.com/PyCQA/bandit) (python/security) [bandit]
+ * [bashate](http://docs.openstack.org/developer/bashate/) (shell) [bashate]
  * bitbake (handle bitbake issues) [bitbake]
  * [clang-tidy](https://clang.llvm.org/extra/clang-tidy/) (c/c++) [clang]
  * [cppcheck](https://github.com/danmar/cppcheck) (c/c++) [cppcheck]
@@ -121,7 +123,7 @@ Edit the file conf/__local.conf__ and add the following line
 INHERIT += "sca"
 ```
 this will run static code analysis on __all__ the recipes available and used in your workspace.
-It might be a good idea to do this if you like to wait of a very long time on your build - maybe nightly builds or similar
+It might be a good idea to do this if you like to wait for a very long time on your build - maybe nightly builds or similar
 
 ## Use on particular recipes in your workspace
 
@@ -193,6 +195,14 @@ by defining a variable called **SCA_FILE_FILTER_EXTRA**.
 | SCA_BANDIT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_BANDIT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_BLACKLIST_bandit | Blacklist filter for this tool | space-separated-list | "linux-*"
+
+### Available configuration for bashate
+
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_BASHATE_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_BASHATE_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_BLACKLIST_bashate | Blacklist filter for this tool | space-separated-list | ""
 
 ### Available configuration for bitbake
 

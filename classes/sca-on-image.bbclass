@@ -10,6 +10,7 @@ SCA_ENABLED_MODULES ?= "\
                         ansible \
                         ansiblelint \
                         bandit \
+                        bashate \
                         bitbake \
                         detectsecrets \
                         eslint \
