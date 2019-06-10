@@ -5,7 +5,8 @@ python sca_clang_init() {
     from bb.parse.parse_py import BBHandler
 
     ## Find out if we need to inherit the core-class or not
-    for item in d.getVar("BBLAYERS").split(" "):
+    tmp = d.getVar("BBLAYERS") or ""
+    for item in tmp.split(" "):
         if not item.strip():
             continue
         if any(glob.glob(item.strip() + "/**/clang/clang_git.bb", recursive=True)):
