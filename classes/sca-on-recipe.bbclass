@@ -14,6 +14,7 @@ SCA_ENABLED_MODULES ?= "\
                         clang \
                         cppcheck \
                         cpplint \
+                        cqmetrics \
                         cspell \
                         cvecheck \
                         dennis \

@@ -40,6 +40,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           clang \
                           cppcheck \
                           cpplint \
+                          cqmetrics \
                           cspell \
                           cvecheck \
                           dennis \

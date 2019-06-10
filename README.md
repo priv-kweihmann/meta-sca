@@ -68,6 +68,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [clang-tidy](https://clang.llvm.org/extra/clang-tidy/) (c/c++) [clang]
  * [cppcheck](https://github.com/danmar/cppcheck) (c/c++) [cppcheck]
  * [cpplint](https://github.com/cpplint/cpplint) (c/c++) [cpplint]
+ * [cqmetrics](https://github.com/dspinellis/cqmetrics) (metrics for c/c++) [cqmetrics]
  * [cspell](https://github.com/Jason3S/cspell) (spelling in c/c++/html/python/txt/md) [cspell]
  * [cve-check](https://github.com/clearlinux/cve-check-tool) (check for unpatched cve's) [cvecheck]
  * [dennis](https://github.com/willkg/dennis/) (i18n) [dennis]
@@ -254,6 +255,144 @@ For further explanations on the variables see the manpage of cppcheck
 | SCA_CPPLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_CPPLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_CPPLINT_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".c .cpp .h .hpp"
+
+### Available configuration for cqmetrics
+
+Within this module you can define metrics on any C/C++ source code.
+This module offers the possibility to issue a warning or an error if a configured threshold is exceeded.
+
+To configure a threshold define a variable
+
+**SCA_CQMETRICS_WARN_\<ID\>_gt** - for a warning when the value if greater than the threshold
+**SCA_CQMETRICS_WARN_\<ID\>_lt** - for a warning when the value if less than the threshold
+**SCA_CQMETRICS_ERROR_\<ID\>_gt** - for a warning when the value if greater than the threshold
+**SCA_CQMETRICS_ERROR_\<ID\>_lt** - for a warning when the value if less than the threshold
+
+All values are floating point units (as string).
+
+Possible IDs are
+
+ * nchar - Number of characters
+ * nline - Number of lines
+ * line_length_min - Line length minimum
+ * line_length_mean - Line length mean
+ * line_length_median - Line length median
+ * line_length_max - Line length maximum
+ * line_length_sd - Line length standard deviation
+ * nempty_line - Number of empty lines
+ * nstatement - Number of statements
+ * statement_nesting_min - Nested statements minimum
+ * statement_nesting_mean - Nested statements mean
+ * statement_nesting_median  - Nested statements median
+ * statement_nesting_max  - Nested statements maximum
+ * statement_nesting_sd  - Nested statements standard deviation
+ * ninternal - Number of declarations with internal linkage static visibility
+ * nconst - Number of const keywords
+ * nenum - Number of enum keywords
+ * ngoto - Number of goto statements
+ * ninline - Number of inline keywords
+ * nnoalias - Number of noalias keywords
+ * nregister - Number of register keywords
+ * nrestrict - Number of restrict keywords
+ * nsigned - Number of signed keywords
+ * nstruct - Number of struct keywords
+ * nunion - Number of union keywords
+ * nunsigned - Number of unsigned keywords
+ * nvoid - Number of void keywords
+ * nvolatile - Number of volatile keywords
+ * ntypedef - Number of typedef keywords
+ * ncomment - Number of comments
+ * ncomment_char - Number of comment characters
+ * nboilerplate_comment_char - Number of boilerplate/license comment characters
+ * ndox_comment - Number of DOxygen comments
+ * ndox_comment_char - Number of DOxygen comment characters
+ * nfun_comment - Number of comments inside function bodies
+ * ncpp_directive - Number of C preprocessor directives
+ * ncpp_include - Number of C preprocessor include directives
+ * ncpp_conditional - Number of C preprocessor conditional directives #if, #ifdef, #elif
+ * nfun_cpp_directive - Number of C preprocessor directives in function bodies
+ * nfun_cpp_conditional - Number of C preprocessor conditional directives in function bodies
+ * style_inconsistency - Style inconsistency
+ * nfunction - Number of functions Halstead complexity
+ * halstead_min - Halstead complexity per function minumum
+ * halstead_mean - Halstead complexity per function mean
+ * halstead_median - Halstead complexity per function median
+ * halstead_max - Halstead complexity per function maximum
+ * halstead_sd - Halstead complexity per function standard
+ * nfunction2 - Number of functions cyclomatic complexity
+ * cyclomatic_min - Cyclomatic complexity minimum
+ * cyclomatic_mean - Cyclomatic complexity mean
+ * cyclomatic_median - Cyclomatic complexity median
+ * cyclomatic_max - Cyclomatic complexity maximum
+ * cyclomatic_sd - Cyclomatic complexity standard deviation
+ * nidentifier - Identifier length
+ * identifier_length_min - Identifier length minimum
+ * identifier_length_mean - Identifier length mean
+ * identifier_length_median - Identifier length median
+ * identifier_length_max - Identifier length maximum
+ * identifier_length_sd - Identifier length standard deviation
+ * unique_nidentifier - Unique identifier length
+ * unique_identifier_length_min - Unique identifier length minimum
+ * unique_identifier_length_mean - Unique identifier length mean
+ * unique_identifier_length_median - Unique identifier length median
+ * unique_identifier_length_max - Unique identifier length maximum
+ * unique_identifier_length_sd - Unique identifier length standard deviation
+ * indentation_spacing_count - Spaces used for one level of indentation
+ * indentation_spacing_min - Spaces used for one level of indentation minimum
+ * indentation_spacing_mean - Spaces used for one level of indentation mean
+ * indentation_spacing_median - Spaces used for one level of indentation median
+ * indentation_spacing_max - Spaces used for one level of indentation maximum
+ * indentation_spacing_sd - Spaces used for one level of indentation standard deviation
+ * nno_space_after_binary_op - Number of occurences of no space after binary operator
+ * nno_space_after_closing_brace - Number of occurences of no space after closing brace
+ * nno_space_after_comma - Number of occurences of no space after comma
+ * nno_space_after_keyword - Number of occurences of no space after keyword
+ * nno_space_after_opening_brace - Number of occurences of no space after opening brace
+ * nno_space_after_semicolon - Number of occurences of no space after semicolon
+ * nno_space_before_binary_op - Number of occurences of no space before binary operator
+ * nno_space_before_closing_brace - Number of occurences of no space before closing brace
+ * nno_space_before_keyword - Number of occurences of no space before keyword
+ * nno_space_before_opening_brace - Number of occurences of no space before opening brace
+ * nspace_after_opening_square_bracket - Number of occurences of space after opening square bracket
+ * nspace_after_struct_op - Number of occurences of space after struct operator
+ * nspace_after_unary_op - Number of occurences of space after unary operator
+ * nspace_at_end_of_line - Number of occurences of space at end of line
+ * nspace_before_closing_bracket - Number of occurences of space before closing bracket
+ * nspace_before_closing_square_bracket - Number of occurences of space before closing square bracket
+ * nspace_before_comma - Number of occurences of space before comma
+ * nspace_before_opening_square_bracket - Number of occurences of space before opening square bracket
+ * nspace_before_semicolon - Number of occurences of space before semicolon
+ * nspace_before_struct_op - Number of occurences of space before struct operator
+ * nspace_after_binary_op - Number of occurences of space after binary operator
+ * nspace_after_closing_brace - Number of occurences of space after closing brace
+ * nspace_after_comma - Number of occurences of space after comma
+ * nspace_after_keyword - Number of occurences of space after keyword
+ * nspace_after_opening_brace - Number of occurences of space after opening brace
+ * nspace_after_semicolon - Number of occurences of space after semicolon
+ * nno_space_after_struct_op - Number of occurences of no space after struct operator
+ * nspace_before_binary_op - Number of occurences of space before binary operator
+ * nspace_before_closing_brace - Number of occurences of space before closing brace
+ * nspace_before_keyword - Number of occurences of space before keyword
+ * nspace_before_opening_brace - Number of occurences of space before opening brace
+ * nno_space_before_struct_op - Number of occurences of no space before struct operator
+ * nno_space_after_opening_square_bracket - Number of occurences of no space after opening square bracket
+ * nno_space_after_unary_op - Number of occurences of no space after unary operator
+ * nno_space_before_closing_bracket - Number of occurences of no space before closing bracket
+ * nno_space_before_closing_square_bracket - Number of occurences of no space before closing square bracket
+ * nno_space_before_comma - Number of occurences of no space before comma
+ * nno_space_before_opening_square_bracket - Number of occurences of no space before opening square bracket
+ * nno_space_before_semicolon - Number of occurences of no space before semicolon
+
+Furthermore the following variables are defined for this module
+
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_cqmetrics | Blacklist filter for this tool | space-separated-list | ""
+| SCA_CQMETRICS_ERROR_cyclomatic_max_gt | Threshold for maximum cyclomatic complexity before issuing an error | float-string | "30.0"
+| SCA_CQMETRICS_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_CQMETRICS_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_CQMETRICS_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".c .cpp .h .hpp"
+| SCA_CQMETRICS_WARN_cyclomatic_max_gt | Threshold for maximum cyclomatic complexity before issuing a warning | float-string | "15.0"
 
 ### Available configuration for cspell
 
