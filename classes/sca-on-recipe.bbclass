@@ -10,6 +10,7 @@ SCA_ENABLED_MODULES ?= "\
                         bandit \
                         bashate \
                         bitbake \
+                        checkbashism \
                         clang \
                         cppcheck \
                         cpplint \

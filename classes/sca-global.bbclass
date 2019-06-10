@@ -36,6 +36,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           bandit \
                           bashate \
                           bitbake \
+                          checkbashism \
                           clang \
                           cppcheck \
                           cpplint \

@@ -12,6 +12,7 @@ SCA_ENABLED_MODULES ?= "\
                         bandit \
                         bashate \
                         bitbake \
+                        checkbashism \
                         detectsecrets \
                         eslint \
                         gixy \

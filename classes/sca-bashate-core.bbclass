@@ -84,7 +84,7 @@ python do_sca_bashate_core() {
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
     with open(tmp_result, "w") as o:
-            o.write(cmd_output)
+        o.write(cmd_output)
 
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/bashate.dm".format(d.getVar("T")))

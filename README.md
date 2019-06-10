@@ -39,6 +39,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [ansible-lint](https://github.com/ansible/ansible-lint) (ansible) [ansiblelint]
  * [bandit](https://github.com/PyCQA/bandit) (python/security) [bandit]
  * [bashate](http://docs.openstack.org/developer/bashate/) (shell) [bashate]
+ * [checkbashisms](https://manpages.debian.org/jessie/devscripts/checkbashisms.1.en.html) (shell) [chekcbashism]
  * bitbake (handle bitbake issues) [bitbake]
  * [detect-secrets](https://github.com/Yelp/detect-secrets) (detecting and preventing secrets in code) [detectsecrets]
  * [eslint](https://github.com/eslint/eslint) (javascript/html) [eslint]
@@ -63,6 +64,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [bandit](https://github.com/PyCQA/bandit) (python/security) [bandit]
  * [bashate](http://docs.openstack.org/developer/bashate/) (shell) [bashate]
  * bitbake (handle bitbake issues) [bitbake]
+ * [checkbashisms](https://manpages.debian.org/jessie/devscripts/checkbashisms.1.en.html) (shell) [chekcbashism]
  * [clang-tidy](https://clang.llvm.org/extra/clang-tidy/) (c/c++) [clang]
  * [cppcheck](https://github.com/danmar/cppcheck) (c/c++) [cppcheck]
  * [cpplint](https://github.com/cpplint/cpplint) (c/c++) [cpplint]
@@ -211,6 +213,14 @@ __NOTE:__ this tool does not support suppression or fatal error handling
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_BLACKLIST_bitbake | Blacklist filter for this tool | space-separated-list | ""
+
+### Available configuration for checkbashism
+
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_checkbashism | Blacklist filter for this tool | space-separated-list | ""
+| SCA_CHECKBASHISM_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
+| SCA_CHECKBASHISM_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 
 ### Available configuration for clang
 
