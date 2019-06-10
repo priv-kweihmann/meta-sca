@@ -24,7 +24,7 @@ def npm_install_package(d, path, name, version):
         return
     bb.note("Install npm-package {}@{}".format(name, version))
     try:
-        subprocess.check_call(["npm", "--prefix", path, "install", "{}@{}".format(name, version)], universal_newlines=True)
+        subprocess.check_call(["npm", "--prefix", path, "install", "{}@{}".format(name, version), "--no-optional"], universal_newlines=True)
     except subprocess.CalledProcessError as e:
         bb.error("Install npm-package {}@{} failed: {}".format(name, version, e))
 
