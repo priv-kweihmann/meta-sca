@@ -38,7 +38,7 @@ python do_compile() {
     # npm --prefix . install textlint-plugin-rst@latest
     # npm --prefix . install textlint-rule-date-weekday-mismatch@1.0.5
     # npm --prefix . install textlint-rule-terminology@1.1.30
-    # npm --prefix . install textlint-rule-period-in-list-item@0.3.0
+    # npm --prefix . install textlint-rule-period-in-list-item@0.3.1
     # npm --prefix . install textlint-rule-no-nfd@1.0.1
     # npm --prefix . install @textlint-rule/textlint-rule-no-invalid-control-character@1.2.0
     # npm --prefix . install textlint-rule-no-surrogate-pair@1.0.1
@@ -46,7 +46,7 @@ python do_compile() {
     # npm --prefix . install textlint-rule-common-misspellings@latest
     # npm --prefix . install textlint-rule-ginger@2.2.1
     # npm --prefix . install textlint-rule-apostrophe@1.0.0
-    # npm --prefix . install textlint-rule-diacritics@0.0.2
+    # npm --prefix . install textlint-rule-diacritics@1.0.0
     # npm --prefix . install textlint-rule-stop-words@1.0.13
     # npm --prefix . install textlint-rule-en-capitalization@2.0.2
 
@@ -78,7 +78,7 @@ python do_compile() {
         "textlint-plugin-rst" : "0.1.1",
         "textlint-rule-date-weekday-mismatch" : "1.0.5",
         "textlint-rule-terminology" : "1.1.30",
-        "textlint-rule-period-in-list-item" : "0.3.0",
+        "textlint-rule-period-in-list-item" : "0.3.1",
         "textlint-rule-no-nfd" : "1.0.1",
         "@textlint-rule/textlint-rule-no-invalid-control-character" : "1.2.0",
         "textlint-rule-no-surrogate-pair" : "1.0.1",
@@ -86,7 +86,7 @@ python do_compile() {
         "textlint-rule-common-misspellings" : "1.0.1",
         "textlint-rule-ginger" : "2.2.1",
         "textlint-rule-apostrophe" : "1.0.0",
-        "textlint-rule-diacritics" : "0.0.2",
+        "textlint-rule-diacritics" : "1.0.0",
         "textlint-rule-stop-words" : "1.0.13",
         "textlint-rule-en-capitalization" : "2.0.2"
     }
