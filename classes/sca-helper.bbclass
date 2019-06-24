@@ -68,7 +68,7 @@ def _combine_x_entries(d, input_file, extra_key):
     res = [x.strip() for x in res if x]
     return res
 
-def get_files_by_shabang(d, path, pattern, excludes=[]):
+def get_files_by_shebang(d, path, pattern, excludes=[]):
     import os
     import re
     res = []
@@ -123,7 +123,7 @@ def get_files_by_extention(d, path, pattern, excludes=[]):
     return [x for x in res if os.path.isfile(x)]
 
 def get_files_by_extention_or_shebang(d, path, shebang, extentions, excludes=[]):
-    res = get_files_by_shabang(d, path, shebang, excludes) + get_files_by_extention(d, path, extentions, excludes)
+    res = get_files_by_shebang(d, path, shebang, excludes) + get_files_by_extention(d, path, extentions, excludes)
     return sorted(list(set(res)))
 
 def get_suppress_entries(d):
