@@ -2,17 +2,19 @@ SUMMARY = "This tool lets you search your gadgets on your binaries to facilitate
 DESCRIPTION = "This tool lets you search your gadgets on your binaries to facilitate your ROP exploitation."
 HOMEPAGE = "https://github.com/JonathanSalwan/ROPgadget"
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=550794465ba0ec5312d6919e203a55f9"
+LIC_FILES_CHKSUM = "file://LICENSE_BSD.txt;md5=e8b383a8cb935c894fbf61ff6c5d5121"
 
 PYPI_PACKAGE = "ROPGadget"
+
+SRC_URI = "git://github.com/JonathanSalwan/ROPgadget.git;protocol=https;tag=v${PV} \
+           file://ropgadget.sca.description \
+           file://ropgadget.sca.score"
 
 DEPENDS += "${PYTHON_PN}-native ${PYTHON_PN}-capstone-native"
 
 inherit native
-inherit pypi
 
-SRC_URI += "file://ropgadget.sca.description \
-            file://ropgadget.sca.score"
+S = "${WORKDIR}/git"
 
 FILES_${PN} += "${datadir}"
 

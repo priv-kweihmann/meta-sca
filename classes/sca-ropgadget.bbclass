@@ -85,7 +85,7 @@ def do_sca_conv_ropgadget(d):
                                     Tool="ropgadget",
                                     File=k,
                                     BuildPath=buildpath,
-                                    Message="executable exceeded ROP exploit threshold ({}/{})".format(package_name, v, _threshold),
+                                    Message="{} exceeded ROP exploit threshold ({}/{})".format(package_name, v, _threshold),
                                     ID="thresholdexceeded",
                                     Severity="warning")
             if g.Severity in sca_allowed_warning_level(d):
