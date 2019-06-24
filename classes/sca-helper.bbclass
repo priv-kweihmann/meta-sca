@@ -3,6 +3,8 @@ inherit sca-datamodel
 
 DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-python-magic-native"
 
+inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3-dir', 'python-dir')}
+
 def get_relative_source_path(d):
     import os
     source = d.getVar("S")
@@ -89,6 +91,8 @@ def get_files_by_shabang(d, path, pattern, excludes=[]):
 
 def get_files_by_mimetype(d, path, mime, excludes=[]):
     import os
+    import sys
+    sys.path.append(os.path.join(d.getVar("STAGING_DIR_NATIVE"), d.getVar("PYTHON_SITEPACKAGES_DIR")[1:]))
     import magic
     res = []
     for root, dirs, files in os.walk(path, topdown=True):
