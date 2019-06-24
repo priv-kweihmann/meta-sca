@@ -3,15 +3,10 @@ SCA_HTMLHINT_EXTRA_FATAL ?= ""
 
 DEPENDS += "htmlhint-native"
 
-inherit npm-helper
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-helper
 inherit sca-license-filter
-
-python do_prepare_recipe_sysroot_append() {
-    npm_prerun_fix_paths(d, d.getVar("STAGING_DATADIR_NATIVE"), "htmlhint")
-}
 
 def do_sca_conv_htmlhint(d):
     import os
@@ -67,7 +62,7 @@ python do_sca_htmlhint_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "htmlhint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "htmlhint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _args = [os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "htmlhint", "node_modules", ".bin", "htmlhint")]
+    _args = ["htmlhint"]
     _args += ["-f", "json"]
     _args += [d.getVar("SCA_SOURCES_DIR") + "/"]
 

@@ -9,19 +9,14 @@ SCA_TEXTLINT_RULES ?= "textlint-rule-no-todo textlint-rule-no-start-duplicated-c
                        textlint-rule-no-nfd  textlint-rule-no-surrogate-pair \
                        textlint-rule-abbr-within-parentheses textlint-rule-common-misspellings \
                        textlint-rule-ginger textlint-rule-apostrophe textlint-rule-diacritics \
-                       textlint-rule-stop-words textlint-rule-en-capitalization"
-SCA_TEXTLINT_ONLINE ?= "1"
+                       textlint-rule-stop-words textlint-rule-en-capitalization \
+                       textlint-rule-no-dead-link"
 
-inherit npm-helper
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
-
-python do_prepare_recipe_sysroot_append() {
-    npm_prerun_fix_paths(d, d.getVar("STAGING_DATADIR_NATIVE"), "textlint")
-}
 
 def write_config(_base, _extra_dicts, _target):
     import os
@@ -103,24 +98,16 @@ python do_sca_textlint() {
         }
     }
 
-    _online_rules = []
-    with open(os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "textlint/online-rules.json")) as i:
-        _online_rules = json.load(i)
-
     _config_file = os.path.join(d.getVar("T"), "textlint_config.json")
     with open(_config_file, "w") as o:
         for _rule in clean_split(d, "SCA_TEXTLINT_RULES"):
-            if _rule in _online_rules:
-                if d.getVar("SCA_TEXTLINT_ONLINE") == "1":
-                    _config["rules"][_rule] = True
-            else:
-                _config["rules"][_rule] = True
+            _config["rules"][_rule] = True
         json.dump(_config, o)
 
     result_raw_file = os.path.join(d.getVar("T"), "sca_raw_textlint.json")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
 
-    _args = [os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "textlint", "node_modules", ".bin", "textlint")]
+    _args = ["textlint"]
     _args += ["-c", _config_file]
     _args += ["--no-color"]
     _args += ["-f", "json"]

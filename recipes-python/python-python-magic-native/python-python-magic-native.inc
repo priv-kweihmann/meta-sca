@@ -9,7 +9,4 @@ PYPI_PACKAGE = "python-magic"
 DEPENDS += "file"
 
 inherit pypi
-
-FILES_${PN} += "${datadir}/python-magic"
-
 inherit native

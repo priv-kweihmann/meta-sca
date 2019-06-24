@@ -8,6 +8,7 @@ import argparse
 class ToolDescriptions(object):
 
     def __init__(self, rootpath):
+        self.__autoValues = {"online": False}
         self.__tools = self.__getTools(rootpath)
     
     def __getTools(self, rootpath):
@@ -18,6 +19,9 @@ class ToolDescriptions(object):
             print(item)
             with open(item) as i:
                 v = json.load(i)
+            for _k, _v in self.__autoValues.items():
+                if not _k in v:
+                    v[_k] = _v
             data[k] = v
         return data
 
@@ -161,6 +165,7 @@ if __name__ == '__main__':
 
     _questions = {
         "SCA_AVAILABLE_MODULES": [
+            InputElement("Do you have online access while building?", dataobj=_tools, dataget={"ListTools": "online"}, dataset={"GetTools": "languages"}),
             InputElement("What content to you want to check?", dataobj=_tools, dataget={"ListTools": "languages"}, dataset={"GetTools": "languages"}, endkey='q'),
             InputElement("What scope of checks would like to perform?", dataobj=_tools, dataget={"ListTools": "scope"}, dataset={"GetTools": "scope"}, endkey='q'),
             InputElement("How fast should the tools be build? [0=slow, 10=instantly]", dataobj=_tools, dataget={"ListToolsRange": "buildspeed"}, dataset={"GetToolsGE": "buildspeed"}),

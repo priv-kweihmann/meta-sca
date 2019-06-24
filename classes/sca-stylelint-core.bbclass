@@ -5,16 +5,11 @@ SCA_STYLELINT_EXTRA_FATAL ?= ""
 SCA_STYLELINT_CONFIG ?= "stylelint-config-standard"
 SCA_STYLELINT_FILE_FILTER ?= ".css .scss .html .htm"
 
-inherit npm-helper
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
-
-python do_prepare_recipe_sysroot_append() {
-    npm_prerun_fix_paths(d, d.getVar("STAGING_DATADIR_NATIVE"), "stylelint")
-}
 
 DEPENDS += "stylelint-native"
 
@@ -75,7 +70,7 @@ python do_sca_stylelint_core() {
     with open(os.path.join(d.getVar("T"), "stylelintrc"), "w") as o:
         json.dump(_config, o)
 
-    _args = [os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "stylelint", "node_modules", ".bin", "stylelint")]
+    _args = ["stylelint"]
     _args += ["-f", "unix"]
     _args += ["--quiet"]
     _args += ["--config", os.path.join(d.getVar("T"), "stylelintrc")]

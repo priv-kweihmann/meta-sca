@@ -1,41 +1,35 @@
-SUMMARY = "Native variant of stylelint"
-DESCRIPTION = "Native build of stylelint."
+SUMMARY = "A mighty, modern style linter"
+DESCRIPTION = "A mighty, modern style linter"
+HOMEPAGE = "https://github.com/stylelint/stylelint"
 
-SRC_URI = "file://stylelint.sca.description \
+SRC_URI = "git://github.com/stylelint/stylelint.git;protocol=https;tag=${PV} \
+           file://stylelint.sca.description \
            file://stylelint.sca.score"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM  = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
+LIC_FILES_CHKSUM  = "file://git/LICENSE;md5=0e0ecf49fffcf64b1f3fa0a956ea44a0"
 
-do_configure[noexec] = "1"
-
-FILES_${PN} = "${datadir}/"
+DEPENDS += "nodejs-native"
 
 inherit native
-inherit npm-helper
 
-python do_compile() {
-    # npm --prefix . install stylelint@10.1.0
+S = "${WORKDIR}"
 
-    ## Install needed pkgs
-    pkgs = {
-        "stylelint": "10.1.0"
-    }
-
-
-    for name, version in pkgs.items():
-        npm_install_package(d, d.getVar("B"), name, version)
-
-    ## Strip of hardcoded paths in packages
-    npm_postinst_fix_paths(d, d.getVar("B"), "stylelint")
+do_compile() {
+    :
 }
 
-INSANE_SKIP_${PN} += "host-user-contaminated"
-
 do_install() {
-    mkdir -p ${D}${datadir}/stylelint
-    cp -Ra ${B}/* ${D}${datadir}/stylelint
+    export HOME=${WORKDIR}
+	mkdir -p ${D}${libdir}/node_modules
+    npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production ${BPN}@${PV}
+	if [ -d ${D}${prefix}/etc ] ; then
+		# This will be empty
+		rmdir ${D}${prefix}/etc
+	fi
+
     install ${WORKDIR}/stylelint.sca.description ${D}${datadir}
     install ${WORKDIR}/stylelint.sca.score ${D}${datadir}
 }
 
+FILES_${PN} = "*"

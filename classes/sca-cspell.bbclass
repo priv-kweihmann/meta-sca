@@ -11,16 +11,11 @@ SCA_CSPELL_LANG_PYTHON_shebang ?= ".*python"
 SCA_CSPELL_LANG_TXT_dicts ?= ""
 SCA_CSPELL_LANG_TXT_files ?= ".txt .md .rst"
 
-inherit npm-helper
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
-
-python do_prepare_recipe_sysroot_append() {
-    npm_prerun_fix_paths(d, d.getVar("STAGING_DATADIR_NATIVE"), "cspell")
-}
 
 def write_config(_base, _extra_dicts, _target):
     import os
@@ -108,7 +103,7 @@ python do_sca_cspell() {
 
     _config_file = "cspell.json"
 
-    _args = [os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "cspell", "node_modules", ".bin", "cspell")]
+    _args = ["cspell"]
     _args += ["-c", _config_file]
     _args += ["--no-color"]
 

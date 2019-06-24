@@ -1,39 +1,36 @@
-SUMMARY = "Native variant of htmlhint"
-DESCRIPTION = "Native build of htmlhint."
+SUMMARY = "The static code analysis tool you need for your HTML"
+DESCRIPTION = "The static code analysis tool you need for your HTML"
+HOMEPAGE = "https://github.com/htmlhint/HTMLHint"
 
-SRC_URI = "file://htmlhint.sca.description \
+SRC_URI = "git://github.com/htmlhint/HTMLHint.git;protocol=https;tag=v${PV} \
+           file://htmlhint.sca.description \
            file://htmlhint.sca.score"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM  = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
+LIC_FILES_CHKSUM  = "file://git/LICENSE.md;md5=9ab22e524b729e8ba6a68fda798ad089"
 
-do_configure[noexec] = "1"
-
-FILES_${PN} = "${datadir}/"
+DEPENDS += "nodejs-native"
 
 inherit native
-inherit npm-helper
 
-python do_compile() {
-    # npm --prefix . install htmlhint@0.11.0
+S = "${WORKDIR}"
 
-    ## Install needed pkgs
-    pkgs = {
-        "htmlhint": "0.11.0"
-    }
-
-    for name, version in pkgs.items():
-        npm_install_package(d, d.getVar("B"), name, version)
-
-    ## Strip of hardcoded paths in packages
-    npm_postinst_fix_paths(d, d.getVar("B"), "htmlhint")
+do_compile() {
+    :
 }
-
-INSANE_SKIP_${PN} += "host-user-contaminated"
 
 do_install() {
-    mkdir -p ${D}${datadir}/htmlhint
-    cp -Ra ${B}/* ${D}${datadir}/htmlhint
+    export HOME=${WORKDIR}
+    cd ${WORKDIR}
+	mkdir -p ${D}${libdir}/node_modules
+    npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production ${BPN}@${PV}
+	if [ -d ${D}${prefix}/etc ] ; then
+		# This will be empty
+		rmdir ${D}${prefix}/etc
+	fi
+
     install ${WORKDIR}/htmlhint.sca.description ${D}${datadir}
+    install ${WORKDIR}/htmlhint.sca.score ${D}${datadir}
 }
 
+FILES_${PN} = "*"

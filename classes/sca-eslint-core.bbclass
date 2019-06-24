@@ -4,7 +4,6 @@ SCA_ESLINT_CONFIG_FILE ?= "eslint-plain.json"
 SCA_ESLINT_EXTRA_SUPPRESS ?= ""
 SCA_ESLINT_EXTRA_FATAL ?= ""
 
-inherit npm-helper
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -12,10 +11,6 @@ inherit sca-helper
 inherit sca-license-filter
 
 DEPENDS += "eslint-native"
-
-python do_prepare_recipe_sysroot_append() {
-    npm_prerun_fix_paths(d, d.getVar("STAGING_DATADIR_NATIVE"), "eslint")
-}
 
 def do_sca_conv_eslint(d):
     import os
@@ -76,7 +71,7 @@ python do_sca_eslint_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "eslint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "eslint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _args = [os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "eslint", "node_modules", ".bin", "eslint")]
+    _args = ["eslint"]
     _args += ["-c", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "eslint", "configs", d.getVar("SCA_ESLINT_CONFIG_FILE"))]
     _args += ["-f", "checkstyle"]
     _args += ["--quiet"]

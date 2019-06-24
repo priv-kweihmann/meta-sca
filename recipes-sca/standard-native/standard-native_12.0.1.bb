@@ -1,40 +1,36 @@
-SUMMARY = "Native variant of standard"
-DESCRIPTION = "Native build of standard."
+SUMMARY = "JavaScript Style Guide, with linter & automatic code fixer"
+DESCRIPTION = "JavaScript Style Guide, with linter & automatic code fixer"
+HOMEPAGE = "https://github.com/standard/standard"
 
-SRC_URI = "file://standard.sca.description \
+SRC_URI = "git://github.com/standard/standard.git;protocol=https;tag=v${PV} \
+           file://standard.sca.description \
            file://standard.sca.score"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM  = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
+LIC_FILES_CHKSUM  = "file://git/LICENSE;md5=fb42e5aa12bb9e365d38b4b5691d6984"
 
-do_configure[noexec] = "1"
-
-FILES_${PN} = "${datadir}/"
+DEPENDS += "nodejs-native"
 
 inherit native
-inherit npm-helper
 
-python do_compile() {
-    # npm --prefix . install standard@12.0.1
+S = "${WORKDIR}"
 
-    ## Install needed pkgs
-    pkgs = {
-        "standard": "12.0.1"
-    }
-
-    for name, version in pkgs.items():
-        npm_install_package(d, d.getVar("B"), name, version)
-
-    ## Strip of hardcoded paths in packages
-    npm_postinst_fix_paths(d, d.getVar("B"), "standard")
+do_compile() {
+    :
 }
 
-INSANE_SKIP_${PN} += "host-user-contaminated"
-
 do_install() {
-    mkdir -p ${D}${datadir}/standard
-    cp -Ra ${B}/* ${D}${datadir}/standard
+    export HOME=${WORKDIR}
+    cd ${WORKDIR}
+	mkdir -p ${D}${libdir}/node_modules
+    npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production ${BPN}@${PV}
+	if [ -d ${D}${prefix}/etc ] ; then
+		# This will be empty
+		rmdir ${D}${prefix}/etc
+	fi
+
     install ${WORKDIR}/standard.sca.description ${D}${datadir}
     install ${WORKDIR}/standard.sca.score ${D}${datadir}
 }
 
+FILES_${PN} = "*"

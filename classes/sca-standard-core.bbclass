@@ -2,16 +2,11 @@ SCA_STANDARD_EXTRA_SUPPRESS ?= ""
 SCA_STANDARD_EXTRA_FATAL ?= ""
 SCA_STANDARD_FILE_FILTER ?= ".js .jsx"
 
-inherit npm-helper
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
-
-python do_prepare_recipe_sysroot_append() {
-    npm_prerun_fix_paths(d, d.getVar("STAGING_DATADIR_NATIVE"), "standard")
-}
 
 DEPENDS += "standard-native"
 
