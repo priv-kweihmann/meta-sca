@@ -67,6 +67,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           stylelint \
                           systemdlint \
                           textlint \
+                          tlv \
                           tscancode \
                           xmllint \
                           yamllint \

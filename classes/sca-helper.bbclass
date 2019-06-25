@@ -107,6 +107,17 @@ def get_files_by_mimetype(d, path, mime, excludes=[]):
                 pass
     return [x for x in res if os.path.isfile(x)]
 
+def get_files_by_glob(d, pattern, excludes=[]):
+    import os
+    import glob
+    res = []
+    if isinstance(pattern, str):
+        pattern = pattern.split(" ")
+    res = []
+    for p in pattern:
+        res += glob.glob(p)
+    return [x for x in res if os.path.isfile(x)]
+
 def get_files_by_extention(d, path, pattern, excludes=[]):
     import os
     res = []

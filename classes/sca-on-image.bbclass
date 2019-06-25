@@ -26,6 +26,7 @@ SCA_ENABLED_MODULES ?= "\
                         standard \
                         stylelint \
                         systemdlint \
+                        tlv \
                         xmllint \
                         yamllint \
                         "

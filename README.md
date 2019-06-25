@@ -55,6 +55,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [standard](https://github.com/standard/standard) (javascript) [standard]
  * [stylelint](https://github.com/stylelint/stylelint) (css, scss) [stylelint]
  * [systemdlint](https://github.com/priv-kweihmann/systemdlint) (systemd) [systemdlint]
+ * [tlv](https://github.com/priv-kweihmann/tlv) (duplicate code) [tlv]
  * [xmllint](http://xmlsoft.org/xmllint.html) (xml) [xmllint]
  * [yamllint](https://github.com/adrienverge/yamllint) (yaml) [yamllint]
 
@@ -93,6 +94,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [standard](https://github.com/standard/standard) (javascript) [standard]
  * [stylelint](https://github.com/stylelint/stylelint) (css, scss) [stylelint]
  * [textlint](https://github.com/textlint/textlint) (spelling) [textlint]
+ * [tlv](https://github.com/priv-kweihmann/tlv) (duplicate code) [tlv]
  * [tscancode](https://github.com/Tencent/TscanCode) (c,c#,lua) [tscancode]
  * [xmllint](http://xmlsoft.org/xmllint.html) [xmllint]
  * [yamllint](https://github.com/adrienverge/yamllint) (yaml) [yamllint]
@@ -723,6 +725,17 @@ Following variables can be used
 | SCA_TEXTLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_TEXTLINT_ONLINE | Allow rules which requires online access to work | 0 or 1 | "1"
 | SCA_TEXTLINT_RULES | List of rules to check on | space-separated-list | see sca-textlint.bbclass for details
+
+### Available configuration for tlv
+
+**NOTE**: This module does not support suppression or fatal error
+
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_BLACKLIST_tlv | Blacklist filter for this tool | space-separated-list | "linux-.*"
+| SCA_TLV_MINLINES | Minimum number of lines before issue is reported | int | "8"
+| SCA_TLV_MINTOKEN | Minimum number of token in block before issue is reported | int | "25"
+| SCA_TLV_FILES | List of glob-expression for files to check | space-separated-list | "\$\{SCA\_SOURCES\_DIR\}/\* \$\{SCA\_SOURCES\_DIR\}/\*\*/\*" - for recipe, "\$\{SCA\_SOURCES\_DIR\}/\$\{sysconfdir\}/\* \$\{SCA\_SOURCES\_DIR\}/\$\{sysconfdir\}/\*\*/\*" - for image
 
 ### Available configuration for tscancode
 

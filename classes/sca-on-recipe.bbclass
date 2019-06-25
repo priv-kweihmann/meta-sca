@@ -39,6 +39,7 @@ SCA_ENABLED_MODULES ?= "\
                         standard \
                         stylelint \
                         textlint \
+                        tlv \
                         tscancode \
                         xmllint \
                         yamllint \
