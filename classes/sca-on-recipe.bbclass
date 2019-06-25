@@ -32,6 +32,7 @@ SCA_ENABLED_MODULES ?= "\
                         pylint \
                         pysymcheck \
                         pytype \
+                        radon \
                         rats \
                         ropgadget \
                         score \

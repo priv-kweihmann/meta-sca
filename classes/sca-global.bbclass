@@ -59,6 +59,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           pylint \
                           pysymcheck \
                           pytype \
+                          radon \
                           rats \
                           ropgadget \
                           score \
