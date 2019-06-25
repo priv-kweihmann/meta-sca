@@ -208,8 +208,8 @@ python do_sca_cqmetrics() {
     import os
     import subprocess
     import json
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_CPPLINT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_CPPLINT_EXTRA_FATAL"))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_CQMETRICS_EXTRA_SUPPRESS"))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_CQMETRICS_EXTRA_FATAL"))
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cqmetrics-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cqmetrics-{}-fatal".format(d.getVar("SCA_MODE"))))
 
