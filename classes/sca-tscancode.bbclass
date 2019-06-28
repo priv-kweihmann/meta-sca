@@ -66,7 +66,7 @@ def do_sca_conv_tscancode(d):
                                             File=node.attrib["file"],
                                             Line=node.attrib["line"],
                                             Message=node.attrib["msg"],
-                                            ID="{}.{}".format(node.attrib["id"], node.attrib["subid"]),
+                                            ID="{}_{}".format(node.attrib["id"], node.attrib["subid"]),
                                             Severity=severity_map[node.attrib["severity"]])
                     if g.GetPlainID() in __suppress:
                         continue
