@@ -19,13 +19,13 @@ def sca_get_model_class(d, **kwargs):
         
         def __fixupPaths(self):
             if self.File:
-                if self.File.startswith("."):
-                    self.File = self.File.lstrip(".")
-                if self.File.startswith("/"):
-                    self.File = self.File.lstrip("/")
                 if self.BuildPath:
                     if self.File.startswith(self.BuildPath):
-                        self.File.replace(self.BuildPath, "")
+                        self.File = self.File.replace(self.BuildPath, "")
+                    if self.File.startswith(self.BuildPath[1:]):
+                        self.File = self.File.replace(self.BuildPath[1:], "")
+                if self.File.startswith("."):
+                    self.File = self.File.lstrip(".")
                 if self.File.startswith("/"):
                     self.File = self.File.lstrip("/")
 
@@ -46,6 +46,7 @@ def sca_get_model_class(d, **kwargs):
             return res
 
         def GetPath(self, exportPath=None):
+            self.__fixupPaths()
             return os.path.join(exportPath or self.BuildPath or "", self.File)
 
         def __repr__(self):
