@@ -17,7 +17,7 @@ def do_sca_conv_oelint(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     items = []
-    pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<severity>(warning|error|info)):(?P<id>.*):(?P<message>.*)$"
+    pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<severity>(warning|error|info)):(?P<id>[a-z\.]*):(?P<message>.*)$"
 
     severity_map = {
         "error" : "error",
@@ -35,7 +35,7 @@ def do_sca_conv_oelint(d):
                                             File=m.group("file"),
                                             Line=m.group("line"),
                                             Message=m.group("message"),
-                                            ID=m.group("id"),
+                                            ID=m.group("id").replace(".", "_"),
                                             Severity=severity_map[m.group("severity")])
                     if g.Severity in sca_allowed_warning_level(d):
                         sca_add_model_class(d, g)
