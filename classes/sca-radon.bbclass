@@ -161,48 +161,52 @@ def do_sca_conv_radon(d):
         result = {}
 
         ## halstead
-        for k,v in j["hal"].items():
-            if not k in result:
-                result[k] = {}
-            if not "functions" in v:
-                continue                
-            result[k] = set_min_max(d, result[k], "halstaed_dist_operators",  [x[1][0] for x in  v["functions"]])
-            result[k] = set_min_max(d, result[k], "halstaed_dist_operands",   [x[1][1] for x in  v["functions"]])
-            result[k] = set_min_max(d, result[k], "halstaed_total_operators", [x[1][2] for x in  v["functions"]])
-            result[k] = set_min_max(d, result[k], "halstaed_total_operands",  [x[1][3] for x in  v["functions"]])
-            result[k] = set_min_max(d, result[k], "halstaed_vocabulary",      [x[1][4] for x in  v["functions"]])
-            result[k] = set_min_max(d, result[k], "halstaed_length",          [x[1][5] for x in  v["functions"]])
-            result[k] = set_min_max(d, result[k], "halstaed_calc_length",     [x[1][6] for x in  v["functions"]])
-            result[k] = set_min_max(d, result[k], "halstaed_volume",          [x[1][7] for x in  v["functions"]])
-            result[k] = set_min_max(d, result[k], "halstaed_difficulty",      [x[1][8] for x in  v["functions"]])
-            result[k] = set_min_max(d, result[k], "halstaed_effort",          [x[1][9] for x in  v["functions"]])
-            result[k] = set_min_max(d, result[k], "halstaed_time",            [x[1][10] for x in v["functions"]])
-            result[k] = set_min_max(d, result[k], "halstaed_bugs",            [x[1][11] for x in v["functions"]])
+        if "hal" in j:
+            for k,v in j["hal"].items():
+                if not k in result:
+                    result[k] = {}
+                if not "functions" in v:
+                    continue                
+                result[k] = set_min_max(d, result[k], "halstaed_dist_operators",  [x[1][0] for x in  v["functions"]])
+                result[k] = set_min_max(d, result[k], "halstaed_dist_operands",   [x[1][1] for x in  v["functions"]])
+                result[k] = set_min_max(d, result[k], "halstaed_total_operators", [x[1][2] for x in  v["functions"]])
+                result[k] = set_min_max(d, result[k], "halstaed_total_operands",  [x[1][3] for x in  v["functions"]])
+                result[k] = set_min_max(d, result[k], "halstaed_vocabulary",      [x[1][4] for x in  v["functions"]])
+                result[k] = set_min_max(d, result[k], "halstaed_length",          [x[1][5] for x in  v["functions"]])
+                result[k] = set_min_max(d, result[k], "halstaed_calc_length",     [x[1][6] for x in  v["functions"]])
+                result[k] = set_min_max(d, result[k], "halstaed_volume",          [x[1][7] for x in  v["functions"]])
+                result[k] = set_min_max(d, result[k], "halstaed_difficulty",      [x[1][8] for x in  v["functions"]])
+                result[k] = set_min_max(d, result[k], "halstaed_effort",          [x[1][9] for x in  v["functions"]])
+                result[k] = set_min_max(d, result[k], "halstaed_time",            [x[1][10] for x in v["functions"]])
+                result[k] = set_min_max(d, result[k], "halstaed_bugs",            [x[1][11] for x in v["functions"]])
 
         ## raw
-        for k,v in j["raw"].items():
-            if not k in result:
-                result[k] = {}
-            result[k] = set_min_max(d, result[k], "loc",                  [y for x,y in v.items() if "loc" == x])
-            result[k] = set_min_max(d, result[k], "lloc",                 [y for x,y in v.items() if "lloc" == x])
-            result[k] = set_min_max(d, result[k], "comments",             [y for x,y in v.items() if "comments" == x])
-            result[k] = set_min_max(d, result[k], "multiline_strings",    [y for x,y in v.items() if "multi" == x])
-            result[k] = set_min_max(d, result[k], "blank_lines",          [y for x,y in v.items() if "blank" == x])
-            result[k] = set_min_max(d, result[k], "singleline_comments",  [y for x,y in v.items() if "single_comments" == x])
+        if "raw" in j:
+            for k,v in j["raw"].items():
+                if not k in result:
+                    result[k] = {}
+                result[k] = set_min_max(d, result[k], "loc",                  [y for x,y in v.items() if "loc" == x])
+                result[k] = set_min_max(d, result[k], "lloc",                 [y for x,y in v.items() if "lloc" == x])
+                result[k] = set_min_max(d, result[k], "comments",             [y for x,y in v.items() if "comments" == x])
+                result[k] = set_min_max(d, result[k], "multiline_strings",    [y for x,y in v.items() if "multi" == x])
+                result[k] = set_min_max(d, result[k], "blank_lines",          [y for x,y in v.items() if "blank" == x])
+                result[k] = set_min_max(d, result[k], "singleline_comments",  [y for x,y in v.items() if "single_comments" == x])
 
         ## mi
-        for k,v in j["mi"].items():
-            if not k in result:
-                result[k] = {}
-            if not "mi" in v:
-                continue
-            result[k] = set_min_max(d, result[k], "maint_index",          [v["mi"], v["mi"]])
+        if "mi" in j:
+            for k,v in j["mi"].items():
+                if not k in result:
+                    result[k] = {}
+                if not "mi" in v:
+                    continue
+                result[k] = set_min_max(d, result[k], "maint_index",          [v["mi"], v["mi"]])
 
         ## cc
-        for k,v in j["cc"].items():
-            if not k in result:
-                result[k] = {}
-            result[k] = set_min_max(d, result[k], "cc", [x["complexity"] for x in v if "complexity" in x])      
+        if "cc" in j:
+            for k,v in j["cc"].items():
+                if not k in result:
+                    result[k] = {}
+                result[k] = set_min_max(d, result[k], "cc", [x["complexity"] for x in v if "complexity" in x])      
 
         try:
             for k,v in result.items():
