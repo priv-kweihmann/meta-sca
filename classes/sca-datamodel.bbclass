@@ -30,7 +30,12 @@ def sca_get_model_class(d, **kwargs):
                     self.File = self.File.lstrip("/")
 
         def GetPlainID(self):
-            return self.ID or ""
+            tmp = self.ID or ""
+            tool_prefix = [x for x in tmp.split(".") if x == self.Tool]
+            _id = [x for x in tmp.split(".") if x != self.Tool]
+            if any(tool_prefix):
+                return "{}.{}".format(".".join(tool_prefix), "_".join(_id))
+            return "_".join(_id)
 
         def GetFormattedMessage(self):
             return "[Package:{} Tool:{}] {}".format(self.PackageName, self.Tool, self.Message)
