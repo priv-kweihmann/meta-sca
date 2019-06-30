@@ -23,7 +23,7 @@ def do_sca_conv_shellcheck(d):
                     try:
                         g = sca_get_model_class(d,
                                                 PackageName=package_name,
-                                                Tool="shellcheck",
+                                                Tool="ShellCheck",
                                                 BuildPath=buildpath,
                                                 File=_file.attrib.get("name"),
                                                 Column=f.attrib.get("column"),
