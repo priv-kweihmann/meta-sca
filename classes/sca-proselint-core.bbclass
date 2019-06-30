@@ -28,7 +28,8 @@ def do_sca_conv_proselint(d):
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         jobj = {}
         try:
-            jobj = json.load(f)
+            with open(d.getVar("SCA_RAW_RESULT_FILE")) as f:
+                jobj = json.load(f)
         except Exception as e:
             pass
         for _file, _vals in jobj.items():
