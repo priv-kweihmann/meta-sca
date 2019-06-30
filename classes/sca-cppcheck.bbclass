@@ -7,10 +7,12 @@ SCA_CPPCHECK_EXTRA_FATAL ?= ""
 SCA_CPPCHECK_ADD_INCLUDES ?= ""
 ## Set default language support level
 ## For multiple use a space separated list
-## Possible entries are posix,c89,c99,c11,c++03,c++11,c++14
+## Possible entries are posix,c89,c99,c11,c++03,c++11,c++14,c++17,c++20
 SCA_CPPCHECK_LANG_STD ?= "c99"
 ## File extension filter list (whitespace separated)
 SCA_CPPCHECK_FILE_FILTER ?= ".c .cpp .h .hpp"
+## Depth of analysis - higher value = higher effort
+SCA_CPPCHECK_CHECK_DEPTH ?= "3"
 
 inherit sca-conv-to-export
 inherit sca-datamodel
@@ -91,6 +93,7 @@ python do_sca_cppcheck() {
     _args += ["--xml-version=2"]
     _args += ["--force"]
     _args += ["--max-configs=1"]
+    _args += ["--max-ctu-depth={}".format("SCA_CPPCHECK_CHECK_DEPTH")]
     for item in d.getVar("SCA_CPPCHECK_LANG_STD").split(" "):
         _args += ["--std={}".format(item)]
     _args += [get_platform_type(d)]    

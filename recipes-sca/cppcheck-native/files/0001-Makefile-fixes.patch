@@ -1,6 +1,6 @@
-From acbb788698a2da389720af19734564e1096c6695 Mon Sep 17 00:00:00 2001
+From 17d5c96ffc3535025b1a63b514d09959f91ecb0a Mon Sep 17 00:00:00 2001
 From: Konrad Weihmann <kweihmann@outlook.com>
-Date: Sun, 2 Jun 2019 10:11:55 +0200
+Date: Sun, 30 Jun 2019 21:59:23 +0200
 Subject: [PATCH] Makefile fixes
 
 ---
@@ -8,10 +8,10 @@ Subject: [PATCH] Makefile fixes
  1 file changed, 13 insertions(+), 13 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index a72cc6c..8897b04 100644
+index 372647e..322744a 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -94,17 +94,19 @@ else ifeq ($(CXX), c++)
+@@ -97,17 +97,19 @@ else ifeq ($(CXX), c++)
  endif
  
  ifeq ($(HAVE_RULES),yes)
@@ -36,9 +36,9 @@ index a72cc6c..8897b04 100644
 +PREFIX=$(prefix)
  
  ifndef INCLUDE_FOR_LIB
-     INCLUDE_FOR_LIB=-Ilib -Iexternals/simplecpp -Iexternals/tinyxml
-@@ -118,8 +120,6 @@ ifndef INCLUDE_FOR_TEST
-     INCLUDE_FOR_TEST=-Ilib -Icli -Iexternals/simplecpp -Iexternals/tinyxml
+     INCLUDE_FOR_LIB=-Ilib -isystem externals -isystem externals/simplecpp -isystem externals/tinyxml
+@@ -121,8 +123,6 @@ ifndef INCLUDE_FOR_TEST
+     INCLUDE_FOR_TEST=-Ilib -Icli -isystem externals/simplecpp -isystem externals/tinyxml
  endif
  
 -BIN=$(DESTDIR)$(PREFIX)/bin
@@ -64,5 +64,5 @@ index a72cc6c..8897b04 100644
  	install -d ${DESTDIR}${CFGDIR}
  	install -m 644 cfg/* ${DESTDIR}${CFGDIR}
 -- 
-2.7.4
+2.17.1
 
