@@ -33,7 +33,7 @@ def do_sca_conv_pylint(d):
                                             Line=m.group("line"),
                                             Message=m.group("message"),
                                             ID=m.group("raw_severity_id"),
-                                            Severity=severity_map[m.group("raw_severity")])
+                                            Severity=severity_map[m.group("raw_severity")[0]])
                     if g.Severity in sca_allowed_warning_level(d):
                         sca_add_model_class(d, g)
                 except Exception as exp:
@@ -72,16 +72,16 @@ python do_sca_pylint_core() {
     ## Patch a pylint.rc-file with all the library paths
     with open(os.path.join(d.getVar("T"), "pylint.rc"), "w") as f:
         f.write("[MASTER]\n")
-        f.write("import sys\n")
-        f.write("[sys.path.insert(0, a) for a in \"{}\".split(\":\")];\n".format(d.getVar("SCA_PYLINT_LIBATH")))
+        f.write('init-hook="import sys;[sys.path.insert(0, a) for a in \'{}\'.split(\':\')]'.format(d.getVar("SCA_PYLINT_LIBATH")) + '"')
 
-    _args += get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*/python3", ".py",
+    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*/python3", ".py",
                                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
-    try:
-        cmd_output = subprocess.check_output(_args, universal_newlines=True)
-    except subprocess.CalledProcessError as e:
-        cmd_output = e.stdout or ""
+    if any(_files):
+        try:
+            cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
+        except subprocess.CalledProcessError as e:
+            cmd_output = e.stdout or ""
     with open(tmp_result, "w") as o:
         o.write(cmd_output)
     os.chdir(cur_dir)

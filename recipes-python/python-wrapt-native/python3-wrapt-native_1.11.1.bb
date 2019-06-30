@@ -1,4 +1,4 @@
-inherit setuptools
+inherit setuptools3
 require python-wrapt-native.inc
 
 SRC_URI[md5sum] = "9f21acd7c0a57bf3057715c4665db3c7"

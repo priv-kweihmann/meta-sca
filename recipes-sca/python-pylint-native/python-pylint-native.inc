@@ -4,10 +4,14 @@ HOMEPAGE = "https://github.com/PyCQA/pylint"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=4325afd396febcb659c36b49533135d4"
 
-DEPENDS += "${PYTHON_PN}-native \
-            ${PYTHON_PN}-isort-native \
+DEPENDS += " \
             ${PYTHON_PN}-astroids-native \
-            ${PYTHON_PN}-pytest-runner-native"
+            ${PYTHON_PN}-isort-native \
+            ${PYTHON_PN}-mccabe-native \
+            ${PYTHON_PN}-native \
+            ${PYTHON_PN}-pytest-runner-native \
+            ${PYTHON_PN}-six-native \
+            "
 
 ## A python file with /usr/bin/python-shebang is 
 ## used - ignore this error
