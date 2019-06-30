@@ -12,7 +12,12 @@ SRC_URI = "git://github.com/oclint/oclint.git;protocol=http;branch=master;tag=v$
 
 LIC_FILES_CHKSUM = "file://oclint-core/LICENSE;md5=306b716fe6dadad0d53616d809e59c9d"
 
-DEPENDS += "subversion-native cmake-native python3-native ninja-native"
+DEPENDS += "\
+            cmake-native \
+            python3-native \
+            python3-ninja-native \
+            subversion-native \
+            "
 
 inherit native
 

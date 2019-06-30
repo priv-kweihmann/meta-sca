@@ -8,7 +8,7 @@ PYPI_PACKAGE = "pytype"
 
 DEPENDS += "${PYTHON_PN}-six-native \
             ${PYTHON_PN}-pyyaml-native \
-            ninja-native \
+            ${PYTHON_PN}-ninja-native \
             ${PYTHON_PN}-importlab-native \
             ${PYTHON_PN}-scikit-build-native \
             ${PYTHON_PN}-six-native \
