@@ -53,7 +53,7 @@ python do_sca_standard_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "standard-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "standard-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _args = [os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "standard", "node_modules", ".bin", "standard")]
+    _args = ["standard"]
     _args += ["--verbose"]
 
     _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_STANDARD_FILE_FILTER"), \
