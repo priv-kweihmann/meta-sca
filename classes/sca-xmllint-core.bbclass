@@ -29,6 +29,7 @@ def do_sca_conv_xmllint(d):
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
                                             Tool="xmllint",
+                                            File=m.group("file"),
                                             BuildPath=buildpath,
                                             Line=m.group("line"),
                                             Message=m.group("msg"),
@@ -62,7 +63,7 @@ python do_sca_xmllint_core() {
     if any(_files):
         _args += _files    
         try:
-            cmd_output = subprocess.check_output(_args, universal_newlines=True)
+            cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
 
