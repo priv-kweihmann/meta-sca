@@ -50,12 +50,12 @@ def do_sca_conv_cspell(d):
                                             Column=m.group("column"),
                                             Line=m.group("line"),
                                             Message=m.group("msg"),
-                                            ID=m.group("id").replace(" ", "_"),
+                                            ID=m.group("id"),
                                             Severity="info")
                     if g.Severity in sca_allowed_warning_level(d):
                         sca_add_model_class(d, g)
-                except Exception:
-                    pass
+                except Exception as e:
+                    bb.warn(str(e))
 
     return sca_save_model_to_string(d)
 
