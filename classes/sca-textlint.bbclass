@@ -1,16 +1,31 @@
-SCA_TEXTLINT_RULES ?= "textlint-rule-no-todo textlint-rule-no-start-duplicated-conjunction \
-                       textlint-rule-max-number-of-lines textlint-rule-max-comma \
-                       textlint-rule-no-exclamation-question-mark textlint-rule-ng-word \
-                       textlint-rule-no-dead-link textlint-rule-no-empty-section \
-                       textlint-rule-unexpanded-acronym textlint-rule-alex \
-                       textlint-rule-write-good textlint-rule-rousseau \
-                       textlint-rule-en-max-word-count textlint-rule-date-weekday-mismatch \
-                       textlint-rule-terminology textlint-rule-period-in-list-item \
-                       textlint-rule-no-nfd  textlint-rule-no-surrogate-pair \
-                       textlint-rule-abbr-within-parentheses textlint-rule-common-misspellings \
-                       textlint-rule-ginger textlint-rule-apostrophe textlint-rule-diacritics \
-                       textlint-rule-stop-words textlint-rule-en-capitalization \
-                       textlint-rule-no-dead-link"
+# Following plugins are disabled by default
+# because they tend to take very long to compute
+# textlint-rule-en-capitalization
+SCA_TEXTLINT_RULES ?= "\
+                        textlint-rule-abbr-within-parentheses \
+                        textlint-rule-apostrophe \
+                        textlint-rule-common-misspellings \
+                        textlint-rule-date-weekday-mismatch \
+                        textlint-rule-diacritics \
+                        textlint-rule-en-max-word-count \
+                        textlint-rule-max-comma \
+                        textlint-rule-alex \
+                        textlint-rule-max-number-of-lines \
+                        textlint-rule-ng-word \
+                        textlint-rule-no-dead-link \
+                        textlint-rule-no-empty-section \
+                        textlint-rule-no-exclamation-question-mark \
+                        textlint-rule-no-nfd \
+                        textlint-rule-no-start-duplicated-conjunction \
+                        textlint-rule-no-surrogate-pair \
+                        textlint-rule-no-todo \
+                        textlint-rule-period-in-list-item \
+                        textlint-rule-rousseau \
+                        textlint-rule-stop-words \
+                        textlint-rule-terminology \
+                        textlint-rule-unexpanded-acronym \
+                        textlint-rule-write-good \
+                    "
 
 inherit sca-conv-to-export
 inherit sca-datamodel
@@ -54,13 +69,13 @@ def do_sca_conv_textlint(d):
             except Exception as e:
                 pass
         for item in jobj:
-            g = TextlintItem()
             g_files = item["filePath"]
             for msg in item["messages"]:
                 try:
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
                                             Tool="textlint",
+                                            File=g_files,
                                             BuildPath=buildpath,
                                             Column=str(msg["column"]),
                                             Line=str(msg["line"]),
@@ -110,16 +125,17 @@ python do_sca_textlint() {
     _args = ["textlint"]
     _args += ["-c", _config_file]
     _args += ["--no-color"]
+    _args += ["--debug"]
     _args += ["-f", "json"]
     _args += ["-o", result_raw_file]
     _args += [d.getVar("SCA_SOURCES_DIR")]
 
     cmd_output = ""
     try:
-        cmd_output += subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
+        cmd_output += subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT, timeout=300)
     except subprocess.CalledProcessError as e:
         cmd_output += e.stdout or ""
-
+        
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/textlint.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_textlint(d)
