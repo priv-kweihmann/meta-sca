@@ -37,7 +37,7 @@ def do_sca_conv_eslint(d):
         try:
             data = ElementTree.ElementTree(ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE")))
             for _file in data.findall(".//file"):
-                if _file.attrib["name"] in _excludes:
+                if _file.attrib["name"] in __excludes:
                     continue
                 try:
                     for f in _file.findall(".//error"):
@@ -57,8 +57,8 @@ def do_sca_conv_eslint(d):
                             sca_add_model_class(d, g)
                 except Exception as exp:
                     bb.warn(str(exp))
-        except:
-            pass
+        except Exception as e:
+            bb.warn(str(e))
     return sca_save_model_to_string(d)
 
 python do_sca_eslint_core() {
@@ -70,6 +70,8 @@ python do_sca_eslint_core() {
     d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_ESLINT_EXTRA_FATAL"))
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "eslint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "eslint-{}-fatal".format(d.getVar("SCA_MODE"))))
+
+    os.symlink(os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "node_modules"), "node_modules", target_is_directory=True)
 
     _args = ["eslint"]
     _args += ["-c", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "eslint", "configs", d.getVar("SCA_ESLINT_CONFIG_FILE"))]
@@ -86,6 +88,8 @@ python do_sca_eslint_core() {
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
     with open(result_raw_file, "w") as o:
         o.write(cmd_output)
+
+    os.remove("node_modules")
     
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/eslint.dm".format(d.getVar("T")))
