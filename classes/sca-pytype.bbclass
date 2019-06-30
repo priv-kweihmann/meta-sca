@@ -17,7 +17,7 @@ def do_sca_conv_pytype(d):
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
-    pattern = r"^File\s+\"(?P<file>.*)\",\s+line\s+(?P<line>\d+),\s+in\s+(?P<name>[\w\<\>]+):\s+(?P<msg>.*)\s+\[(?P<id>.*)]"
+    pattern = r"^File\s+\"(?P<file>.*)\",\s+line\s+(?P<line>\d+),\s+in\s+(?P<name>[\w\<\>]+):\s+(?P<msg>.*)\s+\[(?P<id>.*)\]"
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
@@ -62,17 +62,20 @@ python do_sca_pytype() {
     _args += ["--keep-going"]
     _args += ["-V", d.getVar("PYTHON_BASEVERSION")]
     if any(_suppress):
-        _args += ["-D", ",".join(_suppress)]
+        _args += ["-d", ",".join(_suppress)]
     _args += ["-P", ":".join(_paths)]
     _args += ["-o", os.path.join(d.getVar("T"), "pytypeout")]
+   
+    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*python", [".py"], \
+                                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     
-    for _f in get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*python", [".py"], \
-                                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))):
+    if any(_files):
+        _files = _files[-10:-1]    
         try:
-            cmd_output += subprocess.check_output(_args + [_f], universal_newlines=True, stderr=subprocess.STDOUT)
+            cmd_output += subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
-        
+
     with open(tmp_result, "w") as o:
         o.write(cmd_output)
     
