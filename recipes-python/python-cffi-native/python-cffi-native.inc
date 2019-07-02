@@ -8,6 +8,7 @@ RDEPENDS_${PN} += "${PYTHON_PN}-native"
 
 DEPENDS += " \
     ${PYTHON_PN}-pycparser-native \
+    libffi-native \
 "
 
 PYPI_PACKAGE = "cffi"
