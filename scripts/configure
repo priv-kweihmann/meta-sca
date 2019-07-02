@@ -152,7 +152,7 @@ class RawInputElement(object):
 
 def create_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument("thisdir", help="path to layer repo")
+    parser.add_argument("thisdir", help="path to meta-sca layer, like '/media/foo/meta-sca'")
     x = parser.parse_args()
     if not os.path.isabs(x.thisdir):
         x.thisdir = os.path.abspath(x.thisdir)
