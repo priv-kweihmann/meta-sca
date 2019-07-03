@@ -5,7 +5,10 @@ def get_path_in_other_layer(d, _file):
     for item in tmp.split(" "):
         if not item.strip():
             continue
-        res = glob.glob(item.strip() + "/**/{}".format(_file), recursive=True)
+        chunks = _file.split("/")
+        res = glob.glob(item.strip() + "/**/{}".format(chunks[-1]), recursive=True)
+        if not res:
+            res = glob.glob(item.strip() + "/{}".format(_file))
         res = [x for x in res or [] if not x.endswith("meta-sca/classes/staging.bbclass")]
         if any(res):
             return res[0]
@@ -26,9 +29,11 @@ def get_rel_path(d, _file):
     x = get_path_in_other_layer(d, _file)
     if x:
         res = os.path.relpath(x, os.path.join(get_path_for_layer(d, "meta-sca"), "classes/staging.bbclass"))
+    else:
+        raise Exception("Can't find poky-staging.bbclass - Can't proceed")
     return res
 
-require ${@get_rel_path(d, "staging.bbclass")}
+require ${@get_rel_path(d, "meta/classes/staging.bbclass")}
 
 ## This class does override parts of the original poky implementation
 ## of staging.bbclass
