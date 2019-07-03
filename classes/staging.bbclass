@@ -29,7 +29,7 @@ def get_rel_path(d, _file):
     res = ""
     x = get_path_in_other_layer(d, _file)
     if x:
-        res = os.path.relpath(x, os.path.join(get_path_for_layer(d, "meta-sca"), "classes/staging.bbclass"))
+        res = os.path.relpath(x, os.path.dirname(os.path.join(get_path_for_layer(d, "meta-sca"), "classes/staging.bbclass")))
     else:
         raise Exception("Can't find poky-staging.bbclass - Can't proceed")
     return res
