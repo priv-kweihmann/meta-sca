@@ -19,7 +19,8 @@ def get_path_for_layer(d, name):
     for item in tmp.split(" "):
         if not item.strip():
             continue
-        if item.endswith(name):
+        _chunks = [x for x in item.split("/") if x]
+        if _chunks[-1] == name:
             return item
     return ""
 
