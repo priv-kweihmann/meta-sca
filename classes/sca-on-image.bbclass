@@ -39,14 +39,17 @@ def sca_on_image_init(d):
     from bb.parse.parse_py import BBHandler
     enabledModules = []
     for item in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")):
-        if sca_is_module_blacklisted(d, item):
-            continue
-        BBHandler.inherit("sca-{}-image".format(item), "sca-on-image", 1, d)
-        func = "sca-{}-init".format(item).replace("-", "_")
-        if d.getVar(func, False) is not None:
-            bb.build.exec_func(func, d, pythonexception=True)
-        okay = True
-        enabledModules.append(item)
+        try:
+            if sca_is_module_blacklisted(d, item):
+                continue
+            BBHandler.inherit("sca-{}-image".format(item), "sca-on-image", 1, d)
+            func = "sca-{}-init".format(item).replace("-", "_")
+            if d.getVar(func, False) is not None:
+                bb.build.exec_func(func, d, pythonexception=True)
+            okay = True
+            enabledModules.append(item)
+        except bb.parse.ParseError:
+            pass
     if any(enabledModules):
         bb.note("Using SCA Module(s) {}".format(",".join(sorted(enabledModules))))
         ## inherit license-helper class
