@@ -44,7 +44,11 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 
+inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3-dir', 'python-dir')}
+
 def create_inventory(d, target_path):
+    import sys
+    sys.path.append(os.path.join(d.getVar("STAGING_DIR_NATIVE"), d.getVar("PYTHON_SITEPACKAGES_DIR")[1:]))
     import yaml
     inv = {
         "all": {
