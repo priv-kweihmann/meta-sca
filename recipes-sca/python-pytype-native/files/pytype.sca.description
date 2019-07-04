@@ -3,5 +3,6 @@
     "scope": [ "functional" ],
     "buildspeed" : 6,
     "execspeed": 4,
-    "quality": 9
+    "quality": 9,
+    "online": true
 }
