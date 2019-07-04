@@ -153,7 +153,8 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_ENABLE_BESTOF | Enables/disables the BestOf mode (see chapter BestOf Mode) | string | "0"
 | SCA_ENABLE_IMAGE_SUMMARY | En/disable the image-summary module | string | "1"
 | SCA_ENABLE_SCORE | En/disable the module score (see __score__ for details) | string | "1"
-| SCA_ENABLED_MODULES | The analysis modules to be activated | space-separated-string | see sca-on-image.bbclass or sca-on-recipe.bbclass
+| SCA_ENABLED_MODULES_IMAGE | The analysis modules to be activated on images | space-separated-string | see sca-on-image.bbclass
+| SCA_ENABLED_MODULES_RECIPE | The analysis modules to be activated on recipes | space-separated-string | see sca-on-recipe.bbclass
 | SCA_EXPORT_DIR | Directory where to store the results of analysis | path | \${DEPLOY_DIR_IMAGE}/sca
 | SCA_EXPORT_FINDING_DIR | The folder where to store the original source-files of findings | path | \${DEPLOY_DIR_IMAGE}/sca/sources/\${PN}/
 | SCA_EXPORT_FINDING_SRC | Do copy the source-files of any finding to deploy-dir. This proved to helpful when integrating into Jenkins. | string | "1"

@@ -6,33 +6,34 @@ inherit sca-file-filter
 inherit sca-blackllist
 
 SCA_PACKAGE_LICENSE_FILTER = "CLOSED"
-SCA_ENABLED_MODULES ?= "\
-                        ansible \
-                        ansiblelint \
-                        bandit \
-                        bashate \
-                        bitbake \
-                        checkbashism \
-                        detectsecrets \
-                        eslint \
-                        gixy \
-                        htmlhint \
-                        jsonlint \
-                        oelint \
-                        proselint \
-                        pyfindinjection \
-                        pylint \
-                        shellcheck \
-                        standard \
-                        stylelint \
-                        systemdlint \
-                        tlv \
-                        xmllint \
-                        yamllint \
-                        "
+SCA_ENABLED_MODULES_IMAGE ?= "\
+                            ansible \
+                            ansiblelint \
+                            bandit \
+                            bashate \
+                            bitbake \
+                            checkbashism \
+                            detectsecrets \
+                            eslint \
+                            gixy \
+                            htmlhint \
+                            jsonlint \
+                            oelint \
+                            proselint \
+                            pyfindinjection \
+                            pylint \
+                            shellcheck \
+                            standard \
+                            stylelint \
+                            systemdlint \
+                            tlv \
+                            xmllint \
+                            yamllint \
+                            "
 SCA_SOURCES_DIR ?= "${IMAGE_ROOTFS}"
 
 SCA_MODE = "image"
+SCA_MODE_UPPER = "${@d.getVar('SCA_MODE').upper()}"
 
 def sca_on_image_init(d):
     import bb

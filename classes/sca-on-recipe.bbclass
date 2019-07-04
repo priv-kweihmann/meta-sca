@@ -5,50 +5,51 @@ inherit sca-helper
 inherit sca-file-filter
 inherit sca-blackllist
 
-SCA_ENABLED_MODULES ?= "\
-                        ansiblelint \
-                        bandit \
-                        bashate \
-                        bitbake \
-                        checkbashism \
-                        clang \
-                        cppcheck \
-                        cpplint \
-                        cqmetrics \
-                        cspell \
-                        cvecheck \
-                        dennis \
-                        detectsecrets \
-                        eslint \
-                        flint \
-                        gcc \
-                        htmlhint \
-                        jsonlint \
-                        kconfighard \
-                        oclint \
-                        oelint \
-                        proselint \
-                        pyfindinjection \
-                        pylint \
-                        pysymcheck \
-                        pytype \
-                        radon \
-                        rats \
-                        ropgadget \
-                        score \
-                        shellcheck \
-                        standard \
-                        stylelint \
-                        textlint \
-                        tlv \
-                        tscancode \
-                        xmllint \
-                        yamllint \
-                        zrd \
-                        "
+SCA_ENABLED_MODULES_RECIPE ?= "\
+                            ansiblelint \
+                            bandit \
+                            bashate \
+                            bitbake \
+                            checkbashism \
+                            clang \
+                            cppcheck \
+                            cpplint \
+                            cqmetrics \
+                            cspell \
+                            cvecheck \
+                            dennis \
+                            detectsecrets \
+                            eslint \
+                            flint \
+                            gcc \
+                            htmlhint \
+                            jsonlint \
+                            kconfighard \
+                            oclint \
+                            oelint \
+                            proselint \
+                            pyfindinjection \
+                            pylint \
+                            pysymcheck \
+                            pytype \
+                            radon \
+                            rats \
+                            ropgadget \
+                            score \
+                            shellcheck \
+                            standard \
+                            stylelint \
+                            textlint \
+                            tlv \
+                            tscancode \
+                            xmllint \
+                            yamllint \
+                            zrd \
+                            "
 SCA_SOURCES_DIR ?= "${B}"
 
 SCA_MODE = "recipe"
+SCA_MODE_UPPER = "${@d.getVar('SCA_MODE').upper()}"
 
 def sca_on_recipe_init(d):
     import bb
