@@ -37,7 +37,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           bashate \
                           bitbake \
                           checkbashism \
-                          clang \
                           cppcheck \
                           cpplint \
                           cqmetrics \
@@ -52,7 +51,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           htmlhint \
                           jsonlint \
                           kconfighard \
-                          oclint \
                           oelint \
                           proselint \
                           pyfindinjection \
@@ -68,7 +66,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           stylelint \
                           systemdlint \
                           textlint \
-                          tlv \
                           tscancode \
                           xmllint \
                           yamllint \

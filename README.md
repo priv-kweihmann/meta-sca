@@ -55,7 +55,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [standard](https://github.com/standard/standard) (javascript) [standard]
  * [stylelint](https://github.com/stylelint/stylelint) (css, scss) [stylelint]
  * [systemdlint](https://github.com/priv-kweihmann/systemdlint) (systemd) [systemdlint]
- * [tlv](https://github.com/priv-kweihmann/tlv) (duplicate code) [tlv]
+ * [tlv](https://github.com/priv-kweihmann/tlv) (duplicate code) [tlv] **disabled by default**
  * [xmllint](http://xmlsoft.org/xmllint.html) (xml) [xmllint]
  * [yamllint](https://github.com/adrienverge/yamllint) (yaml) [yamllint]
 
@@ -66,7 +66,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [bashate](http://docs.openstack.org/developer/bashate/) (shell) [bashate]
  * bitbake (handle bitbake issues) [bitbake]
  * [checkbashisms](https://manpages.debian.org/jessie/devscripts/checkbashisms.1.en.html) (shell) [checkbashism]
- * [clang-tidy](https://clang.llvm.org/extra/clang-tidy/) (c/c++) [clang]
+ * [clang-tidy](https://clang.llvm.org/extra/clang-tidy/) (c/c++) [clang] **disabled by default**
  * [cppcheck](https://github.com/danmar/cppcheck) (c/c++) [cppcheck]
  * [cpplint](https://github.com/cpplint/cpplint) (c/c++) [cpplint]
  * [cqmetrics](https://github.com/dspinellis/cqmetrics) (metrics for c/c++) [cqmetrics]
@@ -80,7 +80,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [htmlhint](https://github.com/htmlhint/HTMLHint) (html) [htmlhint]
  * json-parser (json) [jsonlint]
  * [kconfig-hardened-check](https://github.com/a13xp0p0v/kconfig-hardened-check) (check hardening of kernel) [kconfighard]
- * [oclint](https://github.com/oclint/oclint) (c/c++/obj-c) [oclint]
+ * [oclint](https://github.com/oclint/oclint) (c/c++/obj-c) [oclint] **disabled by default**
  * [oelint-adv](https://github.com/priv-kweihmann/oelint-adv) (linting bitbake recipes) [oelint]
  * [py-find-injection](https://github.com/uber/py-find-injection) (find SQL injections in python) [pyfindinjection]
  * [proselint](https://github.com/amperser/proselint/) (spelling) [proselint]
@@ -95,7 +95,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [standard](https://github.com/standard/standard) (javascript) [standard]
  * [stylelint](https://github.com/stylelint/stylelint) (css, scss) [stylelint]
  * [textlint](https://github.com/textlint/textlint) (spelling) [textlint]
- * [tlv](https://github.com/priv-kweihmann/tlv) (duplicate code) [tlv]
+ * [tlv](https://github.com/priv-kweihmann/tlv) (duplicate code) [tlv] **disabled by default**
  * [tscancode](https://github.com/Tencent/TscanCode) (c,c#,lua) [tscancode]
  * [xmllint](http://xmlsoft.org/xmllint.html) [xmllint]
  * [yamllint](https://github.com/adrienverge/yamllint) (yaml) [yamllint]
