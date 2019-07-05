@@ -14,8 +14,8 @@ LIC_FILES_CHKSUM = "file://oclint-core/LICENSE;md5=306b716fe6dadad0d53616d809e59
 
 DEPENDS += "\
             cmake-native \
-            python3-native \
-            python3-ninja-native \
+            python-native \
+            python-ninja-native \
             subversion-native \
             "
 
@@ -30,7 +30,9 @@ INSANE_SKIP_${PN} += "already-stripped"
 
 do_compile() {
     cd oclint-scripts
-	./make
+    ## make ninja visible to cmake
+    ln -sf ${STAGING_BINDIR_NATIVE}/ninja2 ${STAGING_BINDIR_NATIVE}/ninja
+	./make -j ${BB_NUMBER_THREADS}
     cd -
 }
 
