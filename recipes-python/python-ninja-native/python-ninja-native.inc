@@ -12,7 +12,9 @@ DEPENDS += "${PYTHON_PN}-scikit-build-native \
             cmake-native"
 
 inherit pypi
-
-FILES_${PN} += "${datadir}/ninja"
-
 inherit native
+
+do_install_append() {
+    ## Rename bin wrapper, so that both python2+3 version can exists at the same time
+    mv ${D}${bindir}/ninja ${D}${bindir}/${NINJA_BINNAME}
+}
