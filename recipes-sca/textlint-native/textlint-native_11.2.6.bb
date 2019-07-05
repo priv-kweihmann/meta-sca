@@ -2,11 +2,13 @@ SUMMARY = "The pluggable natural language linter for text and markdown."
 DESCRIPTION = "The pluggable natural language linter for text and markdown."
 HOMEPAGE = "https://github.com/textlint/textlint"
 
-SRC_URI = "git://github.com/textlint/textlint.git;protocol=https;tag=textlint@${PV} \
+## Somethings wrong with the tags currently used by this project
+## So for now switch to plain revision again
+
+SRC_URI = "git://github.com/textlint/textlint.git;protocol=https \
            file://textlint.sca.description \
            file://textlint.sca.score"
-
-GITHUBREV = "82f5421c02c48f1aeb54e2e9d0c4abf1076b5b69"
+SRCREV = "5ceabb1c4c1cd02d3389e9bb61c2a5af8e5d1a37"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://git/LICENSE;md5=f3452a94937d21f84bc38880f636e3ba"
