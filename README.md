@@ -107,6 +107,10 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
 
 To make the integration of clang-module (clang-tidy) work you need to add the [meta-clang](https://github.com/kraj/meta-clang) layer to your bblayer-file. If not present the clang integration will be silently disabled
 
+# Further documentation
+
+Further documentation, including examples and typical use cases can be found in the sub folder **docs**
+
 # Configuration
 
 There are several ways to integrate static code analysis into your code base.
