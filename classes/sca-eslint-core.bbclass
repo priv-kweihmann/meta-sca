@@ -58,7 +58,7 @@ def do_sca_conv_eslint(d):
                 except Exception as exp:
                     bb.warn(str(exp))
         except Exception as e:
-            bb.warn(str(e))
+            bb.note(str(e))
     return sca_save_model_to_string(d)
 
 python do_sca_eslint_core() {
