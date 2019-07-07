@@ -137,4 +137,7 @@ python do_sca_deploy_oclint() {
 addtask do_sca_oclint before do_install after do_compile
 addtask do_sca_deploy_oclint after do_sca_oclint before do_package
 
+do_sca_oclint[nostamp] = "${@sca_force_run(d)}"
+do_sca_deploy_oclint[nostamp] = "${@sca_force_run(d)}"
+
 DEPENDS += "oclint-native sca-recipe-oclint-rules-native"

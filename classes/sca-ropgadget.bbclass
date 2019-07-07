@@ -139,3 +139,6 @@ python do_sca_deploy_ropgadget() {
 
 addtask do_sca_ropgadget before do_package_qa after do_package
 addtask do_sca_deploy_ropgadget after do_sca_ropgadget before do_package_qa
+
+do_sca_ropgadget[nostamp] = "${@sca_force_run(d)}"
+do_sca_deploy_ropgadget[nostamp] = "${@sca_force_run(d)}"

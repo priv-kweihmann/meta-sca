@@ -144,4 +144,7 @@ python do_sca_deploy_tscancode() {
 addtask do_sca_tscancode before do_install after do_configure
 addtask do_sca_deploy_tscancode after do_sca_tscancode before do_package
 
+do_sca_tscancode[nostamp] = "${@sca_force_run(d)}"
+do_sca_deploy_tscancode[nostamp] = "${@sca_force_run(d)}"
+
 DEPENDS += "tscancode-native sca-recipe-tscancode-rules-native"

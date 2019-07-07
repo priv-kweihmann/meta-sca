@@ -147,4 +147,7 @@ python do_sca_deploy_cspell() {
 addtask do_sca_cspell before do_install after do_compile
 addtask do_sca_deploy_cspell before do_package after do_sca_cspell
 
+do_sca_cspell[nostamp] = "${@sca_force_run(d)}"
+do_sca_deploy_cspell[nostamp] = "${@sca_force_run(d)}"
+
 DEPENDS += "cspell-native sca-recipe-cspell-rules-native"

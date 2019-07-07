@@ -23,4 +23,7 @@ python do_sca_deploy_pylint_recipe() {
 addtask do_sca_pylint_core before do_install after do_compile
 addtask do_sca_deploy_pylint_recipe before do_package after do_sca_pylint_core
 
+do_sca_pylint_core[nostamp] = "${@sca_force_run(d)}"
+do_sca_deploy_pylint_recipe[nostamp] = "${@sca_force_run(d)}"
+
 DEPENDS += "sca-recipe-pylint-rules-native"

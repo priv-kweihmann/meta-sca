@@ -32,6 +32,9 @@ SCA_STD_PYTHON_INTERPRETER ?= "python3"
 ## Cleanup old files before exporting
 SCA_CLEAN_BEFORE_EXPORT ?= "1"
 
+## Force run of SCA
+SCA_FORCE_RUN ??= "0"
+
 ## List of overall available modules
 SCA_AVAILABLE_MODULES ?= "\
                           ansible \

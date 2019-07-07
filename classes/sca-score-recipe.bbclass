@@ -11,3 +11,5 @@ python sca_score_init() {
 }
 
 addtask do_sca_score_core after do_install before do_package_write_rpm do_rm_work
+
+do_sca_score_core[nostamp] = "${@sca_force_run(d)}"

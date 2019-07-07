@@ -12,4 +12,7 @@ python do_sca_deploy_bashate_image() {
 addtask do_sca_bashate_core before do_image_complete after do_image
 addtask do_sca_deploy_bashate_image before do_image_complete after do_sca_bashate_core
 
+do_sca_bashate_core[nostamp] = "${@sca_force_run(d)}"
+do_sca_deploy_bashate_image[nostamp] = "${@sca_force_run(d)}"
+
 DEPENDS += "sca-image-bashate-rules-native"

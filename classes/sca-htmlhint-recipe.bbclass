@@ -12,4 +12,7 @@ python do_sca_deploy_htmlhint_recipe() {
 addtask do_sca_htmlhint_core before do_install after do_compile
 addtask do_sca_deploy_htmlhint_recipe before do_package after do_sca_htmlhint_core
 
+do_sca_htmlhint_core[nostamp] = "${@sca_force_run(d)}"
+do_sca_deploy_htmlhint_recipe[nostamp] = "${@sca_force_run(d)}"
+
 DEPENDS += "sca-recipe-htmlhint-rules-native"

@@ -97,4 +97,7 @@ python do_sca_deploy_pytype() {
 addtask do_sca_pytype before do_install after do_configure
 addtask do_sca_deploy_pytype after do_sca_pytype before do_package
 
+do_sca_pytype[nostamp] = "${@sca_force_run(d)}"
+do_sca_deploy_pytype[nostamp] = "${@sca_force_run(d)}"
+
 DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-pytype-native sca-recipe-pytype-rules-native"

@@ -155,4 +155,7 @@ python do_sca_deploy_cppcheck() {
 addtask do_sca_cppcheck before do_install after do_compile
 addtask do_sca_deploy_cppcheck after do_sca_cppcheck before do_package
 
+do_sca_cppcheck[nostamp] = "${@sca_force_run(d)}"
+do_sca_deploy_cppcheck[nostamp] = "${@sca_force_run(d)}"
+
 DEPENDS += "cppcheck-native sca-recipe-cppcheck-rules-native"

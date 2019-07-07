@@ -100,4 +100,7 @@ python do_sca_deploy_flint() {
 addtask do_sca_flint before do_install after do_compile
 addtask do_sca_deploy_flint after do_sca_flint before do_package
 
+do_sca_flint[nostamp] = "${@sca_force_run(d)}"
+do_sca_deploy_flint[nostamp] = "${@sca_force_run(d)}"
+
 DEPENDS += "flint++-native sca-recipe-flint-rules-native"

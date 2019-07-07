@@ -11,4 +11,7 @@ python do_sca_deploy_standard_image() {
 addtask do_sca_standard_core before do_image_complete after do_image
 addtask do_sca_deploy_standard_image before do_image_complete after do_sca_standard_core
 
+do_sca_standard_core[nostamp] = "${@sca_force_run(d)}"
+do_sca_deploy_standard_image[nostamp] = "${@sca_force_run(d)}"
+
 DEPENDS += "sca-image-standard-rules-native"

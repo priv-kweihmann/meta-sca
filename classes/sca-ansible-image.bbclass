@@ -217,4 +217,7 @@ python do_sca_deploy_ansible() {
 addtask do_sca_ansible before do_image_complete after do_image
 addtask do_sca_deploy_ansible before do_image_complete after do_sca_ansible
 
+do_sca_ansible[nostamp] = "${@sca_force_run(d)}"
+do_sca_deploy_ansible[nostamp] = "${@sca_force_run(d)}"
+
 DEPENDS += "python-ansible-native ansible-sca-native ${SCA_STD_PYTHON_INTERPRETER}-pyyaml-native sca-image-ansible-rules-native"

@@ -189,3 +189,11 @@ def sca_task_aftermath(d, tool, fatals=None):
     if any(_fatals):
         bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK"), d)
         bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+
+def sca_force_run(d):
+    status = d.getVar("SCA_FORCE_RUN") or "0"
+    ## Issue a warning if rm_work has been found in INHERIT
+    ## because it could significantly slow down building
+    if "rm_work" in clean_split(d, "INHERIT") and status == "1":
+        bb.warn("You inherited 'rm_work', so enabling SCA_FORCE_RUN could slow down your build significantly")
+    return status

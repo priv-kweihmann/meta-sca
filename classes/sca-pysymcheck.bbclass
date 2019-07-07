@@ -98,4 +98,7 @@ python do_sca_deploy_pysymcheck() {
 addtask do_sca_pysymcheck before do_install after do_compile
 addtask do_sca_deploy_pysymcheck after do_sca_pysymcheck before do_package
 
+do_sca_pysymcheck[nostamp] = "${@sca_force_run(d)}"
+do_sca_deploy_pysymcheck[nostamp] = "${@sca_force_run(d)}"
+
 DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-pysymbolcheck-native sca-recipe-pysymcheck-rules-native"

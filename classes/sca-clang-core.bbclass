@@ -134,4 +134,7 @@ python do_sca_deploy_clang() {
 addtask do_sca_clang before do_install after do_compile
 addtask do_sca_deploy_clang after do_sca_clang before do_package
 
+do_sca_clang[nostamp] = "${@sca_force_run(d)}"
+do_sca_deploy_clang[nostamp] = "${@sca_force_run(d)}"
+
 DEPENDS += "clang-native sca-recipe-clang-rules-native clang-sca-native"
