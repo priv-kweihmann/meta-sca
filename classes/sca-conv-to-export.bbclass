@@ -43,6 +43,27 @@ def sca_conv_deploy(d, tool, rawsuffix):
     os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), tool, d.getVar("SCA_EXPORT_FORMAT")), 
                 exist_ok=True)
 
+    if d.getVar("SCA_CLEAN_BEFORE_EXPORT") == "1":
+        import glob
+        raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), 
+                              tool, 
+                              "raw", 
+                              "{}-*.{}".format(d.getVar("PN"), rawsuffix))
+        dm_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), 
+                                tool, 
+                                "datamodel",
+                                "{}-*.{}".format(d.getVar("PN"), _dmsuffix))
+        cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), 
+                                tool, 
+                                _exportformat, 
+                                "{}-*.{}".format(d.getVar("PN"), _exportsuffix))
+        for item in [raw_target, dm_target, cs_target]:
+            for f in glob.glob(item):
+                try:
+                    os.remove(f)
+                except:
+                    ## Ignore any error here
+                    pass
 
     raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), 
                               tool, 

@@ -29,6 +29,9 @@ SCA_ENABLE_SCORE ?= "1"
 ## Standard python interpreter to be used in SCA
 SCA_STD_PYTHON_INTERPRETER ?= "python3"
 
+## Cleanup old files before exporting
+SCA_CLEAN_BEFORE_EXPORT ?= "1"
+
 ## List of overall available modules
 SCA_AVAILABLE_MODULES ?= "\
                           ansible \
