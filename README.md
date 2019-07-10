@@ -160,7 +160,7 @@ To make the integration of clang-module (clang-tidy) work you need to add the [m
     - [zrd](docs/conf/module/zrd.md)
   - Extra modes
     - [BestOf](docs/conf/extra/bestof.md)
-    - [Image Summary]() __coming soon__
+    - [Image Summary](docs/conf/extra/image-summary.md)
     - [Module score](docs/conf/extra/score.md)
 - [Results](docs/conf/results.md)
 - Build system integration
