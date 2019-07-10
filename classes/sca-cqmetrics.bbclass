@@ -1,5 +1,7 @@
 ## File extension filter list (whitespace separated)
 SCA_CQMETRICS_FILE_FILTER ?= ".c .cpp .h .hpp"
+SCA_CQMETRICS_EXTRA_SUPPRESS ?= ""
+SCA_CQMETRICS_EXTRA_FATAL ?= ""
 
 SCA_CQMETRICS_ERROR_cyclomatic_max_gt ?= "30.0"
 SCA_CQMETRICS_WARN_cyclomatic_max_gt ?= "15.0"
