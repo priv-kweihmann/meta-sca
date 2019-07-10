@@ -1,0 +1,50 @@
+# Global configuration
+
+The behavior of the analysis can be controlled by several __bitbake__-variables
+
+## Configuration
+
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:|
+| SCA_AUTO_INH_ON_IMAGE | Do automatically enable analysis on image-recipes | string | "1"
+| SCA_AUTO_INH_ON_RECIPE | Do automatically enable analysis on other recipes | string | "1"
+| SCA_AUTO_LICENSE_FILTER | Filter according to recipe license if sca should invoked | space separated regular expression | ".*"
+| SCA_AVAILABLE_MODULES | List of all available modules, use to globally enable/disable modules | space-separated-string | all available modules
+| SCA_CLEAN_BEFORE_EXPORT | Remove old files from export dir | string: 0 or 1 | "1"
+| SCA_ENABLE | Does globally enable the analysis | string | "1"
+| SCA_ENABLED_MODULES_IMAGE | The analysis modules to be activated on images | space-separated-string | see sca-on-image.bbclass
+| SCA_ENABLED_MODULES_RECIPE | The analysis modules to be activated on recipes | space-separated-string | see sca-on-recipe.bbclass
+| SCA_ENABLE_BESTOF | Enables/disables the BestOf mode (see chapter BestOf Mode) | string | "0"
+| SCA_ENABLE_IMAGE_SUMMARY | En/disable the image-summary module | string | "1"
+| SCA_ENABLE_SCORE | En/disable the module score (see __score__ for details) | string | "1"
+| SCA_EXPORT_DIR | Directory where to store the results of analysis | path | \${DEPLOY_DIR_IMAGE}/sca
+| SCA_EXPORT_FINDING_DIR | The folder where to store the original source-files of findings | path | \${DEPLOY_DIR_IMAGE}/sca/sources/\${PN}/
+| SCA_EXPORT_FINDING_SRC | Do copy the source-files of any finding to deploy-dir. This proved to helpful when integrating into Jenkins. | string | "1"
+| SCA_FILE_FILTER | List of glob-expression of file to skip for testing | space separated list | "tests/* test/* doc/* testsuite/* \*\*/tests/* \*\*/test/* \*\*/doc/* \*\*/testsuite/*"
+| SCA_FORCE_RUN | Force running SCA every time, no matter if recipe code was changed  | string: "0" or "1" | "0"
+| SCA_SOURCES_DIR | Path where to find the source-files to be checked | path | "\${B}" for recipes, "\${IMAGE_ROOTFS}" for images
+| SCA_STD_PYTHON_INTERPRETER | Standard python interpreter to be used in SCA | python or python3 | "python3"
+| SCA_WARNING_LEVEL | Filter for severity of findings | string: info, warning or error | "warning"
+
+## Notes
+
+None
+
+## Recommended settings
+
+In the following you'll find recommended setting for different use cases.
+Only settings that differ default are shown
+
+### Check while developing
+
+| var | setting |
+| ------------- | -----:|
+| SCA_ENABLE_IMAGE_SUMMARY | "0"
+| SCA_ENABLE_SCORE | "0"
+| SCA_WARNING_LEVEL | "error"
+
+### Check nightly in CI
+
+| var | setting |
+| ------------- | -----:|
+| SCA_WARNING_LEVEL | "info"
