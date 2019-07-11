@@ -84,4 +84,5 @@ def sca_on_recipe_init(d):
         if d.getVar(func, False) is not None:
             bb.build.exec_func(func, d, pythonexception=True)
     if any(enabledModules):
-        bb.note("Using SCA Module(s) {}".format(",".join(sorted(enabledModules))))
+        if d.getVar("SCA_VERBOSE_OUTPUT") == "1":
+            bb.note("Using SCA Module(s) {}".format(",".join(sorted(enabledModules))))

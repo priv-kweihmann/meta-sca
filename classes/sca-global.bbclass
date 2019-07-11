@@ -35,6 +35,9 @@ SCA_CLEAN_BEFORE_EXPORT ?= "1"
 ## Force run of SCA
 SCA_FORCE_RUN ??= "0"
 
+## Verbose output of SCA invocation
+SCA_VERBOSE_OUTPUT ??= "1"
+
 ## List of overall available modules
 SCA_AVAILABLE_MODULES ?= "\
                           ansible \

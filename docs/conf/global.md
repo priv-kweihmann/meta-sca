@@ -24,6 +24,7 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_FORCE_RUN | Force running SCA every time, no matter if recipe code was changed  | string: "0" or "1" | "0"
 | SCA_SOURCES_DIR | Path where to find the source-files to be checked | path | "\${B}" for recipes, "\${IMAGE_ROOTFS}" for images
 | SCA_STD_PYTHON_INTERPRETER | Standard python interpreter to be used in SCA | python or python3 | "python3"
+| SCA_VERBOSE_OUTPUT | Verbose output of included tools | string: 0 or 1 | "1"
 | SCA_WARNING_LEVEL | Filter for severity of findings | string: info, warning or error | "warning"
 
 ## Notes
