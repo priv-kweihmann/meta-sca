@@ -9,6 +9,13 @@
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_BLACKLIST_bitbake | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BITBAKE_HARDENING | Check on additional hardening | space-separated-list | "debug_tweaks insane_skip security_flags"
+
+### Hardening checks
+
+* debug_tweaks - debug_tweaks isn't set in IMAGE_FEATURES if building release build. [For details see here](https://www.yoctoproject.org/docs/latest/mega-manual/mega-manual.html#considerations-specific-to-the-openembedded-build-system)
+* insane_skip - INSANE_SKIP isn't used in the recipe. So it's ensured that recipe is properly build in a YOCTO way
+* security_flags - Poky security_flags are used. [For details see here](https://www.yoctoproject.org/docs/latest/mega-manual/mega-manual.html#security-flags)
 
 ## Supports
 
