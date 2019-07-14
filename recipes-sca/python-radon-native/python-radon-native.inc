@@ -21,7 +21,7 @@ FILES_${PN} += "${datadir}"
 inherit pypi
 inherit native
 
-do_install() {
+do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/radon.sca.description ${D}${datadir}
     install ${WORKDIR}/radon.sca.score ${D}${datadir}
