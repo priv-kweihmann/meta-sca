@@ -161,7 +161,7 @@ def get_fatal_from_result(d, fatal_ids):
     return list(set(res))
 
 def clean_split(d, _var):
-    return [x for x in d.getVar(_var).split(" ") or "" if x]
+    return [x for x in (d.getVar(_var) or "").split(" ") if x]
 
 def sca_task_aftermath(d, tool, fatals=None):
     ## Write to final export
