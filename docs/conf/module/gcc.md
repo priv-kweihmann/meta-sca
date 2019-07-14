@@ -12,6 +12,7 @@
 | SCA_BLACKLIST_gcc | Blacklist filter for this tool | space-separated-list | ""
 | SCA_GCC_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_GCC_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_GCC_HARDENING | Additional hardening checks | int: "0" or "1" | "1"
 
 ## Supports
 
