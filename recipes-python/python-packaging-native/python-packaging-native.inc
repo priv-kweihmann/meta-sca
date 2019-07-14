@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.BSD;md5=7bef9bf4a8e4263634d0597e7ba100b8"
 
 PYPI_PACKAGE = "packaging"
 
-DEPENDS += "${PYTHON_PN}-six"
+DEPENDS += "${PYTHON_PN}-six-native"
 
 inherit pypi
 

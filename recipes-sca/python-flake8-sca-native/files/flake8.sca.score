@@ -1,0 +1,8 @@
+{
+    "security": [
+        "flake8.flake8.EXE.*"
+    ]
+    "functional": [
+        "flake8.flake8..*"
+    ]
+}

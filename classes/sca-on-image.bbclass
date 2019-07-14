@@ -15,6 +15,7 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             checkbashism \
                             detectsecrets \
                             eslint \
+                            flake8 \
                             gixy \
                             htmlhint \
                             jsonlint \

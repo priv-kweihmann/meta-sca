@@ -20,6 +20,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             dennis \
                             detectsecrets \
                             eslint \
+                            flake8 \
                             flint \
                             gcc \
                             htmlhint \

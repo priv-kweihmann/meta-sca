@@ -43,6 +43,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * bitbake (handle bitbake issues) [bitbake]
  * [detect-secrets](https://github.com/Yelp/detect-secrets) (detecting and preventing secrets in code) [detectsecrets]
  * [eslint](https://github.com/eslint/eslint) (javascript/html) [eslint]
+ * [flake8](http://flake8.pycqa.org/en/latest/) (python) [flake8]
  * [gixy](https://github.com/yandex/gixy) (nginx-config security) [gixy]
  * [htmlhint](https://github.com/htmlhint/HTMLHint) (html) [htmlhint]
  * image-summary (aggregate all findings for package in an image) [image-summary]
@@ -75,6 +76,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [dennis](https://github.com/willkg/dennis/) (i18n) [dennis]
  * [detect-secrets](https://github.com/Yelp/detect-secrets) (detecting and preventing secrets in code) [detectsecrets]
  * [eslint](https://github.com/eslint/eslint) (javascript/html) [eslint]
+ * [flake8](http://flake8.pycqa.org/en/latest/) (python) [flake8]
  * [flint++](https://github.com/JossWhittle/FlintPlusPlus) (c/c++) [flint]
  * gcc (getting compiler warnings/errors) [gcc]
  * [htmlhint](https://github.com/htmlhint/HTMLHint) (html) [htmlhint]
@@ -132,6 +134,7 @@ To make the integration of clang-module (clang-tidy) work you need to add the [m
     - [dennis](docs/conf/module/dennis.md)
     - [detectsecrets](docs/conf/module/detectsecrets.md)
     - [eslint](docs/conf/module/eslint.md)
+    - [flake8](docs/conf/module/flake8.md)
     - [flint++](docs/conf/module/flint++.md)
     - [gcc](docs/conf/module/gcc.md)
     - [gixy](docs/conf/module/gixy.md)

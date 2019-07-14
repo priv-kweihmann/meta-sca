@@ -54,6 +54,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           dennis \
                           detectsecrets \
                           eslint \
+                          flake8 \
                           flint \
                           gcc \
                           gixy \
