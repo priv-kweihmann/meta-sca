@@ -18,7 +18,7 @@ def do_sca_conv_checkbashism(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     pattern = r"^possible\sbashism\sin\s(?P<file>.*)\sline\s(?P<line>\d+)\s\((?P<id>.*)\)"
-
+    
     __suppress = get_suppress_entries(d)
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
