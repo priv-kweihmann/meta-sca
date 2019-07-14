@@ -32,7 +32,7 @@ def do_sca_conv_pylint(d):
                                             File=m.group("file"),
                                             Line=m.group("line"),
                                             Message=m.group("message"),
-                                            ID=m.group("raw_severity_id"),
+                                            ID="{}{}".format(m.group("raw_severity"), m.group("raw_severity_id")),
                                             Severity=severity_map[m.group("raw_severity")[0]])
                     if g.Severity in sca_allowed_warning_level(d):
                         sca_add_model_class(d, g)
@@ -57,7 +57,6 @@ python do_sca_pylint_core() {
     if any(_suppress):
         _args += ["--disable={}".format(",".join(_suppress))]
     _args += ["--rcfile={}/pylint.rc".format(d.getVar("T"))]
-    _args += get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_PYTHON_SHEBANG"), [".py"])
     if d.getVar("SCA_PYLINT_EXTRA"):
         _args += d.getVar("SCA_PYLINT_EXTRA").split(" ")
     _args += ["-j", d.getVar("BB_NUMBER_THREADS")]
@@ -79,7 +78,7 @@ python do_sca_pylint_core() {
 
     if any(_files):
         try:
-            cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
+            cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
     with open(tmp_result, "w") as o:
