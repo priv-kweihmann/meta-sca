@@ -17,6 +17,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             cqmetrics \
                             cspell \
                             cvecheck \
+                            darglint \
                             dennis \
                             detectsecrets \
                             eslint \

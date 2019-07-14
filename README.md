@@ -73,6 +73,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [cqmetrics](https://github.com/dspinellis/cqmetrics) (metrics for c/c++) [cqmetrics]
  * [cspell](https://github.com/Jason3S/cspell) (spelling in c/c++/html/python/txt/md) [cspell]
  * [cve-check](https://github.com/clearlinux/cve-check-tool) (check for unpatched cve's) [cvecheck]
+ * [darglint](https://github.com/terrencepreilly/darglint) (python-docstrings) [darglint]
  * [dennis](https://github.com/willkg/dennis/) (i18n) [dennis]
  * [detect-secrets](https://github.com/Yelp/detect-secrets) (detecting and preventing secrets in code) [detectsecrets]
  * [eslint](https://github.com/eslint/eslint) (javascript/html) [eslint]
@@ -131,6 +132,7 @@ To make the integration of clang-module (clang-tidy) work you need to add the [m
     - [cqmetrics](docs/conf/module/cqmetrics.md)
     - [cspell](docs/conf/module/cspell.md)
     - [cvecheck](docs/conf/module/cvecheck.md)
+    - [darglint](docs/conf/module/darglint.md)
     - [dennis](docs/conf/module/dennis.md)
     - [detectsecrets](docs/conf/module/detectsecrets.md)
     - [eslint](docs/conf/module/eslint.md)
