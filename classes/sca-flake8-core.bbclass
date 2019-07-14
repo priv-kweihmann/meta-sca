@@ -4,6 +4,8 @@ inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
 
+inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
+
 def do_sca_conv_flake8(d):
     import os
     import re
@@ -58,7 +60,7 @@ python do_sca_flake8_core() {
 
     _suppress = get_suppress_entries(d)
 
-    _args = ["flake8"]
+    _args = [os.environ.get("PYTHON", d.getVar('SCA_STD_PYTHON_INTERPRETER')), "-m", "flake8"]
     _args += ["--isolated"]
     _args += ["--ignore={}".format(",".join(_suppress))]
     _args += ["-j", d.getVar("BB_NUMBER_THREADS")]
