@@ -41,6 +41,10 @@ SCA_FORCE_RUN ??= "0"
 ## Verbose output of SCA invocation
 SCA_VERBOSE_OUTPUT ??= "1"
 
+## List of rules for transforming severity
+## example: pylint.pylint.C0103=error
+SCA_SEVERITY_TRANSFORM ?= ""
+
 ## List of overall available modules
 SCA_AVAILABLE_MODULES ?= "\
                           ansible \

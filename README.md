@@ -115,6 +115,7 @@ To make the integration of clang-module (clang-tidy) work you need to add the [m
 - [Global Configuration](docs/conf/global.md)
   - [Blacklisting sources](docs/conf/blacklist.md)
   - [Configuration wizard](docs/conf/wizard.md)
+  - [Custom severity](docs/conf/sevtransform.md)
   - [Enable SCA locally/globally](docs/conf/inherit.md)
   - [Fatal findings](docs/conf/suppression.md)
   - [Filter out files to check](docs/conf/filefilter.md)
