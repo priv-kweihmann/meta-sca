@@ -63,7 +63,7 @@ python do_sca_flake8_core() {
     _args += ["--ignore={}".format(",".join(_suppress))]
     _args += ["-j", d.getVar("BB_NUMBER_THREADS")]
 
-    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*/python", ".py",
+    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_PYTHON_SHEBANG"), ".py",
                                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run

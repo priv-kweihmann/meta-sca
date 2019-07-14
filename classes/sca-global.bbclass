@@ -29,6 +29,9 @@ SCA_ENABLE_SCORE ?= "1"
 ## Standard python interpreter to be used in SCA
 SCA_STD_PYTHON_INTERPRETER ?= "python3"
 
+## Shebang for python interpreter
+SCA_PYTHON_SHEBANG = ".*{SCA_STD_PYTHON_INTERPRETER}"
+
 ## Cleanup old files before exporting
 SCA_CLEAN_BEFORE_EXPORT ?= "1"
 

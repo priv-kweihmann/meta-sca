@@ -110,7 +110,7 @@ python do_sca_rats() {
             cmd_output = e.stdout or ""
         xml_output = xml_combine(d, xml_output, cmd_output)
 
-    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*python", ".py", _excludes)
+    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_PYTHON_SHEBANG"), ".py", _excludes)
     ## Python
     if any(_files):
         try:

@@ -7,7 +7,7 @@ SCA_CSPELL_LANG_HTML_dicts ?= "html css typescript"
 SCA_CSPELL_LANG_HTML_files ?= ".html .htm .js"
 SCA_CSPELL_LANG_PYTHON_dicts ?= "python"
 SCA_CSPELL_LANG_PYTHON_files ?= ".py"
-SCA_CSPELL_LANG_PYTHON_shebang ?= ".*python"
+SCA_CSPELL_LANG_PYTHON_shebang ?= "${SCA_PYTHON_SHEBANG}"
 SCA_CSPELL_LANG_TXT_dicts ?= ""
 SCA_CSPELL_LANG_TXT_files ?= ".txt .md .rst"
 

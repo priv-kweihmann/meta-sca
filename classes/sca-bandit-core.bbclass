@@ -73,7 +73,7 @@ python do_sca_bandit_core() {
     _args += ["-o", result_raw_file]
     if any(_suppress):
         _args += ["--skip", ",".join(_suppress)]
-    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*python3", ".py",
+    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_PYTHON_SHEBANG"), ".py",
                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     with open(d.getVar("SCA_RAW_RESULT_FILE"), "w") as o:
