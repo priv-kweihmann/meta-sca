@@ -15,7 +15,7 @@
 | SCA_PYLINT_LIBATH | List of library paths for python | ':' separated list | \${IMAGE_ROOTFS}/python.3.5/:\${IMAGE_ROOTFS}/python.3.5/site-packages/
 | SCA_PYLINT_ROOTPATH | Root path from where checks should be performed | path | \${IMAGE_ROOTFS}
 
-# Overview for recipe
+# Configuration for recipe
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
