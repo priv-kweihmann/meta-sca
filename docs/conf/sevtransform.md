@@ -1,6 +1,6 @@
 # Configure custom severity
 
-Sometimes you may want to change the severity of a finding in the context of a project or a even a single recipe.
+Sometimes you may want to change the severity of a finding in the context of a project or even in a single recipe.
 This may help you to pick a single (or multiple IDs), which otherwise would be filtered away due to too low severity.
 Also this can be used to "downgrade" findings with originally high severity to a lower level, because they don't matter in your particular context.
 
