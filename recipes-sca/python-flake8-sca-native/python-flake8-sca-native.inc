@@ -10,7 +10,6 @@ SRC_URI += "file://flake8.sca.description \
 
 DEPENDS += "\
             ${PYTHON_PN}-flake8-native \
-            ${PYTHON_PN}-flake8-builtins-native \
             ${PYTHON_PN}-flake8-comprehensions-native \
             ${PYTHON_PN}-flake8-eradicate-native \
             ${PYTHON_PN}-flake8-import-order-native \
