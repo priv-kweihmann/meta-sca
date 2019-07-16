@@ -68,6 +68,8 @@ python do_sca_pylint_core() {
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_pylint.txt")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
+    os.environ["STAGING_LIBDIR"] = d.getVar("STAGING_LIBDIR")
+
     ## Patch a pylint.rc-file with all the library paths
     with open(os.path.join(d.getVar("T"), "pylint.rc"), "w") as f:
         f.write("[MASTER]\n")
