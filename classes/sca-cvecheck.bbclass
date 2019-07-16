@@ -29,6 +29,7 @@ def sca_create_data_file(d, patched, unpatched, cve_data):
 
     package_name = d.getVar("PN")
     items = []
+    _findings = []
 
     for cve in sorted(cve_data):
         if cve in patched:
@@ -42,8 +43,9 @@ def sca_create_data_file(d, patched, unpatched, cve_data):
                                 ID="cvecheck.unpatched",
                                 Severity="error")
         if g.Severity in sca_allowed_warning_level(d):
-            sca_add_model_class(d, g)
+            _findings.append(g)
 
+    sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
 python do_cve_check() {

@@ -26,6 +26,8 @@ def do_sca_conv_rats(d):
 
     _suppress = get_suppress_entries(d)
 
+    _findings = []
+
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         try:
             data = ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE")).getroot()
@@ -60,12 +62,13 @@ def do_sca_conv_rats(d):
                                                     Message=_msg,
                                                     ID=_id,
                                                     Severity=_severity)
-                            sca_add_model_class(d, g)
+                            _findings.append(g)
                 except Exception as exp:
                     bb.warn(str(exp))
         except:
             pass
 
+    sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
 python do_sca_rats() {

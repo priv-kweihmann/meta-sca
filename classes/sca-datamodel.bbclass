@@ -207,6 +207,13 @@ def sca_add_model_class(d, item):
     _t.append(item)
     d.setVar("__SCA_DATAMODEL_STORAGE", json.dumps(__sca_model_to_list(d, _t)))
 
+def sca_add_model_class_list(d, _list):
+    import json
+    _m = sca_get_model_class(d)
+    _t = _m.FromList(json.loads(d.getVar("__SCA_DATAMODEL_STORAGE")))
+    _t += _list
+    d.setVar("__SCA_DATAMODEL_STORAGE", json.dumps(__sca_model_to_list(d, _t)))
+
 def __sca_unique_model(d):
     import json
     _m = sca_get_model_class(d)

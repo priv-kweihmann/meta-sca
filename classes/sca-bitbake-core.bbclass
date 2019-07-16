@@ -16,6 +16,7 @@ def do_sca_bitbake_hardening(d):
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
     _modules = clean_split(d, "SCA_BITBAKE_HARDENING")
+    _findings = []
     if "debug_tweaks" in _modules:
         ## debug_tweaks in IMAGE_FEATURES isn't used in release build
         if "debug_tweaks" in clean_split(d, "IMAGE_FEATURES") and d.getVar("DEBUG_BUILD") != "1":
@@ -28,7 +29,7 @@ def do_sca_bitbake_hardening(d):
                                     ID="hardening.debug_tweaks",
                                     Severity="warning")
             if g.Severity in sca_allowed_warning_level(d):
-                sca_add_model_class(d, g)
+                _findings.append(g)
     if "insane_skip" in _modules:
         ## INSANE_SKIP isn't used anywhere
         if clean_split(d, "INSANE_SKIP_{}".format(d.getVar("PN"))):
@@ -41,7 +42,7 @@ def do_sca_bitbake_hardening(d):
                                     ID="hardening.insane_skip",
                                     Severity="warning")
             if g.Severity in sca_allowed_warning_level(d):
-                sca_add_model_class(d, g)
+                _findings.append(g)
     if "security_flags" in _modules:
         _files = clean_split(d, "BBINCLUDED")
         ## Check that security_flags from poky are somehow included
@@ -55,8 +56,9 @@ def do_sca_bitbake_hardening(d):
                                     ID="hardening.insane_skip",
                                     Severity="warning")
             if g.Severity in sca_allowed_warning_level(d):
-                sca_add_model_class(d, g)
+                _findings.append(g)
 
+    sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
 def do_sca_conv_bitbake(d):
@@ -76,6 +78,7 @@ def do_sca_conv_bitbake(d):
     _suppress = get_suppress_entries(d)
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
+    _findings = []
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
@@ -93,10 +96,11 @@ def do_sca_conv_bitbake(d):
                     if g.GetPlainID() in _suppress:
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
-                        sca_add_model_class(d, g)
+                        _findings.append(g)
                 except Exception as exp:
                     bb.warn(str(exp))
 
+    sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
 python do_sca_bitbake () {

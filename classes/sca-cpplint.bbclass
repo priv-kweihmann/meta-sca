@@ -29,6 +29,7 @@ def do_sca_conv_cpplint(d):
         "1" : "ignore"
     }
     pattern = r"^(?P<line>\d+):\s+(?P<message>.*)\s+\[(?P<id>.*)\]\s+\[(?P<severity>\d)\]"
+    _findings = []
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         try:
             data = ElementTree.ElementTree(ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE"))).getroot()
@@ -48,12 +49,12 @@ def do_sca_conv_cpplint(d):
                                                 ID=m.group("id"),
                                                 Severity=severity_map[m.group("severity")])
                             if g.Severity in sca_allowed_warning_level(d):
-                                sca_add_model_class(d, g)
+                                _findings.append(g)
                         except Exception as exp:
                             bb.warn(str(exp))
         except:
             pass
-
+    sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
 python do_sca_cpplint() {

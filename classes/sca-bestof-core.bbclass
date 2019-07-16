@@ -81,6 +81,7 @@ python do_sca_bestof_core() {
     ## match up
     items = []
     _languages = []
+    _findingsres = []
     for _t in _tools.keys():
         _languages += _tools[_t]["languages"]
     for lang in list(set(_languages)):
@@ -114,11 +115,11 @@ python do_sca_bestof_core() {
                                         ID=sorted(item["occ"], key=lambda x: x["tool"], reverse=False)[0]["id"],
                                         Severity=_nseverity)
                 if g.Severity in sca_allowed_warning_level(d):
-                    sca_add_model_class(d, g)
+                    _findingsres.append(g)
 
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/bestof.dm".format(d.getVar("T")))
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(sca_save_model_to_string(d))
-    
+    sca_add_model_class_list(d, _findingsres)
     sca_task_aftermath(d, "bestof", get_fatal_entries(d))
 }

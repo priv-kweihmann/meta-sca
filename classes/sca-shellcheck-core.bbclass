@@ -12,6 +12,7 @@ def do_sca_conv_shellcheck(d):
     
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
+    _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         try:
@@ -32,12 +33,13 @@ def do_sca_conv_shellcheck(d):
                                                 ID=f.attrib.get("source"),
                                                 Severity=f.attrib.get("severity"))
                         if g.Severity in sca_allowed_warning_level(d):
-                            sca_add_model_class(d, g)
+                            _findings.append(g)
                     except Exception as exp:
                         bb.warn(str(exp))
         except:
             pass
 
+    sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
 python do_sca_shellcheck_core() {

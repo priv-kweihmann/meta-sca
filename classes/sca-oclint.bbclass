@@ -30,6 +30,7 @@ def do_sca_conv_oclint(d):
     }
 
     __suppress = get_suppress_entries(d)
+    _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         io = {}
@@ -58,6 +59,7 @@ def do_sca_conv_oclint(d):
                 except Exception as e:
                     bb.note(str(e))
 
+    sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
 python do_sca_oclint() {
