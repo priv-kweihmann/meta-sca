@@ -1,8 +1,8 @@
 inherit setuptools
 require python-flake8-native.inc
 
-SRC_URI[md5sum] = "fd84dd29950a9da4ab6264ff90e8282b"
-SRC_URI[sha256sum] = "859996073f341f2670741b51ec1e67a01da142831aa1fdc6242dbf88dffbe661"
+SRC_URI[md5sum] = "147957dd7f8af16117ae5c3e6b82df74"
+SRC_URI[sha256sum] = "19241c1cbc971b9962473e4438a2ca19749a7dd002dd1a946eaba171b4114548"
 
 DEPENDS += " \
             ${PYTHON_PN}-functools32-native \
