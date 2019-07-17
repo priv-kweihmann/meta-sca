@@ -29,8 +29,13 @@ def sca_gcc_hardening(d):
 
     _findings = []
 
+    logcontent = ""
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+            logcontent = f.read()
+
     for item in ["-z,relro", "-z,now", "-fPIC", "-fPIE"]:
-        if not item in _linker_flags:
+        if not item in _linker_flags and not item in logcontent:
             g = sca_get_model_class(d,
                                     PackageName=package_name,
                                     Tool="gcc",
@@ -43,31 +48,34 @@ def sca_gcc_hardening(d):
                 continue
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
-    if not ("-z,nodlopen" in _linker_flags and "-z,nodump" in _linker_flags):
+    if not ("-z,nodlopen" in _linker_flags and "-z,nodump" in _linker_flags) and \
+       not ("-z,nodlopen" in logcontent and "-z,nodump" in logcontent):
         g = sca_get_model_class(d,
                                 PackageName=package_name,
                                 Tool="gcc",
                                 BuildPath=buildpath,
                                 File=d.getVar("FILE"),
-                                Message="Neither '-z,nodlopen' nor '-z,nodump' are not set in LDFLAGS".format(item),
+                                Message="Neither '-z,nodlopen' nor '-z,nodump' are set in LDFLAGS".format(item),
                                 ID="hardening.linker.nodlopen_nodump",
                                 Severity="warning")
         if not (g.File in _excludes or g.GetPlainID() in _suppress):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
-    if not ("-z,noexecstack" in _linker_flags and "-z,noexecheap" in _linker_flags):
+    if not ("-z,noexecstack" in _linker_flags and "-z,noexecheap" in _linker_flags) and \
+       not ("-z,noexecstack" in logcontent and "-z,noexecheap" in logcontent):
         g = sca_get_model_class(d,
                                 PackageName=package_name,
                                 Tool="gcc",
                                 BuildPath=buildpath,
                                 File=d.getVar("FILE"),
-                                Message="Neither '-z,noexecstack' nor '-z,noexecheap' are not set in LDFLAGS".format(item),
+                                Message="Neither '-z,noexecstack' nor '-z,noexecheap' are set in LDFLAGS".format(item),
                                 ID="hardening.linker.noexecstack_oexecheap",
                                 Severity="warning")
         if not (g.File in _excludes or g.GetPlainID() in _suppress):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
-    if not ("-O2" in _linker_flags or "-O3" in _linker_flags or "-Os" in _linker_flags):
+    if not ("-O2" in _linker_flags or "-O3" in _linker_flags or "-Os" in _linker_flags) and \
+       not ("-O2 " in logcontent or "-O3 " in logcontent or "-Os " in logcontent):
         g = sca_get_model_class(d,
                                 PackageName=package_name,
                                 Tool="gcc",
@@ -84,7 +92,7 @@ def sca_gcc_hardening(d):
                  "-Wformat=2", "-Wsign-conversion", "-Wstrict-overflow", "-Wstrict-prototypes", 
                  "-Wtrampolines", "-fno-common", "-fno-omit-frame-pointer", "-fsanitize=address", 
                  "-fsanitize=thread", "-fstack-check"]:
-        if not item in _cflags:
+        if not item in _cflags and not item in logcontent:
             g = sca_get_model_class(d,
                                     PackageName=package_name,
                                     Tool="gcc",
@@ -99,7 +107,7 @@ def sca_gcc_hardening(d):
                 _findings.append(g)
 
     for item in ["-Woverloaded-virtual", "-Wreorder", "-Wsign-promo", "-Weffc++", "-Wnon-virtual-dtor"]:
-        if not item in _cflags:
+        if not item in _cxxflags and not item in logcontent:
             g = sca_get_model_class(d,
                                     PackageName=package_name,
                                     Tool="gcc",
@@ -113,7 +121,7 @@ def sca_gcc_hardening(d):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)   
 
-    if d.getVar("DEBUG_BUILD") != "1" and ("-DDEBUG=1" in _cflags):
+    if d.getVar("DEBUG_BUILD") != "1" and ("-DDEBUG=1" in _cflags or "-DDEBUG=1" in logcontent):
         g = sca_get_model_class(d,
                                 PackageName=package_name,
                                 Tool="gcc",
@@ -126,7 +134,7 @@ def sca_gcc_hardening(d):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
     
-    if d.getVar("DEBUG_BUILD") != "1" and not ("-D_FORTIFY_SOURCE=2" in _cflags):
+    if d.getVar("DEBUG_BUILD") != "1" and not ("-D_FORTIFY_SOURCE=2" in _cflags) and not ("-D_FORTIFY_SOURCE=2" in logcontent):
         g = sca_get_model_class(d,
                                 PackageName=package_name,
                                 Tool="gcc",
@@ -139,7 +147,8 @@ def sca_gcc_hardening(d):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
     
-    if not ("-fstack-protector-strong" in _cflags or "-fstack-protector" in _cflags or "-fstack-protector-all" in _cflags):
+    if not ("-fstack-protector-strong" in _cflags or "-fstack-protector" in _cflags or "-fstack-protector-all" in _cflags) and \
+       not ("-fstack-protector-strong" in logcontent or "-fstack-protector" in logcontent or "-fstack-protector-all" in logcontent):
         g = sca_get_model_class(d,
                                 PackageName=package_name,
                                 Tool="gcc",
@@ -152,7 +161,8 @@ def sca_gcc_hardening(d):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
 
-    if not ("-Wmissing-prototypes" in _cflags and "-Wmissing-declarations" in _cflags):
+    if not ("-Wmissing-prototypes" in _cflags and "-Wmissing-declarations" in _cflags) and \
+       not ("-Wmissing-prototypes" in logcontent and "-Wmissing-declarations" in logcontent):
         g = sca_get_model_class(d,
                                 PackageName=package_name,
                                 Tool="gcc",
@@ -165,7 +175,8 @@ def sca_gcc_hardening(d):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
     
-    if not ("-mfunction-return=thunk" in _cflags and "-mindirect-branch=thunk" in _cflags):
+    if not ("-mfunction-return=thunk" in _cflags and "-mindirect-branch=thunk" in _cflags) and \
+       not ("-mfunction-return=thunk" in logcontent and "-mindirect-branch=thunk" in logcontent):
         g = sca_get_model_class(d,
                                 PackageName=package_name,
                                 Tool="gcc",
