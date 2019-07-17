@@ -27,7 +27,6 @@
 
 For python2 and python3 installations the following plugins are enabled
 
- * flake8-builtins
  * flake8-comprehensions
  * flake8-eradicate
  * flake8-import-order
@@ -38,6 +37,9 @@ For python2 and python3 installations the following plugins are enabled
 in python3 installations in addition following plugins are available
 
  * flake8-executable
+
+with python 3.6+ the following plugins are avialable
+
  * flake8-fixme
  * flake8-strict
 
