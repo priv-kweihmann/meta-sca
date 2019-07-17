@@ -27,6 +27,8 @@ def sca_gcc_hardening(d):
     _suppress = get_suppress_entries(d)
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
+    _findings = []
+
     for item in ["-z,relro", "-z,now", "-fPIC", "-fPIE"]:
         if not item in _linker_flags:
             g = sca_get_model_class(d,
@@ -40,7 +42,7 @@ def sca_gcc_hardening(d):
             if g.File in _excludes or g.GetPlainID() in _suppress:
                 continue
             if g.Severity in sca_allowed_warning_level(d):
-                sca_add_model_class(d, g)
+                _findings.append(g)
     if not ("-z,nodlopen" in _linker_flags and "-z,nodump" in _linker_flags):
         g = sca_get_model_class(d,
                                 PackageName=package_name,
@@ -52,7 +54,7 @@ def sca_gcc_hardening(d):
                                 Severity="warning")
         if not (g.File in _excludes or g.GetPlainID() in _suppress):
             if g.Severity in sca_allowed_warning_level(d):
-                sca_add_model_class(d, g)
+                _findings.append(g)
     if not ("-z,noexecstack" in _linker_flags and "-z,noexecheap" in _linker_flags):
         g = sca_get_model_class(d,
                                 PackageName=package_name,
@@ -64,7 +66,7 @@ def sca_gcc_hardening(d):
                                 Severity="warning")
         if not (g.File in _excludes or g.GetPlainID() in _suppress):
             if g.Severity in sca_allowed_warning_level(d):
-                sca_add_model_class(d, g)
+                _findings.append(g)
     if not ("-O2" in _linker_flags or "-O3" in _linker_flags or "-Os" in _linker_flags):
         g = sca_get_model_class(d,
                                 PackageName=package_name,
@@ -76,7 +78,7 @@ def sca_gcc_hardening(d):
                                 Severity="warning")
         if not (g.File in _excludes or g.GetPlainID() in _suppress):
             if g.Severity in sca_allowed_warning_level(d):
-                sca_add_model_class(d, g)
+                _findings.append(g)
 
     for item in ["-Wall", "-Wcast-align", "-Wconversion", "-Wextra", "-Wformat-security",
                  "-Wformat=2", "-Wsign-conversion", "-Wstrict-overflow", "-Wstrict-prototypes", 
@@ -94,7 +96,7 @@ def sca_gcc_hardening(d):
             if g.File in _excludes or g.GetPlainID() in _suppress:
                 continue
             if g.Severity in sca_allowed_warning_level(d):
-                sca_add_model_class(d, g)
+                _findings.append(g)
 
     for item in ["-Woverloaded-virtual", "-Wreorder", "-Wsign-promo", "-Weffc++", "-Wnon-virtual-dtor"]:
         if not item in _cflags:
@@ -109,7 +111,7 @@ def sca_gcc_hardening(d):
             if g.File in _excludes or g.GetPlainID() in _suppress:
                 continue
             if g.Severity in sca_allowed_warning_level(d):
-                sca_add_model_class(d, g)   
+                _findings.append(g)   
 
     if d.getVar("DEBUG_BUILD") != "1" and ("-DDEBUG=1" in _cflags):
         g = sca_get_model_class(d,
@@ -122,7 +124,7 @@ def sca_gcc_hardening(d):
                                 Severity="warning")
         if not (g.File in _excludes or g.GetPlainID() in _suppress):
             if g.Severity in sca_allowed_warning_level(d):
-                sca_add_model_class(d, g)
+                _findings.append(g)
     
     if d.getVar("DEBUG_BUILD") != "1" and not ("-D_FORTIFY_SOURCE=2" in _cflags):
         g = sca_get_model_class(d,
@@ -135,7 +137,7 @@ def sca_gcc_hardening(d):
                                 Severity="warning")
         if not (g.File in _excludes or g.GetPlainID() in _suppress):
             if g.Severity in sca_allowed_warning_level(d):
-                sca_add_model_class(d, g)
+                _findings.append(g)
     
     if not ("-fstack-protector-strong" in _cflags or "-fstack-protector" in _cflags or "-fstack-protector-all" in _cflags):
         g = sca_get_model_class(d,
@@ -148,7 +150,7 @@ def sca_gcc_hardening(d):
                                 Severity="warning")
         if not (g.File in _excludes or g.GetPlainID() in _suppress):
             if g.Severity in sca_allowed_warning_level(d):
-                sca_add_model_class(d, g)
+                _findings.append(g)
 
     if not ("-Wmissing-prototypes" in _cflags and "-Wmissing-declarations" in _cflags):
         g = sca_get_model_class(d,
@@ -161,7 +163,7 @@ def sca_gcc_hardening(d):
                                 Severity="warning")
         if not (g.File in _excludes or g.GetPlainID() in _suppress):
             if g.Severity in sca_allowed_warning_level(d):
-                sca_add_model_class(d, g)
+                _findings.append(g)
     
     if not ("-mfunction-return=thunk" in _cflags and "-mindirect-branch=thunk" in _cflags):
         g = sca_get_model_class(d,
@@ -174,8 +176,9 @@ def sca_gcc_hardening(d):
                                 Severity="warning")
         if not (g.File in _excludes or g.GetPlainID() in _suppress):
             if g.Severity in sca_allowed_warning_level(d):
-                sca_add_model_class(d, g)
+                _findings.append(g)
 
+    sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
 
@@ -196,6 +199,7 @@ def do_sca_conv_gcc(d):
 
     _suppress = get_suppress_entries(d)
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
+    _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
@@ -215,10 +219,11 @@ def do_sca_conv_gcc(d):
                     if g.GetPlainID() in _suppress:
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
-                        sca_add_model_class(d, g)
+                        _findings.append(g)
                 except Exception as exp:
                     bb.warn(str(exp))
 
+    sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
 python do_sca_gcc() {
