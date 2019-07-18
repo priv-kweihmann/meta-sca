@@ -176,6 +176,8 @@ To make the integration of clang-module (clang-tidy) work you need to add the [m
     - [Parameterized jenkins build](docs/build/jenkins/integration_parameter.md)
 - Application notes
   - [Recipe buildtime dependencies](docs/sca/buildtime_dependencies.md)
+- Case studies
+  - [Regression on severe code issues](docs/casestudy/simple_regression.md)
 
 ## Further development
 
