@@ -32,3 +32,22 @@ DEPENDS += "..."
 ```
 
 to let bitbake include all the needed sources into the per recipe sysroot hence allowing pylint to find otherwise missing imports.
+
+## Note regarding DEPENDS
+
+In case you make the mistake in your recipe to write ```DEPENDS = "bar"``` instead of ```DEPENDS += "bar"``` you will see ```ModuleNotFoundError: No module named 'setuptools'``` errors like this:
+
+```
+ERROR: python3-tcpclientserver-1.0.0+gitAUTOINC+a00d04e69c-r0 do_configure: Function failed: do_configure (log file is located at /home/student/projects/resy-playground/build/container-x86-64/tmp/work/core2-64-resy-linux-musl/python3-tcpclientserver/1.0.0+gitAUTOINC+a00d04e69c-r0/temp/log.do_configure.2393)
+ERROR: Logfile of failure stored in: /home/student/projects/resy-playground/build/container-x86-64/tmp/work/core2-64-resy-linux-musl/python3-tcpclientserver/1.0.0+gitAUTOINC+a00d04e69c-r0/temp/log.do_configure.2393
+Log data follows:
+| DEBUG: Executing shell function do_configure
+| Traceback (most recent call last):
+|   File "setup.py", line 1, in <module>
+|     from setuptools import setup
+| ModuleNotFoundError: No module named 'setuptools'
+| WARNING: exit code 1 from a shell command.
+| ERROR: Function failed: do_configure (log file is located at /home/student/projects/resy-playground/build/container-x86-64/tmp/work/core2-64-resy-linux-musl/python3-tcpclientserver/1.0.0+gitAUTOINC+a00d04e69c-r0/temp/log.do_configure.2393)
+ERROR: Task (/home/student/projects/resy-playground/sources/poky/../meta-desire/recipes-desire/python-iot/python3-tcpclientserver_git.bb:do_configure) failed with exit code '1'
+NOTE: Tasks Summary: Attempted 831 tasks of which 830 didn't need to be rerun and 1 failed.
+```
