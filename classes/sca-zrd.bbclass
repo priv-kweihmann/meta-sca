@@ -42,7 +42,7 @@ def do_sca_conv_zrd(d):
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r", encoding='utf-8-sig') as f:
             reader = csv.DictReader(f)
             for row in reader:
                 try:
