@@ -1,4 +1,4 @@
-SUMMARY = "Tool for checking elf-symbols against rules"
+SUMMARY = "Advanced oelint"
 DESCRIPTION = "Based on the OpenEmbedded Styleguide and work done by oe-stylize-tool\n \
                this module offers a (nearly) complete linter for bitbake-recipes."
 HOMEPAGE = "https://github.com/priv-kweihmann/oelint-adv"
