@@ -278,5 +278,6 @@ addtask do_sca_deploy_gcc after do_sca_gcc before do_package
 
 do_sca_gcc[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_gcc[nostamp] = "${@sca_force_run(d)}"
+do_compile[nostamp] = "${@sca_force_run(d)}"
 
 DEPENDS += "sca-recipe-gcc-rules-native gcc-sca-native"
