@@ -71,13 +71,15 @@ python do_sca_detectsecrets_core() {
     _args += ["scan"]
     _args += ["--all-files"]
     _args += ["--use-all-plugins"]
-    _args += [d.getVar("SCA_SOURCES_DIR")]
+    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), "",
+                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
-    cmd_output = "" 
-    try:
-        cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
-    except subprocess.CalledProcessError as e:
-        cmd_output = e.stdout or ""
+    cmd_output = ""
+    if any(_files):
+        try:
+            cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
+        except subprocess.CalledProcessError as e:
+            cmd_output = e.stdout or ""
 
     result_raw_file = os.path.join(d.getVar("T"), "sca_raw_detectsecrets.json")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)

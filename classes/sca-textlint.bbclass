@@ -130,13 +130,15 @@ python do_sca_textlint() {
     _args += ["--debug"]
     _args += ["-f", "json"]
     _args += ["-o", result_raw_file]
-    _args += [d.getVar("SCA_SOURCES_DIR")]
+    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), "",
+                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     cmd_output = ""
-    try:
-        cmd_output += subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
-    except subprocess.CalledProcessError as e:
-        cmd_output += e.stdout or ""
+    if any(_files):
+        try:
+            cmd_output += subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
+        except subprocess.CalledProcessError as e:
+            cmd_output += e.stdout or ""
         
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/textlint.dm".format(d.getVar("T")))

@@ -81,13 +81,15 @@ python do_sca_zrd() {
     _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), d.getVar("PYTHON_PN") + "-native", d.getVar("PYTHON_PN"))]
     _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "zrd", "resource_detector.py")]
     _args += ["-d", tmp_result]
-    _args += [d.getVar("SCA_SOURCES_DIR")]
+    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), "",
+                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run
-    try:
-        cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
-    except subprocess.CalledProcessError as e:
-        cmd_output = e.stdout or ""
+    if any(_files):
+        try:
+            cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
+        except subprocess.CalledProcessError as e:
+            cmd_output = e.stdout or ""
     
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/zrd.dm".format(d.getVar("T")))

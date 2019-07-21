@@ -146,7 +146,7 @@ def get_files_by_extention(d, path, pattern, excludes=[]):
             if _filepath in excludes:
                 continue
             _filename, _file_extension = os.path.splitext(_filepath)
-            if _file_extension in pattern:
+            if _file_extension in pattern and pattern:
                 res.append(_filepath)
     return [x for x in res if os.path.isfile(x)]
 

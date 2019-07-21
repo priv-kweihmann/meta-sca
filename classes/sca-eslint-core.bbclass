@@ -80,13 +80,15 @@ python do_sca_eslint_core() {
     _args += ["-c", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "eslint", "configs", d.getVar("SCA_ESLINT_CONFIG_FILE"))]
     _args += ["-f", "checkstyle"]
     _args += ["--quiet"]
-    _args += [d.getVar("SCA_SOURCES_DIR") + "/"]
+    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), "",
+                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     cmd_output = ""
-    try:
-        cmd_output = subprocess.check_output(_args, universal_newlines=True)
-    except subprocess.CalledProcessError as e:
-        cmd_output = e.stdout or ""
+    if any(_files):
+        try:
+            cmd_output = subprocess.check_output(_args + _files, universal_newlines=True)
+        except subprocess.CalledProcessError as e:
+            cmd_output = e.stdout or ""
     result_raw_file = os.path.join(d.getVar("T"), "sca_raw_eslint.xml")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
     with open(result_raw_file, "w") as o:
