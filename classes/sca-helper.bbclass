@@ -68,14 +68,25 @@ def _combine_x_entries(d, input_file, extra_key):
     res = [x.strip() for x in res if x]
     return res
 
+
+SCA_LOCAL_FILE_FILTER ?= "\
+                    ${RECIPE_SYSROOT} \
+                    ${RECIPE_SYSROOT_NATIVE} \
+                    ${T} \
+    "
+
+
 def get_files_by_shebang(d, path, pattern, excludes=[]):
     import os
     import re
     res = []
+    local_dirs = clean_split(d, "SCA_LOCAL_FILE_FILTER")
     pattern = r"^'!\s+{}".format(pattern)
     for root, dirs, files in os.walk(path, topdown=True):
         for item in files:
             _filename = os.path.join(root, item)
+            if any([_filename.startswith(x) for x in local_dirs]):
+                continue
             if _filename in excludes:
                 continue
             try:
@@ -94,10 +105,13 @@ def get_files_by_mimetype(d, path, mime, excludes=[]):
     import sys
     sys.path.append(os.path.join(d.getVar("STAGING_DIR_NATIVE"), d.getVar("PYTHON_SITEPACKAGES_DIR")[1:]))
     import magic
+    local_dirs = clean_split(d, "SCA_LOCAL_FILE_FILTER")
     res = []
     for root, dirs, files in os.walk(path, topdown=True):
         for item in files:
             _filename = os.path.join(root, item)
+            if any([_filename.startswith(x) for x in local_dirs]):
+                continue
             if _filename in excludes:
                 continue
             try:
@@ -123,9 +137,12 @@ def get_files_by_extention(d, path, pattern, excludes=[]):
     res = []
     if isinstance(pattern, str):
         pattern = pattern.split(" ")
+    local_dirs = clean_split(d, "SCA_LOCAL_FILE_FILTER")
     for root, dirs, files in os.walk(path, topdown=True):
         for item in files:
             _filepath = os.path.join(root, item)
+            if any([_filepath.startswith(x) for x in local_dirs]):
+                continue
             if _filepath in excludes:
                 continue
             _filename, _file_extension = os.path.splitext(_filepath)
