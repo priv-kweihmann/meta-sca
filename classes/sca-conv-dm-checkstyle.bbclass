@@ -33,7 +33,10 @@ def sca_conv_dm_checkstyle(d):
             _srcname = _firstItem.GetPath()
             if os.path.exists(_srcname):
                 os.makedirs(os.path.dirname(_fname), exist_ok=True)
-                shutil.copy(_srcname, _fname)
+                try:
+                    shutil.copy(_srcname, _fname)
+                except Exception as e:
+                    bb.warn("SCA_EXPORT_FINDING_SRC-error: {}".format(e))
         else:
             _fname = _firstItem.GetPath()
         _fe = SubElement(top, "file", { "name": _fname })

@@ -22,10 +22,12 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_EXPORT_FINDING_SRC | Do copy the source-files of any finding to deploy-dir. This proved to helpful when integrating into Jenkins. | string | "1"
 | SCA_FILE_FILTER | List of glob-expression of file to skip for testing | space separated list | "tests/* test/* doc/* testsuite/* \*\*/tests/* \*\*/test/* \*\*/doc/* \*\*/testsuite/*"
 | SCA_FORCE_RUN | Force running SCA every time, no matter if recipe code was changed  | string: "0" or "1" | "0"
+| SCA_LOCAL_FILE_FILTER | List of glob-expression of additional files to skip for testing. This is applied when S dir is the same as WORKDIR | space separated list | "recipe-sysroot/* recipe-sysroot-native/* temp/* image/* package/* packages-split/*"
 | SCA_SOURCES_DIR | Path where to find the source-files to be checked | path | "\${B}" for recipes, "\${IMAGE_ROOTFS}" for images
 | SCA_STD_PYTHON_INTERPRETER | Standard python interpreter to be used in SCA | python or python3 | "python3"
 | SCA_VERBOSE_OUTPUT | Verbose output of included tools | string: 0 or 1 | "1"
 | SCA_WARNING_LEVEL | Filter for severity of findings | string: info, warning or error | "warning"
+
 
 ## Notes
 
