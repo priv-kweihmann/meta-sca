@@ -30,6 +30,8 @@ def do_sca_conv_cpplint(d):
     }
     pattern = r"^(?P<line>\d+):\s+(?P<message>.*)\s+\[(?P<id>.*)\]\s+\[(?P<severity>\d)\]"
     _findings = []
+    _suppress = get_suppress_entries(d)
+
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         try:
             data = ElementTree.ElementTree(ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE"))).getroot()
@@ -48,6 +50,8 @@ def do_sca_conv_cpplint(d):
                                                 Message=m.group("message"),
                                                 ID=m.group("id"),
                                                 Severity=severity_map[m.group("severity")])
+                            if g.GetFormattedID() in _suppress:
+                                continue
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings.append(g)
                         except Exception as exp:
@@ -65,14 +69,10 @@ python do_sca_cpplint() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cpplint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cpplint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _suppress = get_suppress_entries(d)
-
     _args = ["python3", os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "cpplint.py")]
     _args += ["--output=junit"]
     _args += ["--quiet"]
     _args += ["--root={}".format(d.getVar("B", True))]
-    if any(_suppress):
-        _args += ["--filter=+,-{}".format(",-".join(_suppress))]
 
     ## Run
     cur_dir = os.getcwd()

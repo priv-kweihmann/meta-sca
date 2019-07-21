@@ -46,7 +46,7 @@ def do_sca_conv_detectsecrets(d):
                                                 Message="{} found: {}".format(w["type"], w["hashed_secret"]),
                                                 ID=w["type"].replace(" ", ""),
                                                 Severity="warning")
-                        if g.GetPlainID() in __suppress:
+                        if g.GetFormattedID() in __suppress:
                             continue
                         if g.Severity in sca_allowed_warning_level(d):
                             _findings.append(g)

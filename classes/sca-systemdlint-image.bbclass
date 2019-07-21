@@ -31,7 +31,7 @@ def do_sca_conv_systemdlint(d):
         "info": "info"
     }
 
-    __suppress = get_suppress_entries(d)
+    _suppress = get_suppress_entries(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -47,7 +47,7 @@ def do_sca_conv_systemdlint(d):
                                             Message=m.group("msg"),
                                             ID=m.group("id"),
                                             Severity=severity_map[m.group("severity")])
-                    if g.GetPlainID() in __suppress:
+                    if g.GetFormattedID() in _suppress:
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

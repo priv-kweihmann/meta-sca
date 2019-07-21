@@ -152,7 +152,7 @@ def do_sca_conv_cqmetrics(d):
                                                     Message="value {} is {}<{}".format(ik, v, val),
                                                     ID=ik,
                                                     Severity="error")
-                            if ik in _suppress:
+                            if g.GetFormattedID() in _suppress:
                                 continue
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings.append(g)
@@ -167,7 +167,7 @@ def do_sca_conv_cqmetrics(d):
                                                     Message="value {} is {}>{}".format(ik, v, val),
                                                     ID=ik,
                                                     Severity="error")
-                            if ik in _suppress:
+                            if g.GetFormattedID() in _suppress:
                                 continue
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings.append(g)
@@ -182,7 +182,7 @@ def do_sca_conv_cqmetrics(d):
                                                     Message="value {} is {}<{}".format(ik, v, val),
                                                     ID=ik,
                                                     Severity="warning")
-                            if ik in _suppress:
+                            if g.GetFormattedID() in _suppress:
                                 continue
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings.append(g)
@@ -197,7 +197,7 @@ def do_sca_conv_cqmetrics(d):
                                                     Message="value {} is {}>{}".format(ik, v, val),
                                                     ID=ik,
                                                     Severity="warning")
-                            if ik in _suppress:
+                            if g.GetFormattedID() in _suppress:
                                 continue
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings.append(g)

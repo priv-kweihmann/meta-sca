@@ -28,7 +28,7 @@ def do_sca_conv_gixy(d, cmd_output=""):
         "ERROR" : "error",
     }
 
-    __suppress = get_suppress_entries(d)
+    _suppress = get_suppress_entries(d)
     _findings = []
 
     ## Result file parsing
@@ -48,7 +48,7 @@ def do_sca_conv_gixy(d, cmd_output=""):
                                         Message="{} {}".format(item["summary"], item["reason"]),
                                         ID=item["plugin"].replace(" ", "_"),
                                         Severity=severity_map[str(item["severity"])])
-                if g.GetPlainID() in __suppress:
+                if g.GetFormattedID() in _suppress:
                     continue
                 if g.Severity in sca_allowed_warning_level(d):
                     _findings.append(g)

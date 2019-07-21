@@ -46,8 +46,6 @@ def do_sca_conv_rats(d):
                     
                     if not _severity in sca_allowed_warning_level(d):
                         continue
-                    if _id in _suppress:
-                        continue
                     for _i in node.iter(tag="file"):
                         _filename = ""
                         for _j in _i.iter(tag="name"):
@@ -62,6 +60,8 @@ def do_sca_conv_rats(d):
                                                     Message=_msg,
                                                     ID=_id,
                                                     Severity=_severity)
+                            if g.GetFormattedID() in _suppress:
+                                continue
                             _findings.append(g)
                 except Exception as exp:
                     bb.warn(str(exp))

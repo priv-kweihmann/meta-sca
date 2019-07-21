@@ -85,7 +85,7 @@ def do_sca_conv_textlint(d):
                                             Severity=severity_map[str(msg["severity"])])
                     if g.File in _excludes:
                         continue
-                    if g.GetPlainID() in _suppress:
+                    if g.GetFormattedID() in _suppress:
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

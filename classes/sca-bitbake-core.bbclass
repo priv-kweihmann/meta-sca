@@ -17,6 +17,8 @@ def do_sca_bitbake_hardening(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
     _modules = clean_split(d, "SCA_BITBAKE_HARDENING")
     _findings = []
+    _suppress = get_suppress_entries(d)
+
     if "debug_tweaks" in _modules:
         ## debug_tweaks in IMAGE_FEATURES isn't used in release build
         if "debug_tweaks" in clean_split(d, "IMAGE_FEATURES") and d.getVar("DEBUG_BUILD") != "1":
@@ -28,8 +30,9 @@ def do_sca_bitbake_hardening(d):
                                     Message="debug_tweaks is set in IMAGE_FEATURES",
                                     ID="hardening.debug_tweaks",
                                     Severity="warning")
-            if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)
+            if not g.GetFormattedID() in _suppress:
+                if g.Severity in sca_allowed_warning_level(d):
+                    _findings.append(g)
     if "insane_skip" in _modules:
         ## INSANE_SKIP isn't used anywhere
         if clean_split(d, "INSANE_SKIP_{}".format(d.getVar("PN"))):
@@ -41,8 +44,9 @@ def do_sca_bitbake_hardening(d):
                                     Message="INSANE_SKIP is used in recipe",
                                     ID="hardening.insane_skip",
                                     Severity="warning")
-            if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)
+            if not g.GetFormattedID() in _suppress:
+                if g.Severity in sca_allowed_warning_level(d):
+                    _findings.append(g)
     if "security_flags" in _modules:
         _files = clean_split(d, "BBINCLUDED")
         ## Check that security_flags from poky are somehow included
@@ -55,8 +59,9 @@ def do_sca_bitbake_hardening(d):
                                     Message="security_flags.inc aren't used for building this recipe",
                                     ID="hardening.insane_skip",
                                     Severity="warning")
-            if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)
+            if not g.GetFormattedID() in _suppress:
+                if g.Severity in sca_allowed_warning_level(d):
+                    _findings.append(g)
 
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
@@ -93,7 +98,7 @@ def do_sca_conv_bitbake(d):
                                             Severity=severity_map[m.group("severity")])
                     if g.File in _excludes:
                         continue
-                    if g.GetPlainID() in _suppress:
+                    if g.GetFormattedID() in _suppress:
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

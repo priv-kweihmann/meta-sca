@@ -37,7 +37,7 @@ def do_sca_conv_zrd(d):
         "2010" : "encoding error"
     }
 
-    __suppress = get_suppress_entries(d)
+    _suppress = get_suppress_entries(d)
     __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     _findings = []
 
@@ -57,7 +57,7 @@ def do_sca_conv_zrd(d):
                                             Severity=severity_map[row["severity"]])
                     if g.File in __excludes:
                         continue
-                    if g.GetPlainID() in __suppress:
+                    if g.GetFormattedID() in _suppress:
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

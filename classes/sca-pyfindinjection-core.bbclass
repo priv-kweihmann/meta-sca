@@ -45,7 +45,7 @@ def do_sca_conv_pyfindinjection(d):
                                             Severity=_sev)
                     if g.File in _excludes:
                         continue
-                    if g.GetPlainID() in _suppress:
+                    if g.GetFormattedID() in _suppress:
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

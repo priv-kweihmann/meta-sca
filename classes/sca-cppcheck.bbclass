@@ -50,6 +50,8 @@ def do_sca_conv_cppcheck(d):
     }
 
     _findings = []
+    _suppress = get_suppress_entries(d)
+
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         data = ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE")).getroot()
         for node in data.findall(".//error"):
@@ -64,6 +66,8 @@ def do_sca_conv_cppcheck(d):
                                             Message=node.attrib.get("msg"),
                                             ID=node.attrib.get("id"),
                                             Severity=severity_map[node.attrib.get("severity")])
+                    if g.GetFormattedID() in _suppress:
+                        continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)
             except Exception as exp:
@@ -79,7 +83,6 @@ python do_sca_cppcheck() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cppcheck-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cppcheck-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _suppress = get_suppress_entries(d)
     _user_rules = os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cppcheck-user-rules.xml")
     _add_include = d.getVar("SCA_CPPCHECK_ADD_INCLUDES", True).split(" ")
 
@@ -99,7 +102,6 @@ python do_sca_cppcheck() {
     for item in d.getVar("SCA_CPPCHECK_LANG_STD").split(" "):
         _args += ["--std={}".format(item)]
     _args += [get_platform_type(d)]    
-    _args += ["--suppress={}".format(x) for x in _suppress]
     result_raw_file = os.path.join(d.getVar("T", True), "sca_raw_cppcheck.xml")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
     _args += ["--output-file={}".format(result_raw_file)]

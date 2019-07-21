@@ -39,7 +39,7 @@ def do_sca_conv_darglint(d):
                                             Message=m.group("msg"),
                                             ID="{}{}".format(m.group("severity"), m.group("id")),
                                             Severity=severity_map[m.group("severity")])
-                    if g.ID in _suppress:
+                    if g.GetFormattedID() in _suppress:
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

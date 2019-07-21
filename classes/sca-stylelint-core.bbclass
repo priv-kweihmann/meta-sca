@@ -45,7 +45,7 @@ def do_sca_conv_stylelint(d):
                                             Message=m.group("msg"),
                                             ID=m.group("id"),
                                             Severity=severity_map[m.group("severity")])
-                    if g.GetPlainID() in _suppress:
+                    if g.GetFormattedID() in _suppress:
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

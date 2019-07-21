@@ -18,7 +18,7 @@ def do_sca_conv_htmlhint(d):
     items = []
 
     __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
-    __suppress = get_suppress_entries(d)
+    _suppress = get_suppress_entries(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -44,7 +44,7 @@ def do_sca_conv_htmlhint(d):
                                             Message=m["message"],
                                             ID=m["rule"]["id"],
                                             Severity=m["type"])
-                    if g.GetPlainID() in __suppress:
+                    if g.GetFormattedID() in _suppress:
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

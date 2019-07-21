@@ -20,6 +20,7 @@ def do_sca_conv_pytype(d):
     pattern = r"^File\s+\"(?P<file>.*)\",\s+line\s+(?P<line>\d+),\s+in\s+(?P<name>[\w\<\>]+):\s+(?P<msg>.*)\s+\[(?P<id>.*)\]"
     
     _findings = []
+    _suppress = get_suppress_entries(d)
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
@@ -33,6 +34,8 @@ def do_sca_conv_pytype(d):
                                             Message="{}:{}".format(m.group("name"), m.group("msg")),
                                             ID=m.group("id"),
                                             Severity="warning")
+                    if g.GetFormattedID() in _suppress:
+                        continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)
                 except Exception as exp:
@@ -49,8 +52,6 @@ python do_sca_pytype() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pytype-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pytype-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _suppress = get_suppress_entries(d)
-
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_pytype.txt")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
@@ -64,8 +65,6 @@ python do_sca_pytype() {
     _args = ["pytype"]
     _args += ["--keep-going"]
     _args += ["-V", d.getVar("PYTHON_BASEVERSION")]
-    if any(_suppress):
-        _args += ["-d", ",".join(_suppress)]
     _args += ["-P", ":".join(_paths)]
     _args += ["-o", os.path.join(d.getVar("T"), "pytypeout")]
    

@@ -140,7 +140,7 @@ def sca_get_model_class(d, **kwargs):
 
         def GetPlainID(self):
             tmp = self.__ID or ""
-            tool_prefix = [x for x in tmp.split(".") if x == self.__Tool]
+            tool_prefix = [x for x in tmp.split(".") if x == self.__Tool or x.lower() == self.__Tool.lower()]
             _id = [x for x in tmp.split(".") if x != self.__Tool]
             if any(tool_prefix):
                 return "{}.{}".format(".".join(tool_prefix), "_".join(_id))

@@ -44,7 +44,7 @@ def do_sca_conv_pysymcheck(d):
                                             Severity=severity_map[m.group("severity")])
                     if g.File in _excludes:
                         continue
-                    if g.GetPlainID() in _suppress:
+                    if g.GetFormattedID() in _suppress:
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

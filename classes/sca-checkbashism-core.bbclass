@@ -36,7 +36,7 @@ def do_sca_conv_checkbashism(d):
                                             Message=m.group("id"),
                                             ID=hashlib.md5(str.encode(m.group("id"))).hexdigest(),
                                             Severity="warning")
-                    if g.GetPlainID() in __suppress:
+                    if g.GetFormattedID() in __suppress:
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

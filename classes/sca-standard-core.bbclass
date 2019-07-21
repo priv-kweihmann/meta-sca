@@ -36,7 +36,7 @@ def do_sca_conv_standard(d):
                                             Message=m.group("msg"),
                                             ID=m.group("id"),
                                             Severity="warning")
-                    if g.GetPlainID() in _suppress:
+                    if g.GetFormattedID() in _suppress:
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

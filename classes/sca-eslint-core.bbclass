@@ -52,7 +52,7 @@ def do_sca_conv_eslint(d):
                                                 Message=f.attrib["message"],
                                                 ID=f.attrib["source"],
                                                 Severity=f.attrib["severity"])
-                        if g.GetPlainID() in __suppress:
+                        if g.GetFormattedID() in __suppress:
                             continue
                         if g.Severity in sca_allowed_warning_level(d):
                             _findings.append(g)

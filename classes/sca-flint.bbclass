@@ -27,7 +27,7 @@ def do_sca_conv_flint(d):
         "Advice" : "info"
     }
 
-    __suppress = get_suppress_entries(d)
+    _suppress = get_suppress_entries(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -43,7 +43,7 @@ def do_sca_conv_flint(d):
                                             Message=m.group("msg"),
                                             ID=hashlib.md5(str.encode(m.group("msg"))).hexdigest(),
                                             Severity=severity_map[m.group("severity").strip()])
-                    if g.GetPlainID() in __suppress:
+                    if g.GetFormattedID() in _suppress:
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

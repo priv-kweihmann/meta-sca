@@ -20,7 +20,7 @@ def do_sca_conv_xmllint(d):
 
     pattern = r"^(?P<file>.*):(?P<line>\d+):\s+(?P<id>.*)\s+:\s+(?P<msg>.*)"
 
-    __suppress = get_suppress_entries(d)
+    _suppress = get_suppress_entries(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -36,7 +36,7 @@ def do_sca_conv_xmllint(d):
                                             Message=m.group("msg"),
                                             ID=m.group("id"),
                                             Severity="error")
-                    if g.GetPlainID() in __suppress:
+                    if g.GetFormattedID() in _suppress:
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

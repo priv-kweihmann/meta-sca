@@ -12,6 +12,7 @@ def do_sca_conv_shellcheck(d):
     
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
+    _suppress = get_suppress_entries(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -32,6 +33,8 @@ def do_sca_conv_shellcheck(d):
                                                 Message=f.attrib.get("message"),
                                                 ID=f.attrib.get("source"),
                                                 Severity=f.attrib.get("severity"))
+                        if g.GetFormattedID() in _suppress:
+                            continue
                         if g.Severity in sca_allowed_warning_level(d):
                             _findings.append(g)
                     except Exception as exp:
@@ -50,12 +53,8 @@ python do_sca_shellcheck_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "shellcheck-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "shellcheck-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _suppress = get_suppress_entries(d)
-
     _args = ["shellcheck"]
     _args += ["-f", "checkstyle"]
-    if any(_suppress):
-        _args += ["--exclude=SC{}".format(",SC".join(_suppress))]
     
     xml_output = ""
     for k,v in { "bash": "*./bash", "sh": "*./sh", "ksh": "*./ksh"}.items():

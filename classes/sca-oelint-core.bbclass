@@ -25,6 +25,7 @@ def do_sca_conv_oelint(d):
         "info": "info"
     }
     _findings = []
+    _suppress = get_suppress_entries(d)
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
@@ -38,6 +39,8 @@ def do_sca_conv_oelint(d):
                                             Message=m.group("message"),
                                             ID=m.group("id").replace(".", "_"),
                                             Severity=severity_map[m.group("severity")])
+                    if g.GetFormattedID() in _suppress:
+                        continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)
                 except Exception as exp:
@@ -60,11 +63,7 @@ python do_sca_oelint_core() {
     result_raw_file = os.path.join(d.getVar("T"), "sca_raw_oelint.txt")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
 
-    __suppress = get_suppress_entries(d)
-
     _args = ['oelint-adv']
-    for item in __suppress:
-        _args += ["--suppress={}".format(item)]
     _args += ["--output={}".format(result_raw_file)]
     _files = [x.strip() for x in d.getVar("BBINCLUDED").split(" ") if x.strip().endswith(".bb") or x.strip().endswith(".bbappend")]
 

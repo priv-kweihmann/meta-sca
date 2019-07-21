@@ -29,7 +29,7 @@ def do_sca_conv_oclint(d):
         "3" : "info"
     }
 
-    __suppress = get_suppress_entries(d)
+    _suppress = get_suppress_entries(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -52,7 +52,7 @@ def do_sca_conv_oclint(d):
                                             Message=item["message"].strip() or item["rule"],
                                             ID=item["rule"].replace(" ", "_"),
                                             Severity=severity_map[str(item["priority"])])
-                    if g.GetPlainID() in __suppress:
+                    if g.GetFormattedID() in _suppress:
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         sca_add_model_class(d, g)

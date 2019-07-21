@@ -52,7 +52,7 @@ def do_sca_conv_tscancode(d):
         "Information" : "info"
     }
 
-    __suppress = get_suppress_entries(d)
+    _suppress = get_suppress_entries(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -69,7 +69,7 @@ def do_sca_conv_tscancode(d):
                                             Message=node.attrib["msg"],
                                             ID="{}_{}".format(node.attrib["id"], node.attrib["subid"]),
                                             Severity=severity_map[node.attrib["severity"]])
-                    if g.GetPlainID() in __suppress:
+                    if g.GetFormattedID() in _suppress:
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

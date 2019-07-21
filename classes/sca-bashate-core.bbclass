@@ -37,6 +37,8 @@ def do_sca_conv_bashate(d):
     }
 
     _findings = []
+    _suppress = get_suppress_entries(d)
+
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
@@ -51,6 +53,8 @@ def do_sca_conv_bashate(d):
                                             Message=m.group("msg"),
                                             ID=m.group("id"),
                                             Severity=severity_map[m.group("id")])
+                    if g.GetFormattedID() in _suppress:
+                        continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)
                 except Exception as exp:
@@ -66,11 +70,7 @@ python do_sca_bashate_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "bashate-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "bashate-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _suppress = get_suppress_entries(d)
-
     _args = ["bashate"]
-    if any(_suppress):
-        _args += ["--ignore={}".format(",".join(_suppress))]
 
     ## Run
     cmd_output = ""

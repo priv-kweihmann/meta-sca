@@ -144,7 +144,7 @@ def do_sca_conv_ansible(d):
                                                     Message=_get_finding_message(d, _pb_key, _tk_node, item),
                                                     ID=_get_finding_id(d, _pb_key, _tk_node, item),
                                                     Severity=_get_finding_severity(d, _pb_key, _tk_node, item))
-                            if g.GetPlainID() in __suppress:
+                            if g.GetFormattedID() in __suppress:
                                 continue
                             if g.File in __excludes:
                                 continue

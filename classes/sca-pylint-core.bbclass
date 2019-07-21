@@ -22,6 +22,7 @@ def do_sca_conv_pylint(d):
     }
 
     _findings = []
+    _suppress = get_suppress_entries(d)
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
@@ -36,6 +37,8 @@ def do_sca_conv_pylint(d):
                                             Message=m.group("message"),
                                             ID="{}{}".format(m.group("raw_severity"), m.group("raw_severity_id")),
                                             Severity=severity_map[m.group("raw_severity")[0]])
+                    if g.GetFormattedID() in _suppress:
+                        continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)
                 except Exception as exp:
@@ -52,13 +55,9 @@ python do_sca_pylint_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pylint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pylint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _suppress = get_suppress_entries(d)
-
     _args = ["python3", "-m", "pylint"]
     _args += ["--output-format=parseable"]
     _args += ["--score=no"]
-    if any(_suppress):
-        _args += ["--disable={}".format(",".join(_suppress))]
     _args += ["--rcfile={}/pylint.rc".format(d.getVar("T"))]
     if d.getVar("SCA_PYLINT_EXTRA"):
         _args += d.getVar("SCA_PYLINT_EXTRA").split(" ")
