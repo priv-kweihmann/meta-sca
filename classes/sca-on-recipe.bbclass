@@ -39,6 +39,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             ropgadget \
                             score \
                             shellcheck \
+                            sparse \
                             standard \
                             stylelint \
                             textlint \

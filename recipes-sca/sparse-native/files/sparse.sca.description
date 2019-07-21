@@ -1,0 +1,7 @@
+{
+    "languages": [ "C" ],
+    "scope": ["functional"],
+    "buildspeed" : 8,
+    "execspeed": 7,
+    "quality": 5
+}

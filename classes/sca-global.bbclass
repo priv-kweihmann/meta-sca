@@ -80,6 +80,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           ropgadget \
                           score \
                           shellcheck \
+                          sparse \
                           standard \
                           stylelint \
                           systemdlint \
