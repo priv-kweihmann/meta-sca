@@ -1,7 +1,8 @@
 inherit sca-conv-to-export
 inherit sca-datamodel
+inherit sca-blacklist
 
-DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-python-magic-native"
+DEPENDS += "${@oe.utils.ifelse(sca_is_module_blacklisted(d, 'foo'), '', '${SCA_STD_PYTHON_INTERPRETER}-python-magic-native')}"
 
 inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3-dir', 'python-dir')}
 

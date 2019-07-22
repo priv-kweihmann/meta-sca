@@ -3,7 +3,7 @@
 inherit sca-global
 inherit sca-helper
 inherit sca-file-filter
-inherit sca-blackllist
+inherit sca-blacklist
 
 SCA_PACKAGE_LICENSE_FILTER = "CLOSED"
 SCA_ENABLED_MODULES_IMAGE ?= "\

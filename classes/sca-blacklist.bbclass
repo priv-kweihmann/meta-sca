@@ -50,7 +50,6 @@ SCA_BLACKLIST_zrd ?= "linux-.*"
 def sca_is_module_blacklisted(d, tool):
     import re
     pn = d.getVar("PN")
-    matches = d.getVar("SCA_BLACKLIST") or ""
-    matches += d.getVar("SCA_BLACKLIST_{}".format(tool.replace("-", "_"))) or ""
-    matches = [x for x in matches.split(" ") if x]
+    matches = [x for x in (d.getVar("SCA_BLACKLIST") or "").split(" ") if x]
+    matches += [x for x in (d.getVar("SCA_BLACKLIST_{}".format(tool.replace("-", "_"))) or "").split(" ") if x]
     return any([re.match(x, pn) for x in matches])
