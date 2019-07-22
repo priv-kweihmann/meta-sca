@@ -18,6 +18,7 @@
 - [x] terminate build on fatal
 - [x] run on recipe
 - [x] run on image
+- [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 
@@ -50,6 +51,7 @@
 * oelint.oelint.var.override - Check if include/append is overriding a variable
 * oelint.oelint.var.suggestedvar - Notice on suggested variables
 * oelint.oelint.vars.bugtrackerisurl - BUGTRACKER should be an URL
+* oelint.oelint.vars.dependsappend - DEPENDS should only be appended, not overwritten
 * oelint.oelint.vars.homepageprefix - HOMEPAGE should begin with https:// or http://
 * oelint.oelint.vars.multilineident - On a multiline assignment, line indent is desirable
 * oelint.oelint.vars.sectionlowercase - SECTION should be lowercase only

@@ -26,6 +26,7 @@ This module offers the possibility to issue a warning or an error if a configure
 - [x] terminate build on fatal
 - [x] run on recipe
 - [ ] run on image
+- [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 

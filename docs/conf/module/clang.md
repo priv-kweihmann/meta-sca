@@ -22,6 +22,7 @@
 - [x] terminate build on fatal
 - [x] run on recipe
 - [ ] run on image
+- [ ] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 
