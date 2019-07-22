@@ -9,7 +9,7 @@ python __anonymous() {
     import bb
     from bb.parse.parse_py import BBHandler
     if d.getVar("SCA_ENABLE") == "1":
-        if d.getVar("IMAGE_INSTALL") and d.getVar("SCA_AUTO_INH_ON_IMAGE") == "1":
+        if d.getVar("IMAGE_INSTALL") and d.getVar("IMAGE_TYPES") and d.getVar("SCA_AUTO_INH_ON_IMAGE") == "1":
             BBHandler.inherit("sca-on-image", "sca", 1, d)
             sca_on_image_init(d)
         elif d.getVar("SCA_AUTO_INH_ON_RECIPE") == "1":
