@@ -2,7 +2,7 @@
 
 ## Before we start...
 
-If you're interested in using this layer, please let me know we to go next.
+If you're interested in using this layer, please let me know where to go next.
 
 Just [vote here](https://github.com/priv-kweihmann/meta-sca/issues/254#issue-473627394) for upcoming features.
 
