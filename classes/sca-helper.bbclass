@@ -105,22 +105,25 @@ def get_files_by_mimetype(d, path, mime, excludes=[]):
     import os
     import sys
     sys.path.append(os.path.join(d.getVar("STAGING_DIR_NATIVE"), d.getVar("PYTHON_SITEPACKAGES_DIR")[1:]))
-    import magic
-    local_dirs = clean_split(d, "SCA_LOCAL_FILE_FILTER")
-    res = []
-    for root, dirs, files in os.walk(path, topdown=True):
-        for item in files:
-            _filename = os.path.join(root, item)
-            if any([_filename.startswith(x) for x in local_dirs]):
-                continue
-            if _filename in excludes:
-                continue
-            try:
-                if magic.from_file(_filename, mime=True) in mime:
-                    res.append(_filename)
-            except:
-                pass
-    return [x for x in res if os.path.isfile(x)]
+    try:
+        import magic
+        local_dirs = clean_split(d, "SCA_LOCAL_FILE_FILTER")
+        res = []
+        for root, dirs, files in os.walk(path, topdown=True):
+            for item in files:
+                _filename = os.path.join(root, item)
+                if any([_filename.startswith(x) for x in local_dirs]):
+                    continue
+                if _filename in excludes:
+                    continue
+                try:
+                    if magic.from_file(_filename, mime=True) in mime:
+                        res.append(_filename)
+                except:
+                    pass
+        return [x for x in res if os.path.isfile(x)]
+    except ImportError:
+        return []
 
 def get_files_by_glob(d, pattern, excludes=[]):
     import os
