@@ -27,6 +27,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             htmlhint \
                             jsonlint \
                             kconfighard \
+                            npmaudit \
                             oclint \
                             oelint \
                             proselint \

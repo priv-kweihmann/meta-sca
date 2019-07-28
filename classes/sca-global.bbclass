@@ -69,6 +69,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           htmlhint \
                           jsonlint \
                           kconfighard \
+                          npmaudit \
                           oelint \
                           proselint \
                           pyfindinjection \

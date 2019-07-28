@@ -89,6 +89,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [htmlhint](https://github.com/htmlhint/HTMLHint) (html) [htmlhint]
  * json-parser (json) [jsonlint]
  * [kconfig-hardened-check](https://github.com/a13xp0p0v/kconfig-hardened-check) (check hardening of kernel) [kconfighard]
+ * [npmaudit](https://docs.npmjs.com/cli/audit) (check for security vulnerabilities in npm packages) [npmaudit]
  * [oclint](https://github.com/oclint/oclint) (c/c++/obj-c) [oclint] **disabled by default**
  * [oelint-adv](https://github.com/priv-kweihmann/oelint-adv) (linting bitbake recipes) [oelint]
  * [py-find-injection](https://github.com/uber/py-find-injection) (find SQL injections in python) [pyfindinjection]
@@ -151,6 +152,7 @@ To make the integration of clang-module (clang-tidy) work you need to add the [m
     - [htmlhint](docs/conf/module/htmlhint.md)
     - [jsonlint](docs/conf/module/jsonlint.md)
     - [kconfighard](docs/conf/module/kconfighard.md)
+    - [npmaudit](docs/conf/module/npmaudit.md)
     - [oclint](docs/conf/module/oclint.md)
     - [oelint](docs/conf/module/oelint.md)
     - [proselint](docs/conf/module/proselint.md)
