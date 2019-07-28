@@ -103,4 +103,4 @@ addtask do_sca_deploy_npmaudit after do_sca_npmaudit before do_package
 do_sca_npmaudit[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_npmaudit[nostamp] = "${@sca_force_run(d)}"
 
-DEPENDS += "npmaudit-sca-native sca-recipe-gcc-rules-native"
+DEPENDS += "npmaudit-sca-native sca-recipe-npmaudit-rules-native"
