@@ -11,5 +11,3 @@ DEPENDS += "nodejs-native"
 S = "${WORKDIR}/git"
 
 inherit sca
-
-SCA_ENABLED_MODULES = "npmaudit"
