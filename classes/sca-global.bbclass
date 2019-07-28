@@ -79,6 +79,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           radon \
                           rats \
                           ropgadget \
+                          safety \
                           score \
                           shellcheck \
                           sparse \

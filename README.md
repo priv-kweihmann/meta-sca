@@ -100,6 +100,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [radon](https://github.com/rubik/radon) (metrics for python) [radon]
  * [rats](https://github.com/redNixon/rats) (security for c/php/python/perl/ruby) [rats]
  * [ropgadget](https://github.com/JonathanSalwan/ROPgadget) (determine exploitability with ROP in binary) [ropgadget]
+ * [safety](https://github.com/pyupio/safety) (python packages) [safety]
  * score (calculate a score for a module, like pylint does) [score]
  * [sparse](https://sparse.wiki.kernel.org/index.php/Main_Page) (C) [sparse]
  * [shellcheck](https://github.com/koalaman/shellcheck) (shell) [shellcheck]
@@ -163,6 +164,7 @@ To make the integration of clang-module (clang-tidy) work you need to add the [m
     - [radon](docs/conf/module/radon.md)
     - [rats](docs/conf/module/rats.md)
     - [ropgadget](docs/conf/module/ropgadget.md)
+    - [safety](docs/conf/module/safety.md)
     - [sparse](docs/conf/module/sparse.md)
     - [shellcheck](docs/conf/module/shellcheck.md)
     - [standard](docs/conf/module/standard.md)

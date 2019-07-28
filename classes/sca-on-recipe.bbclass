@@ -38,6 +38,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             radon \
                             rats \
                             ropgadget \
+                            safety \
                             score \
                             shellcheck \
                             sparse \
