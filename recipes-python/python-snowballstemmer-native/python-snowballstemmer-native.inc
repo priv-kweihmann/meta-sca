@@ -2,9 +2,11 @@ SUMMARY = "Snowball compiler and stemming algorithms"
 DESCRIPTION = "Snowball compiler and stemming algorithms"
 HOMEPAGE = "https://github.com/snowballstem/snowball"
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=550794465ba0ec5312d6919e203a55f9"
+LIC_FILES_CHKSUM = "file://COPYING;md5=2750797da77c1d784e7626b3f7d7ff3e"
 
-PYPI_PACKAGE = "snowballstemmer"
+SRC_URI = "git://github.com/snowballstem/snowball.git;protocol=https"
+SRCREV = "69ea0d05cdb5aeb073015912cf8e1d18e1d645a4"
 
-inherit pypi
+S = "${WORKDIR}/git"
+
 inherit native

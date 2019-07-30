@@ -1,7 +1,7 @@
 DESCRIPTION = "Simple helloworld application"
 SECTION = "examples"
-LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
+LICENSE = "BSD-2-Clause"
+LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=e926c89aceef6c1a4247d5df08f94533"
 
 SRC_URI = "file://simple-hello-world.c"
 

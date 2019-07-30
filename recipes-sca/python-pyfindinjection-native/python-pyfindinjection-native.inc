@@ -2,13 +2,14 @@ SUMMARY = "simple python ast consumer which searches for common SQL injection at
 DESCRIPTION = "simple python ast consumer which searches for common SQL injection attacks"
 HOMEPAGE = "https://github.com/uber/py-find-injection"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=0835ade698e0bcf8506ecda2f7b4f302"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=1d25d70fea8b21087517ef9490406cb9"
+
+SRC_URI = "git://github.com/uber/py-find-injection.git;protocol=https"
+SRCREV = "f91c137e8b78424bec78085df771b1a6f62c6769"
+
+S = "${WORKDIR}/git"
 
 DEPENDS += "${PYTHON_PN}-native"
-
-PYPI_PACKAGE = "py-find-injection"
-
-inherit pypi
 
 FILES_${PN} += "${datadir}"
 SRC_URI += "file://pyfindinjection.sca.description \

@@ -2,9 +2,12 @@ SUMMARY = "Flake8 plugin that checks Python code against a set of opinionated st
 DESCRIPTION = "Flake8 plugin that checks Python code against a set of opinionated style rules"
 HOMEPAGE = "https://github.com/smarkets/flake8-strict"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=0835ade698e0bcf8506ecda2f7b4f302"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=a6ceb86d5d9e2cc99e949bd8ec58dba3"
 
-PYPI_PACKAGE = "flake8_strict"
+SRC_URI = "git://github.com/smarkets/flake8-strict.git;protocol=https"
+SRCREV = "7c40ad30ecb6d8a31ac384ed49bb8107cfd5023e"
+
+S = "${WORKDIR}/git"
 
 DEPENDS += " \
             ${PYTHON_PN}-black-native \
@@ -12,5 +15,4 @@ DEPENDS += " \
             ${PYTHON_PN}-flake8-native \
             "
 
-inherit pypi
 inherit native
