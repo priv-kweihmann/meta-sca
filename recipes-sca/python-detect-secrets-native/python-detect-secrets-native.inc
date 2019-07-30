@@ -2,14 +2,14 @@ SUMMARY = "An enterprise friendly way of detecting and preventing secrets in cod
 DESCRIPTION = "An enterprise friendly way of detecting and preventing secrets in code. "
 HOMEPAGE = "https://github.com/Yelp/detect-secrets"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/Apache-2.0;md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=abffc869c10cd01c979217e9dded27a1"
 
-PYPI_PACKAGE = "detect_secrets"
+SRC_URI = "git://github.com/Yelp/detect-secrets.git;protocol=https;tag=v${PV}"
+S = "${WORKDIR}/git"
 
 DEPENDS += "${PYTHON_PN}-native ${PYTHON_PN}-pyyaml-native"
 
 inherit native
-inherit pypi
 
 SRC_URI += "file://detectsecrets.sca.description \
             file://detectsecrets.sca.score"
