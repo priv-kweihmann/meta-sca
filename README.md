@@ -87,6 +87,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [flint++](https://github.com/JossWhittle/FlintPlusPlus) (c/c++) [flint]
  * gcc (getting compiler warnings/errors) [gcc]
  * [golint](https://github.com/golang/lint) (go) [golint]
+ * [gosec](https://github.com/securego/gosec) (go) [gosec]
  * [govet](https://golang.org/cmd/vet/) (go) [govet]
  * [htmlhint](https://github.com/htmlhint/HTMLHint) (html) [htmlhint]
  * json-parser (json) [jsonlint]
@@ -153,6 +154,7 @@ To make the integration of clang-module (clang-tidy) work you need to add the [m
     - [gcc](docs/conf/module/gcc.md)
     - [gixy](docs/conf/module/gixy.md)
     - [golint](docs/conf/module/golint.md)
+    - [gosec](docs/conf/module/gosec.md)
     - [govet](docs/conf/module/govet.md)
     - [htmlhint](docs/conf/module/htmlhint.md)
     - [jsonlint](docs/conf/module/jsonlint.md)
