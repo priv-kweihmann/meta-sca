@@ -81,6 +81,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           pytype \
                           radon \
                           rats \
+                          revive \
                           ropgadget \
                           safety \
                           score \

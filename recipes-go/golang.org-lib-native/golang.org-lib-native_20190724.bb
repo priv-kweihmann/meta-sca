@@ -39,7 +39,6 @@ LIC_FILES_CHKSUM  = "file://src/${GO_IMPORT}/crypto/LICENSE;md5=5d4950ecb7b26d2c
 PROVIDES += "golang.org-x-crypt-native"
 PROVIDES += "golang.org-x-mod-native"
 PROVIDES += "golang.org-x-net-native"
-PROVIDES += "golang.org-x-sync-mod"
 PROVIDES += "golang.org-x-sync-native"
 PROVIDES += "golang.org-x-sys-native"
 PROVIDES += "golang.org-x-text-native"

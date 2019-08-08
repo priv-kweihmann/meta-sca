@@ -40,6 +40,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             pytype \
                             radon \
                             rats \
+                            revive \
                             ropgadget \
                             safety \
                             score \
