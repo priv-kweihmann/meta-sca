@@ -67,6 +67,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           gcc \
                           gixy \
                           golint \
+                          gosec \
                           govet \
                           htmlhint \
                           jsonlint \
