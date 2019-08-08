@@ -66,6 +66,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           flint \
                           gcc \
                           gixy \
+                          govet \
                           htmlhint \
                           jsonlint \
                           kconfighard \
@@ -90,4 +91,4 @@ SCA_AVAILABLE_MODULES ?= "\
                           yamllint \
                           zrd"
 
-SCA_ENABLED_MODULES = "${SCA_ENABLED_MODULES_${SCA_MODE_UPPER}}"
+SCA_ENABLED_MODULES := "${SCA_ENABLED_MODULES_${SCA_MODE_UPPER}}"
