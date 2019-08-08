@@ -1,0 +1,46 @@
+SUMMARY = "Go supplementary libraries"
+HOMEPAGE = "https://github.com/golang"
+
+SRC_URI = "\
+	git://github.com/golang/crypto.git;protocol=https;name=crypto;destsuffix=git/src/golang.org/x/crypto \
+	git://github.com/golang/net.git;protocol=https;name=net;destsuffix=git/src/golang.org/x/net \
+	git://github.com/golang/text.git;protocol=https;name=text;destsuffix=git/src/golang.org/x/text \
+    git://github.com/golang/mod.git;protocol=https;name=mod;destsuffix=git/src/golang.org/x/mod \
+    git://github.com/golang/sync.git;protocol=https;name=sync;destsuffix=git/src/golang.org/x/sync \
+    git://github.com/golang/sys.git;protocol=https;name=sys;destsuffix=git/src/golang.org/x/sys \
+    git://github.com/golang/tools.git;protocol=https;name=tools;destsuffix=git/src/golang.org/x/tools \
+	"
+
+S = "${WORKDIR}/git"
+
+SRCREV_crypto = "4def268fd1a49955bfb3dda92fe3db4f924f2285"
+SRCREV_mod = "d8296639b499981d50d327e4b5714c5734e925d6"
+SRCREV_net = "ca1201d0de80cfde86cb01aea620983605dfe99b"
+SRCREV_sync = "112230192c580c3556b8cee6403af37a4fc5f28c"
+SRCREV_sys = "fae7ac547cb717d141c433a2a173315e216b64c4"
+SRCREV_text = "342b2e1fbaa52c93f31447ad2c6abc048c63e475"
+SRCREV_tools = "8bb11ff117ca820938b6d899b13b3f2832ef244c"
+
+GO_IMPORT = "golang.org/x"
+
+LICENSE = "BSD-3-Clause"
+LIC_FILES_CHKSUM  = "file://src/${GO_IMPORT}/crypto/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707 \
+                     file://src/${GO_IMPORT}/mod/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707 \
+                     file://src/${GO_IMPORT}/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707 \
+                     file://src/${GO_IMPORT}/sync/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707 \
+                     file://src/${GO_IMPORT}/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707 \
+                     file://src/${GO_IMPORT}/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707 \
+                     file://src/${GO_IMPORT}/tools/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707 \
+                     "
+
+PROVIDES += "golang.org-x-crypt-native"
+PROVIDES += "golang.org-x-mod-native"
+PROVIDES += "golang.org-x-net-native"
+PROVIDES += "golang.org-x-sync-mod"
+PROVIDES += "golang.org-x-sync-native"
+PROVIDES += "golang.org-x-sys-native"
+PROVIDES += "golang.org-x-text-native"
+PROVIDES += "golang.org-x-tools-native"
+
+inherit go
+inherit native

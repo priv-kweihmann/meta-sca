@@ -86,6 +86,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [flake8](http://flake8.pycqa.org/en/latest/) (python) [flake8]
  * [flint++](https://github.com/JossWhittle/FlintPlusPlus) (c/c++) [flint]
  * gcc (getting compiler warnings/errors) [gcc]
+ * [govet](https://golang.org/cmd/vet/) (go) [govet]
  * [htmlhint](https://github.com/htmlhint/HTMLHint) (html) [htmlhint]
  * json-parser (json) [jsonlint]
  * [kconfig-hardened-check](https://github.com/a13xp0p0v/kconfig-hardened-check) (check hardening of kernel) [kconfighard]
@@ -150,6 +151,7 @@ To make the integration of clang-module (clang-tidy) work you need to add the [m
     - [flint++](docs/conf/module/flint++.md)
     - [gcc](docs/conf/module/gcc.md)
     - [gixy](docs/conf/module/gixy.md)
+    - [govet](docs/conf/module/govet.md)
     - [htmlhint](docs/conf/module/htmlhint.md)
     - [jsonlint](docs/conf/module/jsonlint.md)
     - [kconfighard](docs/conf/module/kconfighard.md)
