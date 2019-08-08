@@ -11,7 +11,7 @@ It should catch almost all functional go related issue
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLACKLIST_go | Blacklist filter for this tool | space-separated-list | "linux-*"
+| SCA_BLACKLIST_govet | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_GOVET_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
 | SCA_GOVET_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
 | SCA_GOVET_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".go"
