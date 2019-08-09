@@ -68,6 +68,7 @@ On the other hand some static code analysis does not make any sense on an image-
 
 ### Tools for all other recipes
 
+ * [alexkohler](https://github.com/alexkohler) (different tools for go) [alexkohler]
  * [ansible-lint](https://github.com/ansible/ansible-lint) (ansible) [ansiblelint]
  * [bandit](https://github.com/PyCQA/bandit) (python/security) [bandit]
  * [bashate](http://docs.openstack.org/developer/bashate/) (shell) [bashate]
@@ -134,6 +135,7 @@ To make the integration of clang-module (clang-tidy) work you need to add the [m
   - [Filter out files to check](docs/conf/filefilter.md)
   - [Suppress findings](docs/conf/suppression.md)
   - Tools
+    - [alexkohler](docs/conf/module/alexkohler.md)
     - [ansible](docs/conf/module/ansible.md)
     - [ansiblelint](docs/conf/modules/ansiblelint.md)
     - [bandit](docs/conf/module/bandit.md)

@@ -1,6 +1,7 @@
 ## This class provides the configuration for blacklisting modules from certain recipes
 ## All configuration is described through space-separated regular expression
 SCA_BLACKLIST ?= ".*-native .*-cross"
+SCA_BLACKLIST_alexkohler ?= ""
 SCA_BLACKLIST_ansible ?= ""
 SCA_BLACKLIST_ansiblelint ?= ""
 SCA_BLACKLIST_bandit ?= "linux-.*"

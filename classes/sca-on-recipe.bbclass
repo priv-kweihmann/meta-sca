@@ -6,6 +6,7 @@ inherit sca-file-filter
 inherit sca-blacklist
 
 SCA_ENABLED_MODULES_RECIPE ?= "\
+                            alexkohler \
                             ansiblelint \
                             bandit \
                             bashate \
