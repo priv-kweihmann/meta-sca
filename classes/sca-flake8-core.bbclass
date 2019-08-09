@@ -27,7 +27,8 @@ def do_sca_conv_flake8(d):
         "M" : "warning",
         "Q" : "warning",
         "S" : "warning",
-        "P" : "warning"
+        "P" : "warning",
+        "DUO" : "warning"
     }
     _findings = []
     _suppress = get_suppress_entries(d)
