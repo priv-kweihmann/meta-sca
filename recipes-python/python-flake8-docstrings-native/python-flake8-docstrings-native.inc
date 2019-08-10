@@ -1,0 +1,15 @@
+SUMMARY = "Extension for flake8 which uses pydocstyle to check docstrings"
+
+HOMEPAGE = "https://gitlab.com/pycqa/flake8-docstrings"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=a34bc20b983e1104e2d50423b224b087"
+
+PYPI_PACKAGE = "flake8-docstrings"
+
+DEPENDS += " \
+            ${PYTHON_PN}-flake8-native \
+            ${PYTHON_PN}-pydocstyle-native \
+            "
+
+inherit pypi
+inherit native

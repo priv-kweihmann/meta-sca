@@ -4,6 +4,7 @@ require python-flake8-sca-native.inc
 ## With python3 we can also use the following
 DEPENDS += "\
             ${PYTHON_PN}-flake8-executable-native \
+            ${PYTHON_PN}-wemake-python-styleguide-native \
            "
 
 ## If we have python 3.6+ additionally enable the following

@@ -16,19 +16,27 @@ def do_sca_conv_flake8(d):
     pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<col>\d+):\s*(?P<severity>[A-Z]+)(?P<id>\d+)\s+(?P<message>.*)"
 
     severity_map = {
-        "F" : "error",
-        "E" : "error",
-        "W" : "error",
-        "A" : "warning",
-        "C" : "warning",
-        "EXE" : "warning",
-        "T" : "warning",
-        "I" : "warning",
-        "M" : "warning",
-        "Q" : "warning",
-        "S" : "warning",
-        "P" : "warning",
-        "DUO" : "warning"
+        "DUO": "warning",
+        "EXE": "error",
+        "RST": "warning",
+        "TAE": "warning",
+        "WPS": "warning",
+        "A": "warning",
+        "B": "warning",
+        "C": "warning",
+        "D": "warning",
+        "E": "error",
+        "F": "error",
+        "G": "warning",
+        "I": "warning",
+        "M": "warning",
+        "N": "warning",
+        "P": "error",
+        "Q": "warning",
+        "R": "info",
+        "S": "error",
+        "T": "warning",
+        "W": "warning"
     }
     _findings = []
     _suppress = get_suppress_entries(d)

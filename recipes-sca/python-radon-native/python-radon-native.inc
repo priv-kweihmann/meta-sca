@@ -9,7 +9,7 @@ SRC_URI += "file://radon.sca.description \
 
 DEPENDS += "\
             ${PYTHON_PN}-colorama-native \
-            ${PYTHON_PN}-flake8polyfill-native \
+            ${PYTHON_PN}-flake8-polyfill-native \
             ${PYTHON_PN}-future-native \
             ${PYTHON_PN}-mando-native \
             "
