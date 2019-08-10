@@ -28,6 +28,7 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             stylelint \
                             systemdlint \
                             tlv \
+                            vulture \
                             xmllint \
                             yamllint \
                             "

@@ -52,6 +52,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             textlint \
                             tlv \
                             tscancode \
+                            vulture \
                             xmllint \
                             yamllint \
                             zrd \

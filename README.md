@@ -63,6 +63,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [stylelint](https://github.com/stylelint/stylelint) (css, scss) [stylelint]
  * [systemdlint](https://github.com/priv-kweihmann/systemdlint) (systemd) [systemdlint]
  * [tlv](https://github.com/priv-kweihmann/tlv) (duplicate code) [tlv] **disabled by default**
+ * [vulture](https://github.com/jendrikseipp/vulture) (python) [vulture]
  * [xmllint](http://xmlsoft.org/xmllint.html) (xml) [xmllint]
  * [yamllint](https://github.com/adrienverge/yamllint) (yaml) [yamllint]
 
@@ -114,6 +115,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [textlint](https://github.com/textlint/textlint) (spelling) [textlint]
  * [tlv](https://github.com/priv-kweihmann/tlv) (duplicate code) [tlv] **disabled by default**
  * [tscancode](https://github.com/Tencent/TscanCode) (c,c#,lua) [tscancode]
+ * [vulture](https://github.com/jendrikseipp/vulture) (python) [vulture]
  * [xmllint](http://xmlsoft.org/xmllint.html) [xmllint]
  * [yamllint](https://github.com/adrienverge/yamllint) (yaml) [yamllint]
  * [zeroresourcedetector](https://github.com/0Cubed/ZeroResourceDetector) (g18n/i18n) [zrd]
@@ -183,6 +185,7 @@ To make the integration of clang-module (clang-tidy) work you need to add the [m
     - [textlint](docs/conf/module/textlint.md)
     - [tlv](docs/conf/module/tlv.md)
     - [tscancode](docs/conf/module/tscancode.md)
+    - [vulture](docs/conf/module/vulture.md)
     - [xmllint](docs/conf/module/xmllint.md)
     - [yamllint](docs/conf/module/yamllint.md)
     - [zrd](docs/conf/module/zrd.md)

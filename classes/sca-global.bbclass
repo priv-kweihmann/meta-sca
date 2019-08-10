@@ -93,6 +93,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           systemdlint \
                           textlint \
                           tscancode \
+                          vulture \
                           xmllint \
                           yamllint \
                           zrd"
