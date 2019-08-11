@@ -66,9 +66,13 @@ def import_and_extract(parent_dir):
                 __import__(module_name)
         except:
             pass
-        args, kwargs = mock_setup.call_args
-        return sorted(kwargs.get('install_requires', []))
-    sys.path.pop(0)
+        try:
+            args, kwargs = mock_setup.call_args
+        except:
+            sys.path.pop(0)
+            return []
+        sys.path.pop(0)
+        return sorted(kwargs.get('install_requires', [])) or []
 
 python do_sca_safety() {
     import os
