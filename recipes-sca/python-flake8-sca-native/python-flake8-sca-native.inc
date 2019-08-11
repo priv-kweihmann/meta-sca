@@ -10,7 +10,7 @@ SRC_URI += "file://flake8.sca.description \
 
 DEPENDS += "\
             ${PYTHON_PN}-flake8-comprehensions-native \
-            ${PYTHON_PN}-flake8-dlint \
+            ${PYTHON_PN}-flake8-dlint-native \
             ${PYTHON_PN}-flake8-eradicate-native \
             ${PYTHON_PN}-flake8-import-order-native \
             ${PYTHON_PN}-flake8-mutable-native \
