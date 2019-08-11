@@ -205,7 +205,8 @@ def do_sca_conv_gcc(d):
     severity_map = {
         "error" : "error",
         "warning" : "warning",
-        "info": "info"
+        "info": "info",
+        "note": "info"
     }
 
     _suppress = get_suppress_entries(d)
