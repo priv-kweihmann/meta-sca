@@ -20,4 +20,6 @@ do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/dennis.sca.description ${D}${datadir}
     install ${WORKDIR}/dennis.sca.score ${D}${datadir}
+    ## This otherwise collides with other modules
+    rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/tests/
 }
