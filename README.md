@@ -39,6 +39,63 @@ The layer can check on a recipe-level or on an image-level.
 On image-level the whole root-filesystem could be taken into account, which in most cases can't be granted on a recipe-level.
 On the other hand some static code analysis does not make any sense on an image-level - so this layer does have different tools for both level available. In square brackets the corresponding setting in this layer is given
 
+### Overview of tools
+
+Module | C/C++ | Python | Shell | Javascript | PHP | Go | Images | Spelling | Metrics | Packages | Other Formats | Security scope | Functional scope | Style scope
+| ------------- |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+alexkohler      |   |   |   |   |   | ✓ |   |   |   |   |   |   |   | ✓ |
+ansible         |   |   |   |   |   |   | ✓ |   |   |   |   | ✓ |   |   |
+ansiblelint     |   |   |   |   |   |   |   |   |   |   | ✓ | ✓ | ✓ | ✓ |
+bandit          |   | ✓ |   |   |   |   |   |   |   |   | ✓ |   |   |   |
+bashate         |   |   | ✓ |   |   |   |   |   |   |   |   |   | ✓ | ✓ |
+bitbake         |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |   |
+checkbashism    |   |   | ✓ |   |   |   |   |   |   |   |   |   | ✓ | ✓ |
+clang           | ✓ |   |   |   |   |   |   |   |   |   |   |   | ✓ |   |
+cppcheck        | ✓ |   |   |   |   |   |   |   |   |   |   | ✓ | ✓ | ✓ |
+cpplint         | ✓ |   |   |   |   |   |   |   |   |   |   | ✓ | ✓ | ✓ |
+cqmetrics       | ✓ |   |   |   |   |   |   |   | ✓ |   |   |   | ✓ |   |
+cspell          |   |   |   |   |   |   |   | ✓ |   |   |   |   |   | ✓ |
+cvecheck        |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ |   |   |
+darglint        |   | ✓ |   |   |   |   |   |   |   |   |   |   |   | ✓ |
+dennis          |   |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ | ✓ |
+detectsecrets   |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ |   |   |
+eslint          |   |   |   | ✓ |   |   |   |   |   |   |   |   | ✓ |   |
+flake8          |   | ✓ |   |   |   |   |   |   |   |   |   |   | ✓ | ✓ |
+flint           | ✓ |   |   |   |   |   |   |   |   |   |   |   | ✓ |   |
+gcc             | ✓ |   |   |   |   |   |   |   |   |   |   | ✓ | ✓ |   |
+gixy            |   |   |   |   |   |   |   |   |   |   | ✓ | ✓ |   |   |
+golint          |   |   |   |   |   | ✓ |   |   |   |   |   |   |   | ✓ |
+gosec           |   |   |   |   |   | ✓ |   |   |   |   |   | ✓ |   |   |
+govet           |   |   |   |   |   | ✓ |   |   |   |   |   |   | ✓ |   |
+htmllint        |   |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ | ✓ |
+jsonlint        |   |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ |   |
+kconfighard     |   |   |   |   |   |   |   |   |   |   | ✓ | ✓ | ✓ |   |
+npmaudit        |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ |   |   |
+oclint          | ✓ |   |   |   |   |   |   |   |   |   |   |   | ✓ |   |
+oelint          |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
+proselint       |   |   |   |   |   |   |   | ✓ |   |   |   |   |   | ✓ |
+pyfindinjection |   | ✓ |   |   |   |   |   |   |   |   |   | ✓ |   |   |
+pylint          |   | ✓ |   |   |   |   |   |   |   |   |   |   | ✓ | ✓ |
+pysymcheck      |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ |   |   |
+pytype          |   | ✓ |   |   |   |   |   |   |   |   |   |   | ✓ |   |
+radon           |   | ✓ |   |   |   |   |   |   | ✓ |   |   |   |   | ✓ |
+rats            | ✓ | ✓ |   |   | ✓ |   |   |   |   |   | ✓ |   |   |   |
+revive          |   |   |   |   |   | ✓ |   |   |   |   |   |   | ✓ | ✓ |
+ropgadget       |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ |   |   |
+safety          |   | ✓ |   |   |   |   |   |   |   |   |   | ✓ |   |   |
+sheckcheck      |   |   | ✓ |   |   |   |   |   |   |   |   |   | ✓ | ✓ |
+sparse          | ✓ |   |   |   |   |   |   |   |   |   |   |   | ✓ |   |
+standard        |   |   |   | ✓ |   |   |   |   |   |   |   |   | ✓ | ✓ |
+stylelint       |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
+systemdlint     |   |   |   |   |   |   |   |   |   | ✓ | ✓ | ✓ | ✓ | ✓ |
+textlint        |   |   |   |   |   |   |   | ✓ |   |   |   |   |   | ✓ |
+tlv             | ✓ | ✓ | ✓ | ✓ |   | ✓ |   |   |   |   |   | ✓ |   | ✓ |
+tscancode       | ✓ |   |   |   |   |   |   |   |   |   |   |   | ✓ |   |
+vulture         |   | ✓ |   |   |   |   |   |   |   |   |   |   | ✓ |   |
+xmllint         |   |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ |   |
+yamllint        |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
+zrd             |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
+
 ### Tools for image recipes
 
  * ansible (security) [ansible]
