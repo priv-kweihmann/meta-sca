@@ -94,7 +94,10 @@ python do_sca_eslint_core() {
     with open(result_raw_file, "w") as o:
         o.write(cmd_output)
 
-    os.remove("node_modules")
+    try:
+        os.remove("node_modules")
+    except FileNotFoundError:
+        pass
     
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/eslint.dm".format(d.getVar("T")))
