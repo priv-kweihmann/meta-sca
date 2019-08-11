@@ -11,3 +11,5 @@ DEPENDS += "nodejs-native"
 S = "${WORKDIR}/git"
 
 inherit sca
+
+SCA_BLACKLIST_proselint += "${PN}"
