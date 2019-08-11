@@ -42,6 +42,7 @@ The default settings are taken from the individual tool setting files.
 - [ ] terminate build on fatal
 - [x] run on recipe
 - [ ] run on image
+- [ ] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 

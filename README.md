@@ -107,7 +107,7 @@ On the other hand some static code analysis does not make any sense on an image-
  * [revive](https://github.com/mgechev/revive) (go) [revive]
  * [ropgadget](https://github.com/JonathanSalwan/ROPgadget) (determine exploitability with ROP in binary) [ropgadget]
  * [safety](https://github.com/pyupio/safety) (python packages) [safety]
- * score (calculate a score for a module, like pylint does) [score]
+ * score (calculate a score for a module, like pylint does) [score] **disabled by default**
  * [sparse](https://sparse.wiki.kernel.org/index.php/Main_Page) (C) [sparse]
  * [shellcheck](https://github.com/koalaman/shellcheck) (shell) [shellcheck]
  * [standard](https://github.com/standard/standard) (javascript) [standard]

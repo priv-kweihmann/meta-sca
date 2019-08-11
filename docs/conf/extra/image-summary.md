@@ -13,6 +13,7 @@ With this you can strip off all the tool that are just used for building and don
 - [ ] terminate build on fatal
 - [ ] run on recipe
 - [x] run on image
+- [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 

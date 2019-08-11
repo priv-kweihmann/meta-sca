@@ -85,7 +85,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           revive \
                           ropgadget \
                           safety \
-                          score \
                           shellcheck \
                           sparse \
                           standard \
