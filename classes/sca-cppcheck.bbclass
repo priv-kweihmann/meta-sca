@@ -123,8 +123,10 @@ python do_sca_cppcheck() {
         pass
     cur_dir = os.getcwd()
     os.chdir(d.getVar("B", True))
-    if os.path.exists("std.cfg"):
+    try:
         os.remove("std.cfg")
+    except FileNotFoundError:
+        pass
     try:
         os.symlink(os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "cfg", "std.cfg"), "std.cfg")
     except FileExistsError:
