@@ -39,6 +39,8 @@ def do_sca_conv_jsonlint(d):
                                             Message=m.group("message"),
                                             ID=m.group("id"),
                                             Severity=severity_map[m.group("severity")])
+                    if not sca_is_in_finding_scope(d, "jsonlint", g.GetFormattedID()):
+                        continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)
                 except Exception as exp:

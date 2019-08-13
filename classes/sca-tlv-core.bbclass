@@ -36,6 +36,8 @@ def do_sca_conv_tlv(d):
                                             Message=m.group("message"),
                                             ID=m.group("id"),
                                             Severity=severity_map[m.group("id")])
+                    if not sca_is_in_finding_scope(d, "tlv", g.GetFormattedID()):
+                        continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)
                 except Exception as exp:

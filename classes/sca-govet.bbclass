@@ -42,6 +42,8 @@ def do_sca_conv_govet(d):
                                             Severity="warning")
                     if g.GetFormattedID() in _suppress:
                         continue
+                    if not sca_is_in_finding_scope(d, "govet", g.GetFormattedID()):
+                        continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)
                 except Exception as e:
@@ -59,6 +61,8 @@ def do_sca_conv_govet(d):
                                             ID=hashlib.md5(str.encode(m.group("msg"))).hexdigest(),
                                             Severity="error")
                     if g.GetFormattedID() in _suppress:
+                        continue
+                    if not sca_is_in_finding_scope(d, "govet", g.GetFormattedID()):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

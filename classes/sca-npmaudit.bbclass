@@ -46,6 +46,8 @@ def do_sca_conv_npmaudit(d, cmd_output=""):
                                         Severity=severity_map[v["severity"]])
                 if g.GetFormattedID() in _suppress:
                     continue
+                if not sca_is_in_finding_scope(d, "npmaudit", g.GetFormattedID()):
+                    continue
                 if g.Severity in sca_allowed_warning_level(d):
                     _findings.append(g)
             except Exception as e:

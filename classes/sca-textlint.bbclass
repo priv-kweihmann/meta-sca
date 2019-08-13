@@ -87,6 +87,8 @@ def do_sca_conv_textlint(d):
                         continue
                     if g.GetFormattedID() in _suppress:
                         continue
+                    if not sca_is_in_finding_scope(d, "textlint", g.GetFormattedID()):
+                        continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)
                 except Exception as exp:
