@@ -260,6 +260,7 @@ To make the integration of clang-module (clang-tidy) work you need to add the [m
   - [Recipe buildtime dependencies](docs/sca/buildtime_dependencies.md)
 - Case studies
   - [Regression on severe code issues](docs/casestudy/simple_regression.md)
+  - [Idenfying hardening and security potential](docs/casestudy/adv_security.md)
 
 ## Further development
 
