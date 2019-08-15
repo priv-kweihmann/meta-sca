@@ -154,6 +154,8 @@ def do_sca_conv_cqmetrics(d):
                                                     Severity="error")
                             if g.GetFormattedID() in _suppress:
                                 continue
+                            if not sca_is_in_finding_scope(d, "cqmetrics", g.GetFormattedID()):
+                                continue
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings.append(g)
                     elif d.getVar("SCA_CQMETRICS_ERROR_{}_gt".format(ik)):
@@ -168,6 +170,8 @@ def do_sca_conv_cqmetrics(d):
                                                     ID=ik,
                                                     Severity="error")
                             if g.GetFormattedID() in _suppress:
+                                continue
+                            if not sca_is_in_finding_scope(d, "cqmetrics", g.GetFormattedID()):
                                 continue
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings.append(g)
@@ -184,6 +188,8 @@ def do_sca_conv_cqmetrics(d):
                                                     Severity="warning")
                             if g.GetFormattedID() in _suppress:
                                 continue
+                            if not sca_is_in_finding_scope(d, "cqmetrics", g.GetFormattedID()):
+                                continue
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings.append(g)
                     elif d.getVar("SCA_CQMETRICS_WARN_{}_gt".format(ik)):
@@ -198,6 +204,8 @@ def do_sca_conv_cqmetrics(d):
                                                     ID=ik,
                                                     Severity="warning")
                             if g.GetFormattedID() in _suppress:
+                                continue
+                            if not sca_is_in_finding_scope(d, "cqmetrics", g.GetFormattedID()):
                                 continue
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings.append(g)

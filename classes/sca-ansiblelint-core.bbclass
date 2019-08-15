@@ -44,6 +44,8 @@ def do_sca_conv_ansiblelint(d):
                         continue
                     if g.GetFormattedID() in _suppress:
                         continue
+                    if not sca_is_in_finding_scope(d, "ansiblelint", g.GetFormattedID()):
+                        continue
                     if g.Severity in sca_allowed_warning_level(d):
                         sca_add_model_class(d, g)
                 except Exception as exp:

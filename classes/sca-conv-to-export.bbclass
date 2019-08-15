@@ -1,10 +1,39 @@
 inherit sca-global
+inherit sca-helper
 
 def sca_allowed_warning_level(d):
     opts = ["info", "warning", "error"]
     while (opts and d.getVar("SCA_WARNING_LEVEL") != opts[0]):
         opts = opts[1:]
     return opts
+
+__SCA_IN_SCOPE = ""
+__SCA_OUT_OF_SCOPE = ""
+
+def sca_is_in_finding_scope(d, tool, _id):
+    import os
+    import json
+    import re
+    import bb
+
+    if bb.utils.contains("__SCA_IN_SCOPE", _id, True, False, d):
+        return True
+    if bb.utils.contains("__SCA_OUT_OF_SCOPE", _id, True, False, d):
+        return False
+
+    _path = os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "{}.sca.score".format(tool))
+    if os.path.exists(_path):
+        with open(_path) as i:
+            score = json.load(i)
+            for _scope in clean_split(d, "SCA_SCOPE_FILTER"):
+                if not _scope in score.keys():
+                    continue
+                for f in score[_scope]:
+                    if re.match(f, _id):
+                        d.appendVar("__SCA_IN_SCOPE", " " + _id)
+                        return True
+    d.appendVar("__SCA_OUT_OF_SCOPE", " " + _id)
+    return False
 
 def sca_conv_to_export(d):
     import bb

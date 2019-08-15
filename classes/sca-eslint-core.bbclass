@@ -54,6 +54,8 @@ def do_sca_conv_eslint(d):
                                                 Severity=f.attrib["severity"])
                         if g.GetFormattedID() in __suppress:
                             continue
+                        if not sca_is_in_finding_scope(d, "eslint", g.GetFormattedID()):
+                            continue
                         if g.Severity in sca_allowed_warning_level(d):
                             _findings.append(g)
                 except Exception as exp:

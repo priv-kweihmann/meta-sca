@@ -48,6 +48,8 @@ def do_sca_conv_detectsecrets(d):
                                                 Severity="warning")
                         if g.GetFormattedID() in __suppress:
                             continue
+                        if not sca_is_in_finding_scope(d, "detectsecrets", g.GetFormattedID()):
+                            continue
                         if g.Severity in sca_allowed_warning_level(d):
                             _findings.append(g)
                     except Exception as exp:

@@ -38,6 +38,8 @@ def do_sca_conv_vulture(d):
                                             Message=m.group("message"),
                                             ID=_id,
                                             Severity=_sev)
+                    if not sca_is_in_finding_scope(d, "vulture", g.GetFormattedID()):
+                        continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)
                 except Exception as exp:

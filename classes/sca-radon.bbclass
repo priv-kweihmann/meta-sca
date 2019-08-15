@@ -227,6 +227,8 @@ def do_sca_conv_radon(d):
                                                     Severity="error")
                             if g.GetFormattedID() in _suppress:
                                 continue
+                            if not sca_is_in_finding_scope(d, "radon", g.GetFormattedID()):
+                                continue
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings.append(g)
                     if d.getVar("SCA_RADON_ERROR_{}_gt".format(ik)):
@@ -241,6 +243,8 @@ def do_sca_conv_radon(d):
                                                     ID=ik,
                                                     Severity="error")
                             if g.GetFormattedID() in _suppress:
+                                continue
+                            if not sca_is_in_finding_scope(d, "radon", g.GetFormattedID()):
                                 continue
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings.append(g)
@@ -257,6 +261,8 @@ def do_sca_conv_radon(d):
                                                     Severity="warning")
                             if g.GetFormattedID() in _suppress:
                                 continue
+                            if not sca_is_in_finding_scope(d, "radon", g.GetFormattedID()):
+                                continue
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings.append(g)
                     if d.getVar("SCA_RADON_WARN_{}_gt".format(ik)):
@@ -271,6 +277,8 @@ def do_sca_conv_radon(d):
                                                     ID=ik,
                                                     Severity="warning")
                             if g.GetFormattedID() in _suppress:
+                                continue
+                            if not sca_is_in_finding_scope(d, "radon", g.GetFormattedID()):
                                 continue
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings.append(g)

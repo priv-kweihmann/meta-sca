@@ -42,6 +42,8 @@ def sca_create_data_file(d, patched, unpatched, cve_data):
                                 Message="{},Score={},Url={}".format(cve_data[cve]["summary"], cve_data[cve]["score"], nvd_link, cve),
                                 ID="cvecheck.unpatched",
                                 Severity="error")
+        if not sca_is_in_finding_scope(d, "cvecheck", g.GetFormattedID()):
+            continue
         if g.Severity in sca_allowed_warning_level(d):
             _findings.append(g)
 
