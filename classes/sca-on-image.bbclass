@@ -19,6 +19,7 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             gixy \
                             htmlhint \
                             jsonlint \
+                            mypy \
                             oelint \
                             proselint \
                             pyfindinjection \

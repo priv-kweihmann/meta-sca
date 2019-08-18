@@ -71,6 +71,7 @@ htmllint        |   |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ | ✓ |
 jsonlint        |   |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ |   |
 kconfighard     |   |   |   |   |   |   |   |   |   |   | ✓ | ✓ | ✓ |   |
 npmaudit        |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ |   |   |
+mypy            |   | ✓ |   |   |   |   |   |   |   |   |   |   | ✓ |   |
 oclint          | ✓ |   |   |   |   |   |   |   |   |   |   |   | ✓ |   |
 oelint          |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
 proselint       |   |   |   |   |   |   |   | ✓ |   |   |   |   |   | ✓ |
@@ -111,6 +112,7 @@ zrd             |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
  * [htmlhint](https://github.com/htmlhint/HTMLHint) (html) [htmlhint]
  * image-summary (aggregate all findings for package in an image) [image-summary]
  * json-parser (json) [jsonlint]
+ * [mypy](https://github.com/python/mypy) (python) [mypy]
  * [oelint-adv](https://github.com/priv-kweihmann/oelint-adv) (linting bitbake recipes) [oelint]
  * [proselint](https://github.com/amperser/proselint/) (spelling) [proselint]
  * [py-find-injection](https://github.com/uber/py-find-injection) (find SQL injections in python) [pyfindinjection]
@@ -152,6 +154,7 @@ zrd             |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
  * json-parser (json) [jsonlint]
  * [kconfig-hardened-check](https://github.com/a13xp0p0v/kconfig-hardened-check) (check hardening of kernel) [kconfighard]
  * [npmaudit](https://docs.npmjs.com/cli/audit) (check for security vulnerabilities in npm packages) [npmaudit]
+ * [mypy](https://github.com/python/mypy) (python) [mypy]
  * [oclint](https://github.com/oclint/oclint) (c/c++/obj-c) [oclint] **disabled by default**
  * [oelint-adv](https://github.com/priv-kweihmann/oelint-adv) (linting bitbake recipes) [oelint]
  * [py-find-injection](https://github.com/uber/py-find-injection) (find SQL injections in python) [pyfindinjection]
@@ -223,6 +226,7 @@ To make the integration of clang-module (clang-tidy) work you need to add the [m
     - [jsonlint](docs/conf/module/jsonlint.md)
     - [kconfighard](docs/conf/module/kconfighard.md)
     - [npmaudit](docs/conf/module/npmaudit.md)
+    - [mypy](docs/conf/module/mypy.md)
     - [oclint](docs/conf/module/oclint.md)
     - [oelint](docs/conf/module/oelint.md)
     - [proselint](docs/conf/module/proselint.md)

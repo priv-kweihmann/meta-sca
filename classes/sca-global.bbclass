@@ -77,6 +77,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           jsonlint \
                           kconfighard \
                           npmaudit \
+                          mypy \
                           oelint \
                           proselint \
                           pyfindinjection \
