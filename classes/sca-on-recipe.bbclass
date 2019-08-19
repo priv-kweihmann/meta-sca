@@ -48,6 +48,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             score \
                             shellcheck \
                             sparse \
+                            splint \
                             standard \
                             stylelint \
                             textlint \

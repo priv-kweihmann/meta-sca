@@ -86,6 +86,7 @@ ropgadget       |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ |   |   |
 safety          |   | ✓ |   |   |   |   |   |   |   |   |   | ✓ |   |   |
 sheckcheck      |   |   | ✓ |   |   |   |   |   |   |   |   |   | ✓ | ✓ |
 sparse          | ✓ |   |   |   |   |   |   |   |   |   |   |   | ✓ |   |
+splint          | ✓ |   |   |   |   |   |   |   |   |   |   | ✓ | ✓ | ✓ |
 standard        |   |   |   | ✓ |   |   |   |   |   |   |   |   | ✓ | ✓ |
 stylelint       |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
 systemdlint     |   |   |   |   |   |   |   |   |   | ✓ | ✓ | ✓ | ✓ | ✓ |
@@ -169,6 +170,7 @@ zrd             |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
  * [safety](https://github.com/pyupio/safety) (python packages) [safety]
  * score (calculate a score for a module, like pylint does) [score] **disabled by default**
  * [sparse](https://sparse.wiki.kernel.org/index.php/Main_Page) (C) [sparse]
+ * [splint](https://github.com/splintchecker/splint) (C) [splint]
  * [shellcheck](https://github.com/koalaman/shellcheck) (shell) [shellcheck]
  * [standard](https://github.com/standard/standard) (javascript) [standard]
  * [stylelint](https://github.com/stylelint/stylelint) (css, scss) [stylelint]
@@ -240,6 +242,7 @@ To make the integration of clang-module (clang-tidy) work you need to add the [m
     - [ropgadget](docs/conf/module/ropgadget.md)
     - [safety](docs/conf/module/safety.md)
     - [sparse](docs/conf/module/sparse.md)
+    - [splint](docs/conf/module/splint.md)
     - [shellcheck](docs/conf/module/shellcheck.md)
     - [standard](docs/conf/module/standard.md)
     - [stylelint](docs/conf/module/stylelint.md)

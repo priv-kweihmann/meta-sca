@@ -91,6 +91,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           safety \
                           shellcheck \
                           sparse \
+                          splint \
                           standard \
                           stylelint \
                           systemdlint \
