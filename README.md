@@ -258,6 +258,13 @@ To make the integration of clang-module (clang-tidy) work you need to add the [m
     - [BestOf](docs/conf/extra/bestof.md)
     - [Image Summary](docs/conf/extra/image-summary.md)
     - [Module score](docs/conf/extra/score.md)
+- Configuration Examples
+  - [C/C++ code while developing](docs/conf/examples/c_inflight.md)
+  - [Image monitoring](docs/conf/examplesimg_complete.md)
+  - [Image security/hardening monitor](docs/conf/examples/img_secure.md)
+  - [Python code while developing](docs/conf/examples/python_inflight.md)
+  - [Shell code while developing](docs/conf/examples/shell_inflight.md)
+  - [Webapps while developing](docs/conf/examples/web_inflight.md)
 - [Results](docs/conf/results.md)
 - Build system integration
   - [Control via command line](docs/build/control_build_by_cmdline.md)
