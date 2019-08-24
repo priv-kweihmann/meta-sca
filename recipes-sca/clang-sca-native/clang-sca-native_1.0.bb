@@ -13,6 +13,8 @@ FILES_${PN} = "${datadir}"
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
+DEPENDS += "clang-native"
+
 do_install() {
     install -d ${D}${datadir}
     install ${WORKDIR}/clang.sca.description ${D}${datadir}/

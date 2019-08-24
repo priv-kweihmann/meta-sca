@@ -29,6 +29,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             gosec \
                             govet \
                             htmlhint \
+                            ikos \
                             jsonlint \
                             kconfighard \
                             npmaudit \

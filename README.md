@@ -68,6 +68,7 @@ golint          |   |   |   |   |   | ✓ |   |   |   |   |   |   |   | ✓ |
 gosec           |   |   |   |   |   | ✓ |   |   |   |   |   | ✓ |   |   |
 govet           |   |   |   |   |   | ✓ |   |   |   |   |   |   | ✓ |   |
 htmllint        |   |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ | ✓ |
+ikos            | ✓ |   |   |   |   |   |   |   |   |   |   |   | ✓ |   |
 jsonlint        |   |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ |   |
 kconfighard     |   |   |   |   |   |   |   |   |   |   | ✓ | ✓ | ✓ |   |
 npmaudit        |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ |   |   |
@@ -152,6 +153,7 @@ zrd             |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
  * [gosec](https://github.com/securego/gosec) (go) [gosec]
  * [govet](https://golang.org/cmd/vet/) (go) [govet]
  * [htmlhint](https://github.com/htmlhint/HTMLHint) (html) [htmlhint]
+ * [ikos](https://github.com/nasa-sw-vnv/ikos) (c) [ikos] **disabled by default**
  * json-parser (json) [jsonlint]
  * [kconfig-hardened-check](https://github.com/a13xp0p0v/kconfig-hardened-check) (check hardening of kernel) [kconfighard]
  * [npmaudit](https://docs.npmjs.com/cli/audit) (check for security vulnerabilities in npm packages) [npmaudit]
@@ -186,7 +188,14 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
 
 # Optional requirements
 
-To make the integration of clang-module (clang-tidy) work you need to add the [meta-clang](https://github.com/kraj/meta-clang) layer to your bblayer-file. If not present the clang integration will be silently disabled
+To make the integration of clang or ikos-module (clang-tidy) work you need to add the [meta-clang](https://github.com/kraj/meta-clang) layer to your bblayer-file.
+Additionally you have to add
+
+``` bitbake
+PREFERRED_VERSION_clang-native = "8.%"
+```
+
+to your **local.conf**-file to make it work. Otherwise the build will fail with an error.
 
 # Further documentation
 
@@ -225,6 +234,7 @@ To make the integration of clang-module (clang-tidy) work you need to add the [m
     - [gosec](docs/conf/module/gosec.md)
     - [govet](docs/conf/module/govet.md)
     - [htmlhint](docs/conf/module/htmlhint.md)
+    - [ikos](docs/conf/module/ikos.md)
     - [jsonlint](docs/conf/module/jsonlint.md)
     - [kconfighard](docs/conf/module/kconfighard.md)
     - [npmaudit](docs/conf/module/npmaudit.md)
