@@ -3,8 +3,8 @@ SUMMARY = "SCA description for golint"
 SRC_URI = "file://golint.sca.description \
            file://golint.sca.score"
 
-LICENSE ?= "BSD-2-Clause"
-LIC_FILES_CHKSUM ?= "file://${SCA_LAYERDIR}/LICENSE;md5=e926c89aceef6c1a4247d5df08f94533"
+LICENSE = "BSD-2-Clause"
+LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=e926c89aceef6c1a4247d5df08f94533"
 
 inherit native
 
