@@ -13,6 +13,20 @@ The layer is designed to be easy to integrate (and fully configurable).
 All results are stored to __SCA_EXPORT_DIR__ (which defaults to __${DEPLOY_DIR_IMAGE}/sca__). The results will be stored in the raw-format of the corresponding tool and in checkstyle-format.
 Any result-file can be easily integrated into e.g. Jenkins or other CI-tools
 
+### Support
+
+This project is meant to stay - first of all this project is for you!
+As long a technically possible you can expect package updates and bugfixes to this layer for all poky-releases after **thud**.
+
+It's advised to use the tagged source versions in productive environment.
+
+You can expect a new tagged build every 4-6 weeks.
+Dates could be seen in GitHub milestones set in this project.
+
+If there is a technical issue that might break backward compatibility it will be mentioned in release note of the corresponding milestone release.
+
+As in every community project feedback is always welcome...
+
 ### Licensing
 
 This layer does only provide open source tools.
