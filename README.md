@@ -89,6 +89,7 @@ npmaudit        |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ |   |   |
 mypy            |   | ✓ |   |   |   |   |   |   |   |   |   |   | ✓ |   |
 oclint          | ✓ |   |   |   |   |   |   |   |   |   |   |   | ✓ |   |
 oelint          |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
+phan            |   |   |   |   | ✓ |   |   |   |   |   |   |   | ✓ |   |
 proselint       |   |   |   |   |   |   |   | ✓ |   |   |   |   |   | ✓ |
 pyfindinjection |   | ✓ |   |   |   |   |   |   |   |   |   | ✓ |   |   |
 pylint          |   | ✓ |   |   |   |   |   |   |   |   |   |   | ✓ | ✓ |
@@ -175,6 +176,7 @@ zrd             |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
  * [oclint](https://github.com/oclint/oclint) (c/c++/obj-c) [oclint] **disabled by default**
  * [oelint-adv](https://github.com/priv-kweihmann/oelint-adv) (linting bitbake recipes) [oelint]
  * [py-find-injection](https://github.com/uber/py-find-injection) (find SQL injections in python) [pyfindinjection]
+ * [phan](https://github.com/phan/phan) (PHP) [phan] **disabled by default**
  * [proselint](https://github.com/amperser/proselint/) (spelling) [proselint]
  * [pylint](https://github.com/PyCQA/pylint) (python) [pylint]
  * [pysymbolcheck](https://github.com/priv-kweihmann/pysymbolcheck) (check elf-files for used functions) [pysymcheck]
@@ -202,11 +204,25 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
 
 # Optional requirements
 
+## meta-clang
+
 To make the integration of clang or ikos-module (clang-tidy) work you need to add the [meta-clang](https://github.com/kraj/meta-clang) layer to your bblayer-file.
 Additionally you have to add
 
 ``` bitbake
-PREFERRED_VERSION_clang-native = "8.%"
+PREFERRED_VERSION_clang-native = "%.%"
+```
+
+to your **local.conf**-file to make it work. Otherwise the build will fail with an error.
+
+## meta-oe
+
+To enable the php support you need to add the [meta-oe](http://cgit.openembedded.org/meta-openembedded) layer to your bblayer-file.
+Additionally you have to add
+
+``` bitbake
+PREFERRED_VERSION_libzip-native = "%.%"
+PREFERRED_VERSION_php-native = "%.%"
 ```
 
 to your **local.conf**-file to make it work. Otherwise the build will fail with an error.
@@ -255,6 +271,7 @@ to your **local.conf**-file to make it work. Otherwise the build will fail with 
     - [mypy](docs/conf/module/mypy.md)
     - [oclint](docs/conf/module/oclint.md)
     - [oelint](docs/conf/module/oelint.md)
+    - [phan](docs/conf/module/phan.md)
     - [proselint](docs/conf/module/proselint.md)
     - [pyfindinjection](docs/conf/module/pyfindinjection.md)
     - [pylint](docs/conf/module/pylint.md)

@@ -79,6 +79,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           npmaudit \
                           mypy \
                           oelint \
+                          phan \
                           proselint \
                           pyfindinjection \
                           pylint \

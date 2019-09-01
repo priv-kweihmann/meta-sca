@@ -36,6 +36,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             mypy \
                             oclint \
                             oelint \
+                            phan \
                             proselint \
                             pyfindinjection \
                             pylint \
