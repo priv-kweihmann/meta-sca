@@ -12,4 +12,11 @@ S = "${WORKDIR}/git"
 
 inherit sca
 
+do_install() {
+    export HOME=${B}
+    npm install --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --save-dev
+}
+
 SCA_BLACKLIST_proselint += "${PN}"
+
+SCA_AVAILABLE_MODULES = "retire"
