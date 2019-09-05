@@ -97,6 +97,7 @@ pysymcheck      |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ |   |   |
 pytype          |   | ✓ |   |   |   |   |   |   |   |   |   |   | ✓ |   |
 radon           |   | ✓ |   |   |   |   |   |   | ✓ |   |   |   |   | ✓ |
 rats            | ✓ | ✓ |   |   | ✓ |   |   |   |   |   | ✓ |   |   |   |
+retire          |   |   |   | ✓ |   |   |   |   |   |   |   | ✓ |   |   |
 revive          |   |   |   |   |   | ✓ |   |   |   |   |   |   | ✓ | ✓ |
 ropgadget       |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ |   |   |
 safety          |   | ✓ |   |   |   |   |   |   |   |   |   | ✓ |   |   |
@@ -183,6 +184,7 @@ zrd             |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
  * [pytype](https://github.com/google/pytype) (python) [pytype]
  * [radon](https://github.com/rubik/radon) (metrics for python) [radon]
  * [rats](https://github.com/redNixon/rats) (security for c/php/python/perl/ruby) [rats]
+ * [retire](https://retirejs.github.io/retire.js/) (javascript, npm) [retire]
  * [revive](https://github.com/mgechev/revive) (go) [revive]
  * [ropgadget](https://github.com/JonathanSalwan/ROPgadget) (determine exploitability with ROP in binary) [ropgadget]
  * [safety](https://github.com/pyupio/safety) (python packages) [safety]
@@ -279,6 +281,7 @@ to your **local.conf**-file to make it work. Otherwise the build will fail with 
     - [pytype](docs/conf/module/pytype.md)
     - [radon](docs/conf/module/radon.md)
     - [rats](docs/conf/module/rats.md)
+    - [retire](docs/conf/module/retire.md)
     - [revive](docs/conf/module/revive.md)
     - [ropgadget](docs/conf/module/ropgadget.md)
     - [safety](docs/conf/module/safety.md)

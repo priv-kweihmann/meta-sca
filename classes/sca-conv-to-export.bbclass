@@ -32,6 +32,8 @@ def sca_is_in_finding_scope(d, tool, _id):
                     if re.match(f, _id):
                         d.appendVar("__SCA_IN_SCOPE", " " + _id)
                         return True
+    else:
+        bb.warn("{} is missing a .sca.score-file".format(tool))
     d.appendVar("__SCA_OUT_OF_SCOPE", " " + _id)
     return False
 

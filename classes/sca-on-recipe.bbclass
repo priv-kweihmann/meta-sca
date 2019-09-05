@@ -44,6 +44,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             pytype \
                             radon \
                             rats \
+                            retire \
                             revive \
                             ropgadget \
                             safety \

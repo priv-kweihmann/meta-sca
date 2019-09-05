@@ -1,0 +1,8 @@
+{
+    "languages": [ "javascript" ],
+    "scope": [ "security" ],
+    "buildspeed" : 7,
+    "execspeed": 6,
+    "quality": 8,
+    "online": true
+}
