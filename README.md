@@ -105,6 +105,7 @@ sheckcheck      |   |   | ✓ |   |   |   |   |   |   |   |   |   | ✓ | ✓ |
 sparse          | ✓ |   |   |   |   |   |   |   |   |   |   |   | ✓ |   |
 splint          | ✓ |   |   |   |   |   |   |   |   |   |   | ✓ | ✓ | ✓ |
 standard        |   |   |   | ✓ |   |   |   |   |   |   |   |   | ✓ | ✓ |
+stank           |   |   | ✓ |   |   |   |   |   |   |   |   |   | ✓ | ✓ |
 stylelint       |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
 systemdlint     |   |   |   |   |   |   |   |   |   | ✓ | ✓ | ✓ | ✓ | ✓ |
 textlint        |   |   |   |   |   |   |   | ✓ |   |   |   |   |   | ✓ |
@@ -137,6 +138,7 @@ zrd             |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
  * [pylint](https://github.com/PyCQA/pylint) (python) [pylint]
  * [shellcheck](https://github.com/koalaman/shellcheck) (shell) [shellcheck]
  * [standard](https://github.com/standard/standard) (javascript) [standard]
+ * [stank](https://github.com/mcandre/stank) (shell) [stank]
  * [stylelint](https://github.com/stylelint/stylelint) (css, scss) [stylelint]
  * [systemdlint](https://github.com/priv-kweihmann/systemdlint) (systemd) [systemdlint]
  * [tlv](https://github.com/priv-kweihmann/tlv) (duplicate code) [tlv] **disabled by default**
@@ -193,6 +195,7 @@ zrd             |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
  * [splint](https://github.com/splintchecker/splint) (C) [splint]
  * [shellcheck](https://github.com/koalaman/shellcheck) (shell) [shellcheck]
  * [standard](https://github.com/standard/standard) (javascript) [standard]
+ * [stank](https://github.com/mcandre/stank) (shell) [stank]
  * [stylelint](https://github.com/stylelint/stylelint) (css, scss) [stylelint]
  * [textlint](https://github.com/textlint/textlint) (spelling) [textlint]
  * [tlv](https://github.com/priv-kweihmann/tlv) (duplicate code) [tlv] **disabled by default**
@@ -289,6 +292,7 @@ to your **local.conf**-file to make it work. Otherwise the build will fail with 
     - [splint](docs/conf/module/splint.md)
     - [shellcheck](docs/conf/module/shellcheck.md)
     - [standard](docs/conf/module/standard.md)
+    - [stank](docs/conf/module/stank.md)
     - [stylelint](docs/conf/module/stylelint.md)
     - [systemdlint](docs/conf/module/systemdlint.md)
     - [textlint](docs/conf/module/textlint.md)

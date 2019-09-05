@@ -1,0 +1,7 @@
+{
+    "languages": [ "shell" ],
+    "scope": [ "functional", "style" ],
+    "buildspeed" : 9,
+    "execspeed": 10,
+    "quality": 6
+}

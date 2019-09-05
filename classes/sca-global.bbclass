@@ -94,6 +94,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           sparse \
                           splint \
                           standard \
+                          stank \
                           stylelint \
                           systemdlint \
                           textlint \

@@ -26,6 +26,7 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             pylint \
                             shellcheck \
                             standard \
+                            stank \
                             stylelint \
                             systemdlint \
                             tlv \

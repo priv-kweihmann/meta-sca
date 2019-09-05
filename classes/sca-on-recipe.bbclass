@@ -53,6 +53,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             sparse \
                             splint \
                             standard \
+                            stank \
                             stylelint \
                             textlint \
                             tlv \
