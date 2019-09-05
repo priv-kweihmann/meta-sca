@@ -21,7 +21,7 @@ As long as technically possible you can expect package updates and bugfixes to t
 It's advised to use the tagged source versions in productive environment.
 
 You can expect a new tagged build every 4-6 weeks.
-Planning is do by milestone features on GitHub.
+Planning is done by milestone features on GitHub.
 
 If there is a technical issue that might break backward compatibility it will be mentioned in release note of the corresponding milestone release.
 
