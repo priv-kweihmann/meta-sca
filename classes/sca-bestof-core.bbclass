@@ -114,8 +114,6 @@ python do_sca_bestof_core() {
                                         Message=_nMsg,
                                         ID=sorted(item["occ"], key=lambda x: x["tool"], reverse=False)[0]["id"],
                                         Severity=_nseverity)
-                if not sca_is_in_finding_scope(d, "bestof", g.GetFormattedID()):
-                    continue
                 if g.Severity in sca_allowed_warning_level(d):
                     _findingsres.append(g)
 
