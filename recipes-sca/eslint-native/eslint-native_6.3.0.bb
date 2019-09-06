@@ -43,8 +43,11 @@ do_install() {
     for _f in ${WORKDIR}/configs/*; do
         install ${_f} ${D}/${datadir}/eslint/configs/
     done
+
+    mkdir -p ${D}${datadir}
+    
     install ${WORKDIR}/eslint.sca.description ${D}${datadir}
     install ${WORKDIR}/eslint.sca.score ${D}${datadir}
 }
 
-FILES_${PN} = "*"
+FILES_${PN} += "${datadir}"

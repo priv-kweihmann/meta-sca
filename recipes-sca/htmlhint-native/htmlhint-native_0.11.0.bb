@@ -29,8 +29,10 @@ do_install() {
 		rmdir ${D}${prefix}/etc
 	fi
 
+    mkdir -p ${D}${datadir}
+
     install ${WORKDIR}/htmlhint.sca.description ${D}${datadir}
     install ${WORKDIR}/htmlhint.sca.score ${D}${datadir}
 }
 
-FILES_${PN} = "*"
+FILES_${PN} += "${datadir}"

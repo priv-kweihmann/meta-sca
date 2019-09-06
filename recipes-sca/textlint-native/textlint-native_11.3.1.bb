@@ -62,8 +62,10 @@ do_install() {
 		rmdir ${D}${prefix}/etc
 	fi
 
+    mkdir -p ${D}${datadir}
+
     install ${WORKDIR}/textlint.sca.description ${D}${datadir}
     install ${WORKDIR}/textlint.sca.score ${D}${datadir}
 }
 
-FILES_${PN} = "*"
+FILES_${PN} += "${datadir}"

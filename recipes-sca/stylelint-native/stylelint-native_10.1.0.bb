@@ -28,8 +28,10 @@ do_install() {
 		rmdir ${D}${prefix}/etc
 	fi
 
+    mkdir -p ${D}${datadir}
+
     install ${WORKDIR}/stylelint.sca.description ${D}${datadir}
     install ${WORKDIR}/stylelint.sca.score ${D}${datadir}
 }
 
-FILES_${PN} = "*"
+FILES_${PN} += "${datadir}"
