@@ -7,7 +7,10 @@ bitbake \
         bad-html \
         bad-javascript \
         bad-json \
+        bad-php \
         bad-python-reqs \
+        bad-python-types \
+        bad-systemd \
         bad-xml \
         bad-yaml \
         busybox \
