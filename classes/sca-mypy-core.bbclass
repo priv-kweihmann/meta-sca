@@ -16,7 +16,8 @@ def do_sca_conv_mypy(d):
 
     severity_map = {
         "error" : "error",
-        "warning" : "error"
+        "warning" : "error",
+        "note": "info"
     }
 
     _findings = []
