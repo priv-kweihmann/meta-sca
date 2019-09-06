@@ -34,7 +34,7 @@ do_install() {
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-max-comma@1.0.4
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-no-exclamation-question-mark@1.0.2
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-ng-word@1.0.0
-    npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-no-dead-link@4.4.4
+    npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-no-dead-link@4.6.1
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-no-empty-section@1.1.0
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-unexpanded-acronym@1.2.3
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-alex@1.3.1
