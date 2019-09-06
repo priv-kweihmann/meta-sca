@@ -91,7 +91,7 @@ def do_sca_conv_ropgadget(d):
                                     Message="{} exceeded ROP exploit threshold ({}/{})".format(package_name, v, _threshold),
                                     ID="thresholdexceeded",
                                     Severity="warning")
-            if not sca_is_in_finding_scope(d, "ropgagdet", g.GetFormattedID()):
+            if not sca_is_in_finding_scope(d, "ropgadget", g.GetFormattedID()):
                 continue
             if g.Severity in sca_allowed_warning_level(d):
                 _findingsres.append(g)
