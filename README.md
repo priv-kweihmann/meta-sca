@@ -90,6 +90,7 @@ mypy            |   | ✓ |   |   |   |   |   |   |   |   |   |   | ✓ |   |
 oclint          | ✓ |   |   |   |   |   |   |   |   |   |   |   | ✓ |   |
 oelint          |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
 phan            |   |   |   |   | ✓ |   |   |   |   |   |   |   | ✓ |   |
+phpcodefixer    |   |   |   |   | ✓ |   |   |   |   |   |   | ✓ |   |   |
 phpstan         |   |   |   |   | ✓ |   |   |   |   |   |   |   | ✓ |   |
 progpilot       |   |   |   |   | ✓ |   |   |   |   |   |   | ✓ |   |   |
 proselint       |   |   |   |   |   |   |   | ✓ |   |   |   |   |   | ✓ |
@@ -182,6 +183,7 @@ zrd             |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
  * [oelint-adv](https://github.com/priv-kweihmann/oelint-adv) (linting bitbake recipes) [oelint]
  * [py-find-injection](https://github.com/uber/py-find-injection) (find SQL injections in python) [pyfindinjection]
  * [phan](https://github.com/phan/phan) (PHP) [phan] **disabled by default**
+ * [phpcodefixer](https://github.com/wapmorgan/PhpCodeFixer) (PHP) [phpcodefixer] **disabled by default**
  * [phpstan](https://github.com/phpstan/phpstan) (PHP) [phpstan] **disabled by default**
  * [progpilot](https://github.com/designsecurity/progpilot) (PHP) [progpilot] **disabled by default**
  * [proselint](https://github.com/amperser/proselint/) (spelling) [proselint]
@@ -281,6 +283,7 @@ to your **local.conf**-file to make it work. Otherwise the build will fail with 
     - [oclint](docs/conf/module/oclint.md)
     - [oelint](docs/conf/module/oelint.md)
     - [phan](docs/conf/module/phan.md)
+    - [phpcodefixers](docs/conf/module/phpcodefixers.md)
     - [phpstan](docs/conf/module/phpstan.md)
     - [progpilot](docs/conf/module/progpilot.md)
     - [proselint](docs/conf/module/proselint.md)
