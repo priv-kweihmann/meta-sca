@@ -90,6 +90,7 @@ mypy            |   | ✓ |   |   |   |   |   |   |   |   |   |   | ✓ |   |
 oclint          | ✓ |   |   |   |   |   |   |   |   |   |   |   | ✓ |   |
 oelint          |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
 phan            |   |   |   |   | ✓ |   |   |   |   |   |   |   | ✓ |   |
+progpilot       |   |   |   |   | ✓ |   |   |   |   |   |   | ✓ |   |   |
 proselint       |   |   |   |   |   |   |   | ✓ |   |   |   |   |   | ✓ |
 pyfindinjection |   | ✓ |   |   |   |   |   |   |   |   |   | ✓ |   |   |
 pylint          |   | ✓ |   |   |   |   |   |   |   |   |   |   | ✓ | ✓ |
@@ -180,6 +181,7 @@ zrd             |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
  * [oelint-adv](https://github.com/priv-kweihmann/oelint-adv) (linting bitbake recipes) [oelint]
  * [py-find-injection](https://github.com/uber/py-find-injection) (find SQL injections in python) [pyfindinjection]
  * [phan](https://github.com/phan/phan) (PHP) [phan] **disabled by default**
+ * [progpilot](https://github.com/designsecurity/progpilot) (PHP) [progpilot] **disabled by default**
  * [proselint](https://github.com/amperser/proselint/) (spelling) [proselint]
  * [pylint](https://github.com/PyCQA/pylint) (python) [pylint]
  * [pysymbolcheck](https://github.com/priv-kweihmann/pysymbolcheck) (check elf-files for used functions) [pysymcheck]
@@ -277,6 +279,7 @@ to your **local.conf**-file to make it work. Otherwise the build will fail with 
     - [oclint](docs/conf/module/oclint.md)
     - [oelint](docs/conf/module/oelint.md)
     - [phan](docs/conf/module/phan.md)
+    - [progpilot](docs/conf/module/progpilot.md)
     - [proselint](docs/conf/module/proselint.md)
     - [pyfindinjection](docs/conf/module/pyfindinjection.md)
     - [pylint](docs/conf/module/pylint.md)
