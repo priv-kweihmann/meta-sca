@@ -31,8 +31,8 @@ __tbd__
 
 ## Checking scope
 
-- [ ] security
-- [x] functional defects
+- [x] security
+- [ ] functional defects
 - [ ] style issues
 
 ## Statistics
