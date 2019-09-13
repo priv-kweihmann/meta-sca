@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/a13xp0p0v/kconfig-hardened-check"
 SRC_URI = "git://github.com/a13xp0p0v/kconfig-hardened-check.git;protocol=http;branch=master \
            file://kconfighard.sca.description \
            file://kconfighard.sca.score"
-SRCREV = "3dc3f6e9e67e5206575acb5009f472cff780328d"
+SRCREV = "7af4586067f8f0aa8b4be095d4d0e108265c17a9"
 
 S = "${WORKDIR}/git"
 B = "${S}"
