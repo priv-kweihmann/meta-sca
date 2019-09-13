@@ -1,5 +1,5 @@
 ## Include arch depending sources
-include ${@'shellcheck-native_arch_%s.inc' % d.getVar('BUILD_ARCH')}
+require ${@'shellcheck-native_arch_%s.inc' % d.getVar('BUILD_ARCH')}
 
 include shellcheck-native_helper.inc
 
