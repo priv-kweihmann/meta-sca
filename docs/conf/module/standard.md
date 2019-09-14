@@ -23,7 +23,7 @@
 
 ## Requires
 
-- [ ] requires online access
+- [x] requires online access
 
 ## Known error-ids
 
