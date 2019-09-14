@@ -8,6 +8,7 @@ bitbake \
         bad-html \
         bad-javascript \
         bad-json \
+        bad-lua \
         bad-php \
         bad-python-reqs \
         bad-python-types \

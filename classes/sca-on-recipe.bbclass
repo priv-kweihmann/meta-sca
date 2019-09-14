@@ -38,6 +38,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             jsonlint \
                             kconfighard \
                             looong \
+                            luacheck \
                             npmaudit \
                             msgcheck \
                             mypy \
