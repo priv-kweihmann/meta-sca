@@ -100,6 +100,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           textlint \
                           tscancode \
                           vulture \
+                          wotan \
                           xmllint \
                           yamllint \
                           zrd"

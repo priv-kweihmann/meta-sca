@@ -1,0 +1,8 @@
+{
+    "languages": [ "javascript", "typescript" ],
+    "scope": [ "functional", "style" ],
+    "buildspeed" : 8,
+    "execspeed": 8,
+    "quality": 8,
+    "online": true
+}

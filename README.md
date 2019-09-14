@@ -115,6 +115,7 @@ textlint        |   |   |   |   |   |   |   | ✓ |   |   |   |   |   | ✓ |
 tlv             | ✓ | ✓ | ✓ | ✓ |   | ✓ |   |   |   |   |   | ✓ |   | ✓ |
 tscancode       | ✓ |   |   |   |   |   |   |   |   |   |   |   | ✓ |   |
 vulture         |   | ✓ |   |   |   |   |   |   |   |   |   |   | ✓ |   |
+wotan           |   |   |   | ✓ |   |   |   |   |   |   |   |   | ✓ | ✓ |
 xmllint         |   |   |   |   |   |   |   |   |   |   | ✓ |   | ✓ |   |
 yamllint        |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
 zrd             |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
@@ -146,6 +147,7 @@ zrd             |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
  * [systemdlint](https://github.com/priv-kweihmann/systemdlint) (systemd) [systemdlint]
  * [tlv](https://github.com/priv-kweihmann/tlv) (duplicate code) [tlv] **disabled by default**
  * [vulture](https://github.com/jendrikseipp/vulture) (python) [vulture]
+ * [wotan](https://github.com/fimbullinter/wotan) (javascript, typescript) [wotan]
  * [xmllint](http://xmlsoft.org/xmllint.html) (xml) [xmllint]
  * [yamllint](https://github.com/adrienverge/yamllint) (yaml) [yamllint]
 
@@ -207,6 +209,7 @@ zrd             |   |   |   |   |   |   |   |   |   |   | ✓ |   |   | ✓ |
  * [tlv](https://github.com/priv-kweihmann/tlv) (duplicate code) [tlv] **disabled by default**
  * [tscancode](https://github.com/Tencent/TscanCode) (c,c#,lua) [tscancode]
  * [vulture](https://github.com/jendrikseipp/vulture) (python) [vulture]
+ * [wotan](https://github.com/fimbullinter/wotan) (javascript, typescript) [wotan]
  * [xmllint](http://xmlsoft.org/xmllint.html) [xmllint]
  * [yamllint](https://github.com/adrienverge/yamllint) (yaml) [yamllint]
  * [zeroresourcedetector](https://github.com/0Cubed/ZeroResourceDetector) (g18n/i18n) [zrd]
@@ -308,6 +311,7 @@ to your **local.conf**-file to make it work. Otherwise the build will fail with 
     - [tlv](docs/conf/module/tlv.md)
     - [tscancode](docs/conf/module/tscancode.md)
     - [vulture](docs/conf/module/vulture.md)
+    - [wotan](docs/conf/module/wotan.md)
     - [xmllint](docs/conf/module/xmllint.md)
     - [yamllint](docs/conf/module/yamllint.md)
     - [zrd](docs/conf/module/zrd.md)
