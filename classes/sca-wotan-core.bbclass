@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 SCA_WOTAN_EXTRA_SUPPRESS ?= ""
 SCA_WOTAN_EXTRA_FATAL ?= ""
 SCA_WOTAN_FILE_FILTER ?= ".js .ts .vue"

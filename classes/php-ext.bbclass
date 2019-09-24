@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 ## This class add php-extensions to php.ini-file
 
 PHP_EXTENSION ?= ""

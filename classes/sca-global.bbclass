@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 SCA_ENABLE ?= "1"
 SCA_EXPORT_DIR ?= "${DEPLOY_DIR_IMAGE}/sca"
 SCA_EXPORT_FINDING_SRC = "1"

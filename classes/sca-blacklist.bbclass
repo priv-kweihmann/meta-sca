@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 ## This class provides the configuration for blacklisting modules from certain recipes
 ## All configuration is described through space-separated regular expression
 SCA_BLACKLIST ?= ".*-native .*-cross"

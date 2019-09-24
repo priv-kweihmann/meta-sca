@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 SCA_RADON_ERROR_cc_max_gt ?= "30.0"
 SCA_RADON_WARN_cc_max_gt ?= "15.0"
 

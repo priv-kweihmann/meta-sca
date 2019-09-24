@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 ## Add ids to suppress on a recipe level
 SCA_GCC_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level

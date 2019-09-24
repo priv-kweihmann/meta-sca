@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 SCA_SYSTEMDLINT_EXTRA_SUPPRESS ?= ""
 SCA_SYSTEMDLINT_EXTRA_FATAL ?= ""
 SCA_SYSTEMDLINT_SYSTEMD_VERSION ?= ""

@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 ## File extension filter list (whitespace separated)
 SCA_CQMETRICS_FILE_FILTER ?= ".c .cpp .h .hpp"
 SCA_CQMETRICS_EXTRA_SUPPRESS ?= ""

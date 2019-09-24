@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 python sca_bestof_init() {
     from bb.parse.parse_py import BBHandler
     

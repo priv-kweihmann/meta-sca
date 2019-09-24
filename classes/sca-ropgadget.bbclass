@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 ## Threshold before issueing a warning
 ## all other findings are reported as info-only
 SCA_ROPGADGET_WARNING_THRESHOLD ?= "500"

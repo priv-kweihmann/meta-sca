@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 SCA_STANDARD_EXTRA_SUPPRESS ?= ""
 SCA_STANDARD_EXTRA_FATAL ?= ""
 SCA_STANDARD_FILE_FILTER ?= ".js .jsx"

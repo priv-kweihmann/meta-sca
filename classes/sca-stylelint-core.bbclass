@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 ## Set the config file to be used - the files must be placed at ${STAGING_DATADIR_NATIVE}/stylelint/configs
 ## See stylelint-native recipe for details
 SCA_STYLELINT_EXTRA_SUPPRESS ?= ""

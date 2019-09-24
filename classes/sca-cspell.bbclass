@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 SCA_CSPELL_CHECK_LANG ?= "CPP HTML PYTHON TXT"
 
 ## Lang spec implementation
