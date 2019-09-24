@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 ## Main entry point for static code analysis
 ## You can easily add this to the a global
 ## inherit on local.conf level or put it in the distribution config

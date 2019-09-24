@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 SCA_ANSIBLELINT_EXTRA_SUPPRESS ?= ""
 SCA_ANSIBLELINT_EXTRA_FATAL ?= ""
 SCA_ANSIBLELINT_FILE_FILTER ?= ".yaml"

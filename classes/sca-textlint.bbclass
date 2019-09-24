@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 # Following plugins are disabled by default
 # because they tend to take very long to compute
 # textlint-rule-en-capitalization

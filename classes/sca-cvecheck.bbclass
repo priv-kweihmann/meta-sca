@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 inherit cve-check
 inherit sca-conv-to-export
 inherit sca-datamodel

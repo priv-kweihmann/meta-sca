@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 SCA_XMLLINT_EXTRA_SUPPRESS ?= ""
 SCA_XMLLINT_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)

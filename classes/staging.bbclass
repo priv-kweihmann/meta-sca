@@ -1,3 +1,7 @@
+## SPDX-License-Identifier: BSD-2-Clause AND MIT
+## Copyright (c) 2019, Konrad Weihmann
+## COpyright (c) 2019, Yocto project
+
 def get_path_in_other_layer(d, _file):
     import glob
     ## Find out if we need to inherit the core-class or not

@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 inherit sca-bitbake-core
 
 addtask do_sca_bitbake after do_package_qa do_compile do_install

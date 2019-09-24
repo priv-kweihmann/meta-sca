@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 ## Add ids to lead to a fatal on a recipe level
 SCA_JSONLINT_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)

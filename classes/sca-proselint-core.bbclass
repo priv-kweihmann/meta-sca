@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 SCA_PROSELINT_EXTRA_SUPPRESS ?= ""
 SCA_PROSELINT_EXTRA_FATAL ?= ""
 SCA_PROSELINT_FILE_FILTER ?= ".txt .md .rst .me"

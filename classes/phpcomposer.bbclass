@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 ## Name of the package to be installed - if empty it looks for composer.json in S-dir
 PHPCOMPOSER_PKGS_NAME ?= "${BPN}:${PV}"
 ## Install dir
