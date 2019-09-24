@@ -190,6 +190,20 @@ def get_fatal_from_result(d, fatal_ids):
 def clean_split(d, _var):
     return [x for x in (d.getVar(_var) or "").split(" ") if x]
 
+def get_local_includes(path):
+    import glob
+    res = set()
+    for g in ["*.h", "**/*.h"]:
+        for i in glob.glob(os.path.join(path, g), recursive=True):
+            chunks = i.split("/")
+            limit = len(chunks)
+            if "include" in chunks:
+                limit = len(chunks) - 1 - chunks[::-1].index("include")
+            for l in range(len(chunks), limit, -1):
+                _incpath = os.path.dirname("/".join(chunks[:l]))
+                res.add(_incpath)
+    return res
+
 def sca_task_aftermath(d, tool, fatals=None):
     ## Write to final export
     result_file = os.path.join(d.getVar("T"), sca_conv_export_get_deployname(d, tool))

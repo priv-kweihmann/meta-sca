@@ -5,6 +5,7 @@ ansiblelint,Linter for ansible playbooks,https://github.com/ansible/ansible-lint
 bandit,Scan python code for insecurities,https://github.com/PyCQA/bandit,,x,x,,,x,,,,,,,,,,,x,,
 bashate,Shell script linter,http://docs.openstack.org/developer/bashate/,,x,x,,,,x,,,,,,,,,,,x,x
 bitbake,Bitbake issue handling,,,x,x,,,,,,,,,,,,x,,,x,x
+cbmc,C Bounded Model Checker,https://github.com/diffblue/cbmc/,,,x,x,,,,,,,,,,,,,,x,
 checkbashisms,Shell script linter,https://manpages.debian.org/jessie/devscripts/checkbashisms.1.en.html,,x,x,,,,x,,,,,,,,,,,x,x
 clang,C/C++ linter using LLVM,https://clang.llvm.org/extra/clang-tidy/,meta-clang,,x,x,x,,,,,,,,,,,,,x,
 cppcheck,C/C++ linter,https://github.com/danmar/cppcheck,,,x,x,x,,,,,,,,,,,,x,x,x
