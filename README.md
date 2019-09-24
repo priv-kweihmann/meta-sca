@@ -31,6 +31,8 @@ As in every community project feedback is always welcome...
 
 This layer does only provide open source tools.
 The layer itself is licensed under BSD.
+If individual files are licensed under different terms, terms and conditions
+can be found in the individual file header
 
 ### Zero impact
 
