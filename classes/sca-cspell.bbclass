@@ -75,36 +75,35 @@ python do_sca_cspell() {
         "language": "en",
         "ignorePaths": [],
         "maxNumberOfProblems": 1000000,
-        "dictionaries": ["en_US", "companies", "softwareTerms", "misc", "filetypes", "fonts", "fullstack"],
+        "dictionaries": ["en_US", "softwareTerms", "misc", "filetypes", "fonts", "fullstack"],
         "dictionaryDefinitions": [
             { "name": "en_US", "path": "{}/node_modules/cspell/node_modules/cspell-dict-en_us/en_US.trie.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-            { "name": "companies", "path": "{}/node_modules/cspell/node_modules/cspell-dict-companies/companies.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
             { "name": "fullstack", "path": "{}/node_modules/cspell/node_modules/cspell-dict-fullstack/fullstack.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-            { "name": "softwareTerms", "path": "{}/node_modules/cspell/node_modules/cspell/dist/dictionaries/softwareTerms.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-            { "name": "misc", "path": "{}/node_modules/cspell/node_modules/cspell/dist/dictionaries/miscTerms.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-            { "name": "filetypes", "path": "{}/node_modules/cspell/node_modules/cspell/dist/dictionaries/filetypes.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-            { "name": "fonts", "path": "{}/node_modules/cspell/node_modules/cspell/dist/dictionaries/fonts.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))}
+            { "name": "softwareTerms", "path": "{}/node_modules/cspell/dist/dictionaries/softwareTerms.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
+            { "name": "misc", "path": "{}/node_modules/cspell/dist/dictionaries/miscTerms.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
+            { "name": "filetypes", "path": "{}/node_modules/cspell/dist/dictionaries/filetypes.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
+            { "name": "fonts", "path": "{}/node_modules/cspell/dist/dictionaries/fonts.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))}
         ]
     }
 
     _lang_configs = {
         "cpp": { "name": "cpp", "path": "{}/node_modules/cspell/node_modules/cspell-dict-cpp/cpp.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "csharp": { "csharp": "cpp", "path": "{}/node_modules/cspell/node_modules/cspell/dist/dictionaries/csharp.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "css": { "css": "cpp", "path": "{}/node_modules/cspell/node_modules/cspell/dist/dictionaries/css.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
+        "csharp": { "csharp": "cpp", "path": "{}/node_modules/cspell/dist/dictionaries/csharp.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
+        "css": { "css": "cpp", "path": "{}/node_modules/cspell/dist/dictionaries/css.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
         "django": { "django": "cpp", "path": "{}/node_modules/cspell/node_modules/cspell-dict-django/django.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "dotnet": { "dotnet": "cpp", "path": "{}/node_modules/cspell/node_modules/cspell/dist/dictionaries/dotnet.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
+        "dotnet": { "dotnet": "cpp", "path": "{}/node_modules/cspell/dist/dictionaries/dotnet.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
         "elixir": { "elixir": "cpp", "path": "{}/node_modules/cspell/node_modules/cspell-dict-elixir/elixir.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
         "go": { "name": "go", "path": "{}/node_modules/cspell/node_modules/cspell-dict-golang/go.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "html": { "name": "html", "path": "{}/node_modules/cspell/node_modules/cspell/dist/dictionaries/dotnet.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
+        "html": { "name": "html", "path": "{}/node_modules/cspell/dist/dictionaries/html.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
         "java": { "name": "java", "path": "{}/node_modules/cspell/node_modules/cspell-dict-java/java.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "node": { "name": "node", "path": "{}/node_modules/cspell/node_modules/cspell/dist/dictionaries/node.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "npm": { "name": "npm", "path": "{}/node_modules/cspell/node_modules/cspell/dist/dictionaries/npm.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
+        "node": { "name": "node", "path": "{}/node_modules/cspell/dist/dictionaries/node.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
+        "npm": { "name": "npm", "path": "{}/node_modules/cspell/dist/dictionaries/npm.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
         "php": { "name": "php", "path": "{}/node_modules/cspell/node_modules/cspell-dict-php/php.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "powershell": { "name": "powershell", "path": "{}/node_modules/cspell/node_modules/cspell/dist/dictionaries/powershell.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
+        "powershell": { "name": "powershell", "path": "{}/node_modules/cspell/dist/dictionaries/powershell.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
         "python": { "name": "python", "path": "{}/node_modules/cspell/node_modules/cspell-dict-python/python.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
         "rust": { "name": "rust", "path": "{}/node_modules/cspell/node_modules/cspell-dict-rust/rust.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
         "scala": { "name": "scala", "path": "{}/node_modules/cspell/node_modules/cspell-dict-scala/scala.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "typescript": { "name": "typescript", "path": "{}/node_modules/cspell/node_modules/cspell/dist/dictionaries/typescript.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
+        "typescript": { "name": "typescript", "path": "{}/node_modules/cspell/dist/dictionaries/typescript.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
     }
 
     _config_file = "cspell.json"

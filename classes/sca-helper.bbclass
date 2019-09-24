@@ -152,9 +152,12 @@ def get_files_by_extention(d, path, pattern, excludes=[]):
                 continue
             if _filepath in excludes:
                 continue
-            _filename, _file_extension = os.path.splitext(_filepath)
-            if _file_extension in pattern and pattern:
+            if not pattern:
                 res.append(_filepath)
+            else:
+                _filename, _file_extension = os.path.splitext(_filepath)
+                if _file_extension in pattern and pattern:
+                    res.append(_filepath)
     return [x for x in res if os.path.isfile(x)]
 
 def get_files_by_extention_or_shebang(d, path, shebang, extentions, excludes=[]):

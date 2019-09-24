@@ -1,5 +1,5 @@
 LICENSE = "BSD-2-Clause"
-LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=e926c89aceef6c1a4247d5df08f94533"
+LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=a4a2bbea1db029f21b3a328c7a059172"
 
 SRC_URI = "https://raw.githubusercontent.com/rickogden/insecure-php-example/master/web/index.php;subdir=source;name=rickogden \
            https://gist.githubusercontent.com/jonathan-fulton/9adbebebcaaaabf9098b9705e044725b/raw/a0c49d884bdec9093a290d9b69cd5a7073c83a41/badsignupform.php;subdir=source;name=jonathanfulton \

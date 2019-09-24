@@ -1,29 +1,49 @@
+# This file is a modified version to found at 
+# http://cgit.openembedded.org/meta-openembedded/plain/meta-oe/recipes-devtools/nodejs
+# 
+# The recipe and the provided patches are licensed under the following terms
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy 
+# of this software and associated documentation files (the "Software"), to deal 
+# in the Software without restriction, including without limitation the rights 
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
+# copies of the Software, and to permit persons to whom the Software is 
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in 
+# all copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+# THE SOFTWARE.
+
 DESCRIPTION = "nodeJS Evented I/O for V8 JavaScript"
 HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT & BSD & Artistic-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=9ceeba79eb2ea1067b7b3ed16fff8bab"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=be980eb7ccafe287cb438076a65e888c"
 
-DEPENDS = "openssl zlib icu"
-DEPENDS_append_class-target = " nodejs-native"
+DEPENDS = "openssl"
 
 inherit pkgconfig
+inherit native
 
-COMPATIBLE_MACHINE_armv4 = "(!.*armv4).*"
-COMPATIBLE_MACHINE_armv5 = "(!.*armv5).*"
-COMPATIBLE_MACHINE_mips64 = "(!.*mips64).*"
+COMPATIBLE_HOST_riscv64 = "null"
+COMPATIBLE_HOST_riscv32 = "null"
 
 SRC_URI = "http://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz \
            file://0001-Disable-running-gyp-files-for-bundled-deps.patch \
            file://0003-Crypto-reduce-memory-usage-of-SignFinal.patch \
            file://0004-Make-compatibility-with-gcc-4.8.patch \
            file://0005-Link-atomic-library.patch \
+           file://0006-Use-target-ldflags.patch \
            "
-SRC_URI_append_class-target = " \
-           file://0002-Using-native-torque.patch \
-           "
-
-SRC_URI[md5sum] = "1cad7963255de53509bfa560221bdc88"
-SRC_URI[sha256sum] = "1a55f7b9fb80442182d9e1eba4fca4dac3c781cdcb25d6be37b24d253f61c858"
+           
+SRC_URI[md5sum] = "b41275a018e670947c1950b12f050a2f"
+SRC_URI[sha256sum] = "7bf1123d7415964775b8f81fe6ec6dd5c3c08abb42bb71dfe4409dbeeba26bbd"
 
 S = "${WORKDIR}/node-v${PV}"
 
@@ -48,16 +68,21 @@ ARCHFLAGS_arm = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '-
 GYP_DEFINES_append_mipsel = " mips_arch_variant='r1' "
 ARCHFLAGS ?= ""
 
+PACKAGECONFIG ??= "zlib icu"
+PACKAGECONFIG[zlib] = "--shared-zlib,,zlib"
+PACKAGECONFIG[icu] = "--with-intl=system-icu,--without-intl,icu"
+
 # Node is way too cool to use proper autotools, so we install two wrappers to forcefully inject proper arch cflags to workaround gypi
 do_configure () {
     rm -rf ${S}/deps/openssl
     export LD="${CXX}"
     GYP_DEFINES="${GYP_DEFINES}" export GYP_DEFINES
     # $TARGET_ARCH settings don't match --dest-cpu settings
-   ./configure --prefix=${prefix} --with-intl=system-icu --without-snapshot --shared-openssl --shared-zlib \
+   ./configure --prefix=${prefix} --without-snapshot --shared-openssl \
                --dest-cpu="${@map_nodejs_arch(d.getVar('TARGET_ARCH'), d)}" \
                --dest-os=linux \
-               ${ARCHFLAGS}
+               ${ARCHFLAGS} \
+               ${PACKAGECONFIG_CONFARGS}
 }
 
 do_compile () {
@@ -67,9 +92,7 @@ do_compile () {
 
 do_install () {
     oe_runmake install DESTDIR=${D}
-}
 
-do_install_append_class-native() {
     # use node from PATH instead of absolute path to sysroot
     # node-v0.10.25/tools/install.py is using:
     # shebang = os.path.join(node_prefix, 'bin/node')
@@ -88,13 +111,9 @@ do_install_append_class-native() {
     install -m 0755 ${S}/out/Release/torque ${D}${bindir}/torque
 }
 
-do_install_append_class-target() {
-    sed "1s^.*^#\!${bindir}/env node^g" -i ${D}${exec_prefix}/lib/node_modules/npm/bin/npm-cli.js
-}
-
 PACKAGES =+ "${PN}-npm"
 FILES_${PN}-npm = "${exec_prefix}/lib/node_modules ${bindir}/npm ${bindir}/npx"
-RDEPENDS_${PN}-npm = "bash python-shell python-datetime python-subprocess python-textutils \
+RDEPENDS_${PN}-npm = "bash python-core python-shell python-datetime python-subprocess python-textutils \
     python-compiler python-misc python-multiprocessing"
 
 PACKAGES =+ "${PN}-systemtap"
