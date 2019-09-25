@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 
+static char a[10] = "";
+
+static char* foo(char *input) {
+	strcpy(a, input);
+	return a;
+}
+
 int main()
 {
 	printf("Hello World\n");
@@ -14,4 +21,5 @@ int main()
 	return 0;
 
 	if (c[-1] == 0) return 1;
+	foo(c);
 }

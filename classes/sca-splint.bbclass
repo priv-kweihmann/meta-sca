@@ -59,20 +59,6 @@ def do_sca_conv_splint(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
-def get_local_includes(path):
-    import glob
-    res = set()
-    for g in ["*.h", "**/*.h"]:
-        for i in glob.glob(os.path.join(path, g), recursive=True):
-            chunks = i.split("/")
-            limit = len(chunks)
-            if "include" in chunks:
-                limit = len(chunks) - 1 - chunks[::-1].index("include")
-            for l in range(len(chunks), limit, -1):
-                _incpath = os.path.dirname("/".join(chunks[:l]))
-                res.add(_incpath)
-    return res
-
 python do_sca_splint() {
     import os
     import subprocess
