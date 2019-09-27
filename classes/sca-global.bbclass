@@ -71,6 +71,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           detectsecrets \
                           eslint \
                           flake8 \
+                          flawfinder \
                           flint \
                           gcc \
                           gixy \

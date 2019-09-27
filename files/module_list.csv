@@ -18,6 +18,7 @@ dennis,I18N linter,https://github.com/willkg/dennis/,,,x,,,,,,,,,,,,,x,,x,x
 detectsecrets,Detect hardcoded secrets in code,https://github.com/Yelp/detect-secrets,,x,x,,,,,,,,,,,,x,,x,x,
 eslint,Javascript linter,https://github.com/eslint/eslint,,x,x,,,,,x,,,,,,,,,,x,
 flake8,Python linter,http://flake8.pycqa.org/en/latest/,,x,x,,,x,,,,,,,,,,,,x,x
+flawfinder,C/C++ security linter,https://github.com/david-a-wheeler/flawfinder,,,x,x,x,,,,,,,,,,,,x,,
 flint,C/C++ linter,https://github.com/JossWhittle/FlintPlusPlus,,,x,x,x,,,,,,,,,,,,,x,
 gcc,GCC compiler issues and hardening,,,,x,x,x,,,,,,,,,,,,x,x,
 gixy,NGINX config security linter,https://github.com/yandex/gixy,,x,,,,,,,,,,,,,,x,x,,

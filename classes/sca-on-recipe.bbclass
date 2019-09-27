@@ -27,6 +27,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             detectsecrets \
                             eslint \
                             flake8 \
+                            flawfinder \
                             flint \
                             gcc \
                             golint \

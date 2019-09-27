@@ -1,0 +1,7 @@
+{
+    "languages": [ "C", "CPP" ],
+    "scope": [ "security" ],
+    "buildspeed" : 9,
+    "execspeed": 8,
+    "quality": 7
+}

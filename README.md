@@ -78,6 +78,7 @@ On the other hand some static code analysis does not make any sense on an image-
 | detectsecrets   | Detect hardcoded secrets in code                      | https://github\.com/Yelp/detect\-secrets                                   |               | x            | x             |   |       |        |       |            |     |    |        |          |         |          | x        |               | x              | x                |             |
 | eslint          | Javascript linter                                     | https://github\.com/eslint/eslint                                          |               | x            | x             |   |       |        |       | x          |     |    |        |          |         |          |          |               |                | x                |             |
 | flake8          | Python linter                                         | http://flake8\.pycqa\.org/en/latest/                                       |               | x            | x             |   |       | x      |       |            |     |    |        |          |         |          |          |               |                | x                | x           |
+| flawfinder      | C/C\+\+ security linter                               | https://github\.com/david\-a\-wheeler/flawfinder                           |               |              | x             | x | x     |        |       |            |     |    |        |          |         |          |          |               | x              |                  |             |
 | flint           | C/C\+\+ linter                                        | https://github\.com/JossWhittle/FlintPlusPlus                              |               |              | x             | x | x     |        |       |            |     |    |        |          |         |          |          |               |                | x                |             |
 | gcc             | GCC compiler issues and hardening                     |                                                                            |               |              | x             | x | x     |        |       |            |     |    |        |          |         |          |          |               | x              | x                |             |
 | gixy            | NGINX config security linter                          | https://github\.com/yandex/gixy                                            |               | x            |               |   |       |        |       |            |     |    |        |          |         |          |          | x             | x              |                  |             |
@@ -183,6 +184,7 @@ to your **local.conf**-file to make it work. Otherwise the build will fail with 
     - [detectsecrets](docs/conf/module/detectsecrets.md)
     - [eslint](docs/conf/module/eslint.md)
     - [flake8](docs/conf/module/flake8.md)
+    - [flawfinder](docs/conf/module/flawfinder.md)
     - [flint++](docs/conf/module/flint++.md)
     - [gcc](docs/conf/module/gcc.md)
     - [gixy](docs/conf/module/gixy.md)
