@@ -42,7 +42,7 @@ SCA_CLEAN_BEFORE_EXPORT ?= "1"
 SCA_FORCE_RUN ??= "0"
 
 ## Verbose output of SCA invocation
-SCA_VERBOSE_OUTPUT ??= "1"
+SCA_VERBOSE_OUTPUT ??= "0"
 
 ## Filter by scope
 SCA_SCOPE_FILTER ?= "security functional style"
