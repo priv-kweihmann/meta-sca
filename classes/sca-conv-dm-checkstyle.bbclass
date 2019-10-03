@@ -16,6 +16,8 @@ def sca_conv_dm_checkstyle(d):
     from xml.etree import ElementTree
     from xml.dom import minidom
     import json
+    import os
+    import stat
     import shutil
 
     _items = sca_get_datamodel(d, d.getVar("SCA_DATAMODEL_STORAGE"))
@@ -39,7 +41,7 @@ def sca_conv_dm_checkstyle(d):
                 try:
                     shutil.copy(_srcname, _fname)
                 except Exception as e:
-                    bb.warn("SCA_EXPORT_FINDING_SRC-error: {}".format(e))
+                    bb.note("SCA_EXPORT_FINDING_SRC-error: {}".format(e))
         else:
             _fname = _firstItem.GetPath()
         _fe = SubElement(top, "file", { "name": _fname })
