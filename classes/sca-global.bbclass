@@ -81,6 +81,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           htmlhint \
                           jsonlint \
                           kconfighard \
+                          lynis \
                           npmaudit \
                           mypy \
                           oelint \
