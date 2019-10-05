@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
 inherit qemu
 inherit sca-crossemu-image
 
