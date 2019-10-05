@@ -22,6 +22,7 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             gixy \
                             htmlhint \
                             jsonlint \
+                            lynis \
                             mypy \
                             oelint \
                             proselint \

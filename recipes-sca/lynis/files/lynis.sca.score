@@ -1,0 +1,3 @@
+{
+    "security": ["lynis.lynis..*"]
+}
