@@ -198,6 +198,7 @@ to your **local.conf**-file to make it work. Otherwise the build will fail with 
     - [ikos](docs/conf/module/ikos.md)
     - [jsonlint](docs/conf/module/jsonlint.md)
     - [kconfighard](docs/conf/module/kconfighard.md)
+    - [lynis](docs/conf/module/lynis.md)
     - [npmaudit](docs/conf/module/npmaudit.md)
     - [mypy](docs/conf/module/mypy.md)
     - [oclint](docs/conf/module/oclint.md)
