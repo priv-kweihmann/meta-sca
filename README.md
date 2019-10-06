@@ -121,6 +121,7 @@ On the other hand some static code analysis does not make any sense on an image-
 | stylelint       | CSS/SCSS linter                                       | https://github.com/stylelint/stylelint                                |               | x            | x             |   |     |        |       |            |     |    |        |          |         |          |          | x             |                |                  | x           |
 | systemdlint     | Systemd unit linter                                   | https://github.com/priv-kweihmann/systemdlint                         |               | x            |               |   |     |        |       |            |     |    |        |          |         |          |          | x             | x              | x                | x           |
 | textlint        | Spelling and text linter                              | https://github.com/textlint/textlint                                  |               |              | x             |   |     |        |       |            |     |    |        | x        |         |          |          |               |                |                  | x           |
+| tiger           | security audit and intrusion detection tool           | http://www.nongnu.org/tiger/                                          |               | x            |               |   |     |        |       |            |     |    | x      |          |         |          |          |               | x              |                  |             |
 | tlv             | Find duplicate code                                   | https://github.com/priv-kweihmann/tlv                                 | manual enable | x            | x             | x | x   | x      |       | x          | x   | x  |        |          |         |          |          |               | x              |                  | x           |
 | tscancode       | C and lua linter                                      | https://github.com/Tencent/TscanCode                                  |               |              | x             | x |     |        |       |            |     |    |        |          |         |          |          |               |                | x                |             |
 | vulture         | Find dead python code                                 | https://github.com/jendrikseipp/vulture                               |               | x            | x             |   |     | x      |       |            |     |    |        |          |         |          |          |               |                | x                |             |
@@ -226,6 +227,7 @@ to your **local.conf**-file to make it work. Otherwise the build will fail with 
     - [stylelint](docs/conf/module/stylelint.md)
     - [systemdlint](docs/conf/module/systemdlint.md)
     - [textlint](docs/conf/module/textlint.md)
+    - [tiger](docs/conf/module/tiger.md)
     - [tlv](docs/conf/module/tlv.md)
     - [tscancode](docs/conf/module/tscancode.md)
     - [vulture](docs/conf/module/vulture.md)

@@ -104,6 +104,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           stylelint \
                           systemdlint \
                           textlint \
+                          tiger \
                           tscancode \
                           vulture \
                           wotan \

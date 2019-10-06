@@ -33,6 +33,7 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             stank \
                             stylelint \
                             systemdlint \
+                            tiger \
                             tlv \
                             vulture \
                             wotan \
