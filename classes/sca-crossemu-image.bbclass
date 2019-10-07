@@ -37,9 +37,20 @@ def do_sca_create_crossemu_img(d, tool, addpkgs, postcmd=""):
     for p in addpkgs:
         pkg_list += _get_pkgs_list(d, p)
 
-    dc = copy(d)
+    dc = d.createCopy()
+    ## Override a few vars
     dc.appendVar("PACKAGE_INSTALL", " " + " ".join(pkg_list))
     dc.setVar("IMAGE_ROOTFS", _target_path)
+    dc.setVar("T", "{}_{}".format(d.getVar("T"), tool))
+    dc.setVar("WORKDIR", os.path.join(d.getVar("WORKDIR"), "work_{}".format(tool)))
+
+    ## Create dirs
+    os.makedirs(dc.getVar("T"), exist_ok=True)
+    os.makedirs(dc.getVar("WORKDIR"), exist_ok=True)
+    
+    ## Create log-file (seems to be needed by logger)
+    with open(os.path.join(dc.getVar("T"), "log.do_rootfs"), "w") as o:
+        o.write("")
 
     logger = dc.getVar('BB_TASK_LOGGER', False)
     if logger:
