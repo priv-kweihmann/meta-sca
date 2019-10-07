@@ -106,6 +106,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           textlint \
                           tiger \
                           tscancode \
+                          upc \
                           vulture \
                           wotan \
                           xmllint \

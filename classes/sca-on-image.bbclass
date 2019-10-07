@@ -35,6 +35,7 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             systemdlint \
                             tiger \
                             tlv \
+                            upc \
                             vulture \
                             wotan \
                             xmllint \

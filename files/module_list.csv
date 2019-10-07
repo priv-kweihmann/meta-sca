@@ -7,7 +7,7 @@ bashate,Shell script linter,http://docs.openstack.org/developer/bashate/,,,x,x,,
 bitbake,Bitbake issue handling,,,,x,x,,,,,,,,,,,,x,,,x,x
 cbmc,C Bounded Model Checker,https://github.com/diffblue/cbmc/,,x,,x,x,,,,,,,,,,,,,,x,
 checkbashisms,Shell script linter,https://manpages.debian.org/jessie/devscripts/checkbashisms.1.en.html,,,x,x,,,,x,,,,,,,,,,,x,x
-clang,C/C++ linter using LLVM,https://clang.llvm.org/extra/clang-tidy/,Meta-clang; manual enable,,,x,x,x,,,,,,,,,,,,,x,
+clang,C/C++ linter using LLVM,https://clang.llvm.org/extra/clang-tidy/,Meta-clang, manual enable,,,x,x,x,,,,,,,,,,,,,x
 cppcheck,C/C++ linter,https://github.com/danmar/cppcheck,,,,x,x,x,,,,,,,,,,,,x,x,x
 cpplint,C/C++ linter,https://github.com/cpplint/cpplint,,,,x,x,x,,,,,,,,,,,,x,x,x
 cqmetrics,Metrics for C/C++,https://github.com/dspinellis/cqmetrics,,,,x,x,x,,,,,,,,x,,,,,x,
@@ -26,7 +26,7 @@ golint,GO linter,https://github.com/golang/lint,,,,x,,,,,,,x,,,,,,,,,x
 gosec,GO security linter,https://github.com/securego/gosec,,,,x,,,,,,,x,,,,,,,x,,
 govet,GO linter,https://golang.org/cmd/vet/,,,,x,,,,,,,x,,,,,,,,x,x
 htmlhint,HTML linter,https://github.com/htmlhint/HTMLHint,,x,x,x,,,,,,,,,,,,,x,,x,
-ikos,C/C++ linter using LLVM,https://github.com/nasa-sw-vnv/ikos,meta-clang; manual enable,,,x,x,x,,,,,,,,,,,,,x,
+ikos,C/C++ linter using LLVM,https://github.com/nasa-sw-vnv/ikos,meta-clang, manual enable,,,x,x,x,,,,,,,,,,,,,x
 image-summary,Aggregate all findings for package in an image,,,,x,,,,,,,,,,,,,x,,x,x,x
 jsonlint,JSON file linter,,,,x,x,,,,,,,,,,,,,x,,x,
 kconfighard,Kernel config hardening checker,https://github.com/a13xp0p0v/kconfig-hardened-check,,,,x,,,,,,,,,,,,,x,x,,
@@ -35,10 +35,10 @@ mypy,Python linter,https://github.com/python/mypy,,,x,x,,,x,,,,,,,,,,,,x,
 npmaudit,NPM package auditor,https://docs.npmjs.com/cli/audit,,x,,x,,,,,,,,,,,,,x,x,,
 oclint,C/C++ linter using LLVM,https://github.com/oclint/oclint,manual enable,x,,x,x,x,,,,,,,,,,,,,x,
 oelint,Bitbake recipe linter,https://github.com/priv-kweihmann/oelint-adv,,,x,x,,,,,,,,,,,,,x,,,x
-phan,PHP linter,https://github.com/phan/phan,meta-oe; manual enable,,,x,,,,,,x,,,,,,,,,x,
-phpcodefixer,Find deprecated PHP functions,https://github.com/wapmorgan/PhpCodeFixer,meta-oe; manual enable,,,x,,,,,,x,,,,,,,,x,,
-phpstan,PHP linter,https://github.com/phpstan/phpstan,meta-oe; manual enable,,,x,,,,,,x,,,,,,,,,x,
-progpilot,PHP linter with security focus,https://github.com/designsecurity/progpilot,meta-oe; manual enable,,,x,,,,,,x,,,,,,,,x,,
+phan,PHP linter,https://github.com/phan/phan,meta-oe, manual enable,,,x,,,,,,x,,,,,,,,,x
+phpcodefixer,Find deprecated PHP functions,https://github.com/wapmorgan/PhpCodeFixer,meta-oe, manual enable,,,x,,,,,,x,,,,,,,,x,
+phpstan,PHP linter,https://github.com/phpstan/phpstan,meta-oe, manual enable,,,x,,,,,,x,,,,,,,,,x
+progpilot,PHP linter with security focus,https://github.com/designsecurity/progpilot,meta-oe, manual enable,,,x,,,,,,x,,,,,,,,x,
 proselint,Spelling and text linter,https://github.com/amperser/proselint/,,,x,x,,,,,,,,,x,,,,,,,x
 pyfindinjection,Find SQL injections in python code,https://github.com/uber/py-find-injection,,,x,x,,,x,,,,,,,,,,,x,,
 pylint,Python linter,https://github.com/PyCQA/pylint,,,x,x,,,x,,,,,,,,,,,,x,x
@@ -62,6 +62,7 @@ textlint,Spelling and text linter,https://github.com/textlint/textlint,,x,,x,,,,
 tiger,security audit and intrusion detection tool,http://www.nongnu.org/tiger/,,,x,,,,,,,,,x,,,,,,x,,
 tlv,Find duplicate code,https://github.com/priv-kweihmann/tlv,manual enable,,x,x,x,x,x,,x,x,x,,,,,,,x,,x
 tscancode,C and lua linter,https://github.com/Tencent/TscanCode,,,,x,x,,,,,,,,,,,,,,x,
+upc,check for simple privilege escalation vectors,https://github.com/pentestmonkey/unix-privesc-check,,,x,,,,,,,,,x,,,,,,x,,
 vulture,Find dead python code,https://github.com/jendrikseipp/vulture,,,x,x,,,x,,,,,,,,,,,,x,
 wotan,Typescript/javascript linter,https://github.com/fimbullinter/wotan,,x,x,x,,,,,x,,,,,,,,,,x,x
 xmllint,XML linter,http://xmlsoft.org/xmllint.html,,,x,x,,,,,,,,,,,,,x,,x,
