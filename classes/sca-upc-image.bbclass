@@ -110,7 +110,7 @@ fakeroot python do_sca_upc() {
     result_raw_file = os.path.join(d.getVar("T"), "sca_raw_upc.txt")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
 
-    _args = ["/bin/sh", "-c", "mkdir -p /dev && touch /dev/foo && chmod 0777 /dev/foo && cd /usr/bin/upc && ./upc.sh --checks {}".format(",".join(clean_split(d, "SCA_UPC_MODULES")))]
+    _args = ["/bin/sh", "-c", "cd /usr/bin/upc && ./upc.sh --checks {}".format(",".join(clean_split(d, "SCA_UPC_MODULES")))]
 
     cmd_output = sca_crossemu(d, _args, ["upc"], "upc", ";")
 
