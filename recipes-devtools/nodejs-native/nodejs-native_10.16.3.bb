@@ -26,7 +26,7 @@ HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT & BSD & Artistic-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=be980eb7ccafe287cb438076a65e888c"
 
-DEPENDS = "openssl"
+DEPENDS = "openssl-native"
 
 inherit pkgconfig
 inherit native
@@ -69,8 +69,8 @@ GYP_DEFINES_append_mipsel = " mips_arch_variant='r1' "
 ARCHFLAGS ?= ""
 
 PACKAGECONFIG ??= "zlib icu"
-PACKAGECONFIG[zlib] = "--shared-zlib,,zlib"
-PACKAGECONFIG[icu] = "--with-intl=system-icu,--without-intl,icu"
+PACKAGECONFIG[zlib] = "--shared-zlib,,zlib-native"
+PACKAGECONFIG[icu] = "--with-intl=system-icu,--without-intl,icu-native"
 
 # Node is way too cool to use proper autotools, so we install two wrappers to forcefully inject proper arch cflags to workaround gypi
 do_configure () {
@@ -113,11 +113,7 @@ do_install () {
 
 PACKAGES =+ "${PN}-npm"
 FILES_${PN}-npm = "${exec_prefix}/lib/node_modules ${bindir}/npm ${bindir}/npx"
-RDEPENDS_${PN}-npm = "bash python-core python-shell python-datetime python-subprocess python-textutils \
-    python-compiler python-misc python-multiprocessing"
+DEPENDS += "bash-native python-native"
 
 PACKAGES =+ "${PN}-systemtap"
 FILES_${PN}-systemtap = "${datadir}/systemtap"
-
-
-BBCLASSEXTEND = "native"
