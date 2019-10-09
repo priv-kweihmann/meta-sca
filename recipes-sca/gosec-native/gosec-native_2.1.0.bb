@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/securego/gosec"
 
 SRC_URI = "file://gosec.sca.description \
            file://gosec.sca.score \
-           git://${GO_IMPORT};protocol=https;tag=${PV}"
+           git://${GO_IMPORT};protocol=https;tag=v${PV}"
 
 GO_IMPORT = "github.com/securego/gosec"
 
