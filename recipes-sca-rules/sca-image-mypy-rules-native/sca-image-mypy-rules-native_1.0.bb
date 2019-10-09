@@ -1,6 +1,5 @@
-SUMMARY = "Ruleset for mypy on image-level"
-DESCRIPTION = " Rules to configure how mypy is affecting the build"
-AUTHOR = "Konrad Weihmann <kweihmann@outlook.com>"
+SUMMARY = "SCA ruleset for mypy at images"
+DESCRIPTION = "Rules to configure how mypy is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

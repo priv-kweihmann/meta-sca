@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for rats"
-DESCRIPTION = " Rules to configure how rats is affecting the build"
+SUMMARY = "SCA ruleset for rats at recipes"
+DESCRIPTION = "Rules to configure how rats is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

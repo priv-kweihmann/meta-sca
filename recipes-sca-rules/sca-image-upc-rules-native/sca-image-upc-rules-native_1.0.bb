@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for upc"
-DESCRIPTION = " Rules to configure how upc is affecting the build"
+SUMMARY = "SCA ruleset for upc at images"
+DESCRIPTION = "Rules to configure how upc is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for gosec"
-DESCRIPTION = " Rules to configure how gosec is affecting the build"
+SUMMARY = "SCA ruleset for gosec at recipes"
+DESCRIPTION = "Rules to configure how gosec is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

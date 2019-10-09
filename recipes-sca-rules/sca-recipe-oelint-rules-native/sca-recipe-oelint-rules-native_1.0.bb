@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for oelint"
-DESCRIPTION = " Rules to configure how oelint is affecting the build"
+SUMMARY = "SCA ruleset for oelint at recipes"
+DESCRIPTION = "Rules to configure how oelint is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

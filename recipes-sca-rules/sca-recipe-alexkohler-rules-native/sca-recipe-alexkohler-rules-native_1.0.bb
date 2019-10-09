@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for alexkohler"
-DESCRIPTION = " Rules to configure how alexkohler is affecting the build"
+SUMMARY = "SCA ruleset for alexkohler at recipes"
+DESCRIPTION = "Rules to configure how alexkohler is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

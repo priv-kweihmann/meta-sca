@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for sparse"
-DESCRIPTION = " Rules to configure how sparse is affecting the build"
+SUMMARY = "SCA ruleset for sparse at recipes"
+DESCRIPTION = "Rules to configure how sparse is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

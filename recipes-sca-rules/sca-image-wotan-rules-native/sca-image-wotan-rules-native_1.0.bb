@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for wotan"
-DESCRIPTION = " Rules to configure how wotan is affecting the build"
+SUMMARY = "SCA ruleset for wotan at images"
+DESCRIPTION = "Rules to configure how wotan is affecting the build"
 
 SRC_URI = "file://fatal \
            file://suppress"

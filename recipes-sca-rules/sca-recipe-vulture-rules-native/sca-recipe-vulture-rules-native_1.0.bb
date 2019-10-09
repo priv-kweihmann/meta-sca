@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for vulture"
-DESCRIPTION = " Rules to configure how vulture is affecting the build"
+SUMMARY = "SCA ruleset for vulture at recipes"
+DESCRIPTION = "Rules to configure how vulture is affecting the build"
 
 SRC_URI = "file://fatal"
 

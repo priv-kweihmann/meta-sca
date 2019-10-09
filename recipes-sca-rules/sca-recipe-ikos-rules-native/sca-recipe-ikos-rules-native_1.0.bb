@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for ikos"
-DESCRIPTION = " Rules to configure how ikos is affecting the build"
+SUMMARY = "SCA ruleset for ikos at recipes"
+DESCRIPTION = "Rules to configure how ikos is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

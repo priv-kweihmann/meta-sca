@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for ansible"
-DESCRIPTION = " Rules to configure how ansible is affecting the build"
+SUMMARY = "SCA ruleset for ansible at images"
+DESCRIPTION = "Rules to configure how ansible is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

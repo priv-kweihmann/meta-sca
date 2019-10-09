@@ -1,6 +1,5 @@
-SUMMARY = "Ruleset for progpilot"
-DESCRIPTION = " Rules to configure how progpilot is affecting the build"
-AUTHOR = "Konrad Weihmann <kweihmann@outlook.com>"
+SUMMARY = "SCA ruleset for progpilot at recipes"
+DESCRIPTION = "Rules to configure how progpilot is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

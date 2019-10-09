@@ -1,6 +1,5 @@
-SUMMARY = "Ruleset for phpstan"
-DESCRIPTION = " Rules to configure how phpstan is affecting the build"
-AUTHOR = "Konrad Weihmann <kweihmann@outlook.com>"
+SUMMARY = "SCA ruleset for phpstan at recipes"
+DESCRIPTION = "Rules to configure how phpstan is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

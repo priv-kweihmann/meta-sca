@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for xmllint"
-DESCRIPTION = " Rules to configure how xmllint is affecting the build"
+SUMMARY = "SCA ruleset for xmllint at images"
+DESCRIPTION = "Rules to configure how xmllint is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

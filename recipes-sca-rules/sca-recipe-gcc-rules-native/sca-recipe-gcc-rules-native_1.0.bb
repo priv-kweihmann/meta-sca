@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for gcc"
-DESCRIPTION = " Rules to configure how gcc is affecting the build"
+SUMMARY = "SCA ruleset for gcc at recipes"
+DESCRIPTION = "Rules to configure how gcc is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

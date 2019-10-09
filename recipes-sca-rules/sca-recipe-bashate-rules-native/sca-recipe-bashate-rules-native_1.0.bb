@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for bashate"
-DESCRIPTION = " Rules to configure how bashate is affecting the build"
+SUMMARY = "SCA ruleset for bashate at recipes"
+DESCRIPTION = "Rules to configure how bashate is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for shellcheck"
-DESCRIPTION = " Rules to configure how shellcheck is affecting the build"
+SUMMARY = "SCA ruleset for shellcheck at images"
+DESCRIPTION = "Rules to configure how shellcheck is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

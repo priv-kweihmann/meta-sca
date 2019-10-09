@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for oclint"
-DESCRIPTION = " Rules to configure how oclint is affecting the build"
+SUMMARY = "SCA ruleset for oclint at recipes"
+DESCRIPTION = "Rules to configure how oclint is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

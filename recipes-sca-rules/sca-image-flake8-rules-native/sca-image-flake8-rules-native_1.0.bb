@@ -1,6 +1,5 @@
-SUMMARY = "Ruleset for flake8 on image-level"
-DESCRIPTION = " Rules to configure how flake8 is affecting the build"
-AUTHOR = "Konrad Weihmann <kweihmann@outlook.com>"
+SUMMARY = "SCA ruleset for flake8 at images"
+DESCRIPTION = "Rules to configure how flake8 is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for clang"
-DESCRIPTION = " Rules to configure how clang is affecting the build"
+SUMMARY = "SCA ruleset for clang at recipes"
+DESCRIPTION = "Rules to configure how clang is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

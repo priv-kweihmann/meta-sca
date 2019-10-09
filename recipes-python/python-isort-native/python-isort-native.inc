@@ -1,5 +1,4 @@
-SUMMARY = "isort"
-DESCRIPTION = "Sort python imports - used by static code analysis checkers"
+SUMMARY = "A Python utility / library to sort imports"
 HOMEPAGE = "https://github.com/timothycrosley/isort"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=197c46995787b46a2dbf0d519c1754cf"

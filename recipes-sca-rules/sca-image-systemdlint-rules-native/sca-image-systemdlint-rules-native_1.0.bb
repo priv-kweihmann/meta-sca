@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for systemdlint"
-DESCRIPTION = " Rules to configure how systemdlint is affecting the build"
+SUMMARY = "SCA ruleset for systemdlint at images"
+DESCRIPTION = "Rules to configure how systemdlint is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

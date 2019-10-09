@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for ansiblelint"
-DESCRIPTION = " Rules to configure how ansiblelint is affecting the build"
+SUMMARY = "SCA ruleset for ansiblelint at recipes"
+DESCRIPTION = "Rules to configure how ansiblelint is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

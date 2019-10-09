@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for detectsecrets"
-DESCRIPTION = " Rules to configure how detectsecrets is affecting the build"
+SUMMARY = "SCA ruleset for detectsecrets at recipes"
+DESCRIPTION = "Rules to configure how detectsecrets is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

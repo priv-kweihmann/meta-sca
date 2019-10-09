@@ -1,6 +1,5 @@
-SUMMARY = "Ruleset for pyfindinjection"
-DESCRIPTION = " Rules to configure how pyfindinjection is affecting the build"
-AUTHOR = "Konrad Weihmann <kweihmann@outlook.com>"
+SUMMARY = "SCA ruleset for pyfindinjection at recipes"
+DESCRIPTION = "Rules to configure how pyfindinjection is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

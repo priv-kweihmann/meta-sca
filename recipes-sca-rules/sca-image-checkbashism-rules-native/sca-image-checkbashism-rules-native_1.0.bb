@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for checkbashism"
-DESCRIPTION = " Rules to configure how checkbashism is affecting the build"
+SUMMARY = "SCA ruleset for checkbashism at images"
+DESCRIPTION = "Rules to configure how checkbashism is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for golint"
-DESCRIPTION = " Rules to configure how golint is affecting the build"
+SUMMARY = "SCA ruleset for golint at recipes"
+DESCRIPTION = "Rules to configure how golint is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

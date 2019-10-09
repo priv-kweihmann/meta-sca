@@ -1,6 +1,5 @@
-SUMMARY = "Ruleset for pytype"
-DESCRIPTION = " Rules to configure how pytype is affecting the build"
-AUTHOR = "Konrad Weihmann <kweihmann@outlook.com>"
+SUMMARY = "SCA ruleset for pytype at recipes"
+DESCRIPTION = "Rules to configure how pytype is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

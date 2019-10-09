@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for standard"
-DESCRIPTION = " Rules to configure how standard is affecting the build"
+SUMMARY = "SCA ruleset for standard at recipes"
+DESCRIPTION = "Rules to configure how standard is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

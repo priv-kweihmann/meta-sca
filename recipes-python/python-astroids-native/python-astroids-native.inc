@@ -1,5 +1,4 @@
-SUMMARY = "astroids"
-DESCRIPTION = "Common representation framework of pythoncode for static code analysis checkers"
+SUMMARY = "A common base representation of python source code for pylint and other projects"
 HOMEPAGE = "https://github.com/PyCQA/astroid"
 LICENSE = "LGPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=751419260aa954499f7abaabaa882bbe"

@@ -1,6 +1,5 @@
-SUMMARY = "Ruleset for npmaudit"
-DESCRIPTION = " Rules to configure how npmaudit is affecting the build"
-AUTHOR = "Konrad Weihmann <kweihmann@outlook.com>"
+SUMMARY = "SCA ruleset for npmaudit at recipes"
+DESCRIPTION = "Rules to configure how npmaudit is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

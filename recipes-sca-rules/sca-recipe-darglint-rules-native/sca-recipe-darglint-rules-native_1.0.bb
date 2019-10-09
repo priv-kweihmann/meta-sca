@@ -1,6 +1,5 @@
-SUMMARY = "Ruleset for darglint"
-DESCRIPTION = " Rules to configure how darglint is affecting the build"
-AUTHOR = "Konrad Weihmann <kweihmann@outlook.com>"
+SUMMARY = "SCA ruleset for darglint at recipes"
+DESCRIPTION = "Rules to configure how darglint is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

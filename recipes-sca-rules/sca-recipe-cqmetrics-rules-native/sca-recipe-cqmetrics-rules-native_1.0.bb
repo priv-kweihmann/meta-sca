@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for cqmetrics"
-DESCRIPTION = " Rules to configure how cqmetrics is affecting the build"
+SUMMARY = "SCA ruleset for cqmetrics at recipes"
+DESCRIPTION = "Rules to configure how cqmetrics is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

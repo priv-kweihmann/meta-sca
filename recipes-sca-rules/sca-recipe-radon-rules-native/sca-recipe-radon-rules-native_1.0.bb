@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for radon"
-DESCRIPTION = " Rules to configure how radon is affecting the build"
+SUMMARY = "SCA ruleset for radon at recipes"
+DESCRIPTION = "Rules to configure how radon is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

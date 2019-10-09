@@ -1,6 +1,5 @@
-SUMMARY = "Ruleset for flake8"
-DESCRIPTION = " Rules to configure how flake8 is affecting the build"
-AUTHOR = "Konrad Weihmann <kweihmann@outlook.com>"
+SUMMARY = "SCA ruleset for flake8 at recipes"
+DESCRIPTION = "Rules to configure how flake8 is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

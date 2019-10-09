@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for bandit"
-DESCRIPTION = " Rules to configure how bandit is affecting the build"
+SUMMARY = "SCA ruleset for bandit at recipes"
+DESCRIPTION = "Rules to configure how bandit is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

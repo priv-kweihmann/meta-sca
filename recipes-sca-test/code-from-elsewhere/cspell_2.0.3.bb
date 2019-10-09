@@ -1,5 +1,4 @@
-SUMMARY = "A Spell Checker for Code!"
-DESCRIPTION = "A Spell Checker for Code!"
+SUMMARY = "A Spell Checker for Code! (intentionally outdated for testing)"
 HOMEPAGE = "https://github.com/Jason3S/cspell"
 
 SRC_URI = "git://github.com/streetsidesoftware/cspell.git;protocol=https;tag=v${PV}"

@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for govet"
-DESCRIPTION = " Rules to configure how govet is affecting the build"
+SUMMARY = "SCA ruleset for govet at recipes"
+DESCRIPTION = "Rules to configure how govet is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

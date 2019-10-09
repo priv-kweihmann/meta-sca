@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for eslint"
-DESCRIPTION = " Rules to configure how eslint is affecting the build"
+SUMMARY = "SCA ruleset for eslint at recipes"
+DESCRIPTION = "Rules to configure how eslint is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

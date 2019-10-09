@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for zrd"
-DESCRIPTION = " Rules to configure how zrd is affecting the build"
+SUMMARY = "SCA ruleset for zrd at recipes"
+DESCRIPTION = "Rules to configure how zrd is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

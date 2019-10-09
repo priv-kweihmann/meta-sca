@@ -1,5 +1,4 @@
-SUMMARY = "pylint"
-DESCRIPTION = "Static code analyser for python files"
+SUMMARY = "Pylint is a tool that checks for errors in Python code"
 HOMEPAGE = "https://github.com/PyCQA/pylint"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=4325afd396febcb659c36b49533135d4"

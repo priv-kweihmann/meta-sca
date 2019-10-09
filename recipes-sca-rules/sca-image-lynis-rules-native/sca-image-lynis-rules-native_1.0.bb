@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for lynis"
-DESCRIPTION = " Rules to configure how lynis is affecting the build"
+SUMMARY = "SCA ruleset for lynis at images"
+DESCRIPTION = "Rules to configure how lynis is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

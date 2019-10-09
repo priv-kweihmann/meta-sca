@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for flint++"
-DESCRIPTION = " Rules to configure how flint++ is affecting the build"
+SUMMARY = "SCA ruleset for flint++ at recipes"
+DESCRIPTION = "Rules to configure how flint++ is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

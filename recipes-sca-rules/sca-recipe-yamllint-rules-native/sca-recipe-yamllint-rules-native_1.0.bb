@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for yamllint"
-DESCRIPTION = " Rules to configure how yamllint is affecting the build"
+SUMMARY = "SCA ruleset for yamllint at recipes"
+DESCRIPTION = "Rules to configure how yamllint is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

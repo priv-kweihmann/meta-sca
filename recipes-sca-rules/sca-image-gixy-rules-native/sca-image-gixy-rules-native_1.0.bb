@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for gixy"
-DESCRIPTION = " Rules to configure how gixy is affecting the build"
+SUMMARY = "SCA ruleset for gixy at images"
+DESCRIPTION = "Rules to configure how gixy is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

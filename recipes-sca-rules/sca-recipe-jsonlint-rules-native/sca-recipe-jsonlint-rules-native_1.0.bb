@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for jsonlint"
-DESCRIPTION = " Rules to configure how jsonlint is affecting the build"
+SUMMARY = "SCA ruleset for jsonlint at recipes"
+DESCRIPTION = "Rules to configure how jsonlint is affecting the build"
 
 SRC_URI = "file://fatal"
 

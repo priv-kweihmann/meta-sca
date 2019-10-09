@@ -1,10 +1,9 @@
 SUMMARY = "script for checking on linux kernel hardening"
 HOMEPAGE = "https://github.com/a13xp0p0v/kconfig-hardened-check"
 
-SRC_URI = "git://github.com/a13xp0p0v/kconfig-hardened-check.git;protocol=http;branch=master \
+SRC_URI = "git://github.com/a13xp0p0v/kconfig-hardened-check.git;protocol=http;branch=master;tag=v${PV} \
            file://kconfighard.sca.description \
            file://kconfighard.sca.score"
-SRCREV = "7af4586067f8f0aa8b4be095d4d0e108265c17a9"
 
 S = "${WORKDIR}/git"
 B = "${S}"

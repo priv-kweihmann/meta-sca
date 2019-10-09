@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for cbmc"
-DESCRIPTION = " Rules to configure how cbmc is affecting the build"
+SUMMARY = "SCA ruleset for cbmc at recipes"
+DESCRIPTION = "Rules to configure how cbmc is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

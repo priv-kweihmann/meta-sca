@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for splint"
-DESCRIPTION = " Rules to configure how splint is affecting the build"
+SUMMARY = "SCA ruleset for splint at recipes"
+DESCRIPTION = "Rules to configure how splint is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

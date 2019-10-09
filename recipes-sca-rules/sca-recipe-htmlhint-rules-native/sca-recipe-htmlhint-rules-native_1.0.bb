@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for htmlhint"
-DESCRIPTION = " Rules to configure how htmlhint is affecting the build"
+SUMMARY = "SCA ruleset for htmlhint at recipes"
+DESCRIPTION = "Rules to configure how htmlhint is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

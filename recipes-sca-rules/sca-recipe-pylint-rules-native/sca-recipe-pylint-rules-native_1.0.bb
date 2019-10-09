@@ -1,6 +1,5 @@
-SUMMARY = "Ruleset for pylint"
-DESCRIPTION = " Rules to configure how pylint is affecting the build"
-AUTHOR = "Konrad Weihmann <kweihmann@outlook.com>"
+SUMMARY = "SCA ruleset for pylint at recipes"
+DESCRIPTION = "Rules to configure how pylint is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

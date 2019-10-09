@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for revive"
-DESCRIPTION = " Rules to configure how revive is affecting the build"
+SUMMARY = "SCA ruleset for revive at recipes"
+DESCRIPTION = "Rules to configure how revive is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

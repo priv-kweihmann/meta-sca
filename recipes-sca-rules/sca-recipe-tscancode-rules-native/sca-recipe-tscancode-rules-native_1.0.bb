@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for tscancode"
-DESCRIPTION = " Rules to configure how tscancode is affecting the build"
+SUMMARY = "SCA ruleset for tscancode at recipes"
+DESCRIPTION = "Rules to configure how tscancode is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

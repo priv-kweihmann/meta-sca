@@ -1,6 +1,5 @@
-SUMMARY = "Ruleset for phpcodefixer"
-DESCRIPTION = " Rules to configure how phpcodefixer is affecting the build"
-AUTHOR = "Konrad Weihmann <kweihmann@outlook.com>"
+SUMMARY = "SCA ruleset for phpcodefixer at recipes"
+DESCRIPTION = "Rules to configure how phpcodefixer is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

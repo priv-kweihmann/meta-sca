@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for retire"
-DESCRIPTION = " Rules to configure how retire is affecting the build"
+SUMMARY = "SCA ruleset for retire at recipes"
+DESCRIPTION = "Rules to configure how retire is affecting the build"
 
 SRC_URI = "file://fatal"
 

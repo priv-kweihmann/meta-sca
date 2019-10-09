@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for stank"
-DESCRIPTION = " Rules to configure how stank is affecting the build"
+SUMMARY = "SCA ruleset for stank at recipes"
+DESCRIPTION = "Rules to configure how stank is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

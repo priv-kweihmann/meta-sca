@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for proselint"
-DESCRIPTION = " Rules to configure how proselint is affecting the build"
+SUMMARY = "SCA ruleset for proselint at images"
+DESCRIPTION = "Rules to configure how proselint is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

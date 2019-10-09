@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for cpplint"
-DESCRIPTION = " Rules to configure how cpplint is affecting the build"
+SUMMARY = "SCA ruleset for cpplint at recipes"
+DESCRIPTION = "Rules to configure how cpplint is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

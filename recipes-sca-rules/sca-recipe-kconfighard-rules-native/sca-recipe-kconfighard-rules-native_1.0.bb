@@ -1,6 +1,5 @@
-SUMMARY = "Ruleset for kconfighard"
-DESCRIPTION = " Rules to configure how kconfighard is affecting the build"
-AUTHOR = "Konrad Weihmann <kweihmann@outlook.com>"
+SUMMARY = "SCA ruleset for kconfighard at recipes"
+DESCRIPTION = "Rules to configure how kconfighard is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

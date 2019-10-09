@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for tiger"
-DESCRIPTION = " Rules to configure how tiger is affecting the build"
+SUMMARY = "SCA ruleset for tiger at images"
+DESCRIPTION = "Rules to configure how tiger is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

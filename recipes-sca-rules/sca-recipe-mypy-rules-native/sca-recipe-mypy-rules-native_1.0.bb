@@ -1,6 +1,5 @@
-SUMMARY = "Ruleset for mypy"
-DESCRIPTION = " Rules to configure how mypy is affecting the build"
-AUTHOR = "Konrad Weihmann <kweihmann@outlook.com>"
+SUMMARY = "SCA ruleset for mypy at recipes"
+DESCRIPTION = "Rules to configure how mypy is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

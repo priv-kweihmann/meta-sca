@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for safety"
-DESCRIPTION = " Rules to configure how safety is affecting the build"
+SUMMARY = "SCA ruleset for safety at recipes"
+DESCRIPTION = "Rules to configure how safety is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"

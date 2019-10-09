@@ -1,5 +1,5 @@
-SUMMARY = "Ruleset for flawfinder++"
-DESCRIPTION = " Rules to configure how flawfinder++ is affecting the build"
+SUMMARY = "SCA ruleset for flawfinder at recipes"
+DESCRIPTION = "Rules to configure how flawfinder is affecting the build"
 
 SRC_URI = "file://suppress \
            file://fatal"
