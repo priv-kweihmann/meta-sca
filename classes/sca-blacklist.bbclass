@@ -71,6 +71,7 @@ SCA_BLACKLIST_vulture ?= ""
 SCA_BLACKLIST_wotan ?= ""
 SCA_BLACKLIST_xmllint ?= ""
 SCA_BLACKLIST_yamllint ?= ""
+SCA_BLACKLIST_yara ?= ""
 SCA_BLACKLIST_zrd ?= "linux-.*"
 
 def sca_is_module_blacklisted(d, tool):

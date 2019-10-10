@@ -129,6 +129,7 @@ On the other hand some static code analysis does not make any sense on an image-
 | wotan           | Typescript/javascript linter                          | https://github.com/fimbullinter/wotan                                 |               | x             | x            | x             |   |     |        |       | x          |     |    |        |          |         |          |          |               |                | x                | x           |
 | xmllint         | XML linter                                            | http://xmlsoft.org/xmllint.html                                       |               |               | x            | x             |   |     |        |       |            |     |    |        |          |         |          |          | x             |                | x                |             |
 | yamllint        | YAML linter                                           | https://github.com/adrienverge/yamllint                               |               |               | x            | x             |   |     |        |       |            |     |    |        |          |         |          |          | x             |                |                  | x           |
+| yara            | Find suspicious pattern in binaries                   | https://github.com/VirusTotal/yara                                    |               |               | x            |               |   |     |        |       |            |     |    | x      |          |         |          |          |               | x              |                  |             |
 | zrd             | I18N/G18N linter                                      | https://github.com/0Cubed/ZeroResourceDetector                        |               |               |              | x             |   |     |        |       |            |     |    |        |          |         |          |          | x             |                |                  | x           |
 
 each tool does have it's own benefits and flaws so don't be mad if you have 10k+ findings on the initial run.
@@ -236,6 +237,7 @@ to your **local.conf**-file to make it work. Otherwise the build will fail with 
     - [wotan](docs/conf/module/wotan.md)
     - [xmllint](docs/conf/module/xmllint.md)
     - [yamllint](docs/conf/module/yamllint.md)
+    - [yara](docs/conf/module/yara.md)
     - [zrd](docs/conf/module/zrd.md)
   - Extra modes
     - [BestOf](docs/conf/extra/bestof.md)

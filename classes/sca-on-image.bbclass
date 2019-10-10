@@ -40,6 +40,7 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             wotan \
                             xmllint \
                             yamllint \
+                            yara \
                             "
 SCA_SOURCES_DIR ?= "${IMAGE_ROOTFS}"
 
