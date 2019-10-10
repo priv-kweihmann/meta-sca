@@ -24,6 +24,7 @@ def do_sca_conv_flake8(d):
         "RST": "warning",
         "TAE": "warning",
         "WPS": "warning",
+        "YTT": "warning",
         "A": "warning",
         "B": "warning",
         "C": "warning",
