@@ -9,6 +9,7 @@ SRC_URI += "file://flake8.sca.description \
             file://flake8.sca.score"
 
 DEPENDS += "\
+            ${PYTHON_PN}-cohesion-native \
             ${PYTHON_PN}-flake8-comprehensions-native \
             ${PYTHON_PN}-flake8-dlint-native \
             ${PYTHON_PN}-flake8-eradicate-native \

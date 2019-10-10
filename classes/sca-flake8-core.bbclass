@@ -31,6 +31,7 @@ def do_sca_conv_flake8(d):
         "E": "error",
         "F": "error",
         "G": "warning",
+        "H": "warning",
         "I": "warning",
         "M": "warning",
         "N": "warning",
