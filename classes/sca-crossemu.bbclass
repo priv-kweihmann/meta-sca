@@ -14,7 +14,7 @@ def sca_crossemu(d, cmd, addpkgs, toolname, postcmd="", subprocargs={}):
 
     os.environ["PSEUDO_UNLOAD"] = "1"
     os.environ["SHELL"] = "/bin/bash"
-    os.environ["PATH"] = os.environ["PATH"] + ":/bin:/usr/bin"
+    os.environ["PATH"] = os.environ["PATH"] + ":/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
     _args = ["{}/proot".format(d.getVar("STAGING_BINDIR_NATIVE")), "-r", _target_path, "--root-id"]
     _targs = ["/{}-static".format(qemu_target_binary(d))]
     if isinstance(cmd, str):
