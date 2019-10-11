@@ -92,6 +92,7 @@ On the other hand some static code analysis does not make any sense on an image-
 | image-summary   | Aggregate all findings for package in an image        |                                                                       |               |               | x            |               |   |     |        |       |            |     |    |        |          |         |          | x        |               | x              | x                | x           |
 | jsonlint        | JSON file linter                                      |                                                                       |               |               | x            | x             |   |     |        |       |            |     |    |        |          |         |          |          | x             |                | x                |             |
 | kconfighard     | Kernel config hardening checker                       | https://github.com/a13xp0p0v/kconfig-hardened-check                   |               |               |              | x             |   |     |        |       |            |     |    |        |          |         |          |          | x             | x              |                  |             |
+| looong          | Find functions with too long arglists                 | https://github.com/anapaulagomes/looong                               |               |               |              | x             |   |     | x      |       |            |     |    |        |          |         |          |          |               |                |                  | x           |
 | lynis           | Auditing tool for images                              | https://github.com/CISOfy/lynis                                       |               |               | x            |               |   |     |        |       |            |     |    | x      |          |         |          |          |               | x              |                  |             |
 | mypy            | Python linter                                         | https://github.com/python/mypy                                        |               |               | x            | x             |   |     | x      |       |            |     |    |        |          |         |          |          |               |                | x                |             |
 | npmaudit        | NPM package auditor                                   | https://docs.npmjs.com/cli/audit                                      |               | x             |              | x             |   |     |        |       |            |     |    |        |          |         |          |          | x             | x              |                  |             |
@@ -201,6 +202,7 @@ to your **local.conf**-file to make it work. Otherwise the build will fail with 
     - [ikos](docs/conf/module/ikos.md)
     - [jsonlint](docs/conf/module/jsonlint.md)
     - [kconfighard](docs/conf/module/kconfighard.md)
+    - [looong](docs/conf/module/looong.md)
     - [lynis](docs/conf/module/lynis.md)
     - [npmaudit](docs/conf/module/npmaudit.md)
     - [mypy](docs/conf/module/mypy.md)

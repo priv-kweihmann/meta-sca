@@ -37,6 +37,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             ikos \
                             jsonlint \
                             kconfighard \
+                            looong \
                             npmaudit \
                             mypy \
                             oclint \

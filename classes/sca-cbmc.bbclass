@@ -56,7 +56,7 @@ def do_sca_conv_cbmc(d):
             try:
                 content = json.load(f)
             except json.JSONDecodeError as e:
-                bb.warn(str(e))
+                bb.note(str(e))
             for item in content:
                 try:
                     if "messageType" in item.keys() and \
