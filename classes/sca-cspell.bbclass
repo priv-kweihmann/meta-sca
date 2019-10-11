@@ -75,14 +75,15 @@ python do_sca_cspell() {
         "language": "en",
         "ignorePaths": [],
         "maxNumberOfProblems": 1000000,
-        "dictionaries": ["en_US", "softwareTerms", "misc", "filetypes", "fonts", "fullstack"],
+        "dictionaries": ["en_US", "softwareTerms", "misc", "filetypes", "fonts", "fullstack", "user"],
         "dictionaryDefinitions": [
             { "name": "en_US", "path": "{}/node_modules/cspell/node_modules/cspell-dict-en_us/en_US.trie.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
             { "name": "fullstack", "path": "{}/node_modules/cspell/node_modules/cspell-dict-fullstack/fullstack.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
             { "name": "softwareTerms", "path": "{}/node_modules/cspell/dist/dictionaries/softwareTerms.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
             { "name": "misc", "path": "{}/node_modules/cspell/dist/dictionaries/miscTerms.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
             { "name": "filetypes", "path": "{}/node_modules/cspell/dist/dictionaries/filetypes.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-            { "name": "fonts", "path": "{}/node_modules/cspell/dist/dictionaries/fonts.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))}
+            { "name": "fonts", "path": "{}/node_modules/cspell/dist/dictionaries/fonts.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
+            { "name": "user", "path": "{}/cspell-user/cspell_user.txt".format(d.getVar("STAGING_DATADIR_NATIVE"))}
         ]
     }
 
@@ -155,4 +156,4 @@ addtask do_sca_deploy_cspell before do_package after do_sca_cspell
 do_sca_cspell[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_cspell[nostamp] = "${@sca_force_run(d)}"
 
-DEPENDS += "cspell-native sca-recipe-cspell-rules-native"
+DEPENDS += "cspell-native sca-recipe-cspell-rules-native cspell-user-dict-native"

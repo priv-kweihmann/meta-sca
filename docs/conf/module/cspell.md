@@ -1,7 +1,7 @@
 # Configuration for cspell
 
 This module is someway different in configuration than the other.
-First of all this module does not support suppression or fatal-errors, as the only error this module 
+First of all this module does not support suppression or fatal-errors, as the only error this module
 produces is to warn you about typos and unknown words.
 The check itself is done for each configured language - meaning a defined set of dictionaries is used for checking.
 
@@ -25,6 +25,18 @@ The check itself is done for each configured language - meaning a defined set of
 | SCA_CSPELL_LANG_TXT_dicts | Dictionaries for TXT | space-separated-list | ""
 | SCA_CSPELL_LANG_TXT_files | Files to check for TXT | space-separated-list | ".txt .md .rst"
 
+## Add custom words to supported dictionaries
+
+To add a custom word to the dictionary
+create a recipe called **cspell-user-dict-native_%.bbappend** in your layer
+In this recipe insert the following function
+
+```bitbake
+do_compile_append() {
+  echo "<your word for the dict>" >> "${WORKDIR}/spell_user.txt"
+}
+```
+
 ## Supports
 
 - [ ] suppression of ids
@@ -41,7 +53,7 @@ The check itself is done for each configured language - meaning a defined set of
 
 Currently available as dictionaries are
 
-| name | purpose | enable default 
+| name | purpose | enable default
 | ------------- | -----:| -----:
 | companies | Known companies list | yes
 | cpp | C/C++ terms and functions | no
@@ -67,12 +79,13 @@ Currently available as dictionaries are
 | scala | Scala terms | no
 | softwareTerms | More terms from software development | yes
 | typescript | Typescript terms | no
+| user | User defined dictionary (see above for details) | yes
 
 These dictionaries are applied to language by defining the following case sensitive variables
 
- * **SCA_CSPELL_LANG_\<LANG_CODE\>_files** - List of file extensions to check
- * **SCA_CSPELL_LANG_\<LANG_CODE\>_dicts** - List of dictionaries to add the default selection for checking
- * **SCA_CSPELL_LANG_\<LANG_CODE\>_shebang** - Regex for getting file by shebang
+* **SCA_CSPELL_LANG_\<LANG_CODE\>_files** - List of file extensions to check
+* **SCA_CSPELL_LANG_\<LANG_CODE\>_dicts** - List of dictionaries to add the default selection for checking
+* **SCA_CSPELL_LANG_\<LANG_CODE\>_shebang** - Regex for getting file by shebang
 
 ## Notes
 
@@ -92,9 +105,9 @@ __tbd__
 
 ## Statistics
 
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Build Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬜⬜⬜ 07/10 Execution Speed
- - ⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜ 04/10 Quality
+- ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Build Speed
+- ⬛⬛⬛⬛⬛⬛⬛⬜⬜⬜ 07/10 Execution Speed
+- ⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜ 04/10 Quality
 
 ## Score mapping
 

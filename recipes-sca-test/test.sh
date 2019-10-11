@@ -10,6 +10,7 @@ bitbake \
         bad-php \
         bad-python-reqs \
         bad-python-types \
+        bad-spelling \
         bad-systemd \
         bad-xml \
         bad-yaml \
