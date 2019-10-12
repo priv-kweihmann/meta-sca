@@ -1,7 +1,7 @@
 {
     "languages": [ "tlv" ],
     "scope": [ "security", "style" ],
-    "buildspeed" : 9,
-    "execspeed": 3,
+    "buildspeed" : 5,
+    "execspeed": 1,
     "quality": 8
 }

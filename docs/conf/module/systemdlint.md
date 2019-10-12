@@ -57,9 +57,9 @@
 
 ## Statistics
 
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Build Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬜⬜⬜ 07/10 Execution Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬜⬜⬜ 07/10 Quality
+ - ⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ 05/10 Build Speed
+ - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Execution Speed
+ - ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Quality
 
 ## Score mapping
 

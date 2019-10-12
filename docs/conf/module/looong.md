@@ -36,9 +36,9 @@ looong.looong.TooLongArgumentList
 
 ## Statistics
 
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10 Build Speed
+ - ⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ 05/10 Build Speed
  - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10 Execution Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Quality
+ - ⬛⬛⬛⬛⬛⬛⬛⬜⬜⬜ 07/10 Quality
 
 ## Score mapping
 

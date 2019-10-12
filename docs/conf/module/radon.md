@@ -172,7 +172,7 @@ All values are floating point units (as string).
 
 ## Statistics
 
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Build Speed
+ - ⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜ 02/10 Build Speed
  - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Execution Speed
  - ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Quality
 

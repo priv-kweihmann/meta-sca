@@ -260,6 +260,7 @@ to your **local.conf**-file to make it work. Otherwise the build will fail with 
     - [Parameterized jenkins build](docs/build/jenkins/integration_parameter.md)
 - Application notes
   - [Recipe buildtime dependencies](docs/sca/buildtime_dependencies.md)
+  - [How are the Statistics of a tool calucated?](docs/sca/build_exec_times.md)
 - Case studies
   - [Regression on severe code issues](docs/casestudy/simple_regression.md)
   - [Idenfying hardening and security potential](docs/casestudy/adv_security.md)

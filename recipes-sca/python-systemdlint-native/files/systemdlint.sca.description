@@ -1,7 +1,7 @@
 {
     "languages": [ "systemd" ],
     "scope": [ "security", "functional", "style" ],
-    "buildspeed" : 9,
-    "execspeed": 7,
-    "quality": 7
+    "buildspeed" : 5,
+    "execspeed": 9,
+    "quality": 8
 }

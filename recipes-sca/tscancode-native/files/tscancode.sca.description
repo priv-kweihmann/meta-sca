@@ -1,7 +1,7 @@
 {
     "languages": [ "C", "C#", "lua" ],
     "scope": [ "functional" ],
-    "buildspeed" : 7,
+    "buildspeed" : 8,
     "execspeed": 7,
     "quality": 6
 }

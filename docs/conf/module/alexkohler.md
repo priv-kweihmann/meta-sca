@@ -46,8 +46,8 @@ alexkohler is a collection of analyzer tools by Alex Kohler
 
 ## Statistics
 
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Build Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Execution Speed
+ - ⬛⬛⬛⬛⬛⬛⬛⬜⬜⬜ 07/10 Build Speed
+ - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10 Execution Speed
  - ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Quality
 
 ## Score mapping

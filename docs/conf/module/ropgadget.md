@@ -45,8 +45,8 @@ A large value does not actually mean that your binary __is__ exploitable, but a 
 
 ## Statistics
 
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Build Speed
- - ⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ 05/10 Execution Speed
+ - ⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ 05/10 Build Speed
+ - ⬛⬛⬛⬛⬛⬛⬛⬜⬜⬜ 07/10 Execution Speed
  - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Quality
 
 ## Score mapping

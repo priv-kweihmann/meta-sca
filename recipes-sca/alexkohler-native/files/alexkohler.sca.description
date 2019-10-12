@@ -1,7 +1,7 @@
 {
     "languages": [ "go" ],
     "scope": [ "style" ],
-    "buildspeed" : 9,
-    "execspeed": 9,
+    "buildspeed" : 7,
+    "execspeed": 10,
     "quality": 8
 }

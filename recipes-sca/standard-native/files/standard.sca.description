@@ -1,8 +1,8 @@
 {
     "languages": [ "javascript" ],
     "scope": [ "functional", "style" ],
-    "buildspeed" : 7,
-    "execspeed": 6,
+    "buildspeed" : 4,
+    "execspeed": 10,
     "quality": 8,
     "online": true
 }

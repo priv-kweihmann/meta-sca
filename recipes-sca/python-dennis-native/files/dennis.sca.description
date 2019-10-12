@@ -1,7 +1,7 @@
 {
     "languages": [ "i18n" ],
     "scope": [ "functional", "style" ],
-    "buildspeed" : 9,
+    "buildspeed" : 5,
     "execspeed": 10,
     "quality": 8
 }

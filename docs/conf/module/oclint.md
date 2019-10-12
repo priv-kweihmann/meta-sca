@@ -40,7 +40,7 @@ __tbd__
 ## Statistics
 
  - ⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜ 01/10 Build Speed
- - ⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜ 02/10 Execution Speed
+ - ⬛⬛⬛⬜⬜⬜⬜⬜⬜⬜ 03/10 Execution Speed
  - ⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ 05/10 Quality
 
 ## Score mapping

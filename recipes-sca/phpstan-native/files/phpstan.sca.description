@@ -1,7 +1,7 @@
 {
     "languages": [ "PHP" ],
     "scope": ["functional"],
-    "buildspeed" : 9,
-    "execspeed": 9,
+    "buildspeed" : 4,
+    "execspeed": 10,
     "quality": 9
 }

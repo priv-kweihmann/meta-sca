@@ -37,7 +37,7 @@
 
 ## Statistics
 
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Build Speed
+ - ⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜ 04/10 Build Speed
  - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10 Execution Speed
  - ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Quality
 

@@ -1,7 +1,7 @@
 {
     "languages": [ "binary" ],
     "scope": [ "security" ],
-    "buildspeed" : 10,
-    "execspeed": 10,
+    "buildspeed" : 5,
+    "execspeed": 9,
     "quality": 5
 }

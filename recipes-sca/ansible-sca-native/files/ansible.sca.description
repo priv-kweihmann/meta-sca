@@ -1,7 +1,7 @@
 {
     "languages": [ "system" ],
     "scope": [ "security" ],
-    "buildspeed" : 8,
-    "execspeed": 6,
+    "buildspeed" : 5,
+    "execspeed": 4,
     "quality": 8
 }

@@ -1,8 +1,8 @@
 {
     "languages": [ "python" ],
     "scope": [ "functional" ],
-    "buildspeed" : 6,
-    "execspeed": 4,
+    "buildspeed" : 2,
+    "execspeed": 9,
     "quality": 9,
     "online": true
 }

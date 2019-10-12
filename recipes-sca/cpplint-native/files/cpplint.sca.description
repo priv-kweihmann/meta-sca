@@ -1,7 +1,7 @@
 {
     "languages": [ "C", "CPP" ],
     "scope": ["security", "functional", "style"],
-    "buildspeed" : 10,
-    "execspeed": 4,
+    "buildspeed" : 5,
+    "execspeed": 6,
     "quality": 7
 }

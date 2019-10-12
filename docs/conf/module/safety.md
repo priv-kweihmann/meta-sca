@@ -40,8 +40,8 @@ safety.safety.vulnerability - a vulnerability was detected in referenced package
 
 ## Statistics
 
- - ⬛⬛⬛⬛⬛⬛⬛⬜⬜⬜ 07/10 Build Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Execution Speed
+ - ⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜ 02/10 Build Speed
+ - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10 Execution Speed
  - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Quality
 
 ## Score mapping

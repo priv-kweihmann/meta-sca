@@ -1,7 +1,7 @@
 {
     "languages": ["C", "CPP"],
     "scope": [ "functional" ],
-    "buildspeed" : 1,
+    "buildspeed" : 3,
     "execspeed": 2,
     "quality": 6
 }

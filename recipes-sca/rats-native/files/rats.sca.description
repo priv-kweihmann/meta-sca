@@ -2,6 +2,6 @@
     "languages": [ "C", "perl", "php", "python", "ruby" ],
     "scope": [ "security" ],
     "buildspeed" : 8,
-    "execspeed": 7,
+    "execspeed": 10,
     "quality": 6
 }

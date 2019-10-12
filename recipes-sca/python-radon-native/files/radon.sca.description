@@ -1,7 +1,7 @@
 {
     "languages": [ "python" ],
     "scope": ["style"],
-    "buildspeed" : 9,
+    "buildspeed" : 2,
     "execspeed": 9,
     "quality": 8
 }

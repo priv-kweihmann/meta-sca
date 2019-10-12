@@ -37,7 +37,7 @@ __tbd__
 
 ## Statistics
 
- - ⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜ 02/10 Build Speed
+ - ⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜ 04/10 Build Speed
  - ⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ 05/10 Execution Speed
  - ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Quality
 

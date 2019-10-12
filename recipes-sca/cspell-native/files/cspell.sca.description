@@ -1,8 +1,8 @@
 {
     "languages": [ "spelling" ],
     "scope": [ "style" ],
-    "buildspeed" : 8,
-    "execspeed": 7,
+    "buildspeed" : 4,
+    "execspeed": 8,
     "quality": 4,
     "online": true
 }

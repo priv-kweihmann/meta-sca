@@ -1,8 +1,8 @@
 {
     "languages": [ "npm" ],
     "scope": [ "security" ],
-    "buildspeed" : 9,
-    "execspeed": 8,
+    "buildspeed" : 4,
+    "execspeed": 10,
     "quality": 10,
     "online": true
 }

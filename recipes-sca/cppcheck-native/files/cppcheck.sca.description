@@ -2,6 +2,6 @@
     "languages": [ "C", "CPP" ],
     "scope": ["security", "functional", "style"],
     "buildspeed" : 7,
-    "execspeed": 7,
-    "quality": 9
+    "execspeed": 6,
+    "quality": 10
 }
