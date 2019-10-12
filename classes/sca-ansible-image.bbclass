@@ -220,8 +220,8 @@ python do_sca_deploy_ansible() {
     sca_conv_deploy(d, "ansible", "json")
 }
 
-addtask do_sca_ansible before do_image_complete after do_image
-addtask do_sca_deploy_ansible before do_image_complete after do_sca_ansible
+do_image[postfuncs] += "do_sca_ansible"
+do_image_complete[prefuncs] += "do_sca_deploy_ansible"
 
 do_sca_ansible[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_ansible[nostamp] = "${@sca_force_run(d)}"

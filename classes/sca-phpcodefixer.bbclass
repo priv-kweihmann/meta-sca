@@ -102,8 +102,8 @@ python do_sca_deploy_phpcodefixer() {
     sca_conv_deploy(d, "phpcodefixer", "json")
 }
 
-addtask do_sca_phpcodefixer before do_install after do_configure
-addtask do_sca_deploy_phpcodefixer after do_sca_phpcodefixer before do_package
+do_compile[postfuncs] += "do_sca_phpcodefixer"
+do_package[prefuncs] += "do_sca_deploy_phpcodefixer"
 
 do_sca_phpcodefixer[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_phpcodefixer[nostamp] = "${@sca_force_run(d)}"

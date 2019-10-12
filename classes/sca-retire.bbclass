@@ -104,8 +104,8 @@ python do_sca_deploy_retire() {
     sca_conv_deploy(d, "retire", "json")
 }
 
-addtask do_sca_retire before do_package after do_install
-addtask do_sca_deploy_retire after do_sca_retire before do_package
+do_install[postfuncs] += "do_sca_retire"
+do_package[prefuncs] += "do_sca_deploy_retire"
 
 do_sca_retire[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_retire[nostamp] = "${@sca_force_run(d)}"

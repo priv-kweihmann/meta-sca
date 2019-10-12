@@ -146,8 +146,8 @@ python do_sca_deploy_ropgadget() {
     sca_conv_deploy(d, "ropgadget", "txt")
 }
 
-addtask do_sca_ropgadget before do_package_qa after do_package
-addtask do_sca_deploy_ropgadget after do_sca_ropgadget before do_package_qa
+do_package[postfuncs] += "do_sca_ropgadget"
+do_package_qa[prefuncs] += "do_sca_deploy_ropgadget"
 
 do_sca_ropgadget[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_ropgadget[nostamp] = "${@sca_force_run(d)}"

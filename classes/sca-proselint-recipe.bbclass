@@ -12,8 +12,8 @@ python do_sca_deploy_proselint_recipe() {
     sca_conv_deploy(d, "proselint", "json")
 }
 
-addtask do_sca_proselint_core before do_install after do_compile
-addtask do_sca_deploy_proselint_recipe before do_package after do_sca_proselint_core
+do_compile[postfuncs] += "do_sca_proselint_core"
+do_package[prefuncs] += "do_sca_deploy_proselint_recipe"
 
 do_sca_proselint_core[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_proselint_recipe[nostamp] = "${@sca_force_run(d)}"

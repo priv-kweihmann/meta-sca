@@ -104,8 +104,8 @@ python do_sca_deploy_gosec() {
     sca_conv_deploy(d, "gosec", "json")
 }
 
-addtask do_sca_gosec before do_compile after do_configure
-addtask do_sca_deploy_gosec after do_sca_gosec before do_package
+do_compile[postfuncs] += "do_sca_gosec"
+do_package[prefuncs] += "do_sca_deploy_gosec"
 
 do_sca_gosec[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_gosec[nostamp] = "${@sca_force_run(d)}"

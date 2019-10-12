@@ -106,8 +106,8 @@ python do_sca_deploy_phpstan() {
     sca_conv_deploy(d, "phpstan", "json")
 }
 
-addtask do_sca_phpstan before do_install after do_configure
-addtask do_sca_deploy_phpstan after do_sca_phpstan before do_package
+do_compile[postfuncs] += "do_sca_phpstan"
+do_package[prefuncs] += "do_sca_deploy_phpstan"
 
 do_sca_phpstan[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_phpstan[nostamp] = "${@sca_force_run(d)}"

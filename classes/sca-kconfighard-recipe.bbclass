@@ -130,8 +130,8 @@ python do_sca_deploy_kconfighard() {
     sca_conv_deploy(d, "kconfighard", "txt")
 }
 
-addtask do_sca_kconfighard before do_compile after do_configure
-addtask do_sca_deploy_kconfighard after do_sca_kconfighard before do_compile
+do_configure[postfuncs] += "do_sca_kconfighard"
+do_package[prefuncs] += "do_sca_deploy_kconfighard"
 
 do_sca_kconfighard[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_kconfighard[nostamp] = "${@sca_force_run(d)}"

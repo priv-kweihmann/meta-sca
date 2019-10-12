@@ -141,8 +141,8 @@ python do_sca_deploy_oclint() {
     sca_conv_deploy(d, "oclint", "json")
 }
 
-addtask do_sca_oclint before do_install after do_compile
-addtask do_sca_deploy_oclint after do_sca_oclint before do_package
+do_compile[postfuncs] += "do_sca_oclint"
+do_package[prefuncs] += "do_sca_deploy_oclint"
 
 do_sca_oclint[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_oclint[nostamp] = "${@sca_force_run(d)}"

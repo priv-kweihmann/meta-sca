@@ -95,8 +95,8 @@ python do_sca_deploy_revive() {
     sca_conv_deploy(d, "revive", "txt")
 }
 
-addtask do_sca_revive before do_compile after do_configure
-addtask do_sca_deploy_revive after do_sca_revive before do_package
+do_compile[postfuncs] += "do_sca_revive"
+do_package[prefuncs] += "do_sca_deploy_revive"
 
 do_sca_revive[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_revive[nostamp] = "${@sca_force_run(d)}"

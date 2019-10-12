@@ -173,8 +173,8 @@ python do_sca_deploy_rats() {
     sca_conv_deploy(d, "rats", "xml")
 }
 
-addtask do_sca_rats before do_install after do_configure
-addtask do_sca_deploy_rats after do_sca_rats before do_package
+do_compile[postfuncs] += "do_sca_rats"
+do_package[prefuncs] += "do_sca_deploy_rats"
 
 do_sca_rats[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_rats[nostamp] = "${@sca_force_run(d)}"

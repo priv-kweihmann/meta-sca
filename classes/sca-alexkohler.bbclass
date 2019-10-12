@@ -98,8 +98,8 @@ python do_sca_deploy_alexkohler() {
     sca_conv_deploy(d, "alexkohler", "txt")
 }
 
-addtask do_sca_alexkohler before do_compile after do_configure
-addtask do_sca_deploy_alexkohler after do_sca_alexkohler before do_package
+do_compile[postfuncs] += "do_sca_alexkohler"
+do_package[prefuncs] += "do_sca_deploy_alexkohler"
 
 do_sca_alexkohler[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_alexkohler[nostamp] = "${@sca_force_run(d)}"

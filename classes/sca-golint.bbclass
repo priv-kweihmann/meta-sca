@@ -96,8 +96,8 @@ python do_sca_deploy_golint() {
     sca_conv_deploy(d, "golint", "txt")
 }
 
-addtask do_sca_golint before do_compile after do_configure
-addtask do_sca_deploy_golint after do_sca_golint before do_package
+do_compile[postfuncs] += "do_sca_golint"
+do_package[prefuncs] += "do_sca_deploy_golint"
 
 do_sca_golint[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_golint[nostamp] = "${@sca_force_run(d)}"

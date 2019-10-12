@@ -132,8 +132,8 @@ python do_sca_deploy_upc_image() {
     sca_conv_deploy(d, "upc", "txt")
 }
 
-addtask do_sca_upc before do_image_complete after do_image
-addtask do_sca_deploy_upc_image before do_image_complete after do_sca_upc
+do_image[postfuncs] += "do_sca_upc"
+do_image_complete[prefuncs] += "do_sca_deploy_upc_image"
 
 do_sca_upc[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_upc_image[nostamp] = "${@sca_force_run(d)}"

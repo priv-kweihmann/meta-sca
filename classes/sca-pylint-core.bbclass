@@ -103,6 +103,4 @@ python do_sca_pylint_core() {
     sca_task_aftermath(d, "pylint", get_fatal_entries(d))
 }
 
-## addtask do_static_code_analysis_pylint before do_install after do_compile
-
 DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-pylint-native"

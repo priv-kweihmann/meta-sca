@@ -18,8 +18,8 @@ python do_sca_deploy_bestof_recipe() {
     sca_conv_deploy(d, "bestof", "json")
 }
 
-addtask do_sca_bestof_core after do_install before do_package_write_rpm
-addtask do_sca_deploy_bestof_recipe before do_package_write_rpm after do_sca_bestof_core
+do_install[postfuncs] += "do_sca_bestof_core"
+do_package_write_rpm[prefuncs] += "do_sca_deploy_bestof_recipe"
 
 do_sca_bestof_core[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_bestof_recipe[nostamp] = "${@sca_force_run(d)}"

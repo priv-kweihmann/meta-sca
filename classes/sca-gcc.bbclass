@@ -281,8 +281,8 @@ python do_sca_deploy_gcc() {
     sca_conv_deploy(d, "gcc", "txt")
 }
 
-addtask do_sca_gcc before do_install after do_compile
-addtask do_sca_deploy_gcc after do_sca_gcc before do_package
+do_compile[postfuncs] += "do_sca_gcc"
+do_package[prefuncs] += "do_sca_deploy_gcc"
 
 do_sca_gcc[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_gcc[nostamp] = "${@sca_force_run(d)}"

@@ -101,8 +101,8 @@ python do_sca_deploy_darglint() {
     sca_conv_deploy(d, "darglint", "txt")
 }
 
-addtask do_sca_darglint before do_install after do_configure
-addtask do_sca_deploy_darglint after do_sca_darglint before do_package
+do_compile[postfuncs] += "do_sca_darglint"
+do_package[prefuncs] += "do_sca_deploy_darglint"
 
 do_sca_darglint[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_darglint[nostamp] = "${@sca_force_run(d)}"

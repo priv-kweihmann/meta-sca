@@ -128,8 +128,8 @@ python do_sca_deploy_splint() {
     sca_conv_deploy(d, "splint", "csv")
 }
 
-addtask do_sca_splint before do_install after do_compile
-addtask do_sca_deploy_splint after do_sca_splint before do_package
+do_compile[postfuncs] += "do_sca_splint"
+do_package[prefuncs] += "do_sca_deploy_splint"
 
 do_sca_splint[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_splint[nostamp] = "${@sca_force_run(d)}"
