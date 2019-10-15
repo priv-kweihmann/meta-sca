@@ -2,12 +2,9 @@ SUMMARY = "A flake8 extension that helps to make more readable variables names"
 
 HOMEPAGE = "https://github.com/best-doctor/flake8-variables-names"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/LICENSE;md5=48ef0979a2bcc3fae14ff30b8a7f5dbf"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=352fd8fef192c98968c70971a80f959c"
 
-SRC_URI += "https://raw.githubusercontent.com/best-doctor/flake8-variables-names/v${PV}/LICENSE;name=lic"
-
-SRC_URI[lic.md5sum] = "48ef0979a2bcc3fae14ff30b8a7f5dbf"
-SRC_URI[lic.sha256sum] = "c696614021eafe355c7fb0af3e724fc7fa8729a0c10c27cbed2505bf30a853ce"
+SRC_URI += "git://github.com/best-doctor/flake8-variables-names.git;protocol=https;tag=v${PV}"
 
 PYPI_PACKAGE = "flake8_variables_names"
 
