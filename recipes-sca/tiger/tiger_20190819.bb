@@ -23,6 +23,10 @@ do_install_prepend() {
 	mkdir -p ${D}${mandir}
 }
 
+do_install_append_class-target() {
+	chown -R root:root ${D}${datadir}/tiger
+}
+
 do_install_append_class-native () {
 	install -d ${D}/${datadir}
 
@@ -30,7 +34,7 @@ do_install_append_class-native () {
     install ${WORKDIR}/tiger.sca.score ${D}${datadir}
 }
 
-INSANE_SKIP_${PN} += "host-user-contaminated ldflags file-rdeps"
+INSANE_SKIP_${PN} += "ldflags file-rdeps"
 
 DEPENDS += "bash perl"
 
