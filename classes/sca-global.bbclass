@@ -61,6 +61,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           bitbake \
                           cbmc \
                           checkbashism \
+                          configcheck \
                           cppcheck \
                           cpplint \
                           cqmetrics \
