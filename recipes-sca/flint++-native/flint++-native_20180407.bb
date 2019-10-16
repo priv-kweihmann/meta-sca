@@ -6,7 +6,7 @@ LICENSE = "BSL-1.0"
 S = "${WORKDIR}/git"
 B = "${S}"
 
-SRC_URI = "git://github.com/JossWhittle/FlintPlusPlus.git;protocol=http;branch=master \
+SRC_URI = "git://github.com/JossWhittle/FlintPlusPlus.git;protocol=https;branch=master \
            file://flint.sca.description \
            file://flint.sca.score"
 SRCREV = "e209329bdf0d1c53c43474519bd875b692f9d61e"

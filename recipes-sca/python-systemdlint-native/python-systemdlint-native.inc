@@ -2,7 +2,7 @@ SUMMARY = "Systemd Linter"
 DESCRIPTION = "Systemd Linter"
 HOMEPAGE = "https://github.com/priv-kweihmann/systemdlint"
 
-SRC_URI = "git://github.com/priv-kweihmann/systemdlint.git;protocol=http;branch=master;tag=${PV} \
+SRC_URI = "git://github.com/priv-kweihmann/systemdlint.git;protocol=https;branch=master;tag=${PV} \
            file://systemdlint.sca.description \
            file://systemdlint.sca.score"
 

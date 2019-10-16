@@ -1,7 +1,7 @@
 SUMMARY = "Static code analysis tool for g11n/i18n issues in resource files."
 HOMEPAGE = "https://github.com/0Cubed/ZeroResourceDetector"
 
-SRC_URI = "git://github.com/0Cubed/ZeroResourceDetector.git;protocol=http;branch=master; \
+SRC_URI = "git://github.com/0Cubed/ZeroResourceDetector.git;protocol=https;branch=master; \
            file://zrd.sca.description \
            file://zrd.sca.score"
 

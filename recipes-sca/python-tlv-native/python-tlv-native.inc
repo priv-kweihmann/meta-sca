@@ -2,7 +2,7 @@ SUMMARY = "Too less variation - A tool to discover code duplication in various l
 DESCRIPTION = "Too less variation - A tool to discover code duplication in various languages"
 HOMEPAGE = "https://github.com/priv-kweihmann/systemdlint"
 
-SRC_URI = "git://github.com/priv-kweihmann/tlv.git;protocol=http;branch=master;tag=${PV} \
+SRC_URI = "git://github.com/priv-kweihmann/tlv.git;protocol=https;branch=master;tag=${PV} \
            file://tlv.sca.description \
            file://tlv.sca.score"
 

@@ -1,7 +1,7 @@
 SUMMARY = "A static code analyzer for C++, C#, Lua"
 DESCRIPTION = "A static code analyzer for C++, C#, Lua"
 
-SRC_URI = "git://github.com/Tencent/TscanCode.git;protocol=http;branch=master \
+SRC_URI = "git://github.com/Tencent/TscanCode.git;protocol=https;branch=master \
            file://tscancode.sca.description \
            file://tscancode.sca.score"
 SRCREV = "4e4e5018ca59d051af5b350c09e9c1c341dbcbd0"

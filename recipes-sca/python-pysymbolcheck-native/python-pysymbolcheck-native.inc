@@ -1,7 +1,7 @@
 SUMMARY = "Tool for checking elf-symbols against rules"
 HOMEPAGE = "https://github.com/priv-kweihmann/pysymbolcheck"
 
-SRC_URI = "git://github.com/priv-kweihmann/pysymbolcheck.git;protocol=http;branch=master;tag=${PV} \
+SRC_URI = "git://github.com/priv-kweihmann/pysymbolcheck.git;protocol=https;branch=master;tag=${PV} \
            file://pysymcheck.sca.description \
            file://pysymcheck.sca.score"
 

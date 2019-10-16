@@ -6,7 +6,7 @@ LICENSE = "BSD-3-Clause"
 S = "${WORKDIR}/git"
 B = "${S}"
 
-SRC_URI = "git://github.com/oclint/oclint.git;protocol=http;branch=master;tag=v${PV} \
+SRC_URI = "git://github.com/oclint/oclint.git;protocol=https;branch=master;tag=v${PV} \
            file://oclint.sca.description \
            file://oclint.sca.score"
 

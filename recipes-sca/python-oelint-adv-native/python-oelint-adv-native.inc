@@ -3,7 +3,7 @@ DESCRIPTION = "Based on the OpenEmbedded Styleguide and work done by oe-stylize-
                this module offers a (nearly) complete linter for bitbake-recipes."
 HOMEPAGE = "https://github.com/priv-kweihmann/oelint-adv"
 
-SRC_URI = "git://github.com/priv-kweihmann/oelint-adv.git;protocol=http;branch=master;tag=${PV} \
+SRC_URI = "git://github.com/priv-kweihmann/oelint-adv.git;protocol=https;branch=master;tag=${PV} \
            file://oelint.sca.description \
            file://oelint.sca.score"
 

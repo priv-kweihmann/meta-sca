@@ -1,7 +1,7 @@
 SUMMARY = "Rough Auditing Tool For Security"
 DESCRIPTION = "Rough Auditing Tool For Security"
 
-SRC_URI = "git://github.com/redNixon/rats.git;protocol=http;branch=master \
+SRC_URI = "git://github.com/redNixon/rats.git;protocol=https;branch=master \
            file://rats.sca.description \
            file://rats.sca.score"
 SRCREV = "6bb2d62938156ecd16afb4ee4af9eeb98d9b5f06"
