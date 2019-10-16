@@ -19,12 +19,19 @@ do_configure() {
 }
 
 do_install() {
-	mkdir -p ${D}${bindir}/upc
-	mkdir -p ${D}${bindir}/upc/tools
-	mkdir -p ${D}${bindir}/upc/lib
-	cp -Ra ${S}/tools/* ${D}${bindir}/upc/tools/
-	cp -Ra ${S}/lib/* ${D}${bindir}/upc/lib/
-	cp -a ${S}/lib/checks/ssh_key ${D}${bindir}/upc/lib/misc/ssh_key
+	install -d ${D}${bindir}/upc
+	install -d ${D}${bindir}/upc/tools
+	install -d ${D}${bindir}/upc/lib
+	for _d in "tools" "lib"; do
+		cd ${S}/${_d}
+		for f in $(find . -type f); do
+			_f=$(echo "$f" | sed "s#^./##g")
+			[ ! -z $(dirname $_f ) ] && install -d ${D}${bindir}/upc/${_d}/$(dirname $_f)
+			install $_f ${D}${bindir}/upc/${_d}/$_f
+		done
+		cd -
+	done
+	install ${S}/lib/checks/ssh_key ${D}${bindir}/upc/lib/misc/ssh_key
 	install -m 0755 ${S}/upc.sh ${D}${bindir}/upc/
 }
 
@@ -35,7 +42,7 @@ do_install_append_class-native () {
     install ${WORKDIR}/upc.sca.score ${D}${datadir}
 }
 
-INSANE_SKIP_${PN} += "host-user-contaminated file-rdeps"
+INSANE_SKIP_${PN} += "file-rdeps"
 
 FILES_${PN} = "${bindir}"
 FILES_${PN}_class-native += "${datadir}"
