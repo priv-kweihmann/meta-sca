@@ -252,3 +252,11 @@ def get_bb_exec_ext_parameter_support(d):
     if "pythonexception" in x.args:
         res["pythonexception"] = True
     return res
+
+def sca_get_func_by_name(d, name):
+    if name in locals().keys():
+        return locals()[name]
+    elif name in globals().keys():
+        return globals()[name]
+    else:
+        raise NotImplementedError()
