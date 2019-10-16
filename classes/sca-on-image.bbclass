@@ -16,6 +16,7 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             bashate \
                             bitbake \
                             checkbashism \
+                            configcheck \
                             detectsecrets \
                             eslint \
                             flake8 \
