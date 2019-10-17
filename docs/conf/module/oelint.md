@@ -26,39 +26,43 @@
 
 ## Known error-ids
 
-* oelint.oelint.comments.notrailing - No trailing comments allowed, comments should be on a single line
-* oelint.oelint.file.patchsignedoff - Patches should contain a Signed-Of-By entry
-* oelint.oelint.file.upstreamstatus - Patches should contain a Upstream-Status entry
-* oelint.oelint.spaces.emptyline - Empty line should not contain spaces or tabs
-* oelint.oelint.spaces.linebeginning - No space at a line beginning
-* oelint.oelint.spaces.linecont - Safe line continuation
-* oelint.oelint.spaces.lineend - No spaces at line end
-* oelint.oelint.tabs.notabs - No tabs allowed
-* oelint.oelint.task.addnotaskbody - Task added by addtask cannot be found
-* oelint.oelint.task.customorder - order of custom tasks added via addtask
-* oelint.oelint.task.docstrings - Custom tasks should have docstrings
-* oelint.oelint.task.multiappends - Multiple appends to the same function in the same file won't work in bitbake
-* oelint.oelint.task.nocopy - No cp usage in do_install
-* oelint.oelint.task.nomkdir - No mkdir usage in do_install
-* oelint.oelint.task.order - Order of tasks
-* oelint.oelint.var.bbclassextend - Use BBCLASSEXTEND when possible
-* oelint.oelint.var.licenseremotefile - License shall be a file in remote source not a local file
-* oelint.oelint.var.mandatoryvar - Check for mandatory variables
-* oelint.oelint.var.multiinclude - Warn on including the same file more than once
-* oelint.oelint.var.multiinherit - Warn on inherit the same file more than once
-* oelint.oelint.var.nativefilename - Native only recipes should be named -native
-* oelint.oelint.var.order - Variable order
-* oelint.oelint.var.override - Check if include/append is overriding a variable
-* oelint.oelint.var.suggestedvar - Notice on suggested variables
-* oelint.oelint.vars.bugtrackerisurl - BUGTRACKER should be an URL
-* oelint.oelint.vars.dependsappend - DEPENDS should only be appended, not overwritten
-* oelint.oelint.vars.homepageprefix - HOMEPAGE should begin with https:// or http://
-* oelint.oelint.vars.multilineident - On a multiline assignment, line indent is desirable
-* oelint.oelint.vars.sectionlowercase - SECTION should be lowercase only
-* oelint.oelint.vars.spacesassignment - ' = ' should be correct variable assignment
-* oelint.oelint.vars.summary80chars - SUMMARY should max. be 80 characters long
-* oelint.oelint.vars.summarylinebreaks - No line breaks in SUMMARY
-* oelint.oelint.vars.valuequoted - Variable values should be properly quoted
+* oelint.comments.notrailing - No trailing comments allowed, comments should be on a single line
+* oelint.file.patchsignedoff - Patches should contain a Signed-Of-By entry
+* oelint.file.upstreamstatus - Patches should contain a Upstream-Status entry
+* oelint.spaces.emptyline - Empty line should not contain spaces or tabs
+* oelint.spaces.linebeginning - No space at a line beginning
+* oelint.spaces.linecont - Safe line continuation
+* oelint.spaces.lineend - No spaces at line end
+* oelint.tabs.notabs - No tabs allowed
+* oelint.task.addnotaskbody - Task added by addtask cannot be found
+* oelint.task.customorder - order of custom tasks added via addtask
+* oelint.task.docstrings - Custom tasks should have docstrings
+* oelint.task.multiappends - Multiple appends to the same function in the same file won't work in bitbake
+* oelint.task.nocopy - No cp usage in do_install
+* oelint.task.nomkdir - No mkdir usage in do_install
+* oelint.task.order - Order of tasks
+* oelint.var.bbclassextend - Use BBCLASSEXTEND when possible
+* oelint.var.licenseremotefile - License shall be a file in remote source not a local file
+* oelint.var.mandatoryvar - Check for mandatory variables
+* oelint.var.multiinclude - Warn on including the same file more than once
+* oelint.var.multiinherit - Warn on inherit the same file more than once
+* oelint.var.nativefilename - Native only recipes should be named -native
+* oelint.var.order - Variable order
+* oelint.var.override - Check if include/append is overriding a variable
+* oelint.var.suggestedvar - Notice on suggested variables
+* oelint.vars.autorev - The usage of 'AUTOREV' for SRCREV leads to not reproducible builds
+* oelint.vars.bugtrackerisurl - BUGTRACKER should be an URL
+* oelint.vars.dependsappend - DEPENDS should only be appended, not overwritten
+* oelint.vars.dependsordered - [R]DEPENDS entries should be ordered alphabetically
+* oelint.vars.duplicate - No duplicates in DEPENDS and RDEPENDS
+* oelint.vars.homepageprefix - HOMEPAGE should begin with https:// or http://
+* oelint.vars.multilineident - On a multiline assignment, line indent is desirable
+* oelint.vars.sectionlowercase - SECTION should be lowercase only
+* oelint.vars.spacesassignment - ' = ' should be correct variable assignment
+* oelint.vars.srcurioptions - Fetcher should only valid options
+* oelint.vars.summary80chars - SUMMARY should max. be 80 characters long
+* oelint.vars.summarylinebreaks - No line breaks in SUMMARY
+* oelint.vars.valuequoted - Variable values should be properly quoted
 
 ## Checking scope
 
