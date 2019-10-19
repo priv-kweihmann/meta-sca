@@ -65,7 +65,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           cpplint \
                           cqmetrics \
                           cspell \
-                          cvecheck \
                           darglint \
                           dennis \
                           detectsecrets \
