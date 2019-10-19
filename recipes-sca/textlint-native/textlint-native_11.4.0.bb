@@ -45,7 +45,7 @@ do_install() {
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-plugin-html@0.2.0
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-plugin-rst@latest
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-date-weekday-mismatch@1.0.5
-    npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-terminology@2.0.0
+    npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-terminology@2.0.1
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-period-in-list-item@0.3.2
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-no-nfd@1.0.1
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production @textlint-rule/textlint-rule-no-invalid-control-character@1.2.0
