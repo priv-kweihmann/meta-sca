@@ -27,7 +27,7 @@ env:
       # distro to build
       - DISTRO=scatest
       # Target branch of other layer-repos
-      - SCA_BRANCH=warrior
+      - SCA_BRANCH=thud
       # Number of minutes bitbake is allowed to run
       - MAX_RUNTIME=45
       # Number of minutes travis should wait for the build
