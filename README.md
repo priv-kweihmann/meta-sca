@@ -5,6 +5,8 @@
 | branch  | build status                                                                                                                       |
 |---------|------------------------------------------------------------------------------------------------------------------------------------|
 | master  | [![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=master)](https://travis-ci.org/priv-kweihmann/meta-sca)  |
+| warrior | [![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=warrior)](https://travis-ci.org/priv-kweihmann/meta-sca) |
+| thud    | [![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=thud)](https://travis-ci.org/priv-kweihmann/meta-sca)    |
 
 ## Before we start...
 
