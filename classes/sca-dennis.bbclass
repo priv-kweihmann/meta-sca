@@ -102,8 +102,8 @@ python do_sca_deploy_dennis() {
     sca_conv_deploy(d, "dennis", "txt")
 }
 
-do_compile[postfuncs] += "do_sca_dennis"
-do_package[prefuncs] += "do_sca_deploy_dennis"
+addtask do_sca_dennis before do_install after do_configure
+addtask do_sca_deploy_dennis after do_sca_dennis before do_package
 
 do_sca_dennis[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_dennis[nostamp] = "${@sca_force_run(d)}"

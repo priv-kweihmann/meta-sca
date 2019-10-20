@@ -13,6 +13,6 @@ python sca_score_init() {
                 d.appendVarFlag("do_sca_score_core", "depends", " {}:{}".format(d.getVar("PN"), taskstr))
 }
 
-do_install[postfuncs] += "do_sca_score_core"
+addtask do_sca_score_core after do_install before do_package_write_rpm do_rm_work
 
 do_sca_score_core[nostamp] = "${@sca_force_run(d)}"

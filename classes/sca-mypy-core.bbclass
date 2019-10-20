@@ -89,4 +89,6 @@ python do_sca_mypy_core() {
     sca_task_aftermath(d, "mypy", get_fatal_entries(d))
 }
 
+## addtask do_static_code_analysis_mypy before do_install after do_compile
+
 DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-mypy-native"

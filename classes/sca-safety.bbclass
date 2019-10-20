@@ -130,8 +130,8 @@ python do_sca_deploy_safety() {
     sca_conv_deploy(d, "safety", "json")
 }
 
-do_compile[postfuncs] += "do_sca_safety"
-do_package[prefuncs] += "do_sca_deploy_safety"
+addtask do_sca_safety before do_install after do_compile
+addtask do_sca_deploy_safety after do_sca_safety before do_package
 
 do_sca_safety[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_safety[nostamp] = "${@sca_force_run(d)}"

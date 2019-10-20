@@ -111,8 +111,8 @@ python do_sca_deploy_zrd() {
     sca_conv_deploy(d, "zrd", "csv")
 }
 
-do_compile[postfuncs] += "do_sca_zrd"
-do_package[prefuncs] += "do_sca_deploy_zrd"
+addtask do_sca_zrd before do_install after do_compile
+addtask do_sca_deploy_zrd after do_sca_zrd before do_package
 
 do_sca_zrd[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_zrd[nostamp] = "${@sca_force_run(d)}"

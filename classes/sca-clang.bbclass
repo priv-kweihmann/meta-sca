@@ -137,8 +137,8 @@ python do_sca_deploy_clang() {
     sca_conv_deploy(d, "clang", "txt")
 }
 
-do_compile[postfuncs] += "do_sca_clang"
-do_package[prefuncs] += "do_sca_deploy_clang"
+addtask do_sca_clang before do_install after do_compile
+addtask do_sca_deploy_clang after do_sca_clang before do_package
 
 do_sca_clang[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_clang[nostamp] = "${@sca_force_run(d)}"

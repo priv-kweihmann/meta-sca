@@ -94,8 +94,8 @@ python do_sca_deploy_lynis_image() {
     sca_conv_deploy(d, "lynis", "txt")
 }
 
-do_image[postfuncs] += "do_sca_lynis"
-do_image_complete[prefuncs] += "do_sca_deploy_lynis_image"
+addtask do_sca_lynis before do_image_complete after do_image
+addtask do_sca_deploy_lynis_image before do_image_complete after do_sca_lynis
 
 do_sca_lynis[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_lynis_image[nostamp] = "${@sca_force_run(d)}"

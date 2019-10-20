@@ -124,8 +124,8 @@ python do_sca_deploy_phan() {
     sca_conv_deploy(d, "phan", "json")
 }
 
-do_compile[postfuncs] += "do_sca_phan"
-do_package[prefuncs] += "do_sca_deploy_phan"
+addtask do_sca_phan before do_install after do_configure
+addtask do_sca_deploy_phan after do_sca_phan before do_package
 
 do_sca_phan[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_phan[nostamp] = "${@sca_force_run(d)}"

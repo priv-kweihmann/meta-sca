@@ -104,8 +104,8 @@ python do_sca_deploy_flawfinder() {
     sca_conv_deploy(d, "flawfinder", "txt")
 }
 
-do_compile[postfuncs] += "do_sca_flawfinder"
-do_package[prefuncs] += "do_sca_deploy_flawfinder"
+addtask do_sca_flawfinder before do_install after do_compile
+addtask do_sca_deploy_flawfinder after do_sca_flawfinder before do_package
 
 do_sca_flawfinder[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_flawfinder[nostamp] = "${@sca_force_run(d)}"

@@ -342,8 +342,8 @@ python do_sca_deploy_radon() {
     sca_conv_deploy(d, "radon", "json")
 }
 
-do_compile[postfuncs] += "do_sca_radon"
-do_package[prefuncs] += "do_sca_deploy_radon"
+addtask do_sca_radon before do_install after do_compile
+addtask do_sca_deploy_radon after do_sca_radon before do_package
 
 do_sca_radon[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_radon[nostamp] = "${@sca_force_run(d)}"

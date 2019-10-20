@@ -99,8 +99,8 @@ python do_sca_deploy_looong() {
     sca_conv_deploy(d, "looong", "txt")
 }
 
-do_compile[postfuncs] += "do_sca_looong"
-do_package[prefuncs] += "do_sca_deploy_looong"
+addtask do_sca_looong before do_install after do_compile
+addtask do_sca_deploy_looong after do_sca_looong before do_package
 
 do_sca_looong[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_looong[nostamp] = "${@sca_force_run(d)}"

@@ -109,8 +109,8 @@ python do_sca_deploy_systemdlint_image() {
     sca_conv_deploy(d, "systemdlint", "txt")
 }
 
-do_image[postfuncs] += "do_sca_systemdlint"
-do_image_complete[prefuncs] += "do_sca_deploy_systemdlint_image"
+addtask do_sca_systemdlint before do_image_complete after do_image
+addtask do_sca_deploy_systemdlint_image before do_image_complete after do_sca_systemdlint
 
 do_sca_systemdlint[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_systemdlint_image[nostamp] = "${@sca_force_run(d)}"

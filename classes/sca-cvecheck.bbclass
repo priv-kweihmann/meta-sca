@@ -90,7 +90,7 @@ python do_sca_deploy_cvecheck() {
     sca_conv_deploy(d, "cvecheck", "json")
 }
 
-do_package[prefuncs] += "do_sca_deploy_cvecheck"
+addtask do_sca_deploy_cvecheck after do_cve_check before do_package
 
 do_cve_check[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_cvecheck[nostamp] = "${@sca_force_run(d)}"

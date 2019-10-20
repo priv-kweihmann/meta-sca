@@ -91,8 +91,8 @@ python do_sca_deploy_tiger_image() {
     sca_conv_deploy(d, "tiger", "txt")
 }
 
-do_image[postfuncs] += "do_sca_tiger"
-do_image_complete[prefuncs] += "do_sca_deploy_tiger_image"
+addtask do_sca_tiger before do_image_complete after do_image
+addtask do_sca_deploy_tiger_image before do_image_complete after do_sca_tiger
 
 do_sca_tiger[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_tiger_image[nostamp] = "${@sca_force_run(d)}"

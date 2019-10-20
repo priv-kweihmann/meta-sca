@@ -1203,8 +1203,8 @@ python do_sca_deploy_yara_image() {
     sca_conv_deploy(d, "yara", "txt")
 }
 
-do_image[postfuncs] += "do_sca_yara"
-do_image_complete[prefuncs] += "do_sca_deploy_yara_image"
+addtask do_sca_yara before do_image_complete after do_image
+addtask do_sca_deploy_yara_image before do_image_complete after do_sca_yara
 
 do_sca_yara[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_yara_image[nostamp] = "${@sca_force_run(d)}"

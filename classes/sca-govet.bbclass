@@ -117,8 +117,8 @@ python do_sca_deploy_govet() {
     sca_conv_deploy(d, "govet", "txt")
 }
 
-do_compile[postfuncs] += "do_sca_govet"
-do_package[prefuncs] += "do_sca_deploy_govet"
+addtask do_sca_govet before do_compile after do_configure
+addtask do_sca_deploy_govet after do_sca_govet before do_package
 
 do_sca_govet[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_govet[nostamp] = "${@sca_force_run(d)}"

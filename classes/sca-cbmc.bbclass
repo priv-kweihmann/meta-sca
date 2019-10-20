@@ -159,8 +159,8 @@ python do_sca_deploy_cbmc() {
     sca_conv_deploy(d, "cbmc", "json")
 }
 
-do_compile[postfuncs] += "do_sca_cbmc"
-do_package[prefuncs] += "do_sca_deploy_cbmc"
+addtask do_sca_cbmc before do_install after do_compile
+addtask do_sca_deploy_cbmc after do_sca_cbmc before do_package
 
 do_sca_cbmc[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_cbmc[nostamp] = "${@sca_force_run(d)}"

@@ -17,8 +17,8 @@ python do_sca_deploy_flake8_image() {
     sca_conv_deploy(d, "flake8", "txt")
 }
 
-do_image[postfuncs] += "do_sca_flake8_core"
-do_image_complete[prefuncs] += "do_sca_deploy_flake8_image"
+addtask do_sca_flake8_core before do_image_complete after do_image
+addtask do_sca_deploy_flake8_image before do_image_complete after do_sca_flake8_core
 
 do_sca_flake8_core[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_flake8_image[nostamp] = "${@sca_force_run(d)}"

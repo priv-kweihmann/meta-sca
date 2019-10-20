@@ -139,8 +139,8 @@ python do_sca_deploy_ikos() {
     sca_conv_deploy(d, "ikos", "txt")
 }
 
-do_compile[postfuncs] += "do_sca_ikos"
-do_package[prefuncs] += "do_sca_deploy_ikos"
+addtask do_sca_ikos before do_install after do_compile
+addtask do_sca_deploy_ikos after do_sca_ikos before do_package
 
 do_sca_ikos[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_ikos[nostamp] = "${@sca_force_run(d)}"
