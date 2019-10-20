@@ -1,0 +1,58 @@
+# This is the basic pipeline
+# build with just poky and standard settings
+language: shell
+sudo: false
+addons:
+  apt:
+    packages:
+    # required packages according to bitbake docu
+    - build-essential
+    - chrpath
+    - diffstat
+    - gawk
+    - gcc-multilib
+    - git-core
+    - libsdl1.2-dev
+    - python3
+    - socat
+    - texinfo
+    - unzip
+    - wget
+    - xterm
+env:
+    global:
+      - SCA_ENABLE=1
+      # MACHINE to build
+      - MACHINE=qemux86
+      # distro to build
+      - DISTRO=scatest
+      # Target branch of other layer-repos
+      - SCA_BRANCH=warrior
+      # Number of minutes bitbake is allowed to run
+      - MAX_RUNTIME=45
+      # Number of minutes travis should wait for the build
+      - MAX_RUNTIME_TRAVIS=47
+      # bitbake target to build
+      - SCA_TARGET_IMG=core-image-minimal-scatest
+cache:
+  # as caches might grow big, increase the timeout here
+  # to make it more reliable
+  timeout: 3600
+  # Cache sstate-cache, downloads and poky-checkout
+  # so we don't need to build everything from scratch all the time
+  directories:
+    - ${TRAVIS_BUILD_DIR}/build/downloads
+    - ${TRAVIS_BUILD_DIR}/build/sstate-cache
+script:
+  # Clone needed repos
+  - git clone git://git.yoctoproject.org/poky.git/ -b ${SCA_BRANCH} ${TRAVIS_BUILD_DIR}/poky
+  # setup poky (is needed to run bitbake-layers afterwards)
+  - source ${TRAVIS_BUILD_DIR}/poky/oe-init-build-env
+  # Add meta-sca layer
+  - bitbake-layers add-layer ${TRAVIS_BUILD_DIR}
+  # run bitbake in quiet mode to workaround the travis log-file-size limitation
+  # also run the command via 'timeout' to automatically terminate
+  # build before travis does
+  # Some packages might not build on the first run, but with caching there will be 
+  # a point where the result is useable
+  - travis_wait ${MAX_RUNTIME_TRAVIS} ${TRAVIS_BUILD_DIR}/.travis-build.sh

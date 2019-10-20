@@ -1,5 +1,11 @@
 # meta-sca
 
+## Current status
+
+| branch  | build status                                                                                                                       |
+|---------|------------------------------------------------------------------------------------------------------------------------------------|
+| master  | [![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=master)](https://travis-ci.org/priv-kweihmann/meta-sca)  |
+
 ## Before we start...
 
 If you're interested in using this layer, please let me know where to go next.
