@@ -29,11 +29,11 @@ env:
       # Target branch of other layer-repos
       - SCA_BRANCH=zeus
       # Number of minutes bitbake is allowed to run
-      - MAX_RUNTIME=40
+      - MAX_RUNTIME=30
       # Number of minutes before killing bitbake
-      - MAX_RUNTIME_KILL=45
+      - MAX_RUNTIME_KILL=32
       # Number of minutes travis should wait for the build
-      - MAX_RUNTIME_TRAVIS=47
+      - MAX_RUNTIME_TRAVIS=49
       # bitbake target to build
       - SCA_TARGET_IMG=core-image-minimal-scatest
 cache:
