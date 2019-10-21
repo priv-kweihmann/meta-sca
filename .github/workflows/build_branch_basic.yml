@@ -14,6 +14,6 @@ jobs:
     - name: Setup poky
       run: source poky/oe-init-build-env
     - name: add meta-sca
-      run: bitbake-layers add-layes .
+      run: source poky/oe-init-build-env && bitbake-layers add-layes .
     - name: build
-      run: bitbake -q core-image-minimal-scatest
+      run: source poky/oe-init-build-env && bitbake -q core-image-minimal-scatest
