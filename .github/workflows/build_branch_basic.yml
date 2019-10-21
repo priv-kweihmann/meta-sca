@@ -1,0 +1,19 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-18.04
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Check out poky
+      run: git clone git://git.yoctoproject.org/poky.git/ -b warrior poky
+    - name: Setup poky
+      run: source poky/oe-init-build-env
+    - name: add meta-sca
+      run: bitbake-layers add-layes .
+    - name: build
+      run: bitbake -q core-image-minimal-scatest
