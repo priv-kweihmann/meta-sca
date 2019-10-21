@@ -1,5 +1,4 @@
 # This is the basic pipeline
-# build with just poky and standard settings
 language: shell
 sudo: false
 addons:
@@ -22,39 +21,41 @@ addons:
 env:
     global:
       - SCA_ENABLE=1
-      # MACHINE to build
-      - MACHINE=qemux86
       # distro to build
       - DISTRO=scatest
       # Target branch of other layer-repos
       - SCA_BRANCH=thud
-      # Number of minutes bitbake is allowed to run
-      - MAX_RUNTIME=30
-      # Number of minutes before killing bitbake
-      - MAX_RUNTIME_KILL=32
-      # Number of minutes travis should wait for the build
-      - MAX_RUNTIME_TRAVIS=49
       # bitbake target to build
       - SCA_TARGET_IMG=core-image-minimal-scatest
-cache:
-  # as caches might grow big, increase the timeout here
-  # to make it more reliable
-  timeout: 3600
-  # Cache sstate-cache, downloads and poky-checkout
-  # so we don't need to build everything from scratch all the time
-  directories:
-    - ${TRAVIS_BUILD_DIR}/build/downloads
-    - ${TRAVIS_BUILD_DIR}/build/sstate-cache
+      # Builddir
+      - SCA_BUILDDIR=${TRAVIS_BUILD_DIR}/build
+jobs:
+  include:
+  - name: "qemux86 standard options"
+    env: MACHINE=qemux86
+  - name: "qemux86 + meta-oe"
+    env: MACHINE=qemux86 _WITH_METAOE=1
+  - name: "qemux86 + clang"
+    env: MACHINE=qemux86 _WITH_METACLANG=1
+  - name: "qemux86 + clang + meta-oe"
+    env: MACHINE=qemux86 _WITH_METACLANG=1 _WITH_METAOE=1
 script:
-  # Clone needed repos
-  - git clone git://git.yoctoproject.org/poky.git/ -b ${SCA_BRANCH} ${TRAVIS_BUILD_DIR}/poky
-  # setup poky (is needed to run bitbake-layers afterwards)
-  - source ${TRAVIS_BUILD_DIR}/poky/oe-init-build-env
-  # Add meta-sca layer
-  - bitbake-layers add-layer ${TRAVIS_BUILD_DIR}
-  # run bitbake in quiet mode to workaround the travis log-file-size limitation
-  # also run the command via 'timeout' to automatically terminate
-  # build before travis does
-  # Some packages might not build on the first run, but with caching there will be 
-  # a point where the result is useable
-  - travis_wait ${MAX_RUNTIME_TRAVIS} ${TRAVIS_BUILD_DIR}/.travis-build.sh
+    # Clone needed repos
+    - git clone git://git.yoctoproject.org/poky.git/ -b ${SCA_BRANCH} ${TRAVIS_BUILD_DIR}/poky
+    - if [ ! -z ${_WITH_METAOE} ]; then git clone git://git.openembedded.org/meta-openembedded -b ${SCA_BRANCH} ${TRAVIS_BUILD_DIR}/meta-oe; fi
+    - if [ ! -z ${_WITH_METACLANG} ]; then git clone https://github.com/kraj/meta-clang.git -b ${SCA_BRANCH} ${TRAVIS_BUILD_DIR}/meta-clang; fi
+    # setup poky (is needed to run bitbake-layers afterwards)
+    - source ${TRAVIS_BUILD_DIR}/poky/oe-init-build-env
+    # Include additional settings to reduce the disk usage
+    - if [ ! -z ${_WITH_METACLANG} ]; then echo 'PREFERRED_VERSION_clang-native = "8.%"' >> ${SCA_BUILDDIR}/conf/local.conf; fi
+    - if [ ! -z ${_WITH_METAOE} ]; then echo 'PREFERRED_VERSION_libzip-native = "1.%"' >> ${SCA_BUILDDIR}/conf/local.conf; fi
+    - if [ ! -z ${_WITH_METAOE} ]; then echo 'PREFERRED_VERSION_php-native = "7.%"' >> ${SCA_BUILDDIR}/conf/local.conf; fi
+    # Add meta-sca layer
+    - bitbake-layers add-layer ${TRAVIS_BUILD_DIR}
+    - if [ ! -z ${_WITH_METACLANG} ]; then bitbake-layers add-layer ${TRAVIS_BUILD_DIR}/meta-clang; fi
+    - if [ ! -z ${_WITH_METAOE} ]; then bitbake-layers add-layer ${TRAVIS_BUILD_DIR}/meta-oe/meta-oe; fi
+    # Only run bitbake-parse without actually building anything
+    # this is needed as travis-ci is slow as hell and has 
+    # multiple limitations regarding buildtime, which
+    # prevents using it as the main CI for bitbake
+    - bitbake -p ${SCA_TARGET_IMG}
