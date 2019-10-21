@@ -9,6 +9,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
+    - name: Update APT
+      run: sudo apt-get update
     - name: Install Dependencies
       run: sudo apt-get -yq --no-install-suggests --no-install-recommends install build-essential chrpath diffstat gawk gcc-multilib git-core libsdl1.2-dev python3 socat texinfo unzip wget xterm
     - name: Check out poky
