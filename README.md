@@ -2,12 +2,12 @@
 
 ## Current status
 
-| branch  | build status                                                                                                                       |
-|---------|------------------------------------------------------------------------------------------------------------------------------------|
-| master  | [![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=master)](https://travis-ci.org/priv-kweihmann/meta-sca)  |
-| zeus    | [![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=zeus)](https://travis-ci.org/priv-kweihmann/meta-sca)    |
-| warrior | [![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=warrior)](https://travis-ci.org/priv-kweihmann/meta-sca) |
-| thud    | [![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=thud)](https://travis-ci.org/priv-kweihmann/meta-sca)    |
+| branch  | build status travis                                                                                                                | build status nightly                                                                                       |
+|---------|------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| master  | [![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=master)](https://travis-ci.org/priv-kweihmann/meta-sca)  | ![Nightly status](https://github.com/priv-kweihmann/meta-sca/workflows/[nightly]/badge.svg?branch=master)  |
+| zeus    | [![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=zeus)](https://travis-ci.org/priv-kweihmann/meta-sca)    | ![Nightly status](https://github.com/priv-kweihmann/meta-sca/workflows/[nightly]/badge.svg?branch=zeus)    |
+| warrior | [![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=warrior)](https://travis-ci.org/priv-kweihmann/meta-sca) | ![Nightly status](https://github.com/priv-kweihmann/meta-sca/workflows/[nightly]/badge.svg?branch=warrior) |
+| thud    | [![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=thud)](https://travis-ci.org/priv-kweihmann/meta-sca)    | ![Nightly status](https://github.com/priv-kweihmann/meta-sca/workflows/[nightly]/badge.svg?branch=thud)    |
 
 ## Before we start...
 
@@ -35,6 +35,26 @@ Planning is done by milestone features on GitHub.
 If there is a technical issue that might break backward compatibility it will be mentioned in release note of the corresponding milestone release.
 
 As in every community project feedback is always welcome...
+
+#### Releases
+
+For each YOCTO release you will find a corresponding branch of this layer.
+
+| Yocto release | meta-sca branch |
+|---------------|-----------------|
+| next release  | master          |
+| zeus          | zeus            |
+| warrior       | warrior         |
+| thud          | thud            |
+
+beginning with release 1.18 for following tags exist in git
+
+| meta-sca branch | tag               | example      |
+|-----------------|-------------------|--------------|
+| master          | "version"         | 1.18         |
+| zeus            | zeus_"version"    | zeus_1.18    |
+| warrior         | warrior_"version" | warrior_1.23 |
+| thud            | thud_"version"    | thud_1.99    |
 
 ### Licensing
 
