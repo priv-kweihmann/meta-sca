@@ -20,4 +20,4 @@ jobs:
     - name: add meta-sca
       run: source poky/oe-init-build-env && bitbake-layers add-layer $(pwd)/..
     - name: build
-      run: source poky/oe-init-build-env && bitbake -q core-image-minimal-scatest
+      run: source poky/oe-init-build-env && DISTRO=scatest MACHINE=qemux86 bitbake -q core-image-minimal-scatest
