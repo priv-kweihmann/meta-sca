@@ -36,7 +36,7 @@ jobs:
     env:
       DISTRO: scatest
       MACHINE: qemux86
-      SCA_BRANCH: warrior
+      SCA_BRANCH: zeus
        
     runs-on: ubuntu-18.04
     
@@ -68,7 +68,7 @@ jobs:
     env:
       DISTRO: scatest
       MACHINE: qemux86
-      SCA_BRANCH: warrior
+      SCA_BRANCH: zeus
        
     runs-on: ubuntu-18.04
     
