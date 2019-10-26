@@ -1,8 +1,0 @@
-{
-    "languages": [ "C", "CPP" ],
-    "scope": [ "functional" ],
-    "buildspeed" : 1,
-    "execspeed": 3,
-    "quality": 5,
-    "online": true
-}

@@ -40,7 +40,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             looong \
                             npmaudit \
                             mypy \
-                            oclint \
                             oelint \
                             phan \
                             phpcodefixer \

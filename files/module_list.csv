@@ -35,7 +35,6 @@ looong,Find functions with too long arglists,https://github.com/anapaulagomes/lo
 lynis,Auditing tool for images,https://github.com/CISOfy/lynis,,,x,,,,,,,,,x,,,,,,x,,
 mypy,Python linter,https://github.com/python/mypy,,,x,x,,,x,,,,,,,,,,,,x,
 npmaudit,NPM package auditor,https://docs.npmjs.com/cli/audit,,x,,x,,,,,,,,,,,,,x,x,,
-oclint,C/C++ linter using LLVM,https://github.com/oclint/oclint,manual enable,x,,x,x,x,,,,,,,,,,,,,x,
 oelint,Bitbake recipe linter,https://github.com/priv-kweihmann/oelint-adv,,,x,x,,,,,,,,,,,,,x,,,x
 phan,PHP linter,https://github.com/phan/phan,"meta-oe, manual enable",,,,x,,,,,,x,,,,,,,,,x
 phpcodefixer,Find deprecated PHP functions,https://github.com/wapmorgan/PhpCodeFixer,"meta-oe, manual enable",,,,x,,,,,,x,,,,,,,,x,
