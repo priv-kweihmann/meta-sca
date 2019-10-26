@@ -16,6 +16,8 @@ jobs:
     
     steps:
       - uses: actions/checkout@v1
+        with:
+          ref: thud
       - name: Update APT
         run: sudo apt-get update
       - name: Install Dependencies
@@ -42,6 +44,8 @@ jobs:
     
     steps:
       - uses: actions/checkout@v1
+        with:
+          ref: thud
       - name: Update APT
         run: sudo apt-get update
       - name: Install Dependencies
@@ -73,7 +77,9 @@ jobs:
     runs-on: ubuntu-18.04
     
     steps:
-      - uses: actions/checkout@v1 
+      - uses: actions/checkout@v1
+        with:
+          ref: thud
       - name: Update APT
         run: sudo apt-get update
       - name: Install Dependencies
