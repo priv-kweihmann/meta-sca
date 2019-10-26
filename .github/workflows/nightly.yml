@@ -59,7 +59,7 @@ jobs:
       - name: prepare local.conf
         run: source poky/oe-init-build-env && echo 'INHERIT +="rm_work"' >> conf/local.conf
       - name: local.conf+
-        run: source poky/oe-init-build-env && echo 'PREFERRED_VERSION_clang-native = "8.%"' >> >> conf/local.conf
+        run: source poky/oe-init-build-env && echo 'PREFERRED_VERSION_clang-native = "8.%"' >> conf/local.conf
       - name: build
         run: source poky/oe-init-build-env && bitbake core-image-minimal-scatest
       
@@ -91,8 +91,8 @@ jobs:
       - name: prepare local.conf
         run: source poky/oe-init-build-env && echo 'INHERIT +="rm_work"' >> conf/local.conf
       - name: local.conf+
-        run: source poky/oe-init-build-env && echo 'PREFERRED_VERSION_libzip-native = "1.%"' >> >> conf/local.conf
+        run: source poky/oe-init-build-env && echo 'PREFERRED_VERSION_libzip-native = "1.%"' >> conf/local.conf
       - name: local.conf++
-        run: source poky/oe-init-build-env && echo 'PREFERRED_VERSION_php-native = "7.%"' >> >> conf/local.conf
+        run: source poky/oe-init-build-env && echo 'PREFERRED_VERSION_php-native = "7.%"' >> conf/local.conf
       - name: build
         run: source poky/oe-init-build-env && bitbake core-image-minimal-scatest
