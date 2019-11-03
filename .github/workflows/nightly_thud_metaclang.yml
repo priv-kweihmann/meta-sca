@@ -40,6 +40,6 @@ jobs:
       - name: local.conf+
         run: source poky/oe-init-build-env && echo 'PREFERRED_VERSION_clang-native = "8.%"' >> conf/local.conf
       - name: build
-        run: source poky/oe-init-build-env && recipes-sca-test/test.sh
+        run: source poky/oe-init-build-env && $(pwd)/recipes-sca-test/test.sh
       - name: test results
         run: source poky/oe-init-build-env && $(pwd)/../scripts/check_results tmp/deploy/images
