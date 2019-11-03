@@ -24,7 +24,7 @@ env:
       # distro to build
       - DISTRO=scatest
       # Target branch of other layer-repos
-      - SCA_BRANCH=warrior
+      - SCA_BRANCH=zeus
       # bitbake target to build
       - SCA_TARGET_IMG=core-image-minimal-scatest
       # Builddir
