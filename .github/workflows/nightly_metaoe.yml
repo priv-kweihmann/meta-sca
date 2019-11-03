@@ -1,0 +1,43 @@
+name: "[nightly] [thud] Meta-OE"
+
+on:
+  schedule:
+    - cron: "* 22 */2 * *"
+
+jobs:      
+  qemu_metaoe:
+    name: "qemux86 with meta-oe"
+    env:
+      DISTRO: scatest
+      MACHINE: qemux86
+       
+    runs-on: ubuntu-18.04
+    
+    steps:
+      - uses: actions/checkout@v1 
+      - name: Update APT
+        run: sudo apt-get update
+      - name: Install Dependencies
+        run: sudo apt-get -yq --no-install-suggests --no-install-recommends install build-essential chrpath diffstat gawk gcc-multilib git-core libsdl1.2-dev python3 socat texinfo unzip wget xterm
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - name: Check out poky
+        run: git clone git://git.yoctoproject.org/poky.git/ -b ${{ steps.extract_branch.outputs.branch }} poky
+      - name: Check out meta-oe
+        run: git clone git://git.openembedded.org/meta-openembedded -b ${{ steps.extract_branch.outputs.branch }} meta-oe
+      - name: Setup poky
+        run: source poky/oe-init-build-env
+      - name: add meta-sca
+        run: source poky/oe-init-build-env && bitbake-layers add-layer $(pwd)/..
+      - name: add meta-oe
+        run: source poky/oe-init-build-env && bitbake-layers add-layer $(pwd)/../meta-oe/meta-oe
+      - name: prepare local.conf
+        run: source poky/oe-init-build-env && echo 'INHERIT +="rm_work"' >> conf/local.conf
+      - name: local.conf+
+        run: source poky/oe-init-build-env && echo 'PREFERRED_VERSION_libzip-native = "1.%"' >> conf/local.conf
+      - name: local.conf++
+        run: source poky/oe-init-build-env && echo 'PREFERRED_VERSION_php-native = "7.%"' >> conf/local.conf
+      - name: build
+        run: source poky/oe-init-build-env && bitbake core-image-minimal-scatest
