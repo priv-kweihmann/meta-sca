@@ -15,8 +15,8 @@
 ```bitbake
 INHERIT += "sca"
 SCA_ENABLE = "1"
-SCA_AUTO_INH_ON_IMAGE ?= "0"
-SCA_AUTO_INH_ON_RECIPE ?= "1"
+SCA_AUTO_INH_ON_IMAGE = "0"
+SCA_AUTO_INH_ON_RECIPE = "1"
 SCA_WARNING_LEVEL = "error"
 SCA_ENABLE_IMAGE_SUMMARY = "0"
 SCA_ENABLE_BESTOF = "0"
@@ -24,7 +24,7 @@ SCA_ENABLE_SCORE = "0"
 SCA_VERBOSE_OUTPUT = "0"
 SCA_GCC_HARDENING = "0"
 SCA_SCOPE_FILTER = "security functional"
-SCA_ENABLED_MODULES_RECIPE ?= "\
+SCA_ENABLED_MODULES_RECIPE = "\
                             cppcheck \
                             flint \
                             gcc \
