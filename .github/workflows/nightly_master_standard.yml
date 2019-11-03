@@ -1,20 +1,22 @@
-name: "[nightly] [master] Meta-Clang"
+name: "[nightly]-[master]-standard"
 
 on:
   schedule:
-    - cron: "* 22 */2 * *"
+    - cron: "* 20 */2 * *"
 
-jobs:   
-  qemu_clang:
-    name: "qemux86 with meta-clang"
+jobs:
+  qemux86:
+    name: "qemux86 with standard options"
     env:
       DISTRO: scatest
       MACHINE: qemux86
-       
+
     runs-on: ubuntu-18.04
-    
+
     steps:
       - uses: actions/checkout@v1
+        with:
+          ref: master
       - name: Update APT
         run: sudo apt-get update
       - name: Install Dependencies
@@ -25,17 +27,11 @@ jobs:
         id: extract_branch
       - name: Check out poky
         run: git clone git://git.yoctoproject.org/poky.git/ -b ${{ steps.extract_branch.outputs.branch }} poky
-      - name: Check out meta-clang
-        run: git clone https://github.com/kraj/meta-clang.git -b ${{ steps.extract_branch.outputs.branch }} meta-clang
       - name: Setup poky
         run: source poky/oe-init-build-env
       - name: add meta-sca
         run: source poky/oe-init-build-env && bitbake-layers add-layer $(pwd)/..
-      - name: add meta-clang
-        run: source poky/oe-init-build-env && bitbake-layers add-layer $(pwd)/../meta-clang
       - name: prepare local.conf
         run: source poky/oe-init-build-env && echo 'INHERIT +="rm_work"' >> conf/local.conf
-      - name: local.conf+
-        run: source poky/oe-init-build-env && echo 'PREFERRED_VERSION_clang-native = "8.%"' >> conf/local.conf
       - name: build
         run: source poky/oe-init-build-env && bitbake core-image-minimal-scatest

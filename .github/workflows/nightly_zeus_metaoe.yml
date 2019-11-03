@@ -1,20 +1,22 @@
-name: "[nightly] [master] Meta-OE"
+name: "[nightly]-[zeus]-meta-oe"
 
 on:
   schedule:
     - cron: "* 22 */2 * *"
 
-jobs:      
-  qemu_metaoe:
+jobs:
+  qemux86:
     name: "qemux86 with meta-oe"
     env:
       DISTRO: scatest
       MACHINE: qemux86
-       
+
     runs-on: ubuntu-18.04
-    
+
     steps:
-      - uses: actions/checkout@v1 
+      - uses: actions/checkout@v1
+        with:
+          ref: zeus
       - name: Update APT
         run: sudo apt-get update
       - name: Install Dependencies
