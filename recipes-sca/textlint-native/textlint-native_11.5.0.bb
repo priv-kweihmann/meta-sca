@@ -38,12 +38,12 @@ do_install() {
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-no-empty-section@1.1.0
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-unexpanded-acronym@1.2.3
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-alex@1.3.1
-    npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-write-good@latest
+    npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-write-good@1.6.2
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-rousseau@1.4.6
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-en-max-word-count@1.0.2
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-filter-rule-comments@1.2.2
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-plugin-html@0.2.0
-    npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-plugin-rst@latest
+    npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-plugin-rst@0.1.1
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-date-weekday-mismatch@1.0.5
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-terminology@2.0.1
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-period-in-list-item@0.3.2
@@ -51,7 +51,7 @@ do_install() {
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production @textlint-rule/textlint-rule-no-invalid-control-character@1.2.0
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-no-surrogate-pair@1.0.1
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-abbr-within-parentheses@1.0.2
-    npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-common-misspellings@latest
+    npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-common-misspellings@1.0.1
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-ginger@2.2.1
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-apostrophe@1.0.0
     npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-diacritics@1.0.0
