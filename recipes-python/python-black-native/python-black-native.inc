@@ -10,6 +10,7 @@ DEPENDS += " \
             ${PYTHON_PN}-appdirs-native \
             ${PYTHON_PN}-toml-native \
             ${PYTHON_PN}-typed-ast-native \
+            ${PYTHON_PN}-setuptools-scm-native \
             "
 
 PYPI_PACKAGE = "black"
