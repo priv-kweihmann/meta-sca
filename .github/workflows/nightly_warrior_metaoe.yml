@@ -2,7 +2,7 @@ name: "[nightly]-[warrior]-meta-oe"
 
 on:
   schedule:
-    - cron: "* 0 */2 * *"
+    - cron: "30 0 * * *"
 
 jobs:
   qemux86:

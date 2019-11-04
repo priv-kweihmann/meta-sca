@@ -2,7 +2,7 @@ name: "[nightly]-[thud]-meta-oe"
 
 on:
   schedule:
-    - cron: "* 2 */2 * *"
+    - cron: "30 2 * * *"
 
 jobs:
   qemux86:

@@ -2,7 +2,7 @@ name: "[nightly]-[zeus]-meta-oe"
 
 on:
   schedule:
-    - cron: "* 22 */2 * *"
+    - cron: "30 22 * * *"
 
 jobs:
   qemux86:

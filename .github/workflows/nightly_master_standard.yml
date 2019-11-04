@@ -2,7 +2,7 @@ name: "[nightly]-[master]-standard"
 
 on:
   schedule:
-    - cron: "* 20 */2 * *"
+    - cron: "30 20 * * *"
 
 jobs:
   qemux86:
