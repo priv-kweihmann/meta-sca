@@ -10,6 +10,7 @@ jobs:
     env:
       DISTRO: scatest
       MACHINE: qemux86
+      SCABRANCH: master
 
     runs-on: ubuntu-18.04
 
@@ -21,14 +22,10 @@ jobs:
         run: sudo apt-get update
       - name: Install Dependencies
         run: sudo apt-get -yq --no-install-suggests --no-install-recommends install build-essential chrpath diffstat gawk gcc-multilib git-core libsdl1.2-dev python3 socat texinfo unzip wget xterm
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
       - name: Check out poky
-        run: git clone git://git.yoctoproject.org/poky.git/ -b ${{ steps.extract_branch.outputs.branch }} poky
+        run: git clone git://git.yoctoproject.org/poky.git/ -b $SCABRANCH poky
       - name: Check out meta-oe
-        run: git clone git://git.openembedded.org/meta-openembedded -b ${{ steps.extract_branch.outputs.branch }} meta-oe
+        run: git clone git://git.openembedded.org/meta-openembedded -b $SCABRANCH meta-oe
       - name: Setup poky
         run: source poky/oe-init-build-env
       - name: add meta-sca
