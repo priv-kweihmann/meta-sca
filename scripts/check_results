@@ -1,0 +1,204 @@
+#!/usr/bin/env python3
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+
+import subprocess
+import os
+import sys
+
+_data = {
+    "alexkohler": [
+        "bad-go"
+    ],
+    "ansible": [
+        "core-image-minimal-scatest"
+    ],
+    "ansiblelint": [
+        "bad-ansible"
+    ],
+    "bandit": [
+        "python3-git"
+    ],
+    "bashate": [
+        "busybox",
+        "core-image-minimal-scatest",
+        "openssh"
+    ],
+    "bitbake": [
+        "bad-bitbake"
+    ],
+    "cbmc": [
+        "openssh",
+        "simple-c"
+    ],
+    "checkbashism": [
+        "busybox",
+        "core-image-minimal-scatest",
+        "openssh"
+    ],
+    "cppcheck": [
+        "busybox",
+        "openssh",
+        "simple-c"
+    ],
+    "cpplint": [
+        "busybox",
+        "openssh",
+        "simple-c"
+    ],
+    "cqmetrics": [
+        "busybox",
+        "openssh"
+    ],
+    "eslint": [
+        "busybox",
+        "openssh",
+        "simple-c"
+    ],
+    "flake8": [
+        "bad-python-reqs",
+        "bad-python-types"
+    ],
+    "flawfinder": [
+        "busybox",
+        "openssh",
+        "simple-c"
+    ],
+    "flint": [
+        "busybox",
+        "openssh"
+    ],
+    "gcc": [
+        "busybox",
+        "openssh",
+        "simple-c"
+    ],
+    "gixy": [
+        "core-image-minimal-scatest"
+    ],
+    "golint": [
+        "bad-go"
+    ],
+    "htmlhint": [
+        "bad-html"
+    ],
+    "jsonlint": [
+        "bad-json"
+    ],
+    "kconfighard": [
+        "linux-yocto"
+    ],
+    "looong": [
+        "python3-git"
+    ],
+    "lynis": [
+        "core-image-minimal-scatest"
+    ],
+    "mypy": [
+        "bad-python-reqs",
+        "bad-python-types",
+        "python3-git"
+    ],
+    "oelint": [
+        "bad-ansible",
+        "bad-bitbake",
+        "bad-css",
+        "bad-go",
+        "bad-html",
+        "bad-javascript",
+        "bad-json",
+        "bad-php",
+        "bad-python-reqs",
+        "bad-python-types",
+        "bad-xml",
+        "bad-yaml",
+        "core-image-minimal-scatest",
+        "python3-git",
+        "simple-c"
+    ],
+    "proselint": [
+        "busybox",
+        "python3-git"
+    ],
+    "pylint": [
+        "python3-git"
+    ],
+    "pytype": [
+        "bad-python-types",
+        "python3-git"
+    ],
+    "radon": [
+        "python3-git"
+    ],
+    "rats": [
+        "busybox",
+        "openssh",
+        "simple-c"
+    ],
+    "retire": [
+        "cspell"
+    ],
+    "revive": [
+        "bad-go"
+    ],
+    "ropgadget": [
+        "busybox"
+    ],
+    "safety": [
+        "bad-python-reqs"
+    ],
+    "shellcheck": [
+        "busybox",
+        "openssh"
+    ],
+    "sparse": [
+        "busybox",
+        "simple-c"
+    ],
+    "standard": [
+        "bad-javascript"
+    ],
+    "stank": [
+        "busybox",
+        "openssh"
+    ],
+    "systemdlint": [
+        "core-image-minimal-scatest"
+    ],
+    "tiger": [
+        "core-image-minimal-scatest"
+    ],
+    "tscancode": [
+        "busybox",
+        "openssh"
+    ],
+    "upc": [
+        "core-image-minimal-scatest"
+    ],
+    "vulture": [
+        "python3-git"
+    ],
+    "wotan": [
+        "bad-javascript"
+    ],
+    "xmllint": [
+        "bad-xml",
+        "openssh"
+    ],
+    "yamllint": [
+        "bad-ansible",
+        "bad-yaml"
+    ],
+    "yara": [
+        "core-image-minimal-scatest"
+    ]
+}
+ret = 0
+script_path = os.path.join(os.path.dirname(__file__), "check_result")
+for k,v in _data.items():
+    for finding in v:
+        try:
+            subprocess.check_call([script_path, k, finding, sys.argv[1]])
+        except subprocess.CalledProcessError as e:
+            ret = -1
+sys.exit(ret)
