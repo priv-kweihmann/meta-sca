@@ -7,8 +7,6 @@ inherit sca-blacklist
 
 DEPENDS += "${@oe.utils.ifelse(sca_is_module_blacklisted(d, 'foo'), '', '${SCA_STD_PYTHON_INTERPRETER}-python-magic-native')}"
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3-dir', 'python-dir')}
-
 def get_relative_source_path(d):
     import os
     source = d.getVar("S")
