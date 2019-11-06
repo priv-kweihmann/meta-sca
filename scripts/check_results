@@ -13,9 +13,10 @@ _data = {
     "ansible": [
         "core-image-minimal-scatest"
     ],
-    "ansiblelint": [
-        "bad-ansible"
-    ],
+    # Note: Temporary disabled
+    # "ansiblelint": [
+    #     "bad-ansible"
+    # ],
     "bandit": [
         "python3-git"
     ],
