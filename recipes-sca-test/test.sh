@@ -1,5 +1,6 @@
 #!/bin/sh
 bitbake \
+        acl \
         bad-ansible \
         bad-bitbake \
         bad-css \
