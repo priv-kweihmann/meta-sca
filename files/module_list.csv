@@ -33,7 +33,7 @@ jsonlint,JSON file linter,,,,x,x,,,,,,,,,,,,,x,,x,
 kconfighard,Kernel config hardening checker,https://github.com/a13xp0p0v/kconfig-hardened-check,,,,x,,,,,,,,,,,,,x,x,,
 looong,Find functions with too long arglists,https://github.com/anapaulagomes/looong,,,,x,,,x,,,,,,,,,,,,,x
 lynis,Auditing tool for images,https://github.com/CISOfy/lynis,,,x,,,,,,,,,x,,,,,,x,,
-msgcheck0,I18n linter,https://github.com/codingjoe/msgcheck,,,,x,,,,,,,,,,,,,x,,,x
+msgcheck,I18n linter,https://github.com/codingjoe/msgcheck,,,,x,,,,,,,,,,,,,x,,,x
 mypy,Python linter,https://github.com/python/mypy,,,x,x,,,x,,,,,,,,,,,,x,
 npmaudit,NPM package auditor,https://docs.npmjs.com/cli/audit,,x,,x,,,,,,,,,,,,,x,x,,
 oelint,Bitbake recipe linter,https://github.com/priv-kweihmann/oelint-adv,,,x,x,,,,,,,,,,,,,x,,,x
