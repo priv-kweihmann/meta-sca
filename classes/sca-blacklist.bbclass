@@ -76,11 +76,14 @@ SCA_BLACKLIST_yamllint ?= ""
 SCA_BLACKLIST_yara ?= ""
 SCA_BLACKLIST_zrd ?= "linux-.*"
 
+inherit sca-helper
+
 def sca_is_module_blacklisted(d, tool):
     import re
     pn = d.getVar("PN")
     matches = [x for x in (d.getVar("SCA_BLACKLIST") or "").split(" ") if x]
     matches += [x for x in (d.getVar("SCA_BLACKLIST_{}".format(tool.replace("-", "_"))) or "").split(" ") if x]
     _pns = [re.match(x, pn) for x in matches]
-    _prov = [x for x in d.getVar("BASE_DEFAULT_DEPS").split(" ")]
-    return any(_pns + _prov)
+    _def_deps = [x for x in d.getVar("BASE_DEFAULT_DEPS").split(" ")]
+    _prov = [x for x in d.getVar("PROVIDES").split(" ")]
+    return any(_pns + intersect_lists(d, _def_deps, _prov))
