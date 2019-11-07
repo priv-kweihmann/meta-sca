@@ -95,6 +95,9 @@ _data = {
     "lynis": [
         "core-image-minimal-scatest"
     ],
+    "msgcheck": [
+        "acl"
+    ],
     "mypy": [
         "bad-python-reqs",
         "bad-python-types",
