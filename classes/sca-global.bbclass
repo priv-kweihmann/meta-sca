@@ -89,6 +89,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           looong \
                           lynis \
                           npmaudit \
+                          msgcheck \
                           mypy \
                           oelint \
                           proselint \
