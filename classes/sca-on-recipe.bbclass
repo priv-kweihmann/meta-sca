@@ -39,6 +39,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             kconfighard \
                             looong \
                             npmaudit \
+                            msgcheck \
                             mypy \
                             oelint \
                             phan \
@@ -91,9 +92,8 @@ def sca_on_recipe_init(d):
             if d.getVar(func, False) is not None:
                 bb.build.exec_func(func, d, **get_bb_exec_ext_parameter_support(d))
             okay = True
-        except bb.parse.ParseError as exp:
-            if d.getVar("SCA_VERBOSE_OUTPUT") != "0":
-                bb.warn(str(exp))
+        except bb.parse.ParseError:
+            pass
         try: 
             ## In case there is a split between image/recipe modules
             BBHandler.inherit("sca-{}-recipe".format(item), "sca-on-recipe", 1, d)
@@ -101,9 +101,8 @@ def sca_on_recipe_init(d):
             if d.getVar(func, False) is not None:
                 bb.build.exec_func(func, d, **get_bb_exec_ext_parameter_support(d))
             okay = True
-        except bb.parse.ParseError as exp:
-            if d.getVar("SCA_VERBOSE_OUTPUT") != "0":
-                bb.warn(str(exp))
+        except bb.parse.ParseError:
+            pass
         if okay:
             enabledModules.append(item)
     if d.getVar("SCA_ENABLE_IMAGE_SUMMARY") == "1":
