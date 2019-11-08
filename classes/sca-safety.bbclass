@@ -136,4 +136,8 @@ addtask do_sca_deploy_safety after do_sca_safety before do_package
 do_sca_safety[nostamp] = "${@sca_force_run(d)}"
 do_sca_deploy_safety[nostamp] = "${@sca_force_run(d)}"
 
-DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-safety-native sca-recipe-safety-rules-native"
+DEPENDS += "\
+            ${SCA_STD_PYTHON_INTERPRETER}-safety-native \
+            ${SCA_STD_PYTHON_INTERPRETER}-setuptools-native \
+            sca-recipe-safety-rules-native \
+           "
