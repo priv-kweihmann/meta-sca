@@ -4,6 +4,11 @@
 
 * GO
 
+## NOTE
+
+With the thud standard go-implementation you will get a compile issue, as gosec requires
+go 1.12+. Enable this module only if you have a non-standard go installed in the build chain.
+
 ## Configuration
 
 | var | purpose | type | default |
@@ -19,7 +24,7 @@
 - [x] terminate build on fatal
 - [x] run on recipe
 - [ ] run on image
-- [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
+- [ ] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 
