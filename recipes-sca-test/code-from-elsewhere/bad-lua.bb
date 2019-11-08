@@ -21,5 +21,3 @@ do_install() {
 
 ## Use luacheck test code
 SCA_SOURCES_DIR = "${WORKDIR}/git/spec/samples"
-
-inherit sca-luacheck
