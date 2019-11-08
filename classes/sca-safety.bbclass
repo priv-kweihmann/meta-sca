@@ -57,7 +57,17 @@ def do_sca_conv_safety(d, cmd_output=""):
 def import_and_extract(parent_dir):
     import sys 
     import unittest.mock as mock
-    import setuptools
+    import sys 
+    try:
+        import setuptools
+    except ImportError:
+        try:
+            ## in case we can't import setuptools we return nothing
+            ## so this tool might not work, but build won't fail
+            sys.path.append(os.path.join(d.getVar("STAGING_DIR_NATIVE"), d.getVar("PYTHON_SITEPACKAGES_DIR")[1:]))
+            import setuptools
+        except ImportError:
+            return []
     import tempfile
     import os
     sys.path.insert(0, parent_dir)
