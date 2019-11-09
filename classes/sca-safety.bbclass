@@ -57,7 +57,8 @@ def do_sca_conv_safety(d, cmd_output=""):
 def import_and_extract(parent_dir):
     import sys 
     import unittest.mock as mock
-    import sys 
+    import tempfile
+    import os
     try:
         import setuptools
     except ImportError:
@@ -68,8 +69,6 @@ def import_and_extract(parent_dir):
             import setuptools
         except ImportError:
             return []
-    import tempfile
-    import os
     sys.path.insert(0, parent_dir)
     with tempfile.NamedTemporaryFile(prefix="setup_temp_", mode='w', dir=parent_dir, suffix='.py') as temp_fh:
         with open(os.path.join(parent_dir, "setup.py"), 'r') as setup_fh:
