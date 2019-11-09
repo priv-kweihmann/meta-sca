@@ -54,7 +54,7 @@ def do_sca_conv_safety(d, cmd_output=""):
     return sca_save_model_to_string(d)
 
 ## happily taken from https://stackoverflow.com/a/37078593
-def import_and_extract(parent_dir):
+def import_and_extract(d, parent_dir):
     import sys 
     import unittest.mock as mock
     import tempfile
@@ -106,7 +106,7 @@ python do_sca_safety() {
         with open(os.path.join(d.getVar("SCA_SOURCES_DIR"), "requirements.txt"), "r") as i:
             tmp_req_lines += [x.strip("\n ") for x in i.readlines()]
     if os.path.exists(os.path.join(d.getVar("SCA_SOURCES_DIR"), "setup.py")):
-        for x in import_and_extract(d.getVar("SCA_SOURCES_DIR")):
+        for x in import_and_extract(d, d.getVar("SCA_SOURCES_DIR")):
             tmp_req_lines.append(x)
     
     with open(tmp_req, "w") as o:
