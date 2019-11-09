@@ -1,4 +1,4 @@
-name: "[nightly]-[master]-standard-01"
+name: "[nightly]-[master]-standard-02"
 
 on:
   schedule:
@@ -11,7 +11,7 @@ jobs:
       DISTRO: scatest
       MACHINE: qemux86
       SCABRANCH: master
-      MODULEFILE: lang_standard_01.txt
+      MODULEFILE: lang_standard_02.txt
 
     runs-on: ubuntu-18.04
 

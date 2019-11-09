@@ -11,6 +11,7 @@ jobs:
       DISTRO: scatest
       MACHINE: qemux86
       SCABRANCH: master
+      MODULEFILE: lang_metaoe.txt
 
     runs-on: ubuntu-18.04
 
@@ -34,6 +35,8 @@ jobs:
         run: source poky/oe-init-build-env && bitbake-layers add-layer $(pwd)/../meta-oe/meta-oe
       - name: prepare local.conf
         run: source poky/oe-init-build-env && echo 'INHERIT +="rm_work"' >> conf/local.conf && echo 'SCA_VERBOSE_OUTPUT = "1"' >> conf/local.conf
+      - name: set modules
+        run: source poky/oe-init-build-env && mods=$(cat $(pwd)/../recipes-sca-test/$MODULEFILE | tr '\n' ' ') && echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> conf/local.conf 
       - name: local.conf+
         run: source poky/oe-init-build-env && echo 'PREFERRED_VERSION_libzip-native = "1.%"' >> conf/local.conf
       - name: local.conf++
@@ -41,4 +44,4 @@ jobs:
       - name: build
         run: source poky/oe-init-build-env && $(pwd)/../recipes-sca-test/test.sh
       - name: test results
-        run: source poky/oe-init-build-env && eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR") && $(pwd)/../scripts/check_results $SCA_EXPORT_DIR || true
+        run: source poky/oe-init-build-env && eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR") && $(pwd)/../scripts/check_results $SCA_EXPORT_DIR $(cat $(pwd)/../recipes-sca-test/$MODULEFILE | tr '\n' ' ') || true

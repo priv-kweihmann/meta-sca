@@ -1,0 +1,5 @@
+luacheck
+phan
+phpcodefixer
+phpstan
+progpilot
