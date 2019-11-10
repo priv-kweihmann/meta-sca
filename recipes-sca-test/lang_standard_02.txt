@@ -1,8 +1,8 @@
-ansiblelint
 bandit
 bitbake
 cqmetrics
 cspell
+cvecheck
 darglint
 dennis
 detectsecrets
@@ -18,7 +18,6 @@ oelint
 proselint
 pyfindinjection
 pylint
-pytype
 pysymcheck
 pytype
 radon

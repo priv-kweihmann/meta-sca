@@ -6,7 +6,6 @@ checkbashisms
 configcheck
 cppcheck
 cpplint
-cvecheck
 flawfinder
 flint
 gcc
