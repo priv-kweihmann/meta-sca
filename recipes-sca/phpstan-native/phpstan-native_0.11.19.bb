@@ -2,7 +2,7 @@ SUMMARY = "PHP Static Analysis Tool - discover bugs in your code without running
 
 HOMEPAGE = "https://github.com/phpstan/phpstan"
 
-SRC_URI = " git://github.com/phpstan/phpstan.git;protocol=https;branch=0.11.x;tag=${PV} \
+SRC_URI = " git://github.com/phpstan/phpstan.git;protocol=https;nobranch=1;tag=${PV} \
             file://phpstan.sca.description \
             file://phpstan.sca.score"
 
