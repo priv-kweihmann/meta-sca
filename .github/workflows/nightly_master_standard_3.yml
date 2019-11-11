@@ -1,4 +1,4 @@
-name: "[nightly]-[master]-meta-clang"
+name: "[nightly]-[master]-standard-03"
 
 on:
   schedule:
@@ -6,12 +6,12 @@ on:
 
 jobs:
   qemux86:
-    name: "qemux86 with meta-clang"
+    name: "qemux86 with standard options - system tools"
     env:
       DISTRO: scatest
       MACHINE: qemux86
       SCABRANCH: master
-      MODULEFILE: lang_metaclang.txt
+      MODULEFILE: lang_standard_03.txt
 
     runs-on: ubuntu-16.04
 
@@ -25,20 +25,14 @@ jobs:
         run: sudo apt-get -yq --no-install-suggests --no-install-recommends install build-essential chrpath diffstat gawk gcc-multilib git-core libsdl1.2-dev python3 socat texinfo unzip wget xterm
       - name: Check out poky
         run: git clone git://git.yoctoproject.org/poky.git/ -b $SCABRANCH poky
-      - name: Check out meta-clang
-        run: git clone https://github.com/kraj/meta-clang.git -b $SCABRANCH meta-clang
       - name: Setup poky
         run: source poky/oe-init-build-env
       - name: add meta-sca
         run: source poky/oe-init-build-env && bitbake-layers add-layer $(pwd)/..
-      - name: add meta-clang
-        run: source poky/oe-init-build-env && bitbake-layers add-layer $(pwd)/../meta-clang
       - name: prepare local.conf
         run: source poky/oe-init-build-env && echo 'INHERIT +="rm_work"' >> conf/local.conf && echo 'SCA_VERBOSE_OUTPUT = "1"' >> conf/local.conf
       - name: set modules
         run: source poky/oe-init-build-env && mods=$(cat $(pwd)/../recipes-sca-test/$MODULEFILE | tr '\n' ' ') && echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> conf/local.conf 
-      - name: local.conf+
-        run: source poky/oe-init-build-env && echo 'PREFERRED_VERSION_clang-native = "8.%"' >> conf/local.conf
       - name: build
         run: source poky/oe-init-build-env && $(pwd)/../recipes-sca-test/test.sh
       - name: test results

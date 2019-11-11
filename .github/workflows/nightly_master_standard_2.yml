@@ -6,14 +6,14 @@ on:
 
 jobs:
   qemux86:
-    name: "qemux86 with standard options"
+    name: "qemux86 with standard options - script tools"
     env:
       DISTRO: scatest
       MACHINE: qemux86
       SCABRANCH: master
       MODULEFILE: lang_standard_02.txt
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-16.04
 
     steps:
       - uses: actions/checkout@v1
