@@ -1,5 +1,4 @@
 alexkohler
-ansible
 bashate
 cbmc
 checkbashisms

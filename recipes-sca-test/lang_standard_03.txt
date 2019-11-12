@@ -1,3 +1,4 @@
+ansible
 configcheck
 gixy
 lynis
