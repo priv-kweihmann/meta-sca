@@ -24,7 +24,7 @@ env:
       # distro to build
       - DISTRO=scatest
       # Target branch of other layer-repos
-      - SCA_BRANCH=zeus
+      - SCA_BRANCH=master
       # bitbake target to build
       - SCA_TARGET_IMG=core-image-minimal-scatest
       # Builddir
@@ -35,10 +35,10 @@ jobs:
     env: MACHINE=qemux86
   - name: "qemux86 + meta-oe"
     env: MACHINE=qemux86 _WITH_METAOE=1
-  # - name: "qemux86 + clang"
-  #   env: MACHINE=qemux86 _WITH_METACLANG=1
-  # - name: "qemux86 + clang + meta-oe"
-  #   env: MACHINE=qemux86 _WITH_METACLANG=1 _WITH_METAOE=1
+  - name: "qemux86 + clang"
+    env: MACHINE=qemux86 _WITH_METACLANG=1
+  - name: "qemux86 + clang + meta-oe"
+    env: MACHINE=qemux86 _WITH_METACLANG=1 _WITH_METAOE=1
 script:
     # Clone needed repos
     - git clone git://git.yoctoproject.org/poky.git/ -b ${SCA_BRANCH} ${TRAVIS_BUILD_DIR}/poky
