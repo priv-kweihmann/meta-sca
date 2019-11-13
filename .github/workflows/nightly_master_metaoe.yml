@@ -12,8 +12,9 @@ jobs:
       MACHINE: qemux86
       SCABRANCH: master
       PARAMFILE: metaoe
+      MAXRUNTIME: 21000s
 
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v1
@@ -30,18 +31,37 @@ jobs:
       - name: Setup poky
         run: source poky/oe-init-build-env
       - name: add meta-sca
-        run: source poky/oe-init-build-env && bitbake-layers add-layer $(pwd)/..
+        run: |
+          source poky/oe-init-build-env
+          bitbake-layers add-layer $(pwd)/..
       - name: add meta-oe
-        run: source poky/oe-init-build-env && bitbake-layers add-layer $(pwd)/../meta-oe/meta-oe
+        run: |
+          source poky/oe-init-build-env
+          bitbake-layers add-layer $(pwd)/../meta-oe/meta-oe
       - name: prepare local.conf
-        run: source poky/oe-init-build-env && echo 'INHERIT +="rm_work"' >> conf/local.conf && echo 'SCA_VERBOSE_OUTPUT = "1"' >> conf/local.conf
+        run: |
+          source poky/oe-init-build-env
+          echo 'INHERIT +="rm_work"' >> conf/local.conf
+          echo 'SCA_VERBOSE_OUTPUT = "1"' >> conf/local.conf
       - name: set modules
-        run: source poky/oe-init-build-env && mods=$(cat $(pwd)/../recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ') && echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> conf/local.conf 
+        run: |
+          source poky/oe-init-build-env
+          mods=$(cat $(pwd)/../recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ')
+          echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> conf/local.conf 
       - name: local.conf+
-        run: source poky/oe-init-build-env && echo 'PREFERRED_VERSION_libzip-native = "1.%"' >> conf/local.conf
+        run: |
+          source poky/oe-init-build-env
+          echo 'PREFERRED_VERSION_libzip-native = "1.%"' >> conf/local.conf
       - name: local.conf++
-        run: source poky/oe-init-build-env && echo 'PREFERRED_VERSION_php-native = "7.%"' >> conf/local.conf
+        run: |
+          source poky/oe-init-build-env
+          echo 'PREFERRED_VERSION_php-native = "7.%"' >> conf/local.conf
       - name: build
-        run: source poky/oe-init-build-env && $(pwd)/../recipes-sca-test/test_$PARAMFILE.sh
+        run: |
+          source poky/oe-init-build-env
+          timeout --foreground $MAXRUNTIME $(pwd)/../recipes-sca-test/test_$PARAMFILE.sh || if [ $? == 124 ]; then echo "Timeout"; else return 1; fi;
       - name: test results
-        run: source poky/oe-init-build-env && eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR") && $(pwd)/../scripts/check_results $SCA_EXPORT_DIR $(cat $(pwd)/../recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ') || true
+        run: |
+          source poky/oe-init-build-env
+          eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR")
+          $(pwd)/../scripts/check_results $SCA_EXPORT_DIR $(cat $(pwd)/../recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ') || true
