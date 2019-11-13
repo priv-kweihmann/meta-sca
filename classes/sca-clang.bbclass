@@ -22,7 +22,7 @@ def do_sca_conv_clang(d):
     import os
     import re
     
-    package_name = d.getVar("PN")a
+    package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<column>\d+):\s+(?P<severity>warning|error):\s+(?P<msg>.*)\[(?P<id>.*)\]"
