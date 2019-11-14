@@ -2,7 +2,7 @@ name: "[zeus]-scripts"
 
 on:
   schedule:
-    - cron: "30 20 * * *"
+    - cron: "30 6 * * *"
 
 jobs:
   qemux86:

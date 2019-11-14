@@ -2,7 +2,7 @@ name: "[master]-scripts"
 
 on:
   schedule:
-    - cron: "30 20 * * *"
+    - cron: "30 0 * * *"
 
 jobs:
   qemux86:
