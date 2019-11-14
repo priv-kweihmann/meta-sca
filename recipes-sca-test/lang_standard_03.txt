@@ -1,0 +1,9 @@
+ansible
+configcheck
+gixy
+lynis
+ropgadget
+systemdlint
+tiger
+upc
+yara
