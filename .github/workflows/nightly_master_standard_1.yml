@@ -1,4 +1,4 @@
-name: "[master]-system"
+name: "[master]-classic"
 
 on:
   schedule:
@@ -6,12 +6,12 @@ on:
 
 jobs:
   qemux86:
-    name: "qemux86 with standard options - system tools"
+    name: "qemux86 with standard options - classic SCA"
     env:
       DISTRO: scatest
       MACHINE: qemux86
       SCABRANCH: master
-      PARAMFILE: standard_03
+      PARAMFILE: standard_01
       MAXRUNTIME: 21000s
 
     runs-on: ubuntu-latest

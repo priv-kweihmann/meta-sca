@@ -174,7 +174,7 @@ To make the integration of clang or ikos-module (clang-tidy) work you need to ad
 Additionally you have to add
 
 ``` bitbake
-PREFERRED_VERSION_clang-native = "8.%"
+PREFERRED_VERSION_clang-native = "9.%"
 ```
 
 to your **local.conf**-file to make it work. Otherwise the build will fail with an error.

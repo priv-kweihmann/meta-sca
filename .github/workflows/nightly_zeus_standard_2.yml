@@ -1,4 +1,4 @@
-name: "[master]-system"
+name: "[zeus]-scripts"
 
 on:
   schedule:
@@ -6,12 +6,12 @@ on:
 
 jobs:
   qemux86:
-    name: "qemux86 with standard options - system tools"
+    name: "qemux86 with standard options - script tools"
     env:
       DISTRO: scatest
       MACHINE: qemux86
-      SCABRANCH: master
-      PARAMFILE: standard_03
+      SCABRANCH: zeus
+      PARAMFILE: standard_02
       MAXRUNTIME: 21000s
 
     runs-on: ubuntu-latest
@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
         with:
-          ref: master
+          ref: zeus
       - name: Update APT
         run: sudo apt-get update
       - name: Install Dependencies

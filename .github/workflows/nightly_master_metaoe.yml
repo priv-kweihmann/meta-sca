@@ -1,4 +1,4 @@
-name: "[nightly]-[master]-meta-oe"
+name: "[master]-meta-oe"
 
 on:
   schedule:

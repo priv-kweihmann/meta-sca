@@ -1,4 +1,4 @@
-name: "[nightly]-[master]-meta-clang"
+name: "[master]-meta-clang"
 
 on:
   schedule:
@@ -51,7 +51,7 @@ jobs:
       - name: local.conf+
         run: |
           source poky/oe-init-build-env
-          echo 'PREFERRED_VERSION_clang-native = "8.%"' >> conf/local.conf
+          echo 'PREFERRED_VERSION_clang-native = "9.%"' >> conf/local.conf
       - name: build
         run: |
           source poky/oe-init-build-env

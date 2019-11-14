@@ -1,8 +1,8 @@
-name: "[nightly]-[zeus]-meta-clang"
+name: "[zeus]-meta-clang"
 
 on:
   schedule:
-    - cron: "30 8 * * *"
+    - cron: "30 20 * * *"
 
 jobs:
   qemux86:
@@ -11,8 +11,10 @@ jobs:
       DISTRO: scatest
       MACHINE: qemux86
       SCABRANCH: zeus
+      PARAMFILE: metaclang
+      MAXRUNTIME: 21000s
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v1
@@ -29,14 +31,33 @@ jobs:
       - name: Setup poky
         run: source poky/oe-init-build-env
       - name: add meta-sca
-        run: source poky/oe-init-build-env && bitbake-layers add-layer $(pwd)/..
+        run: |
+          source poky/oe-init-build-env
+          bitbake-layers add-layer $(pwd)/..
       - name: add meta-clang
-        run: source poky/oe-init-build-env && bitbake-layers add-layer $(pwd)/../meta-clang
+        run: |
+          source poky/oe-init-build-env
+          bitbake-layers add-layer $(pwd)/../meta-clang
       - name: prepare local.conf
-        run: source poky/oe-init-build-env && echo 'INHERIT +="rm_work"' >> conf/local.conf && echo 'SCA_VERBOSE_OUTPUT = "1"' >> conf/local.conf
+        run: |
+          source poky/oe-init-build-env
+          echo 'INHERIT +="rm_work"' >> conf/local.conf
+          echo 'SCA_VERBOSE_OUTPUT = "1"' >> conf/local.conf
+      - name: set modules
+        run: |
+          source poky/oe-init-build-env
+          mods=$(cat $(pwd)/../recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ')
+          echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> conf/local.conf 
       - name: local.conf+
-        run: source poky/oe-init-build-env && echo 'PREFERRED_VERSION_clang-native = "8.%"' >> conf/local.conf
+        run: |
+          source poky/oe-init-build-env
+          echo 'PREFERRED_VERSION_clang-native = "9.%"' >> conf/local.conf
       - name: build
-        run: source poky/oe-init-build-env && $(pwd)/../recipes-sca-test/test.sh
+        run: |
+          source poky/oe-init-build-env
+          timeout --foreground $MAXRUNTIME $(pwd)/../recipes-sca-test/test_$PARAMFILE.sh || if [ $? == 124 ]; then echo "Timeout"; else return 1; fi;
       - name: test results
-        run: source poky/oe-init-build-env && eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR") && $(pwd)/../scripts/check_results $SCA_EXPORT_DIR || true
+        run: |
+          source poky/oe-init-build-env
+          eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR")
+          $(pwd)/../scripts/check_results $SCA_EXPORT_DIR $(cat $(pwd)/../recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ') || true

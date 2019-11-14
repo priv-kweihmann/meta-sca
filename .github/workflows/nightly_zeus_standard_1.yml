@@ -1,4 +1,4 @@
-name: "[nightly]-[master]-standard-01"
+name: "[zeus]-classic"
 
 on:
   schedule:
@@ -10,7 +10,7 @@ jobs:
     env:
       DISTRO: scatest
       MACHINE: qemux86
-      SCABRANCH: master
+      SCABRANCH: zeus
       PARAMFILE: standard_01
       MAXRUNTIME: 21000s
 
@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
         with:
-          ref: master
+          ref: zeus
       - name: Update APT
         run: sudo apt-get update
       - name: Install Dependencies
