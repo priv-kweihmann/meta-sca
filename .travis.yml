@@ -47,7 +47,7 @@ script:
     # setup poky (is needed to run bitbake-layers afterwards)
     - source ${TRAVIS_BUILD_DIR}/poky/oe-init-build-env
     # Include additional settings to reduce the disk usage
-    - if [ ! -z ${_WITH_METACLANG} ]; then echo 'PREFERRED_VERSION_clang-native = "8.%"' >> ${SCA_BUILDDIR}/conf/local.conf; fi
+    - if [ ! -z ${_WITH_METACLANG} ]; then echo 'PREFERRED_VERSION_clang-native = "7.%"' >> ${SCA_BUILDDIR}/conf/local.conf; fi
     - if [ ! -z ${_WITH_METAOE} ]; then echo 'PREFERRED_VERSION_libzip-native = "1.%"' >> ${SCA_BUILDDIR}/conf/local.conf; fi
     - if [ ! -z ${_WITH_METAOE} ]; then echo 'PREFERRED_VERSION_php-native = "7.%"' >> ${SCA_BUILDDIR}/conf/local.conf; fi
     # Add meta-sca layer
