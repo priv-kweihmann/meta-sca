@@ -13,10 +13,9 @@ _data = {
     "ansible": [
         "core-image-minimal-scatest"
     ],
-    # Note: Temporary disabled
-    # "ansiblelint": [
-    #     "bad-ansible"
-    # ],
+    "ansiblelint": [
+        "bad-ansible"
+    ],
     "bandit": [
         "python3-git"
     ],
@@ -199,7 +198,12 @@ _data = {
 }
 ret = 0
 script_path = os.path.join(os.path.dirname(__file__), "check_result")
+_mods = _data.keys()
+if len(sys.argv) > 1:
+    _mods = sys.argv[2:]
 for k,v in _data.items():
+    if k not in _mods:
+        continue
     for finding in v:
         try:
             subprocess.check_call([script_path, k, finding, sys.argv[1]])
