@@ -1,7 +1,7 @@
 # Configuration for cspell
 
-This module is someway different in configuration than the other.
-First of all this module does not support suppression or fatal-errors, as the only error this module
+This module is someway different in configuration.
+First of all this module does not support suppression or fatal-errors, as the only thing, this module
 produces is to warn you about typos and unknown words.
 The check itself is done for each configured language - meaning a defined set of dictionaries is used for checking.
 
@@ -39,15 +39,15 @@ do_compile_append() {
 
 ## Supports
 
-- [ ] suppression of ids
-- [ ] terminate build on fatal
-- [x] run on recipe
-- [ ] run on image
-- [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
+* [ ] suppression of IDs
+* [ ] terminate build on fatal
+* [x] run on recipe
+* [ ] run on image
+* [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 
-- [ ] requires online access
+* [ ] requires online access
 
 ## Detailed configuration
 
@@ -63,7 +63,7 @@ Currently available as dictionaries are
 | dotnet | .Net terms | no
 | elixir | Elixir terms | no
 | en_US | standard us-English dict | yes
-| filetypes | List of known filetypes | yes
+| filetypes | List of known file types | yes
 | fonts | List of known fonts | yes
 | fullstack | Different terms from software development | yes
 | go | Go-Lang terms | no
@@ -78,36 +78,35 @@ Currently available as dictionaries are
 | rust | Rust terms | no
 | scala | Scala terms | no
 | softwareTerms | More terms from software development | yes
-| typescript | Typescript terms | no
+| typescript | TypeScript terms | no
 | user | User defined dictionary (see above for details) | yes
 
 These dictionaries are applied to language by defining the following case sensitive variables
 
 * **SCA_CSPELL_LANG_\<LANG_CODE\>_files** - List of file extensions to check
 * **SCA_CSPELL_LANG_\<LANG_CODE\>_dicts** - List of dictionaries to add the default selection for checking
-* **SCA_CSPELL_LANG_\<LANG_CODE\>_shebang** - Regex for getting file by shebang
+* **SCA_CSPELL_LANG_\<LANG_CODE\>_shebang** - Regular expression for getting file by shebang
 
 ## Notes
 
-By the default this module does only generate warnings of level **"info"**. 
-So if you like them to be deployed you have to set **SCA_WARNING_LEVEL** to __"info"__ globally or in the 
-recipe.
+By the default this module does only generate warnings of level **"info"**.
+So if you like them to be deployed you have to set **SCA_WARNING_LEVEL** to __"info"__ globally or in the recipe.
 
-## Known error-ids
+## Known error-IDs
 
 __tbd__
 
 ## Checking scope
 
-- [ ] security
-- [ ] functional defects
-- [x] style issues
+* [ ] security
+* [ ] functional defects
+* [x] style issues
 
 ## Statistics
 
-- ⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜ 04/10 Build Speed
-- ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Execution Speed
-- ⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜ 04/10 Quality
+* ⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜ 04/10 Build Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Execution Speed
+* ⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜ 04/10 Quality
 
 ## Score mapping
 

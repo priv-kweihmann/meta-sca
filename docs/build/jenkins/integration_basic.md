@@ -9,7 +9,7 @@ This document describes the integration of SCA into jenkins
 
 ## Using pipeline
 
-In a pipeline simply insert the following 
+In a pipeline simply insert the following
 
 ```groovy
 post {
@@ -19,7 +19,7 @@ post {
 }
 ```
 
-to reduce the lookup time for files you could also do 
+to reduce the lookup time for files you could also do
 
 ```groovy
 def deployDir = "$WORKSPACE/tmp/deploy/images/**";
@@ -45,13 +45,14 @@ If you now click on 'CheckStyle Warnings' the following is shown
 
 ![details_1](img/jenkins_pipeline_build_details.jpg)
 
-If you now click on the tab 'Categories' you will see all the results form your enabled tools, with their findings
+If you now click on the tab 'Categories' you will see all the results from your enabled tools, with their findings
 
 ![details_2](img/jenkins_pipeline_build_details_2.jpg)
 
-Now you can browse through the findings (and expand the section) 
+Now you can browse through the findings (and expand the section)
 to view the notice given by the particular tool
-![deatils_3](img/jenkins_pipeline_build_details_3.jpg)
+
+![details_3](img/jenkins_pipeline_build_details_3.jpg)
 
 ## Full example of pipeline
 

@@ -5,7 +5,7 @@
 * Languages: *
 * Scope: final image + all used recipes
 * New errors should abort the build
-* If there are more than 5 new warning -> terminate the build
+* If there are more than 5 new warnings -> terminate the build
 * Only components that are actually shipped should be monitored
 
 ## Recommended settings
@@ -29,6 +29,7 @@ SCA_ENABLED_MODULES_IMAGE = "\
                             bashate \
                             bitbake \
                             checkbashism \
+                            configcheck \
                             detectsecrets \
                             eslint \
                             flake8 \
@@ -36,12 +37,15 @@ SCA_ENABLED_MODULES_IMAGE = "\
                             htmlhint \
                             jsonlint \
                             mypy \
+                            lynis \
                             pyfindinjection \
                             pylint \
                             shellcheck \
                             standard \
                             stylelint \
                             systemdlint \
+                            tiger \
+                            upc \
                             vulture \
                             xmllint \
                             yamllint \

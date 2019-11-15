@@ -9,10 +9,10 @@
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_BLACKLIST_pylint | Blacklist filter for this tool | space-separated-list | "linux-*"
-| SCA_PYLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
-| SCA_PYLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
-| SCA_PYLINT_HOMEPATH | Directory of python installation | path | \${IMAGE_ROOTFS}/python.3.5
-| SCA_PYLINT_LIBATH | List of library paths for python | ':' separated list | \${IMAGE_ROOTFS}/python.3.5/:\${IMAGE_ROOTFS}/python.3.5/site-packages/
+| SCA_PYLINT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
+| SCA_PYLINT_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
+| SCA_PYLINT_HOMEPATH | Directory of python installation | path | \${IMAGE_ROOTFS}/python\${PYTHON_BASEVERSION}
+| SCA_PYLINT_LIBATH | List of library paths for python | ':' separated list | \${IMAGE_ROOTFS}/python\${PYTHON_BASEVERSION}/:\${IMAGE_ROOTFS}/python.\${PYTHON_BASEVERSION}/site-packages/
 | SCA_PYLINT_ROOTPATH | Root path from where checks should be performed | path | \${IMAGE_ROOTFS}
 
 # Configuration for recipe
@@ -20,39 +20,39 @@
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_BLACKLIST_pylint | Blacklist filter for this tool | space-separated-list | "linux-*"
-| SCA_PYLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
-| SCA_PYLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
-| SCA_PYLINT_HOMEPATH | Directory of python installation | path | \${STAGING_LIBDIR}/python.3.5
-| SCA_PYLINT_LIBATH | List of library paths for python | ':' separated list | \${STAGING_LIBDIR}/python.3.5/:\${STAGING_LIBDIR}/python.3.5/site-packages/
+| SCA_PYLINT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
+| SCA_PYLINT_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
+| SCA_PYLINT_HOMEPATH | Directory of python installation | path | \${STAGING_LIBDIR}/python\${PYTHON_BASEVERSION}
+| SCA_PYLINT_LIBATH | List of library paths for python | ':' separated list | \${STAGING_LIBDIR}/python\${PYTHON_BASEVERSION}/:\${STAGING_LIBDIR}/python\${PYTHON_BASEVERSION}/site-packages/
 | SCA_PYLINT_ROOTPATH | Root path from where checks should be performed | path | \${B}
 
 ## Supports
 
-- [x] suppression of ids
-- [x] terminate build on fatal
-- [x] run on recipe
-- [x] run on image
-- [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
+* [x] suppression of IDs
+* [x] terminate build on fatal
+* [x] run on recipe
+* [x] run on image
+* [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 
-- [ ] requires online access
+* [ ] requires online access
 
-## Known error-ids
+## Known error-IDs
 
 __tbd__
 
 ## Checking scope
 
-- [ ] security
-- [x] functional defects
-- [x] style issues
+* [ ] security
+* [x] functional defects
+* [x] style issues
 
 ## Statistics
 
- - ⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜ 02/10 Build Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Execution Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Quality
+* ⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜ 02/10 Build Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Execution Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Quality
 
 ## Score mapping
 

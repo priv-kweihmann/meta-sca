@@ -2,44 +2,44 @@
 
 ## Supported environments/languages
 
-* javascript
+* JavaScript
 
 ## Configuration
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_BLACKLIST_standard | Blacklist filter for this tool | space-separated-list | ""
-| SCA_STANDARD_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | "":
-| SCA_STANDARD_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_STANDARD_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
+| SCA_STANDARD_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_STANDARD_FILE_FILTER | File extension to scan for | space-separated-list | ".js .jsx"
 
 ## Supports
 
-- [x] suppression of ids
-- [x] terminate build on fatal
-- [x] run on recipe
-- [x] run on image
-- [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
+* [x] suppression of IDs
+* [x] terminate build on fatal
+* [x] run on recipe
+* [x] run on image
+* [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 
-- [x] requires online access
+* [x] requires online access
 
-## Known error-ids
+## Known error-IDs
 
 __tbd__
 
 ## Checking scope
 
-- [ ] security
-- [x] functional defects
-- [x] style issues
+* [ ] security
+* [x] functional defects
+* [x] style issues
 
 ## Statistics
 
- - ⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜ 04/10 Build Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10 Execution Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Quality
+* ⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜ 04/10 Build Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10 Execution Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Quality
 
 ## Score mapping
 

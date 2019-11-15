@@ -1,11 +1,10 @@
 # Setting up a parametrized build for SCA
 
-To setup a jenkins build with parameters you can 
-adopt the following pipeline to your needs.
-With this pipeline you can switch on/off SCA feature within 
-jenkins.
+To setup a jenkins build with parameters you can adopt the following pipeline to your needs.
+With this pipeline you can switch on/off SCA feature within jenkins.
 
 ## Full Example
+
 ```groovy
 pipeline {
     agent any

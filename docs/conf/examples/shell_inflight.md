@@ -24,8 +24,8 @@ SCA_ENABLE_SCORE = "0"
 SCA_VERBOSE_OUTPUT = "0"
 SCA_SCOPE_FILTER = "security functional"
 SCA_ENABLED_MODULES_RECIPE = "\
+                            bashate \
                             checkbashism \
-                            cppcheck \
                             shellcheck \
                             "
 ```

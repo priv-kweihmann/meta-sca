@@ -17,7 +17,7 @@ All custom code is based in a layer called __meta-fancycompany__
 * Track the overall issue count to always at least remain on the same level of code quality
 * Only code from the own layer is to be checked
 * Code quality checks should not consume too much time
-* the same code should be used in other CI jobs, so hardcoding any specific values to the layer is not permitted
+* the same code should be used in other CI jobs, so hard coded values are not permitted
 
 ## What's needed
 
@@ -28,7 +28,7 @@ All custom code is based in a layer called __meta-fancycompany__
 
 ## Setup
 
-### Catching only the recipe from the own layer
+### Catching only the recipes from the own layer
 
 This is where [autoinherit.bbclass](https://github.com/priv-kweihmann/meta-buildutils/blob/master/classes/auto-inherit.bbclass) comes into play. This utility class inherits other bbclass-files based on configurable conditions.
 
@@ -39,7 +39,7 @@ INHERIT += "autoinherit.bbclass"
 ```
 
 to __conf/local.conf__.
-Now we need to configure the class. According to [documentation](https://github.com/priv-kweihmann/meta-buildutils/blob/master/README.md#auto-inherit) we can inherit a class which is located under a specific path. SO with this in mind just add
+Now we need to configure the class. According to [documentation](https://github.com/priv-kweihmann/meta-buildutils/blob/master/README.md#auto-inherit) we can inherit a class which is located under a specific path. So with this in mind just add
 
 ```bitbake
 AUTO_INHERIT_CONF = "BBClass=sca;props=[auto_inherit_is_at_path(d,'meta-fancycompany/',False)]"
@@ -49,7 +49,7 @@ to __conf/local.conf__. This should inherit **sca.bbclass** into all recipes (.b
 
 ### Configure SCA
 
-As we know we need to check on C/C++, shell and python. Speed is favoured over quality, as long a quality isn't very poor. Only severe errors are of importance.
+As we know we need to check on C/C++, shell and python. Speed is favoured over quality, as long a quality isn't very poor. Only severe issues are of importance.
 For this purpose we use the configure wizard from meta-sca-layer.
 Run
 
@@ -60,20 +60,22 @@ Run
 
 Answer the following questions
 
+```shell
 * Do you want to check images? -> YES
 * Do you want to check recipes? -> YES
 * Enter a license filter -> .*
 * Do you have online access while building? -> False
 * What content to you want to check? -> C, CPP, Shell, Python (end with 'q')
 * What scope of checks would like to perform? -> Functional
-* How fast should the tools be build? -> 6
+* How fast should the tools be build? -> 3
 * How fast should the tools be executed? -> 7
 * What quality do you expect of the tools? -> 6
 * Do you want to use best-of functionality -> NO
 * Do you want to use image summary functionality? -> NO
 * Do you want export the findings to Jenkins? -> YES
 * From which priority on the findings should be reported? -> error
-  
+```
+
 This outputs the following at the end
 
 ```bitbake
@@ -103,7 +105,7 @@ post {
 }
 ```
 
-This also sets a "quality-gate" that the error count should stay the same or decrease for the build to be successful - This helps to "ignore" the existing error in code for now, but takes hard action for new issues.
+This also sets a "quality-gate" that the error count should stay the same or decrease for the build to be successful - This helps to "ignore" the existing issues in the code for now, but takes hard action for new issues.
 
 ### Fine tune
 
@@ -153,17 +155,17 @@ pipeline {
             """
             sd """
                 cd ${buildDir}
-                cat 'INHERIT += \\"autoinherit.bbclass\\"' >> conf/local.conf
-                cat 'AUTO_INHERIT_CONF = \\"BBClass=sca;props=[auto_inherit_is_at_path(d,\\'meta-fancycompany/\\',False)]\\"' >> conf/local.conf
-                cat 'SCA_AUTO_INH_ON_IMAGE = \\"1\\"' >> conf/local.conf
-                cat 'SCA_AUTO_LICENSE_FILTER = \\".*\\"' >> conf/local.conf
-                cat 'SCA_AVAILABLE_MODULES = \\"bashate checkbashism cppcheck flake8 gcc pylint shellcheck\\"' >> conf/local.conf
-                cat 'SCA_ENABLE_BESTOF = \\"0\\"' >> conf/local.conf
-                cat 'SCA_ENABLE_IMAGE_SUMMARY = \\"0\\"' >> conf/local.conf
-                cat 'SCA_EXPORT_FINDING_SRC = \\"1\\"' >> conf/local.conf
-                cat 'SCA_WARNING_LEVEL = \\"error\\"' >> conf/local.conf
-                cat 'SCA_GCC_HARDENING = \\"0\\"' >> conf/local.conf
-                cat 'SCA_SEVERITY_TRANSFORM = \\"pylint.pylint.function-redefined=warning cppcheck.cppcheck.uninitvar=warning\\"' >> conf/local.conf
+                echo 'INHERIT += \\"autoinherit.bbclass\\"' >> conf/local.conf
+                echo 'AUTO_INHERIT_CONF = \\"BBClass=sca;props=[auto_inherit_is_at_path(d,\\'meta-fancycompany/\\',False)]\\"' >> conf/local.conf
+                echo 'SCA_AUTO_INH_ON_IMAGE = \\"1\\"' >> conf/local.conf
+                echo 'SCA_AUTO_LICENSE_FILTER = \\".*\\"' >> conf/local.conf
+                echo 'SCA_AVAILABLE_MODULES = \\"bashate checkbashism cppcheck flake8 gcc pylint shellcheck\\"' >> conf/local.conf
+                echo 'SCA_ENABLE_BESTOF = \\"0\\"' >> conf/local.conf
+                echo 'SCA_ENABLE_IMAGE_SUMMARY = \\"0\\"' >> conf/local.conf
+                echo 'SCA_EXPORT_FINDING_SRC = \\"1\\"' >> conf/local.conf
+                echo 'SCA_WARNING_LEVEL = \\"error\\"' >> conf/local.conf
+                echo 'SCA_GCC_HARDENING = \\"0\\"' >> conf/local.conf
+                echo 'SCA_SEVERITY_TRANSFORM = \\"pylint.pylint.function-redefined=warning cppcheck.cppcheck.uninitvar=warning\\"' >> conf/local.conf
             """
         }
         stage('build') {
@@ -187,5 +189,5 @@ pipeline {
 ## Further things to be done (if needed)
 
 * Insert a appropriate mail notification, maybe using the great [email ext extension](https://wiki.jenkins.io/display/JENKINS/Email-ext+plugin) of jenkins
-* Do actions to archive the build if it was successful
-* maybe cleanup the workspace of the build, else you will need plenty of harddisk on your jenkins node
+* Take actions to archive the build if it was successful
+* maybe cleanup the workspace of the build, else you will need plenty of disk space on your jenkins node
