@@ -1,3 +1,4 @@
 recipes-foo/foo/*
 TODO
 .vscode
+.textlintrc
