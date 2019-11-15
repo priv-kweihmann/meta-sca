@@ -4,41 +4,41 @@
 
 * GO
 
-## NOTE
+## Note
 
-With the thud standard go-implementation you will get a compile issue, as gosec requires
-go 1.12+. Enable this module only if you have a non-standard go installed in the build chain.
+When using **thud** layer this tool is disabled by default, as __gosec__ requires a GO-version which isn't shipped with standard **thud**-layer.
+If you plan to use it, you need to supply a matching GO-version from a different source.
 
 ## Configuration
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_BLACKLIST_gosec | Blacklist filter for this tool | space-separated-list | "linux-*"
-| SCA_GOSEC_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | ""
-| SCA_GOSEC_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_GOSEC_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
+| SCA_GOSEC_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_GOSEC_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".go"
 
 ## Supports
 
-- [x] suppression of ids
-- [x] terminate build on fatal
-- [x] run on recipe
-- [ ] run on image
-- [ ] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
+* [x] suppression of IDs
+* [x] terminate build on fatal
+* [x] run on recipe
+* [ ] run on image
+* [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 
-- [ ] requires online access
+* [ ] requires online access
 
-## Known error-ids
+## Known error-IDs
 
-* gosec.gosec.G101: Look for hardcoded credentials
+* gosec.gosec.G101: Look for hard coded credentials
 * gosec.gosec.G102: Bind to all interfaces
 * gosec.gosec.G103: Audit the use of unsafe block
 * gosec.gosec.G104: Audit errors not checked
 * gosec.gosec.G105: Audit the use of big.Exp function
 * gosec.gosec.G106: Audit the use of ssh.InsecureIgnoreHostKey function
-* gosec.gosec.G107: Url provided to HTTP request as taint input
+* gosec.gosec.G107: URL provided to HTTP request as taint input
 * gosec.gosec.G201: SQL query construction using format string
 * gosec.gosec.G202: SQL query construction using string concatenation
 * gosec.gosec.G203: Use of unescaped data in HTML templates
@@ -59,15 +59,15 @@ go 1.12+. Enable this module only if you have a non-standard go installed in the
 
 ## Checking scope
 
-- [x] security
-- [ ] functional defects
-- [ ] style issues
+* [x] security
+* [ ] functional defects
+* [ ] style issues
 
 ## Statistics
 
- - ⬛⬛⬛⬛⬛⬛⬜⬜⬜⬜ 06/10 Build Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10 Execution Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Quality
+* ⬛⬛⬛⬛⬛⬛⬜⬜⬜⬜ 06/10 Build Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10 Execution Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Quality
 
 ## Score mapping
 

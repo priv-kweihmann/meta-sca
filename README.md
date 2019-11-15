@@ -1,4 +1,4 @@
-# meta-sca
+# meta-sca <!-- omit in toc -->
 
 ## Current status
 
@@ -9,32 +9,91 @@
 | warrior | [![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=warrior)](https://travis-ci.org/priv-kweihmann/meta-sca) | ![Nightly status](https://github.com/priv-kweihmann/meta-sca/workflows/[warrior]-classic/badge.svg)  | ![Nightly status](https://github.com/priv-kweihmann/meta-sca/workflows/[warrior]-scripts/badge.svg) | ![Nightly status](https://github.com/priv-kweihmann/meta-sca/workflows/[warrior]-system/badge.svg) | ![Nightly status](https://github.com/priv-kweihmann/meta-sca/workflows/[warrior]-meta-clang/badge.svg) | ![Nightly status](https://github.com/priv-kweihmann/meta-sca/workflows/[warrior]-meta-oe/badge.svg) |
 | thud    | [![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=thud)](https://travis-ci.org/priv-kweihmann/meta-sca)    | ![Nightly status](https://github.com/priv-kweihmann/meta-sca/workflows/[thud]-classic/badge.svg)     | ![Nightly status](https://github.com/priv-kweihmann/meta-sca/workflows/[thud]-scripts/badge.svg)    | ![Nightly status](https://github.com/priv-kweihmann/meta-sca/workflows/[thud]-system/badge.svg)    | ![Nightly status](https://github.com/priv-kweihmann/meta-sca/workflows/[thud]-meta-clang/badge.svg)    | ![Nightly status](https://github.com/priv-kweihmann/meta-sca/workflows/[thud]-meta-oe/badge.svg)    |
 
-## Before we start...
+## Table of content <!-- omit in toc -->
 
-If you're interested in using this layer, please let me know where to go next.
-
-Just [vote here](https://github.com/priv-kweihmann/meta-sca/issues/254#issue-473627394) for upcoming features.
+- [Current status](#current-status)
+- [Purpose](#purpose)
+- [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+  - [Optional layer](#optional-layer)
+    - [meta-clang](#meta-clang)
+    - [meta-oe](#meta-oe)
+- [Support](#support)
+  - [Release cycle](#release-cycle)
+    - [Releases](#releases)
+  - [Compatibility](#compatibility)
+- [Licensing](#licensing)
+- [Zero impact](#zero-impact)
+- [Available tools](#available-tools)
+  - [Overview of tools](#overview-of-tools)
+- [Further documentation](#further-documentation)
+- [Contributing](#contributing)
 
 ## Purpose
 
-This layer does offer some static code analysis tools, which can be easily configured and integrated into YOCTO/Open-Embedded build system.
-The layer is designed to be easy to integrate (and fully configurable).
+Purpose of this layer is to provide a proper set of static analysis tools for your YOCTO build.
+All provided tools can be easily configured and integrated into any CI service (like e.g. Jenkins).
+
 All results are stored to __SCA_EXPORT_DIR__ (which defaults to __${DEPLOY_DIR_IMAGE}/sca__). The results will be stored in the raw-format of the corresponding tool and in checkstyle-format.
-Any result-file can be easily integrated into e.g. Jenkins or other CI-tools
 
-### Support
+## Installation
 
-This project is meant to stay - first of all this project is for you!
-As long as technically possible you can expect package updates and bugfixes to this layer for all poky-releases after **thud**.
+To install clone the needed brach(es) to any path on your local system.
+
+### Prerequisites
+
+You need the current standard [__poky__-layer](https://git.yoctoproject.org/cgit/cgit.cgi/poky/) installed onto your local build environment
+
+### Setup
+
+In your __bblayers.conf__-file add the following line
+
+``` shell
+BBLAYERS += "<full path to sca-layer>/meta-sca"
+```
+
+or with poky layer already setup run in shell
+
+```shell
+bitbake-layers add-layer "<full path to sca-layer>/meta-sca"
+```
+
+### Optional layer
+
+#### meta-clang
+
+To make the integration of clang or ikos-module (clang-tidy) work you need to add the [meta-clang](https://github.com/kraj/meta-clang) layer to your bblayer-file.
+Additionally you have to add
+
+``` bitbake
+PREFERRED_VERSION_clang-native = "7.%"
+```
+
+to your **local.conf**-file to make it work. Otherwise the build will fail with an error.
+
+#### meta-oe
+
+To enable the php/lua support you need to add the [meta-oe](http://cgit.openembedded.org/meta-openembedded) layer to your bblayer-file.
+Additionally you have to add
+
+``` bitbake
+PREFERRED_VERSION_libzip-native = "1.%"
+PREFERRED_VERSION_php-native = "7.%"
+```
+
+to your **local.conf**-file to make it work. Otherwise the build will fail with an error.
+
+## Support
+
+As long as technically possible you can expect package updates and bugfixes to this layer for all poky-releases since **thud**.
 
 It's advised to use the tagged source versions in productive environment.
 
+### Release cycle
+
 You can expect a new tagged build every 4-6 weeks.
 Planning is done by milestone features on GitHub.
-
-If there is a technical issue that might break backward compatibility it will be mentioned in release note of the corresponding milestone release.
-
-As in every community project feedback is always welcome...
 
 #### Releases
 
@@ -56,35 +115,32 @@ beginning with release 1.18 for following tags exist in git
 | warrior         | warrior_"version" | warrior_1.23 |
 | thud            | thud_"version"    | thud_1.99    |
 
-### Licensing
+### Compatibility
+
+If there is a technical issue that might break backward compatibility it will be mentioned in release note of the corresponding milestone release.
+
+## Licensing
 
 This layer does only provide open source tools.
 The layer itself is licensed under BSD.
+
 If individual files are licensed under different terms, terms and conditions
 can be found in the individual file header
 
-### Zero impact
+## Zero impact
 
 This layer provides only **-native** tools, so actually none of the build binaries will be deployed to your target.
 Everything happens on the build machine.
+
 There are some excludes to this rule (e.g. lynis) as they need to be cross-compiled to make use of them, nevertheless
 none of these tools will be installed automatically to your build.
-
-## Prerequisites
-
-You need the current standard __poky__-layer installed onto your local build environment
-
-## Installation
-In your __bblayers.conf__-file add the following line 
-``` shell
-BBLAYERS += "<full path to sca-layer>/meta-sca"
-```
 
 ## Available tools
 
 The layer can check on a recipe-level or on an image-level.
-On image-level the whole root-filesystem could be taken into account, which in most cases can't be granted on a recipe-level.
-On the other hand some static code analysis does not make any sense on an image-level - so this layer does have different tools for both level available.
+
+- On image-level the whole root-filesystem could be taken into account, which in most cases can't be granted on a recipe-level.
+- On the other hand some static code analysis does not make any sense on an image-level - so this layer does have different tools for both level available.
 
 ### Overview of tools
 
@@ -166,32 +222,7 @@ On the other hand some static code analysis does not make any sense on an image-
 
 each tool does have it's own benefits and flaws so don't be mad if you have 10k+ findings on the initial run.
 
-# Optional requirements
-
-## meta-clang
-
-To make the integration of clang or ikos-module (clang-tidy) work you need to add the [meta-clang](https://github.com/kraj/meta-clang) layer to your bblayer-file.
-Additionally you have to add
-
-``` bitbake
-PREFERRED_VERSION_clang-native = "7.%"
-```
-
-to your **local.conf**-file to make it work. Otherwise the build will fail with an error.
-
-## meta-oe
-
-To enable the php/lua support you need to add the [meta-oe](http://cgit.openembedded.org/meta-openembedded) layer to your bblayer-file.
-Additionally you have to add
-
-``` bitbake
-PREFERRED_VERSION_libzip-native = "1.%"
-PREFERRED_VERSION_php-native = "7.%"
-```
-
-to your **local.conf**-file to make it work. Otherwise the build will fail with an error.
-
-# Further documentation
+## Further documentation
 
 - [Global Configuration](docs/conf/global.md)
   - [Blacklisting sources](docs/conf/blacklist.md)
@@ -287,17 +318,17 @@ to your **local.conf**-file to make it work. Otherwise the build will fail with 
   - [Webapps while developing](docs/conf/examples/web_inflight.md)
 - [Results](docs/conf/results.md)
 - Build system integration
-  - [Control via command line](docs/build/control_build_by_cmdline.md)
+  - [Control via command-line](docs/build/control_build_by_cmdline.md)
   - Jenkins integration
-    - [Basic jenkins integratin](docs/build/jenkins/integration_basic.md)
+    - [Basic jenkins integration](docs/build/jenkins/integration_basic.md)
     - [Parameterized jenkins build](docs/build/jenkins/integration_parameter.md)
 - Application notes
   - [Recipe buildtime dependencies](docs/sca/buildtime_dependencies.md)
-  - [How are the Statistics of a tool calucated?](docs/sca/build_exec_times.md)
+  - [How are the statistics of a tool calculated?](docs/sca/build_exec_times.md)
 - Case studies
   - [Regression on severe code issues](docs/casestudy/simple_regression.md)
   - [Idenfying hardening and security potential](docs/casestudy/adv_security.md)
 
-## Further development
+## Contributing
 
 Feel free to create pull-requests or create an issue if you think there is something wrong or missing.

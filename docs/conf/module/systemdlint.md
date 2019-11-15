@@ -9,29 +9,29 @@
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_BLACKLIST_systemdlint | Blacklist filter for this tool | space-separated-list | ""
-| SCA_SYSTEMDLINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | "":
-| SCA_SYSTEMDLINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_SYSTEMDLINT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
+| SCA_SYSTEMDLINT_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_SYSTEMDLINT_SYSTEMD_VERSION | Specifies the version of systemd to be checked against. Leave empty to disable | version string | ""
 | SCA_SYSTEMDLINT_FILES | File extensions to check on | space-separated-list | ".automount .conf .link .mount .network .path .service .slice .socket .swap .target .timer"
-| SCA_SYSTEMDLINT_PATHS | Paths to search for systemd-files | space-separated-list | ${SCA_SOURCES_DIR}/${sysconfdir}/systemd ${SCA_SOURCES_DIR}/${libdir}/systemd ${SCA_SOURCES_DIR}/run/systemd
+| SCA_SYSTEMDLINT_PATHS | Paths to search for systemd-files | space-separated-list | \${SCA_SOURCES_DIR}/\${sysconfdir}/systemd \${SCA_SOURCES_DIR}/\${libdir}/systemd \${SCA_SOURCES_DIR}/run/systemd
 
 ## Supports
 
-- [x] suppression of ids
-- [x] terminate build on fatal
-- [ ] run on recipe
-- [x] run on image
-- [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
+* [x] suppression of IDs
+* [x] terminate build on fatal
+* [ ] run on recipe
+* [x] run on image
+* [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 
-- [ ] requires online access
+* [ ] requires online access
 
-## Known error-ids
+## Known error-IDs
 
-* systemdlint.systemdlint.ConflictingOptions - The set option somehwo is in conflict with another unit
+* systemdlint.systemdlint.ConflictingOptions - The set option somehow is in conflict with another unit
 * systemdlint.systemdlint.ExecNotFound - The referenced executable was not found on system
-* systemdlint.systemdlint.FullPrivileges - An executable is run with full priviledges
+* systemdlint.systemdlint.FullPrivileges - An executable is run with full privileges
 * systemdlint.systemdlint.InvalidNumericBase - A numeric value doesn't match because it needs to be a multiple of X
 * systemdlint.systemdlint.InvalidSetting - The option doesn't match the section
 * systemdlint.systemdlint.InvalidValue - An invalid value is set
@@ -40,7 +40,7 @@
 * systemdlint.systemdlint.NoExecutable - The referenced executable is NOT executable
 * systemdlint.systemdlint.NoFailureCheck - An executable is run without checking for failures
 * systemdlint.systemdlint.OptionDeprecated - The used option is not available anymore in this version
-* systemdlint.systemdlint.OptionTooNew - The used option will be avaiable in a later version than used
+* systemdlint.systemdlint.OptionTooNew - The used option will be available in a later version than used
 * systemdlint.systemdlint.ReferencedUnitNotFound - The unit referenced was not found in system
 * systemdlint.systemdlint.SettingRequires - The option requires another option to be set
 * systemdlint.systemdlint.SettingRestricted - The option can't be set due to another option
@@ -51,15 +51,15 @@
 
 ## Checking scope
 
-- [x] security
-- [x] functional defects
-- [x] style issues
+* [x] security
+* [x] functional defects
+* [x] style issues
 
 ## Statistics
 
- - ⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ 05/10 Build Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Execution Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Quality
+* ⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ 05/10 Build Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Execution Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Quality
 
 ## Score mapping
 

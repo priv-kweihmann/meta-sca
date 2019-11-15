@@ -2,7 +2,7 @@
 
 ## Supported environments/languages
 
-* code duplicattions
+* code duplications
 * metrics
 
 ## Configuration for recipe
@@ -12,7 +12,7 @@
 | SCA_BLACKLIST_tlv | Blacklist filter for this tool | space-separated-list | "linux-.*"
 | SCA_TLV_MINLINES | Minimum number of lines before issue is reported | int | "8"
 | SCA_TLV_MINTOKEN | Minimum number of token in block before issue is reported | int | "25"
-| SCA_TLV_FILES | List of glob-expression for files to check | space-separated-list | "\$\{SCA\_SOURCES\_DIR\}/\* \$\{SCA\_SOURCES\_DIR\}/\*\*/\*"
+| SCA_TLV_FILES | List of glob-expression for files to check | space-separated-list | "\${SCA_SOURCES_DIR}/\* \${SCA_SOURCES_DIR}/\*\*/\*"
 
 ## Configuration for image
 
@@ -21,36 +21,36 @@
 | SCA_BLACKLIST_tlv | Blacklist filter for this tool | space-separated-list | "linux-.*"
 | SCA_TLV_MINLINES | Minimum number of lines before issue is reported | int | "8"
 | SCA_TLV_MINTOKEN | Minimum number of token in block before issue is reported | int | "25"
-| SCA_TLV_FILES | List of glob-expression for files to check | space-separated-list | "\$\{SCA\_SOURCES\_DIR\}/\$\{sysconfdir\}/\* \$\{SCA\_SOURCES\_DIR\}/\$\{sysconfdir\}/\*\*/\*"
+| SCA_TLV_FILES | List of glob-expression for files to check | space-separated-list | "\${SCA_SOURCES_DIR}/\${sysconfdir}/\* \${SCA_SOURCES_DIR}/\${sysconfdir}/\*\*/\*"
 
 ## Supports
 
-- [ ] suppression of ids
-- [ ] terminate build on fatal
-- [x] run on recipe
-- [x] run on image
-- [ ] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
+* [ ] suppression of IDs
+* [ ] terminate build on fatal
+* [x] run on recipe
+* [x] run on image
+* [ ] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 
-- [x] requires online access
+* [x] requires online access
 
-## Known error-ids
+## Known error-IDs
 
 * tlv.tlv.Duplicate - The code is exactly the same
 * tlv.tlv.TooLessVariation - The code is nearly the same
 
 ## Checking scope
 
-- [x] security
-- [ ] functional defects
-- [x] style issues
+* [x] security
+* [ ] functional defects
+* [x] style issues
 
 ## Statistics
 
- - ⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ 05/10 Build Speed
- - ⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜ 01/10 Execution Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Quality
+* ⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ 05/10 Build Speed
+* ⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜ 01/10 Execution Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Quality
 
 ## Score mapping
 

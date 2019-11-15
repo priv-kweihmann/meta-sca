@@ -1,6 +1,6 @@
 # Filter findings to your specific needs
 
-Before exporting any finding is filter by multiple means.
+Before exporting any finding it's filtered by multiple means.
 
 ## Filter by severity
 
@@ -13,7 +13,7 @@ E.g. if you configure **SCA_WARNING_LEVEL** to __warning__, all findings with th
 
 You can additionally filter by the scope of a finding.
 
-For each tool the specific findings are categorized to scope-level (security, functional and style).
-By setting setting global variable **SCA_SCOPE_FILTER** you can configure which scope will be exported.
+For each tool the specific findings are categorized to scope-level (security, functional or style).
+By setting global variable **SCA_SCOPE_FILTER** you can configure which scope will be exported.
 
-E.g. if you configure **SCA_SCOPE_FILTER** to __"security*__ only findings with the 'security' scope will be exported.
+E.g. if you configure **SCA_SCOPE_FILTER** to __security__ only findings with the 'security' scope will be exported.

@@ -36,7 +36,9 @@ None
 ## Recommended settings
 
 In the following you'll find recommended setting for different use cases.
-Only settings that differ default are shown
+Only settings that differ default are shown.
+
+For more examples [see](examples)
 
 ### Check while developing
 

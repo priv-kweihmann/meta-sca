@@ -1,4 +1,5 @@
 # Suppression and fatal-error
+
 Every tool has the possibility to suppress some of the findings.
 Besides that some findings could be configured to terminate the build, e.g. when a nullptr-dereference is found in C-code.
 
@@ -7,21 +8,21 @@ Besides that some findings could be configured to terminate the build, e.g. when
 For this purpose you can configure global suppression or fatal-error.
 In the subdirectory __recipes-sca-rules__ you can find __rules__-files for each tool.
 
-E.g. when you want to configure the behavior of pylint for when invoked on an image, you need to modify (or overload in your own layer) the files from __sca-image-pylint__.
+E.g. when you want to configure the behavior of pylint when being invoked on an image, you need to modify (or overload in your own layer) the files from __sca-image-pylint__.
 
 Each of these rule-recipe consists of two files
 
- * suppress - which adds suppressions
- * fatal - which adds fatal errors
+* suppress - which adds suppressions
+* fatal - which adds fatal errors
 
 ### suppress file
 
-In this file you can insert any error id which should suppressed in output for the given tool and SCA-mode.
+In this file you can insert any error ID which should suppressed in output for the given tool and SCA-mode.
 Per line one error-id could be inserted
 
 ### fatal file
 
-In this file you can insert any error id which terminate the build immediately.
+In this file you can insert any error ID which terminates the build immediately.
 Use this for e.g. regression.
 Per line one error-id could be inserted.
 
@@ -32,7 +33,7 @@ Both global and local settings are being merged into the effective settings.
 
 ## Example
 
-The following error of the tool pylint are not of interest for you: 'warning1', 'someotherinfo', 'notofinteresterror'
+The following errors of the tool pylint are not of interest for you: 'warning1', 'someotherinfo', 'notofinteresterror'
 So put into __recipes-sca-rules/sca-recipe-pylint-native/files/suppress__ and __recipes-sca-rules/sca-image-pylint-native/files/suppress__
 
 ```sh
@@ -41,7 +42,8 @@ pylint.pylint.someotherinfo
 pylint.pylint.notofinteresterror
 ```
 
-if you want furthermore suppress the pylint error 'someobscureinfo' for just the recipe 'foo'. Insert into foo.bb 
+if you want furthermore suppress the pylint error 'someobscureinfo' for just the recipe 'foo'. Insert into __foo.bb__
+
 ```bitbake
 SCA_PYLINT_EXTRA_SUPPRESS += "pylint.pylint.someobscureinfo"
 ```

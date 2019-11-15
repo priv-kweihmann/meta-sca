@@ -1,7 +1,8 @@
 # BestOf mode
+
 BestOf mode is an advanced filter for findings. In this mode only the findings are listed where more than one tool has reported a finding in source code.
 
-You can call it the lazy programmers mode.l
+You can call it the lazy programmers mode.
 Main purpose of this module is to filter out the findings, which have been reported by one tool only. So the result of BestOf mode should give you a very strong hint that the finding reported is real.
 
 You can either filter by a minimum number of tools that should have reported a finding (threshold), or by a percentage of tools that reported a finding (ratio).
