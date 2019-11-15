@@ -2,8 +2,8 @@
 
 ## Supported environments/languages
 
-* css
-* scss
+* CSS
+* SCSS
 
 ## Configuration
 
@@ -11,37 +11,37 @@
 | ------------- |:-------------:| -----:| -----:
 | SCA_BLACKLIST_stylelint | Blacklist filter for this tool | space-separated-list | ""
 | SCA_STYLELINT_CONFIG | Config to use | 'stylelint-config-standard' or 'stylelint-config-recommended' | "stylelint-config-standard"
-| SCA_STYLELINT_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | "":
-| SCA_STYLELINT_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_STYLELINT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
+| SCA_STYLELINT_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_STYLELINT_FILE_FILTER | Files to scan | space-separated-list | ".css .scss .html .htm"
 
 ## Supports
 
-- [x] suppression of ids
-- [x] terminate build on fatal
-- [x] run on recipe
-- [x] run on image
-- [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
+* [x] suppression of IDs
+* [x] terminate build on fatal
+* [x] run on recipe
+* [x] run on image
+* [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 
-- [ ] requires online access
+* [ ] requires online access
 
-## Known error-ids
+## Known error-IDs
 
 __tbd__
 
 ## Checking scope
 
-- [ ] security
-- [ ] functional defects
-- [x] style issues
+* [ ] security
+* [ ] functional defects
+* [x] style issues
 
 ## Statistics
 
- - ⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜ 04/10 Build Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10 Execution Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Quality
+* ⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜ 04/10 Build Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10 Execution Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Quality
 
 ## Score mapping
 

@@ -1,10 +1,9 @@
-### Available configuration for ropgadget
+# Available configuration for ropgadget
 
 This module is somehow different - it tries to get all code which is somehow exploitable by ROP (return oriented programming).
 If the number of findings exceeds the configured threshold value a warning is issued.
-The findings themselves are only created as "info" level findings. 
-So if you actually want to see the details you can have a look into the raw-file or you have to 
-configure SCA_WARNING_LEVEL to "info".
+The findings themselves are only created as "info" level findings.
+So if you actually want to see the details you can have a look into the raw-file or you have to configure SCA_WARNING_LEVEL to "info".
 
 ## Supported environments/languages
 
@@ -19,17 +18,17 @@ configure SCA_WARNING_LEVEL to "info".
 
 ## Supports
 
-- [ ] suppression of ids
-- [ ] terminate build on fatal
-- [x] run on recipe
-- [ ] run on image
-- [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
+* [ ] suppression of IDs
+* [ ] terminate build on fatal
+* [x] run on recipe
+* [ ] run on image
+* [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 
-- [ ] requires online access
+* [ ] requires online access
 
-## Known error-ids
+## Known error-IDs
 
 __tbd__
 
@@ -39,15 +38,15 @@ A large value does not actually mean that your binary __is__ exploitable, but a 
 
 ## Checking scope
 
-- [x] security
-- [ ] functional defects
-- [ ] style issues
+* [x] security
+* [ ] functional defects
+* [ ] style issues
 
 ## Statistics
 
- - ⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ 05/10 Build Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬜⬜⬜ 07/10 Execution Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Quality
+* ⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ 05/10 Build Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬜⬜⬜ 07/10 Execution Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Quality
 
 ## Score mapping
 

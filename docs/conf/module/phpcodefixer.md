@@ -9,38 +9,38 @@
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_BLACKLIST_phpcodefixer | Blacklist filter for this tool | space-separated-list | ""
-| SCA_PHPCODEFIXER_EXTRA_FATAL | Extra error-ids leading to build termination when found | space-separated-list | "":
-| SCA_PHPCODEFIXER_EXTRA_SUPPRESS | Extra error-ids to be suppressed | space-separated-list | ""
+| SCA_PHPCODEFIXER_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
+| SCA_PHPCODEFIXER_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_PHPCODEFIXER_FILE_FILTER | File extensions to check | space-separated-list | ".php"
 | SCA_PHPCODEFIXER_PHP_VERSION | Explicitly set a PHP version to check against. Leave empty for auto-detect | version string in format x.y or empty | ""
 
 ## Supports
 
-- [x] suppression of ids
-- [x] terminate build on fatal
-- [x] run on recipe
-- [ ] run on image
-- [ ] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
+* [x] suppression of IDs
+* [x] terminate build on fatal
+* [x] run on recipe
+* [ ] run on image
+* [ ] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 
-- [x] requires online access
+* [x] requires online access
 
-## Known error-ids
+## Known error-IDs
 
 __tbd__
 
 ## Checking scope
 
-- [x] security
-- [ ] functional defects
-- [ ] style issues
+* [x] security
+* [ ] functional defects
+* [ ] style issues
 
 ## Statistics
 
- - ⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜ 04/10 Build Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10 Execution Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Quality
+* ⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜ 04/10 Build Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10 Execution Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Quality
 
 ## Score mapping
 

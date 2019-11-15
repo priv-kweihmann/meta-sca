@@ -25,22 +25,21 @@ This document contains all findings in checkstyle-format.
 
 ## datamodel folder
 
-In this folder you will find the internal representation of all 
-findings detected with the configured tools.
+In this folder you will find the internal representation of all findings detected with the configured tools.
 These are used for various things, so just keep them where they are.
 
 ## raw folder
 
 In each raw-subfolder you will find the raw output of the tool, without any further processing done to it. The format depends on the tool.
 
-# Source-File
+# Source-Files
 
 If you enabled the bitbake-variable __SCA_EXPORT_FINDING_SRC__ (set it to "1") all source-files from the findings will be copied to structure like this.
 
 - sca
   - sources
 
-Also the corresponding path in each checkstyle-XML-document will be adjusted to point to the file copy.
-With this help e.g. Jenkins will be capable of giving you inline snippets to the findings.
+Also the corresponding path in each checkstyle-XML-entry will be adjusted to point to the file copy.
+This helps e.g. jenkins to be capable of giving you inline snippets to the findings.
 
-If you don't need this feature you should leave it disabled.
+If you don't need this feature you should leave it turned off.
