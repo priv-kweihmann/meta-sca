@@ -1,14 +1,14 @@
 # Configuration for score
 
-This module does try to calculate a score (like pylint does) for all found finding by the configured tool.
+This module does try to calculate a score (like pylint does) for all findings.
 It divides the score into 3 sections
 
- * security - covering all the issues that might be security relevant
- * functional - functional defects
- * style - only stylistic issues
+* security - covering all the issues that might be security relevant
+* functional - functional defects
+* style - only stylistic issues
 
 You can configure a threshold value to issue a warning or an error when the calculated score is below.
-This should help you identifing modules that are or bad quality in a certain way.
+This should help you identifying modules that are of bad quality.
 
 Do not expect any other output of this module than a warning or an error in build console (if you have the bitbake module enabled also there).
 
@@ -38,15 +38,15 @@ The default settings are taken from the individual tool setting files.
 
 ## Supports
 
-- [ ] suppression of ids
-- [ ] terminate build on fatal
-- [x] run on recipe
-- [ ] run on image
-- [ ] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
+* [ ] suppression of ids
+* [ ] terminate build on fatal
+* [x] run on recipe
+* [ ] run on image
+* [ ] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 
-- [ ] required online access
+* [ ] required online access
 
 ## Known error-ids
 

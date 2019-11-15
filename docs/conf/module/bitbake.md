@@ -19,17 +19,17 @@
 
 ## Supports
 
-- [ ] suppression of ids
-- [ ] terminate build on fatal
-- [x] run on recipe
-- [x] run on image
-- [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
+* [ ] suppression of IDs
+* [ ] terminate build on fatal
+* [x] run on recipe
+* [x] run on image
+* [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 
-- [ ] requires online access
+* [ ] requires online access
 
-## Known error-ids
+## Known error-IDs
 
 * bitbake.bitbake.error - bitbake error printout
 * bitbake.bitbake.warning - bitbake warning printout
@@ -37,15 +37,15 @@
 
 ## Checking scope
 
-- [ ] security
-- [x] functional defects
-- [ ] style issues
+* [ ] security
+* [x] functional defects
+* [ ] style issues
 
 ## Statistics
 
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10 Build Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10 Execution Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Quality
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10 Build Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10 Execution Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Quality
 
 ## Score mapping
 

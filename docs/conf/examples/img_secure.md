@@ -30,11 +30,14 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             detectsecrets \
                             gixy \
                             jsonlint \
+                            lynis \
                             pyfindinjection \
                             pylint \
                             shellcheck \
                             standard \
                             systemdlint \
+                            tiger \
+                            upc \
                             xmllint \
                             yamllint \
                             "

@@ -12,31 +12,31 @@
 
 ## Supports
 
-- [ ] suppression of ids
-- [ ] terminate build on fatal
-- [x] run on recipe
-- [ ] run on image
-- [ ] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
+* [ ] suppression of IDs
+* [ ] terminate build on fatal
+* [x] run on recipe
+* [ ] run on image
+* [ ] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 
-- [x] requires online access
+* [x] requires online access
 
-## Known error-ids
+## Known error-IDs
 
 * cvecheck.cvecheck.unpatched - An unpatched CVE was detected
 
 ## Checking scope
 
-- [x] security
-- [ ] functional defects
-- [ ] style issues
+* [x] security
+* [ ] functional defects
+* [ ] style issues
 
 ## Statistics
 
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Build Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Execution Speed
- - ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Quality
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Build Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Execution Speed
+* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Quality
 
 ## Score mapping
 

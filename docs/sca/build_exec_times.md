@@ -1,6 +1,6 @@
-# How are the Statistics of a tool calucated?
+# How are the statistics of a tool calculated?
 
-I you've asked yourself how the scales at the tool configuration pages are determined
+If you've asked yourself how the scales at the tool configuration pages are determined,
 here the answer
 
 ## Build time
@@ -14,7 +14,7 @@ with bitbake. So a lot of the tools are actually building much faster, esp. when
 of the tools for your build anyways.
 This type of calculation is only applied to be able to compare the tools.
 
-Following table it used to defined the scaling
+Following table it used to define the scaling
 
 | needed time in s | scale
 | ------------- |:--:
@@ -32,7 +32,7 @@ Following table it used to defined the scaling
 
 ## Execution time
 
-The needed time for the tool to be executed is calculated from the average of all run which
+The needed time for the tool to be executed is calculated from the average of all runs which
 lasted at least 2s
 
 Following scaling is applied
