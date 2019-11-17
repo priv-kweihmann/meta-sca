@@ -13,6 +13,7 @@ S = "${WORKDIR}/git"
 RDEPENDS_${PN} += "${PYTHON_PN}-native"
 
 inherit native
+inherit sca-sanity
 
 do_install() {
     oe_runmake install DESTDIR=${D} prefix=${prefix} mandir=${mandir} bindir=${bindir} datarootdir=${datadir}

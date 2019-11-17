@@ -10,6 +10,7 @@ SRC_URI = "git://github.com/CISOfy/lynis.git;protocol=https;tag=${PV} \
 S = "${WORKDIR}/git"
 
 inherit autotools-brokensep
+inherit sca-sanity
 
 do_compile() {
     :

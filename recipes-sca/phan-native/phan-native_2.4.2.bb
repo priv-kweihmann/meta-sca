@@ -18,6 +18,7 @@ PHPCOMPOSER_PKGS_NAME = "phan/phan:${PV}"
 inherit native
 inherit phpcomposer
 inherit php-ext
+inherit sca-sanity
 
 FILES_${PN} = "${bindir} ${datadir}"
 

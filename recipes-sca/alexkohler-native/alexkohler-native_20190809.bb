@@ -47,6 +47,7 @@ DEPENDS += "golang.org-x-tools-native"
 
 inherit go
 inherit native
+inherit sca-sanity
 
 FILES_${PN} += "${datadir}"
 

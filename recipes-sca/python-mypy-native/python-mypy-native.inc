@@ -12,6 +12,7 @@ DEPENDS += " \
 PYPI_PACKAGE = "mypy"
 
 inherit pypi
+inherit sca-sanity
 
 FILES_${PN} += "${datadir}"
 SRC_URI += "file://mypy.sca.description \

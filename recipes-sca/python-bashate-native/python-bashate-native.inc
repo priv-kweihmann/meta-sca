@@ -11,6 +11,7 @@ DEPENDS += "${PYTHON_PN}-native \
 PYPI_PACKAGE = "bashate"
 
 inherit pypi
+inherit sca-sanity
 
 FILES_${PN} += "${datadir}"
 SRC_URI += "file://bashate.sca.description \

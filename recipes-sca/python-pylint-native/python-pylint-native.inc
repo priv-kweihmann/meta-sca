@@ -19,6 +19,7 @@ INSANE_SKIP_${PN} += "file-rdeps"
 PYPI_PACKAGE = "pylint"
 
 inherit pypi
+inherit sca-sanity
 
 FILES_${PN} += "${datadir}"
 SRC_URI += "file://pylint.sca.description \

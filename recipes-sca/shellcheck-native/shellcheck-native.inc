@@ -6,6 +6,7 @@ BUGTRACKER = " https://github.com/koalaman/shellcheck/issues"
 LICENSE = "GPLv3"
 
 inherit native
+inherit sca-sanity
 
 SRC_URI += "file://shellcheck.sca.description \
             file://shellcheck.sca.score"

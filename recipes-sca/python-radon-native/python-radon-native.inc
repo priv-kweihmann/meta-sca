@@ -20,6 +20,7 @@ FILES_${PN} += "${datadir}"
 
 inherit pypi
 inherit native
+inherit sca-sanity
 
 do_install_append() {
     install -d ${D}${datadir}

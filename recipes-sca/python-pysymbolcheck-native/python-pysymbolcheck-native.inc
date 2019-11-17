@@ -12,6 +12,7 @@ LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e926c89aceef6c1a4247d5df08f94533"
 
 inherit native
+inherit sca-sanity
 
 RDEPENDS_${PN} += "${PYTHON_PN}-core-native ${PYTHON_PN}-jsonmerge-native \
                    ${PYTHON_PN}-pyelftools-native ${PYTHON_PN}-ctypes-native"
