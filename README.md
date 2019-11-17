@@ -13,6 +13,7 @@
 
 - [Current status](#current-status)
 - [Purpose](#purpose)
+- [Getting started](#getting-started)
 - [Installation](#installation)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
@@ -36,6 +37,10 @@ Purpose of this layer is to provide a proper set of static analysis tools for yo
 All provided tools can be easily configured and integrated into any CI service (like e.g. Jenkins).
 
 All results are stored to __SCA_EXPORT_DIR__ (which defaults to __${DEPLOY_DIR_IMAGE}/sca__). The results will be stored in the raw-format of the corresponding tool and in checkstyle-format.
+
+## Getting started
+
+For a quick start how to use this layer see [getting started guide](docs/getting_started.md)
 
 ## Installation
 
