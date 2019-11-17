@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2019, Konrad Weihmann
+import glob
+import os
+import json
+import argparse
+
+
+def create_parser():
+    parser = argparse.ArgumentParser(
+        prog="results2console", description='Print SCA results on console')
+    parser.add_argument("sca_deploy_dir", nargs='+',
+                        help="Export directory of SCA")
+    RUNARGS = parser.parse_args()
+    return RUNARGS
+
+
+def find_files(args):
+    for _dir in args.sca_deploy_dir:
+        for f in glob.glob(_dir + "/*/*/*.dm"):
+            try:
+                # load as json
+                with open(f) as i:
+                    try:
+                        content = json.load(i)
+                        for item in content:
+                            _id = item["ID"]
+                            _tool = item["Tool"]
+                            if _id.startswith("{}.{}".format(_tool, _tool)):
+                                pass
+                            elif _id.startswith("{}".format(_tool)):
+                                _id = "{}.{}".format(_tool, _id)
+                            else:
+                                _id = "{}.{}.{}".format(_tool, _tool, _id)
+                            print("{}@{}: {}:{}:{} - [{}] - [{}] - {}".format(_tool, item["PackageName"],
+                                                                              item["File"],
+                                item["Line"], item["Column"], item["Severity"],
+                                _id, item["Message"]))
+                    except json.JSONDecodeError:
+                        pass
+            except Exception:
+                pass
+
+
+if __name__ == '__main__':
+    args = create_parser()
+    find_files(args)
