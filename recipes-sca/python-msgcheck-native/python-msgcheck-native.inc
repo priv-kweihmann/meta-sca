@@ -12,6 +12,7 @@ SRC_URI = "git://github.com/codingjoe/msgcheck.git;protocol=https;tag=${PV} \
 
 S = "${WORKDIR}/git"
 inherit native
+inherit sca-sanity
 
 do_install_append() {
     install -d ${D}${datadir}

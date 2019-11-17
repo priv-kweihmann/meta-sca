@@ -10,6 +10,8 @@ SRCREV = "de8223a7b2ff3ed8fa6344cf4a358ec624e42270"
 
 S = "${WORKDIR}/git"
 
+inherit sca-sanity
+
 do_compile() {
 	:
 }

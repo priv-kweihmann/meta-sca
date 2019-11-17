@@ -13,6 +13,7 @@ SRC_URI += "file://looong.sca.description \
             file://looong.sca.score"
 
 inherit native
+inherit sca-sanity
 
 do_install_append() {
     install -d ${D}${datadir}

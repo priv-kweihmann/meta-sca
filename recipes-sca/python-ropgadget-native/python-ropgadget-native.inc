@@ -13,6 +13,7 @@ SRC_URI = "git://github.com/JonathanSalwan/ROPgadget.git;protocol=https;tag=v${P
 DEPENDS += "${PYTHON_PN}-native ${PYTHON_PN}-capstone-native"
 
 inherit native
+inherit sca-sanity
 
 S = "${WORKDIR}/git"
 

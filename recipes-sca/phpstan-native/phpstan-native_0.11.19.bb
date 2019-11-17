@@ -15,6 +15,7 @@ PHPCOMPOSER_PKGS_NAME = "phpstan/phpstan:${PV}"
 
 inherit native
 inherit phpcomposer
+inherit sca-sanity
 
 FILES_${PN} = "${bindir} ${datadir}"
 

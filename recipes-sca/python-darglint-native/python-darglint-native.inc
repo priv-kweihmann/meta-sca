@@ -14,6 +14,7 @@ SRC_URI += "git://github.com/terrencepreilly/darglint.git;protocol=https;tag=v${
 S = "${WORKDIR}/git"
 
 inherit native
+inherit sca-sanity
 
 do_install_append() {
     install -d ${D}${datadir}

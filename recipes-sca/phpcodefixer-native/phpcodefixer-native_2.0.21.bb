@@ -15,6 +15,7 @@ PHPCOMPOSER_PKGS_NAME = "wapmorgan/php-code-fixer:${PV}"
 
 inherit native
 inherit phpcomposer
+inherit sca-sanity
 
 FILES_${PN} = "${bindir} ${datadir}"
 

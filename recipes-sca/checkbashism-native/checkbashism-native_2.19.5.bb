@@ -14,6 +14,7 @@ B = "${S}"
 LIC_FILES_CHKSUM = "file://COPYING;md5=faa39cbd7a7cded9a1436248295de3c2"
 
 inherit native
+inherit sca-sanity
 
 DEPENDS = "perl-native"
 

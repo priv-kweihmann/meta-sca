@@ -17,6 +17,7 @@ LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a58572e3501e262ddd5da01be644887d"
 
 inherit native
+inherit sca-sanity
 
 FILES_${PN} = "${bindir}/** ${datadir}"
 ## we don't need debug packages

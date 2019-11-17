@@ -14,8 +14,8 @@ SRCREV = "e209329bdf0d1c53c43474519bd875b692f9d61e"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e4224ccaecb14d942c71d31bef20d78c"
 
 inherit native
-
 inherit pkgconfig
+inherit sca-sanity
 
 ## we don't need debug packages
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"

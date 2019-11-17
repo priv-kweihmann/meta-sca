@@ -12,6 +12,7 @@ LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d32239bcb673463ab874e80d47fae504"
 
 inherit native
+inherit sca-sanity
 
 RDEPENDS_${PN} += "python3-core"
 FILES_${PN} = "${bindir} ${datadir}"

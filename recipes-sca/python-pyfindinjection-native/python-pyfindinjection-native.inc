@@ -16,6 +16,7 @@ SRC_URI += "file://pyfindinjection.sca.description \
             file://pyfindinjection.sca.score"
 
 inherit native
+inherit sca-sanity
 
 do_install_append() {
     install -d ${D}${datadir}
