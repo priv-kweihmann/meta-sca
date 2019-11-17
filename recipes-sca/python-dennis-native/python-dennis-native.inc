@@ -10,6 +10,7 @@ PYPI_PACKAGE = "dennis"
 
 inherit native
 inherit pypi
+inherit sca-sanity
 
 SRC_URI += "file://dennis.sca.description \
             file://dennis.sca.score"

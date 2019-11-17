@@ -21,6 +21,7 @@ DEPENDS += "\
             "
 
 inherit native
+inherit sca-sanity
 
 do_configure() {
     :

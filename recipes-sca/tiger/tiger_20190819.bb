@@ -10,6 +10,7 @@ SRCREV = "1ae0a295bcd6fe4e772d74b206eb10a6fb4d9a0e"
 S = "${WORKDIR}/git"
 
 inherit autotools-brokensep
+inherit sca-sanity
 
 EXTRA_OECONF += "--with-tigerhome=${datadir}/tiger \
 				 --with-tigerconfig=${datadir}/tiger \

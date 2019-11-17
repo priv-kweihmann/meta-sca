@@ -17,6 +17,7 @@ S = "${WORKDIR}/git"
 
 inherit cmake
 inherit native
+inherit sca-sanity
 
 EXTRA_OECMAKE += "-DWITH_JBMC=OFF -DWITH_MEMORY_ANALYZER=ON"
 FILES_${PN} += "${bindir} ${datadir}"

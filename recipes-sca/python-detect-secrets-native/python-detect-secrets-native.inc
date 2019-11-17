@@ -10,6 +10,7 @@ S = "${WORKDIR}/git"
 DEPENDS += "${PYTHON_PN}-native ${PYTHON_PN}-pyyaml-native"
 
 inherit native
+inherit sca-sanity
 
 SRC_URI += "file://detectsecrets.sca.description \
             file://detectsecrets.sca.score"

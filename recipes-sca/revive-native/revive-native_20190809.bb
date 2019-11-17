@@ -13,6 +13,7 @@ LIC_FILES_CHKSUM  = "file://src/${GO_IMPORT}/LICENSE;md5=6898b1ee52bce3bd296aba3
 
 inherit go
 inherit native
+inherit sca-sanity
 
 FILES_${PN} += "${datadir}"
 

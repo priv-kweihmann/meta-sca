@@ -22,6 +22,7 @@ DEPENDS += "${PYTHON_PN}-native \
 PYPI_PACKAGE = "ansible-lint"
 
 inherit pypi
+inherit sca-sanity
 
 FILES_${PN} += "${datadir}"
 SRC_URI += "file://ansiblelint.sca.description \

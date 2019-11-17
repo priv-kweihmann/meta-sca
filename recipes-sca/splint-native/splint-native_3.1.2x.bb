@@ -19,6 +19,7 @@ S = "${WORKDIR}/git"
 
 inherit autotools
 inherit native
+inherit sca-sanity
 
 FILES_${PN} = "${bindir} ${datadir}"
 

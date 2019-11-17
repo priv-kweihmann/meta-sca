@@ -11,6 +11,7 @@ LIC_FILES_CHKSUM  = "file://git/LICENSE.md;md5=6ab42c2b3308255529a8db4ee37e13a1"
 DEPENDS += "nodejs-native"
 
 inherit native
+inherit sca-sanity
 
 S = "${WORKDIR}"
 

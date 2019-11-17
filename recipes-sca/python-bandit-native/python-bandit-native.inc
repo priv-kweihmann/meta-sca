@@ -11,6 +11,7 @@ PYPI_PACKAGE = "bandit"
 
 inherit native
 inherit pypi
+inherit sca-sanity
 
 SRC_URI += "file://bandit.sca.description \
             file://bandit.sca.score"

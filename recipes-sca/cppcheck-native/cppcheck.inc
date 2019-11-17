@@ -6,8 +6,8 @@ BUGTRACKER = " https://trac.cppcheck.net/"
 LICENSE = "GPLv3"
 
 inherit native
-
 inherit pkgconfig
+inherit sca-sanity
 
 DEPENDS = "libpcre-native"
 

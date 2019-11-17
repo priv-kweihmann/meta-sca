@@ -22,6 +22,7 @@ SRC_URI += "file://gixy.sca.description \
             file://0002-Add-root_dir-support.patch"
 
 inherit native
+inherit sca-sanity
 
 do_install_append() {
     install -d ${D}${datadir}

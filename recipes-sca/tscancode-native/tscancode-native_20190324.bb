@@ -17,6 +17,7 @@ BUILD_CXXFLAGS += "-std=c++11"
 
 inherit autotools-brokensep
 inherit native
+inherit sca-sanity
 
 do_install() {
     mkdir -p ${D}/${bindir}
