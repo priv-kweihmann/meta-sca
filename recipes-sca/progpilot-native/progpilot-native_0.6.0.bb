@@ -16,6 +16,7 @@ PHPCOMPOSER_PKGS_NAME = "designsecurity/progpilot:${PV}"
 inherit native
 inherit phpcomposer
 inherit php-ext
+inherit sca-sanity
 
 FILES_${PN} = "${bindir} ${datadir}"
 

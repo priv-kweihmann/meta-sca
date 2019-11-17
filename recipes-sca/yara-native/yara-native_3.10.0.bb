@@ -10,6 +10,7 @@ S = "${WORKDIR}/git"
 
 inherit autotools-brokensep
 inherit native
+inherit sca-sanity
 
 do_install_append () {
 	install -d ${D}/${datadir}

@@ -8,6 +8,7 @@ PYPI_PACKAGE = "vulture"
 
 inherit native
 inherit pypi
+inherit sca-sanity
 
 SRC_URI += "file://vulture.sca.description \
             file://vulture.sca.score"

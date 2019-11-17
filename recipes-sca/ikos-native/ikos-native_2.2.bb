@@ -19,6 +19,7 @@ EXTRA_OECMAKE += "\
 
 inherit native
 inherit cmake
+inherit sca-sanity
 
 DEPENDS += " \
             boost-native \

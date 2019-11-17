@@ -12,6 +12,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=69a9605316748b9e191e454efc2235b1"
 
 inherit native
 inherit pkgconfig
+inherit sca-sanity
 
 S = "${WORKDIR}/git"
 

@@ -13,6 +13,7 @@ LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=1e0b805e34c99594e846fa46c20d8b9b"
 
 inherit native
+inherit sca-sanity
 
 DEPENDS += "${PYTHON_PN}-systemdunitparser-native ${PYTHON_PN}-anytree-native"
 

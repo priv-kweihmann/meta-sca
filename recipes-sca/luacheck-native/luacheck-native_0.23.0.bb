@@ -13,6 +13,7 @@ S = "${WORKDIR}/git"
 
 inherit native
 inherit luarocks
+inherit sca-sanity
 
 do_install_append() {
     ## We need to tweak some hardcoded paths in the luacheck wrapper

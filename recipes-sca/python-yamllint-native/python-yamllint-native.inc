@@ -11,6 +11,7 @@ DEPENDS += "${PYTHON_PN}-pyyaml-native \
 
 inherit native
 inherit pypi
+inherit sca-sanity
 
 SRC_URI += "file://yamllint.sca.description \
             file://yamllint.sca.score"

@@ -17,6 +17,7 @@ DEPENDS += "${PYTHON_PN}-six-native \
 
 inherit native
 inherit pypi
+inherit sca-sanity
 
 SRC_URI += "file://pytype.sca.description \
             file://pytype.sca.score"

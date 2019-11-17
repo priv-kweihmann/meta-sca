@@ -16,6 +16,7 @@ FILES_${PN} = "${bindir} ${incdir} ${datadir} ${libdir}"
 
 inherit autotools-brokensep
 inherit native
+inherit sca-sanity
 
 do_install() {
     mkdir -p ${D}/${bindir}

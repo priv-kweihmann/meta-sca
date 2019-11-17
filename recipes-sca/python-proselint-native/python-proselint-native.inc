@@ -12,6 +12,7 @@ DEPENDS += "${PYTHON_PN}-native \
 PYPI_PACKAGE = "proselint"
 
 inherit pypi
+inherit sca-sanity
 
 FILES_${PN} += "${datadir}"
 SRC_URI += "file://proselint.sca.description \
