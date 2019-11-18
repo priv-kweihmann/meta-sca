@@ -2,7 +2,10 @@ SUMMARY = "Pluggable TypeScript and JavaScript linter"
 
 HOMEPAGE = "https://github.com/fimbullinter/wotan"
 
+inherit npm-helper
+
 SRC_URI = "git://github.com/fimbullinter/wotan.git;protocol=https;tag=v${PV} \
+           file://modules_${BPN}-${PV}.tar.gz;subdir=git \
            file://wotan.sca.description \
            file://wotan.sca.score"
 
@@ -22,9 +25,9 @@ do_compile() {
 
 do_install() {
     export HOME=${S}
-	mkdir -p ${D}${libdir}/node_modules
-    npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production @fimbul/wotan @fimbul/valtyr @fimbul/ve
-    npm install --prefix ${D}${prefix} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production typescript@3.6.3
+    cd ${S}
+    npm install --prefix ${D}${prefix} -g ${NPM_EXTRA_ARGS} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production @fimbul/wotan @fimbul/valtyr @fimbul/ve
+    npm install --prefix ${D}${prefix} -g ${NPM_EXTRA_ARGS} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production typescript@3.6.3
 	if [ -d ${D}${prefix}/etc ] ; then
 		# This will be empty
 		rmdir ${D}${prefix}/etc
