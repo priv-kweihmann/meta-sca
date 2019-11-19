@@ -30,6 +30,7 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             pyfindinjection \
                             pylint \
                             shellcheck \
+                            slick \
                             standard \
                             stank \
                             stylelint \

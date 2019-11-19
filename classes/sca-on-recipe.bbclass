@@ -60,6 +60,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             safety \
                             score \
                             shellcheck \
+                            slick \
                             sparse \
                             splint \
                             standard \
