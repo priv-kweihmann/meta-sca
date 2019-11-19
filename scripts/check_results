@@ -154,6 +154,9 @@ _data = {
         "busybox",
         "openssh"
     ],
+    "slick": [
+        "busybox"
+    ],
     "sparse": [
         "busybox",
         "simple-c"

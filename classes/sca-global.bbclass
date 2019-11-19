@@ -104,6 +104,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           ropgadget \
                           safety \
                           shellcheck \
+                          slick \
                           sparse \
                           splint \
                           standard \
