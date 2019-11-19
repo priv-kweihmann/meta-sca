@@ -13,6 +13,7 @@ kconfighard
 rats
 revive
 shellcheck
+slick
 sparse
 splint
 stank

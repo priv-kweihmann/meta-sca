@@ -55,6 +55,7 @@ ropgadget,Determine ROP exploitability in binaries,https://github.com/JonathanSa
 safety,Check for known vulnerabilities in python-packages,https://github.com/pyupio/safety,,,,x,,,x,,,,,,,,,,x,,x,,
 score,Calculate module quality score,,manual enable,,,x,,,,,,,,,,,,,,x,x,x,x
 shellcheck,Shell script linter,https://github.com/koalaman/shellcheck,,,x,x,,,,x,,,,,,,,,,,,x,x
+slick,Shell script linter,https://github.com/mcandre/slick,"","",x,x,"","","",x,"","","","","","","","","","","",x,""
 sparse,C linter,https://sparse.wiki.kernel.org/index.php/Main_Page,,,,x,x,,,,,,,,,,,,,,,x,
 splint,C linter,https://github.com/splintchecker/splint,,,,x,x,,,,,,,,,,,,,,x,x,x
 standard,Javascript linter,https://github.com/standard/standard,,x,x,x,,,,,x,,,,,,,,,,,x,x
