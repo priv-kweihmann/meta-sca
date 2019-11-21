@@ -21,7 +21,7 @@ def do_sca_conv_xmllint(d):
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
-    pattern = r"^(?P<file>.*):(?P<line>\d+):\s+(?P<id>.*)\s+:\s+(?P<msg>.*)"
+    pattern = r"^(?P<file>.*):(?P<line>\d+):\s+(?P<id>.*)\s+error\s+:\s+(?P<msg>.*)"
 
     _suppress = get_suppress_entries(d)
     _findings = []
