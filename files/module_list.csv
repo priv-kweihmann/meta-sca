@@ -45,6 +45,7 @@ progpilot,PHP linter with security focus,https://github.com/designsecurity/progp
 proselint,Spelling and text linter,https://github.com/amperser/proselint/,,,x,x,,,,,,,,,,x,,,,,,,x
 pyfindinjection,Find SQL injections in python code,https://github.com/uber/py-find-injection,,,x,x,,,x,,,,,,,,,,,,x,,
 pylint,Python linter,https://github.com/PyCQA/pylint,,,x,x,,,x,,,,,,,,,,,,,x,x
+pyright,Python type linter,https://github.com/Microsoft/pyright,,x,,x,,,x,,,,,,,,,,,,,x,
 pysymcheck,Check binaries for forbidden function usage,https://github.com/priv-kweihmann/pysymbolcheck,,,,x,,,,,,,,,,,,x,,,x,,
 pytype,Python linter using type-annotations,https://github.com/google/pytype,,x,,x,,,x,,,,,,,,,,,,,x,
 radon,Python metrics,https://github.com/rubik/radon,,,,x,,,x,,,,,,,,x,,,,,x,
@@ -55,7 +56,7 @@ ropgadget,Determine ROP exploitability in binaries,https://github.com/JonathanSa
 safety,Check for known vulnerabilities in python-packages,https://github.com/pyupio/safety,,,,x,,,x,,,,,,,,,,x,,x,,
 score,Calculate module quality score,,manual enable,,,x,,,,,,,,,,,,,,x,x,x,x
 shellcheck,Shell script linter,https://github.com/koalaman/shellcheck,,,x,x,,,,x,,,,,,,,,,,,x,x
-slick,Shell script linter,https://github.com/mcandre/slick,"","",x,x,"","","",x,"","","","","","","","","","","",x,""
+slick,Shell script linter,https://github.com/mcandre/slick,,,x,x,,,,x,,,,,,,,,,,,x,
 sparse,C linter,https://sparse.wiki.kernel.org/index.php/Main_Page,,,,x,x,,,,,,,,,,,,,,,x,
 splint,C linter,https://github.com/splintchecker/splint,,,,x,x,,,,,,,,,,,,,,x,x,x
 standard,Javascript linter,https://github.com/standard/standard,,x,x,x,,,,,x,,,,,,,,,,,x,x
