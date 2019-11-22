@@ -95,6 +95,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           proselint \
                           pyfindinjection \
                           pylint \
+                          pyright \
                           pysymcheck \
                           pytype \
                           radon \
