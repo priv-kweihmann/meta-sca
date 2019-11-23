@@ -18,6 +18,7 @@ oelint
 proselint
 pyfindinjection
 pylint
+pyright
 pysymcheck
 pytype
 radon

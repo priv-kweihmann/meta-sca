@@ -126,6 +126,9 @@ _data = {
     "pylint": [
         "python3-git"
     ],
+    "pyright": [
+        "python3-git"
+    ],
     "pytype": [
         "bad-python-types",
         "python3-git"
