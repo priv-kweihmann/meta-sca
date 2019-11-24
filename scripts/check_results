@@ -121,6 +121,9 @@ _data = {
         "busybox",
         "python3-git"
     ],
+    "pscan": [
+        "busybox"
+    ],
     "pylint": [
         "python3-git"
     ],
