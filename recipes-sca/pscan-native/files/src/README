@@ -1,0 +1,103 @@
+Version 1.3
+
+  'pscan' is a program which attempts to scan C source files for
+common function abuses, which often lead to buffer overflows.  See the
+included file 'test.c' for examples of good, and bad programming
+practice.  For the latest version, see:
+
+	http://deployingradius.com/pscan/
+
+
+  The scan works by looking for a one of a list of problem functions,
+and applying the following rule:
+
+  IF the last parameter of the function is the format string,
+  AND the format string is NOT a static string,
+  THEN complain.
+
+  See 'test.c' for examples.  
+
+  Once pscan has found the problems, it's up to you to examine the
+source code, and correct the (possible) security breach.
+
+  You can build pscan by typing:
+
+	make
+
+  If you don't have lex or yacc installed, it probably won't work.
+You'll have to figure out how to build it yourself, as I'm too lazy to
+write an autoconf for a ~100 line C program.
+
+
+  Once pscan is built, you can test it by typing:
+
+	./pscan test.c
+
+  You should see it complain about a number of errors, giving the
+source file, line number, and problematic function name.
+
+  If there are any errors found, pscan exits with status 1.  Typing:
+
+	echo $?
+
+should get you a '1'.
+
+  Now try:
+
+	./pscan ./pscan.c
+
+  You shouldn't see any errors, and the exit code will be 0 (zero).
+
+  You can scan multiple C source files with one run of pscan, by
+specifying multiple filenames on the command line:
+
+	./pscan ./*.c
+
+  If ANY problems are found, they are printed out, and pscan exits
+with status 1.
+
+  If you don't trust it, pscan has a verbose option: -v.
+
+	./pscan -vv ./test.c
+
+  The output should make itself clear.
+
+  You can supply additional definitions of problem functions through
+the '-p' command line option.  See wu-ftpd.pscan for details.
+
+  As of version 1.2, pscan now also prints out warnings when
+non-constant strings are used as format parameters.  This behaviour
+can be enabled by using the '-w' command line parameter.
+
+
+  In addition to the problem C library functions, many programs
+define their own functions with similar security problems.  The
+included shell script:
+
+	find_formats.sh
+
+tries to discover C function prototypes for the problem functions.
+It won't find them all, but it will find many of the most common ones.
+
+  Alan DeKok <aland@deployingradius.com>
+  January 4, 2007.
+
+----------------------------------------------------------------------
+Copyright (C) 2000,2007 Alan DeKok <aland@deployingradius.com>
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or (at
+your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307,
+USA
+
+----------------------------------------------------------------------

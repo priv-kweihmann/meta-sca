@@ -48,6 +48,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             phpstan \
                             progpilot \
                             proselint \
+                            pscan \
                             pyfindinjection \
                             pylint \
                             pyright \

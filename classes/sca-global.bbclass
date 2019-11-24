@@ -93,6 +93,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           mypy \
                           oelint \
                           proselint \
+                          pscan \
                           pyfindinjection \
                           pylint \
                           pyright \
