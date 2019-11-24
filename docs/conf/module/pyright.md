@@ -9,8 +9,8 @@
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_BLACKLIST_pyright | Blacklist filter for this tool | space-separated-list | "linux-*"
-| SCA_PYLINT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
-| SCA_PYLINT_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
+| SCA_PYRIGHT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
+| SCA_PYRIGHT_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_PYRIGHT_ENABLED_CHECKS | Enabled checks for pyright | space-separated-list | see __pyright-core.bbclass__ for details
 
 ## Supports
