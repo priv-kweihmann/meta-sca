@@ -30,6 +30,7 @@
   - [Overview of tools](#overview-of-tools)
 - [Further documentation](#further-documentation)
 - [Contributing](#contributing)
+  - [Get involved](#get-involved)
   - [Security Policy](#security-policy)
 
 ## Purpose
@@ -344,6 +345,14 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
 ## Contributing
 
 Feel free to create pull-requests or create an issue if you think there is something wrong or missing.
+
+### Get involved
+
+To get involved following things can be done
+
+- create an issue
+- fix an issue and create a pull request
+- see the pinned issues in the [bugtracker](issues)
 
 ### Security Policy
 
