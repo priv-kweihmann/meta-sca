@@ -10,6 +10,7 @@ gcc
 golint
 govet
 kconfighard
+pscan
 rats
 revive
 shellcheck
