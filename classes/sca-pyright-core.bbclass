@@ -109,7 +109,7 @@ def do_sca_conv_pyright(d):
                     except Exception as exp:
                         bb.warn(str(exp))
         except Exception as e:
-            bb.warn(str(e))
+            pass
 
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
