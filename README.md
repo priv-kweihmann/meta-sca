@@ -30,6 +30,7 @@
   - [Overview of tools](#overview-of-tools)
 - [Further documentation](#further-documentation)
 - [Contributing](#contributing)
+  - [Security Policy](#security-policy)
 
 ## Purpose
 
@@ -111,14 +112,14 @@ For each YOCTO release you will find a corresponding branch of this layer.
 | warrior       | warrior         |
 | thud          | thud            |
 
-beginning with release 1.18 for following tags exist in git
+beginning with release 1.18 the following tags exist in git
 
-| meta-sca branch | tag               | example      |
-|-----------------|-------------------|--------------|
-| master          | "version"         | 1.18         |
-| zeus            | zeus_"version"    | zeus_1.18    |
-| warrior         | warrior_"version" | warrior_1.23 |
-| thud            | thud_"version"    | thud_1.99    |
+| meta-sca branch | tag                | example       |
+|-----------------|--------------------|---------------|
+| master          | v"version"         | v1.18         |
+| zeus            | vzeus_"version"    | vzeus_1.18    |
+| warrior         | vwarrior_"version" | vwarrior_1.23 |
+| thud            | vthud_"version"    | vthud_1.99    |
 
 ### Compatibility
 
@@ -341,3 +342,7 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
 ## Contributing
 
 Feel free to create pull-requests or create an issue if you think there is something wrong or missing.
+
+### Security Policy
+
+For the project's security policy please see [here](SECURITY.md)
