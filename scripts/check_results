@@ -51,9 +51,7 @@ _data = {
         "openssh"
     ],
     "eslint": [
-        "busybox",
-        "openssh",
-        "simple-c"
+        "bad-javascript"
     ],
     "flake8": [
         "bad-python-reqs",
