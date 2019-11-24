@@ -13,6 +13,7 @@
 | SCA_ESLINT_CONFIG_FILE | Configuration-file to be used. See recipe eslint-native for details | string: eslint-standard.json, eslint-plain.json, eslint-airbnb.json, eslint-google.json | eslint-plain.json
 | SCA_ESLINT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_ESLINT_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
+| SCA_ESLINT_FILE_FILTER | File extensions to check for | space-separated-list | ".js .vue .html .htm"
 
 ## Supports
 

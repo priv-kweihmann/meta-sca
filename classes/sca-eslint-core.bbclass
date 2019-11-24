@@ -6,6 +6,7 @@
 SCA_ESLINT_CONFIG_FILE ?= "eslint-plain.json"
 SCA_ESLINT_EXTRA_SUPPRESS ?= ""
 SCA_ESLINT_EXTRA_FATAL ?= ""
+SCA_ESLINT_FILE_FILTER ?= ".js .vue .html .htm"
 
 inherit sca-conv-to-export
 inherit sca-datamodel
@@ -85,13 +86,13 @@ python do_sca_eslint_core() {
     _args += ["-c", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "eslint", "configs", d.getVar("SCA_ESLINT_CONFIG_FILE"))]
     _args += ["-f", "checkstyle"]
     _args += ["--quiet"]
-    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), "",
+    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_ESLINT_FILE_FILTER"),
                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     cmd_output = ""
     if any(_files):
         try:
-            cmd_output = subprocess.check_output(_args + _files, universal_newlines=True)
+            cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
     result_raw_file = os.path.join(d.getVar("T"), "sca_raw_eslint.xml")
