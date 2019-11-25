@@ -25,6 +25,7 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             jsonlint \
                             lynis \
                             mypy \
+                            nixauditor \
                             oelint \
                             proselint \
                             pyfindinjection \
