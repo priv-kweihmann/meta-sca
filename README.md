@@ -190,6 +190,7 @@ The layer can check on a recipe-level or on an image-level.
 | lynis           | Auditing tool for images                              | https://github.com/CISOfy/lynis                                       |                             |               | x            |               |   |     |        |       |            |     |    | x      |     |          |         |          |          |               | x              |                  |             |
 | msgcheck        | I18n linter                                           | https://github.com/codingjoe/msgcheck                                 |                             |               |              | x             |   |     |        |       |            |     |    |        |     |          |         |          |          | x             |                |                  | x           |
 | mypy            | Python linter                                         | https://github.com/python/mypy                                        |                             |               | x            | x             |   |     | x      |       |            |     |    |        |     |          |         |          |          |               |                | x                |             |
+| nixauditor      | Auditing tool for images                              | https://github.com/XalfiE/Nix-Auditor                                 |                             |               | x            |               |   |     |        |       |            |     |    | x      |     |          |         |          |          |               | x              |                  |             |
 | npmaudit        | NPM package auditor                                   | https://docs.npmjs.com/cli/audit                                      |                             | x             |              | x             |   |     |        |       |            |     |    |        |     |          |         |          |          | x             | x              |                  |             |
 | oelint          | Bitbake recipe linter                                 | https://github.com/priv-kweihmann/oelint-adv                          |                             |               | x            | x             |   |     |        |       |            |     |    |        |     |          |         |          |          | x             |                |                  | x           |
 | phan            | PHP linter                                            | https://github.com/phan/phan                                          | "meta-oe, manual enable"    |               |              |               | x |     |        |       |            |     | x  |        |     |          |         |          |          |               |                |                  | x           |
@@ -278,9 +279,10 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
     - [looong](docs/conf/module/looong.md)
     - [luacheck](docs/conf/module/luacheck.md)
     - [lynis](docs/conf/module/lynis.md)
-    - [npmaudit](docs/conf/module/npmaudit.md)
     - [msgcheck](docs/conf/module/msgcheck.md)
     - [mypy](docs/conf/module/mypy.md)
+    - [nixauditor](docs/conf/module/nixauditor.md)
+    - [npmaudit](docs/conf/module/npmaudit.md)
     - [oelint](docs/conf/module/oelint.md)
     - [phan](docs/conf/module/phan.md)
     - [phpcodefixers](docs/conf/module/phpcodefixers.md)
@@ -299,10 +301,10 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
     - [revive](docs/conf/module/revive.md)
     - [ropgadget](docs/conf/module/ropgadget.md)
     - [safety](docs/conf/module/safety.md)
-    - [sparse](docs/conf/module/sparse.md)
-    - [splint](docs/conf/module/splint.md)
     - [shellcheck](docs/conf/module/shellcheck.md)
     - [slick](docs/conf/module/slick.md)
+    - [sparse](docs/conf/module/sparse.md)
+    - [splint](docs/conf/module/splint.md)
     - [standard](docs/conf/module/standard.md)
     - [stank](docs/conf/module/stank.md)
     - [stylelint](docs/conf/module/stylelint.md)
