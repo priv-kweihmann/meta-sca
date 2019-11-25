@@ -354,7 +354,7 @@ To get involved following things can be done
 
 - create an issue
 - fix an issue and create a pull request
-- see the pinned issues in the [bugtracker](issues)
+- see the pinned issues in the [bugtracker](https://github.com/priv-kweihmann/meta-sca/issues)
 
 ### Security Policy
 
