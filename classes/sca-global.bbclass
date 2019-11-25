@@ -83,9 +83,10 @@ SCA_AVAILABLE_MODULES ?= "\
                           kconfighard \
                           looong \
                           lynis \
-                          npmaudit \
                           msgcheck \
                           mypy \
+                          nixauditor \
+                          npmaudit \
                           oelint \
                           proselint \
                           pscan \
@@ -117,6 +118,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           xmllint \
                           yamllint \
                           yara \
-                          zrd"
+                          zrd \
+                        "
 
 SCA_ENABLED_MODULES := "${SCA_ENABLED_MODULES_${SCA_MODE_UPPER}}"

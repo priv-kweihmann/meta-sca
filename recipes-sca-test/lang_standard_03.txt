@@ -2,6 +2,7 @@ ansible
 configcheck
 gixy
 lynis
+nixauditor
 ropgadget
 systemdlint
 tiger

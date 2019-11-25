@@ -36,6 +36,7 @@ luacheck,LUA linter,https://github.com/mpeterv/luacheck,"meta-oe, manual enable"
 lynis,Auditing tool for images,https://github.com/CISOfy/lynis,,,x,,,,,,,,,x,,,,,,,x,,
 msgcheck,I18n linter,https://github.com/codingjoe/msgcheck,,,,x,,,,,,,,,,,,,,x,,,x
 mypy,Python linter,https://github.com/python/mypy,,,x,x,,,x,,,,,,,,,,,,,x,
+nixauditor,Auditing tool for images,https://github.com/XalfiE/Nix-Auditor,,,x,,,,,,,,,x,,,,,,,x,,
 npmaudit,NPM package auditor,https://docs.npmjs.com/cli/audit,,x,,x,,,,,,,,,,,,,,x,x,,
 oelint,Bitbake recipe linter,https://github.com/priv-kweihmann/oelint-adv,,,x,x,,,,,,,,,,,,,,x,,,x
 phan,PHP linter,https://github.com/phan/phan,"meta-oe, manual enable",,,,x,,,,,,x,,,,,,,,,,x
