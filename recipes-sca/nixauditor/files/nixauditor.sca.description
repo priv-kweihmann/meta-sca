@@ -1,0 +1,7 @@
+{
+    "languages": [ "system" ],
+    "scope": [ "security" ],
+    "buildspeed" : 10,
+    "execspeed": 3,
+    "quality": 6
+}
