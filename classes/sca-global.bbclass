@@ -6,8 +6,10 @@ SCA_EXPORT_DIR ?= "${DEPLOY_DIR_IMAGE}/sca"
 SCA_EXPORT_FINDING_SRC = "1"
 SCA_EXPORT_FINDING_DIR ?= "${DEPLOY_DIR_IMAGE}/sca/sources/${PN}/"
 
+## Valid values are 'checkstyle' or 'console'
 SCA_EXPORT_FORMAT ?= "checkstyle"
 SCA_EXPORT_FORMAT_SUFFIX_checkstyle = "xml"
+SCA_EXPORT_FORMAT_SUFFIX_console = "txt"
 
 SCA_AUTO_INH_ON_IMAGE ?= "1"
 SCA_AUTO_INH_ON_RECIPE ?= "1"
