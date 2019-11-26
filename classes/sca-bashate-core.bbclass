@@ -11,6 +11,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 
 def do_sca_conv_bashate(d):
     import os
@@ -40,7 +41,7 @@ def do_sca_conv_bashate(d):
     }
 
     _findings = []
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
@@ -56,7 +57,7 @@ def do_sca_conv_bashate(d):
                                             Message=m.group("msg"),
                                             ID=m.group("id"),
                                             Severity=severity_map[m.group("id")])
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "bashate", g.GetFormattedID()):
                         continue

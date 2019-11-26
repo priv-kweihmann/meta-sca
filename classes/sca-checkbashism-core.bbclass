@@ -11,6 +11,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 
 def do_sca_conv_checkbashism(d):
     import os
@@ -22,7 +23,7 @@ def do_sca_conv_checkbashism(d):
 
     pattern = r"^possible\sbashism\sin\s(?P<file>.*)\sline\s(?P<line>\d+)\s\((?P<id>.*)\)"
     
-    __suppress = get_suppress_entries(d)
+    __suppress = sca_suppress_init(d)
     _findings = []
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
@@ -39,7 +40,7 @@ def do_sca_conv_checkbashism(d):
                                             Message=m.group("id"),
                                             ID=hashlib.md5(str.encode(m.group("id"))).hexdigest(),
                                             Severity="warning")
-                    if g.GetFormattedID() in __suppress:
+                    if __suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "checkbashism", g.GetFormattedID()):
                         continue

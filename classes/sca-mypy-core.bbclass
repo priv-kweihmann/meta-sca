@@ -6,6 +6,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 
 def do_sca_conv_mypy(d):
     import os
@@ -24,7 +25,7 @@ def do_sca_conv_mypy(d):
     }
 
     _findings = []
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
@@ -39,7 +40,7 @@ def do_sca_conv_mypy(d):
                                             Message=m.group("message"),
                                             ID=hashlib.md5(str.encode(m.group("message"))).hexdigest(),
                                             Severity=severity_map[m.group("severity")])
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "mypy", g.GetFormattedID()):
                         continue

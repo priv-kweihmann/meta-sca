@@ -11,6 +11,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 
 def do_sca_conv_pyfindinjection(d):
     import os
@@ -28,7 +29,7 @@ def do_sca_conv_pyfindinjection(d):
         "eval() is just generally evil" : ("error", "evil.eval"),
     }
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     _findings = []
 
@@ -48,7 +49,7 @@ def do_sca_conv_pyfindinjection(d):
                                             Severity=_sev)
                     if g.File in _excludes:
                         continue
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "pyfindinjection", g.GetFormattedID()):
                         continue

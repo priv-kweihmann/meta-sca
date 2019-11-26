@@ -16,6 +16,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 def do_sca_conv_sparse(d):
     import os
@@ -34,7 +35,7 @@ def do_sca_conv_sparse(d):
         "info" : "info"
     }
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -55,7 +56,7 @@ def do_sca_conv_sparse(d):
                        g.Message.startswith("got ") or \
                        g.Message.startswith("too many errors"):
                         continue
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "sparse", g.GetFormattedID()):
                         continue

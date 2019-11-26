@@ -13,6 +13,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-file-filter
+inherit sca-suppress
 
 def do_sca_conv_ikos(d):
     import os
@@ -30,7 +31,7 @@ def do_sca_conv_ikos(d):
         "warning" : "warning"
     }
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -53,7 +54,7 @@ def do_sca_conv_ikos(d):
                     if not _file.startswith(buildpath):
                         ## ignore all findings that are not part of sources
                         continue
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "ikos", g.GetFormattedID()):
                         continue

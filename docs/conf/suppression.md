@@ -47,3 +47,54 @@ if you want furthermore suppress the pylint error 'someobscureinfo' for just the
 ```bitbake
 SCA_PYLINT_EXTRA_SUPPRESS += "pylint.pylint.someobscureinfo"
 ```
+
+## Suppression of single items
+
+Additionally you can suppress findings on a case-by-case basis within every recipe.
+Therefore you need to add a variable called __SCA_SUPPRESS_LOCALS__.
+
+This variable is a space separated list of suppression instructions.
+Each instruction it build e.g. like this
+
+```shell
+foo.c,pylint.pylint.warning1,20-30,*
+```
+
+This example suppresses any finding in the file **foo.c** of ID **pylint.pylint.warning1** between the source code lines **20-30**.
+
+### Instruction syntax
+
+| item       | possible values      | description
+|:----------:|:---------------------|:-
+| 1          | regular expression   | regular expression that matches the file name (including reletive path from \${S}-directory). All chars like ' or "" or spaces must be URL-coded (e.g. space = %020)
+| 2          | regular expression   | regular expression that matched the error ID
+| 3          | int, range or *      | specifies the line(s) of the finding which should be suppressed. Ranges should be configured as 'start-end', * means all values are matching
+| 4          | int, range or *      | specifies the column(s) of the finding which should be suppressed. Ranges should be configured as 'start-end', * means all values are matching
+
+### More examples
+
+```shell
+SCA_SUPPRESS_LOCALS = "foo.c,pylint.*,0-100,*"
+```
+
+> suppress all pylint issues between lines 0-100 in file foo.c
+
+```shell
+SCA_SUPPRESS_LOCALS = "test/.*,pylint.pylint.foowarn,*,*"
+```
+
+> suppress all pylint.pylint.foowarn issues in any file in folder test/ no matter what line or column they might appear
+
+```shell
+SCA_SUPPRESS_LOCALS = "foo.c,pylint.pylint.foowarn,50,0-20"
+```
+
+> suppress pylint.pylint.foowarn in foo.c at line 50, but only if it appears in the first 20 columns
+
+```shell
+SCA_SUPPRESS_LOCALS = "foo.c,pylint.pylint.foowarn,50,0-20 \
+                       test/.*,pylint.pylint.foowarn,*,*"
+```
+
+> suppress pylint.pylint.foowarn in foo.c at line 50, but only if it appears in the first 20 columns +
+> suppress all pylint.pylint.foowarn issues in any file in folder test/ no matter what line or column they might appear

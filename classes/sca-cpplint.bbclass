@@ -12,6 +12,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 def do_sca_conv_cpplint(d):
     import os
@@ -33,7 +34,7 @@ def do_sca_conv_cpplint(d):
     }
     pattern = r"^(?P<line>\d+):\s+(?P<message>.*)\s+\[(?P<id>.*)\]\s+\[(?P<severity>\d)\]"
     _findings = []
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         try:
@@ -53,7 +54,7 @@ def do_sca_conv_cpplint(d):
                                                 Message=m.group("message"),
                                                 ID=m.group("id"),
                                                 Severity=severity_map[m.group("severity")])
-                            if g.GetFormattedID() in _suppress:
+                            if _suppress.Suppressed(g):
                                 continue
                             if not sca_is_in_finding_scope(d, "cpplint", g.GetFormattedID()):
                                 continue

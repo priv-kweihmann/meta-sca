@@ -12,6 +12,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 def do_sca_conv_flint(d):
     import os
@@ -30,7 +31,7 @@ def do_sca_conv_flint(d):
         "Advice" : "info"
     }
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -46,7 +47,7 @@ def do_sca_conv_flint(d):
                                             Message=m.group("msg"),
                                             ID=hashlib.md5(str.encode(m.group("msg"))).hexdigest(),
                                             Severity=severity_map[m.group("severity").strip()])
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "flint", g.GetFormattedID()):
                         continue

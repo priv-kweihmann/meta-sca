@@ -17,6 +17,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 def do_sca_conv_clang(d):
     import os
@@ -32,7 +33,7 @@ def do_sca_conv_clang(d):
         "warning" : "warning",
     }
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     _findings = []
 
@@ -56,7 +57,7 @@ def do_sca_conv_clang(d):
                         g.File = m.group("file")
                     if g.File in _excludes:
                         continue
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "clang", g.GetFormattedID()):
                         continue

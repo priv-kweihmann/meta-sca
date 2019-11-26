@@ -11,6 +11,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 def do_sca_conv_progpilot(d):
     import os
@@ -20,7 +21,7 @@ def do_sca_conv_progpilot(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
     
     _findings = []
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         content = []
@@ -41,7 +42,7 @@ def do_sca_conv_progpilot(d):
                                             Message="{}: {}".format(m["vuln_name"], m["vuln_type"]),
                                             ID=m["vuln_cwe"],
                                             Severity="error")
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "progpilot", g.GetFormattedID()):
                         continue

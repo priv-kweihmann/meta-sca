@@ -12,6 +12,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 def sca_gcc_hardening(d):
     import re
@@ -27,7 +28,7 @@ def sca_gcc_hardening(d):
     _cflags = [x for x in d.getVar("CFLAGS").split(" ") if x] + [x for x in d.getVar("CXXFLAGS").split(" ") if x]
     _cxxflags = [x for x in d.getVar("CXXFLAGS").split(" ") if x] + [x for x in d.getVar("CPPFLAGS").split(" ") if x]
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
     _findings = []
@@ -47,7 +48,7 @@ def sca_gcc_hardening(d):
                                     Message="{} is not set in LDFLAGS".format(item),
                                     ID="hardening.linker.{}".format(item.strip("-,")),
                                     Severity="warning")
-            if g.File in _excludes or g.GetFormattedID() in _suppress:
+            if g.File in _excludes or _suppress.Suppressed(g):
                 continue
             if not sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
                 continue
@@ -63,7 +64,7 @@ def sca_gcc_hardening(d):
                                 Message="Neither '-z,nodlopen' nor '-z,nodump' are set in LDFLAGS".format(item),
                                 ID="hardening.linker.nodlopen_nodump",
                                 Severity="warning")
-        if not (g.File in _excludes or g.GetFormattedID() in _suppress) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+        if not (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
     if not ("-z,noexecstack" in _linker_flags and "-z,noexecheap" in _linker_flags) and \
@@ -76,7 +77,7 @@ def sca_gcc_hardening(d):
                                 Message="Neither '-z,noexecstack' nor '-z,noexecheap' are set in LDFLAGS".format(item),
                                 ID="hardening.linker.noexecstack_oexecheap",
                                 Severity="warning")
-        if not (g.File in _excludes or g.GetFormattedID() in _suppress) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+        if not (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
     if not ("-O2" in _linker_flags or "-O3" in _linker_flags or "-Os" in _linker_flags) and \
@@ -89,7 +90,7 @@ def sca_gcc_hardening(d):
                                 Message="-O option isn't set to 2,3 or s in LDFLAGS".format(item),
                                 ID="hardening.linker.optimize",
                                 Severity="warning")
-        if not (g.File in _excludes or g.GetFormattedID() in _suppress) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+        if not (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
 
@@ -106,7 +107,7 @@ def sca_gcc_hardening(d):
                                     Message="{} is not set in CFLAGS".format(item),
                                     ID="hardening.compiler.{}".format(item.strip("-,")),
                                     Severity="warning")
-            if (g.File in _excludes or g.GetFormattedID() in _suppress) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+            if (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
                 continue
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
@@ -121,7 +122,7 @@ def sca_gcc_hardening(d):
                                     Message="{} is not set in CXXFLAGS".format(item),
                                     ID="hardening.compiler.{}".format(item.strip("-,")),
                                     Severity="warning")
-            if (g.File in _excludes or g.GetFormattedID() in _suppress) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+            if (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
                 continue
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)   
@@ -135,7 +136,7 @@ def sca_gcc_hardening(d):
                                 Message="-DDEBUG=1 is set in CFLAGS".format(item),
                                 ID="hardening.compiler.DEBUG",
                                 Severity="warning")
-        if not (g.File in _excludes or g.GetFormattedID() in _suppress) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+        if not (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
     
@@ -148,7 +149,7 @@ def sca_gcc_hardening(d):
                                 Message="-D_FORTIFY_SOURCE=2 isn't set in CFLAGS".format(item),
                                 ID="hardening.compiler.FORTIFY_SOURCE",
                                 Severity="warning")
-        if not (g.File in _excludes or g.GetFormattedID() in _suppress) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+        if not (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
     
@@ -162,7 +163,7 @@ def sca_gcc_hardening(d):
                                 Message="-fstack-protector* isn't set in CFLAGS".format(item),
                                 ID="hardening.compiler.stack-protector",
                                 Severity="warning")
-        if not (g.File in _excludes or g.GetFormattedID() in _suppress) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+        if not (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
 
@@ -176,7 +177,7 @@ def sca_gcc_hardening(d):
                                 Message="-Wmissing-prototypes or -Wmissing-declarations isn't set in CFLAGS".format(item),
                                 ID="hardening.compiler.missingproto",
                                 Severity="warning")
-        if not (g.File in _excludes or g.GetFormattedID() in _suppress) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+        if not (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
     
@@ -190,7 +191,7 @@ def sca_gcc_hardening(d):
                                 Message="-mfunction-return=thunk or -mindirect-branch=thunk isn't set in CFLAGS".format(item),
                                 ID="hardening.compiler.function_return",
                                 Severity="warning")
-        if not (g.File in _excludes or g.GetFormattedID() in _suppress) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+        if not (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
 
@@ -214,7 +215,7 @@ def do_sca_conv_gcc(d):
         "note": "info"
     }
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     _findings = []
 
@@ -233,7 +234,7 @@ def do_sca_conv_gcc(d):
                                             Severity=severity_map[m.group("severity")])
                     if g.File in _excludes:
                         continue
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
                         continue

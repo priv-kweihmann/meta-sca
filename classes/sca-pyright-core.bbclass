@@ -66,6 +66,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 
 inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
 
@@ -78,7 +79,7 @@ def do_sca_conv_pyright(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     _findings = []
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
 
     _severity_map = {
         "error": "error",
@@ -100,7 +101,7 @@ def do_sca_conv_pyright(d):
                                                 Message=m["message"],
                                                 ID=hashlib.md5(str.encode(m["message"])).hexdigest(),
                                                 Severity=_severity_map[m["severity"]])
-                        if g.GetFormattedID() in _suppress:
+                        if _suppress.Suppressed(g):
                             continue
                         if not sca_is_in_finding_scope(d, "pyright", g.GetFormattedID()):
                             continue
