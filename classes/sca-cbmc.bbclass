@@ -30,6 +30,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 def do_sca_conv_cbmc(d):
     import os
@@ -47,7 +48,7 @@ def do_sca_conv_cbmc(d):
         "INFO" : "info"
     }
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -73,7 +74,7 @@ def do_sca_conv_cbmc(d):
                                             Message=item["messageText"],
                                             ID=hashlib.md5(str.encode(item["messageText"])).hexdigest(),
                                             Severity=severity_map[item["messageType"]])
-                            if g.GetFormattedID() in _suppress:
+                            if _suppress.Suppressed(g):
                                 continue
                             if not sca_is_in_finding_scope(d, "cbmc", g.GetFormattedID()):
                                 continue
@@ -100,7 +101,7 @@ def do_sca_conv_cbmc(d):
                                             Message=_msg,
                                             ID=_id,
                                             Severity="error")
-                                        if g.GetFormattedID() in _suppress:
+                                        if _suppress.Suppressed(g):
                                             continue
                                         if not sca_is_in_finding_scope(d, "cbmc", g.GetFormattedID()):
                                             continue

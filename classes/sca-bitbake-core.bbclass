@@ -8,6 +8,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 SCA_BITBAKE_HARDENING ?= "\
                           debug_tweaks \
@@ -20,7 +21,7 @@ def do_sca_bitbake_hardening(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
     _modules = clean_split(d, "SCA_BITBAKE_HARDENING")
     _findings = []
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
 
     if "debug_tweaks" in _modules:
         ## debug_tweaks in IMAGE_FEATURES isn't used in release build
@@ -33,7 +34,7 @@ def do_sca_bitbake_hardening(d):
                                     Message="debug_tweaks is set in IMAGE_FEATURES",
                                     ID="hardening.debug_tweaks",
                                     Severity="warning")
-            if not g.GetFormattedID() in _suppress and sca_is_in_finding_scope(d, "bitbake", g.GetFormattedID()):
+            if not _suppress.Suppressed(g) and sca_is_in_finding_scope(d, "bitbake", g.GetFormattedID()):
                 if g.Severity in sca_allowed_warning_level(d):
                     _findings.append(g)
     if "insane_skip" in _modules:
@@ -47,7 +48,7 @@ def do_sca_bitbake_hardening(d):
                                     Message="INSANE_SKIP is used in recipe",
                                     ID="hardening.insane_skip",
                                     Severity="warning")
-            if not g.GetFormattedID() in _suppress and sca_is_in_finding_scope(d, "bitbake", g.GetFormattedID()):
+            if not _suppress.Suppressed(g) and sca_is_in_finding_scope(d, "bitbake", g.GetFormattedID()):
                 if g.Severity in sca_allowed_warning_level(d):
                     _findings.append(g)
     if "security_flags" in _modules:
@@ -62,7 +63,7 @@ def do_sca_bitbake_hardening(d):
                                     Message="security_flags.inc aren't used for building this recipe",
                                     ID="hardening.insane_skip",
                                     Severity="warning")
-            if not g.GetFormattedID() in _suppress and sca_is_in_finding_scope(d, "bitbake", g.GetFormattedID()):
+            if not _suppress.Suppressed(g) and sca_is_in_finding_scope(d, "bitbake", g.GetFormattedID()):
                 if g.Severity in sca_allowed_warning_level(d):
                     _findings.append(g)
 
@@ -83,7 +84,7 @@ def do_sca_conv_bitbake(d):
         "WARNING" : "warning",
     }
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
     _findings = []
@@ -101,7 +102,7 @@ def do_sca_conv_bitbake(d):
                                             Severity=severity_map[m.group("severity")])
                     if g.File in _excludes:
                         continue
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "bitbake", g.GetFormattedID()):
                         continue

@@ -13,6 +13,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 
 DEPENDS += "eslint-native"
 
@@ -35,7 +36,7 @@ def do_sca_conv_eslint(d):
     }
 
     __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
-    __suppress = get_suppress_entries(d)
+    __suppress = sca_suppress_init(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -56,7 +57,7 @@ def do_sca_conv_eslint(d):
                                                 Message=f.attrib["message"],
                                                 ID=f.attrib["source"],
                                                 Severity=f.attrib["severity"])
-                        if g.GetFormattedID() in __suppress:
+                        if __suppress.Suppressed(g):
                             continue
                         if not sca_is_in_finding_scope(d, "eslint", g.GetFormattedID()):
                             continue

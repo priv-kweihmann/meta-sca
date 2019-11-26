@@ -10,6 +10,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 
 DEPENDS += "standard-native"
 
@@ -22,7 +23,7 @@ def do_sca_conv_standard(d):
 
     pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<col>\d+):\s+(?P<msg>.*)\s+\((?P<id>.*)\)"
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -39,7 +40,7 @@ def do_sca_conv_standard(d):
                                             Message=m.group("msg"),
                                             ID=m.group("id"),
                                             Severity="warning")
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "standard", g.GetFormattedID()):
                         continue

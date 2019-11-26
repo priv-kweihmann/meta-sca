@@ -11,6 +11,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 
 def do_sca_conv_stank(d):
     import os
@@ -18,7 +19,7 @@ def do_sca_conv_stank(d):
     
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _findings = []
 
     pattern = r"^(?P<msg>.*):\s+(?P<file>.*)"
@@ -49,7 +50,7 @@ def do_sca_conv_stank(d):
                                             Message=m.group("msg"),
                                             ID=_severity_map[m.group("msg")][0],
                                             Severity=_severity_map[m.group("msg")][1])
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "stank", g.GetFormattedID()):
                         continue

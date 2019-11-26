@@ -11,6 +11,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 
 DEPENDS += "libxml2-native"
 
@@ -23,7 +24,7 @@ def do_sca_conv_xmllint(d):
 
     pattern = r"^(?P<file>.*):(?P<line>\d+):\s+(?P<id>.*)\s+error\s+:\s+(?P<msg>.*)"
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -39,7 +40,7 @@ def do_sca_conv_xmllint(d):
                                             Message=m.group("msg"),
                                             ID=m.group("id"),
                                             Severity="error")
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "xmllint", g.GetFormattedID()):
                         continue

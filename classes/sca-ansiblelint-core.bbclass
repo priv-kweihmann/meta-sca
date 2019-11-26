@@ -10,6 +10,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 
 DEPENDS += "python-ansiblelint-native"
 
@@ -27,7 +28,7 @@ def do_sca_conv_ansiblelint(d):
         "W" : "warning",
     }
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -45,7 +46,7 @@ def do_sca_conv_ansiblelint(d):
                                             Severity=severity_map[m.group("severity")])
                     if g.File in _excludes:
                         continue
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "ansiblelint", g.GetFormattedID()):
                         continue

@@ -125,6 +125,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 def do_sca_conv_cqmetrics(d):
     import os
@@ -134,7 +135,7 @@ def do_sca_conv_cqmetrics(d):
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _findings = []
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         j = {}
@@ -155,7 +156,7 @@ def do_sca_conv_cqmetrics(d):
                                                     Message="value {} is {}<{}".format(ik, v, val),
                                                     ID=ik,
                                                     Severity="error")
-                            if g.GetFormattedID() in _suppress:
+                            if _suppress.Suppressed(g):
                                 continue
                             if not sca_is_in_finding_scope(d, "cqmetrics", g.GetFormattedID()):
                                 continue
@@ -172,7 +173,7 @@ def do_sca_conv_cqmetrics(d):
                                                     Message="value {} is {}>{}".format(ik, v, val),
                                                     ID=ik,
                                                     Severity="error")
-                            if g.GetFormattedID() in _suppress:
+                            if _suppress.Suppressed(g):
                                 continue
                             if not sca_is_in_finding_scope(d, "cqmetrics", g.GetFormattedID()):
                                 continue
@@ -189,7 +190,7 @@ def do_sca_conv_cqmetrics(d):
                                                     Message="value {} is {}<{}".format(ik, v, val),
                                                     ID=ik,
                                                     Severity="warning")
-                            if g.GetFormattedID() in _suppress:
+                            if _suppress.Suppressed(g):
                                 continue
                             if not sca_is_in_finding_scope(d, "cqmetrics", g.GetFormattedID()):
                                 continue
@@ -206,7 +207,7 @@ def do_sca_conv_cqmetrics(d):
                                                     Message="value {} is {}>{}".format(ik, v, val),
                                                     ID=ik,
                                                     Severity="warning")
-                            if g.GetFormattedID() in _suppress:
+                            if _suppress.Suppressed(g):
                                 continue
                             if not sca_is_in_finding_scope(d, "cqmetrics", g.GetFormattedID()):
                                 continue

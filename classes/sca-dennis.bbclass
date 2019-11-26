@@ -10,6 +10,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
 
 def do_sca_conv_dennis(d):
@@ -27,7 +28,7 @@ def do_sca_conv_dennis(d):
         "W" : "warning",
     }
 
-    __suppress = get_suppress_entries(d)
+    __suppress = sca_suppress_init(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -43,7 +44,7 @@ def do_sca_conv_dennis(d):
                                             Message=m.group("msg"),
                                             ID=m.group("id"),
                                             Severity=severity_map[m.group("severity")])
-                    if g.GetFormattedID() in __suppress:
+                    if __suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "dennis", g.GetFormattedID()):
                         continue

@@ -35,6 +35,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 
 def write_config(_base, _extra_dicts, _target):
     import os
@@ -61,7 +62,7 @@ def do_sca_conv_textlint(d):
         "2": "warning" ## Originally this is error
     }
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     _findings = []
 
@@ -88,7 +89,7 @@ def do_sca_conv_textlint(d):
                                             Severity=severity_map[str(msg["severity"])])
                     if g.File in _excludes:
                         continue
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "textlint", g.GetFormattedID()):
                         continue

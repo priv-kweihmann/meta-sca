@@ -46,6 +46,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3-dir', 'python-dir')}
 
@@ -114,7 +115,7 @@ def do_sca_conv_ansible(d):
         "info": "info"
     }
 
-    __suppress = get_suppress_entries(d)
+    __suppress = sca_suppress_init(d)
     __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
     _findings = []
@@ -147,7 +148,7 @@ def do_sca_conv_ansible(d):
                                                     Message=_get_finding_message(d, _pb_key, _tk_node, item),
                                                     ID=_get_finding_id(d, _pb_key, _tk_node, item),
                                                     Severity=_get_finding_severity(d, _pb_key, _tk_node, item))
-                            if g.GetFormattedID() in __suppress:
+                            if __suppress.Suppressed(g):
                                 continue
                             if g.File in __excludes:
                                 continue

@@ -1108,6 +1108,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 
 DEPENDS += "yara-rules-native yara-native"
 
@@ -1134,7 +1135,7 @@ def do_sca_conv_yara(d):
 
     pattern = r"^(?P<id>[a-zA-z_0-9]+)\s\[(?P<attr>.*?)\]\s(?P<file>.*)$"
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -1152,7 +1153,7 @@ def do_sca_conv_yara(d):
                                             Message=_desc,
                                             ID=m.group("id"),
                                             Severity="warning")
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "yara", g.GetFormattedID()):
                         continue

@@ -130,6 +130,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 def calc_min_max(d, _in):
     import statistics
@@ -154,7 +155,7 @@ def do_sca_conv_radon(d):
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
 
     _findings = []
 
@@ -228,7 +229,7 @@ def do_sca_conv_radon(d):
                                                     Message="value {} is {}<{}".format(ik, iv, val),
                                                     ID=ik,
                                                     Severity="error")
-                            if g.GetFormattedID() in _suppress:
+                            if _suppress.Suppressed(g):
                                 continue
                             if not sca_is_in_finding_scope(d, "radon", g.GetFormattedID()):
                                 continue
@@ -245,7 +246,7 @@ def do_sca_conv_radon(d):
                                                     Message="value {} is {}>{}".format(ik, iv, val),
                                                     ID=ik,
                                                     Severity="error")
-                            if g.GetFormattedID() in _suppress:
+                            if _suppress.Suppressed(g):
                                 continue
                             if not sca_is_in_finding_scope(d, "radon", g.GetFormattedID()):
                                 continue
@@ -262,7 +263,7 @@ def do_sca_conv_radon(d):
                                                     Message="value {} is {}<{}".format(ik, iv, val),
                                                     ID=ik,
                                                     Severity="warning")
-                            if g.GetFormattedID() in _suppress:
+                            if _suppress.Suppressed(g):
                                 continue
                             if not sca_is_in_finding_scope(d, "radon", g.GetFormattedID()):
                                 continue
@@ -279,7 +280,7 @@ def do_sca_conv_radon(d):
                                                     Message="value {} is {}>{}".format(ik, iv, val),
                                                     ID=ik,
                                                     Severity="warning")
-                            if g.GetFormattedID() in _suppress:
+                            if _suppress.Suppressed(g):
                                 continue
                             if not sca_is_in_finding_scope(d, "radon", g.GetFormattedID()):
                                 continue

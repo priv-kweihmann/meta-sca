@@ -21,6 +21,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 def get_platform_type(d):
     ## Let's assume that 64bit platforms 
@@ -53,7 +54,7 @@ def do_sca_conv_cppcheck(d):
     }
 
     _findings = []
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         data = ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE")).getroot()
@@ -69,7 +70,7 @@ def do_sca_conv_cppcheck(d):
                                             Message=node.attrib.get("msg"),
                                             ID=node.attrib.get("id"),
                                             Severity=severity_map[node.attrib.get("severity")])
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "cppcheck", g.GetFormattedID()):
                         continue

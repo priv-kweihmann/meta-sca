@@ -10,6 +10,7 @@ inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
 inherit sca-crossemu
+inherit sca-suppress
 
 DEPENDS += "nixauditor nixauditor-native"
 
@@ -22,7 +23,7 @@ def do_sca_conv_nixauditor(d):
 
     pattern = r"^(?P<id>.*)\sFailed"
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -37,7 +38,7 @@ def do_sca_conv_nixauditor(d):
                                             Message="Check for {} failed".format(m.group("id")),
                                             ID=m.group("id").replace(" ", "_"),
                                             Severity="warning")
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "nixauditor", g.GetFormattedID()):
                         continue
