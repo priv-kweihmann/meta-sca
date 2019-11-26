@@ -10,6 +10,7 @@ inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
 inherit sca-crossemu
+inherit sca-suppress
 
 DEPENDS += "tiger tiger-native"
 
@@ -27,7 +28,7 @@ def do_sca_conv_tiger(d):
         "WARN" : "warning"
     }
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -45,7 +46,7 @@ def do_sca_conv_tiger(d):
                                             Message=m.group("msg").strip(),
                                             ID=m.group("id"),
                                             Severity=severity_map[m.group("severity")])
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "tiger", g.GetFormattedID()):
                         continue

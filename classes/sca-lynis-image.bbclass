@@ -10,6 +10,7 @@ inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
 inherit sca-crossemu
+inherit sca-suppress
 
 DEPENDS += "lynis lynis-native"
 
@@ -27,7 +28,7 @@ def do_sca_conv_lynis(d):
         "*" : "warning"
     }
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -42,7 +43,7 @@ def do_sca_conv_lynis(d):
                                             Message="{} - Details: https://cisofy.com/lynis/controls/{}".format(m.group("msg"), m.group("id")),
                                             ID=m.group("id"),
                                             Severity=severity_map[m.group("severity")])
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "lynis", g.GetFormattedID()):
                         continue

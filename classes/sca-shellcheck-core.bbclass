@@ -6,6 +6,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 
 def do_sca_conv_shellcheck(d):
     import os
@@ -15,7 +16,7 @@ def do_sca_conv_shellcheck(d):
     
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -36,7 +37,7 @@ def do_sca_conv_shellcheck(d):
                                                 Message=f.attrib.get("message"),
                                                 ID=f.attrib.get("source"),
                                                 Severity=f.attrib.get("severity"))
-                        if g.GetFormattedID() in _suppress:
+                        if _suppress.Suppressed(g):
                             continue
                         ## Mind that here the name has to be lowercase
                         if not sca_is_in_finding_scope(d, "shellcheck", g.GetFormattedID()):

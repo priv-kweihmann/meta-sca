@@ -14,6 +14,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 def do_sca_conv_splint(d):
     import os
@@ -30,7 +31,7 @@ def do_sca_conv_splint(d):
         "3" : "info"
     }
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -48,7 +49,7 @@ def do_sca_conv_splint(d):
                                             Message=row["Warning Text"],
                                             ID=row["Flag Name"],
                                             Severity=severity_map[row["Priority"].strip()])
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "splint", g.GetFormattedID()):
                         continue

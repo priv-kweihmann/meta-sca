@@ -10,6 +10,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 
 def do_sca_conv_htmlhint(d):
     import os
@@ -21,7 +22,7 @@ def do_sca_conv_htmlhint(d):
     items = []
 
     __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -47,7 +48,7 @@ def do_sca_conv_htmlhint(d):
                                             Message=m["message"],
                                             ID=m["rule"]["id"],
                                             Severity=m["type"])
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "htmlhint", g.GetFormattedID()):
                         continue

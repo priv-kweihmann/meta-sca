@@ -25,6 +25,7 @@ inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
 inherit sca-crossemu
+inherit sca-suppress
 
 def do_sca_configcheck_run_freeradius(d):
     return ["/bin/sh", "-c", "[ ! -z $(which radiusd) ] && mkdir -p /tmp && radiusd -C -l /tmp/radius_check; cat /tmp/radius_check"]
@@ -220,7 +221,7 @@ fakeroot python do_sca_configcheck() {
     sca_crossemu(d, None, [], "configcheck", "sca_configcheck_prepare;")
 
     _raw_findings = []
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
 
     for mod in clean_split(d, "SCA_CONFIGCHECK_MODULES"):
         _run_args_name = "do_sca_configcheck_run_{}".format(mod)

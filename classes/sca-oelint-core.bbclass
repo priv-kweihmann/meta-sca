@@ -10,6 +10,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
 
 def do_sca_conv_oelint(d):
@@ -28,7 +29,7 @@ def do_sca_conv_oelint(d):
         "info": "info"
     }
     _findings = []
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
@@ -42,7 +43,7 @@ def do_sca_conv_oelint(d):
                                             Message=m.group("message"),
                                             ID=m.group("id").replace(".", "_"),
                                             Severity=severity_map[m.group("severity")])
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "oelint", g.GetFormattedID()):
                         continue

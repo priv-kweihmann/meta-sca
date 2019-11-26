@@ -11,6 +11,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 PHP_EXTENSION = "ast"
 inherit php-ext
@@ -23,7 +24,7 @@ def do_sca_conv_phan(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
     
     _findings = []
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
 
     _severity_map = {
         "10": "error",
@@ -56,7 +57,7 @@ def do_sca_conv_phan(d):
                                             Message=m["description"],
                                             ID=m["check_name"],
                                             Severity=_severity_map[str(m["severity"])])
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "phan", g.GetFormattedID()):
                         continue
