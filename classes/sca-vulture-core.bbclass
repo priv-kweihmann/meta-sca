@@ -6,6 +6,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 
 inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
 
@@ -18,6 +19,8 @@ def do_sca_conv_vulture(d):
     
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
+
+    _suppress = sca_suppress_init(d)
 
     pattern = r"^(?P<file>.*):(?P<line>\d+):\s*(?P<message>.*)"
 
@@ -41,6 +44,8 @@ def do_sca_conv_vulture(d):
                                             Message=m.group("message"),
                                             ID=_id,
                                             Severity=_sev)
+                    if _suppress.Suppressed(g):
+                        continue
                     if not sca_is_in_finding_scope(d, "vulture", g.GetFormattedID()):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):

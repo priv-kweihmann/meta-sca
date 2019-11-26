@@ -6,6 +6,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 python sca_cvecheck_init() {
     ## Move the do_cve_check from before do_build to before do_package_qa
@@ -31,6 +32,7 @@ def sca_create_data_file(d, patched, unpatched, cve_data):
     bb.utils.mkdirhier(os.path.dirname(cve_file))
 
     package_name = d.getVar("PN")
+    _suppress = sca_suppress_init(d)
     items = []
     _findings = []
 
@@ -45,6 +47,8 @@ def sca_create_data_file(d, patched, unpatched, cve_data):
                                 Message="{},Score={},Url={}".format(cve_data[cve]["summary"], cve_data[cve]["score"], nvd_link, cve),
                                 ID="cvecheck.unpatched",
                                 Severity="error")
+        if _suppress.Suppressed(g):
+            continue
         if not sca_is_in_finding_scope(d, "cvecheck", g.GetFormattedID()):
             continue
         if g.Severity in sca_allowed_warning_level(d):

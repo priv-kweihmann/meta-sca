@@ -19,6 +19,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 
 def write_config(_base, _extra_dicts, _target):
     import os
@@ -40,7 +41,9 @@ def do_sca_conv_cspell(d):
 
     items = []
     pattern = r"^(?P<file>.*)\:(?P<line>\d+):(?P<column>\d+)\s+-\s+(?P<id>.*)\s+\((?P<msg>.*)\)"
+    _suppress = sca_suppress_init(d)
     _findings = []
+
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
@@ -55,6 +58,8 @@ def do_sca_conv_cspell(d):
                                             Message=m.group("msg"),
                                             ID=m.group("id"),
                                             Severity="info")
+                    if _suppress.Suppressed(g):
+                        continue
                     if not sca_is_in_finding_scope(d, "cspell", g.GetFormattedID()):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
