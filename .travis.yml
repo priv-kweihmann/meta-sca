@@ -47,7 +47,7 @@ script:
     # setup poky (is needed to run bitbake-layers afterwards)
     - source ${TRAVIS_BUILD_DIR}/poky/oe-init-build-env
     # Test for testing recipe being disabled by default
-    - needle=$(grep "^SCA_ENABLE_TESTS" ${TRAVIS_BUILD_DIR}/conf/layer.conf | grep -v '"0"') && [ ! -z "$needle" ] && echo "Testing recipe are enabled by default" && false
+    - grep "^SCA_ENABLE_TESTS" ${TRAVIS_BUILD_DIR}/conf/layer.conf | grep '"0"'
     # Add meta-sca layer
     - bitbake-layers add-layer ${TRAVIS_BUILD_DIR}
     - if [ ! -z ${_WITH_METACLANG} ]; then bitbake-layers add-layer ${TRAVIS_BUILD_DIR}/meta-clang; fi
