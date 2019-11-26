@@ -241,7 +241,7 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
   - [Custom severity](docs/conf/sevtransform.md)
   - [Enable SCA locally/globally](docs/conf/inherit.md)
   - [Fatal findings](docs/conf/suppression.md)
-  - [Filter findings](docs/config/findingsfilter.md)
+  - [Filter findings](docs/conf/findingsfilter.md)
   - [Filter out files to check](docs/conf/filefilter.md)
   - [Output formats](docs/conf/output_formats.md)
   - [Suppress findings](docs/conf/suppression.md)
