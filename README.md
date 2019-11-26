@@ -71,25 +71,10 @@ bitbake-layers add-layer "<full path to sca-layer>/meta-sca"
 #### meta-clang
 
 To make the integration of clang or ikos-module (clang-tidy) work you need to add the [meta-clang](https://github.com/kraj/meta-clang) layer to your bblayer-file.
-Additionally you have to add
-
-``` bitbake
-PREFERRED_VERSION_clang-native = "8.%"
-```
-
-to your **local.conf**-file to make it work. Otherwise the build will fail with an error.
 
 #### meta-oe
 
 To enable the php/lua support you need to add the [meta-oe](http://cgit.openembedded.org/meta-openembedded) layer to your bblayer-file.
-Additionally you have to add
-
-``` bitbake
-PREFERRED_VERSION_libzip-native = "1.%"
-PREFERRED_VERSION_php-native = "7.%"
-```
-
-to your **local.conf**-file to make it work. Otherwise the build will fail with an error.
 
 ## Support
 
