@@ -6,6 +6,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 
 SCA_TLV_MINLINES ?= "8"
 SCA_TLV_MINTOKEN ?= "50"
@@ -23,6 +24,7 @@ def do_sca_conv_tlv(d):
         "Duplicate" : "error",
         "TooLessVariation" : "warning"
     }
+    _suppress = sca_suppress_init(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -39,6 +41,8 @@ def do_sca_conv_tlv(d):
                                             Message=m.group("message"),
                                             ID=m.group("id"),
                                             Severity=severity_map[m.group("id")])
+                    if _suppress.Suppressed(g):
+                        continue
                     if not sca_is_in_finding_scope(d, "tlv", g.GetFormattedID()):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
