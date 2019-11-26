@@ -47,11 +47,7 @@ jobs:
         run: |
           source poky/oe-init-build-env
           mods=$(cat $(pwd)/../recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ')
-          echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> conf/local.conf 
-      - name: local.conf+
-        run: |
-          source poky/oe-init-build-env
-          echo 'PREFERRED_VERSION_clang-native = "7.%"' >> conf/local.conf
+          echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> conf/local.conf
       - name: build
         run: |
           source poky/oe-init-build-env
