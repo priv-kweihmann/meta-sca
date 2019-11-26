@@ -243,6 +243,7 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
   - [Fatal findings](docs/conf/suppression.md)
   - [Filter findings](docs/config/findingsfilter.md)
   - [Filter out files to check](docs/conf/filefilter.md)
+  - [Output formats](docs/conf/output_formats.md)
   - [Suppress findings](docs/conf/suppression.md)
   - Tools
     - [alexkohler](docs/conf/module/alexkohler.md)
