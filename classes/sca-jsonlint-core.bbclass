@@ -11,6 +11,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 
 def do_sca_conv_jsonlint(d):
     import os
@@ -27,7 +28,9 @@ def do_sca_conv_jsonlint(d):
         "warning" : "warning",
         "info": "info"
     }
+    _suppress = sca_suppress_init(d)
     _findings = []
+
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
@@ -42,6 +45,8 @@ def do_sca_conv_jsonlint(d):
                                             Message=m.group("message"),
                                             ID=m.group("id"),
                                             Severity=severity_map[m.group("severity")])
+                    if _suppress.Suppressed(g):
+                        continue
                     if not sca_is_in_finding_scope(d, "jsonlint", g.GetFormattedID()):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):

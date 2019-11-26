@@ -9,6 +9,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
 
@@ -50,9 +51,10 @@ def do_sca_conv_ropgadget(d):
     pattern = r"^(?P<bin>.*)\s+-\s+(?P<file>.*):(?P<line>\d+)\s+-\s+(?P<msg>.*)"
 
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
-
+    _suppress = sca_suppress_init(d)
     _findings = {}
     _findingsres = []
+
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
@@ -66,6 +68,8 @@ def do_sca_conv_ropgadget(d):
                                             Message=m.group("msg"),
                                             ID="ropprone",
                                             Severity="info")
+                    if _suppress.Suppressed(g):
+                        continue
                     if g.File in _excludes:
                         continue
                     if not sca_is_in_finding_scope(d, "ropgadget", g.GetFormattedID()):
