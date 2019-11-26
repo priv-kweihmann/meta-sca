@@ -9,6 +9,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
+inherit sca-suppress
 
 DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-bandit-native"
 
@@ -27,7 +28,7 @@ def do_sca_conv_bandit(d):
     }
 
     _findings = []
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         with open(d.getVar("SCA_RAW_RESULT_FILE")) as f:
@@ -52,7 +53,7 @@ def do_sca_conv_bandit(d):
                                                     Message=item["issue_text"],
                                                     ID=item["test_id"],
                                                     Severity=severity_map[item["issue_severity"]])
-                            if g.GetFormattedID() in _suppress:
+                            if _suppress.Suppressed(g):
                                 continue
                             if not sca_is_in_finding_scope(d, "bandit", g.GetFormattedID()):
                                 continue

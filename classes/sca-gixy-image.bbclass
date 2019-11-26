@@ -12,6 +12,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 def do_sca_conv_gixy(d, cmd_output=""):
     import os
@@ -31,7 +32,7 @@ def do_sca_conv_gixy(d, cmd_output=""):
         "ERROR" : "error",
     }
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _findings = []
 
     ## Result file parsing
@@ -51,7 +52,7 @@ def do_sca_conv_gixy(d, cmd_output=""):
                                         Message="{} {}".format(item["summary"], item["reason"]),
                                         ID=item["plugin"].replace(" ", "_"),
                                         Severity=severity_map[str(item["severity"])])
-                if g.GetFormattedID() in _suppress:
+                if _suppress.Suppressed(g):
                     continue
                 if not sca_is_in_finding_scope(d, "gixy", g.GetFormattedID()):
                     continue

@@ -10,6 +10,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 def do_sca_conv_npmaudit(d, cmd_output=""):
     import os
@@ -26,7 +27,7 @@ def do_sca_conv_npmaudit(d, cmd_output=""):
         "low" : "info"
     }
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _findings = []
 
     ## Result file parsing
@@ -47,7 +48,7 @@ def do_sca_conv_npmaudit(d, cmd_output=""):
                                         Message=v["title"],
                                         ID=str(v["id"]),
                                         Severity=severity_map[v["severity"]])
-                if g.GetFormattedID() in _suppress:
+                if _suppress.Suppressed(g):
                     continue
                 if not sca_is_in_finding_scope(d, "npmaudit", g.GetFormattedID()):
                     continue

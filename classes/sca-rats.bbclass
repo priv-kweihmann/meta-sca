@@ -10,6 +10,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 def do_sca_conv_rats(d):
     import os
@@ -27,7 +28,7 @@ def do_sca_conv_rats(d):
         "Default": "info"
     }
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
 
     _findings = []
 
@@ -63,7 +64,7 @@ def do_sca_conv_rats(d):
                                                     Message=_msg,
                                                     ID=_id,
                                                     Severity=_severity)
-                            if g.GetFormattedID() in _suppress:
+                            if _suppress.Suppressed(g):
                                 continue
                             _findings.append(g)
                 except Exception as exp:

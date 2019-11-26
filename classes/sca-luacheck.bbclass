@@ -10,6 +10,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 def do_sca_conv_luacheck(d):
     import os
@@ -26,7 +27,7 @@ def do_sca_conv_luacheck(d):
         "I": "info"
     }
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
 
     _findings = []
 
@@ -43,7 +44,7 @@ def do_sca_conv_luacheck(d):
                                             Message=m.group("msg"),
                                             ID=m.group("id")[1:],
                                             Severity=severity_map[m.group("id")[0]])
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "luacheck", g.GetFormattedID()):
                         continue

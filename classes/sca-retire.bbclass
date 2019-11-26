@@ -12,6 +12,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 def do_sca_conv_retire(d):
     import os

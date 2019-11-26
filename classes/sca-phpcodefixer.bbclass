@@ -13,6 +13,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 def do_sca_conv_phpcodefixer(d):
     import os
@@ -22,7 +23,7 @@ def do_sca_conv_phpcodefixer(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
     
     _findings = []
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         content = []
@@ -42,7 +43,7 @@ def do_sca_conv_phpcodefixer(d):
                                             Message="{}: {} since PHP version {}".format(m["type"], m["category"], m["version"]),
                                             ID=m["checker"],
                                             Severity="error")
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "phpcodefixer", g.GetFormattedID()):
                         continue

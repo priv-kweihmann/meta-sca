@@ -10,6 +10,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
 
@@ -21,7 +22,7 @@ def do_sca_conv_safety(d, cmd_output=""):
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     items = []
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     _findings = []
 
     ## Result file parsing
@@ -41,7 +42,7 @@ def do_sca_conv_safety(d, cmd_output=""):
                                         Message="{} - {}".format(k[0], k[3]),
                                         ID="vulnerability",
                                         Severity="error")
-                if g.GetFormattedID() in _suppress:
+                if _suppress.Suppressed(g):
                     continue
                 if not sca_is_in_finding_scope(d, "safety", g.GetFormattedID()):
                     continue

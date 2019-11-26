@@ -10,6 +10,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
 
 inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
 
@@ -40,7 +41,7 @@ def do_sca_conv_zrd(d):
         "2010" : "encoding error"
     }
 
-    _suppress = get_suppress_entries(d)
+    _suppress = sca_suppress_init(d)
     __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     _findings = []
 
@@ -60,7 +61,7 @@ def do_sca_conv_zrd(d):
                                             Severity=severity_map[row["severity"]])
                     if g.File in __excludes:
                         continue
-                    if g.GetFormattedID() in _suppress:
+                    if _suppress.Suppressed(g):
                         continue
                     if not sca_is_in_finding_scope(d, "zrd", g.GetFormattedID()):
                         continue
