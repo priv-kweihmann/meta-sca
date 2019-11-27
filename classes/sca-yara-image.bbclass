@@ -1207,7 +1207,7 @@ python do_sca_deploy_yara_image() {
 addtask do_sca_yara before do_image_complete after do_image
 addtask do_sca_deploy_yara_image before do_image_complete after do_sca_yara
 
-do_sca_yara[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_yara_image[nostamp] = "${@sca_force_run(d)}"
+do_sca_yara[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_yara_image[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "sca-image-yara-rules-native"

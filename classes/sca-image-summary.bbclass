@@ -47,5 +47,5 @@ python do_sca_deploy_image_summary() {
 addtask do_sca_image_summary after do_rootfs before do_image_complete
 addtask do_sca_deploy_image_summary before do_image_complete after do_sca_image_summary
 
-do_sca_image_summary[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_image_summary[nostamp] = "${@sca_force_run(d)}"
+do_sca_image_summary[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_image_summary[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"

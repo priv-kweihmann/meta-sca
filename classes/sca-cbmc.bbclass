@@ -163,7 +163,7 @@ python do_sca_deploy_cbmc() {
 addtask do_sca_cbmc before do_install after do_compile
 addtask do_sca_deploy_cbmc after do_sca_cbmc before do_package
 
-do_sca_cbmc[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_cbmc[nostamp] = "${@sca_force_run(d)}"
+do_sca_cbmc[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_cbmc[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "cbmc-native sca-recipe-cbmc-rules-native"

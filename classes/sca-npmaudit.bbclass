@@ -106,7 +106,7 @@ python do_sca_deploy_npmaudit() {
 addtask do_sca_npmaudit before do_install after do_compile
 addtask do_sca_deploy_npmaudit after do_sca_npmaudit before do_package
 
-do_sca_npmaudit[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_npmaudit[nostamp] = "${@sca_force_run(d)}"
+do_sca_npmaudit[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_npmaudit[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "npmaudit-sca-native sca-recipe-npmaudit-rules-native"

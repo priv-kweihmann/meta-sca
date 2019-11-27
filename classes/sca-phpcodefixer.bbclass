@@ -106,7 +106,7 @@ python do_sca_deploy_phpcodefixer() {
 addtask do_sca_phpcodefixer before do_install after do_configure
 addtask do_sca_deploy_phpcodefixer after do_sca_phpcodefixer before do_package
 
-do_sca_phpcodefixer[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_phpcodefixer[nostamp] = "${@sca_force_run(d)}"
+do_sca_phpcodefixer[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_phpcodefixer[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "phpcodefixer-native sca-recipe-phpcodefixer-rules-native"

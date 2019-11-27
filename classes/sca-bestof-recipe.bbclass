@@ -21,5 +21,5 @@ python do_sca_deploy_bestof_recipe() {
 addtask do_sca_bestof_core after do_install before do_package_write_rpm
 addtask do_sca_deploy_bestof_recipe before do_package_write_rpm after do_sca_bestof_core
 
-do_sca_bestof_core[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_bestof_recipe[nostamp] = "${@sca_force_run(d)}"
+do_sca_bestof_core[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_bestof_recipe[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"

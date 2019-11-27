@@ -20,7 +20,7 @@ python do_sca_deploy_mypy_image() {
 addtask do_sca_mypy_core before do_image_complete after do_image
 addtask do_sca_deploy_mypy_image before do_image_complete after do_sca_mypy_core
 
-do_sca_mypy_core[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_mypy_image[nostamp] = "${@sca_force_run(d)}"
+do_sca_mypy_core[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_mypy_image[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "sca-image-mypy-rules-native"
