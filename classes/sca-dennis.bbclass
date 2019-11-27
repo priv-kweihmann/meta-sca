@@ -106,7 +106,7 @@ python do_sca_deploy_dennis() {
 addtask do_sca_dennis before do_install after do_configure
 addtask do_sca_deploy_dennis after do_sca_dennis before do_package
 
-do_sca_dennis[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_dennis[nostamp] = "${@sca_force_run(d)}"
+do_sca_dennis[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_dennis[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-dennis-native sca-recipe-dennis-rules-native"

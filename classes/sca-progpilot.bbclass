@@ -101,7 +101,7 @@ python do_sca_deploy_progpilot() {
 addtask do_sca_progpilot before do_install after do_configure
 addtask do_sca_deploy_progpilot after do_sca_progpilot before do_package
 
-do_sca_progpilot[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_progpilot[nostamp] = "${@sca_force_run(d)}"
+do_sca_progpilot[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_progpilot[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "progpilot-native sca-recipe-progpilot-rules-native"

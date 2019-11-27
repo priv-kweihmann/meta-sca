@@ -99,7 +99,7 @@ python do_sca_deploy_revive() {
 addtask do_sca_revive before do_compile after do_configure
 addtask do_sca_deploy_revive after do_sca_revive before do_package
 
-do_sca_revive[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_revive[nostamp] = "${@sca_force_run(d)}"
+do_sca_revive[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_revive[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "revive-native sca-recipe-revive-rules-native"

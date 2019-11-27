@@ -164,7 +164,7 @@ python do_sca_deploy_textlint() {
 addtask do_sca_textlint before do_install after do_compile
 addtask do_sca_deploy_textlint before do_package after do_sca_textlint
 
-do_sca_textlint[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_textlint[nostamp] = "${@sca_force_run(d)}"
+do_sca_textlint[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_textlint[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "textlint-native sca-recipe-textlint-rules-native"

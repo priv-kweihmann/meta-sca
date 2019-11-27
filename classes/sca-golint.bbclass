@@ -100,7 +100,7 @@ python do_sca_deploy_golint() {
 addtask do_sca_golint before do_compile after do_configure
 addtask do_sca_deploy_golint after do_sca_golint before do_package
 
-do_sca_golint[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_golint[nostamp] = "${@sca_force_run(d)}"
+do_sca_golint[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_golint[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "golint-sca-native sca-recipe-golint-rules-native"

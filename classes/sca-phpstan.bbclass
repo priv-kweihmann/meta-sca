@@ -110,7 +110,7 @@ python do_sca_deploy_phpstan() {
 addtask do_sca_phpstan before do_install after do_configure
 addtask do_sca_deploy_phpstan after do_sca_phpstan before do_package
 
-do_sca_phpstan[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_phpstan[nostamp] = "${@sca_force_run(d)}"
+do_sca_phpstan[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_phpstan[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "phpstan-native sca-recipe-phpstan-rules-native"

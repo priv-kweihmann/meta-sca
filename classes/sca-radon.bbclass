@@ -346,7 +346,7 @@ python do_sca_deploy_radon() {
 addtask do_sca_radon before do_install after do_compile
 addtask do_sca_deploy_radon after do_sca_radon before do_package
 
-do_sca_radon[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_radon[nostamp] = "${@sca_force_run(d)}"
+do_sca_radon[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_radon[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-radon-native sca-recipe-radon-rules-native"

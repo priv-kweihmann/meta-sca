@@ -28,7 +28,7 @@ python do_sca_deploy_pylint_image() {
 addtask do_sca_pylint_core before do_image_complete after do_image
 addtask do_sca_deploy_pylint_image before do_image_complete after do_sca_pylint_core
 
-do_sca_pylint_core[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_pylint_image[nostamp] = "${@sca_force_run(d)}"
+do_sca_pylint_core[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_pylint_image[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "sca-image-pylint-rules-native"
