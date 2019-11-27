@@ -276,7 +276,7 @@ python do_sca_deploy_cqmetrics() {
 addtask do_sca_cqmetrics before do_install after do_compile
 addtask do_sca_deploy_cqmetrics after do_sca_cqmetrics before do_package
 
-do_sca_cqmetrics[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_cqmetrics[nostamp] = "${@sca_force_run(d)}"
+do_sca_cqmetrics[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_cqmetrics[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "cqmetrics-native sca-recipe-cqmetrics-rules-native"

@@ -15,4 +15,4 @@ python sca_score_init() {
 
 addtask do_sca_score_core after do_install before do_package_write_rpm do_rm_work
 
-do_sca_score_core[nostamp] = "${@sca_force_run(d)}"
+do_sca_score_core[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"

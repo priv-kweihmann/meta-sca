@@ -87,7 +87,7 @@ python do_sca_deploy_nixauditor_image() {
 addtask do_sca_nixauditor before do_image_complete after do_image
 addtask do_sca_deploy_nixauditor_image before do_image_complete after do_sca_nixauditor
 
-do_sca_nixauditor[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_nixauditor_image[nostamp] = "${@sca_force_run(d)}"
+do_sca_nixauditor[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_nixauditor_image[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "sca-image-nixauditor-rules-native"

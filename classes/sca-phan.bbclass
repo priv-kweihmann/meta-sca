@@ -128,7 +128,7 @@ python do_sca_deploy_phan() {
 addtask do_sca_phan before do_install after do_configure
 addtask do_sca_deploy_phan after do_sca_phan before do_package
 
-do_sca_phan[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_phan[nostamp] = "${@sca_force_run(d)}"
+do_sca_phan[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_phan[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "phan-native sca-recipe-phan-rules-native"

@@ -152,7 +152,7 @@ python do_sca_deploy_tscancode() {
 addtask do_sca_tscancode before do_install after do_configure
 addtask do_sca_deploy_tscancode after do_sca_tscancode before do_package
 
-do_sca_tscancode[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_tscancode[nostamp] = "${@sca_force_run(d)}"
+do_sca_tscancode[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_tscancode[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "tscancode-native sca-recipe-tscancode-rules-native"
