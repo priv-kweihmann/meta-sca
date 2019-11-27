@@ -4,6 +4,12 @@
 
 * CVEs
 
+## Notes
+
+Be aware that due to the poky-implementation of the CVE-database fetch this module will result in rebuilding
+every recipe, which this module is activated for on every run.
+So if you tend to include this module, please do it in an appropriate environment (like CI), or leave it disabled for now
+
 ## Configuration
 
 | var | purpose | type | default |
