@@ -118,7 +118,7 @@ python do_sca_deploy_cpplint() {
 addtask do_sca_cpplint before do_install after do_compile
 addtask do_sca_deploy_cpplint after do_sca_cpplint before do_package
 
-do_sca_cpplint[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_cpplint[nostamp] = "${@sca_force_run(d)}"
+do_sca_cpplint[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_cpplint[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "cpplint-native sca-recipe-cpplint-rules-native"

@@ -158,7 +158,7 @@ python do_sca_deploy_cspell() {
 addtask do_sca_cspell before do_install after do_compile
 addtask do_sca_deploy_cspell before do_package after do_sca_cspell
 
-do_sca_cspell[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_cspell[nostamp] = "${@sca_force_run(d)}"
+do_sca_cspell[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_cspell[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "cspell-native sca-recipe-cspell-rules-native cspell-user-dict-native"

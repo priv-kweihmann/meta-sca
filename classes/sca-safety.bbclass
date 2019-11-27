@@ -143,8 +143,8 @@ python do_sca_deploy_safety() {
 addtask do_sca_safety before do_install after do_compile
 addtask do_sca_deploy_safety after do_sca_safety before do_package
 
-do_sca_safety[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_safety[nostamp] = "${@sca_force_run(d)}"
+do_sca_safety[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_safety[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "\
             ${SCA_STD_PYTHON_INTERPRETER}-safety-native \

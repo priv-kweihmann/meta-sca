@@ -132,7 +132,7 @@ python do_sca_deploy_splint() {
 addtask do_sca_splint before do_install after do_compile
 addtask do_sca_deploy_splint after do_sca_splint before do_package
 
-do_sca_splint[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_splint[nostamp] = "${@sca_force_run(d)}"
+do_sca_splint[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_splint[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "splint-native sca-recipe-splint-rules-native"

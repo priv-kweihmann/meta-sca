@@ -140,7 +140,7 @@ python do_sca_deploy_gixy() {
 addtask do_sca_gixy before do_image_complete after do_image
 addtask do_sca_deploy_gixy before do_image_complete after do_sca_gixy
 
-do_sca_gixy[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_gixy[nostamp] = "${@sca_force_run(d)}"
+do_sca_gixy[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_gixy[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-gixy-native sca-image-gixy-rules-native"

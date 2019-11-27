@@ -136,7 +136,7 @@ python do_sca_deploy_upc_image() {
 addtask do_sca_upc before do_image_complete after do_image
 addtask do_sca_deploy_upc_image before do_image_complete after do_sca_upc
 
-do_sca_upc[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_upc_image[nostamp] = "${@sca_force_run(d)}"
+do_sca_upc[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_upc_image[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "sca-image-upc-rules-native"

@@ -95,7 +95,7 @@ python do_sca_deploy_tiger_image() {
 addtask do_sca_tiger before do_image_complete after do_image
 addtask do_sca_deploy_tiger_image before do_image_complete after do_sca_tiger
 
-do_sca_tiger[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_tiger_image[nostamp] = "${@sca_force_run(d)}"
+do_sca_tiger[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_tiger_image[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "sca-image-tiger-rules-native"

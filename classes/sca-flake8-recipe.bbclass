@@ -20,7 +20,7 @@ python do_sca_deploy_flake8_recipe() {
 addtask do_sca_flake8_core before do_install after do_compile
 addtask do_sca_deploy_flake8_recipe before do_package after do_sca_flake8_core
 
-do_sca_flake8_core[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_flake8_recipe[nostamp] = "${@sca_force_run(d)}"
+do_sca_flake8_core[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_flake8_recipe[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "sca-recipe-flake8-rules-native"

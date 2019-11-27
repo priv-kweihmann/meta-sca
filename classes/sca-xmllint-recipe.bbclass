@@ -14,7 +14,7 @@ python do_sca_deploy_xmllint_recipe() {
 addtask do_sca_xmllint_core before do_install after do_compile
 addtask do_sca_deploy_xmllint_recipe before do_package after do_sca_xmllint_core
 
-do_sca_xmllint_core[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_xmllint_recipe[nostamp] = "${@sca_force_run(d)}"
+do_sca_xmllint_core[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_xmllint_recipe[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "sca-recipe-xmllint-rules-native"

@@ -104,7 +104,7 @@ python do_sca_deploy_pytype() {
 addtask do_sca_pytype before do_install after do_configure
 addtask do_sca_deploy_pytype after do_sca_pytype before do_package
 
-do_sca_pytype[nostamp] = "${@sca_force_run(d)}"
-do_sca_deploy_pytype[nostamp] = "${@sca_force_run(d)}"
+do_sca_pytype[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+do_sca_deploy_pytype[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-pytype-native sca-recipe-pytype-rules-native"
