@@ -31,14 +31,16 @@ env:
       - SCA_BUILDDIR=${TRAVIS_BUILD_DIR}/build
 jobs:
   include:
-  - name: "qemux86 standard options"
-    env: MACHINE=qemux86
+  - name: "qemux86 classic tools"
+    env: MACHINE=qemux86 PARAMFILE=standard_01
+  - name: "qemux86 script tools"
+    env: MACHINE=qemux86 PARAMFILE=standard_02
+  - name: "qemux86 system tools"
+    env: MACHINE=qemux86 PARAMFILE=standard_02
   - name: "qemux86 + meta-oe"
-    env: MACHINE=qemux86 _WITH_METAOE=1
+    env: MACHINE=qemux86 _WITH_METAOE=1 PARAMFILE=metaoe
   - name: "qemux86 + clang"
-    env: MACHINE=qemux86 _WITH_METACLANG=1
-  - name: "qemux86 + clang + meta-oe"
-    env: MACHINE=qemux86 _WITH_METACLANG=1 _WITH_METAOE=1
+    env: MACHINE=qemux86 _WITH_METACLANG=1 PARAMFILE=metaclang
 script:
     # Clone needed repos
     - git clone git://git.yoctoproject.org/poky.git/ -b ${SCA_BRANCH} ${TRAVIS_BUILD_DIR}/poky
@@ -52,6 +54,9 @@ script:
     - bitbake-layers add-layer ${TRAVIS_BUILD_DIR}
     - if [ ! -z ${_WITH_METACLANG} ]; then bitbake-layers add-layer ${TRAVIS_BUILD_DIR}/meta-clang; fi
     - if [ ! -z ${_WITH_METAOE} ]; then bitbake-layers add-layer ${TRAVIS_BUILD_DIR}/meta-oe/meta-oe; fi
+    - |
+      mods=$(cat ${TRAVIS_BUILD_DIR}/recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ')
+      echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> conf/local.conf
     # Only run bitbake-parse without actually building anything
     # this is needed as travis-ci is slow as hell and has 
     # multiple limitations regarding buildtime, which
