@@ -1,5 +1,7 @@
 # meta-sca <!-- omit in toc -->
 
+![https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CLua%2CPHP%2CPython%2CShell%2Cjs-informational](https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CLua%2CPHP%2CPython%2CShell%2Cjs-informational)
+
 ## Current status
 
 | branch  | build status travis                                                                                                                | nightly (classic tools)                                                                              | nightly (script tools)                                                                              |  nightly (system tools)                                                                            | nightly /w meta-clang                                                                                  | nightly /w meta-oe
