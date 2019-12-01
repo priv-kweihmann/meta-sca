@@ -93,7 +93,7 @@ python do_sca_systemdlint() {
         try:
             subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
-            bb.warn(str(e)[:1000])
+            bb.warn(str(e))
 
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/systemdlint.dm".format(d.getVar("T")))
