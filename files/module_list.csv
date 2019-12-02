@@ -42,6 +42,7 @@ oelint,Bitbake recipe linter,https://github.com/priv-kweihmann/oelint-adv,,,x,x,
 phan,PHP linter,https://github.com/phan/phan,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,,x
 phpcodefixer,Find deprecated PHP functions,https://github.com/wapmorgan/PhpCodeFixer,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,x,
 phpcodesniffer,"PHP, Js and CSS linter",https://github.com/squizlabs/PHP_CodeSniffer,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,,x
+phpsecaudit,Find vulnerabilities in PHP code,https://github.com/FloeDesignTechnologies/phpcs-security-audit,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,x,,
 phpstan,PHP linter,https://github.com/phpstan/phpstan,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,,x
 progpilot,PHP linter with security focus,https://github.com/designsecurity/progpilot,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,x,
 proselint,Spelling and text linter,https://github.com/amperser/proselint/,,,x,x,,,,,,,,,,x,,,,,,,x
