@@ -2,4 +2,5 @@
 bitbake \
         bad-lua \
         bad-php \
+        bad-javascript \
         $@
