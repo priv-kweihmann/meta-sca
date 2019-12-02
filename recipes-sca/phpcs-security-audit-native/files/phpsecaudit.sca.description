@@ -1,0 +1,7 @@
+{
+    "languages": [ "PHP" ],
+    "scope": ["security"],
+    "buildspeed" : 4,
+    "execspeed": 10,
+    "quality": 9
+}
