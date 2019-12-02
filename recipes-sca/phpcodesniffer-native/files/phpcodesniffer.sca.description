@@ -1,6 +1,6 @@
 {
     "languages": [ "PHP", "Javascript", "CSS" ],
-    "scope": ["functional"],
+    "scope": ["functional", "style"],
     "buildspeed" : 4,
     "execspeed": 10,
     "quality": 7
