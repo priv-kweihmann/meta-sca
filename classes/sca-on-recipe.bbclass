@@ -46,6 +46,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             phan \
                             phpcodefixer \
                             phpcodesniffer \
+                            phpsecaudit \
                             phpstan \
                             progpilot \
                             proselint \
