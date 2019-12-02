@@ -124,6 +124,9 @@ _data = {
         "bad-php",
         "bad-javascript"
     ],
+    "phpsecaudit": [
+        "bad-php"
+    ],
     "proselint": [
         "busybox",
         "python3-git"
