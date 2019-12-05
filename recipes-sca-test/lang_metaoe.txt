@@ -2,6 +2,7 @@ luacheck
 phan
 phpcodefixer
 phpcodesniffer
+phpmd
 phpsecaudit
 phpstan
 progpilot
