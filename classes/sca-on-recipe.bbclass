@@ -43,6 +43,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             msgcheck \
                             mypy \
                             oelint \
+                            perl \
                             phan \
                             phpcodefixer \
                             phpcodesniffer \

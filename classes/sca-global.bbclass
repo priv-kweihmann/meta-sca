@@ -96,6 +96,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           nixauditor \
                           npmaudit \
                           oelint \
+                          perl \
                           proselint \
                           pscan \
                           pyfindinjection \

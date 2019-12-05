@@ -120,6 +120,9 @@ _data = {
         "python3-git",
         "simple-c"
     ],
+    "perl": [
+        "bad-perl"
+    ],
     "phpcodersniffer": [
         "bad-php",
         "bad-javascript"
