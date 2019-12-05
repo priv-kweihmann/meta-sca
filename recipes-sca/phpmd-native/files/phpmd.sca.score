@@ -1,0 +1,5 @@
+{
+    "functional": [
+        "phpmd.phpmd..*"
+    ]
+}
