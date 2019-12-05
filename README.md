@@ -1,6 +1,6 @@
 # meta-sca <!-- omit in toc -->
 
-![https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CLua%2CPHP%2CPython%2CShell%2Cjs-informational](https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CLua%2CPHP%2CPython%2CShell%2Cjs-informational)
+![https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CLua%2CPHP%2CPython%2CShell%2Cjs%2Cperl-informational](https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CLua%2CPHP%2CPython%2CShell%2Cjs%2Cperl-informational)
 
 ## Current status
 
@@ -180,6 +180,7 @@ The layer can check on a recipe-level or on an image-level.
 | nixauditor      | Auditing tool for images                              | https://github.com/XalfiE/Nix-Auditor                                 |                             |               | x            |               |   |     |        |       |            |     |    | x      |     |          |         |          |          |               | x              |                  |             |
 | npmaudit        | NPM package auditor                                   | https://docs.npmjs.com/cli/audit                                      |                             | x             |              | x             |   |     |        |       |            |     |    |        |     |          |         |          |          | x             | x              |                  |             |
 | oelint          | Bitbake recipe linter                                 | https://github.com/priv-kweihmann/oelint-adv                          |                             |               | x            | x             |   |     |        |       |            |     |    |        |     |          |         |          |          | x             |                |                  | x           |
+| perl            | Perl warnings check                                   |                                                                       |                             |               |              | x             |   |     |        |       |            |     |    |        |     |          |         |          |          | x             |                | x                |             |
 | phan            | PHP linter                                            | https://github.com/phan/phan                                          | "meta-oe, manual enable"    | x             |              | x             |   |     |        |       |            | x   |    |        |     |          |         |          |          |               |                |                  | x           |
 | phpcodefixer    | Find deprecated PHP functions                         | https://github.com/wapmorgan/PhpCodeFixer                             | "meta-oe, manual enable"    | x             |              | x             |   |     |        |       |            | x   |    |        |     |          |         |          |          |               |                | x                |             |
 | phpcodesniffer  | "PHP, Js and CSS linter"                              | https://github.com/squizlabs/PHP_CodeSniffer                          | "meta-oe, manual enable"    | x             |              | x             |   |     |        |       |            | x   |    |        |     |          |         |          |          |               |                |                  | x           |
@@ -275,6 +276,7 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
     - [nixauditor](docs/conf/module/nixauditor.md)
     - [npmaudit](docs/conf/module/npmaudit.md)
     - [oelint](docs/conf/module/oelint.md)
+    - [perl](docs/conf/module/perl.md)
     - [phan](docs/conf/module/phan.md)
     - [phpcodefixer](docs/conf/module/phpcodefixer.md)
     - [phpcodesniffer](docs/conf/module/phpcodesniffer.md)

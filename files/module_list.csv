@@ -39,6 +39,7 @@ mypy,Python linter,https://github.com/python/mypy,,,x,x,,,x,,,,,,,,,,,,,x,
 nixauditor,Auditing tool for images,https://github.com/XalfiE/Nix-Auditor,,,x,,,,,,,,,x,,,,,,,x,,
 npmaudit,NPM package auditor,https://docs.npmjs.com/cli/audit,,x,,x,,,,,,,,,,,,,,x,x,,
 oelint,Bitbake recipe linter,https://github.com/priv-kweihmann/oelint-adv,,,x,x,,,,,,,,,,,,,,x,,,x
+perl,Perl warnings check,,,,,x,,,,,,,,,,,,,,x,,x,
 phan,PHP linter,https://github.com/phan/phan,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,,x
 phpcodefixer,Find deprecated PHP functions,https://github.com/wapmorgan/PhpCodeFixer,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,x,
 phpcodesniffer,"PHP, Js and CSS linter",https://github.com/squizlabs/PHP_CodeSniffer,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,,x
