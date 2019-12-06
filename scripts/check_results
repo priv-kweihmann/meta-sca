@@ -123,6 +123,9 @@ _data = {
     "perl": [
         "bad-perl"
     ],
+    "perlcritic": [
+        "bad-perl"
+    ],
     "phpcodersniffer": [
         "bad-php",
         "bad-javascript"
