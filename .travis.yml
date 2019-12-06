@@ -29,6 +29,8 @@ env:
       - SCA_TARGET_IMG=core-image-minimal-scatest
       # Builddir
       - SCA_BUILDDIR=${TRAVIS_BUILD_DIR}/build
+      # Max runtime in seconds
+      - MAXRUNTIME=600
 jobs:
   include:
   - name: "qemux86 classic tools"
@@ -57,8 +59,6 @@ script:
     - |
       mods=$(cat ${TRAVIS_BUILD_DIR}/recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ')
       echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> conf/local.conf
-    # Only run bitbake-parse without actually building anything
-    # this is needed as travis-ci is slow as hell and has 
-    # multiple limitations regarding buildtime, which
-    # prevents using it as the main CI for bitbake
-    - bitbake -p ${SCA_TARGET_IMG}
+    # Run bitbake for 10 minutes to catch any dependency or syntax errors
+    # on the way, but do not build the whole system, which takes hours not just 10 minutes
+    - timeout --foreground $MAXRUNTIME bitbake ${SCA_TARGET_IMG} || if [ $? == 124 ]; then echo "Good so far"; else return 1; fi;
