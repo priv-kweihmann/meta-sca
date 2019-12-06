@@ -44,6 +44,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             mypy \
                             oelint \
                             perl \
+                            perlcritic \
                             phan \
                             phpcodefixer \
                             phpcodesniffer \

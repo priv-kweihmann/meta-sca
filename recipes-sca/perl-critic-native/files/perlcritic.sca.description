@@ -1,0 +1,7 @@
+{
+    "languages": [ "Perl" ],
+    "scope": [ "functional" ],
+    "buildspeed" : 7,
+    "execspeed": 9,
+    "quality": 10
+}

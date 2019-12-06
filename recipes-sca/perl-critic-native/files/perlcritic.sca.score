@@ -1,0 +1,3 @@
+{
+    "functional": [ "perlcritic.perlcritic..*" ]
+}
