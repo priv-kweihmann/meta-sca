@@ -11,6 +11,7 @@ golint
 govet
 kconfighard
 perl
+perlcritic
 pscan
 rats
 revive
