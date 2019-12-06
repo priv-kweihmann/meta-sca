@@ -12,6 +12,7 @@ gosec
 govet
 kconfighard
 perl
+perlcritic
 pscan
 rats
 revive
