@@ -22,6 +22,7 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             flake8 \
                             gixy \
                             htmlhint \
+                            jshint \
                             jsonlint \
                             lynis \
                             mypy \
