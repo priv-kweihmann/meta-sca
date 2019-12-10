@@ -30,20 +30,20 @@ DEPENDS = "openssl-native"
 
 inherit pkgconfig
 inherit native
+inherit pythonnative
 
 COMPATIBLE_HOST_riscv64 = "null"
 COMPATIBLE_HOST_riscv32 = "null"
 
 SRC_URI = "http://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz \
            file://0001-Disable-running-gyp-files-for-bundled-deps.patch \
-           file://0003-Crypto-reduce-memory-usage-of-SignFinal.patch \
+           file://0003-Install-both-binaries-and-use-libdir.patch \
            file://0004-Make-compatibility-with-gcc-4.8.patch \
-           file://0005-Link-atomic-library.patch \
-           file://0006-Use-target-ldflags.patch \
+           file://0007-v8-don-t-override-ARM-CFLAGS.patch \
            "
            
-SRC_URI[md5sum] = "b41275a018e670947c1950b12f050a2f"
-SRC_URI[sha256sum] = "7bf1123d7415964775b8f81fe6ec6dd5c3c08abb42bb71dfe4409dbeeba26bbd"
+SRC_URI[md5sum] = "d5a56d0abf764a91f627f0690cd4b9f3"
+SRC_URI[sha256sum] = "412667d76bd5273c07cb69c215998109fd5bb35c874654f93e6a0132d666c58e"
 
 S = "${WORKDIR}/node-v${PV}"
 
