@@ -29,6 +29,7 @@ govet,GO linter,https://golang.org/cmd/vet/,,,,x,,,,,,,x,,,,,,,,,x,x
 htmlhint,HTML linter,https://github.com/htmlhint/HTMLHint,,x,x,x,,,,,,,,,,,,,,x,,x,
 ikos,C/C++ linter using LLVM,https://github.com/nasa-sw-vnv/ikos,"meta-clang, manual enable",,,,x,x,x,,,,,,,,,,,,,,x
 image-summary,Aggregate all findings for package in an image,,,,x,,,,,,,,,,,,,,x,,x,x,x
+jshint,Javascript linter,https://github.com/jshint/jshint,,x,x,x,,,,,x,,,,,,,,,,,x,x
 jsonlint,JSON file linter,,,,x,x,,,,,,,,,,,,,,x,,x,
 kconfighard,Kernel config hardening checker,https://github.com/a13xp0p0v/kconfig-hardened-check,,,,x,,,,,,,,,,,,,,x,x,,
 looong,Find functions with too long arglists,https://github.com/anapaulagomes/looong,,,,x,,,x,,,,,,,,,,,,,,x

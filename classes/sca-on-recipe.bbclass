@@ -35,6 +35,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             govet \
                             htmlhint \
                             ikos \
+                            jshint \
                             jsonlint \
                             kconfighard \
                             looong \

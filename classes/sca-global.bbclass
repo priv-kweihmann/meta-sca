@@ -82,6 +82,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           golint \
                           govet \
                           htmlhint \
+                          jshint \
                           jsonlint \
                           kconfighard \
                           looong \
