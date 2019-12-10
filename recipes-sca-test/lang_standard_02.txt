@@ -9,6 +9,7 @@ detectsecrets
 eslint
 flake8
 htmlhint
+jshint
 jsonlint
 looong
 msgcheck
