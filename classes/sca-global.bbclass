@@ -107,6 +107,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           revive \
                           ropgadget \
                           safety \
+                          setuptoolslint \
                           shellcheck \
                           slick \
                           sparse \

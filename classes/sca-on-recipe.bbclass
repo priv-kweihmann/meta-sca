@@ -67,6 +67,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             ropgadget \
                             safety \
                             score \
+                            setuptoolslint \
                             shellcheck \
                             slick \
                             sparse \
