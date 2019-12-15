@@ -27,6 +27,7 @@ DEPENDS += " \
             gmp-native \
             python3-native \
             sqlite3-native \
+            tbb-native \
             "
 
 FILES_${PN} += "${datadir}"
