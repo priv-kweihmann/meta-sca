@@ -103,6 +103,7 @@ python do_sca_deploy_setuptoolslint() {
     sca_conv_deploy(d, "setuptoolslint", "text")
 }
 
+do_sca_conv_setuptoolslint[depends] += "${BPN}:do_prepare_recipe_sysroot"
 addtask do_sca_setuptoolslint before do_configure after do_patch
 addtask do_sca_deploy_setuptoolslint after do_sca_setuptoolslint before do_package
 
