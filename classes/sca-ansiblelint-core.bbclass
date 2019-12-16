@@ -67,7 +67,7 @@ python do_sca_ansiblelint_core() {
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "ansiblelint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "python-native", "python")]
-    _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "ansible-lint")]
+    _args += ["-m", "ansiblelint"]
     _args += ["-p"]
     _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_ANSIBLELINT_FILE_FILTER"),
                         sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
