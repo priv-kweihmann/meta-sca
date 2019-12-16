@@ -1,1 +1,1 @@
-PACKAGECONFIG_class-native = "shared-libs"
+PACKAGECONFIG_class-native += "shared-libs"
