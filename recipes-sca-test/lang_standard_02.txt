@@ -1,3 +1,4 @@
+ansiblelint
 bandit
 bitbake
 cqmetrics

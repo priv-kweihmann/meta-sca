@@ -64,6 +64,7 @@ SCA_SEVERITY_TRANSFORM ?= ""
 SCA_AVAILABLE_MODULES ?= "\
                           alexkohler \
                           ansible \
+                          ansiblelint \
                           bandit \
                           bashate \
                           bitbake \
