@@ -173,6 +173,9 @@ _data = {
     "safety": [
         "bad-python-reqs"
     ],
+    "setuptoolslint": [
+        "bad-python-reqs"
+    ],
     "shellcheck": [
         "busybox",
         "openssh"
