@@ -103,8 +103,7 @@ python do_sca_deploy_setuptoolslint() {
     sca_conv_deploy(d, "setuptoolslint", "text")
 }
 
-do_sca_conv_setuptoolslint[depends] += "${BPN}:do_prepare_recipe_sysroot"
-addtask do_sca_setuptoolslint before do_configure after do_patch
+addtask do_sca_setuptoolslint before do_install after do_compile
 addtask do_sca_deploy_setuptoolslint after do_sca_setuptoolslint before do_package
 
 do_sca_setuptoolslint[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
