@@ -25,6 +25,7 @@ pytype
 radon
 retire
 safety
+setuptoolslint
 standard
 stylelint
 textlint
