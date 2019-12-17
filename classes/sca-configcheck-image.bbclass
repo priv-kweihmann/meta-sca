@@ -4,20 +4,20 @@
 SCA_CONFIGCHECK_EXTRA_SUPPRESS ?= ""
 SCA_CONFIGCHECK_EXTRA_FATAL ?= ""
 SCA_CONFIGCHECK_MODULES ?= "\
+                            apache2 \
+                            cups \
                             freeradius \
+                            lighttpd \
                             nftables \
                             nginx \
+                            ntp \
+                            postfix \
+                            proftpd \
+                            samba \
+                            squid \
                             sshd \
+                            vsftpd \
                            "
-
-## Glob where to look for nftables-rules
-SCA_CONFIGCHECK_nftables_FILEGLOB ?= "/etc/nft/rules/*"
-## Path to base dir where to look for nftables includes
-SCA_CONFIGCHECK_nftables_INCLUDEDIR ?= "/etc/nft/rules"
-## Path of used nginx config
-SCA_CONFIGCHECK_nginx_CONFIGFILE ?= "/etc/nginx/nginx.conf"
-## Path of used sshd config
-SCA_CONFIGCHECK_sshd_CONFIGFILE ?= "/etc/ssh/sshd_config"
 
 inherit sca-conv-to-export
 inherit sca-datamodel
@@ -27,164 +27,19 @@ inherit sca-license-filter
 inherit sca-crossemu
 inherit sca-suppress
 
-def do_sca_configcheck_run_freeradius(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which radiusd) ] && mkdir -p /tmp && radiusd -C -l /tmp/radius_check; cat /tmp/radius_check"]
-
-def do_sca_configcheck_run_nftables(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which nft) ] && for f in {};do nft -c -I {} -f $f; done".format(d.getVar("SCA_CONFIGCHECK_nftables_FILEGLOB"), d.getVar("SCA_CONFIGCHECK_nftables_INCLUDEDIR"))]
-
-def do_sca_configcheck_run_nginx(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which nginx) ] && nginx -T -c {}".format(d.getVar("SCA_CONFIGCHECK_nginx_CONFIGFILE"))]
-
-def do_sca_configcheck_run_sshd(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which sshd) ] && /usr/libexec/openssh/sshd_check_keys && sshd -T -f {}".format(d.getVar("SCA_CONFIGCHECK_sshd_CONFIGFILE"))]
-
-def do_sca_configcheck_conv_nginx(d, toolout, suppress):
-    import os
-    import re
-
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
-
-    pattern = r"^(nginx:|.*)\s+\[(?P<severity>.*)\]\s+(?P<msg>.*)\s+in\s+(?P<file>.*):(?P<line>\d+)"
-
-    severity_map = {
-        "emerg" : "error",
-    }
-
-    _findings = []
-
-    for m in re.finditer(pattern, toolout, re.MULTILINE):
-        try:
-            g = sca_get_model_class(d,
-                                    PackageName=package_name,
-                                    Tool="configcheck",
-                                    BuildPath=buildpath,
-                                    File=m.group("file"),
-                                    Line=m.group("line"),
-                                    Message=m.group("msg").strip(),
-                                    ID="nginx",
-                                    Severity=severity_map[m.group("severity")])
-            if g.GetFormattedID() in suppress:
-                continue
-            if not sca_is_in_finding_scope(d, "configcheck", g.GetFormattedID()):
-                continue
-            if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)
-        except Exception as exp:
-            bb.warn(str(exp))
-
-    return _findings
-
-def do_sca_configcheck_conv_freeradius(d, toolout, suppress):
-    import os
-    import re
-
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
-
-    pattern = r"^.*:\s+(?P<severity>Error|Warning):\s*\[(?P<file>.*)\]:(?P<line>\d+)\s+(?P<msg>.*)"
-
-    severity_map = {
-        "Error" : "error",
-        "Warning": "warning"
-    }
-
-    _findings = []
-
-    for m in re.finditer(pattern, toolout, re.MULTILINE):
-        try:
-            g = sca_get_model_class(d,
-                                    PackageName=package_name,
-                                    Tool="configcheck",
-                                    BuildPath=buildpath,
-                                    Line=m.group("line"),
-                                    File=m.group("file"),
-                                    Message=m.group("msg").strip(),
-                                    ID="freeradius",
-                                    Severity=severity_map[m.group("severity")])
-            if g.GetFormattedID() in suppress:
-                continue
-            if not sca_is_in_finding_scope(d, "configcheck", g.GetFormattedID()):
-                continue
-            if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)
-        except Exception as exp:
-            bb.warn(str(exp))
-
-    return _findings
-
-def do_sca_configcheck_conv_sshd(d, toolout, suppress):
-    import os
-    import re
-
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
-
-    pattern = r"^(?P<file>.*)\s+line\s+(?P<line>\d+):\s+(?P<msg>.*)"
-
-    _findings = []
-
-    for m in re.finditer(pattern, toolout, re.MULTILINE):
-        try:
-            g = sca_get_model_class(d,
-                                    PackageName=package_name,
-                                    Tool="configcheck",
-                                    BuildPath=buildpath,
-                                    File=m.group("file"),
-                                    Line=m.group("line"),
-                                    Message=m.group("msg").strip(),
-                                    ID="sshd",
-                                    Severity="error")
-            if g.GetFormattedID() in suppress:
-                continue
-            if not sca_is_in_finding_scope(d, "configcheck", g.GetFormattedID()):
-                continue
-            if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)
-        except Exception as exp:
-            bb.warn(str(exp))
-
-    return _findings
-
-def do_sca_configcheck_conv_nftables(d, toolout, suppress):
-    import os
-    import re
-
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
-
-    pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<col>\d+)-\d+:\s+(?P<severity>.*):\s+(?P<msg>.*)"
-
-    _findings = []
-
-    severity_map = {
-        "Error" : "error",
-        "Warning": "warning"
-    }
-
-    for m in re.finditer(pattern, toolout, re.MULTILINE):
-        try:
-            g = sca_get_model_class(d,
-                                    PackageName=package_name,
-                                    Tool="configcheck",
-                                    BuildPath=buildpath,
-                                    File=m.group("file"),
-                                    Line=m.group("line"),
-                                    Column=m.group("col"),
-                                    Message=m.group("msg").strip(),
-                                    ID="nftables",
-                                    Severity=severity_map[m.group("severity")])
-            if g.GetFormattedID() in suppress:
-                continue
-            if not sca_is_in_finding_scope(d, "configcheck", g.GetFormattedID()):
-                continue
-            if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)
-        except Exception as exp:
-            bb.warn(str(exp))
-
-    return _findings
+inherit sca-configcheck-mod-apache2
+inherit sca-configcheck-mod-cups
+inherit sca-configcheck-mod-freeradius
+inherit sca-configcheck-mod-lighttpd
+inherit sca-configcheck-mod-nftables
+inherit sca-configcheck-mod-nginx
+inherit sca-configcheck-mod-ntp
+inherit sca-configcheck-mod-postfix
+inherit sca-configcheck-mod-proftpd
+inherit sca-configcheck-mod-samba
+inherit sca-configcheck-mod-squid
+inherit sca-configcheck-mod-sshd
+inherit sca-configcheck-mod-vsftpd
 
 def do_sca_conv_configcheck(d, findings):
     sca_add_model_class_list(d, findings)
@@ -198,6 +53,9 @@ sca_configcheck_prepare() {
 
     ## nginx requires its log dir
     mkdir -p ${IMAGE_ROOTFS}/var/log/nginx/ || true
+
+    ## apache requires its log dir
+    mkdir -p ${IMAGE_ROOTFS}/var/log/apache2/ || true
 
     ## create at least the configured include dir of nftables
     mkdir -p ${IMAGE_ROOTFS}${SCA_CONFIGCHECK_nftables_INCLUDEDIR} || true
@@ -218,7 +76,7 @@ fakeroot python do_sca_configcheck() {
     cmd_output = ""
 
     ## Create rootfs first
-    sca_crossemu(d, None, [], "configcheck", "sca_configcheck_prepare;")
+    sca_crossemu(d, None, ["bash"], "configcheck", "sca_configcheck_prepare;")
 
     _raw_findings = []
     _suppress = sca_suppress_init(d)
@@ -233,6 +91,8 @@ fakeroot python do_sca_configcheck() {
                 _cmd_output = _cmd_output.decode("utf-8")
                 cmd_output += _cmd_output + "\n###########\n"
                 _raw_findings += sca_get_func_by_name(d, _conv_args_name)(d, _cmd_output, _suppress)
+            else:
+                bb.warn("configcheck -> {} no output".format(mod))
         except NotImplementedError:
             pass
         except Exception as e:
@@ -262,4 +122,4 @@ addtask do_sca_deploy_configcheck_image before do_image_complete after do_sca_co
 do_sca_configcheck[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 do_sca_deploy_configcheck_image[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
-DEPENDS += "configcheck-sca-native sca-image-configcheck-rules-native"
+DEPENDS += "configcheck-sca-native sca-image-configcheck-rules-native bash"
