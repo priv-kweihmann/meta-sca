@@ -2,13 +2,23 @@ SUMMARY = "Fast open source processor emulator (compiled statically)"
 HOMEPAGE = "http://qemu.org"
 LICENSE = "GPLv2 & LGPLv2.1"
 
+# NOTE: If you get an configure error like
+# ERROR: sizeof(size_t) doesn't match GLIB_SIZEOF_SIZE_T.
+#        You probably need to set PKG_CONFIG_LIBDIR
+#        to point to the right pkg-config files for your
+#        build target
+#
+# WARNING: exit code 1 from a shell command.
+#
+# you likely need to install glib-2.0-dev on your host
+
 SRC_URI = "https://download.qemu.org/qemu-${PV}.tar.xz"
 
-SRC_URI[md5sum] = "fb687ce0b02d3bf4327e36d3b99427a8"
-SRC_URI[sha256sum] = "6a0508df079a0a33c2487ca936a56c12122f105b8a96a44374704bef6c69abfc"
+SRC_URI[md5sum] = "cdf2b5ca52b9abac9bacb5842fa420f8"
+SRC_URI[sha256sum] = "656e60218689bdeec69903087fd7582d5d3e72238d02f4481d8dc6d79fd909c6"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=441c28d2cf86e15a37fa47e15a72fbac \
-                    file://COPYING.LIB;endline=24;md5=c04def7ae38850e7d3ef548588159913"
+                    file://COPYING.LIB;endline=24;md5=8c5efda6cf1e1b03dcfd0e6c0d271c7f"
 
 S = "${WORKDIR}/qemu-${PV}"
 B = "${WORKDIR}/build"
@@ -70,6 +80,9 @@ FILES_${PN} = "${bindir}"
 do_install () {
 	export STRIP=""
 	oe_runmake 'DESTDIR=${D}' install
+
+    ## This otherwise collides with qemu-native, as we only need the binaries, it's okay here
+    rm -rf ${D}${datadir}
 
     ## Rename the binaries to *-static
     find ${D} -executable -type f -exec mv {} {}-static \;
