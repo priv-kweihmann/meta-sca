@@ -1,7 +1,0 @@
-{
-    "languages": [ "C" ],
-    "scope": ["style"],
-    "buildspeed" : 8,
-    "execspeed": 9,
-    "quality": 8
-}

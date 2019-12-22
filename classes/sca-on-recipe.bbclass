@@ -19,7 +19,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             clang \
                             cppcheck \
                             cpplint \
-                            cqmetrics \
                             cspell \
                             cvecheck \
                             darglint \
@@ -60,7 +59,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             pyright \
                             pysymcheck \
                             pytype \
-                            radon \
                             rats \
                             retire \
                             revive \

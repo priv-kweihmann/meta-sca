@@ -139,16 +139,10 @@ This might need some time and should be done by an experienced developer.
 
 Metrics have proven to be quite a good indicator of improvable code.
 I would recommend to watch for [Halstead complexity metrics](https://en.wikipedia.org/wiki/Halstead_complexity_measures), as they give you information not only about the complexity of statements but about the likeliness of bugs.
-The metric itself is given as 'E', so to get the probability of bugs in the code you need to calculate X = (E)/3000.
-The lower the value the better this code is in the sense of maintaining it.
 
-For me a threshold value of "0.05" shouldn't be exceeded here.
+`TODO`!!
 
-To active add/set
-
-```sh
-SCA_AVAILABLE_MODULES = "cqmetrics"
-SCA_CQMETRICS_WARN_halstead_max_gt = "0.05"
+```shell
 ```
 
 in the conf/local.conf-file.
@@ -180,7 +174,6 @@ SCA_AVAILABLE_MODULES = "\
                         bitbake \
                         ansible \
                         ropgadget \
-                        cqmetrics \
                         tlv \
                         cppcheck \
                         rats \
@@ -196,7 +189,6 @@ SCA_BITBAKE_HARDENING = "\
                         "
 SCA_GCC_HARDENING = "1"
 SCA_WARNING_LEVEL = "info"
-SCA_CQMETRICS_WARN_halstead_max_gt = "0.05"
 ```
 
 ## Analysis

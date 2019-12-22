@@ -11,7 +11,6 @@ clang,C/C++ linter using LLVM,https://clang.llvm.org/extra/clang-tidy/,"Meta-cla
 configcheck,Check application configurations,,,,x,,,,,,,,,,,,,,,x,,x,
 cppcheck,C/C++ linter,https://github.com/danmar/cppcheck,,,,x,x,x,,,,,,,,,,,,,x,x,x
 cpplint,C/C++ linter,https://github.com/cpplint/cpplint,,,,x,x,x,,,,,,,,,,,,,x,x,x
-cqmetrics,Metrics for C/C++,https://github.com/dspinellis/cqmetrics,,,,x,x,x,,,,,,,,,x,,,,,x,
 cspell,Spelling linter,https://github.com/Jason3S/cspell,,x,,x,,,,,,,,,,x,,,,,,,x
 cvecheck,Check for unpatched CVEs,https://github.com/clearlinux/cve-check-tool,manual enable,x,,x,,,,,,,,,,,,,x,,x,,
 darglint,Python docstring linter,https://github.com/terrencepreilly/darglint,,,,x,,,x,,,,,,,,,,,,,,x
@@ -56,7 +55,6 @@ pylint,Python linter,https://github.com/PyCQA/pylint,,,x,x,,,x,,,,,,,,,,,,,x,x
 pyright,Python type linter,https://github.com/Microsoft/pyright,,x,,x,,,x,,,,,,,,,,,,,x,
 pysymcheck,Check binaries for forbidden function usage,https://github.com/priv-kweihmann/pysymbolcheck,,,,x,,,,,,,,,,,,x,,,x,,
 pytype,Python linter using type-annotations,https://github.com/google/pytype,,x,,x,,,x,,,,,,,,,,,,,x,
-radon,Python metrics,https://github.com/rubik/radon,,,,x,,,x,,,,,,,,x,,,,,x,
 rats,Check on insecurities in several languages,https://github.com/redNixon/rats,,,,x,,x,x,x,,x,,,,,,,,,x,,
 retire,Check for known vulnerabilities in javascript and NPM,https://retirejs.github.io/retire.js/,,x,,x,,,,,x,,,,,,,,x,,x,,
 revive,GO linter,https://github.com/mgechev/revive,,,,x,,,,,,,x,,,,,,,,,x,x
