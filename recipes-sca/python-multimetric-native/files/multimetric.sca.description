@@ -1,0 +1,7 @@
+{
+    "languages": [ "Python", "C", "C++", "PHP", "Javascript", "Perl", "Lua", "Go" ],
+    "scope": [ "style" ],
+    "buildspeed" : 3,
+    "execspeed": 8,
+    "quality": 8
+}

@@ -13,6 +13,7 @@ jshint
 jsonlint
 looong
 msgcheck
+multimetric
 mypy
 npmaudit
 oelint

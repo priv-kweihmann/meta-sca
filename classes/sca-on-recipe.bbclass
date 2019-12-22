@@ -41,6 +41,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             luacheck \
                             npmaudit \
                             msgcheck \
+                            multimetric \
                             mypy \
                             oelint \
                             perl \
