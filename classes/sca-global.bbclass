@@ -87,6 +87,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           looong \
                           lynis \
                           msgcheck \
+                          multimetric \
                           mypy \
                           nixauditor \
                           npmaudit \

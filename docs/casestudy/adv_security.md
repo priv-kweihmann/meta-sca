@@ -35,7 +35,7 @@ Mainly to get a brief estimation what it would cost to harden things.
 
 Just insert
 
-```sh
+```bitbake
 INHERIT += "sca"
 ```
 
@@ -47,7 +47,7 @@ For hardening the kernel it's advised to use the [kconfighard](../conf/module/kc
 
 Module is activated by adding/setting
 
-```sh
+```bitbake
 SCA_AVAILABLE_MODULES = "kconfighard"
 ```
 
@@ -62,7 +62,7 @@ As we are using bitbake, it's also recommended to use the bitbake-hardening chec
 
 To active add/set
 
-```sh
+```bitbake
 SCA_AVAILABLE_MODULES = "gcc bitbake"
 SCA_BITBAKE_HARDENING = "\
                         debug_tweaks \
@@ -85,7 +85,7 @@ For this particular purpose the following tools are quite useful
 
 They will run a multitude of tests on the resulting image and will give advise what should be further checked on.
 
-```sh
+```bitbake
 SCA_AVAILABLE_MODULES = "ansible lynis tiger upc"
 ```
 
@@ -109,7 +109,7 @@ Those findings could be easily refactored by combining them into common function
 
 To active add/set
 
-```sh
+```bitbake
 SCA_AVAILABLE_MODULES = "tlv"
 ```
 
@@ -125,7 +125,7 @@ As there are a large number of occurrences the global loglevel need to be turned
 
 To active add/set
 
-```sh
+```bitbake
 SCA_AVAILABLE_MODULES = "ropgadget"
 SCA_WARNING_LEVEL = "info"
 ```
@@ -138,14 +138,19 @@ This might need some time and should be done by an experienced developer.
 #### Usage of metrics
 
 Metrics have proven to be quite a good indicator of improvable code.
-I would recommend to watch for [Halstead complexity metrics](https://en.wikipedia.org/wiki/Halstead_complexity_measures), as they give you information not only about the complexity of statements but about the likeliness of bugs.
+I would recommend to watch for [Halstead complexity metrics](https://en.wikipedia.org/wiki/Halstead_complexity_measures), as they give you information not only about the complexity of statements but about the likeliness of bugs, resp. the estimated number of bugs within a code fragment.
 
-`TODO`!!
+Furthermore I would recommend to usage Maintainability index as an indicator. This metric is a value between 0 and 100, where 0 is worst and 100 is best.
+It gives you an indicator how maintainable code is - A value above 80 should be considered as good
 
-```shell
+Add the following to your conf/local.conf-file
+
+```bitbake
+SCA_AVAILABLE_MODULES = "multimetric"
+SCA_MULTIMETRIC_WARN_halstead_bugprop_gt = "0.05"
+SCA_MULTIMETRIC_WARN_maintainability_index_lt = "80.0"
 ```
 
-in the conf/local.conf-file.
 
 #### Usage of insecure functions
 
@@ -158,7 +163,7 @@ I would recommend here
 
 To active add/set
 
-```sh
+```bitbake
 SCA_AVAILABLE_MODULES = "cppcheck rats shellcheck"
 ```
 
@@ -168,13 +173,14 @@ in the conf/local.conf-file.
 
 The full applied configuration may look like this
 
-```sh
+```bitbake
 SCA_AVAILABLE_MODULES = "\
                         gcc \
                         bitbake \
                         ansible \
                         ropgadget \
                         tlv \
+                        multimetric \
                         cppcheck \
                         rats \
                         shellcheck \
@@ -189,6 +195,8 @@ SCA_BITBAKE_HARDENING = "\
                         "
 SCA_GCC_HARDENING = "1"
 SCA_WARNING_LEVEL = "info"
+SCA_MULTIMETRIC_WARN_halstead_bugprop_gt = "0.05"
+SCA_MULTIMETRIC_WARN_maintainability_index_lt = "80.0"
 ```
 
 ## Analysis
