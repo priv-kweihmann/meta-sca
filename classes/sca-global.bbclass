@@ -68,7 +68,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           configcheck \
                           cppcheck \
                           cpplint \
-                          cqmetrics \
                           cspell \
                           darglint \
                           dennis \
@@ -102,7 +101,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           pyright \
                           pysymcheck \
                           pytype \
-                          radon \
                           rats \
                           retire \
                           revive \

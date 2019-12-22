@@ -46,10 +46,6 @@ _data = {
         "openssh",
         "simple-c"
     ],
-    "cqmetrics": [
-        "busybox",
-        "openssh"
-    ],
     "eslint": [
         "bad-javascript"
     ],
@@ -151,9 +147,6 @@ _data = {
     ],
     "pytype": [
         "bad-python-types",
-        "python3-git"
-    ],
-    "radon": [
         "python3-git"
     ],
     "rats": [
