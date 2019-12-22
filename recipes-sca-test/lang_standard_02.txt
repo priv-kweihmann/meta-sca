@@ -1,7 +1,6 @@
 ansiblelint
 bandit
 bitbake
-cqmetrics
 cspell
 cvecheck
 darglint
@@ -23,7 +22,6 @@ pylint
 pyright
 pysymcheck
 pytype
-radon
 retire
 safety
 setuptoolslint
