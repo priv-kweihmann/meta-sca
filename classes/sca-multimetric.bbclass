@@ -43,8 +43,11 @@ def do_sca_conv_multimetric(d):
     _findings = []
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         j = {}
-        with open(d.getVar("SCA_RAW_RESULT_FILE")) as i:
-            j = json.load(i)
+        try:
+            with open(d.getVar("SCA_RAW_RESULT_FILE")) as i:
+                j = json.load(i)
+        except Exception as e:
+            bb.warn(str(e))
         try:
             for _file, v in j["files"].items():
                 for _item in v.keys():
