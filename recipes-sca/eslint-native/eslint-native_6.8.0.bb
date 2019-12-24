@@ -49,7 +49,7 @@ do_install() {
     npm install --prefix ${D}${prefix} ${NPM_EXTRA_ARGS} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --save-dev eslint-plugin-sql@1.1.1
     npm install --prefix ${D}${prefix} ${NPM_EXTRA_ARGS} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --save-dev eslint-plugin-standard@4.0.1
     npm install --prefix ${D}${prefix} ${NPM_EXTRA_ARGS} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --save-dev eslint-plugin-this@0.2.3
-    npm install --prefix ${D}${prefix} ${NPM_EXTRA_ARGS} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --save-dev eslint-plugin-unicorn@14.0.1
+    npm install --prefix ${D}${prefix} ${NPM_EXTRA_ARGS} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --save-dev eslint-plugin-unicorn@15.0.1
     npm install --prefix ${D}${prefix} ${NPM_EXTRA_ARGS} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --save-dev eslint-plugin-vue@6.0.1
     npm install --prefix ${D}${prefix} ${NPM_EXTRA_ARGS} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --save-dev eslint-plugin-xss@0.1.9
 
