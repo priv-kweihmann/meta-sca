@@ -28,12 +28,10 @@ def sca_is_in_finding_scope(d, tool, _id):
     if os.path.exists(_path):
         with open(_path) as i:
             score = json.load(i)
-            if "score" not in score:
-                score["score"] = {}
             for _scope in clean_split(d, "SCA_SCOPE_FILTER"):
-                if not _scope in score.keys():
+                if not _scope in score["score"].keys():
                     continue
-                for f in score[_scope]:
+                for f in score["score"][_scope]:
                     if re.match(f, _id):
                         d.appendVar("__SCA_IN_SCOPE", " " + _id)
                         return True
