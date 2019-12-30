@@ -47,7 +47,7 @@ def do_sca_conv_looong(d):
                                             Severity=_severity)
                     if g.File in _excludes:
                         continue
-                    if not sca_is_in_finding_scope(d, "looong", g.GetFormattedID()):
+                    if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

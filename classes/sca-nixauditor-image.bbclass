@@ -40,7 +40,7 @@ def do_sca_conv_nixauditor(d):
                                             Severity="warning")
                     if _suppress.Suppressed(g):
                         continue
-                    if not sca_is_in_finding_scope(d, "nixauditor", g.GetFormattedID()):
+                    if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

@@ -40,7 +40,7 @@ def do_sca_conv_shellcheck(d):
                         if _suppress.Suppressed(g):
                             continue
                         ## Mind that here the name has to be lowercase
-                        if not sca_is_in_finding_scope(d, "shellcheck", g.GetFormattedID()):
+                        if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                             continue
                         if g.Severity in sca_allowed_warning_level(d):
                             _findings.append(g)
