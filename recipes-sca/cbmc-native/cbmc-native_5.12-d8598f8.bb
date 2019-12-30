@@ -20,6 +20,7 @@ inherit native
 inherit sca-sanity
 
 EXTRA_OECMAKE += "-DWITH_JBMC=OFF -DWITH_MEMORY_ANALYZER=ON"
+CXXFLAGS += "-Wno-error=maybe-uninitialized"
 FILES_${PN} += "${bindir} ${datadir}"
 
 do_install() {
