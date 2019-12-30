@@ -1,7 +1,16 @@
 {
-    "languages": [ "python" ],
-    "scope": [ "security" ],
-    "buildspeed" : 5,
+    "buildspeed": 5,
     "execspeed": 10,
-    "quality": 4
+    "languages": [
+        "python"
+    ],
+    "quality": 4,
+    "scope": [
+        "security"
+    ],
+    "score": {
+        "security": [
+            "pyfindinjection.pyfindinjection..*"
+        ]
+    }
 }

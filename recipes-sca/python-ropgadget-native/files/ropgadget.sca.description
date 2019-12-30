@@ -1,7 +1,20 @@
 {
-    "languages": [ "binary" ],
-    "scope": [ "security" ],
-    "buildspeed" : 5,
+    "buildspeed": 5,
     "execspeed": 7,
-    "quality": 9
+    "languages": [
+        "binary"
+    ],
+    "quality": 9,
+    "scope": [
+        "security",
+        "style"
+    ],
+    "score": {
+        "security": [
+            "ropgadget.ropgadget.thresholdexceeded"
+        ],
+        "style": [
+            "ropgadget.ropgadget..*"
+        ]
+    }
 }

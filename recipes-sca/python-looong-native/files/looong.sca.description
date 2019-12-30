@@ -1,7 +1,16 @@
 {
-    "languages": [ "python" ],
-    "scope": [ "style" ],
-    "buildspeed" : 5,
+    "buildspeed": 5,
     "execspeed": 10,
-    "quality": 7
+    "languages": [
+        "python"
+    ],
+    "quality": 7,
+    "scope": [
+        "style"
+    ],
+    "score": {
+        "style": [
+            "looong.looong..*"
+        ]
+    }
 }

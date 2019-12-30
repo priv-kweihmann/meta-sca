@@ -1,4 +1,0 @@
-{
-    "functional": [ "stank.stank.MissingShebang" ],
-    "style": [ "stank.stank..*" ]
-}

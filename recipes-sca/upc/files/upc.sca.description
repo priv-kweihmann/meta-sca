@@ -1,7 +1,16 @@
 {
-    "languages": [ "system" ],
-    "scope": [ "security" ],
-    "buildspeed" : 3,
+    "buildspeed": 3,
     "execspeed": 4,
-    "quality": 8
+    "languages": [
+        "system"
+    ],
+    "quality": 8,
+    "scope": [
+        "security"
+    ],
+    "score": {
+        "security": [
+            "upc.upc..*"
+        ]
+    }
 }

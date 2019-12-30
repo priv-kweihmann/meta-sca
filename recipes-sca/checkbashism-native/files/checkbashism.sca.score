@@ -1,5 +1,0 @@
-{
-    "functional": [ 
-        "checkbashism.checkbashism..*"
-    ]
-}

@@ -1,7 +1,17 @@
 {
-    "languages": [ "shell" ],
-    "scope": [ "functional", "style" ],
-    "buildspeed" : 6,
+    "buildspeed": 6,
     "execspeed": 7,
-    "quality": 8
+    "languages": [
+        "shell"
+    ],
+    "quality": 8,
+    "scope": [
+        "functional",
+        "style"
+    ],
+    "score": {
+        "functional": [
+            "checkbashism.checkbashism..*"
+        ]
+    }
 }

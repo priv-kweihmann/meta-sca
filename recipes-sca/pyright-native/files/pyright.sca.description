@@ -1,7 +1,16 @@
 {
-    "languages": [ "python" ],
-    "scope": [ "functional" ],
-    "buildspeed" : 4,
+    "buildspeed": 4,
     "execspeed": 7,
-    "quality": 8
+    "languages": [
+        "python"
+    ],
+    "quality": 8,
+    "scope": [
+        "functional"
+    ],
+    "score": {
+        "functional": [
+            "pyright.pyright..*"
+        ]
+    }
 }

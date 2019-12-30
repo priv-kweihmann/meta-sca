@@ -1,7 +1,21 @@
 {
-    "languages": ["C", "CPP" ],
-    "scope": [ "security", "functional" ],
-    "buildspeed" : 10,
+    "buildspeed": 10,
     "execspeed": 10,
-    "quality": 10
+    "languages": [
+        "c",
+        "cpp"
+    ],
+    "quality": 10,
+    "scope": [
+        "security",
+        "functional"
+    ],
+    "score": {
+        "functional": [
+            "gcc.gcc..*"
+        ],
+        "security": [
+            "gcc.gcc.hardening.*"
+        ]
+    }
 }

@@ -1,7 +1,17 @@
 {
-    "languages": [ "C", "C#", "lua" ],
-    "scope": [ "functional" ],
-    "buildspeed" : 8,
+    "buildspeed": 8,
     "execspeed": 7,
-    "quality": 6
+    "languages": [
+        "c",
+        "lua"
+    ],
+    "quality": 6,
+    "scope": [
+        "functional"
+    ],
+    "score": {
+        "functional": [
+            "tscancode.tscancode..*"
+        ]
+    }
 }

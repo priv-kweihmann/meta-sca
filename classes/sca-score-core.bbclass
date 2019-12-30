@@ -28,14 +28,14 @@ def score_get_classifier_from_tool(d, tool):
     import os
     import json
     import re
-    _path = os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "{}.sca.score".format(tool))
     _pathdes = os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "{}.sca.description".format(tool))
-    if os.path.exists(_path) and os.path.exists(_pathdes):
-        with open(_path) as i, open(_pathdes) as des:
-            score = json.load(i)
+    if os.path.exists(_pathdes):
+        with open(_pathdes) as des:
             desc = json.load(des)
+            if "score" not in desc:
+                desc["score"] = {}
             res = {}
-            for k, v in score.items():
+            for k, v in desc["score"].items():
                 res[k] = v
                 res["lang_{}".format(k)] = desc["languages"]
             return res

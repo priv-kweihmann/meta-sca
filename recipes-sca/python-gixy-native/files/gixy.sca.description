@@ -1,7 +1,16 @@
 {
-    "languages": [ "nginx" ],
-    "scope": [ "security" ],
-    "buildspeed" : 2,
+    "buildspeed": 2,
     "execspeed": 10,
-    "quality": 6
+    "languages": [
+        "nginx"
+    ],
+    "quality": 6,
+    "scope": [
+        "security"
+    ],
+    "score": {
+        "security": [
+            "gixy.gixy..*"
+        ]
+    }
 }

@@ -1,7 +1,16 @@
 {
-    "languages": [ "system" ],
-    "scope": [ "functional" ],
-    "buildspeed" : 2,
+    "buildspeed": 2,
     "execspeed": 7,
-    "quality": 10
+    "languages": [
+        "system"
+    ],
+    "quality": 10,
+    "scope": [
+        "functional"
+    ],
+    "score": {
+        "functional": [
+            "configcheck.configcheck..*"
+        ]
+    }
 }
