@@ -34,8 +34,7 @@ inherit pythonnative
 inherit sca-sanity
 
 FILES_${PN} += "${datadir} ${PYTHON_SITEPACKAGES_DIR}"
-SRC_URI += "file://ansiblelint.sca.description \
-            file://ansiblelint.sca.score"
+SRC_URI += "file://ansiblelint.sca.description"
 
 inherit native
 
@@ -48,5 +47,4 @@ do_install() {
 
     install -d ${D}${datadir}
     install ${WORKDIR}/ansiblelint.sca.description ${D}${datadir}
-    install ${WORKDIR}/ansiblelint.sca.score ${D}${datadir}
 }

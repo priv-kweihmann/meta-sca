@@ -4,8 +4,8 @@ LICENSE = "GPL-2.0"
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
 
 SRC_URI = "git://git.savannah.gnu.org/tiger.git;protocol=https \
-           file://tiger.sca.description \
-           file://tiger.sca.score"
+           file://tiger.sca.description"
+
 SRCREV = "1ae0a295bcd6fe4e772d74b206eb10a6fb4d9a0e"
 S = "${WORKDIR}/git"
 
@@ -32,7 +32,6 @@ do_install_append_class-native () {
 	install -d ${D}/${datadir}
 
     install ${WORKDIR}/tiger.sca.description ${D}${datadir}
-    install ${WORKDIR}/tiger.sca.score ${D}${datadir}
 }
 
 INSANE_SKIP_${PN} += "ldflags file-rdeps"

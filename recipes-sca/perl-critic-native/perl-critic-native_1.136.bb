@@ -1,8 +1,7 @@
 SUMMARY = "The leading static analyzer for Perl. Configurable, extensible, powerful."
 
 SRC_URI = "git://github.com/Perl-Critic/Perl-Critic.git;protocol=https;tag=v${PV} \
-           file://perlcritic.sca.description \
-           file://perlcritic.sca.score"
+           file://perlcritic.sca.description"
 
 S = "${WORKDIR}/git"
 
@@ -51,5 +50,4 @@ do_compile () {
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/perlcritic.sca.description ${D}${datadir}/
-    install ${WORKDIR}/perlcritic.sca.score ${D}${datadir}/
 }

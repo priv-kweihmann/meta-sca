@@ -1,8 +1,8 @@
 SUMMARY = "C Bounded Model Checker"
 
 SRC_URI = "git://github.com/diffblue/cbmc.git;protocol=https;branch=develop;tag=cbmc-${PV} \
-           file://cbmc.sca.description \
-           file://cbmc.sca.score"
+           file://cbmc.sca.description"
+
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3326e2b1998e90a97f31e58341552600"
 
 HOMEPAGE = "https://github.com/diffblue/cbmc"
@@ -31,5 +31,4 @@ do_install() {
     done
 
     install ${WORKDIR}/cbmc.sca.description ${D}${datadir}
-    install ${WORKDIR}/cbmc.sca.score ${D}${datadir}
 }

@@ -6,8 +6,7 @@ inherit npm-helper
 
 SRC_URI = "git://github.com/htmlhint/HTMLHint.git;protocol=https;tag=v${PV} \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
-           file://htmlhint.sca.description \
-           file://htmlhint.sca.score"
+           file://htmlhint.sca.description"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://LICENSE.md;md5=9ab22e524b729e8ba6a68fda798ad089"
@@ -35,7 +34,6 @@ do_install() {
     mkdir -p ${D}${datadir}
 
     install ${WORKDIR}/htmlhint.sca.description ${D}${datadir}
-    install ${WORKDIR}/htmlhint.sca.score ${D}${datadir}
 }
 
 FILES_${PN} += "${datadir}"

@@ -6,8 +6,8 @@ HOMEPAGE = "https://sparse.wiki.kernel.org/index.php/Main_Page"
 LICENSE = "MIT"
 
 SRC_URI = "git://git.kernel.org/pub/scm/devel/sparse/sparse.git;protocol=https;tag=v${PV} \
-           file://sparse.sca.description \
-           file://sparse.sca.score"
+           file://sparse.sca.description"
+
 LIC_FILES_CHKSUM = "file://LICENSE;md5=69a9605316748b9e191e454efc2235b1"
 
 inherit native
@@ -27,5 +27,4 @@ do_install() {
 
     install -d ${D}${datadir}
     install ${WORKDIR}/sparse.sca.description ${D}${datadir}
-    install ${WORKDIR}/sparse.sca.score ${D}${datadir}
 }

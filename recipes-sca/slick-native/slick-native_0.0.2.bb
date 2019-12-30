@@ -2,7 +2,6 @@ SUMMARY = "a CI-ready shell language syntax checker"
 HOMEPAGE = "https://github.com/mcandre/slick"
 
 SRC_URI = "file://slick.sca.description \
-           file://slick.sca.score \
            git://${GO_IMPORT};protocol=https;tag=v${PV}"
 
 GO_IMPORT = "github.com/mcandre/slick"
@@ -23,6 +22,5 @@ DEPENDS += "\
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/slick.sca.description ${D}${datadir}/
-    install ${WORKDIR}/slick.sca.score ${D}${datadir}/
 }
 

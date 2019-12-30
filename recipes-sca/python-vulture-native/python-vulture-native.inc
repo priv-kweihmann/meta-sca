@@ -10,13 +10,11 @@ inherit native
 inherit pypi
 inherit sca-sanity
 
-SRC_URI += "file://vulture.sca.description \
-            file://vulture.sca.score"
+SRC_URI += "file://vulture.sca.description"
 
 FILES_${PN} += "${datadir}"
 
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/vulture.sca.description ${D}${datadir}
-    install ${WORKDIR}/vulture.sca.score ${D}${datadir}
 }

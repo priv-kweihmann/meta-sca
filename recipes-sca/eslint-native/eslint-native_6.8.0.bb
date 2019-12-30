@@ -6,8 +6,7 @@ inherit npm-helper
 SRC_URI = "git://github.com/eslint/eslint.git;protocol=https;tag=v${PV} \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
            file://configs/* \
-           file://eslint.sca.description \
-           file://eslint.sca.score"
+           file://eslint.sca.description"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://LICENSE;md5=04d32f89e7aa1677f8a860eb0b6adb83"
@@ -66,7 +65,6 @@ do_install() {
     mkdir -p ${D}${datadir}
     
     install ${WORKDIR}/eslint.sca.description ${D}${datadir}
-    install ${WORKDIR}/eslint.sca.score ${D}${datadir}
 }
 
 FILES_${PN} += "${datadir}"

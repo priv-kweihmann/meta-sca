@@ -22,13 +22,11 @@ inherit pypi
 inherit sca-sanity
 
 FILES_${PN} += "${datadir}"
-SRC_URI += "file://pylint.sca.description \
-            file://pylint.sca.score"
+SRC_URI += "file://pylint.sca.description"
 
 inherit native
 
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/pylint.sca.description ${D}${datadir}
-    install ${WORKDIR}/pylint.sca.score ${D}${datadir}
 }

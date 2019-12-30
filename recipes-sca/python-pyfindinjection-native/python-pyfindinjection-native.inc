@@ -12,8 +12,7 @@ S = "${WORKDIR}/git"
 DEPENDS += "${PYTHON_PN}-native"
 
 FILES_${PN} += "${datadir}"
-SRC_URI += "file://pyfindinjection.sca.description \
-            file://pyfindinjection.sca.score"
+SRC_URI += "file://pyfindinjection.sca.description"
 
 inherit native
 inherit sca-sanity
@@ -21,5 +20,4 @@ inherit sca-sanity
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/pyfindinjection.sca.description ${D}${datadir}
-    install ${WORKDIR}/pyfindinjection.sca.score ${D}${datadir}
 }

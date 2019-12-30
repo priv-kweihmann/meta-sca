@@ -3,8 +3,7 @@ DESCRIPTION = "Systemd Linter"
 HOMEPAGE = "https://github.com/priv-kweihmann/systemdlint"
 
 SRC_URI = "git://github.com/priv-kweihmann/systemdlint.git;protocol=https;branch=master;tag=${PV} \
-           file://systemdlint.sca.description \
-           file://systemdlint.sca.score"
+           file://systemdlint.sca.description"
 
 S = "${WORKDIR}/git/systemdlint"
 B = "${S}"
@@ -24,5 +23,4 @@ FILES_${PN} += "${datadir}"
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/systemdlint.sca.description ${D}${datadir}
-    install ${WORKDIR}/systemdlint.sca.score ${D}${datadir}
 }
