@@ -19,6 +19,7 @@ This module offers the possibility to issue a warning or an error if a configure
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_BLACKLIST_multimetric | Blacklist filter for this tool | space-separated-list | ""
+| SCA_MULTIMETRIC_COMPILER_MODULES | List of modules that are generating compiler warnings | space-separated-list | "gcc"
 | SCA_MULTIMETRIC_ERROR_cyclomatic_complexity_gt | Threshold for maximum cyclomatic complexity before issuing an error | float-string | "30.0"
 | SCA_MULTIMETRIC_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_MULTIMETRIC_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
@@ -51,19 +52,31 @@ To configure a threshold define a variable
 
 ## Known error-IDs
 
-* multimetric.multimetric.comment_ratio = Comment to Code percentage
-* multimetric.multimetric.cyclomatic_complexity = Cyclomatic complexity according to McCabe
-* multimetric.multimetric.halstead_bugprop = Number of delivered bugs according to Halstead
-* multimetric.multimetric.halstead_timerequired = Time required to program according to Halstead
-* multimetric.multimetric.halstead_difficulty = Difficulty according to Halstead
-* multimetric.multimetric.halstead_volume = Volume according to Halstead
-* multimetric.multimetric.halstead_effort = Effort according to Halstead
-* multimetric.multimetric.loc = Lines of code
-* multimetric.multimetric.maintainability_index = Maintainability index
-* multimetric.multimetric.operands_sum = Number of used operands
-* multimetric.multimetric.operands_uniq = Number of unique used operands
-* multimetric.multimetric.operators_sum = Number of used operators
-* multimetric.multimetric.operators_uniq = Number of unique used operators
+* multimetric.multimetric.comment_ratio
+* multimetric.multimetric.cyclomatic_complexity
+* multimetric.multimetric.fanout_external
+* multimetric.multimetric.fanout_internal
+* multimetric.multimetric.halstead_bugprop
+* multimetric.multimetric.halstead_difficulty
+* multimetric.multimetric.halstead_effort
+* multimetric.multimetric.halstead_timerequired
+* multimetric.multimetric.halstead_volume
+* multimetric.multimetric.loc
+* multimetric.multimetric.maintainability_index
+* multimetric.multimetric.operands_sum
+* multimetric.multimetric.operands_uniq
+* multimetric.multimetric.operators_sum
+* multimetric.multimetric.operators_uniq
+* multimetric.multimetric.pylint
+* multimetric.multimetric.tiobe_compiler
+* multimetric.multimetric.tiobe_complexity
+* multimetric.multimetric.tiobe_coverage
+* multimetric.multimetric.tiobe_duplication
+* multimetric.multimetric.tiobe_fanout`          
+* multimetric.multimetric.tiobe_functional
+* multimetric.multimetric.tiobe_security
+* multimetric.multimetric.tiobe_standard
+* multimetric.multimetric.tiobe
 
 ## Checking scope
 
