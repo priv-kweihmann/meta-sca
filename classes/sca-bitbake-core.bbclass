@@ -34,7 +34,7 @@ def do_sca_bitbake_hardening(d):
                                     Message="debug_tweaks is set in IMAGE_FEATURES",
                                     ID="hardening.debug_tweaks",
                                     Severity="warning")
-            if not _suppress.Suppressed(g) and sca_is_in_finding_scope(d, "bitbake", g.GetFormattedID()):
+            if not _suppress.Suppressed(g) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                 if g.Severity in sca_allowed_warning_level(d):
                     _findings.append(g)
     if "insane_skip" in _modules:
@@ -48,7 +48,7 @@ def do_sca_bitbake_hardening(d):
                                     Message="INSANE_SKIP is used in recipe",
                                     ID="hardening.insane_skip",
                                     Severity="warning")
-            if not _suppress.Suppressed(g) and sca_is_in_finding_scope(d, "bitbake", g.GetFormattedID()):
+            if not _suppress.Suppressed(g) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                 if g.Severity in sca_allowed_warning_level(d):
                     _findings.append(g)
     if "security_flags" in _modules:
@@ -63,7 +63,7 @@ def do_sca_bitbake_hardening(d):
                                     Message="security_flags.inc aren't used for building this recipe",
                                     ID="hardening.insane_skip",
                                     Severity="warning")
-            if not _suppress.Suppressed(g) and sca_is_in_finding_scope(d, "bitbake", g.GetFormattedID()):
+            if not _suppress.Suppressed(g) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                 if g.Severity in sca_allowed_warning_level(d):
                     _findings.append(g)
 
@@ -104,7 +104,7 @@ def do_sca_conv_bitbake(d):
                         continue
                     if _suppress.Suppressed(g):
                         continue
-                    if not sca_is_in_finding_scope(d, "bitbake", g.GetFormattedID()):
+                    if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

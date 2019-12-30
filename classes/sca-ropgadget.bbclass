@@ -72,7 +72,7 @@ def do_sca_conv_ropgadget(d):
                         continue
                     if g.File in _excludes:
                         continue
-                    if not sca_is_in_finding_scope(d, "ropgadget", g.GetFormattedID()):
+                    if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                         continue
                     if not m.group("bin") in _findings.keys():
                         _findings[m.group("bin")] = 0
@@ -98,7 +98,7 @@ def do_sca_conv_ropgadget(d):
                                     Message="{} exceeded ROP exploit threshold ({}/{})".format(package_name, v, _threshold),
                                     ID="thresholdexceeded",
                                     Severity="warning")
-            if not sca_is_in_finding_scope(d, "ropgadget", g.GetFormattedID()):
+            if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                 continue
             if g.Severity in sca_allowed_warning_level(d):
                 _findingsres.append(g)

@@ -50,7 +50,7 @@ def sca_gcc_hardening(d):
                                     Severity="warning")
             if g.File in _excludes or _suppress.Suppressed(g):
                 continue
-            if not sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+            if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                 continue
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
@@ -64,7 +64,7 @@ def sca_gcc_hardening(d):
                                 Message="Neither '-z,nodlopen' nor '-z,nodump' are set in LDFLAGS".format(item),
                                 ID="hardening.linker.nodlopen_nodump",
                                 Severity="warning")
-        if not (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+        if not (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
     if not ("-z,noexecstack" in _linker_flags and "-z,noexecheap" in _linker_flags) and \
@@ -77,7 +77,7 @@ def sca_gcc_hardening(d):
                                 Message="Neither '-z,noexecstack' nor '-z,noexecheap' are set in LDFLAGS".format(item),
                                 ID="hardening.linker.noexecstack_oexecheap",
                                 Severity="warning")
-        if not (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+        if not (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
     if not ("-O2" in _linker_flags or "-O3" in _linker_flags or "-Os" in _linker_flags) and \
@@ -90,7 +90,7 @@ def sca_gcc_hardening(d):
                                 Message="-O option isn't set to 2,3 or s in LDFLAGS".format(item),
                                 ID="hardening.linker.optimize",
                                 Severity="warning")
-        if not (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+        if not (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
 
@@ -107,7 +107,7 @@ def sca_gcc_hardening(d):
                                     Message="{} is not set in CFLAGS".format(item),
                                     ID="hardening.compiler.{}".format(item.strip("-,")),
                                     Severity="warning")
-            if (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+            if (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                 continue
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
@@ -122,7 +122,7 @@ def sca_gcc_hardening(d):
                                     Message="{} is not set in CXXFLAGS".format(item),
                                     ID="hardening.compiler.{}".format(item.strip("-,")),
                                     Severity="warning")
-            if (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+            if (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                 continue
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)   
@@ -136,7 +136,7 @@ def sca_gcc_hardening(d):
                                 Message="-DDEBUG=1 is set in CFLAGS".format(item),
                                 ID="hardening.compiler.DEBUG",
                                 Severity="warning")
-        if not (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+        if not (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
     
@@ -149,7 +149,7 @@ def sca_gcc_hardening(d):
                                 Message="-D_FORTIFY_SOURCE=2 isn't set in CFLAGS".format(item),
                                 ID="hardening.compiler.FORTIFY_SOURCE",
                                 Severity="warning")
-        if not (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+        if not (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
     
@@ -163,7 +163,7 @@ def sca_gcc_hardening(d):
                                 Message="-fstack-protector* isn't set in CFLAGS".format(item),
                                 ID="hardening.compiler.stack-protector",
                                 Severity="warning")
-        if not (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+        if not (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
 
@@ -177,7 +177,7 @@ def sca_gcc_hardening(d):
                                 Message="-Wmissing-prototypes or -Wmissing-declarations isn't set in CFLAGS".format(item),
                                 ID="hardening.compiler.missingproto",
                                 Severity="warning")
-        if not (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+        if not (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
     
@@ -191,7 +191,7 @@ def sca_gcc_hardening(d):
                                 Message="-mfunction-return=thunk or -mindirect-branch=thunk isn't set in CFLAGS".format(item),
                                 ID="hardening.compiler.function_return",
                                 Severity="warning")
-        if not (g.File in _excludes or _suppress.Suppressed(g)) and sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+        if not (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
 
@@ -236,7 +236,7 @@ def do_sca_conv_gcc(d):
                         continue
                     if _suppress.Suppressed(g):
                         continue
-                    if not sca_is_in_finding_scope(d, "gcc", g.GetFormattedID()):
+                    if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

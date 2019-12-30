@@ -53,7 +53,7 @@ def do_sca_conv_retire(d):
                                                     Message="{}: Used version has a known vulnerability of {}".format(_component, vul["identifiers"]["summary"]),
                                                     ID="knownVulnerability",
                                                     Severity=_severity_map[vul["severity"]])
-                            if not sca_is_in_finding_scope(d, "retire", g.GetFormattedID()):
+                            if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                                 continue
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings.append(g)

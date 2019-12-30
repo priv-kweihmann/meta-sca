@@ -52,7 +52,7 @@ def do_sca_conv_stank(d):
                                             Severity=_severity_map[m.group("msg")][1])
                     if _suppress.Suppressed(g):
                         continue
-                    if not sca_is_in_finding_scope(d, "stank", g.GetFormattedID()):
+                    if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)
