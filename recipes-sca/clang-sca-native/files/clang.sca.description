@@ -1,7 +1,17 @@
 {
-    "languages": ["C", "CPP"],
-    "scope": [ "functional" ],
-    "buildspeed" : 3,
+    "buildspeed": 3,
     "execspeed": 2,
-    "quality": 6
+    "languages": [
+        "c",
+        "cpp"
+    ],
+    "quality": 6,
+    "scope": [
+        "functional"
+    ],
+    "score": {
+        "functional": [
+            "checkbashism.checkbashism..*"
+        ]
+    }
 }

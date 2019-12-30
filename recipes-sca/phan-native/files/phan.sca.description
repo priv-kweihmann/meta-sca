@@ -1,7 +1,18 @@
 {
-    "languages": [ "PHP" ],
-    "scope": ["security", "functional", "style"],
-    "buildspeed" : 4,
+    "buildspeed": 4,
     "execspeed": 10,
-    "quality": 8
+    "languages": [
+        "php"
+    ],
+    "quality": 8,
+    "scope": [
+        "security",
+        "functional",
+        "style"
+    ],
+    "score": {
+        "style": [
+            "phan.phan..*"
+        ]
+    }
 }

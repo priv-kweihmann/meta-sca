@@ -1,7 +1,29 @@
 {
-    "languages": [ "C", "CPP" ],
-    "scope": ["security", "functional", "style"],
-    "buildspeed" : 5,
+    "buildspeed": 5,
     "execspeed": 6,
-    "quality": 7
+    "languages": [
+        "c",
+        "cpp"
+    ],
+    "quality": 7,
+    "scope": [
+        "security",
+        "functional",
+        "style"
+    ],
+    "score": {
+        "functional": [
+            "cpplint.cpplint.build.header_guard",
+            "cpplint.cpplint.build.printf_format",
+            "cpplint.cpplint.runtime.memset"
+        ],
+        "security": [
+            "cpplint.cpplint.runtime.threadsafe_fn",
+            "cpplint.cpplint.runtime.member_string_references",
+            "cpplint.cpplint.runtime.operator"
+        ],
+        "style": [
+            "cpplint.cpplint..*"
+        ]
+    }
 }

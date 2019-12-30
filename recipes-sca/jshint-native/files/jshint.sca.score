@@ -1,5 +1,0 @@
-{
-    "functional": [
-        "jshint.jshint..*"
-    ]
-}

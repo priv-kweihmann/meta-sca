@@ -1,8 +1,17 @@
 {
-    "languages": [ "python" ],
-    "scope": [ "functional" ],
-    "buildspeed" : 2,
+    "buildspeed": 2,
     "execspeed": 9,
+    "languages": [
+        "python"
+    ],
+    "online": true,
     "quality": 9,
-    "online": true
+    "scope": [
+        "functional"
+    ],
+    "score": {
+        "functional": [
+            "pytype.pytype..*"
+        ]
+    }
 }

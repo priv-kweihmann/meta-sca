@@ -1,7 +1,17 @@
 {
-    "languages": [ "PHP" ],
-    "scope": ["functional", "style"],
-    "buildspeed" : 4,
+    "buildspeed": 4,
     "execspeed": 9,
-    "quality": 6
+    "languages": [
+        "php"
+    ],
+    "quality": 6,
+    "scope": [
+        "functional",
+        "style"
+    ],
+    "score": {
+        "functional": [
+            "phpmd.phpmd..*"
+        ]
+    }
 }

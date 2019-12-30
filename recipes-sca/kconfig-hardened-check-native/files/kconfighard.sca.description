@@ -1,7 +1,16 @@
 {
-    "languages": [ "kernel" ],
-    "scope": [ "security" ],
-    "buildspeed" : 2,
+    "buildspeed": 2,
     "execspeed": 10,
-    "quality": 8
+    "languages": [
+        "kernel"
+    ],
+    "quality": 8,
+    "scope": [
+        "security"
+    ],
+    "score": {
+        "security": [
+            "kconfighard.kconfighard..*"
+        ]
+    }
 }

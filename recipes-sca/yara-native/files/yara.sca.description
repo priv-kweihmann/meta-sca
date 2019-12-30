@@ -1,7 +1,16 @@
 {
-    "languages": [ "system" ],
-    "scope": [ "security" ],
-    "buildspeed" : 7,
+    "buildspeed": 7,
     "execspeed": 3,
-    "quality": 7
+    "languages": [
+        "system"
+    ],
+    "quality": 7,
+    "scope": [
+        "security"
+    ],
+    "score": {
+        "security": [
+            "yara.yara..*"
+        ]
+    }
 }

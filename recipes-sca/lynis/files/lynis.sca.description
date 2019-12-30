@@ -1,7 +1,16 @@
 {
-    "languages": [ "system" ],
-    "scope": [ "security" ],
-    "buildspeed" : 2,
+    "buildspeed": 2,
     "execspeed": 3,
-    "quality": 9
+    "languages": [
+        "system"
+    ],
+    "quality": 9,
+    "scope": [
+        "security"
+    ],
+    "score": {
+        "security": [
+            "lynis.lynis..*"
+        ]
+    }
 }

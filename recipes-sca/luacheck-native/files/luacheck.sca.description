@@ -1,7 +1,18 @@
 {
-    "languages": [ "lua" ],
-    "scope": ["security", "functional", "style"],
-    "buildspeed" : 8,
+    "buildspeed": 8,
     "execspeed": 8,
-    "quality": 8
+    "languages": [
+        "lua"
+    ],
+    "quality": 8,
+    "scope": [
+        "security",
+        "functional",
+        "style"
+    ],
+    "score": {
+        "functional": [
+            "luacheck.luacheck..*"
+        ]
+    }
 }

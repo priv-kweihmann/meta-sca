@@ -1,7 +1,16 @@
 {
-    "languages": [ "go" ],
-    "scope": [ "functional" ],
-    "buildspeed" : 7,
+    "buildspeed": 7,
     "execspeed": 10,
-    "quality": 8
+    "languages": [
+        "go"
+    ],
+    "quality": 8,
+    "scope": [
+        "functional"
+    ],
+    "score": {
+        "functional": [
+            "govet.govet..*"
+        ]
+    }
 }

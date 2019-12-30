@@ -1,7 +1,20 @@
 {
-    "languages": [ "python" ],
-    "scope": [ "functional", "style" ],
-    "buildspeed" : 2,
+    "buildspeed": 2,
     "execspeed": 10,
-    "quality": 10
+    "languages": [
+        "python"
+    ],
+    "quality": 10,
+    "scope": [
+        "functional",
+        "style"
+    ],
+    "score": {
+        "functional": [
+            "flake8.flake8..*"
+        ],
+        "security": [
+            "flake8.flake8.EXE.*"
+        ]
+    }
 }

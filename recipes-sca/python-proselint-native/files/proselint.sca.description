@@ -1,7 +1,16 @@
 {
-    "languages": [ "spelling" ],
-    "scope": [ "style" ],
-    "buildspeed" : 2,
+    "buildspeed": 2,
     "execspeed": 6,
-    "quality": 8
+    "languages": [
+        "spelling"
+    ],
+    "quality": 8,
+    "scope": [
+        "style"
+    ],
+    "score": {
+        "style": [
+            "proselint.proselint..*"
+        ]
+    }
 }

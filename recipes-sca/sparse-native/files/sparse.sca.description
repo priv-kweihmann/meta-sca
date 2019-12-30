@@ -1,7 +1,16 @@
 {
-    "languages": [ "C" ],
-    "scope": ["functional"],
-    "buildspeed" : 8,
+    "buildspeed": 8,
     "execspeed": 10,
-    "quality": 6
+    "languages": [
+        "c"
+    ],
+    "quality": 6,
+    "scope": [
+        "functional"
+    ],
+    "score": {
+        "functional": [
+            "sparse.sparse.*"
+        ]
+    }
 }

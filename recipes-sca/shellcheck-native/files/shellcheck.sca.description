@@ -1,7 +1,17 @@
 {
-    "languages": [ "shell" ],
-    "scope": [ "functional", "style" ],
-    "buildspeed" : 5,
+    "buildspeed": 5,
     "execspeed": 8,
-    "quality": 10
+    "languages": [
+        "shell"
+    ],
+    "quality": 10,
+    "scope": [
+        "functional",
+        "style"
+    ],
+    "score": {
+        "functional": [
+            "ShellCheck.ShellCheck..*"
+        ]
+    }
 }

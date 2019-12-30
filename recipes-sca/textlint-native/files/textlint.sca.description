@@ -1,8 +1,17 @@
 {
-    "languages": [ "spelling" ],
-    "scope": [ "style" ],
-    "buildspeed" : 4,
+    "buildspeed": 4,
     "execspeed": 10,
+    "languages": [
+        "spelling"
+    ],
+    "online": true,
     "quality": 9,
-    "online": true
+    "scope": [
+        "style"
+    ],
+    "score": {
+        "style": [
+            "textlint.textlint..*"
+        ]
+    }
 }

@@ -1,7 +1,19 @@
 {
-    "languages": [ "PHP", "Javascript", "CSS" ],
-    "scope": ["functional", "style"],
-    "buildspeed" : 4,
+    "buildspeed": 4,
     "execspeed": 10,
-    "quality": 7
+    "languages": [
+        "php",
+        "javascript",
+        "css"
+    ],
+    "quality": 7,
+    "scope": [
+        "functional",
+        "style"
+    ],
+    "score": {
+        "style": [
+            "phpcodesniffer.phpcodesniffer..*"
+        ]
+    }
 }

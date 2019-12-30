@@ -1,7 +1,16 @@
 {
-    "languages": [ "go" ],
-    "scope": [ "security" ],
-    "buildspeed" : 6,
+    "buildspeed": 6,
     "execspeed": 10,
-    "quality": 8
+    "languages": [
+        "go"
+    ],
+    "quality": 8,
+    "scope": [
+        "security"
+    ],
+    "score": {
+        "security": [
+            "gosec.gosec..*"
+        ]
+    }
 }

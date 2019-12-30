@@ -1,7 +1,22 @@
 {
-    "languages": [ "python" ],
-    "scope": [ "functional", "style" ],
-    "buildspeed" : 2,
+    "buildspeed": 2,
     "execspeed": 9,
-    "quality": 9
+    "languages": [
+        "python"
+    ],
+    "quality": 9,
+    "scope": [
+        "functional",
+        "style"
+    ],
+    "score": {
+        "functional": [
+            "pylint.pylint.E.*",
+            "pylint.pylint.F.*",
+            "pylint.pylint.W.*"
+        ],
+        "style": [
+            "pylint.pylint..*"
+        ]
+    }
 }

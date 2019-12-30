@@ -1,5 +1,0 @@
-{
-    "security": [
-        "progpilot.progpilot..*"
-    ]
-}
