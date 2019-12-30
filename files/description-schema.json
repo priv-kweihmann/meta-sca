@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "buildspeed": {
+      "maximum": 10,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "execspeed": {
+      "maximum": 10,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "languages": {
+      "items": {
+        "pattern": "[a-z0-9]+",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "online": {
+      "type": "boolean"
+    },
+    "quality": {
+      "maximum": 10,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "scope": {
+      "items": {
+        "enum": [
+          "security",
+          "functional",
+          "style"
+        ]
+      },
+      "type": "array"
+    },
+    "score": {
+      "additionalProperties": false,
+      "properties": {
+        "functional": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "security": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "style": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "buildspeed",
+    "execspeed",
+    "languages",
+    "quality",
+    "scope",
+    "score"
+  ],
+  "type": "object"
+}

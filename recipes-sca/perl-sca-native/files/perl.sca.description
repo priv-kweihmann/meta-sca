@@ -1,7 +1,16 @@
 {
-    "languages": [ "Perl" ],
-    "scope": [ "functional" ],
-    "buildspeed" : 7,
+    "buildspeed": 7,
     "execspeed": 10,
-    "quality": 9
+    "languages": [
+        "perl"
+    ],
+    "quality": 9,
+    "scope": [
+        "functional"
+    ],
+    "score": {
+        "functional": [
+            "perl.perl..*"
+        ]
+    }
 }

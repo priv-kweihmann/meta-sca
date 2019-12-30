@@ -1,7 +1,23 @@
 {
-    "languages": [ "Python", "C", "C++", "PHP", "Javascript", "Perl", "Lua", "Go" ],
-    "scope": [ "style" ],
-    "buildspeed" : 3,
+    "buildspeed": 3,
     "execspeed": 8,
-    "quality": 8
+    "languages": [
+        "python",
+        "c",
+        "cpp",
+        "php",
+        "javascript",
+        "perl",
+        "lua",
+        "go"
+    ],
+    "quality": 8,
+    "scope": [
+        "style"
+    ],
+    "score": {
+        "style": [
+            "multimetric.multimetric..*"
+        ]
+    }
 }

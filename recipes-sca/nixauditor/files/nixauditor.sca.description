@@ -1,7 +1,16 @@
 {
-    "languages": [ "system" ],
-    "scope": [ "security" ],
-    "buildspeed" : 10,
+    "buildspeed": 10,
     "execspeed": 3,
-    "quality": 6
+    "languages": [
+        "system"
+    ],
+    "quality": 6,
+    "scope": [
+        "security"
+    ],
+    "score": {
+        "security": [
+            "nixauditor.nixauditor..*"
+        ]
+    }
 }

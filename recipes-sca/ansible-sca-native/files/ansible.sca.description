@@ -1,7 +1,16 @@
 {
-    "languages": [ "system" ],
-    "scope": [ "security" ],
-    "buildspeed" : 5,
+    "buildspeed": 5,
     "execspeed": 4,
-    "quality": 8
+    "languages": [
+        "system"
+    ],
+    "quality": 8,
+    "scope": [
+        "security"
+    ],
+    "score": {
+        "security": [
+            "ansible.ansible.*"
+        ]
+    }
 }

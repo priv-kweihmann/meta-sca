@@ -1,7 +1,16 @@
 {
-    "languages": [ "i18n" ],
-    "scope": [ "style" ],
-    "buildspeed" : 5,
+    "buildspeed": 5,
     "execspeed": 8,
-    "quality": 8
+    "languages": [
+        "i18n"
+    ],
+    "quality": 8,
+    "scope": [
+        "style"
+    ],
+    "score": {
+        "style": [
+            "msgcheck.msgcheck..*"
+        ]
+    }
 }

@@ -1,4 +1,0 @@
-{
-    "security": [ "gcc.gcc.hardening.*" ], 
-    "functional": [ "gcc.gcc..*" ]
-}

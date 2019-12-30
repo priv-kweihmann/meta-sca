@@ -24,10 +24,12 @@ def sca_is_in_finding_scope(d, tool, _id):
     if bb.utils.contains("__SCA_OUT_OF_SCOPE", _id, True, False, d):
         return False
 
-    _path = os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "{}.sca.score".format(tool))
+    _path = os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "{}.sca.description".format(tool))
     if os.path.exists(_path):
         with open(_path) as i:
             score = json.load(i)
+            if "score" not in score:
+                score["score"] = {}
             for _scope in clean_split(d, "SCA_SCOPE_FILTER"):
                 if not _scope in score.keys():
                     continue
@@ -36,7 +38,7 @@ def sca_is_in_finding_scope(d, tool, _id):
                         d.appendVar("__SCA_IN_SCOPE", " " + _id)
                         return True
     else:
-        bb.warn("{} is missing a .sca.score-file".format(tool))
+        bb.warn("{} is missing a .sca.description-file".format(tool))
     d.appendVar("__SCA_OUT_OF_SCOPE", " " + _id)
     return False
 
