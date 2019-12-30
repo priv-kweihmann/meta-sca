@@ -8,8 +8,7 @@ PYPI_PACKAGE = "darglint"
 
 FILES_${PN} += "${datadir}"
 SRC_URI += "git://github.com/terrencepreilly/darglint.git;protocol=https;tag=v${PV} \
-            file://darglint.sca.description \
-            file://darglint.sca.score"
+            file://darglint.sca.description"
 
 S = "${WORKDIR}/git"
 
@@ -19,5 +18,4 @@ inherit sca-sanity
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/darglint.sca.description ${D}${datadir}
-    install ${WORKDIR}/darglint.sca.score ${D}${datadir}
 }

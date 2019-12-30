@@ -4,8 +4,7 @@ HOMEPAGE = "https://github.com/nasa-sw-vnv/ikos"
 LICENSE = "NASA"
 
 SRC_URI = "git://github.com/NASA-SW-VnV/ikos.git;protocol=https;tag=v${PV} \
-           file://ikos.sca.description \
-           file://ikos.sca.score"
+           file://ikos.sca.description"
 
 S = "${WORKDIR}/git"
 B = "${S}"
@@ -36,5 +35,4 @@ do_install_append() {
     install -d ${D}${datadir}
 
     install ${WORKDIR}/ikos.sca.description ${D}${datadir}
-    install ${WORKDIR}/ikos.sca.score ${D}${datadir}
 }

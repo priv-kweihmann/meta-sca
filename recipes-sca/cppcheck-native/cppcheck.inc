@@ -31,5 +31,4 @@ do_install() {
     cp -R ${B}/cfg ${D}${bindir}
     install -D ${B}/htmlreport/cppcheck-htmlreport ${D}${bindir}
     install ${WORKDIR}/cppcheck.sca.description ${D}${datadir}
-    install ${WORKDIR}/cppcheck.sca.score ${D}${datadir}
 }

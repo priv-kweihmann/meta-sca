@@ -6,8 +6,7 @@ inherit npm-helper
 
 SRC_URI = "git://github.com/textlint/textlint.git;protocol=https;nobranch=1;tag=textlint@${PV} \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
-           file://textlint.sca.description \
-           file://textlint.sca.score"
+           file://textlint.sca.description"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://LICENSE;md5=f3452a94937d21f84bc38880f636e3ba"
@@ -65,7 +64,6 @@ do_install() {
     mkdir -p ${D}${datadir}
 
     install ${WORKDIR}/textlint.sca.description ${D}${datadir}
-    install ${WORKDIR}/textlint.sca.score ${D}${datadir}
 }
 
 FILES_${PN} += "${datadir}"

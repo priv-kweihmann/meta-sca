@@ -6,8 +6,7 @@ inherit npm-helper
 
 SRC_URI = "git://github.com/streetsidesoftware/cspell.git;protocol=https;tag=v${PV} \
            file://modules_${BPN}-${PV}.tar.gz;subdir=image/${libdir} \
-           file://cspell.sca.description \
-           file://cspell.sca.score"
+           file://cspell.sca.description"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://LICENSE;md5=b1befbdcbeb73a7fd9b944d31f0fee64"
@@ -35,7 +34,6 @@ do_install() {
     mkdir -p ${D}${datadir}
 
     install ${WORKDIR}/cspell.sca.description ${D}${datadir}
-    install ${WORKDIR}/cspell.sca.score ${D}${datadir}
 }
 
 FILES_${PN} += "${datadir}"

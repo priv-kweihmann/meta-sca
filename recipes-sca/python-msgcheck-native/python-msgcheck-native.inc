@@ -7,8 +7,7 @@ DEPENDS += "${PYTHON_PN}-pyenchant-native"
 
 FILES_${PN} += "${datadir}"
 SRC_URI = "git://github.com/codingjoe/msgcheck.git;protocol=https;tag=${PV} \
-           file://msgcheck.sca.description \
-           file://msgcheck.sca.score"
+           file://msgcheck.sca.description"
 
 S = "${WORKDIR}/git"
 inherit native
@@ -17,5 +16,4 @@ inherit sca-sanity
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/msgcheck.sca.description ${D}${datadir}
-    install ${WORKDIR}/msgcheck.sca.score ${D}${datadir}
 }

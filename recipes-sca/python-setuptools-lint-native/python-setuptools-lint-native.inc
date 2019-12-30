@@ -13,13 +13,11 @@ inherit pypi
 inherit sca-sanity
 
 FILES_${PN} += "${datadir}"
-SRC_URI += "file://setuptoolslint.sca.description \
-            file://setuptoolslint.sca.score"
+SRC_URI += "file://setuptoolslint.sca.description"
 
 inherit native
 
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/setuptoolslint.sca.description ${D}${datadir}
-    install ${WORKDIR}/setuptoolslint.sca.score ${D}${datadir}
 }

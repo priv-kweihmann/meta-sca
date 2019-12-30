@@ -6,8 +6,7 @@ inherit npm-helper
 
 SRC_URI = "git://github.com/microsoft/pyright.git;protocol=https;tag=${PV} \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
-           file://pyright.sca.description \
-           file://pyright.sca.score"
+           file://pyright.sca.description"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://LICENSE.txt;md5=a2a1e4d251b834bf3e0ceee69ab1d4c9"
@@ -35,7 +34,6 @@ do_install() {
     mkdir -p ${D}${datadir}
 
     install ${WORKDIR}/pyright.sca.description ${D}${datadir}
-    install ${WORKDIR}/pyright.sca.score ${D}${datadir}
 }
 
 FILES_${PN} += "${datadir}"

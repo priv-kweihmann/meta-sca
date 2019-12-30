@@ -3,7 +3,6 @@ HOMEPAGE = "https://github.com/alexkohler"
 
 SRC_URI = "\
     file://alexkohler.sca.description \
-    file://alexkohler.sca.score \
 	git://github.com/alexkohler/noret.git;protocol=https;name=noret;destsuffix=git/src/github.com/alexkohler/noret \
     git://github.com/alexkohler/nargs.git;protocol=https;name=nargs;destsuffix=git/src/github.com/alexkohler/nargs \
     git://github.com/alexkohler/nakedret.git;protocol=https;name=nakedret;destsuffix=git/src/github.com/alexkohler/nakedret \
@@ -54,5 +53,4 @@ FILES_${PN} += "${datadir}"
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/alexkohler.sca.description ${D}${datadir}/
-    install ${WORKDIR}/alexkohler.sca.score ${D}${datadir}/
 }

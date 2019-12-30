@@ -3,8 +3,7 @@ DESCRIPTION = "Too less variation - A tool to discover code duplication in vario
 HOMEPAGE = "https://github.com/priv-kweihmann/systemdlint"
 
 SRC_URI = "git://github.com/priv-kweihmann/tlv.git;protocol=https;branch=master;tag=${PV} \
-           file://tlv.sca.description \
-           file://tlv.sca.score"
+           file://tlv.sca.description"
 
 S = "${WORKDIR}/git"
 B = "${S}"
@@ -36,5 +35,4 @@ addtask do_fake_pandoc before do_compile after do_patch
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/tlv.sca.description ${D}${datadir}
-    install ${WORKDIR}/tlv.sca.score ${D}${datadir}
 }

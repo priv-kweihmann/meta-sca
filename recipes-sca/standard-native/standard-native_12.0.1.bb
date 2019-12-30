@@ -6,8 +6,7 @@ inherit npm-helper
 
 SRC_URI = "git://github.com/standard/standard.git;protocol=https;tag=v${PV} \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
-           file://standard.sca.description \
-           file://standard.sca.score"
+           file://standard.sca.description"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://LICENSE;md5=fb42e5aa12bb9e365d38b4b5691d6984"
@@ -35,7 +34,6 @@ do_install() {
     mkdir -p ${D}${datadir}
 
     install ${WORKDIR}/standard.sca.description ${D}${datadir}
-    install ${WORKDIR}/standard.sca.score ${D}${datadir}
 }
 
 FILES_${PN} += "${datadir}"
