@@ -1,3 +1,0 @@
-{
-    "functional": [ "govet.govet..*" ]
-}

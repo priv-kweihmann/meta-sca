@@ -1,7 +1,16 @@
 {
-    "languages": [ "python" ],
-    "scope": [ "functional" ],
-    "buildspeed" : 2,
+    "buildspeed": 2,
     "execspeed": 9,
-    "quality": 9
+    "languages": [
+        "python"
+    ],
+    "quality": 9,
+    "scope": [
+        "functional"
+    ],
+    "score": {
+        "functional": [
+            "setuptoolslint.setuptoolslint..*"
+        ]
+    }
 }

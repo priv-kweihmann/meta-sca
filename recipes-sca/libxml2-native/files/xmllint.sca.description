@@ -1,7 +1,16 @@
 {
-    "languages": [ "xml" ],
-    "scope": [ "functional" ],
-    "buildspeed" : 7,
+    "buildspeed": 7,
     "execspeed": 10,
-    "quality": 7
+    "languages": [
+        "xml"
+    ],
+    "quality": 7,
+    "scope": [
+        "functional"
+    ],
+    "score": {
+        "functional": [
+            "xmllint.xmllint..*"
+        ]
+    }
 }

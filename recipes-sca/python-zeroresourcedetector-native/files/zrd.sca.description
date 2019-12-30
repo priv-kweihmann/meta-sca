@@ -1,7 +1,17 @@
 {
-    "languages": [ "i18n", "g18n" ],
-    "scope": [ "style" ],
-    "buildspeed" : 5,
+    "buildspeed": 5,
     "execspeed": 10,
-    "quality": 6
+    "languages": [
+        "i18n",
+        "g18n"
+    ],
+    "quality": 6,
+    "scope": [
+        "style"
+    ],
+    "score": {
+        "style": [
+            "zrd.zrd..*"
+        ]
+    }
 }

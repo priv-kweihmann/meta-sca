@@ -1,7 +1,16 @@
 {
-    "languages": [ "python" ],
-    "scope": [ "security" ],
-    "buildspeed" : 2,
+    "buildspeed": 2,
     "execspeed": 9,
-    "quality": 8
+    "languages": [
+        "python"
+    ],
+    "quality": 8,
+    "scope": [
+        "security"
+    ],
+    "score": {
+        "security": [
+            "bandit.bandit..*"
+        ]
+    }
 }

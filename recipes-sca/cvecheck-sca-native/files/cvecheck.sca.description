@@ -1,8 +1,17 @@
 {
-    "languages": [ "cve" ],
-    "scope": [ "security" ],
-    "buildspeed" : 9,
+    "buildspeed": 9,
     "execspeed": 9,
+    "languages": [
+        "cve"
+    ],
+    "online": true,
     "quality": 9,
-    "online": true
+    "scope": [
+        "security"
+    ],
+    "score": {
+        "security": [
+            "cvecheck.cvecheck.unpatched"
+        ]
+    }
 }

@@ -1,7 +1,16 @@
 {
-    "languages": [ "C" ],
-    "scope": [ "functional" ],
-    "buildspeed" : 4,
+    "buildspeed": 4,
     "execspeed": 5,
-    "quality": 8
+    "languages": [
+        "c"
+    ],
+    "quality": 8,
+    "scope": [
+        "functional"
+    ],
+    "score": {
+        "functional": [
+            "ikos.ikos..*"
+        ]
+    }
 }

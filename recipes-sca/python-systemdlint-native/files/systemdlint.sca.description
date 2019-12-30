@@ -1,7 +1,38 @@
 {
-    "languages": [ "systemd" ],
-    "scope": [ "security", "functional", "style" ],
-    "buildspeed" : 5,
+    "buildspeed": 5,
     "execspeed": 9,
-    "quality": 8
+    "languages": [
+        "systemd"
+    ],
+    "quality": 8,
+    "scope": [
+        "security",
+        "functional",
+        "style"
+    ],
+    "score": {
+        "functional": [
+            "systemdlint.systemdlint.InvalidNumericBase",
+            "systemdlint.systemdlint.InvalidSetting",
+            "systemdlint.systemdlint.InvalidValue",
+            "systemdlint.systemdlint.MandatoryOptionMissing",
+            "systemdlint.systemdlint.NoExecutable",
+            "systemdlint.systemdlint.OptionDeprecated",
+            "systemdlint.systemdlint.OptionTooNew",
+            "systemdlint.systemdlint.ReferencedUnitNotFound",
+            "systemdlint.systemdlint.SettingRequires",
+            "systemdlint.systemdlint.SettingRestricted",
+            "systemdlint.systemdlint.SyntaxError",
+            "systemdlint.systemdlint.UnitSectionMissing",
+            "systemdlint.systemdlint.UnknownUnitType",
+            "systemdlint.systemdlint.ExecNotFound"
+        ],
+        "security": [
+            "systemdlint.systemdlint.FullPrivileges",
+            "systemdlint.systemdlint.WrongFileMask"
+        ],
+        "style": [
+            "systemdlint.systemdlint..*"
+        ]
+    }
 }
