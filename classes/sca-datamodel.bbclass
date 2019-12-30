@@ -146,6 +146,8 @@ def sca_get_model_class(d, **kwargs):
             import re
             _id = self.GetFormattedID()
             for s in ["security", "functional", "style"]:
+                if s not in self.__description["score"]:
+                    continue
                 for f in self.__description["score"][s]:
                     if re.match(f, _id):
                         self.__Scope = s
