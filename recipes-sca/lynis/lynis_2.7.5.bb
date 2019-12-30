@@ -4,8 +4,7 @@ LICENSE = "GPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3edd6782854304fd11da4975ab9799c1"
 
 SRC_URI = "git://github.com/CISOfy/lynis.git;protocol=https;tag=${PV} \
-           file://lynis.sca.description \
-           file://lynis.sca.score"
+           file://lynis.sca.description"
 
 S = "${WORKDIR}/git"
 
@@ -24,7 +23,6 @@ do_install_class-native () {
 	install -d ${D}/${datadir}
 
     install ${WORKDIR}/lynis.sca.description ${D}${datadir}
-    install ${WORKDIR}/lynis.sca.score ${D}${datadir}
 }
 
 do_install_class-target () {

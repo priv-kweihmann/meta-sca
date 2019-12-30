@@ -3,8 +3,7 @@ SUMMARY = "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects v
 HOMEPAGE = "https://github.com/squizlabs/PHP_CodeSniffer"
 
 SRC_URI = " git://github.com/squizlabs/PHP_CodeSniffer.git;protocol=https;nobranch=1;tag=${PV} \
-            file://phpcodesniffer.sca.description \
-            file://phpcodesniffer.sca.score"
+            file://phpcodesniffer.sca.description"
 
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://licence.txt;md5=562f463f305c4d32b4fad9a4b03ad678"
@@ -26,6 +25,5 @@ do_compile_prepend() {
 do_install_append() {
     mkdir -p ${D}${datadir}
     install ${WORKDIR}/phpcodesniffer.sca.description ${D}${datadir}/
-    install ${WORKDIR}/phpcodesniffer.sca.score ${D}${datadir}/
 }
 

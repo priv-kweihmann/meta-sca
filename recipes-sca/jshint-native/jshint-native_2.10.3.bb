@@ -5,8 +5,7 @@ inherit npm-helper
 
 SRC_URI = "git://github.com/jshint/jshint.git;protocol=https;tag=${PV} \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
-           file://jshint.sca.description \
-           file://jshint.sca.score"
+           file://jshint.sca.description"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://LICENSE;md5=4e19041df56fbb7a49fb87c4322d5849"
@@ -34,7 +33,6 @@ do_install() {
     mkdir -p ${D}${datadir}
 
     install ${WORKDIR}/jshint.sca.description ${D}${datadir}
-    install ${WORKDIR}/jshint.sca.score ${D}${datadir}
 }
 
 FILES_${PN} += "${datadir}"

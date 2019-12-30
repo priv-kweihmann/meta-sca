@@ -9,8 +9,7 @@ SRCREV = "86b9395715c774d7454a0d663dcc59a1dff2f757"
 S = "${WORKDIR}/git"
 
 FILES_${PN} += "${datadir}"
-SRC_URI += "file://looong.sca.description \
-            file://looong.sca.score"
+SRC_URI += "file://looong.sca.description"
 
 inherit native
 inherit sca-sanity
@@ -18,5 +17,4 @@ inherit sca-sanity
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/looong.sca.description ${D}${datadir}
-    install ${WORKDIR}/looong.sca.score ${D}${datadir}
 }

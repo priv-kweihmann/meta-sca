@@ -3,8 +3,7 @@ SUMMARY = "Phan is a static analyzer for PHP"
 HOMEPAGE = "https://github.com/phan/phan"
 
 SRC_URI = " git://github.com/phan/phan.git;protocol=https;tag=${PV} \
-            file://phan.sca.description \
-            file://phan.sca.score"
+            file://phan.sca.description"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fbdcd3d0ec03d3c2e54b19846ad2b027"
@@ -29,6 +28,5 @@ do_compile_prepend() {
 do_install_append() {
     mkdir -p ${D}${datadir}
     install ${WORKDIR}/phan.sca.description ${D}${datadir}/
-    install ${WORKDIR}/phan.sca.score ${D}${datadir}/
 }
 

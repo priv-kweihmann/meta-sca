@@ -9,7 +9,6 @@ SRC_URI = "\
             file://src/pscan.c \
             file://src/pscan.h \
             file://pscan.sca.description \
-            file://pscan.sca.score \
             file://src/scanner.l \
             file://src/Makefile \
         "
@@ -39,5 +38,4 @@ do_install() {
     install -m 0755 ${S}/pscan ${D}${bindir}
     install -d ${D}${datadir}
     install ${WORKDIR}/pscan.sca.description ${D}${datadir}
-    install ${WORKDIR}/pscan.sca.score ${D}${datadir}
 }

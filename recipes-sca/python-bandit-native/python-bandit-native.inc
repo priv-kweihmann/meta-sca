@@ -13,13 +13,11 @@ inherit native
 inherit pypi
 inherit sca-sanity
 
-SRC_URI += "file://bandit.sca.description \
-            file://bandit.sca.score"
+SRC_URI += "file://bandit.sca.description"
 
 FILES_${PN} += "${datadir}"
 
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/bandit.sca.description ${D}${datadir}
-    install ${WORKDIR}/bandit.sca.score ${D}${datadir}
 }

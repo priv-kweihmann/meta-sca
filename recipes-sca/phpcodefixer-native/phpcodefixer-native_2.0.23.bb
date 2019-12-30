@@ -3,8 +3,7 @@ SUMMARY = "Analyzer of PHP code to search issues with deprecated functionality i
 HOMEPAGE = "https://github.com/wapmorgan/PhpCodeFixer"
 
 SRC_URI = " git://github.com/wapmorgan/PhpCodeFixer.git;protocol=https;tag=${PV} \
-            file://phpcodefixer.sca.description \
-            file://phpcodefixer.sca.score"
+            file://phpcodefixer.sca.description"
 
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c98596cdc7ad2b3b9a3a84255a83cb9f"
@@ -26,6 +25,5 @@ do_compile_prepend() {
 do_install_append() {
     mkdir -p ${D}${datadir}
     install ${WORKDIR}/phpcodefixer.sca.description ${D}${datadir}/
-    install ${WORKDIR}/phpcodefixer.sca.score ${D}${datadir}/
 }
 

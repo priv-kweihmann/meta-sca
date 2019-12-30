@@ -8,7 +8,6 @@ DEPENDS += "${PYTHON_PN}-pygments-native"
 FILES_${PN} += "${datadir}"
 SRC_URI += "\
             file://multimetric.sca.description \
-            file://multimetric.sca.score \
             git://github.com/priv-kweihmann/multimetric.git;protocol=https;branch=master;tag=${PV} \
            "
 
@@ -20,5 +19,4 @@ inherit setuptools3
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/multimetric.sca.description ${D}${datadir}
-    install ${WORKDIR}/multimetric.sca.score ${D}${datadir}
 }

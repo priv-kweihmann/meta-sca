@@ -12,15 +12,14 @@ inherit native
 inherit pypi
 inherit sca-sanity
 
-SRC_URI += "file://dennis.sca.description \
-            file://dennis.sca.score"
+SRC_URI += "file://dennis.sca.description"
 
 FILES_${PN} += "${datadir}"
 
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/dennis.sca.description ${D}${datadir}
-    install ${WORKDIR}/dennis.sca.score ${D}${datadir}
+
     ## This otherwise collides with other modules
     rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/tests/
 }

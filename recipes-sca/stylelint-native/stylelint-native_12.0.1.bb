@@ -6,8 +6,7 @@ inherit npm-helper
 
 SRC_URI = "git://github.com/stylelint/stylelint.git;protocol=https;tag=${PV} \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
-           file://stylelint.sca.description \
-           file://stylelint.sca.score"
+           file://stylelint.sca.description"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://LICENSE;md5=0e0ecf49fffcf64b1f3fa0a956ea44a0"
@@ -35,7 +34,6 @@ do_install() {
     mkdir -p ${D}${datadir}
 
     install ${WORKDIR}/stylelint.sca.description ${D}${datadir}
-    install ${WORKDIR}/stylelint.sca.score ${D}${datadir}
 }
 
 FILES_${PN} += "${datadir}"

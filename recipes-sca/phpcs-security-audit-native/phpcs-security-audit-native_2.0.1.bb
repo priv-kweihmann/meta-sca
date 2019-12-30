@@ -3,8 +3,7 @@ SUMMARY = "phpcs-security-audit is a set of PHP_CodeSniffer rules that finds vul
 HOMEPAGE = "https://github.com/FloeDesignTechnologies/phpcs-security-audit"
 
 SRC_URI = " git://github.com/FloeDesignTechnologies/phpcs-security-audit.git;protocol=https;nobranch=1;tag=${PV} \
-            file://phpsecaudit.sca.description \
-            file://phpsecaudit.sca.score"
+            file://phpsecaudit.sca.description"
 
 LICENSE = "GPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=412af50a7c6ed96fe188e6672d9f3d9b"
@@ -31,6 +30,5 @@ do_install_append() {
         ${D}${bindir}/phpcs-security-audit/vendor/squizlabs/php_codesniffer/src/Standards/
     mkdir -p ${D}${datadir}
     install ${WORKDIR}/phpsecaudit.sca.description ${D}${datadir}/
-    install ${WORKDIR}/phpsecaudit.sca.score ${D}${datadir}/
 }
 

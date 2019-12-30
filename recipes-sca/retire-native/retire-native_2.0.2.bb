@@ -5,8 +5,7 @@ inherit npm-helper
 
 SRC_URI = "git://github.com/RetireJS/retire.js.git;protocol=https;tag=${PV} \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
-           file://retire.sca.description \
-           file://retire.sca.score"
+           file://retire.sca.description"
 
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM  = "file://LICENSE.md;md5=6ab42c2b3308255529a8db4ee37e13a1"
@@ -34,7 +33,6 @@ do_install() {
     mkdir -p ${D}${datadir}
 
     install ${WORKDIR}/retire.sca.description ${D}${datadir}
-    install ${WORKDIR}/retire.sca.score ${D}${datadir}
 }
 
 FILES_${PN} += "${datadir}"

@@ -5,8 +5,7 @@ HOMEPAGE = "https://salsa.debian.org/debian/devscripts"
 LICENSE = "GPLv2.0"
 
 SRC_URI = "git://salsa.debian.org/debian/devscripts.git;protocol=https;tag=v${PV} \
-           file://checkbashism.sca.description \
-           file://checkbashism.sca.score"
+           file://checkbashism.sca.description"
 
 S = "${WORKDIR}/git"
 B = "${S}"
@@ -31,5 +30,4 @@ do_install() {
     install -m 0755 ${S}/scripts/checkbashisms.pl ${D}${bindir}
 
     install ${WORKDIR}/checkbashism.sca.description ${D}${datadir}
-    install ${WORKDIR}/checkbashism.sca.score ${D}${datadir}
 }

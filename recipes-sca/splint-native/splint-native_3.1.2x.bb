@@ -3,8 +3,7 @@ HOMEPAGE = "https://github.com/splintchecker/splint"
 
 SRC_URI = " git://github.com/splintchecker/splint.git;protocol=https \
             file://0001-Strip-usr-include.patch \
-            file://splint.sca.description \
-            file://splint.sca.score"
+            file://splint.sca.description"
 
 ## This version is 3.12 plus some commit which addresses
 ## build issues
@@ -26,6 +25,5 @@ FILES_${PN} = "${bindir} ${datadir}"
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/splint.sca.description ${D}${datadir}/
-    install ${WORKDIR}/splint.sca.score ${D}${datadir}/
 }
 

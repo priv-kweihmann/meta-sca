@@ -14,13 +14,11 @@ inherit pypi
 inherit sca-sanity
 
 FILES_${PN} += "${datadir}"
-SRC_URI += "file://bashate.sca.description \
-            file://bashate.sca.score"
+SRC_URI += "file://bashate.sca.description"
 
 inherit native
 
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/bashate.sca.description ${D}${datadir}
-    install ${WORKDIR}/bashate.sca.score ${D}${datadir}
 }
