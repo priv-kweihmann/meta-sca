@@ -53,7 +53,7 @@ def do_sca_conv_gosec(d):
                                             Severity=_severity_map[item["severity"]])
                     if _suppress.Suppressed(g):
                         continue
-                    if not sca_is_in_finding_scope(d, "gosec", g.GetFormattedID()):
+                    if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

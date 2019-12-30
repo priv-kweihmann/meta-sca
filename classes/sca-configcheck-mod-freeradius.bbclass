@@ -30,7 +30,7 @@ def do_sca_configcheck_conv_freeradius(d, toolout, suppress):
                                     Severity=severity_map[m.group("severity")])
             if suppress.Suppressed(g):
                 continue
-            if not sca_is_in_finding_scope(d, "configcheck", g.GetFormattedID()):
+            if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                 continue
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)

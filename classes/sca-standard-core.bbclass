@@ -42,7 +42,7 @@ def do_sca_conv_standard(d):
                                             Severity="warning")
                     if _suppress.Suppressed(g):
                         continue
-                    if not sca_is_in_finding_scope(d, "standard", g.GetFormattedID()):
+                    if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)

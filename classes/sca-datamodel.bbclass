@@ -29,6 +29,8 @@ def sca_get_model_class(d, **kwargs):
             self.__PackageName = ""
             self.__Tool = ""
             self.__SevTrans = {}
+            self.__Scope = ""
+            self.__description = {}
             for k,v in kwargs.items():
                 x = getattr(self, k)
                 if x is not None:
@@ -42,6 +44,14 @@ def sca_get_model_class(d, **kwargs):
         def File(self, value):
             self.__File = value
             self.__fixupPaths()
+
+        @property
+        def Scope(self):
+            return self.__Scope
+        
+        @Scope.setter
+        def Scope(self, value):
+            self.__Scope = value
 
         @property
         def BuildPath(self):
@@ -118,6 +128,30 @@ def sca_get_model_class(d, **kwargs):
         def SevTrans(self, value):
             self.__SevTrans = value
             self.__sev_transform()
+
+        def AddDescription(self, basepath):
+            import json
+            _path = os.path.join(basepath, "{}.sca.description".format(self.__Tool.lower()))
+            if os.path.exists(_path):
+                with open(_path) as i:
+                    self.__description = json.load(i)
+                self.__getScope()
+
+        def __getScope(self):
+            if self.__Scope:
+                return
+            if not self.__ID or not self.__description:
+                return
+            
+            import re
+            _id = self.GetFormattedID()
+            for s in ["security", "functional", "style"]:
+                for f in self.__description["score"][s]:
+                    if re.match(f, _id):
+                        self.__Scope = s
+                        break
+                if self.__Scope:
+                    break
         
         def __fixupPaths(self):
             if self.__File:
@@ -189,9 +223,11 @@ def sca_get_model_class(d, **kwargs):
             return [SCADataModel.FromDict(x) for x in _in]
         
         def ToDict(self):
-            return {k:getattr(self,k) for k in ["File", "BuildPath", "Line", "Column", "Severity", "Message", "ID", "PackageName", "Tool"] if getattr(self,k)}
+            return {k:getattr(self,k) for k in ["File", "BuildPath", "Line", "Column", "Severity", "Message", "ID", "PackageName", "Tool", "Scope"] if getattr(self,k)}
 
-    return SCADataModel(SevTrans=__SevTrans, **kwargs)
+    x = SCADataModel(SevTrans=__SevTrans, **kwargs)
+    x.AddDescription(d.getVar("STAGING_DATADIR_NATIVE"))
+    return x
 
 def __sca_model_to_list(d, list):
     return [x.ToDict() for x in list]
