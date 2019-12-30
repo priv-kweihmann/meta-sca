@@ -2,7 +2,6 @@ SUMMARY = "faster, stricter, configurable, extensible, and beautiful drop-in rep
 HOMEPAGE = "https://github.com/mgechev/revive"
 
 SRC_URI = "file://revive.sca.description \
-           file://revive.sca.score \
            git://${GO_IMPORT};protocol=https;name=revive"
 SRCREV_revive = "a5c15acc084b9778307bff45e7b1a6913a03e931"
 
@@ -33,6 +32,5 @@ DEPENDS += "\
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/revive.sca.description ${D}${datadir}/
-    install ${WORKDIR}/revive.sca.score ${D}${datadir}/
 }
 

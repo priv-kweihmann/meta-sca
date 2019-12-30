@@ -2,7 +2,6 @@ SUMMARY = "stank: analyzers for determining whether files smell like rotten POSI
 HOMEPAGE = "https://github.com/mcandre/stank"
 
 SRC_URI = "file://stank.sca.description \
-           file://stank.sca.score \
            git://${GO_IMPORT};protocol=https;tag=v${PV}"
 
 GO_IMPORT = "github.com/mcandre/stank"
@@ -19,6 +18,5 @@ FILES_${PN} += "${datadir}"
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/stank.sca.description ${D}${datadir}/
-    install ${WORKDIR}/stank.sca.score ${D}${datadir}/
 }
 

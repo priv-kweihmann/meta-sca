@@ -12,13 +12,11 @@ DEPENDS += "${PYTHON_PN}-native ${PYTHON_PN}-pyyaml-native"
 inherit native
 inherit sca-sanity
 
-SRC_URI += "file://detectsecrets.sca.description \
-            file://detectsecrets.sca.score"
+SRC_URI += "file://detectsecrets.sca.description"
 
 FILES_${PN} += "${datadir}"
 
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/detectsecrets.sca.description ${D}${datadir}
-    install ${WORKDIR}/detectsecrets.sca.score ${D}${datadir}
 }

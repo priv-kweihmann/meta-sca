@@ -6,8 +6,7 @@ inherit npm-helper
 
 SRC_URI = "git://github.com/fimbullinter/wotan.git;protocol=https;tag=v${PV} \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
-           file://wotan.sca.description \
-           file://wotan.sca.score"
+           file://wotan.sca.description"
 
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM  = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
@@ -36,7 +35,6 @@ do_install() {
     mkdir -p ${D}${datadir}
 
     install ${WORKDIR}/wotan.sca.description ${D}${datadir}
-    install ${WORKDIR}/wotan.sca.score ${D}${datadir}
 }
 
 FILES_${PN} += "${datadir}"

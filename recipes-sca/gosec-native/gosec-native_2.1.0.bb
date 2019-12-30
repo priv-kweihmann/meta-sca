@@ -2,7 +2,6 @@ SUMMARY = "Golang security checker"
 HOMEPAGE = "https://github.com/securego/gosec"
 
 SRC_URI = "file://gosec.sca.description \
-           file://gosec.sca.score \
            git://${GO_IMPORT};protocol=https;tag=v${PV}"
 
 GO_IMPORT = "github.com/securego/gosec"
@@ -37,6 +36,5 @@ DEPENDS += "\
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/gosec.sca.description ${D}${datadir}/
-    install ${WORKDIR}/gosec.sca.score ${D}${datadir}/
 }
 
