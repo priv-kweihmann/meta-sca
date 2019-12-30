@@ -65,7 +65,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             revive \
                             ropgadget \
                             safety \
-                            score \
                             setuptoolslint \
                             shellcheck \
                             slick \
