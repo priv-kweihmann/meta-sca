@@ -6,9 +6,6 @@ SCA_MULTIMETRIC_FILE_FILTER ?= ".c .C .c++ .cc .cp .cpp .CPP .cxx .go .h .H .h++
 SCA_MULTIMETRIC_EXTRA_SUPPRESS ?= ""
 SCA_MULTIMETRIC_EXTRA_FATAL ?= ""
 
-SCA_MULTIMETRIC_ERROR_cyclomatic_complexity_gt ?= "30.0"
-SCA_MULTIMETRIC_WARN_cyclomatic_complexity_gt ?= "15.0"
-
 # possible entries for variables are 
 # comment_ratio
 # cyclomatic_complexity
@@ -30,7 +27,7 @@ SCA_MULTIMETRIC_WARN_cyclomatic_complexity_gt ?= "15.0"
 # tiobe_complexity
 # tiobe_coverage
 # tiobe_duplication
-# tiobe_fanout`          
+# tiobe_fanout          
 # tiobe_functional
 # tiobe_security
 # tiobe_standard
@@ -238,4 +235,4 @@ python do_sca_multimetric_core() {
     sca_task_aftermath(d, "multimetric", get_fatal_entries(d))
 }
 
-DEPENDS += "python3-multimetric-native sca-recipe-multimetric-rules-native"
+DEPENDS += "python3-multimetric-native"

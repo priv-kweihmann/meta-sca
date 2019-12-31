@@ -20,18 +20,30 @@ This module offers the possibility to issue a warning or an error if a configure
 | ------------- |:-------------:| -----:| -----:
 | SCA_BLACKLIST_multimetric | Blacklist filter for this tool | space-separated-list | ""
 | SCA_MULTIMETRIC_COMPILER_MODULES | List of modules that are generating compiler warnings | space-separated-list | "gcc"
-| SCA_MULTIMETRIC_ERROR_cyclomatic_complexity_gt | Threshold for maximum cyclomatic complexity before issuing an error | float-string | "30.0"
 | SCA_MULTIMETRIC_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_MULTIMETRIC_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_MULTIMETRIC_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".c .C .c++ .cc .cp .cpp .CPP .cxx .go .h .H .h++ .hh .hpp .hxx .idc .js .jsm .lua .php .php3 .php4 .php5 .pl .pm .pxd .pxi .py .pyx .t .wlua"
-| SCA_MULTIMETRIC_WARN_cyclomatic_complexity_gt | Threshold for maximum cyclomatic complexity before issuing a warning | float-string | "15.0"
+| SCA_MULTIMETRIC_IMAGE_KEY | Input key on which the image metrics are calculated | enum: mean, median, max, min, sd | "mean"
+
+
+### Default values
+
+Following metric are set by default
+
+| var | purpose | type | default |
+| ------------- |:-------------:| -----:| -----:
+| SCA_MULTIMETRIC_ERROR_maintainability_index_lt | Create an error if maintainability_index is less than value | float-string | "50.0"
+| SCA_MULTIMETRIC_ERROR_tiobe_lt | Create an error if tiobe is less than value | float-string | "50.0"
+| SCA_MULTIMETRIC_WARN_maintainability_index_lt | Create a warning if maintainability_index is less than value | float-string | "80.0"
+| SCA_MULTIMETRIC_WARN_pylint_lt | Create a warning if pylint is less than value | float-string | "70.0"
+| SCA_MULTIMETRIC_WARN_tiobe_lt | Create a warning if tiobe is less than value | float-string | "80.0"
 
 ## Supports
 
 * [x] suppression of IDs
 * [x] terminate build on fatal
 * [x] run on recipe
-* [ ] run on image
+* [x] run on image
 * [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires

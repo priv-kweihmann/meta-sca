@@ -35,7 +35,7 @@ looong,Find functions with too long arglists,https://github.com/anapaulagomes/lo
 luacheck,LUA linter,https://github.com/mpeterv/luacheck,"meta-oe, manual enable",x,,x,,,,,,,,,x,,,,,,,x,
 lynis,Auditing tool for images,https://github.com/CISOfy/lynis,,,x,,,,,,,,,x,,,,,,,x,,
 msgcheck,I18n linter,https://github.com/codingjoe/msgcheck,,,,x,,,,,,,,,,,,,,x,,,x
-multimetric,Coding metrics,https://github.com/priv-kweihmann/multimetric,,,,x,x,x,x,,x,x,x,,x,,x,,,,,,x
+multimetric,Coding metrics,https://github.com/priv-kweihmann/multimetric,,,x,x,x,x,x,,x,x,x,,x,,x,,,,,,x
 mypy,Python linter,https://github.com/python/mypy,,,x,x,,,x,,,,,,,,,,,,,x,
 nixauditor,Auditing tool for images,https://github.com/XalfiE/Nix-Auditor,,,x,,,,,,,,,x,,,,,,,x,,
 npmaudit,NPM package auditor,https://docs.npmjs.com/cli/audit,,x,,x,,,,,,,,,,,,,,x,x,,
