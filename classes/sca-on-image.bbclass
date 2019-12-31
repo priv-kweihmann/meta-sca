@@ -25,6 +25,7 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             jshint \
                             jsonlint \
                             lynis \
+                            multimetric \
                             mypy \
                             nixauditor \
                             oelint \
