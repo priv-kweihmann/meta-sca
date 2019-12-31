@@ -14,16 +14,14 @@ RDEPENDS_${PN} += "${PYTHON_PN}-native"
 inherit native
 inherit sca-sanity
 
-do_install() {
-    oe_runmake install DESTDIR=${D} prefix=${prefix} mandir=${mandir} bindir=${bindir} datarootdir=${datadir}
+do_install_prepend() {
+    # Somehow there should have been a zipped version of the 
+    # tools sources - but as we don't need them
+    # we are going to ship an stub text file instead
+    echo "Intentionally empty" > ${B}/flawfinder.1.gz
+}
+
+do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/flawfinder.sca.description ${D}${datadir}
-}
-
-do_compile() {
-    :
-}
-
-do_configure() {
-    :
 }
