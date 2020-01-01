@@ -99,6 +99,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           pysymcheck \
                           pytype \
                           rats \
+                          reek \
                           retire \
                           revive \
                           ropgadget \
