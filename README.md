@@ -1,6 +1,6 @@
 # meta-sca <!-- omit in toc -->
 
-![https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CLua%2CPHP%2CPython%2CShell%2Cjs%2Cperl-informational](https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CLua%2CPHP%2CPython%2CShell%2Cjs%2Cperl-informational)
+![https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CLua%2CPHP%2CPython%2CShell%2Cjs%2Cperl%2Cruby-informational](https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CLua%2CPHP%2CPython%2CShell%2Cjs%2Cperl%2Cruby-informational)
 
 ## Current status
 
@@ -198,6 +198,7 @@ The layer can check on a recipe-level or on an image-level.
 | pysymcheck      | Check binaries for forbidden function usage           | https://github.com/priv-kweihmann/pysymbolcheck                       |                             |               |              | x             |   |     |        |       |            |     |    |        |     |          |         | x        |          |               | x              |                  |             |
 | pytype          | Python linter using type-annotations                  | https://github.com/google/pytype                                      |                             | x             |              | x             |   |     | x      |       |            |     |    |        |     |          |         |          |          |               |                | x                |             |
 | rats            | Check on insecurities in several languages            | https://github.com/redNixon/rats                                      |                             |               |              | x             |   | x   | x      | x     |            | x   |    |        |     |          |         |          |          |               | x              |                  |             |
+| reek            | Code smell detector for Ruby                          | https://github.com/troessner/reek                                     |                             |               |              | x             |   |     |        |       |            |     |    |        |     |          |         |          |          | x             |                |                  | x           |
 | retire          | Check for known vulnerabilities in javascript and NPM | https://retirejs.github.io/retire.js/                                 |                             | x             |              | x             |   |     |        |       | x          |     |    |        |     |          |         |          | x        |               | x              |                  |             |
 | revive          | GO linter                                             | https://github.com/mgechev/revive                                     |                             |               |              | x             |   |     |        |       |            |     | x  |        |     |          |         |          |          |               |                | x                | x           |
 | ropgadget       | Determine ROP exploitability in binaries              | https://github.com/JonathanSalwan/ROPgadget                           |                             |               |              | x             |   |     |        |       |            |     |    |        |     |          |         | x        |          |               | x              |                  |             |
@@ -295,6 +296,7 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
     - [pysymcheck](docs/conf/module/pysymcheck.md)
     - [pytype](docs/conf/module/pytype.md)
     - [rats](docs/conf/module/rats.md)
+    - [reek](docs/conf/module/reek.md)
     - [retire](docs/conf/module/retire.md)
     - [revive](docs/conf/module/revive.md)
     - [ropgadget](docs/conf/module/ropgadget.md)

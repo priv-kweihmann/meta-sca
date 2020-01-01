@@ -57,6 +57,7 @@ pyright,Python type linter,https://github.com/Microsoft/pyright,,x,,x,,,x,,,,,,,
 pysymcheck,Check binaries for forbidden function usage,https://github.com/priv-kweihmann/pysymbolcheck,,,,x,,,,,,,,,,,,x,,,x,,
 pytype,Python linter using type-annotations,https://github.com/google/pytype,,x,,x,,,x,,,,,,,,,,,,,x,
 rats,Check on insecurities in several languages,https://github.com/redNixon/rats,,,,x,,x,x,x,,x,,,,,,,,,x,,
+reek,Code smell detector for Ruby,https://github.com/troessner/reek,,,,x,,,,,,,,,,,,,,x,,,x
 retire,Check for known vulnerabilities in javascript and NPM,https://retirejs.github.io/retire.js/,,x,,x,,,,,x,,,,,,,,x,,x,,
 revive,GO linter,https://github.com/mgechev/revive,,,,x,,,,,,,x,,,,,,,,,x,x
 ropgadget,Determine ROP exploitability in binaries,https://github.com/JonathanSalwan/ROPgadget,,,,x,,,,,,,,,,,,x,,,x,,
