@@ -45,6 +45,20 @@ PKGS="\
         python-enum34-native \
         python-polib-native \
         python-ruamelyaml-native \
+        reek-native \
+        ruby-ast-native \
+        ruby-axiom-types-native \
+        ruby-codeclimate-engine-rb-native \
+        ruby-coercible-native \
+        ruby-descendants-tracker-native \
+        ruby-equalizer-native \
+        ruby-ice-nine-native \
+        ruby-kwalify-native \
+        ruby-parser-native \
+        ruby-psych-native \
+        ruby-rainbow-native \
+        ruby-thread-safe-native \
+        ruby-virtus-native \
         shellcheck-native \
         sparse-native \
         tiger-native \
