@@ -61,6 +61,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             pysymcheck \
                             pytype \
                             rats \
+                            reek \
                             retire \
                             revive \
                             ropgadget \

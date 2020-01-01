@@ -8,9 +8,6 @@ S = "${WORKDIR}/git/test/samples"
 
 inherit sca
 
-SCA_AVAILABLE_MODULES = ""
-inherit sca-reek
-
 do_configure() {
     :
 }

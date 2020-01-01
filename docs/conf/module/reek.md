@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLACKLIST_reek | Blacklist filter for this tool | space-separated-list | "linux-*"
+| SCA_BLACKLIST_reek | Blacklist filter for this tool | space-separated-list | ""
 | SCA_REEK_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_REEK_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_REEK_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".rb"
