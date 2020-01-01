@@ -17,4 +17,5 @@ bitbake \
         cspell \
         python3-git \
         simple-c \
+        rubycritic-test \
         $@

@@ -154,6 +154,9 @@ _data = {
         "openssh",
         "simple-c"
     ],
+    "reek": [
+        "rubycritic-test"
+    ],
     "retire": [
         "cspell"
     ],
