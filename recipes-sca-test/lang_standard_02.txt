@@ -23,6 +23,7 @@ pylint
 pyright
 pysymcheck
 pytype
+reek
 retire
 safety
 setuptoolslint
