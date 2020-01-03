@@ -69,7 +69,7 @@ python do_sca_pyfindinjection_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pyfindinjection-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pyfindinjection-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "python-native", "python")]
+    _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "python3-native", "python3")]
     _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "py-find-injection")]
 
     result_raw_file = os.path.join(d.getVar("T"), "sca_raw_pyfindinjection.txt")
@@ -97,4 +97,4 @@ python do_sca_pyfindinjection_core() {
     sca_task_aftermath(d, "pyfindinjection", get_fatal_entries(d))
 }
 
-DEPENDS += "python-pyfindinjection-native"
+DEPENDS += "python3-pyfindinjection-native"
