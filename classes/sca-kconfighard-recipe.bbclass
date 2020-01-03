@@ -87,8 +87,8 @@ python do_sca_kconfighard() {
     import subprocess
 
     if get_architeture(d) and d.getVar("PN") == "linux-yocto":
-        d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_CPPLINT_EXTRA_SUPPRESS"))
-        d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_CPPLINT_EXTRA_FATAL"))
+        d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_KCONFIGHARD_EXTRA_SUPPRESS"))
+        d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_KCONFIGHARD_EXTRA_FATAL"))
         d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "kconfighard-{}-suppress".format(d.getVar("SCA_MODE"))))
         d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "kconfighard-{}-fatal".format(d.getVar("SCA_MODE"))))
 
