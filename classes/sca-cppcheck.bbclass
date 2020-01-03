@@ -104,7 +104,7 @@ python do_sca_cppcheck() {
     _args += ["--xml-version=2"]
     _args += ["--force"]
     _args += ["--max-configs=1"]
-    _args += ["--max-ctu-depth={}".format("SCA_CPPCHECK_CHECK_DEPTH")]
+    _args += ["--max-ctu-depth={}".format(d.getVar("SCA_CPPCHECK_CHECK_DEPTH"))]
     for item in d.getVar("SCA_CPPCHECK_LANG_STD").split(" "):
         _args += ["--std={}".format(item)]
     _args += [get_platform_type(d)]    
