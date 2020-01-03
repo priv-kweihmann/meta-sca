@@ -59,7 +59,7 @@ def do_sca_conv_vulture(d):
 python do_sca_vulture_core() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_FLAKE8_EXTRA_FATAL"))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_VULTURE_EXTRA_FATAL"))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "vulture-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _args = [os.environ.get("PYTHON", d.getVar('SCA_STD_PYTHON_INTERPRETER')), "-m", "vulture"]
