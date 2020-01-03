@@ -143,7 +143,7 @@ python do_sca_rats() {
             cmd_output = e.stdout or ""
         xml_output = xml_combine(d, xml_output, cmd_output)
 
-    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*ruby", ".ruby", _excludes)
+    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*ruby", ".ruby .rb", _excludes)
     ## Ruby
     if any(_files):
         try:
