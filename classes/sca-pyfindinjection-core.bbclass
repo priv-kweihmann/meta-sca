@@ -97,4 +97,4 @@ python do_sca_pyfindinjection_core() {
     sca_task_aftermath(d, "pyfindinjection", get_fatal_entries(d))
 }
 
-DEPENDS += "python-pyfindinjection-native"
+DEPENDS += "python3-pyfindinjection-native"
