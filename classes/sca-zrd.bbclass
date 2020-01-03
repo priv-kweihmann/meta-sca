@@ -12,15 +12,15 @@ inherit sca-global
 inherit sca-helper
 inherit sca-suppress
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
+inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER', True) == 'python3', 'python3native', 'pythonnative')}
 
 def do_sca_conv_zrd(d):
     import os
     import re
     import csv
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     severity_map = {
         "warning" : "warning",
@@ -42,11 +42,11 @@ def do_sca_conv_zrd(d):
     }
 
     _suppress = sca_suppress_init(d)
-    __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
+    __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r", encoding='utf-8-sig') as f:
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True), "r", encoding='utf-8-sig') as f:
             reader = csv.DictReader(f)
             for row in reader:
                 try:
@@ -76,19 +76,19 @@ def do_sca_conv_zrd(d):
 python do_sca_zrd() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_ZRD_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_ZRD_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "zrd-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "zrd-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_ZRD_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_ZRD_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "zrd-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "zrd-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_zrd.csv")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
-    _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), d.getVar("PYTHON_PN") + "-native", d.getVar("PYTHON_PN"))]
-    _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "zrd", "resource_detector.py")]
+    _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), d.getVar("PYTHON_PN", True) + "-native", d.getVar("PYTHON_PN", True))]
+    _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "zrd", "resource_detector.py")]
     _args += ["-d", tmp_result]
-    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), "",
-                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR", True), "",
+                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run
     if any(_files):
@@ -98,9 +98,9 @@ python do_sca_zrd() {
             cmd_output = e.stdout or ""
     
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/zrd.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/zrd.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_zrd(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "zrd", get_fatal_entries(d))

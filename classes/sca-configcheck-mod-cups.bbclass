@@ -2,14 +2,14 @@
 SCA_CONFIGCHECK_cups_CONFIGFILE ?= "/etc/cups/cupsd.conf"
 
 def do_sca_configcheck_run_cups(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which cupsd) ] && cupsd -t -c {}".format(d.getVar("SCA_CONFIGCHECK_cups_CONFIGFILE"))]
+    return ["/bin/sh", "-c", "[ ! -z $(which cupsd) ] && cupsd -t -c {}".format(d.getVar("SCA_CONFIGCHECK_cups_CONFIGFILE", True))]
 
 def do_sca_configcheck_conv_cups(d, toolout, suppress):
     import os
     import re
 
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^(?P<msg>Unknown.*)\s+on\s+line\s+(?P<line>\d+)\s+of\s+(?P<file>.*)\."
 

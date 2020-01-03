@@ -24,8 +24,8 @@ def get_config_symbols(d, config_file=".config", strip="CONFIG_"):
     import re
     import os
     res = []
-    for x in [x for x in d.getVar("SCA_TSCANCODE_CONFIG_FILES").split(" ") if x]:
-        _in = os.path.join(d.getVar("B"), x)
+    for x in [x for x in d.getVar("SCA_TSCANCODE_CONFIG_FILES", True).split(" ") if x]:
+        _in = os.path.join(d.getVar("B", True), x)
         if os.path.exists(_in):
             with open(_in) as i:
                 content = i.read()
@@ -45,8 +45,8 @@ def do_sca_conv_tscancode(d):
     from xml.etree.ElementTree import Element, SubElement, Comment, tostring
     from xml.etree import ElementTree
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     severity_map = {
         "Serious" : "error",
@@ -59,9 +59,9 @@ def do_sca_conv_tscancode(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
         try:
-            data = ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE")).getroot()
+            data = ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE", True)).getroot()
             for node in data.findall(".//error"):
                 try:
                     g = sca_get_model_class(d,
@@ -91,10 +91,10 @@ python do_sca_tscancode() {
     import os
     import subprocess
     import shutil
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_TSCANCODE_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_TSCANCODE_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "tscancode-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "tscancode-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_TSCANCODE_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_TSCANCODE_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "tscancode-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "tscancode-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_tscancode.xml")
 
@@ -104,25 +104,25 @@ python do_sca_tscancode() {
     _args += ["--xml"]
     _args += ["--enable=all"]
     _args += ["-q"]
-    _args += ["-j", d.getVar("BB_NUMBER_THREADS")]
+    _args += ["-j", d.getVar("BB_NUMBER_THREADS", True)]
     for sym in get_config_symbols(d):
-        _args += ["-D{}{}".format(d.getVar("SCA_TSCANCODE_SYMBOL_PREFIX"), sym)]
-    for x in [x for x in d.getVar("SCA_TSCANCODE_INCLUDE_PATHS") if x]:
+        _args += ["-D{}{}".format(d.getVar("SCA_TSCANCODE_SYMBOL_PREFIX", True), sym)]
+    for x in [x for x in d.getVar("SCA_TSCANCODE_INCLUDE_PATHS", True) if x]:
         _args += ["-I", x]
     _args += get_files_by_extention(d, 
-                                    d.getVar("SCA_SOURCES_DIR"), 
+                                    d.getVar("SCA_SOURCES_DIR", True), 
                                     clean_split(d, "SCA_TSCANCODE_FILE_FILTER"), 
-                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## create tmpdir
-    _cfgdir = os.path.join(d.getVar("T"), "tscancode", "cfg")
+    _cfgdir = os.path.join(d.getVar("T", True), "tscancode", "cfg")
     if os.path.exists(_cfgdir):
-        shutil.rmtree(os.path.join(d.getVar("T"), "tscancode"), ignore_errors=True)
+        shutil.rmtree(os.path.join(d.getVar("T", True), "tscancode"), ignore_errors=True)
     os.makedirs(os.path.dirname(_cfgdir), exist_ok=True)
-    os.symlink(os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "tscancode"), _cfgdir, target_is_directory=True)
+    os.symlink(os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "tscancode"), _cfgdir, target_is_directory=True)
 
     _curdir = os.getcwd()
-    os.chdir(os.path.join(d.getVar("T"), "tscancode"))
+    os.chdir(os.path.join(d.getVar("T", True), "tscancode"))
 
     try:
         x = subprocess.run(_args, universal_newlines=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
@@ -135,9 +135,9 @@ python do_sca_tscancode() {
         o.write(cmd_output)
     
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/tscancode.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/tscancode.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_tscancode(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "tscancode", get_fatal_entries(d))

@@ -17,20 +17,20 @@ SCA_BITBAKE_HARDENING ?= "\
                           "
 
 def do_sca_bitbake_hardening(d):
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
     _modules = clean_split(d, "SCA_BITBAKE_HARDENING")
     _findings = []
     _suppress = sca_suppress_init(d)
 
     if "debug_tweaks" in _modules:
         ## debug_tweaks in IMAGE_FEATURES isn't used in release build
-        if "debug_tweaks" in clean_split(d, "IMAGE_FEATURES") and d.getVar("DEBUG_BUILD") != "1":
+        if "debug_tweaks" in clean_split(d, "IMAGE_FEATURES") and d.getVar("DEBUG_BUILD", True) != "1":
             g = sca_get_model_class(d,
                                     PackageName=package_name,
                                     Tool="bitbake",
                                     BuildPath=buildpath,
-                                    File=d.getVar("FILE"),
+                                    File=d.getVar("FILE", True),
                                     Message="debug_tweaks is set in IMAGE_FEATURES",
                                     ID="hardening.debug_tweaks",
                                     Severity="warning")
@@ -39,12 +39,12 @@ def do_sca_bitbake_hardening(d):
                     _findings.append(g)
     if "insane_skip" in _modules:
         ## INSANE_SKIP isn't used anywhere
-        if clean_split(d, "INSANE_SKIP_{}".format(d.getVar("PN"))):
+        if clean_split(d, "INSANE_SKIP_{}".format(d.getVar("PN", True))):
             g = sca_get_model_class(d,
                                     PackageName=package_name,
                                     Tool="bitbake",
                                     BuildPath=buildpath,
-                                    File=d.getVar("FILE"),
+                                    File=d.getVar("FILE", True),
                                     Message="INSANE_SKIP is used in recipe",
                                     ID="hardening.insane_skip",
                                     Severity="warning")
@@ -59,7 +59,7 @@ def do_sca_bitbake_hardening(d):
                                     PackageName=package_name,
                                     Tool="bitbake",
                                     BuildPath=buildpath,
-                                    File=d.getVar("FILE"),
+                                    File=d.getVar("FILE", True),
                                     Message="security_flags.inc aren't used for building this recipe",
                                     ID="hardening.insane_skip",
                                     Severity="warning")
@@ -74,10 +74,10 @@ def do_sca_conv_bitbake(d):
     import os
     import re
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
-    pattern = r"^(?P<severity>WARNING|ERROR):\s+{}-{}-{}\s+(?P<task>.*):\s+(?P<message>.*)$".format(d.getVar("PN"), d.getVar("PKGV"), d.getVar("PR"))
+    pattern = r"^(?P<severity>WARNING|ERROR):\s+{}-{}-{}\s+(?P<task>.*):\s+(?P<message>.*)$".format(d.getVar("PN", True), d.getVar("PKGV", True), d.getVar("PR", True))
 
     severity_map = {
         "ERROR" : "error",
@@ -85,18 +85,18 @@ def do_sca_conv_bitbake(d):
     }
 
     _suppress = sca_suppress_init(d)
-    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
+    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
     _findings = []
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
                                             Tool="bitbake",
                                             BuildPath=buildpath,
-                                            File=d.getVar("FILE"),
+                                            File=d.getVar("FILE", True),
                                             Message="{}: {}".format(m.group("task"), m.group("message")),
                                             ID=m.group("severity"),
                                             Severity=severity_map[m.group("severity")])
@@ -118,16 +118,16 @@ python do_sca_bitbake () {
     content = ""
     with open(d.getVar("CONLOG")) as f:
         content = f.read()
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_bitbake.txt")
+    result_raw_file = os.path.join(d.getVar("T", True), "sca_raw_bitbake.txt")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
     with open(result_raw_file, "w") as o:
         o.write(content)
 
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/bitbake.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/bitbake.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_bitbake(d)
     dm_output = do_sca_bitbake_hardening(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "bitbake", get_fatal_entries(d))

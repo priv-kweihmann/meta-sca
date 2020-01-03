@@ -18,23 +18,23 @@ def do_sca_conv_nixauditor(d):
     import os
     import re
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^(?P<id>.*)\sFailed"
 
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
                                             Tool="nixauditor",
                                             BuildPath=buildpath,
-                                            File=d.getVar("FILE"),
+                                            File=d.getVar("FILE", True),
                                             Message="Check for {} failed".format(m.group("id")),
                                             ID=m.group("id").replace(" ", "_"),
                                             Severity="warning")
@@ -54,12 +54,12 @@ fakeroot python do_sca_nixauditor() {
     import os
     import subprocess
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_NIXAUDITOR_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_NIXAUDITOR_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "nixauditor-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "nixauditor-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_NIXAUDITOR_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_NIXAUDITOR_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "nixauditor-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "nixauditor-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_nixauditor.txt")
+    result_raw_file = os.path.join(d.getVar("T", True), "sca_raw_nixauditor.txt")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
 
     _args = ["/bin/sh", "-c", "/usr/bin/nixauditor | sed 's/\x1b\[[0-9;]*m//g'"]
@@ -70,9 +70,9 @@ fakeroot python do_sca_nixauditor() {
         o.write(cmd_output)
 
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/nixauditor.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/nixauditor.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_nixauditor(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "nixauditor", get_fatal_entries(d))

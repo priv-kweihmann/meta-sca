@@ -24,8 +24,8 @@ def sca_filter_files(d, path, addfilter=[]):
     import os
     import glob
     res = []
-    _filter = [x for x in d.getVar("SCA_FILE_FILTER").split(" ") if x] + addfilter
+    _filter = [x for x in d.getVar("SCA_FILE_FILTER", True).split(" ") if x] + addfilter
     for item in _filter:
-        res += glob.glob(os.path.join(d.getVar("SCA_SOURCES_DIR"), item), recursive=True)
+        res += glob.glob(os.path.join(d.getVar("SCA_SOURCES_DIR", True), item), recursive=True)
     res += sca_filter_by_license(d)
     return sorted(list(set(res)))

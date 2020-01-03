@@ -28,7 +28,7 @@ def do_sca_create_crossemu_img(d, tool, addpkgs, postcmd=""):
     from oe.manifest import create_manifest
     from oe.utils import execute_pre_post_process
     ## Create a copy of the rootfs
-    _target_path = os.path.join(d.getVar("WORKDIR"), "rootfs_{}".format(tool))
+    _target_path = os.path.join(d.getVar("WORKDIR", True), "rootfs_{}".format(tool))
     if os.path.exists(_target_path):
         shutil.rmtree(_target_path, ignore_errors=True)
 
@@ -41,15 +41,15 @@ def do_sca_create_crossemu_img(d, tool, addpkgs, postcmd=""):
     ## Override a few vars
     dc.appendVar("PACKAGE_INSTALL", " " + " ".join(pkg_list))
     dc.setVar("IMAGE_ROOTFS", _target_path)
-    dc.setVar("T", "{}_{}".format(d.getVar("T"), tool))
-    dc.setVar("WORKDIR", os.path.join(d.getVar("WORKDIR"), "work_{}".format(tool)))
+    dc.setVar("T", "{}_{}".format(d.getVar("T", True), tool))
+    dc.setVar("WORKDIR", os.path.join(d.getVar("WORKDIR", True), "work_{}".format(tool)))
 
     ## Create dirs
-    os.makedirs(dc.getVar("T"), exist_ok=True)
-    os.makedirs(dc.getVar("WORKDIR"), exist_ok=True)
+    os.makedirs(dc.getVar("T", True), exist_ok=True)
+    os.makedirs(dc.getVar("WORKDIR", True), exist_ok=True)
     
     ## Create log-file (seems to be needed by logger)
-    with open(os.path.join(dc.getVar("T"), "log.do_rootfs"), "w") as o:
+    with open(os.path.join(dc.getVar("T", True), "log.do_rootfs"), "w") as o:
         o.write("")
 
     logger = dc.getVar('BB_TASK_LOGGER', False)
@@ -63,7 +63,7 @@ def do_sca_create_crossemu_img(d, tool, addpkgs, postcmd=""):
     # We have to delay the runtime_mapping_rename until just before rootfs runs
     # otherwise, the multilib renaming could step in and squash any fixups that
     # may have occurred.
-    pn = dc.getVar('PN')
+    pn = dc.getVar('PN', True)
     runtime_mapping_rename("PACKAGE_INSTALL", pn, dc)
     runtime_mapping_rename("PACKAGE_INSTALL_ATTEMPTONLY", pn, dc)
     runtime_mapping_rename("BAD_RECOMMENDATIONS", pn, dc)
@@ -78,7 +78,7 @@ def do_sca_create_crossemu_img(d, tool, addpkgs, postcmd=""):
     execute_pre_post_process(dc, postcmd)
 
     _qemu = "{}-static".format(qemu_target_binary(d))
-    shutil.copy(os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), _qemu),
+    shutil.copy(os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), _qemu),
                 os.path.join(_target_path, _qemu))
 
     return _target_path

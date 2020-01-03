@@ -12,8 +12,8 @@ def do_sca_conv_pylint(d):
     import os
     import re
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^(?P<file>.*):(?P<line>\d+):\s+\[(?P<raw_severity>\w+)\((?P<raw_severity_id>.*)\).*\]\s+(?P<message>.*)"
 
@@ -28,8 +28,8 @@ def do_sca_conv_pylint(d):
     _findings = []
     _suppress = sca_suppress_init(d)
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -56,18 +56,18 @@ def do_sca_conv_pylint(d):
 python do_sca_pylint_core() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_PYLINT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_PYLINT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pylint-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pylint-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_PYLINT_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_PYLINT_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pylint-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pylint-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
     _args = ["python3", "-m", "pylint"]
     _args += ["--output-format=parseable"]
     _args += ["--score=no"]
-    _args += ["--rcfile={}/pylint.rc".format(d.getVar("T"))]
-    if d.getVar("SCA_PYLINT_EXTRA"):
-        _args += d.getVar("SCA_PYLINT_EXTRA").split(" ")
-    _args += ["-j", d.getVar("BB_NUMBER_THREADS")]
+    _args += ["--rcfile={}/pylint.rc".format(d.getVar("T", True))]
+    if d.getVar("SCA_PYLINT_EXTRA", True):
+        _args += d.getVar("SCA_PYLINT_EXTRA", True).split(" ")
+    _args += ["-j", d.getVar("BB_NUMBER_THREADS", True)]
 
     ## Run
     cur_dir = os.getcwd()
@@ -76,15 +76,15 @@ python do_sca_pylint_core() {
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_pylint.txt")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
-    os.environ["STAGING_LIBDIR"] = d.getVar("STAGING_LIBDIR")
+    os.environ["STAGING_LIBDIR"] = d.getVar("STAGING_LIBDIR", True)
 
     ## Patch a pylint.rc-file with all the library paths
-    with open(os.path.join(d.getVar("T"), "pylint.rc"), "w") as f:
+    with open(os.path.join(d.getVar("T", True), "pylint.rc"), "w") as f:
         f.write("[MASTER]\n")
-        f.write('init-hook="import sys;[sys.path.insert(0, a) for a in \'{}\'.split(\':\')]'.format(d.getVar("SCA_PYLINT_LIBATH")) + '"')
+        f.write('init-hook="import sys;[sys.path.insert(0, a) for a in \'{}\'.split(\':\')]'.format(d.getVar("SCA_PYLINT_LIBATH", True)) + '"')
 
-    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_PYTHON_SHEBANG"), ".py",
-                                               sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR", True), d.getVar("SCA_PYTHON_SHEBANG", True), ".py",
+                                               sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     if any(_files):
         try:
@@ -96,9 +96,9 @@ python do_sca_pylint_core() {
     os.chdir(cur_dir)
     
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/pylint.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/pylint.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_pylint(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "pylint", get_fatal_entries(d))

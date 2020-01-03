@@ -2,14 +2,14 @@
 SCA_CONFIGCHECK_samba_CONFIGFILE ?= "/etc/samba/smb.conf"
 
 def do_sca_configcheck_run_samba(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which testparm) ] && testparm -v -s {}".format(d.getVar("SCA_CONFIGCHECK_samba_CONFIGFILE"))]
+    return ["/bin/sh", "-c", "[ ! -z $(which testparm) ] && testparm -v -s {}".format(d.getVar("SCA_CONFIGCHECK_samba_CONFIGFILE", True))]
 
 def do_sca_configcheck_conv_samba(d, toolout, suppress):
     import os
     import re
 
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^(set_variable_helper(?P<msg2>.*))|(Ignoring\s+(?P<msg3>.*))|((?P<severity>WARNING)\:\s+(?P<msg1>.*))"
 
@@ -21,7 +21,7 @@ def do_sca_configcheck_conv_samba(d, toolout, suppress):
                                     PackageName=package_name,
                                     Tool="configcheck",
                                     BuildPath=buildpath,
-                                    File=d.getVar("SCA_CONFIGCHECK_samba_CONFIGFILE"),
+                                    File=d.getVar("SCA_CONFIGCHECK_samba_CONFIGFILE", True),
                                     Message=m.group("msg1") or m.group("msg2") or m.group("msg3"),
                                     ID="samba",
                                     Severity="warning")

@@ -40,22 +40,22 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
+inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER', True) == 'python3', 'python3native', 'pythonnative')}
 
 def do_sca_conv_multimetric(d):
     import os
     import re
     import json
 
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     _suppress = sca_suppress_init(d)
     _findings = []
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
         j = {}
         try:
-            with open(d.getVar("SCA_RAW_RESULT_FILE")) as i:
+            with open(d.getVar("SCA_RAW_RESULT_FILE", True)) as i:
                 j = json.load(i)
         except Exception as e:
             bb.warn(str(e))
@@ -63,8 +63,8 @@ def do_sca_conv_multimetric(d):
             for _file, v in j["files"].items():
                 for _item in v.keys():
                     ## lt error
-                    if d.getVar("SCA_MULTIMETRIC_ERROR_{}_lt".format(_item)):
-                        threshold = float(d.getVar("SCA_MULTIMETRIC_ERROR_{}_lt".format(_item)))
+                    if d.getVar("SCA_MULTIMETRIC_ERROR_{}_lt".format(_item), True):
+                        threshold = float(d.getVar("SCA_MULTIMETRIC_ERROR_{}_lt".format(_item), True))
                         val = float(str(v[_item]))
                         if val < threshold:
                             g = sca_get_model_class(d,
@@ -81,8 +81,8 @@ def do_sca_conv_multimetric(d):
                                 continue
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings.append(g)
-                    elif d.getVar("SCA_MULTIMETRIC_ERROR_{}_gt".format(_item)):
-                        threshold = float(d.getVar("SCA_MULTIMETRIC_ERROR_{}_gt".format(_item)))
+                    elif d.getVar("SCA_MULTIMETRIC_ERROR_{}_gt".format(_item), True):
+                        threshold = float(d.getVar("SCA_MULTIMETRIC_ERROR_{}_gt".format(_item), True))
                         val = float(str(v[_item]))
                         if val > threshold:
                             g = sca_get_model_class(d,
@@ -99,8 +99,8 @@ def do_sca_conv_multimetric(d):
                                 continue
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings.append(g)
-                    elif d.getVar("SCA_MULTIMETRIC_WARN_{}_lt".format(_item)):
-                        threshold = float(d.getVar("SCA_MULTIMETRIC_WARN_{}_lt".format(_item)))
+                    elif d.getVar("SCA_MULTIMETRIC_WARN_{}_lt".format(_item), True):
+                        threshold = float(d.getVar("SCA_MULTIMETRIC_WARN_{}_lt".format(_item), True))
                         val = float(str(v[_item]))
                         if val < threshold:
                             g = sca_get_model_class(d,
@@ -117,8 +117,8 @@ def do_sca_conv_multimetric(d):
                                 continue
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings.append(g)
-                    elif d.getVar("SCA_MULTIMETRIC_WARN_{}_gt".format(_item)):
-                        threshold = float(d.getVar("SCA_MULTIMETRIC_WARN_{}_gt".format(_item)))
+                    elif d.getVar("SCA_MULTIMETRIC_WARN_{}_gt".format(_item), True):
+                        threshold = float(d.getVar("SCA_MULTIMETRIC_WARN_{}_gt".format(_item), True))
                         val = float(str(v[_item]))
                         if val > threshold:
                             g = sca_get_model_class(d,
@@ -144,7 +144,7 @@ def do_sca_conv_multimetric(d):
 def get_findings_as_csv(d, tools, scope=["security", "functional", "style"]):
     res = ""
     for t in tools:
-        _path = "{}/{}.dm".format(d.getVar("T"), t)
+        _path = "{}/{}.dm".format(d.getVar("T", True), t)
         if not os.path.exists(_path):
             continue
         for item in sca_get_datamodel(d, _path):
@@ -157,52 +157,52 @@ python do_sca_multimetric_core() {
     import os
     import subprocess
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_MULTIMETRIC_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_MULTIMETRIC_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "multimetric-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "multimetric-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_MULTIMETRIC_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_MULTIMETRIC_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "multimetric-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "multimetric-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
-    _args = [d.getVar("PYTHON"), "-m", "multimetric"]
+    _args = [d.getVar("PYTHON", True), "-m", "multimetric"]
 
     _compiler_modules = clean_split(d, "SCA_MULTIMETRIC_COMPILER_MODULES")
 
-    _path = os.path.join(d.getVar("T"), "mm_warn_compiler.csv")
+    _path = os.path.join(d.getVar("T", True), "mm_warn_compiler.csv")
     with open(_path, "w") as o:
-        _tool_list = intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES"))
+        _tool_list = intersect_lists(d, d.getVar("SCA_ENABLED_MODULES", True), d.getVar("SCA_AVAILABLE_MODULES", True))
         _tool_list = intersect_lists(d, _tool_list, _compiler_modules)
         res = get_findings_as_csv(d, _tool_list)
         if res:
             o.write(res)
             _args += ["--warn_compiler={}".format(_path)]
 
-    _path = os.path.join(d.getVar("T"), "mm_warn_duplication.csv")
+    _path = os.path.join(d.getVar("T", True), "mm_warn_duplication.csv")
     with open(_path, "w") as o:
-        _tool_list = intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES"))
+        _tool_list = intersect_lists(d, d.getVar("SCA_ENABLED_MODULES", True), d.getVar("SCA_AVAILABLE_MODULES", True))
         _tool_list = intersect_lists(d, _tool_list, ["tlv"])
         res = get_findings_as_csv(d, _tool_list)
         if res:
             o.write(res)
             _args += ["--warn_duplication={}".format(_path)]
 
-    _path = os.path.join(d.getVar("T"), "mm_warn_functional.csv")
+    _path = os.path.join(d.getVar("T", True), "mm_warn_functional.csv")
     with open(_path, "w") as o:
-        _tool_list = [x for x in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")) if x not in _compiler_modules]
+        _tool_list = [x for x in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES", True), d.getVar("SCA_AVAILABLE_MODULES", True)) if x not in _compiler_modules]
         res = get_findings_as_csv(d, _tool_list, ["functional"])
         if res:
             o.write(res)
             _args += ["--warn_functional={}".format(_path)]
 
-    _path = os.path.join(d.getVar("T"), "mm_warn_standard.csv")
+    _path = os.path.join(d.getVar("T", True), "mm_warn_standard.csv")
     with open(_path, "w") as o:
-        _tool_list = [x for x in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")) if x not in _compiler_modules]
+        _tool_list = [x for x in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES", True), d.getVar("SCA_AVAILABLE_MODULES", True)) if x not in _compiler_modules]
         res = get_findings_as_csv(d, _tool_list, ["style"])
         if res:
             o.write(res)
             _args += ["--warn_standard={}".format(_path)]
 
-    _path = os.path.join(d.getVar("T"), "mm_warn_security.csv")
+    _path = os.path.join(d.getVar("T", True), "mm_warn_security.csv")
     with open(_path, "w") as o:
-        _tool_list = [x for x in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")) if x not in _compiler_modules]
+        _tool_list = [x for x in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES", True), d.getVar("SCA_AVAILABLE_MODULES", True)) if x not in _compiler_modules]
         res = get_findings_as_csv(d, _tool_list, ["security"])
         if res:
             o.write(res)
@@ -213,9 +213,9 @@ python do_sca_multimetric_core() {
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_multimetric.json")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     _files = get_files_by_extention(d, 
-                                    d.getVar("SCA_SOURCES_DIR"), 
+                                    d.getVar("SCA_SOURCES_DIR", True), 
                                     clean_split(d, "SCA_MULTIMETRIC_FILE_FILTER"), 
-                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     cmd_output = "{}"
     if any(_files):
         try:
@@ -227,9 +227,9 @@ python do_sca_multimetric_core() {
         o.write(cmd_output)
     
     # Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/multimetric.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/multimetric.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_multimetric(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "multimetric", get_fatal_entries(d))

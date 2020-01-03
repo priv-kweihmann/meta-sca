@@ -228,7 +228,7 @@ def sca_get_model_class(d, **kwargs):
             return {k:getattr(self,k) for k in ["File", "BuildPath", "Line", "Column", "Severity", "Message", "ID", "PackageName", "Tool", "Scope"] if getattr(self,k)}
 
     x = SCADataModel(SevTrans=__SevTrans, **kwargs)
-    x.AddDescription(d.getVar("STAGING_DATADIR_NATIVE"))
+    x.AddDescription(d.getVar("STAGING_DATADIR_NATIVE", True))
     return x
 
 def __sca_model_to_list(d, list):
@@ -244,21 +244,21 @@ def sca_get_datamodel(d, path):
 def sca_add_model_class(d, item):
     import json
     _m = sca_get_model_class(d)
-    _t = _m.FromList(json.loads(d.getVar("__SCA_DATAMODEL_STORAGE")))
+    _t = _m.FromList(json.loads(d.getVar("__SCA_DATAMODEL_STORAGE", True)))
     _t.append(item)
     d.setVar("__SCA_DATAMODEL_STORAGE", json.dumps(__sca_model_to_list(d, _t)))
 
 def sca_add_model_class_list(d, _list):
     import json
     _m = sca_get_model_class(d)
-    _t = _m.FromList(json.loads(d.getVar("__SCA_DATAMODEL_STORAGE")))
+    _t = _m.FromList(json.loads(d.getVar("__SCA_DATAMODEL_STORAGE", True)))
     _t += _list
     d.setVar("__SCA_DATAMODEL_STORAGE", json.dumps(__sca_model_to_list(d, _t)))
 
 def __sca_unique_model(d):
     import json
     _m = sca_get_model_class(d)
-    _t = _m.FromList(json.loads(d.getVar("__SCA_DATAMODEL_STORAGE")))
+    _t = _m.FromList(json.loads(d.getVar("__SCA_DATAMODEL_STORAGE", True)))
     _t = list(set(_t))
     return __sca_model_to_list(d, _t)
 

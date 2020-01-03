@@ -16,22 +16,22 @@ inherit sca-global
 inherit sca-helper
 inherit sca-suppress
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
+inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER', True) == 'python3', 'python3native', 'pythonnative')}
 
 def do_sca_conv_setuptoolslint(d, cmd_output=""):
     import os
     import re
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^(?P<file>.*):error:\s+(?P<msg>.*)"
 
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True), "r") as f:
             content = f.read()
             for m in re.finditer(pattern, content, re.MULTILINE):
                 try:
@@ -58,19 +58,19 @@ def do_sca_conv_setuptoolslint(d, cmd_output=""):
 python do_sca_setuptoolslint() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_SETUPTOOLSLINT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_SETUPTOOLSLINT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "setuptoolslint-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "setuptoolslint-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_SETUPTOOLSLINT_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_SETUPTOOLSLINT_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "setuptoolslint-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "setuptoolslint-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_setuptoolslint.txt")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
     ## Run
-    os.environ["STAGING_INCDIR"] = d.getVar("STAGING_INCDIR")
-    os.environ["STAGING_LIBDIR"] = d.getVar("STAGING_LIBDIR")
-    os.environ["HTTP_PROXY"] = d.getVar("SCA_SETUPTOOLSLINT_LOCAL_PROXY")
-    _args = [d.getVar("PYTHON")]
+    os.environ["STAGING_INCDIR"] = d.getVar("STAGING_INCDIR", True)
+    os.environ["STAGING_LIBDIR"] = d.getVar("STAGING_LIBDIR", True)
+    os.environ["HTTP_PROXY"] = d.getVar("SCA_SETUPTOOLSLINT_LOCAL_PROXY", True)
+    _args = [d.getVar("PYTHON", True)]
 
     cmd_output = ""
     
@@ -89,9 +89,9 @@ python do_sca_setuptoolslint() {
         o.write(cmd_output)
     
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/setuptoolslint.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/setuptoolslint.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_setuptoolslint(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "setuptoolslint", get_fatal_entries(d))

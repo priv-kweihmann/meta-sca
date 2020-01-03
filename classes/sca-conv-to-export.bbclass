@@ -6,7 +6,7 @@ inherit sca-helper
 
 def sca_allowed_warning_level(d):
     opts = ["info", "warning", "error"]
-    while (opts and d.getVar("SCA_WARNING_LEVEL") != opts[0]):
+    while (opts and d.getVar("SCA_WARNING_LEVEL", True) != opts[0]):
         opts = opts[1:]
     return opts
 
@@ -14,7 +14,7 @@ def sca_conv_to_export(d):
     import bb
     from bb.parse.parse_py import BBHandler
     try:
-        item = d.getVar("SCA_EXPORT_FORMAT")
+        item = d.getVar("SCA_EXPORT_FORMAT", True)
         BBHandler.inherit("sca-conv-dm-{}".format(item), "sca-export", 1, d)
         func = "sca_conv_dm_{}".format(item)
         if func in locals().keys():
@@ -27,8 +27,8 @@ def sca_conv_to_export(d):
         bb.warn(str(e))
 
 def sca_conv_export_get_deployname(d, tool):
-    _exportformat = d.getVar("SCA_EXPORT_FORMAT")
-    _exportsuffix = d.getVar("SCA_EXPORT_FORMAT_SUFFIX_{}".format(d.getVar("SCA_EXPORT_FORMAT")))
+    _exportformat = d.getVar("SCA_EXPORT_FORMAT", True)
+    _exportsuffix = d.getVar("SCA_EXPORT_FORMAT_SUFFIX_{}".format(d.getVar("SCA_EXPORT_FORMAT"), True), True)
     return "sca_{}_{}.{}".format(_exportformat, tool, _exportsuffix)
 
 def sca_conv_deploy(d, tool, rawsuffix):
@@ -37,30 +37,30 @@ def sca_conv_deploy(d, tool, rawsuffix):
     import os
 
     _dmsuffix = "dm"
-    _exportformat = d.getVar("SCA_EXPORT_FORMAT")
-    _exportsuffix = d.getVar("SCA_EXPORT_FORMAT_SUFFIX_{}".format(d.getVar("SCA_EXPORT_FORMAT")))
+    _exportformat = d.getVar("SCA_EXPORT_FORMAT", True)
+    _exportsuffix = d.getVar("SCA_EXPORT_FORMAT_SUFFIX_{}".format(d.getVar("SCA_EXPORT_FORMAT"), True), True)
 
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), tool, "raw"), 
+    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR", True), tool, "raw"), 
                 exist_ok=True)
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), tool, "datamodel"), 
+    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR", True), tool, "datamodel"), 
                 exist_ok=True)
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR"), tool, d.getVar("SCA_EXPORT_FORMAT")), 
+    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR", True), tool, d.getVar("SCA_EXPORT_FORMAT", True)), 
                 exist_ok=True)
 
-    if d.getVar("SCA_CLEAN_BEFORE_EXPORT") == "1":
+    if d.getVar("SCA_CLEAN_BEFORE_EXPORT", True) == "1":
         import glob
-        raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), 
+        raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR", True), 
                               tool, 
                               "raw", 
-                              "{}-*.{}".format(d.getVar("PN"), rawsuffix))
-        dm_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), 
+                              "{}-*.{}".format(d.getVar("PN", True), rawsuffix))
+        dm_target = os.path.join(d.getVar("SCA_EXPORT_DIR", True), 
                                 tool, 
                                 "datamodel",
-                                "{}-*.{}".format(d.getVar("PN"), _dmsuffix))
-        cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), 
+                                "{}-*.{}".format(d.getVar("PN", True), _dmsuffix))
+        cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR", True), 
                                 tool, 
                                 _exportformat, 
-                                "{}-*.{}".format(d.getVar("PN"), _exportsuffix))
+                                "{}-*.{}".format(d.getVar("PN", True), _exportsuffix))
         for item in [raw_target, dm_target, cs_target]:
             for f in glob.glob(item):
                 try:
@@ -69,21 +69,21 @@ def sca_conv_deploy(d, tool, rawsuffix):
                     ## Ignore any error here
                     pass
 
-    raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), 
+    raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR", True), 
                               tool, 
                               "raw", 
-                              "{}-{}.{}".format(d.getVar("PN"), d.getVar("PV"), rawsuffix))
-    dm_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), 
+                              "{}-{}.{}".format(d.getVar("PN", True), d.getVar("PV", True), rawsuffix))
+    dm_target = os.path.join(d.getVar("SCA_EXPORT_DIR", True), 
                               tool, 
                               "datamodel",
-                              "{}-{}.{}".format(d.getVar("PN"), d.getVar("PV"), _dmsuffix))
-    cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR"), 
+                              "{}-{}.{}".format(d.getVar("PN", True), d.getVar("PV", True), _dmsuffix))
+    cs_target = os.path.join(d.getVar("SCA_EXPORT_DIR", True), 
                              tool, 
                              _exportformat, 
-                             "{}-{}.{}".format(d.getVar("PN"), d.getVar("PV"), _exportsuffix))
-    src_raw = os.path.join(d.getVar("T"), "sca_raw_{}.{}".format(tool, rawsuffix))
-    src_dm = os.path.join(d.getVar("T"), "{}.dm".format(tool))
-    src_conv = os.path.join(d.getVar("T"), sca_conv_export_get_deployname(d, tool))
+                             "{}-{}.{}".format(d.getVar("PN", True), d.getVar("PV", True), _exportsuffix))
+    src_raw = os.path.join(d.getVar("T", True), "sca_raw_{}.{}".format(tool, rawsuffix))
+    src_dm = os.path.join(d.getVar("T", True), "{}.dm".format(tool))
+    src_conv = os.path.join(d.getVar("T", True), sca_conv_export_get_deployname(d, tool))
     if os.path.exists(src_raw):
         shutil.copy(src_raw, raw_target)
     if os.path.exists(src_conv):

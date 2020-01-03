@@ -18,8 +18,8 @@ def do_sca_conv_pysymcheck(d):
     import os
     import re
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^(?P<file>.*):(?P<severity>.*):(?P<id>.*):\s+(?P<message>.*)"
 
@@ -30,12 +30,12 @@ def do_sca_conv_pysymcheck(d):
     }
 
     _suppress = sca_suppress_init(d)
-    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
+    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -63,20 +63,20 @@ def do_sca_conv_pysymcheck(d):
 python do_sca_pysymcheck() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_PYSYMCHECK_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_PYSYMCHECK_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pysymcheck-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pysymcheck-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_PYSYMCHECK_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_PYSYMCHECK_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pysymcheck-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pysymcheck-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
-    _args = ["python3", os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "pysymbolcheck", "pysymbolcheck.py")]
-    _args += ["--libpath", ":".join([d.getVar("STAGING_LIBDIR_NATIVE")])]
-    _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "pysymbolcheck", d.getVar("SCA_PYSYMCHECK_RULE_FILE"))]
+    _args = ["python3", os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "pysymbolcheck", "pysymbolcheck.py")]
+    _args += ["--libpath", ":".join([d.getVar("STAGING_LIBDIR_NATIVE", True)])]
+    _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "pysymbolcheck", d.getVar("SCA_PYSYMCHECK_RULE_FILE", True))]
 
-    if not os.path.exists(os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "pysymbolcheck", d.getVar("SCA_PYSYMCHECK_RULE_FILE"))):
-        bb.warn("Rule-File {} does not exists - Empty results will be expected".format(d.getVar("SCA_PYSYMCHECK_RULE_FILE")))
+    if not os.path.exists(os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "pysymbolcheck", d.getVar("SCA_PYSYMCHECK_RULE_FILE", True))):
+        bb.warn("Rule-File {} does not exists - Empty results will be expected".format(d.getVar("SCA_PYSYMCHECK_RULE_FILE", True)))
 
-    _files = get_files_by_mimetype(d, d.getVar("B"), ["application/x-executable", 'application/x-sharedlib'],\
-                                   sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+    _files = get_files_by_mimetype(d, d.getVar("B", True), ["application/x-executable", 'application/x-sharedlib'],\
+                                   sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     ## Run
     cmd_output = ""
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_pysymcheck.txt")
@@ -90,9 +90,9 @@ python do_sca_pysymcheck() {
         o.write(cmd_output)
     
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/pysymcheck.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/pysymcheck.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_pysymcheck(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "pysymcheck", get_fatal_entries(d))

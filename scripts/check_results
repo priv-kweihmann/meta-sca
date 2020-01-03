@@ -16,9 +16,6 @@ _data = {
     "ansiblelint": [
         "bad-ansible"
     ],
-    "bandit": [
-        "python3-git"
-    ],
     "bashate": [
         "busybox",
         "core-image-minimal-scatest",
@@ -85,9 +82,6 @@ _data = {
     "kconfighard": [
         "linux-yocto"
     ],
-    "looong": [
-        "python3-git"
-    ],
     "lynis": [
         "core-image-minimal-scatest"
     ],
@@ -96,8 +90,7 @@ _data = {
     ],
     "mypy": [
         "bad-python-reqs",
-        "bad-python-types",
-        "python3-git"
+        "bad-python-types"
     ],
     "nixauditor": [
         "core-image-minimal-scatest"
@@ -116,7 +109,6 @@ _data = {
         "bad-xml",
         "bad-yaml",
         "core-image-minimal-scatest",
-        "python3-git",
         "simple-c"
     ],
     "perl": [
@@ -134,20 +126,12 @@ _data = {
     ],
     "proselint": [
         "busybox",
-        "python3-git"
     ],
     "pscan": [
         "busybox"
     ],
-    "pylint": [
-        "python3-git"
-    ],
-    "pyright": [
-        "python3-git"
-    ],
     "pytype": [
-        "bad-python-types",
-        "python3-git"
+        "bad-python-types"
     ],
     "rats": [
         "busybox",
@@ -202,9 +186,6 @@ _data = {
     ],
     "upc": [
         "core-image-minimal-scatest"
-    ],
-    "vulture": [
-        "python3-git"
     ],
     "wotan": [
         "bad-javascript"

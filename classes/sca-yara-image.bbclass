@@ -1130,16 +1130,16 @@ def do_sca_conv_yara(d):
     import os
     import re
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^(?P<id>[a-zA-z_0-9]+)\s\[(?P<attr>.*?)\]\s(?P<file>.*)$"
 
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 _desc = sca_yara_get_description(d, m.group("attr"))
                 if not _desc:
@@ -1169,20 +1169,20 @@ python do_sca_yara() {
     import os
     import subprocess
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_UPC_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_UPC_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "yara-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "yara-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_UPC_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_UPC_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "yara-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "yara-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_yara.txt")
+    result_raw_file = os.path.join(d.getVar("T", True), "sca_raw_yara.txt")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
 
     cmd_output = ""
     _args = ["yara", "-r", "--no-warnings", "--print-meta"]
-    _rules = [os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), x) for x in clean_split(d, "SCA_YARA_MODULES")]
+    _rules = [os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), x) for x in clean_split(d, "SCA_YARA_MODULES")]
     for _r in _rules:
         try:
-            cmd_output += subprocess.check_output(_args + [_r, d.getVar("IMAGE_ROOTFS")], universal_newlines=True, stderr=subprocess.STDOUT)
+            cmd_output += subprocess.check_output(_args + [_r, d.getVar("IMAGE_ROOTFS", True)], universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
 
@@ -1190,9 +1190,9 @@ python do_sca_yara() {
         o.write(cmd_output)
 
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/yara.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/yara.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_yara(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "yara", get_fatal_entries(d))

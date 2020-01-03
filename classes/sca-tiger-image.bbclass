@@ -18,8 +18,8 @@ def do_sca_conv_tiger(d):
     import os
     import re
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^--(?P<severity>ERROR|WARN)--\s*\[(?P<id>.*)\]\s*(?P<msg>.*)"
 
@@ -31,8 +31,8 @@ def do_sca_conv_tiger(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     if m.group("msg").find("/usr/share/tiger") != -1:
@@ -42,7 +42,7 @@ def do_sca_conv_tiger(d):
                                             PackageName=package_name,
                                             Tool="tiger",
                                             BuildPath=buildpath,
-                                            File=d.getVar("FILE"),
+                                            File=d.getVar("FILE", True),
                                             Message=m.group("msg").strip(),
                                             ID=m.group("id"),
                                             Severity=severity_map[m.group("severity")])
@@ -62,12 +62,12 @@ fakeroot python do_sca_tiger() {
     import os
     import subprocess
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_TIGER_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_TIGER_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "tiger-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "tiger-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_TIGER_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_TIGER_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "tiger-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "tiger-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_tiger.txt")
+    result_raw_file = os.path.join(d.getVar("T", True), "sca_raw_tiger.txt")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
 
     _args = ["/bin/sh", "-c", "/usr/bin/tiger && cat /usr/share/tiger/security.report.*"]
@@ -78,9 +78,9 @@ fakeroot python do_sca_tiger() {
         o.write(cmd_output)
 
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/tiger.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/tiger.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_tiger(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "tiger", get_fatal_entries(d))

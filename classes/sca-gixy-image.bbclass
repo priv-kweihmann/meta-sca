@@ -19,8 +19,8 @@ def do_sca_conv_gixy(d, cmd_output=""):
     import re
     import json
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     items = []
     pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<column>\d+):\s+(?P<severity>\w+):\s+(?P<message>.*)\s\[-(?P<id>.*)\]"
@@ -36,9 +36,9 @@ def do_sca_conv_gixy(d, cmd_output=""):
     _findings = []
 
     ## Result file parsing
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
         io = {}
-        with open(d.getVar("SCA_RAW_RESULT_FILE")) as i:
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True)) as i:
             try:
                 io = json.load(i)
             except:
@@ -90,27 +90,27 @@ def do_sca_conv_gixy(d, cmd_output=""):
 python do_sca_gixy() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_GIXY_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_GIXY_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gixy-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gixy-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_GIXY_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_GIXY_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gixy-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gixy-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_gixy.json")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
 
     ## Run
-    _file = d.getVar("SCA_GIXY_NGINX_CONF")
+    _file = d.getVar("SCA_GIXY_NGINX_CONF", True)
     if os.path.isabs(_file):
         _file = _file.lstrip("/")
     
-    if os.path.exists(os.path.join(d.getVar("SCA_SOURCES_DIR"), _file)):
+    if os.path.exists(os.path.join(d.getVar("SCA_SOURCES_DIR", True), _file)):
         _args = ["gixy"]
-        _args += ["--root-dir={}".format(d.getVar("SCA_SOURCES_DIR"))]
+        _args += ["--root-dir={}".format(d.getVar("SCA_SOURCES_DIR", True))]
         _args += ["-f", "json"]
         _args += ["-l"]
         _args += ["-o", tmp_result]
-        _args += [d.getVar("SCA_GIXY_NGINX_CONF")]
+        _args += [d.getVar("SCA_GIXY_NGINX_CONF", True)]
         
         try:
             cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
@@ -123,9 +123,9 @@ python do_sca_gixy() {
             json.dump([], o)
     
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/gixy.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/gixy.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_gixy(d, cmd_output)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "gixy", get_fatal_entries(d))

@@ -59,9 +59,6 @@ SCA_SEVERITY_TRANSFORM ?= ""
 
 ## List of overall available modules
 SCA_AVAILABLE_MODULES ?= "\
-                          alexkohler \
-                          ansible \
-                          ansiblelint \
                           bandit \
                           bashate \
                           bitbake \
@@ -70,21 +67,14 @@ SCA_AVAILABLE_MODULES ?= "\
                           configcheck \
                           cppcheck \
                           cpplint \
-                          cspell \
                           darglint \
                           dennis \
                           detectsecrets \
-                          eslint \
                           flake8 \
                           flawfinder \
                           flint \
                           gcc \
                           gixy \
-                          golint \
-                          gosec \
-                          govet \
-                          htmlhint \
-                          jshint \
                           jsonlint \
                           kconfighard \
                           looong \
@@ -93,38 +83,26 @@ SCA_AVAILABLE_MODULES ?= "\
                           multimetric \
                           mypy \
                           nixauditor \
-                          npmaudit \
                           oelint \
                           perl \
                           perlcritic \
-                          proselint \
                           pscan \
                           pyfindinjection \
                           pylint \
-                          pyright \
                           pysymcheck \
                           pytype \
                           rats \
-                          reek \
-                          retire \
-                          revive \
                           ropgadget \
                           safety \
                           setuptoolslint \
                           shellcheck \
-                          slick \
                           sparse \
                           splint \
-                          standard \
-                          stank \
-                          stylelint \
                           systemdlint \
-                          textlint \
                           tiger \
                           tscancode \
                           upc \
                           vulture \
-                          wotan \
                           xmllint \
                           yamllint \
                           yara \

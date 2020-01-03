@@ -38,7 +38,7 @@ SRC_URI[sha256sum] = "b185602756a628bac507fa8af8b9df92ace69d27c0add5dab93190ad7c
 inherit native
 
 PACKAGECONFIG ??= "\
-    ${@bb.utils.filter('DISTRO_FEATURES', 'acl', d)} \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'acl', 'acl', '', d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'xattr', 'attr', '', d)} \
 "
 PACKAGECONFIG[acl] = "--with-acl,--without-acl,acl"
@@ -109,7 +109,7 @@ CONFIGUREOPTS = " --prefix=${prefix} \
 DISABLE_STATIC = ""
 
 def get_waf_parallel_make(d):
-    pm = d.getVar('PARALLEL_MAKE')
+    pm = d.getVar('PARALLEL_MAKE', True)
     if pm:
         # look for '-j' and throw other options (e.g. '-l') away
         # because they might have different meaning in bjam
@@ -130,7 +130,7 @@ def get_waf_parallel_make(d):
 
 do_compile[progress] = "outof:^\[\s*(\d+)/\s*(\d+)\]\s+"
 do_compile () {
-    python ./buildtools/bin/waf ${@oe.utils.parallel_make_argument(d, '-j%d', limit=64)}
+    python ./buildtools/bin/waf -j${BB_NUMBER_THREADS}
 }
 
 do_install() {

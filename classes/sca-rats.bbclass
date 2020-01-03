@@ -18,8 +18,8 @@ def do_sca_conv_rats(d):
     from xml.etree.ElementTree import Element, SubElement, Comment, tostring
     from xml.etree import ElementTree
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     severity_map = {
         "High" : "error",
@@ -32,9 +32,9 @@ def do_sca_conv_rats(d):
 
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
         try:
-            data = ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE")).getroot()
+            data = ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE", True)).getroot()
             for node in data.findall(".//vulnerability"):
                 try:
                     _severity=""
@@ -78,10 +78,10 @@ def do_sca_conv_rats(d):
 python do_sca_rats() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_RATS_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_RATS_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "rats-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "rats-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_RATS_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_RATS_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "rats-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "rats-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_rats.xml")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
@@ -89,13 +89,13 @@ python do_sca_rats() {
     _args = ["rats"]
     _args += ["--xml"]
 
-    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
+    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
-    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), ".c", _excludes)
+    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR", True), ".c", _excludes)
     ## C
     if any(_files):
         try:
-            _targs = _args + ["-d", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "rats-c.xml")]
+            _targs = _args + ["-d", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "rats-c.xml")]
             _targs += _files
             cmd_output = subprocess.check_output(_targs, universal_newlines=True, stderr=subprocess.STDOUT)
         except UnicodeDecodeError:
@@ -104,11 +104,11 @@ python do_sca_rats() {
             cmd_output = e.stdout or ""
         xml_output = xml_combine(d, xml_output, cmd_output)
 
-    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*perl", ".perl .pl", _excludes)
+    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR", True), ".*perl", ".perl .pl", _excludes)
     ## Perl
     if any(_files):
         try:
-            _targs = _args + ["-d", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "rats-perl.xml")]
+            _targs = _args + ["-d", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "rats-perl.xml")]
             _targs += _files
             cmd_output = subprocess.check_output(_targs, universal_newlines=True, stderr=subprocess.STDOUT)
         except UnicodeDecodeError:
@@ -117,11 +117,11 @@ python do_sca_rats() {
             cmd_output = e.stdout or ""
         xml_output = xml_combine(d, xml_output, cmd_output)
 
-    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_PYTHON_SHEBANG"), ".py", _excludes)
+    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR", True), d.getVar("SCA_PYTHON_SHEBANG", True), ".py", _excludes)
     ## Python
     if any(_files):
         try:
-            _targs = _args + ["-d", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "rats-python.xml")]
+            _targs = _args + ["-d", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "rats-python.xml")]
             _targs += _files
             cmd_output = subprocess.check_output(_targs, universal_newlines=True, stderr=subprocess.STDOUT)
         except UnicodeDecodeError:
@@ -130,11 +130,11 @@ python do_sca_rats() {
             cmd_output = e.stdout or ""
         xml_output = xml_combine(d, xml_output, cmd_output)
 
-    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*php", ".php", _excludes)
+    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR", True), ".*php", ".php", _excludes)
     ## Php
     if any(_files):
         try:
-            _targs = _args + ["-d", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "rats-php.xml")]
+            _targs = _args + ["-d", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "rats-php.xml")]
             _targs += _files
             cmd_output = subprocess.check_output(_targs, universal_newlines=True, stderr=subprocess.STDOUT)
         except UnicodeDecodeError:
@@ -143,11 +143,11 @@ python do_sca_rats() {
             cmd_output = e.stdout or ""
         xml_output = xml_combine(d, xml_output, cmd_output)
 
-    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*ruby", ".ruby", _excludes)
+    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR", True), ".*ruby", ".ruby", _excludes)
     ## Ruby
     if any(_files):
         try:
-            _targs = _args + ["-d", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "rats-ruby.xml")]
+            _targs = _args + ["-d", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "rats-ruby.xml")]
             _targs += _files
             cmd_output = subprocess.check_output(_targs, universal_newlines=True, stderr=subprocess.STDOUT)
         except UnicodeDecodeError:
@@ -160,9 +160,9 @@ python do_sca_rats() {
         o.write(xml_output)
     
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/rats.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/rats.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_rats(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "rats", get_fatal_entries(d))

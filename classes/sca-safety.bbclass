@@ -12,23 +12,23 @@ inherit sca-global
 inherit sca-helper
 inherit sca-suppress
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
+inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER', True) == 'python3', 'python3native', 'pythonnative')}
 
 def do_sca_conv_safety(d, cmd_output=""):
     import os
     import json
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     items = []
     _suppress = sca_suppress_init(d)
     _findings = []
 
     ## Result file parsing
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
         io = []
-        with open(d.getVar("SCA_RAW_RESULT_FILE")) as i:
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True)) as i:
             try:
                 io = json.load(i)
             except:
@@ -38,7 +38,7 @@ def do_sca_conv_safety(d, cmd_output=""):
                 g = sca_get_model_class(d,
                                         PackageName=package_name,
                                         Tool="safety",
-                                        File=d.getVar("FILE"),
+                                        File=d.getVar("FILE", True),
                                         Message="{} - {}".format(k[0], k[3]),
                                         ID="vulnerability",
                                         Severity="error")
@@ -66,7 +66,7 @@ def import_and_extract(d, parent_dir):
         try:
             ## in case we can't import setuptools we return nothing
             ## so this tool might not work, but build won't fail
-            sys.path.append(os.path.join(d.getVar("STAGING_DIR_NATIVE"), d.getVar("PYTHON_SITEPACKAGES_DIR")[1:]))
+            sys.path.append(os.path.join(d.getVar("STAGING_DIR_NATIVE", True), d.getVar("PYTHON_SITEPACKAGES_DIR", True)[1:]))
             import setuptools
         except ImportError:
             return []
@@ -92,22 +92,22 @@ def import_and_extract(d, parent_dir):
 python do_sca_safety() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_SAFETY_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_SAFETY_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "safety-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "safety-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_SAFETY_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_SAFETY_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "safety-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "safety-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_safety.json")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
     ## Build tmp requirements.txt file
-    tmp_req = os.path.join(d.getVar("T"), "_safety_tmp.txt")
+    tmp_req = os.path.join(d.getVar("T", True), "_safety_tmp.txt")
     tmp_req_lines = []
-    if os.path.exists(os.path.join(d.getVar("SCA_SOURCES_DIR"), "requirements.txt")):
-        with open(os.path.join(d.getVar("SCA_SOURCES_DIR"), "requirements.txt"), "r") as i:
+    if os.path.exists(os.path.join(d.getVar("SCA_SOURCES_DIR", True), "requirements.txt")):
+        with open(os.path.join(d.getVar("SCA_SOURCES_DIR", True), "requirements.txt"), "r") as i:
             tmp_req_lines += [x.strip("\n ") for x in i.readlines()]
-    if os.path.exists(os.path.join(d.getVar("SCA_SOURCES_DIR"), "setup.py")):
-        for x in import_and_extract(d, d.getVar("SCA_SOURCES_DIR")):
+    if os.path.exists(os.path.join(d.getVar("SCA_SOURCES_DIR", True), "setup.py")):
+        for x in import_and_extract(d, d.getVar("SCA_SOURCES_DIR", True)):
             tmp_req_lines.append(x)
     
     with open(tmp_req, "w") as o:
@@ -115,7 +115,7 @@ python do_sca_safety() {
 
     ## Run
     if any(tmp_req_lines):
-        _args = [d.getVar("PYTHON")]
+        _args = [d.getVar("PYTHON", True)]
         _args += ["-m", "safety", "check"]
         _args += ["--output", tmp_result, "--json"]
         _args += ["-r", tmp_req]
@@ -126,9 +126,9 @@ python do_sca_safety() {
             pass
     
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/safety.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/safety.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_safety(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "safety", get_fatal_entries(d))

@@ -2,14 +2,14 @@
 SCA_CONFIGCHECK_squid_CONFIGFILE ?= "/etc/squid/squid.conf"
 
 def do_sca_configcheck_run_squid(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which squid) ] && squid -k parse -f {}".format(d.getVar("SCA_CONFIGCHECK_squid_CONFIGFILE"))]
+    return ["/bin/sh", "-c", "[ ! -z $(which squid) ] && squid -k parse -f {}".format(d.getVar("SCA_CONFIGCHECK_squid_CONFIGFILE", True))]
 
 def do_sca_configcheck_conv_squid(d, toolout, suppress):
     import os
     import re
 
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^.*\|\s+(?P<severity>ERROR|WARNING|FATAL):\s+((Bungled\s+(?P<file>.*)\s+line\s(?P<line>\d+)\:\s+(?P<msg1>.*))|(?P<msg2>.*))"
 
@@ -26,7 +26,7 @@ def do_sca_configcheck_conv_squid(d, toolout, suppress):
                                     PackageName=package_name,
                                     Tool="configcheck",
                                     BuildPath=buildpath,
-                                    File=m.group("file") or d.getVar("SCA_CONFIGCHECK_squid_CONFIGFILE"),
+                                    File=m.group("file") or d.getVar("SCA_CONFIGCHECK_squid_CONFIGFILE", True),
                                     Line=m.group("line") or "1",
                                     Message=m.group("msg1") or m.group("msg2"),
                                     ID="squid",

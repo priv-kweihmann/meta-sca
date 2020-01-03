@@ -2,14 +2,14 @@
 SCA_CONFIGCHECK_apache2_CONFIGFILE ?= "/etc/apache2/httpd.conf"
 
 def do_sca_configcheck_run_apache2(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which httpd) ] && httpd -f {} -t".format(d.getVar("SCA_CONFIGCHECK_apache2_CONFIGFILE"))]
+    return ["/bin/sh", "-c", "[ ! -z $(which httpd) ] && httpd -f {} -t".format(d.getVar("SCA_CONFIGCHECK_apache2_CONFIGFILE", True))]
 
 def do_sca_configcheck_conv_apache2(d, toolout, suppress):
     import os
     import re
 
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^(?P<id>[A-Z0-9]+)\:\s+(?P<msg>.*)\s+on\s+line\s+(?P<line>\d+)\s+of\s+(?P<file>.*)\:"
 

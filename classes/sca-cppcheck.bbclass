@@ -26,7 +26,7 @@ inherit sca-suppress
 def get_platform_type(d):
     ## Let's assume that 64bit platforms 
     ## end with a 64 in their platform name
-    tmp = d.getVar("TARGET_ARCH")
+    tmp = d.getVar("TARGET_ARCH", True)
     if tmp.endswith("64"):
         return "unix64"
     else:
@@ -38,8 +38,8 @@ def do_sca_conv_cppcheck(d):
     from xml.etree.ElementTree import Element, SubElement, Comment, tostring
     from xml.etree import ElementTree
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     items = []
 
@@ -56,8 +56,8 @@ def do_sca_conv_cppcheck(d):
     _findings = []
     _suppress = sca_suppress_init(d)
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        data = ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE")).getroot()
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        data = ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE", True)).getroot()
         for node in data.findall(".//error"):
             try:
                 for loc in node.findall(".//location"):
@@ -84,10 +84,10 @@ def do_sca_conv_cppcheck(d):
 python do_sca_cppcheck() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_CPPCHECK_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_CPPCHECK_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cppcheck-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cppcheck-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_CPPCHECK_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_CPPCHECK_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cppcheck-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cppcheck-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
     _user_rules = os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cppcheck-user-rules.xml")
     _add_include = d.getVar("SCA_CPPCHECK_ADD_INCLUDES", True).split(" ")
@@ -104,18 +104,18 @@ python do_sca_cppcheck() {
     _args += ["--xml-version=2"]
     _args += ["--force"]
     _args += ["--max-configs=1"]
-    _args += ["--max-ctu-depth={}".format("SCA_CPPCHECK_CHECK_DEPTH")]
-    for item in d.getVar("SCA_CPPCHECK_LANG_STD").split(" "):
+    _args += ["--max-ctu-depth={}".format(d.getVar("SCA_CPPCHECK_CHECK_DEPTH", True))]
+    for item in d.getVar("SCA_CPPCHECK_LANG_STD", True).split(" "):
         _args += ["--std={}".format(item)]
     _args += [get_platform_type(d)]    
     result_raw_file = os.path.join(d.getVar("T", True), "sca_raw_cppcheck.xml")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
     _args += ["--output-file={}".format(result_raw_file)]
     _files = get_files_by_extention(d, 
-                                    d.getVar("SCA_SOURCES_DIR"), 
-                                    clean_split(d, "SCA_CPPCHECK_FILE_FILTER"), 
-                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
-    _file_list = os.path.join(d.getVar("T"), ".cppcheck_filelist")
+                                    d.getVar("SCA_SOURCES_DIR", True), 
+                                    clean_split(d, "SCA_CPPCHECK_FILE_FILTER", True), 
+                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+    _file_list = os.path.join(d.getVar("T", True), ".cppcheck_filelist")
     with open(_file_list, "w") as o:
         o.write("\n".join(_files))
     _args += ["--file-list={}".format(_file_list)]
@@ -150,9 +150,9 @@ python do_sca_cppcheck() {
         os.remove("std.cfg")
 
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/cppcheck.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/cppcheck.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_cppcheck(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "cppcheck", get_fatal_entries(d))

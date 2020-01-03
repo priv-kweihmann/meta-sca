@@ -2,14 +2,14 @@
 SCA_CONFIGCHECK_ntp_CONFIGFILE ?= "/etc/ntp.conf"
 
 def do_sca_configcheck_run_ntp(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which ntpd) ] && ntpd -c {} -n".format(d.getVar("SCA_CONFIGCHECK_ntp_CONFIGFILE"))]
+    return ["/bin/sh", "-c", "[ ! -z $(which ntpd) ] && ntpd -c {} -n".format(d.getVar("SCA_CONFIGCHECK_ntp_CONFIGFILE", True))]
 
 def do_sca_configcheck_conv_ntp(d, toolout, suppress):
     import os
     import re
 
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^.*\:\s+line\s+((?P<line1>\d+)\s+column\s+(?P<col>\d+)\s+(?P<msg1>.*))|(.*\:\s+ignoring\s+line\s+(?P<line2>\d+),\s+(?P<msg2>.*))"
 
@@ -21,7 +21,7 @@ def do_sca_configcheck_conv_ntp(d, toolout, suppress):
                                     PackageName=package_name,
                                     Tool="configcheck",
                                     BuildPath=buildpath,
-                                    File=d.getVar("SCA_CONFIGCHECK_ntp_CONFIGFILE"),
+                                    File=d.getVar("SCA_CONFIGCHECK_ntp_CONFIGFILE", True),
                                     Line=m.group("line1") or m.group("line2") or "1",
                                     Column=m.group("col") or "1",
                                     Message=m.group("msg1") or m.group("msg2"),

@@ -5,8 +5,8 @@ def do_sca_configcheck_conv_freeradius(d, toolout, suppress):
     import os
     import re
 
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^.*:\s+(?P<severity>Error|Warning):\s*\[(?P<file>.*)\]:(?P<line>\d+)\s+(?P<msg>.*)"
 

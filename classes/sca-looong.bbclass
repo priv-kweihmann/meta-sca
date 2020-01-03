@@ -11,28 +11,28 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3-dir', 'python-dir')}
+inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER', True) == 'python3', 'python3-dir', 'python-dir')}
 
 def do_sca_conv_looong(d):
     import os
     import re
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^(?P<func>.*?)\s+\[(?P<file>.*)\]\s+\[.*\]\s+(?P<level>\d+)"
 
-    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
+    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     _severity = ""
                     _level = int(m.group("level"))
-                    if _level > int(d.getVar("SCA_LOOONG_ERR_THRESHOLD")):
+                    if _level > int(d.getVar("SCA_LOOONG_ERR_THRESHOLD", True)):
                         _severity = "error"
                     else:
                         _severity = "warning"
@@ -61,14 +61,14 @@ python do_sca_looong() {
     import os
     import subprocess
     import re
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_LOOONG_EXTRA_FATAL"))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "looong-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_LOOONG_EXTRA_FATAL", True))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "looong-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
-    _args = ["python3", os.path.join(d.getVar("STAGING_DIR_NATIVE"), d.getVar("PYTHON_SITEPACKAGES_DIR")[1:], "looong", "main.py")]
-    _args += ["-d", d.getVar("SCA_SOURCES_DIR")]
+    _args = ["python3", os.path.join(d.getVar("STAGING_DIR_NATIVE", True), d.getVar("PYTHON_SITEPACKAGES_DIR", True)[1:], "looong", "main.py")]
+    _args += ["-d", d.getVar("SCA_SOURCES_DIR", True)]
 
-    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_PYTHON_SHEBANG"), ".py",
-                                               sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR", True), d.getVar("SCA_PYTHON_SHEBANG", True), ".py",
+                                               sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     ## Run
     cmd_output = ""
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_looong.txt")
@@ -83,9 +83,9 @@ python do_sca_looong() {
         o.write(escaped.sub('', cmd_output))
     
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/looong.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/looong.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_looong(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "looong", get_fatal_entries(d))

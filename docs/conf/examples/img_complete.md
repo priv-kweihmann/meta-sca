@@ -23,14 +23,12 @@ SCA_ENABLE_BESTOF = "0"
 SCA_VERBOSE_OUTPUT = "0"
 SCA_SCOPE_FILTER = "security functional"
 SCA_ENABLED_MODULES_IMAGE = "\
-                            ansible \
                             bandit \
                             bashate \
                             bitbake \
                             checkbashism \
                             configcheck \
                             detectsecrets \
-                            eslint \
                             flake8 \
                             gixy \
                             htmlhint \
@@ -40,8 +38,6 @@ SCA_ENABLED_MODULES_IMAGE = "\
                             pyfindinjection \
                             pylint \
                             shellcheck \
-                            standard \
-                            stylelint \
                             systemdlint \
                             tiger \
                             upc \
@@ -50,40 +46,29 @@ SCA_ENABLED_MODULES_IMAGE = "\
                             yamllint \
                             "
 SCA_ENABLED_MODULES_RECIPE = "\
-                            alexkohler \
                             bandit \
                             bashate \
                             bitbake \
                             checkbashism \
                             cppcheck \
                             cpplint \
-                            cvecheck \
                             darglint \
                             dennis \
                             detectsecrets \
-                            eslint \
                             flake8 \
                             flint \
                             gcc \
-                            golint \
-                            gosec \
-                            govet \
-                            htmlhint \
                             jsonlint \
                             kconfighard \
-                            npmaudit \
                             mypy \
                             pyfindinjection \
                             pylint \
                             pytype \
                             rats \
-                            revive \
                             safety \
                             shellcheck \
                             sparse \
                             splint \
-                            standard \
-                            stylelint \
                             tscancode \
                             vulture \
                             xmllint \

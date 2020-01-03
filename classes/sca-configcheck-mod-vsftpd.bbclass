@@ -5,8 +5,8 @@ def do_sca_configcheck_conv_vsftpd(d, toolout, suppress):
     import os
     import re
 
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^500\sOOPS\:\s+(?P<msg>.*)"
 

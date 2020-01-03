@@ -65,12 +65,12 @@ fakeroot python do_sca_configcheck() {
     import os
     import subprocess
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_TIGER_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_TIGER_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "configcheck-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "configcheck-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_TIGER_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_TIGER_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "configcheck-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "configcheck-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_configcheck.txt")
+    result_raw_file = os.path.join(d.getVar("T", True), "sca_raw_configcheck.txt")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
 
     cmd_output = ""
@@ -102,9 +102,9 @@ fakeroot python do_sca_configcheck() {
         o.write(cmd_output)
 
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/configcheck.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/configcheck.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_configcheck(d, _raw_findings)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "configcheck", get_fatal_entries(d))

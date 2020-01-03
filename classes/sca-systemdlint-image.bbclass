@@ -16,7 +16,7 @@ inherit sca-helper
 inherit sca-license-filter
 inherit sca-suppress
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
+inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER', True) == 'python3', 'python3native', 'pythonnative')}
 
 DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-systemdlint-native"
 
@@ -24,8 +24,8 @@ def do_sca_conv_systemdlint(d):
     import os
     import re
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<severity>\w+)\s\[(?P<id>.*)\]\s+-\s+(?P<msg>.*)"
 
@@ -38,8 +38,8 @@ def do_sca_conv_systemdlint(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -67,25 +67,25 @@ python do_sca_systemdlint() {
     import os
     import subprocess
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_SYSTEMDLINT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_SYSTEMDLINT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "systemdlint-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "systemdlint-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_SYSTEMDLINT_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_SYSTEMDLINT_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "systemdlint-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "systemdlint-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_systemdlint.txt")
+    result_raw_file = os.path.join(d.getVar("T", True), "sca_raw_systemdlint.txt")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
 
     _args = ['systemdlint']
-    _args += ["--rootpath={}".format(d.getVar("SCA_SOURCES_DIR"))]
+    _args += ["--rootpath={}".format(d.getVar("SCA_SOURCES_DIR", True))]
     _args += ["--output={}".format(result_raw_file)]
-    if d.getVar("SCA_SYSTEMDLINT_SYSTEMD_VERSION"):
-        _args += ["--sversion={}".format(d.getVar("SCA_SYSTEMDLINT_SYSTEMD_VERSION"))]
+    if d.getVar("SCA_SYSTEMDLINT_SYSTEMD_VERSION", True):
+        _args += ["--sversion={}".format(d.getVar("SCA_SYSTEMDLINT_SYSTEMD_VERSION", True))]
     _files = []
     for path in clean_split(d, "SCA_SYSTEMDLINT_PATHS"):
-        _files += get_files_by_extention(d, path,  d.getVar("SCA_SYSTEMDLINT_FILES"), \
-                                            sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+        _files += get_files_by_extention(d, path,  d.getVar("SCA_SYSTEMDLINT_FILES", True), \
+                                            sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
-    with open(d.getVar("SCA_RAW_RESULT_FILE"), "w") as o:
+    with open(d.getVar("SCA_RAW_RESULT_FILE", True), "w") as o:
         o.write("")
 
     if any(_files):
@@ -96,9 +96,9 @@ python do_sca_systemdlint() {
             bb.warn(str(e))
 
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/systemdlint.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/systemdlint.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_systemdlint(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "systemdlint", get_fatal_entries(d))

@@ -37,8 +37,8 @@ def do_sca_conv_cbmc(d):
     import json
     import hashlib
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     items = []
 
@@ -51,8 +51,8 @@ def do_sca_conv_cbmc(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True), "r") as f:
             content = []
             try:
                 content = json.load(f)
@@ -117,10 +117,10 @@ python do_sca_cbmc() {
     import subprocess
     from multiprocessing import Pool
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_CBMC_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_CBMC_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cbmc-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cbmc-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_CBMC_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_CBMC_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cbmc-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cbmc-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
     _args = ["cbmc"]
     _args += clean_split(d, "SCA_CBMC_MODULES")
@@ -128,11 +128,11 @@ python do_sca_cbmc() {
     _args += ["--json-ui"]
 
     _files = get_files_by_extention(d, 
-                                    d.getVar("SCA_SOURCES_DIR"), 
-                                    clean_split(d, "SCA_CBMC_FILE_FILTER"), 
-                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+                                    d.getVar("SCA_SOURCES_DIR", True), 
+                                    clean_split(d, "SCA_CBMC_FILE_FILTER", True), 
+                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA", True)))
 
-    tmp_result = os.path.join(d.getVar("T"), "sca_raw_cbmc.json")
+    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_cbmc.json")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
     
@@ -146,9 +146,9 @@ python do_sca_cbmc() {
         o.write(cmd_output)
     
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/cbmc.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/cbmc.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_cbmc(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "cbmc", get_fatal_entries(d))

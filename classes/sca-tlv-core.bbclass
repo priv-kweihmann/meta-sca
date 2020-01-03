@@ -15,8 +15,8 @@ def do_sca_conv_tlv(d):
     import os
     import re
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<col>\d+):\[(?P<id>.*)\]:(?P<message>.*)"
 
@@ -27,8 +27,8 @@ def do_sca_conv_tlv(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -59,13 +59,13 @@ python do_sca_tlv_core() {
 
     _args = ["tlv"]
     _args += ["--nodetails"]
-    _args += ["--minlines={}".format(d.getVar("SCA_TLV_MINLINES"))]
-    _args += ["--mintoken={}".format(d.getVar("SCA_TLV_MINTOKEN"))]
-    _args += ["--jobs={}".format(d.getVar("BB_NUMBER_THREADS"))]
+    _args += ["--minlines={}".format(d.getVar("SCA_TLV_MINLINES", True))]
+    _args += ["--mintoken={}".format(d.getVar("SCA_TLV_MINTOKEN", True))]
+    _args += ["--jobs={}".format(d.getVar("BB_NUMBER_THREADS", True))]
 
     ## Run
-    _files = get_files_by_glob(d, d.getVar("SCA_TLV_FILES"), 
-                               sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+    _files = get_files_by_glob(d, d.getVar("SCA_TLV_FILES", True), 
+                               sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_tlv.txt")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
@@ -78,9 +78,9 @@ python do_sca_tlv_core() {
         o.write(cmd_output)
     
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/tlv.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/tlv.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_tlv(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "tlv", get_fatal_entries(d))

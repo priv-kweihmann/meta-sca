@@ -11,14 +11,14 @@ inherit sca-datamodel
 inherit sca-helper
 inherit sca-license-filter
 inherit sca-suppress
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
+inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER', True) == 'python3', 'python3native', 'pythonnative')}
 
 def do_sca_conv_oelint(d):
     import os
     import re
 
     package_name = d.getVar("PN", True)
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     items = []
     pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<severity>(warning|error|info)):(?P<id>[a-z\.]*):(?P<message>.*)$"
@@ -31,8 +31,8 @@ def do_sca_conv_oelint(d):
     _findings = []
     _suppress = sca_suppress_init(d)
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -61,19 +61,19 @@ python do_sca_oelint_core() {
     import subprocess
     import glob
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_OELINT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_OELINT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "oelint-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "oelint-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_OELINT_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_OELINT_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "oelint-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "oelint-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_oelint.txt")
+    result_raw_file = os.path.join(d.getVar("T", True), "sca_raw_oelint.txt")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
 
     _args = ['oelint-adv']
     _args += ["--output={}".format(result_raw_file)]
-    _files = [x.strip() for x in d.getVar("BBINCLUDED").split(" ") if x.strip().endswith(".bb") or x.strip().endswith(".bbappend")]
+    _files = [x.strip() for x in d.getVar("BBINCLUDED", True).split(" ") if x.strip().endswith(".bb") or x.strip().endswith(".bbappend")]
 
-    with open(d.getVar("SCA_RAW_RESULT_FILE"), "w") as o:
+    with open(d.getVar("SCA_RAW_RESULT_FILE", True), "w") as o:
         o.write("")
 
     if any(_files):
@@ -84,9 +84,9 @@ python do_sca_oelint_core() {
             pass
 
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/oelint.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/oelint.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_oelint(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "oelint", get_fatal_entries(d))

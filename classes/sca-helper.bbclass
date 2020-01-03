@@ -9,8 +9,8 @@ DEPENDS += "${@oe.utils.ifelse(sca_is_module_blacklisted(d, 'foo'), '', '${SCA_S
 
 def get_relative_source_path(d):
     import os
-    source = d.getVar("S")
-    dl_dir = d.getVar("DL_DIR")
+    source = d.getVar("S", True)
+    dl_dir = d.getVar("DL_DIR", True)
     ## use build-dir as base
     dl_dir = os.path.dirname(dl_dir)
     common = os.path.commonprefix([source, dl_dir])
@@ -18,14 +18,14 @@ def get_relative_source_path(d):
 
 def get_build_dir(d):
     import os
-    source = d.getVar("S")
-    dl_dir = d.getVar("DL_DIR")
+    source = d.getVar("S", True)
+    dl_dir = d.getVar("DL_DIR", True)
     ## use build-dir as base
     dl_dir = os.path.dirname(dl_dir)
     return os.path.commonprefix([source, dl_dir])
 
 def should_emit_to_console(d):
-    if "bitbake" in d.getVar("SCA_ENABLED_MODULES").split(" "):
+    if "bitbake" in d.getVar("SCA_ENABLED_MODULES", True).split(" "):
         return False
     return True
 
@@ -59,8 +59,8 @@ def xml_combine(d, *args):
 
 def _combine_x_entries(d, input_file, extra_key):
     import os
-    _filename = d.getVar(input_file)
-    _extra = d.getVar(extra_key) or ""
+    _filename = d.getVar(input_file, True)
+    _extra = d.getVar(extra_key, True) or ""
     res = []
     if _filename and os.path.isfile(_filename):
         _rules_file = _filename
@@ -105,7 +105,7 @@ def get_files_by_shebang(d, path, pattern, excludes=[]):
 def get_files_by_mimetype(d, path, mime, excludes=[]):
     import os
     import sys
-    sys.path.append(os.path.join(d.getVar("STAGING_DIR_NATIVE"), d.getVar("PYTHON_SITEPACKAGES_DIR")[1:]))
+    sys.path.append(os.path.join(d.getVar("STAGING_DIR_NATIVE", True), d.getVar("PYTHON_SITEPACKAGES_DIR", True)[1:]))
     try:
         import magic
         local_dirs = clean_split(d, "SCA_LOCAL_FILE_FILTER")
@@ -169,7 +169,7 @@ def get_fatal_entries(d):
     return _combine_x_entries(d, "SCA_FATAL_FILE", "SCA_EXTRA_FATAL")
 
 def _get_x_from_result(d, lookup_key = "severity", match_key = ""):
-    _dm = sca_get_datamodel(d, d.getVar("SCA_DATAMODEL_STORAGE"))
+    _dm = sca_get_datamodel(d, d.getVar("SCA_DATAMODEL_STORAGE", True))
     res = [x for x in _dm if lookup_key in x.__dict__.keys() and x.__dict__[lookup_key] == match_key]
     return res
 
@@ -186,7 +186,7 @@ def get_fatal_from_result(d, fatal_ids):
     return list(set(res))
 
 def clean_split(d, _var):
-    return [x for x in (d.getVar(_var) or "").split(" ") if x]
+    return [x for x in (d.getVar(_var, True) or "").split(" ") if x]
 
 def get_local_includes(path):
     import glob
@@ -204,7 +204,7 @@ def get_local_includes(path):
 
 def sca_task_aftermath(d, tool, fatals=None):
     ## Write to final export
-    result_file = os.path.join(d.getVar("T"), sca_conv_export_get_deployname(d, tool))
+    result_file = os.path.join(d.getVar("T", True), sca_conv_export_get_deployname(d, tool))
     d.setVar("SCA_RESULT_FILE", result_file)
     with open(result_file, "w") as o:
         o.write(sca_conv_to_export(d))
@@ -226,22 +226,13 @@ def sca_task_aftermath(d, tool, fatals=None):
         bb.warn("SCA has found {}".format(",".join(warn_log)))
     
     if any(_fatals):
-        bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK"), d)
+        bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK", True), d)
         bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
 
 
 def get_bb_exec_ext_parameter_support(d):
-    ## Since commit https://github.com/openembedded/bitbake/commit/cfeffb602dd5319f071cd6bcf84139ec77f2d170
-    ## The support for pythonexception=True was removed from bb.build.exec_func 
-    ## which this layer uses heavily
-    ## so we need to probe here for it
-    ## if we are able to pass it or not
-    import bb
-    import inspect
     res = {}
-    x = inspect.getfullargspec(bb.build.exec_func)
-    if "pythonexception" in x.args:
-        res["pythonexception"] = True
+    res["pythonexception"] = True
     return res
 
 def sca_get_func_by_name(d, name):

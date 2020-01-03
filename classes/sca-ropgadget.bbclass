@@ -11,7 +11,7 @@ inherit sca-global
 inherit sca-helper
 inherit sca-suppress
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
+inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER', True) == 'python3', 'python3native', 'pythonnative')}
 
 DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-ropgadget-native"
 
@@ -25,9 +25,9 @@ def convert_veryraw(d, bin, content):
     _args = [_addr2line]
     ## Find debug symbol file
     _relpath = os.path.relpath(bin, 
-                               os.path.join(d.getVar("WORKDIR"), "packages-split", d.getVar("PN")))
-    _dbg = os.path.join(os.path.join(d.getVar("WORKDIR"), "packages-split", 
-            "{}-dbg".format(d.getVar("PN")), os.path.dirname(_relpath), ".debug", os.path.basename(bin)))
+                               os.path.join(d.getVar("WORKDIR", True), "packages-split", d.getVar("PN", True)))
+    _dbg = os.path.join(os.path.join(d.getVar("WORKDIR", True), "packages-split", 
+            "{}-dbg".format(d.getVar("PN", True)), os.path.dirname(_relpath), ".debug", os.path.basename(bin)))
     output = ""
     if os.path.isfile(_dbg):
         for m in re.finditer(r"^(?P<addr>0x\w+)\s+:\s+(?P<msg>.*)", content, re.MULTILINE):
@@ -45,18 +45,18 @@ def do_sca_conv_ropgadget(d):
     import os
     import re
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^(?P<bin>.*)\s+-\s+(?P<file>.*):(?P<line>\d+)\s+-\s+(?P<msg>.*)"
 
-    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
+    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     _suppress = sca_suppress_init(d)
     _findings = {}
     _findingsres = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -84,7 +84,7 @@ def do_sca_conv_ropgadget(d):
     
     _threshold = 99999999999
     try:
-        _threshold = int(d.getVar("SCA_ROPGADGET_WARNING_THRESHOLD"))
+        _threshold = int(d.getVar("SCA_ROPGADGET_WARNING_THRESHOLD", True))
     except:
         pass
 
@@ -112,11 +112,11 @@ python do_sca_ropgadget() {
 
     ## This module does not support suppression or fatal-error
 
-    _args = [d.getVar("PYTHON")]
-    _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "ROPgadget")]
+    _args = [d.getVar("PYTHON", True)]
+    _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "ROPgadget")]
     _args += ["--binary"]
 
-    _files = get_files_by_mimetype(d, os.path.join(d.getVar("WORKDIR"), "packages-split"), ["application/x-executable", 'application/x-sharedlib'],[])
+    _files = get_files_by_mimetype(d, os.path.join(d.getVar("WORKDIR", True), "packages-split"), ["application/x-executable", 'application/x-sharedlib'],[])
     ## Run
     cmd_output = ""
     raw_output = ""
@@ -124,7 +124,7 @@ python do_sca_ropgadget() {
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
     for _f in _files:
-        if ("{}-dbg".format(d.getVar("PN")) in _f.split("/")) or os.path.islink(_f):
+        if ("{}-dbg".format(d.getVar("PN", True)) in _f.split("/")) or os.path.islink(_f):
             ## Skip debug packages
             continue
         try:
@@ -136,9 +136,9 @@ python do_sca_ropgadget() {
         o.write(cmd_output)
     
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/ropgadget.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/ropgadget.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_ropgadget(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "ropgadget", get_fatal_entries(d))

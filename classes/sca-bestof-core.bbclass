@@ -12,12 +12,12 @@ SCA_BESTOF_THRESHOLD_MIN = "2"
 SCA_BESTOF_RATIO = "0.5"
 
 def calc_hit_count(d, tools, hits):
-    mode = d.getVar("SCA_BESTOF_MODE")
+    mode = d.getVar("SCA_BESTOF_MODE", True)
     if mode == "threshold":
-        t = min(int(d.getVar("SCA_BESTOF_THRESHOLD_MIN")), len(tools))
+        t = min(int(d.getVar("SCA_BESTOF_THRESHOLD_MIN", True)), len(tools))
         return len(hits) >= t
     elif mode == "ratio":
-        return float(d.getVar("SCA_BESTOF_RATIO")) < float(len(hits) / len(tools))
+        return float(d.getVar("SCA_BESTOF_RATIO", True)) < float(len(hits) / len(tools))
     return False
 
 def insert_finding(d, tool, obj, tools, findings):
@@ -56,29 +56,29 @@ python do_sca_bestof_core() {
     import json
     import os
 
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     _findings = {}
     _tools = {}
     ## Read tool data
-    for mod in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")):
-        fp = os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "{}.sca.description".format(mod))
+    for mod in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES", True), d.getVar("SCA_AVAILABLE_MODULES", True)):
+        fp = os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "{}.sca.description".format(mod))
         if not os.path.exists(fp):
             continue
         with open(fp) as i:
             _tools[mod] = json.load(i)
 
     ## aquire data
-    for mod in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")):
-        fp = os.path.join(d.getVar("T"), "{}.dm".format(mod))
+    for mod in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES", True), d.getVar("SCA_AVAILABLE_MODULES", True)):
+        fp = os.path.join(d.getVar("T", True), "{}.dm".format(mod))
         if os.path.exists(fp):
             _data = sca_get_datamodel(d, fp)
             for f in _data:
                 _findings = insert_finding(d, mod, f, _tools, _findings)
                    
 
-    with open(os.path.join(d.getVar("T"), "bestof.json"), "w") as o:
+    with open(os.path.join(d.getVar("T", True), "bestof.json"), "w") as o:
         json.dump(_findings, o)
 
     ## match up
@@ -105,7 +105,7 @@ python do_sca_bestof_core() {
 
                 _nMsg = sorted(item["occ"], key=lambda x: x["tool"], reverse=False)[0]["msg"]
                 _nMsg = _nMsg[_nMsg.find("]") + 1:].strip()
-                _nMsg = "[Package:{} Tools:{}] {}".format(d.getVar("PN"), ",".join(list(set([x["tool"] for x in item["occ"]]))), _nMsg) 
+                _nMsg = "[Package:{} Tools:{}] {}".format(d.getVar("PN", True), ",".join(list(set([x["tool"] for x in item["occ"]]))), _nMsg) 
 
                 g = sca_get_model_class(d,
                                         PackageName=package_name,
@@ -120,8 +120,8 @@ python do_sca_bestof_core() {
                 if g.Severity in sca_allowed_warning_level(d):
                     _findingsres.append(g)
 
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/bestof.dm".format(d.getVar("T")))
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/bestof.dm".format(d.getVar("T", True)))
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(sca_save_model_to_string(d))
     sca_add_model_class_list(d, _findingsres)
     sca_task_aftermath(d, "bestof", get_fatal_entries(d))

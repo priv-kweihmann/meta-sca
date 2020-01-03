@@ -11,7 +11,7 @@ inherit sca-helper
 inherit sca-license-filter
 inherit sca-suppress
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
+inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER', True) == 'python3', 'python3native', 'pythonnative')}
 
 DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-detect-secrets-native"
 
@@ -20,17 +20,17 @@ def do_sca_conv_detectsecrets(d):
     import re
     import json
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     items = []
-    __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
+    __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     __suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
         j = {}
-        with open(d.getVar("SCA_RAW_RESULT_FILE")) as i:
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True)) as i:
             try:
                 j = json.load(i)
             except:
@@ -67,18 +67,18 @@ python do_sca_detectsecrets_core() {
     import subprocess
     import json
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_DETECTSECRETS_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_DETECTSECRETS_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "detectsecrets-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "detectsecrets-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_DETECTSECRETS_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_DETECTSECRETS_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "detectsecrets-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "detectsecrets-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
-    _args = [d.getVar("PYTHON")]
-    _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "detect-secrets")]
+    _args = [d.getVar("PYTHON", True)]
+    _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "detect-secrets")]
     _args += ["scan"]
     _args += ["--all-files"]
     _args += ["--use-all-plugins"]
-    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), "",
-                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR", True), "",
+                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     cmd_output = ""
     if any(_files):
@@ -87,15 +87,15 @@ python do_sca_detectsecrets_core() {
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_detectsecrets.json")
+    result_raw_file = os.path.join(d.getVar("T", True), "sca_raw_detectsecrets.json")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
     with open(result_raw_file, "w") as o:
         o.write(cmd_output)
 
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/detectsecrets.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/detectsecrets.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_detectsecrets(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "detectsecrets", get_fatal_entries(d))

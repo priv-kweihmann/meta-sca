@@ -18,24 +18,24 @@ def sca_gcc_hardening(d):
     import re
     import os
 
-    if d.getVar("SCA_GCC_HARDENING") != "1":
+    if d.getVar("SCA_GCC_HARDENING", True) != "1":
         return sca_save_model_to_string(d)
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
     
-    _linker_flags = d.getVar("LDFLAGS")
-    _cflags = [x for x in d.getVar("CFLAGS").split(" ") if x] + [x for x in d.getVar("CXXFLAGS").split(" ") if x]
-    _cxxflags = [x for x in d.getVar("CXXFLAGS").split(" ") if x] + [x for x in d.getVar("CPPFLAGS").split(" ") if x]
+    _linker_flags = d.getVar("LDFLAGS", True)
+    _cflags = [x for x in d.getVar("CFLAGS", True).split(" ") if x] + [x for x in d.getVar("CXXFLAGS", True).split(" ") if x]
+    _cxxflags = [x for x in d.getVar("CXXFLAGS", True).split(" ") if x] + [x for x in d.getVar("CPPFLAGS", True).split(" ") if x]
 
     _suppress = sca_suppress_init(d)
-    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
+    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
     _findings = []
 
     logcontent = ""
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True), "r") as f:
             logcontent = f.read()
 
     for item in ["-z,relro", "-z,now", "-fPIC", "-fPIE"]:
@@ -44,7 +44,7 @@ def sca_gcc_hardening(d):
                                     PackageName=package_name,
                                     Tool="gcc",
                                     BuildPath=buildpath,
-                                    File=d.getVar("FILE"),
+                                    File=d.getVar("FILE", True),
                                     Message="{} is not set in LDFLAGS".format(item),
                                     ID="hardening.linker.{}".format(item.strip("-,")),
                                     Severity="warning")
@@ -60,7 +60,7 @@ def sca_gcc_hardening(d):
                                 PackageName=package_name,
                                 Tool="gcc",
                                 BuildPath=buildpath,
-                                File=d.getVar("FILE"),
+                                File=d.getVar("FILE", True),
                                 Message="Neither '-z,nodlopen' nor '-z,nodump' are set in LDFLAGS".format(item),
                                 ID="hardening.linker.nodlopen_nodump",
                                 Severity="warning")
@@ -73,7 +73,7 @@ def sca_gcc_hardening(d):
                                 PackageName=package_name,
                                 Tool="gcc",
                                 BuildPath=buildpath,
-                                File=d.getVar("FILE"),
+                                File=d.getVar("FILE", True),
                                 Message="Neither '-z,noexecstack' nor '-z,noexecheap' are set in LDFLAGS".format(item),
                                 ID="hardening.linker.noexecstack_oexecheap",
                                 Severity="warning")
@@ -86,7 +86,7 @@ def sca_gcc_hardening(d):
                                 PackageName=package_name,
                                 Tool="gcc",
                                 BuildPath=buildpath,
-                                File=d.getVar("FILE"),
+                                File=d.getVar("FILE", True),
                                 Message="-O option isn't set to 2,3 or s in LDFLAGS".format(item),
                                 ID="hardening.linker.optimize",
                                 Severity="warning")
@@ -103,7 +103,7 @@ def sca_gcc_hardening(d):
                                     PackageName=package_name,
                                     Tool="gcc",
                                     BuildPath=buildpath,
-                                    File=d.getVar("FILE"),
+                                    File=d.getVar("FILE", True),
                                     Message="{} is not set in CFLAGS".format(item),
                                     ID="hardening.compiler.{}".format(item.strip("-,")),
                                     Severity="warning")
@@ -118,7 +118,7 @@ def sca_gcc_hardening(d):
                                     PackageName=package_name,
                                     Tool="gcc",
                                     BuildPath=buildpath,
-                                    File=d.getVar("FILE"),
+                                    File=d.getVar("FILE", True),
                                     Message="{} is not set in CXXFLAGS".format(item),
                                     ID="hardening.compiler.{}".format(item.strip("-,")),
                                     Severity="warning")
@@ -127,12 +127,12 @@ def sca_gcc_hardening(d):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)   
 
-    if d.getVar("DEBUG_BUILD") != "1" and ("-DDEBUG=1" in _cflags or "-DDEBUG=1" in logcontent):
+    if d.getVar("DEBUG_BUILD", True) != "1" and ("-DDEBUG=1" in _cflags or "-DDEBUG=1" in logcontent):
         g = sca_get_model_class(d,
                                 PackageName=package_name,
                                 Tool="gcc",
                                 BuildPath=buildpath,
-                                File=d.getVar("FILE"),
+                                File=d.getVar("FILE", True),
                                 Message="-DDEBUG=1 is set in CFLAGS".format(item),
                                 ID="hardening.compiler.DEBUG",
                                 Severity="warning")
@@ -140,12 +140,12 @@ def sca_gcc_hardening(d):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
     
-    if d.getVar("DEBUG_BUILD") != "1" and not ("-D_FORTIFY_SOURCE=2" in _cflags) and not ("-D_FORTIFY_SOURCE=2" in logcontent):
+    if d.getVar("DEBUG_BUILD", True) != "1" and not ("-D_FORTIFY_SOURCE=2" in _cflags) and not ("-D_FORTIFY_SOURCE=2" in logcontent):
         g = sca_get_model_class(d,
                                 PackageName=package_name,
                                 Tool="gcc",
                                 BuildPath=buildpath,
-                                File=d.getVar("FILE"),
+                                File=d.getVar("FILE", True),
                                 Message="-D_FORTIFY_SOURCE=2 isn't set in CFLAGS".format(item),
                                 ID="hardening.compiler.FORTIFY_SOURCE",
                                 Severity="warning")
@@ -159,7 +159,7 @@ def sca_gcc_hardening(d):
                                 PackageName=package_name,
                                 Tool="gcc",
                                 BuildPath=buildpath,
-                                File=d.getVar("FILE"),
+                                File=d.getVar("FILE", True),
                                 Message="-fstack-protector* isn't set in CFLAGS".format(item),
                                 ID="hardening.compiler.stack-protector",
                                 Severity="warning")
@@ -173,7 +173,7 @@ def sca_gcc_hardening(d):
                                 PackageName=package_name,
                                 Tool="gcc",
                                 BuildPath=buildpath,
-                                File=d.getVar("FILE"),
+                                File=d.getVar("FILE", True),
                                 Message="-Wmissing-prototypes or -Wmissing-declarations isn't set in CFLAGS".format(item),
                                 ID="hardening.compiler.missingproto",
                                 Severity="warning")
@@ -187,7 +187,7 @@ def sca_gcc_hardening(d):
                                 PackageName=package_name,
                                 Tool="gcc",
                                 BuildPath=buildpath,
-                                File=d.getVar("FILE"),
+                                File=d.getVar("FILE", True),
                                 Message="-mfunction-return=thunk or -mindirect-branch=thunk isn't set in CFLAGS".format(item),
                                 ID="hardening.compiler.function_return",
                                 Severity="warning")
@@ -203,8 +203,8 @@ def do_sca_conv_gcc(d):
     import os
     import re
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<column>\d+):\s+(?P<severity>\w+):\s+(?P<message>.*)\s\[-(?P<id>.*)\]"
 
@@ -216,11 +216,11 @@ def do_sca_conv_gcc(d):
     }
 
     _suppress = sca_suppress_init(d)
-    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
+    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -252,25 +252,25 @@ python do_sca_gcc() {
     import os
     import shutil
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_GCC_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_GCC_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gcc-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gcc-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_GCC_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_GCC_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gcc-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gcc-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_gcc.txt")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     
-    if not os.path.exists(os.path.join(d.getVar("T"), "log.do_compile")):
+    if not os.path.exists(os.path.join(d.getVar("T", True), "log.do_compile")):
         with open(tmp_result, "w") as f:
             f.write("")
     else:
-        shutil.copy(os.path.join(d.getVar("T"), "log.do_compile"), tmp_result)
+        shutil.copy(os.path.join(d.getVar("T", True), "log.do_compile"), tmp_result)
 
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/gcc.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/gcc.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_gcc(d)
     dm_output = sca_gcc_hardening(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "gcc", get_fatal_entries(d))

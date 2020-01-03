@@ -20,7 +20,7 @@ def sca_conv_dm_checkstyle(d):
     import stat
     import shutil
 
-    _items = sca_get_datamodel(d, d.getVar("SCA_DATAMODEL_STORAGE"))
+    _items = sca_get_datamodel(d, d.getVar("SCA_DATAMODEL_STORAGE", True))
 
     filenames = list(set([x.File for x in _items]))
 
@@ -33,8 +33,8 @@ def sca_conv_dm_checkstyle(d):
             _firstItem = _firstItem[0]
         else:
             continue
-        if d.getVar("SCA_EXPORT_FINDING_SRC") == "1":
-            _fname = _firstItem.GetPath(exportPath=d.getVar("SCA_EXPORT_FINDING_DIR"))
+        if d.getVar("SCA_EXPORT_FINDING_SRC", True) == "1":
+            _fname = _firstItem.GetPath(exportPath=d.getVar("SCA_EXPORT_FINDING_DIR", True))
             _srcname = _firstItem.GetPath()
             if os.path.exists(_srcname):
                 os.makedirs(os.path.dirname(_fname), exist_ok=True)

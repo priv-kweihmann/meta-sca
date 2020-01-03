@@ -24,7 +24,7 @@ env:
       # distro to build
       - DISTRO=scatest
       # Target branch of other layer-repos
-      - SCA_BRANCH=master
+      - SCA_BRANCH=krogoth
       # bitbake target to build
       - SCA_TARGET_IMG=core-image-minimal-scatest
       # Builddir
@@ -35,19 +35,9 @@ jobs:
   include:
   - name: "qemux86 classic tools"
     env: MACHINE=qemux86 PARAMFILE=standard_01
-  - name: "qemux86 script tools"
-    env: MACHINE=qemux86 PARAMFILE=standard_02
-  - name: "qemux86 system tools"
-    env: MACHINE=qemux86 PARAMFILE=standard_02
-  - name: "qemux86 + meta-oe"
-    env: MACHINE=qemux86 _WITH_METAOE=1 PARAMFILE=metaoe
-  - name: "qemux86 + clang"
-    env: MACHINE=qemux86 _WITH_METACLANG=1 PARAMFILE=metaclang
 script:
     # Clone needed repos
     - git clone git://git.yoctoproject.org/poky.git/ -b ${SCA_BRANCH} ${TRAVIS_BUILD_DIR}/poky
-    - if [ ! -z ${_WITH_METAOE} ]; then git clone git://git.openembedded.org/meta-openembedded -b ${SCA_BRANCH} ${TRAVIS_BUILD_DIR}/meta-oe; fi
-    - if [ ! -z ${_WITH_METACLANG} ]; then git clone https://github.com/kraj/meta-clang.git -b ${SCA_BRANCH} ${TRAVIS_BUILD_DIR}/meta-clang; fi
     # setup poky (is needed to run bitbake-layers afterwards)
     - source ${TRAVIS_BUILD_DIR}/poky/oe-init-build-env
     # Test for testing recipe being disabled by default

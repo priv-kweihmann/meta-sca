@@ -51,22 +51,22 @@ python do_sca_multimetric_image() {
 
     _json = {}
     tmp = []
-    with open(d.getVar("SCA_IMAGE_PKG_LIST")) as i:
+    with open(d.getVar("SCA_IMAGE_PKG_LIST", True)) as i:
         _json = json.load(i)
     for rpm, v in _json.items():
-        res = glob.glob(os.path.join(d.getVar("SCA_EXPORT_DIR"), "multimetric", "raw", "{}-*.json".format(rpm)))
+        res = glob.glob(os.path.join(d.getVar("SCA_EXPORT_DIR", True), "multimetric", "raw", "{}-*.json".format(rpm)))
         if res:
             with open(res[0]) as i:
                 try:
-                    tmp.append(json.load(i)["stats"][d.getVar("SCA_MULTIMETRIC_IMAGE_KEY")])
+                    tmp.append(json.load(i)["stats"][d.getVar("SCA_MULTIMETRIC_IMAGE_KEY", True)])
                 except Exception as e:
                     bb.note(str(e))
 
     # Create final object
-    res = {"files": {d.getVar("FILE"): {}}}
+    res = {"files": {d.getVar("FILE", True): {}}}
     for key in clean_split(d, "_SCA_MULTIMETRIC_IMAGE_SUBKEY"):
         try:
-            res["files"][d.getVar("FILE")][key] = statistics.mean([x[key] for x in tmp])
+            res["files"][d.getVar("FILE", True)][key] = statistics.mean([x[key] for x in tmp])
         except statistics.StatisticsError as e:
             bb.note(str(e))
 
@@ -76,9 +76,9 @@ python do_sca_multimetric_image() {
     with open(tmp_result, "w") as o:
         json.dump(res, o)
 
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/multimetric.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/multimetric.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_multimetric(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "multimetric", get_fatal_entries(d))

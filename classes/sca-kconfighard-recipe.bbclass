@@ -15,7 +15,7 @@ inherit sca-suppress
 DEPENDS += "kconfig-hardened-check-native sca-recipe-kconfighard-rules-native"
 
 def get_architeture(d):
-    arch = d.getVar("TARGET_ARCH")
+    arch = d.getVar("TARGET_ARCH", True)
     if arch == "x86_64":
         return "X86_64"
     elif arch == "i586":
@@ -32,8 +32,8 @@ def do_sca_conv_kconfighard(d):
     import os
     import re
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     items = []
     pattern = r"^\s*(?P<symbol>CONFIG_[A-Z0-9_]+)\s*\|\s*(?P<exp>.*?\s*)\|\s*(?P<source>\w+\s*)\|.*\|\|\s*(?P<result>.*)"
@@ -49,8 +49,8 @@ def do_sca_conv_kconfighard(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     result_fail = m.group("result").strip().startswith("FAIL:")
@@ -62,7 +62,7 @@ def do_sca_conv_kconfighard(d):
                                             PackageName=package_name,
                                             Tool="kconfighard",
                                             File=buildpath,
-                                            BuildPath=d.getVar("B"),
+                                            BuildPath=d.getVar("B", True),
                                             Message="{} should be {} but is {}".format(m.group("symbol"), m.group("exp").strip(), clean_result),
                                             ID=m.group("symbol"))
                     if m.group("source") in severity_map.keys():
@@ -86,18 +86,18 @@ python do_sca_kconfighard() {
     import os
     import subprocess
 
-    if get_architeture(d) and d.getVar("PN") == "linux-yocto":
-        d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_CPPLINT_EXTRA_SUPPRESS"))
-        d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_CPPLINT_EXTRA_FATAL"))
-        d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "kconfighard-{}-suppress".format(d.getVar("SCA_MODE"))))
-        d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "kconfighard-{}-fatal".format(d.getVar("SCA_MODE"))))
+    if get_architeture(d) and d.getVar("PN", True) == "linux-yocto":
+        d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_KCONFIGHARD_EXTRA_SUPPRESS", True))
+        d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_KCONFIGHARD_EXTRA_FATAL", True))
+        d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "kconfighard-{}-suppress".format(d.getVar("SCA_MODE", True))))
+        d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "kconfighard-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
         tmp_result = os.path.join(d.getVar("T", True), "sca_raw_kconfighard.txt")
         d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
-        _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "kconfig-hardening-check", "kconfig-hardened-check.py")]      
+        _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "kconfig-hardening-check", "kconfig-hardened-check.py")]      
         _args += ["--print", get_architeture(d) ]
-        _args += ["-c", os.path.join(d.getVar("B"), ".config")]
+        _args += ["-c", os.path.join(d.getVar("B", True), ".config")]
 
         cmd_output = ""
 
@@ -112,14 +112,14 @@ python do_sca_kconfighard() {
         result_file = os.path.join(d.getVar("T", True), "sca_checkstyle_kconfighard.xml")
         d.setVar("SCA_RESULT_FILE", result_file)
 
-        org_source_value = d.getVar("SCA_SOURCES_DIR")
+        org_source_value = d.getVar("SCA_SOURCES_DIR", True)
         ## patch the source of the config-file
-        d.setVar("SCA_SOURCES_DIR", os.path.join(d.getVar("B"), ".config"))
+        d.setVar("SCA_SOURCES_DIR", os.path.join(d.getVar("B", True), ".config"))
 
         ## Create data model
-        d.setVar("SCA_DATAMODEL_STORAGE", "{}/kconfighard.dm".format(d.getVar("T")))
+        d.setVar("SCA_DATAMODEL_STORAGE", "{}/kconfighard.dm".format(d.getVar("T", True)))
         dm_output = do_sca_conv_kconfighard(d)
-        with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+        with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
             o.write(dm_output)
 
         sca_task_aftermath(d, "kconfighard", get_fatal_entries(d))

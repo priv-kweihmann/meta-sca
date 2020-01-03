@@ -20,8 +20,8 @@ def do_sca_conv_splint(d):
     import os
     import csv
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     items = []
 
@@ -34,8 +34,8 @@ def do_sca_conv_splint(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True), "r") as f:
             reader = csv.DictReader(f)
             for row in reader:
                 try:
@@ -43,7 +43,7 @@ def do_sca_conv_splint(d):
                                             PackageName=package_name,
                                             Tool="splint",
                                             BuildPath=buildpath,
-                                            File=os.path.join(d.getVar("TOPDIR"), row["File"]),
+                                            File=os.path.join(d.getVar("TOPDIR", True), row["File"]),
                                             Line=row["Line"],
                                             Column=row["Column"],
                                             Message=row["Warning Text"],
@@ -65,17 +65,17 @@ python do_sca_splint() {
     import subprocess
     from multiprocessing import Pool
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_SPLINT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_SPLINT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "splint-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "splint-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_SPLINT_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_SPLINT_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "splint-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "splint-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
     _args = ["splint"]
-    _args += ["-tmpdir", d.getVar("T")]
+    _args += ["-tmpdir", d.getVar("T", True)]
     _args += ["-nof"]
     _args += ["-linelen", "100000"]
     _args += ["bugslimit", "100000"]
-    _int = d.getVar("SCA_SPLINT_INTENSITY")
+    _int = d.getVar("SCA_SPLINT_INTENSITY", True)
     if _int == "1":
         _args += ["-weak"]
     elif _int == "2":
@@ -84,40 +84,40 @@ python do_sca_splint() {
         _args += ["-checks"]
     else:
         _args += ["-strict"]
-    for i in get_local_includes(d.getVar("SCA_SOURCES_DIR")):
+    for i in get_local_includes(d.getVar("SCA_SOURCES_DIR", True)):
         _args += ["-I{}".format(i)]
-    for i in get_local_includes(d.getVar("STAGING_INCDIR")):
+    for i in get_local_includes(d.getVar("STAGING_INCDIR", True)):
         _args += ["-I{}".format(i)]
 
     _files = get_files_by_extention(d, 
-                                    d.getVar("SCA_SOURCES_DIR"), 
+                                    d.getVar("SCA_SOURCES_DIR", True), 
                                     clean_split(d, "SCA_SPLINT_FILE_FILTER"), 
-                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
-    tmp_result = os.path.join(d.getVar("T"), "sca_raw_splint.csv")
+    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_splint.csv")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ["Warning,Flag Code,Flag Name,Priority,File,Line,Column,Warning Text,Additional Text"]
     
     ## Run
     for f in _files:
-        _targs = _args + ["+csv", os.path.join(d.getVar("T"), "sca_raw_splint_tmp.csv")]
+        _targs = _args + ["+csv", os.path.join(d.getVar("T", True), "sca_raw_splint_tmp.csv")]
         try:
             subprocess.check_call(_targs + [f], universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             pass
-        with open(os.path.join(d.getVar("T"), "sca_raw_splint_tmp.csv")) as i:
+        with open(os.path.join(d.getVar("T", True), "sca_raw_splint_tmp.csv")) as i:
             cmd_output += [x for x in i.readlines()[1:] if x]
         try:
-            os.remove(os.path.join(d.getVar("T"), "sca_raw_splint_tmp.csv"))
+            os.remove(os.path.join(d.getVar("T", True), "sca_raw_splint_tmp.csv"))
         except:
             pass
     with open(tmp_result, "w") as o:
         o.write("\n".join(cmd_output))
     
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/splint.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/splint.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_splint(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "splint", get_fatal_entries(d))

@@ -11,6 +11,6 @@ SCA_IMAGE_PKG_LIST = "${T}/pkgs.json"
 python do_sca_image_pkg_list() {
     import json
     from oe.rootfs import image_list_installed_packages
-    with open(d.getVar("SCA_IMAGE_PKG_LIST"), "w") as o:
+    with open(d.getVar("SCA_IMAGE_PKG_LIST", True), "w") as o:
         json.dump(image_list_installed_packages(d), o)
 }

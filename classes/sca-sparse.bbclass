@@ -23,8 +23,8 @@ def do_sca_conv_sparse(d):
     import re
     import hashlib
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     items = []
     pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<col>\d+):\s*(?P<severity>.*):\s*(?P<msg>.*)"
@@ -38,8 +38,8 @@ def do_sca_conv_sparse(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
+        with open(d.getVar("SCA_RAW_RESULT_FILE", True), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -70,19 +70,19 @@ def do_sca_conv_sparse(d):
 python do_sca_sparse() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_SPARSE_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_SPARSE_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "sparse-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "sparse-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_SPARSE_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_SPARSE_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "sparse-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "sparse-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
     _args = ["sparse"]
-    _args += ["-gcc-base-dir", os.path.join(d.getVar("STAGING_DIR"), d.getVar("prefix"))]
+    _args += ["-gcc-base-dir", os.path.join(d.getVar("STAGING_DIR", True), d.getVar("prefix", True))]
     _args += ["-fmax-warnings=1000000"]
     _args += clean_split(d, "SCA_SPARSE_WARNINGS")
     _files = get_files_by_extention(d, 
-                                    d.getVar("SCA_SOURCES_DIR"), 
+                                    d.getVar("SCA_SOURCES_DIR", True), 
                                     clean_split(d, "SCA_SPARSE_FILE_FILTER"), 
-                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run
     cmd_output = ""
@@ -97,9 +97,9 @@ python do_sca_sparse() {
         o.write(cmd_output)
     
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/sparse.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/sparse.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_sparse(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "sparse", get_fatal_entries(d))

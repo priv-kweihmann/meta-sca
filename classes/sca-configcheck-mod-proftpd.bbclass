@@ -2,14 +2,14 @@
 SCA_CONFIGCHECK_proftpd_CONFIGFILE ?= "/etc/proftpd.conf"
 
 def do_sca_configcheck_run_proftpd(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which proftpd) ] && proftpd -c {} -t".format(d.getVar("SCA_CONFIGCHECK_proftpd_CONFIGFILE"))]
+    return ["/bin/sh", "-c", "[ ! -z $(which proftpd) ] && proftpd -c {} -t".format(d.getVar("SCA_CONFIGCHECK_proftpd_CONFIGFILE", True))]
 
 def do_sca_configcheck_conv_proftpd(d, toolout, suppress):
     import os
     import re
 
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^.*(?P<severity>fatal)\:\s+(?P<msg>.*)\s+on\s+line\s+(?P<line>\d+)\s+of\s+\'(?P<file>.*)\'"
 

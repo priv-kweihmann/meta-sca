@@ -64,7 +64,7 @@ QEMU_TARGETS = "arm-linux-user \
                 sh4-linux-user \
                 x86_64-linux-user"
 
-QEMU_TARGET_CONF_OPT = "${@','.join(d.getVar('QEMU_TARGETS').split(' '))}"
+QEMU_TARGET_CONF_OPT = "${@','.join(d.getVar('QEMU_TARGETS', True).split(' '))}"
 
 do_configure() {
     ${S}/configure ${QEMU_CONFIGURE_OPTS} \    

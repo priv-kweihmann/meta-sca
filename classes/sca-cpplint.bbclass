@@ -20,8 +20,8 @@ def do_sca_conv_cpplint(d):
     from xml.etree.ElementTree import Element, SubElement, Comment, tostring
     from xml.etree import ElementTree
     
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     items = []
 
@@ -36,9 +36,9 @@ def do_sca_conv_cpplint(d):
     _findings = []
     _suppress = sca_suppress_init(d)
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE", True)):
         try:
-            data = ElementTree.ElementTree(ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE"))).getroot()
+            data = ElementTree.ElementTree(ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE", True))).getroot()
             for node in data.findall(".//testcase"):
                 _filename = node.attrib.get("name")
                 fail = node.find("failure")
@@ -70,12 +70,12 @@ def do_sca_conv_cpplint(d):
 python do_sca_cpplint() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_CPPLINT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_CPPLINT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cpplint-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cpplint-{}-fatal".format(d.getVar("SCA_MODE"))))
+    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_CPPLINT_EXTRA_SUPPRESS", True))
+    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_CPPLINT_EXTRA_FATAL", True))
+    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cpplint-{}-suppress".format(d.getVar("SCA_MODE", True))))
+    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cpplint-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
-    _args = ["python3", os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "cpplint.py")]
+    _args = ["python3", os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "cpplint.py")]
     _args += ["--output=junit"]
     _args += ["--quiet"]
     _args += ["--root={}".format(d.getVar("B", True))]
@@ -87,9 +87,9 @@ python do_sca_cpplint() {
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_cpplint.xml")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     _files = get_files_by_extention(d, 
-                                    d.getVar("SCA_SOURCES_DIR"), 
-                                    clean_split(d, "SCA_CPPLINT_FILE_FILTER"), 
-                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+                                    d.getVar("SCA_SOURCES_DIR", True), 
+                                    clean_split(d, "SCA_CPPLINT_FILE_FILTER", True), 
+                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     if any(_files):
         _args += _files
         try:
@@ -101,9 +101,9 @@ python do_sca_cpplint() {
     os.chdir(cur_dir)
     
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/cpplint.dm".format(d.getVar("T")))
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/cpplint.dm".format(d.getVar("T", True)))
     dm_output = do_sca_conv_cpplint(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+    with open(d.getVar("SCA_DATAMODEL_STORAGE", True), "w") as o:
         o.write(dm_output)
 
     sca_task_aftermath(d, "cpplint", get_fatal_entries(d))

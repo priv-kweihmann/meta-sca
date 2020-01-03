@@ -2,14 +2,14 @@
 SCA_CONFIGCHECK_lighttpd_CONFIGFILE ?= "/etc/lighttpd/lighttpd.conf"
 
 def do_sca_configcheck_run_lighttpd(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which lighttpd) ] && lighttpd -t -f {}".format(d.getVar("SCA_CONFIGCHECK_lighttpd_CONFIGFILE"))]
+    return ["/bin/sh", "-c", "[ ! -z $(which lighttpd) ] && lighttpd -t -f {}".format(d.getVar("SCA_CONFIGCHECK_lighttpd_CONFIGFILE", True))]
 
 def do_sca_configcheck_conv_lighttpd(d, toolout, suppress):
     import os
     import re
 
-    package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    package_name = d.getVar("PN", True)
+    buildpath = d.getVar("SCA_SOURCES_DIR", True)
 
     pattern = r"^.*\s+source\:\s+(?P<file>.*)\s+line\:\s+(?P<line>\d+)\s+pos\:\s+(?P<col>\d+)\s+(?P<msg>.*)"
 

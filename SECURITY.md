@@ -11,6 +11,15 @@ Following branches are actively maintained.
 | warrior  | daily              |
 | thud     | daily              |
 
+## Unmaintained branched
+
+| Branch   | Tested             |
+| -------- | ------------------ |
+| krogoth  | every 6 month      |
+| pyro     | every 6 month      |
+| rocko    | every 6 month      |
+| sumo     | every 6 month      |
+
 ## Reporting a Vulnerability
 
 Vulnerabilities or other security issues can be reported as a issue, please use the bug-template.

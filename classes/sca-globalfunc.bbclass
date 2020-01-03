@@ -16,6 +16,6 @@ addhandler check_rmwork_with_forcerun
 check_rmwork_with_forcerun[eventmask] = "bb.event.SanityCheck"
 
 python check_rmwork_with_forcerun() {
-    if d.getVar("SCA_FORCE_RUN") != "0" and "rm_work" in [x for x in d.getVar("INHERIT").split(" ") if x]:
+    if d.getVar("SCA_FORCE_RUN", True) != "0" and "rm_work" in [x for x in d.getVar("INHERIT", True).split(" ") if x]:
         bb.warn("You inherited 'rm_work', so enabling SCA_FORCE_RUN could slow down your build significantly")
 }
