@@ -80,34 +80,21 @@ To enable the php/lua support you need to add the [meta-oe](http://cgit.openembe
 
 ## Support
 
-As long as technically possible you can expect package updates and bugfixes to this layer for all poky-releases since **thud**.
+Actively maintained branches will receive feature and package updates according to the [release cycle](#release-cycle).
+Unmaintained branches will only receive package updates on demand.
+
+Status of the branches is described at [SECURITY.md](SECURITY.md).
 
 It's advised to use the tagged source versions in productive environment.
 
 ### Release cycle
 
-You can expect a new tagged build every 4-6 weeks.
+You can expect a new tagged build every 4-6 weeks for every actively maintained branch.
 Planning is done by milestone features on GitHub.
 
 #### Releases
 
-For each YOCTO release you will find a corresponding branch of this layer.
-
-| Yocto release | meta-sca branch |
-|---------------|-----------------|
-| next release  | master          |
-| zeus          | zeus            |
-| warrior       | warrior         |
-| thud          | thud            |
-
-beginning with release 1.18 the following tags exist in git
-
-| meta-sca branch | tag                | example       |
-|-----------------|--------------------|---------------|
-| master          | v"version"         | v1.18         |
-| zeus            | vzeus_"version"    | vzeus_1.18    |
-| warrior         | vwarrior_"version" | vwarrior_1.23 |
-| thud            | vthud_"version"    | vthud_1.99    |
+See [SECURITY.md](SECURITY.md) for details
 
 ### Compatibility
 
