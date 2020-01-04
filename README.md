@@ -340,7 +340,7 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
 - Application notes
   - [Recipe buildtime dependencies](docs/sca/buildtime_dependencies.md)
   - [How are the statistics of a tool calculated?](docs/sca/build_exec_times.md)
-  - [How to build your own moduele](docs/add_your_own.md)
+  - [How to build your own module](docs/add_your_own.md)
 - Case studies
   - [Regression on severe code issues](docs/casestudy/simple_regression.md)
   - [Idenfying hardening and security potential](docs/casestudy/adv_security.md)
