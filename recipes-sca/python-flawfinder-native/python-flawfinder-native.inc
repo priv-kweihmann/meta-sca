@@ -15,10 +15,9 @@ inherit native
 inherit sca-sanity
 
 do_install_prepend() {
-    # Somehow there should have been a zipped version of the 
-    # tools sources - but as we don't need them
-    # we are going to ship an stub text file instead
-    echo "Intentionally empty" > ${B}/flawfinder.1.gz
+    # Remove the data_files section from setup, as 
+    # it isn't really needed
+    sed -i "/data_files/d" ${S}/setup.py
 }
 
 do_install_append() {
