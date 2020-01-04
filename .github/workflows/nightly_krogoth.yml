@@ -1,8 +1,9 @@
 name: "[krogoth]-classic"
 
-on: push
-# schedule:
-#   - cron: "30 0 15 */6 *"
+on: 
+  push:
+  schedule:
+    - cron: "30 2 15 */3 *"
 
 jobs:
   qemux86:
