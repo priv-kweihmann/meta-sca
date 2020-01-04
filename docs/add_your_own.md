@@ -33,7 +33,7 @@ do_install_append() {
 
 As already mentioned the description file is a json which usually looks like this
 
-```json
+```javascript
 {
     // information how long it takes to build the tool itself on a scale between 0 (worst) - 10 (best)
     "buildspeed": 7,
