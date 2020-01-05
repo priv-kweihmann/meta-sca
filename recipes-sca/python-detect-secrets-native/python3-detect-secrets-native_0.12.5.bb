@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=abffc869c10cd01c979217e9dded27a1"
 SRC_URI = "git://github.com/Yelp/detect-secrets.git;protocol=https;tag=v${PV}"
 S = "${WORKDIR}/git"
 
-DEPENDS += "${PYTHON_PN}-native ${PYTHON_PN}-pyyaml-native"
+DEPENDS += "${PYTHON_PN}-native ${PYTHON_PN}-pyyaml-native ${PYTHON_PN}-requests-native"
 
 inherit native
 inherit sca-sanity
@@ -20,4 +20,8 @@ FILES_${PN} += "${datadir}"
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/detectsecrets.sca.description ${D}${datadir}
+
+    # Remove the requests from the requires.txt, as this isn't working
+    # for whatever reasons, no matter is requests is available or not
+    find ${D} -name "requires.txt" -exec sed -i "/requests/d" {} +
 }
