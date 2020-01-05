@@ -1,0 +1,53 @@
+name: "[thud]-scripts"
+
+on:
+  schedule:
+    - cron: "30 18 * * *"
+
+jobs:
+  qemux86:
+    name: "qemux86 with standard options - script tools"
+    env:
+      DISTRO: scatest
+      MACHINE: qemux86
+      SCABRANCH: thud
+      PARAMFILE: standard_02
+      MAXRUNTIME: 21000s
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          ref: thud
+      - name: Update APT
+        run: sudo apt-get update
+      - name: Install Dependencies
+        run: sudo apt-get -yq --no-install-suggests --no-install-recommends install build-essential chrpath diffstat gawk gcc-multilib git-core libsdl1.2-dev python3 socat texinfo unzip wget xterm
+      - name: Check out poky
+        run: git clone git://git.yoctoproject.org/poky.git/ -b $SCABRANCH poky
+      - name: Setup poky
+        run: source poky/oe-init-build-env
+      - name: add meta-sca
+        run: |
+          source poky/oe-init-build-env
+          bitbake-layers add-layer $(pwd)/..
+      - name: prepare local.conf
+        run: |
+          source poky/oe-init-build-env
+          echo 'INHERIT +="rm_work"' >> conf/local.conf
+          echo 'SCA_VERBOSE_OUTPUT = "1"' >> conf/local.conf
+      - name: set modules
+        run: |
+          source poky/oe-init-build-env
+          mods=$(cat $(pwd)/../recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ')
+          echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> conf/local.conf
+      - name: build
+        run: |
+          source poky/oe-init-build-env
+          timeout --foreground $MAXRUNTIME $(pwd)/../recipes-sca-test/test_$PARAMFILE.sh || if [ $? == 124 ]; then echo "Timeout"; else return 1; fi;
+      - name: test results
+        run: |
+          source poky/oe-init-build-env
+          eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR")
+          $(pwd)/../scripts/check_results $SCA_EXPORT_DIR $(cat $(pwd)/../recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ') || true
