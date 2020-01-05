@@ -9,6 +9,7 @@ PYPI_PACKAGE = "wemake-python-styleguide"
 DEPENDS += " \
             ${PYTHON_PN}-astor-native \
             ${PYTHON_PN}-attrs-native \
+            ${PYTHON_PN}-cognitive-complexity-native \
             ${PYTHON_PN}-flake8-annotations-complexity-native \
             ${PYTHON_PN}-flake8-bandit-native \
             ${PYTHON_PN}-flake8-broken-line-native \
