@@ -11,9 +11,9 @@ inherit sca-global
 inherit sca-helper
 inherit sca-suppress
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
+inherit python3native
 
-DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-ropgadget-native"
+DEPENDS += "python3-ropgadget-native"
 
 PACKAGE_DEBUG_SPLIT_STYLE = '.debug'
 

@@ -11,9 +11,9 @@ inherit sca-helper
 inherit sca-license-filter
 inherit sca-suppress
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
+inherit python3native
 
-DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-detect-secrets-native"
+DEPENDS += "python3-detect-secrets-native"
 
 def do_sca_conv_detectsecrets(d):
     import os

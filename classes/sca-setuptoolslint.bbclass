@@ -16,7 +16,7 @@ inherit sca-global
 inherit sca-helper
 inherit sca-suppress
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
+inherit python3native
 
 def do_sca_conv_setuptoolslint(d, cmd_output=""):
     import os
@@ -110,7 +110,7 @@ do_sca_setuptoolslint[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1',
 do_sca_deploy_setuptoolslint[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "\
-            ${SCA_STD_PYTHON_INTERPRETER}-setuptools-lint-native \
-            ${SCA_STD_PYTHON_INTERPRETER}-setuptools-native \
+            python3-setuptools-lint-native \
+            python3-setuptools-native \
             sca-recipe-setuptoolslint-rules-native \
            "

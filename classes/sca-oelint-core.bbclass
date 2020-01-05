@@ -4,14 +4,14 @@
 SCA_OELINT_EXTRA_SUPPRESS ?= ""
 SCA_OELINT_EXTRA_FATAL ?= ""
 
-DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-oelint-adv-native"
+DEPENDS += "python3-oelint-adv-native"
 
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-helper
 inherit sca-license-filter
 inherit sca-suppress
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
+inherit python3native
 
 def do_sca_conv_oelint(d):
     import os

@@ -1,5 +1,20 @@
-inherit setuptools3
-require python-msgcheck-native.inc
+SUMMARY = "Gettext file checker"
+HOMEPAGE = "https://github.com/codingjoe/msgcheck"
+LICENSE = "GPL-3.0"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d32239bcb673463ab874e80d47fae504"
 
-SRC_URI[md5sum] = "574e122bf964048155898cfcb185fc78"
-SRC_URI[sha256sum] = "0aba4e5e3cd56685a3eff795f67c5c934c69161ae127674a3350b84939165d7a"
+DEPENDS += "${PYTHON_PN}-pyenchant-native"
+
+FILES_${PN} += "${datadir}"
+SRC_URI = "git://github.com/codingjoe/msgcheck.git;protocol=https;tag=${PV} \
+           file://msgcheck.sca.description"
+
+S = "${WORKDIR}/git"
+inherit native
+inherit sca-sanity
+inherit setuptools3
+
+do_install_append() {
+    install -d ${D}${datadir}
+    install ${WORKDIR}/msgcheck.sca.description ${D}${datadir}
+}
