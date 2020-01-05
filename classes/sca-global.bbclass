@@ -30,11 +30,8 @@ SCA_ENABLE_IMAGE_SUMMARY ?= "1"
 ## Enable an extra report from bestof-module
 SCA_ENABLE_BESTOF ?= "0"
 
-## Standard python interpreter to be used in SCA
-SCA_STD_PYTHON_INTERPRETER ?= "python3"
-
 ## Shebang for python interpreter
-SCA_PYTHON_SHEBANG = ".*${SCA_STD_PYTHON_INTERPRETER}"
+SCA_PYTHON_SHEBANG = ".*python3"
 
 ## Cleanup old files before exporting
 SCA_CLEAN_BEFORE_EXPORT ?= "1"

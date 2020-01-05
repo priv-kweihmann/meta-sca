@@ -102,4 +102,4 @@ python do_sca_bashate_core() {
     sca_task_aftermath(d, "bashate", get_fatal_entries(d))
 }
 
-DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-bashate-native"
+DEPENDS += "python3-bashate-native"

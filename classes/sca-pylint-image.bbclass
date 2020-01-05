@@ -4,7 +4,7 @@
 inherit sca-pylint-core
 inherit sca-global
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3-dir', 'python-dir')}
+inherit python3-dir
 
 ## Add ids to suppress on a recipe level
 SCA_PYLINT_EXTRA_SUPPRESS ?= ""

@@ -16,9 +16,9 @@ inherit sca-helper
 inherit sca-license-filter
 inherit sca-suppress
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
+inherit python3native
 
-DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-systemdlint-native"
+DEPENDS += "python3-systemdlint-native"
 
 def do_sca_conv_systemdlint(d):
     import os

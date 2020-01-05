@@ -11,7 +11,7 @@ inherit sca-helper
 inherit sca-license-filter
 inherit sca-suppress
 
-DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-bandit-native"
+DEPENDS += "python3-bandit-native"
 
 def do_sca_conv_bandit(d):
     import os

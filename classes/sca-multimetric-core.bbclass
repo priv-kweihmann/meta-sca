@@ -40,7 +40,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
+inherit python3native
 
 def do_sca_conv_multimetric(d):
     import os
@@ -58,7 +58,7 @@ def do_sca_conv_multimetric(d):
             with open(d.getVar("SCA_RAW_RESULT_FILE")) as i:
                 j = json.load(i)
         except Exception as e:
-            bb.warn(str(e))
+            j = {"files": {}}
         try:
             for _file, v in j["files"].items():
                 for _item in v.keys():
@@ -224,6 +224,8 @@ python do_sca_multimetric_core() {
             cmd_output = e.stdout or ""
         
     with open(tmp_result, "w") as o:
+        if not cmd_output:
+            cmd_output = "{}"
         o.write(cmd_output)
     
     # Create data model
