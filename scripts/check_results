@@ -51,7 +51,8 @@ _data = {
     ],
     "flake8": [
         "bad-python-reqs",
-        "bad-python-types"
+        "bad-python-types",
+        "python3-git"
     ],
     "flawfinder": [
         "busybox",
