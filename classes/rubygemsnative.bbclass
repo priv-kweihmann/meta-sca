@@ -75,7 +75,7 @@ rubygemsnative_do_install() {
 
     gem uninstall ${GEM_NAME} --version ${GEM_VERSION} -x -q -V || true
 
-    gem install --local --bindir ${D}${bindir} ${GEM_BUILT_FILE} --no-rdoc --no-ri -E --no-user-install --ignore-dependencies --force --conservative -V -- ${GEM_INSTALL_FLAGS}
+    gem install --local --bindir ${D}${bindir} ${GEM_BUILT_FILE} -E --no-user-install --ignore-dependencies --force --conservative -V -- ${GEM_INSTALL_FLAGS}
 }
 
 EXPORT_FUNCTIONS do_compile do_install
