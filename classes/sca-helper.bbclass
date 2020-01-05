@@ -5,7 +5,7 @@ inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-blacklist
 
-DEPENDS += "${@oe.utils.ifelse(sca_is_module_blacklisted(d, 'foo'), '', '${SCA_STD_PYTHON_INTERPRETER}-python-magic-native')}"
+DEPENDS += "${@oe.utils.ifelse(sca_is_module_blacklisted(d, 'foo'), '', 'python3-python-magic-native')}"
 
 def get_relative_source_path(d):
     import os

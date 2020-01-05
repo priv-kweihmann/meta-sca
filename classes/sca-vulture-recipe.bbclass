@@ -4,7 +4,7 @@
 inherit sca-vulture-core
 inherit sca-global
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER', True) == 'python3', 'python3-dir', 'python-dir')}
+inherit python3-dir
 
 SCA_DEPLOY_TASK = "do_sca_deploy_vulture_recipe"
 

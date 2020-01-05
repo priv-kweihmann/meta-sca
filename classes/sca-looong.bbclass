@@ -11,7 +11,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER', True) == 'python3', 'python3-dir', 'python-dir')}
+inherit python3-dir
 
 def do_sca_conv_looong(d):
     import os
@@ -103,4 +103,4 @@ addtask do_sca_deploy_looong after do_sca_looong before do_package
 do_sca_looong[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 do_sca_deploy_looong[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
-DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-looong-native sca-recipe-looong-rules-native"
+DEPENDS += "python3-looong-native sca-recipe-looong-rules-native"

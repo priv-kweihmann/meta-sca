@@ -8,7 +8,7 @@ inherit sca-helper
 inherit sca-license-filter
 inherit sca-suppress
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER', True) == 'python3', 'python3native', 'pythonnative')}
+inherit python3native
 
 SCA_VULTURE_EXTRA_FATAL ?= ""
 SCA_VULTURE_MIN_CONFIDENCE ?= "80"
@@ -62,7 +62,7 @@ python do_sca_vulture_core() {
     d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_VULTURE_EXTRA_FATAL", True))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "vulture-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
-    _args = [os.environ.get("PYTHON", d.getVar('SCA_STD_PYTHON_INTERPRETER', True)), "-m", "vulture"]
+    _args = [os.environ.get("PYTHON", "python3"), "-m", "vulture"]
     _args += ["--min-confidence", d.getVar("SCA_VULTURE_MIN_CONFIDENCE", True)]
 
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR", True), d.getVar("SCA_PYTHON_SHEBANG", True), ".py",
@@ -89,4 +89,4 @@ python do_sca_vulture_core() {
     sca_task_aftermath(d, "vulture", get_fatal_entries(d))
 }
 
-DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-vulture-native"
+DEPENDS += "python3-vulture-native"

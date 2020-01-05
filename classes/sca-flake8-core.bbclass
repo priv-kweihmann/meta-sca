@@ -8,7 +8,7 @@ inherit sca-helper
 inherit sca-license-filter
 inherit sca-suppress
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER', True) == 'python3', 'python3native', 'pythonnative')}
+inherit python3native
 
 def do_sca_conv_flake8(d):
     import os
@@ -82,7 +82,7 @@ python do_sca_flake8_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "flake8-{}-suppress".format(d.getVar("SCA_MODE", True))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "flake8-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
-    _args = [os.environ.get("PYTHON", d.getVar('SCA_STD_PYTHON_INTERPRETER', True)), "-m", "flake8"]
+    _args = [os.environ.get("PYTHON", "python3"), "-m", "flake8"]
     _args += ["--isolated"]
     _args += ["--ignore="] ## enable all warning by default
     _args += ["-j", d.getVar("BB_NUMBER_THREADS", True)]
@@ -113,4 +113,4 @@ python do_sca_flake8_core() {
 
 ## addtask do_static_code_analysis_flake8 before do_install after do_compile
 
-DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-flake8-sca-native"
+DEPENDS += "python3-flake8-sca-native"

@@ -4,7 +4,7 @@
 inherit sca-flake8-core
 inherit sca-global
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER', True) == 'python3', 'python3-dir', 'python-dir')}
+inherit python3-dir
 
 ## Add ids to suppress on a recipe level
 SCA_FLAKE8_EXTRA_SUPPRESS ?= ""

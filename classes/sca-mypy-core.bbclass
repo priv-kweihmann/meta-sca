@@ -92,4 +92,4 @@ python do_sca_mypy_core() {
 
 ## addtask do_static_code_analysis_mypy before do_install after do_compile
 
-DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-mypy-native"
+DEPENDS += "python3-mypy-native"

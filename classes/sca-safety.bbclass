@@ -12,7 +12,7 @@ inherit sca-global
 inherit sca-helper
 inherit sca-suppress
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER', True) == 'python3', 'python3native', 'pythonnative')}
+inherit python3native
 
 def do_sca_conv_safety(d, cmd_output=""):
     import os
@@ -147,7 +147,7 @@ do_sca_safety[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:
 do_sca_deploy_safety[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
 DEPENDS += "\
-            ${SCA_STD_PYTHON_INTERPRETER}-safety-native \
-            ${SCA_STD_PYTHON_INTERPRETER}-setuptools-native \
+            python3-safety-native \
+            python3-setuptools-native \
             sca-recipe-safety-rules-native \
            "
