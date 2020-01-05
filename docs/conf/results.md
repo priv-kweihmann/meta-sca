@@ -27,7 +27,7 @@ This document contains all findings in checkstyle-format.
 
 ## console folder
 
-In each checkstyle-subfolder you will find a XML-document named __\${PN}_\${PV}.txt__ e.g. for recipe **acl** this would be **acl_1.2.3.txt**.
+In each checkstyle-subfolder you will find a txt-document named __\${PN}_\${PV}.txt__ e.g. for recipe **acl** this would be **acl_1.2.3.txt**.
 This document contains all findings in plain text format.
 See [output formats](output_formats.md) for details.
 
