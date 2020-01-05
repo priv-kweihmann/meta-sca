@@ -35,13 +35,9 @@ DEPENDS += " \
             ${PYTHON_PN}-typing-extensions-native \
             "
 
-## FIXME - Server was given 504
-SRC_URI = "https://files.pythonhosted.org/packages/ee/83/04575758163d0c768f6d2ec356e2820bd28640f945172f8b268962cb3e67/wemake-python-styleguide-0.11.1.tar.gz"
-S = "${WORKDIR}/wemake-python-styleguide-0.11.1"
-##inherit pypi
-## FIXME
+inherit pypi
 inherit native
 inherit setuptools3
 
-SRC_URI[md5sum] = "0b6643b66c7e4d63fa16057ad8571e63"
-SRC_URI[sha256sum] = "5a25f6d877000cc6d657438a94474f44db6563adba3a518d75d6e17d8017cc4f"
+SRC_URI[md5sum] = "f2db0b5c4ebde7fff7b2f45a19281cff"
+SRC_URI[sha256sum] = "dc7bff88777e9183c636e07da6b99ee36383a8c10e3968be82f61f25f1627e0c"
