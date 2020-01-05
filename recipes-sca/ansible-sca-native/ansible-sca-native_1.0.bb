@@ -18,7 +18,7 @@ inherit sca-sanity
 
 B = "${WORKDIR}"
 
-DEPENDS += "python-ansible-native"
+DEPENDS += "python3-ansible-native"
 
 FILES_${PN} = "${datadir}"
 

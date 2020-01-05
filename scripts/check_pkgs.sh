@@ -45,6 +45,7 @@ PKGS="\
         python-enum34-native \
         python-polib-native \
         python-ruamelyaml-native \
+        python3-ansible-native \
         reek-native \
         ruby-ast-native \
         ruby-axiom-types-native \
