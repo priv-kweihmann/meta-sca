@@ -48,7 +48,7 @@ inherit sca-global
 inherit sca-helper
 inherit sca-suppress
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3-dir', 'python-dir')}
+inherit python3-dir
 
 def create_inventory(d, target_path):
     import sys
@@ -191,7 +191,7 @@ python do_sca_ansible() {
         for playbook in glob.glob(os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "ansible_sec") + "/" + pb_glob):
             _t_args = _args + [playbook]
             try:
-                cmd_output = subprocess.check_output(_t_args, universal_newlines=True)
+                cmd_output = subprocess.check_output(_t_args, universal_newlines=True, stderr=subprocess.STDOUT)
             except subprocess.CalledProcessError as e:
                 cmd_output = e.stdout or ""
             if cmd_output.find("{") != -1:
@@ -227,4 +227,4 @@ addtask do_sca_deploy_ansible before do_image_complete after do_sca_ansible
 do_sca_ansible[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 do_sca_deploy_ansible[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 
-DEPENDS += "python-ansible-native ansible-sca-native ${SCA_STD_PYTHON_INTERPRETER}-pyyaml-native sca-image-ansible-rules-native"
+DEPENDS += "python3-ansible-native ansible-sca-native sca-image-ansible-rules-native"
