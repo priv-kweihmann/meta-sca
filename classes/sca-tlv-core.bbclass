@@ -88,4 +88,4 @@ python do_sca_tlv_core() {
 
 ## addtask do_static_code_analysis_tlv before do_install after do_compile
 
-DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-tlv-native"
+DEPENDS += "python3-tlv-native"
