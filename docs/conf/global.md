@@ -25,7 +25,6 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_LOCAL_FILE_FILTER | List of glob-expression of additional files to skip for testing. This is applied when S dir is the same as WORKDIR | space separated list | "$RECIPE_SYSROOT $RECIPE_SYSROOT_NATIVE $T"
 | SCA_SCOPE_FILTER | Filter for scope of findings | space separted list of 'security', 'functional' and 'style' | "security functional style"
 | SCA_SOURCES_DIR | Path where to find the source-files to be checked | path | "\${B}" for recipes, "\${IMAGE_ROOTFS}" for images
-| SCA_STD_PYTHON_INTERPRETER | Standard python interpreter to be used in SCA | python or python3 | "python3"
 | SCA_VERBOSE_OUTPUT | Verbose output of included tools | string: 0 or 1 | "1"
 | SCA_WARNING_LEVEL | Filter for severity of findings | string: info, warning or error | "warning"
 

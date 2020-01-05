@@ -106,4 +106,4 @@ python do_sca_pylint_core() {
 
 ## addtask do_static_code_analysis_pylint before do_install after do_compile
 
-DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-pylint-native"
+DEPENDS += "python3-pylint-native"

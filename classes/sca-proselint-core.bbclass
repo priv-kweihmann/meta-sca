@@ -12,9 +12,9 @@ inherit sca-helper
 inherit sca-license-filter
 inherit sca-suppress
 
-inherit ${@oe.utils.ifelse(d.getVar('SCA_STD_PYTHON_INTERPRETER') == 'python3', 'python3native', 'pythonnative')}
+inherit python3native
 
-DEPENDS += "${SCA_STD_PYTHON_INTERPRETER}-proselint-native"
+DEPENDS += "python3-proselint-native"
 
 def do_sca_conv_proselint(d):
     import os
