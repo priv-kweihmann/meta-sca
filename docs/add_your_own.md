@@ -2,7 +2,7 @@
 
 This page should show you how to integrate your very own linting module into sca.
 
-For now this should about modules working on recipes
+For now this should be about modules working on recipes
 
 ## Prerequisites
 
@@ -60,6 +60,8 @@ As already mentioned the description file is a json which usually looks like thi
     }
 }
 ```
+
+**NOTE**: The inline comments are here just for explanation, please remove them in the final implementation.
 
 In case your unsure if your description is valid, you can check it against a json-schema to be found under `files/description-schema.json` in the `meta-sca` layer
 
@@ -197,9 +199,9 @@ FILES_${PN} = "${datadir}"
 
 **NOTE**: you could apply any different `LICENSE` if you like, but contributing the final implementation back to `meta-sca` would only work if it's licensed `BSD-2-Clause`
 
-### Bringing live to the sca class
+### Bringing life to the sca class
 
-Now it's time to bring some live into `sca-myfoolint.bbclass`.
+Now it's time to bring some life into `sca-myfoolint.bbclass`.
 
 First of all we need to code `do_sca_myfoolint` function
 
