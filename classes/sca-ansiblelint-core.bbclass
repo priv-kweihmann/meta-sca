@@ -12,7 +12,7 @@ inherit sca-helper
 inherit sca-license-filter
 inherit sca-suppress
 
-DEPENDS += "python-ansiblelint-native"
+DEPENDS += "python3-ansiblelint-native"
 
 def do_sca_conv_ansiblelint(d):
     import os
@@ -66,7 +66,7 @@ python do_sca_ansiblelint_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "ansiblelint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "ansiblelint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "python-native", "python")]
+    _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "python3-native", "python3")]
     _args += ["-m", "ansiblelint"]
     _args += ["-p"]
     _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_ANSIBLELINT_FILE_FILTER"),
