@@ -23,15 +23,16 @@ DEPENDS += " \
             ${PYTHON_PN}-flake8-executable-native \
             ${PYTHON_PN}-flake8-isort-native \
             ${PYTHON_PN}-flake8-logging-format-native \
+            ${PYTHON_PN}-flake8-native \
             ${PYTHON_PN}-flake8-pep3101-native \
             ${PYTHON_PN}-flake8-print-native \
             ${PYTHON_PN}-flake8-quotes-native \
             ${PYTHON_PN}-flake8-rst-docstrings-native \
             ${PYTHON_PN}-flake8-string-format-native \
-            ${PYTHON_PN}-flake8-native \
             ${PYTHON_PN}-pep8-naming-native \
             ${PYTHON_PN}-pydocstyle-native \
             ${PYTHON_PN}-pygments-native \
+            ${PYTHON_PN}-radon-native \
             ${PYTHON_PN}-typing-extensions-native \
             "
 
