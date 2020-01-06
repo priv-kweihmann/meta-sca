@@ -4,11 +4,8 @@ HOMEPAGE = "https://github.com/berkerpeksag/astor"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=561205fdabc3ec52cae2d30815b8ade7"
 
-## To fix the issue with latest setuptools
-SRC_URI += "file://bd697678674aafcf3f7b1c06af67df181ed584e2.patch"
-
-SRC_URI[md5sum] = "f98f2412a0bd713dfac0de8ada370df0"
-SRC_URI[sha256sum] = "37a6eed8b371f1228db08234ed7f6cfdc7817a3ed3824797e20cbb11dc2a7862"
+SRC_URI[md5sum] = "83ab4ee6598f0381d94ed6949a6d6da2"
+SRC_URI[sha256sum] = "6a6effda93f4e1ce9f618779b2dd1d9d84f1e32812c23a29b3fff6fd7f63fa5e"
 
 PYPI_PACKAGE = "astor"
 
