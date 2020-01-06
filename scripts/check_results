@@ -10,12 +10,6 @@ _data = {
     "alexkohler": [
         "bad-go"
     ],
-    "ansible": [
-        "core-image-minimal-scatest"
-    ],
-    "ansiblelint": [
-        "bad-ansible"
-    ],
     "bashate": [
         "busybox",
         "core-image-minimal-scatest",
@@ -97,7 +91,6 @@ _data = {
         "core-image-minimal-scatest"
     ],
     "oelint": [
-        "bad-ansible",
         "bad-bitbake",
         "bad-css",
         "bad-go",
@@ -196,7 +189,6 @@ _data = {
         "openssh"
     ],
     "yamllint": [
-        "bad-ansible",
         "bad-yaml"
     ],
     "yara": [

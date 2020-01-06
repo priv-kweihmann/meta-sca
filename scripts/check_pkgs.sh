@@ -41,8 +41,6 @@ PKGS="\
         perl-term-ansicolor-native \
         perl-test-deep-native \
         perl-text-parsewords-native \
-        python3-ansible-native \
-        python3-ansiblelint-native \
         python3-anytree-native \
         python3-appdirs-native \
         python3-asn1crypto-native \
