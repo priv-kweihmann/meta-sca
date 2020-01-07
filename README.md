@@ -2,6 +2,9 @@
 
 ![https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CPython%2CShell%2Cperl-informational](https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CPython%2CShell%2Cperl-informational)
 
+[![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=krogoth)](https://travis-ci.org/priv-kweihmann/meta-sca)
+[![Nightly classic](https://github.com/priv-kweihmann/meta-sca/workflows/[krogoth]-classic/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
+
 ## Notice
 
 This is the release branch for YOCTO `krogoth`.
