@@ -10,3 +10,11 @@ LIC_FILES_CHKSUM  = "file://src/${GO_IMPORT}/LICENSE;md5=d0250703509998b3201f5dd
 
 inherit go
 inherit native
+
+# As bitbake thinks the git-repo download dir is a .diff-file
+# and tries to apply it, what isn't working to obvious reasons
+# we just disable the patch task, here as it's not needed anyways.
+# This is a thud-only hack that is needed here
+do_patch() {
+    :
+}
