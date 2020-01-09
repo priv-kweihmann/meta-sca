@@ -103,7 +103,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           safety \
                           setuptoolslint \
                           shellcheck \
-                          slick \
                           sparse \
                           splint \
                           standard \
