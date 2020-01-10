@@ -87,6 +87,8 @@ python do_sca_proselint_core() {
     except subprocess.CalledProcessError as e:
         pass
 
+    os.environ["XDG_CACHE_HOME"] = os.path.join(d.getVar("T"), "proselint")
+
     for _f in _files:
         try:
             cmd_output = subprocess.check_output(_args + [_f], universal_newlines=True, stderr=subprocess.STDOUT)
