@@ -42,8 +42,8 @@ SRC_URI = "http://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz \
            file://0007-v8-don-t-override-ARM-CFLAGS.patch \
            "
            
-SRC_URI[md5sum] = "d5a56d0abf764a91f627f0690cd4b9f3"
-SRC_URI[sha256sum] = "412667d76bd5273c07cb69c215998109fd5bb35c874654f93e6a0132d666c58e"
+SRC_URI[md5sum] = "acb016b02fe8ec413aaba38d6ef92bbb"
+SRC_URI[sha256sum] = "39af1837f439af7b4dc40ec18a64221c688c3982858168ae535bbe4911e8ea35"
 
 S = "${WORKDIR}/node-v${PV}"
 
