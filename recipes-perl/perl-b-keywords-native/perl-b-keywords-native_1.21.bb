@@ -3,8 +3,8 @@ HOMEPAGE = "https://metacpan.org/pod/B::Keywords"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/R/RU/RURBAN/B-Keywords-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "c26c461160f05994e677a9a0a70b7a03"
-SRC_URI[sha256sum] = "60fec03b6e75c2810fa89b8b29e7f936a9d5224d6e52b509551d5f6f5fe95b8a"
+SRC_URI[md5sum] = "c316d3362c579e756fbaff9b9d693c97"
+SRC_URI[sha256sum] = "5a25e89c7d251ba76fc4f7f60d079bd265561b2316ff1f2795d9dbf0c30f8888"
 
 S = "${WORKDIR}/B-Keywords-${PV}"
 
