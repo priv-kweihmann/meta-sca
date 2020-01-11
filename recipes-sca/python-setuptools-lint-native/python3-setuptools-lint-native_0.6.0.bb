@@ -1,7 +1,7 @@
 SUMMARY = "expose pylint as a lint command into setup.py"
 HOMEPAGE = "https://github.com/johnnoone/setuptools-pylint"
 LICENSE = "BSD-2-Clause"
-LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=2;endline=9;md5=8f858f728d20adf75688b6373529ae78"
+LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=2;endline=9;md5=c1563877848d2f74bcf0fbcc4330748b"
 
 DEPENDS += " \
             ${PYTHON_PN}-pylint-native \
@@ -23,5 +23,5 @@ do_install_append() {
     install ${WORKDIR}/setuptoolslint.sca.description ${D}${datadir}
 }
 
-SRC_URI[md5sum] = "308ec2510fc2845407057e91eb366aff"
-SRC_URI[sha256sum] = "cc54107e5d10f77db8db06b0247880b7662f0f6e1a1df9c5af6bf54b50e829a9"
+SRC_URI[md5sum] = "1d0bedb4c35ee87ad8382f12de121974"
+SRC_URI[sha256sum] = "e794e15c7c8dde970b618d9c7ad4588aeaea067f034ccb4ae8facc630b534199"
