@@ -22,7 +22,6 @@ FILES_${PN} = "${bindir}/** ${datadir}"
 ## we don't need debug packages
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 DEPENDS = "python3-native"
-RDEPENDS_${PN} = "python3-native"
 
 do_install() {
     install -d ${D}${bindir}
