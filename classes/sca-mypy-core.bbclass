@@ -60,6 +60,7 @@ python do_sca_mypy_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "mypy-{}-suppress".format(d.getVar("SCA_MODE", True))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "mypy-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
+    os.environ["MYPY_CACHE_DIR"] = os.path.join(d.getVar("T", True), "mypy_cache")
     _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "python3-native/python3"), "-m", "mypy"]
     _args += ["--strict"]
     _args += ["--no-incremental"]
