@@ -207,7 +207,7 @@ _data = {
 ret = 0
 script_path = os.path.join(os.path.dirname(__file__), "check_result")
 _mods = _data.keys()
-if len(sys.argv) > 1:
+if len(sys.argv) > 2:
     _mods = sys.argv[2:]
 for k,v in _data.items():
     if k not in _mods:
