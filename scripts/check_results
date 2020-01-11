@@ -12,7 +12,6 @@ _data = {
     ],
     "bashate": [
         "busybox",
-        "core-image-minimal-scatest",
         "openssh"
     ],
     "bitbake": [
@@ -41,7 +40,6 @@ _data = {
         "bad-javascript"
     ],
     "flake8": [
-        "bad-python-reqs",
         "bad-python-types",
         "python3-git"
     ],
@@ -91,19 +89,7 @@ _data = {
         "core-image-minimal-scatest"
     ],
     "oelint": [
-        "bad-bitbake",
-        "bad-css",
-        "bad-go",
-        "bad-html",
-        "bad-javascript",
-        "bad-json",
-        "bad-php",
-        "bad-python-reqs",
-        "bad-python-types",
-        "bad-xml",
-        "bad-yaml",
-        "core-image-minimal-scatest",
-        "simple-c"
+        "bad-bitbake"
     ],
     "perl": [
         "bad-perl"
@@ -185,8 +171,7 @@ _data = {
         "bad-javascript"
     ],
     "xmllint": [
-        "bad-xml",
-        "openssh"
+        "bad-xml"
     ],
     "yamllint": [
         "bad-yaml"
