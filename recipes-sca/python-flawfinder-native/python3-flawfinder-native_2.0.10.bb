@@ -10,7 +10,7 @@ SRC_URI += "git://github.com/david-a-wheeler/flawfinder.git;protocol=https;tag=$
 
 S = "${WORKDIR}/git"
 
-RDEPENDS_${PN} += "${PYTHON_PN}-native"
+DEPENDS += "${PYTHON_PN}-native"
 
 inherit native
 inherit sca-sanity
