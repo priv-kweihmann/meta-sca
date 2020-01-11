@@ -44,7 +44,6 @@ _data = {
         "python3-git"
     ],
     "flawfinder": [
-        "busybox",
         "openssh",
         "simple-c"
     ],
