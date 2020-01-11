@@ -23,5 +23,5 @@ do_install_append() {
     install ${WORKDIR}/yamllint.sca.description ${D}${datadir}
 }
 
-SRC_URI[md5sum] = "9116d44eba4ae9d3bd9d0c49ce4c0b6c"
-SRC_URI[sha256sum] = "8f25759997acb42e52b96bf3af0b4b942e6516b51198bebd3402640102006af7"
+SRC_URI[md5sum] = "1eac23ef9cc20d3d450abb29072e27e2"
+SRC_URI[sha256sum] = "76912b6262fd7e0815d7b14c4c2bb2642c754d0aa38f2d3e4b4e21c77872a3bf"
