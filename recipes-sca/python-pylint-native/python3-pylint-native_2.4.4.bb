@@ -32,5 +32,5 @@ do_install_append() {
     install ${WORKDIR}/pylint.sca.description ${D}${datadir}
 }
 
-SRC_URI[md5sum] = "37b39717a69ab48fbe29aacc3bb3047c"
-SRC_URI[sha256sum] = "723e3db49555abaf9bf79dc474c6b9e2935ad82230b10c1138a71ea41ac0fff1"
+SRC_URI[md5sum] = "6c1fd3345b63bd0160612882381579a7"
+SRC_URI[sha256sum] = "3db5468ad013380e987410a8d6956226963aed94ecb5f9d3a28acca6d9ac36cd"
