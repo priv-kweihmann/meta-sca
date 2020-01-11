@@ -23,11 +23,6 @@ def do_sca_conv_darglint(d):
 
     pattern = r"^(?P<file>.*):(?P<line>\d+):\s*(?P<severity>[A-Z]+)(?P<id>\d+):\s+(?P<msg>.*)"
 
-    severity_map = {
-        "I" : "warning",
-        "S" : "error"
-    }
-
     _suppress = sca_suppress_init(d)
     _findings = []
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
@@ -42,7 +37,7 @@ def do_sca_conv_darglint(d):
                                             Line=m.group("line"),
                                             Message=m.group("msg"),
                                             ID="{}{}".format(m.group("severity"), m.group("id")),
-                                            Severity=severity_map[m.group("severity")])
+                                            Severity="warning")
                     if _suppress.Suppressed(g):
                         continue
                     if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
