@@ -5,6 +5,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=0636e73ff0215e8d672dc4c32c317bb3"
 
 FILES_${PN} = "${prefix}"
 SRC_URI += "git://github.com/david-a-wheeler/flawfinder.git;protocol=https;tag=${PV} \
+            file://fe78940e6fb5f0ea1d9e776f80899816611167fa.patch \
             file://flawfinder.sca.description"
 
 S = "${WORKDIR}/git"
