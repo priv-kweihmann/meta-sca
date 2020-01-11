@@ -112,7 +112,7 @@ python do_sca_cspell() {
         "typescript": { "name": "typescript", "path": "{}/node_modules/cspell/dist/dictionaries/typescript.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
     }
 
-    _config_file = "cspell.json"
+    _config_file = os.path.join(d.getVar("T"), "cspell.json")
 
     _args = ["cspell"]
     _args += ["-c", _config_file]
