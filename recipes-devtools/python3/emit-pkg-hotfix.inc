@@ -39,16 +39,12 @@ python emit_pkgdata() {
     bb.note("Running emit_pkgdata hotfix")
 
     def process_postinst_on_target(pkg, mlprefix):
-        pkgval = d.getVar('PKG_%s' % pkg)
-        if pkgval is None:
-            pkgval = pkg
-
         defer_fragment = """
 if [ -n "$D" ]; then
     $INTERCEPT_DIR/postinst_intercept delay_to_first_boot %s mlprefix=%s
     exit 0
 fi
-""" % (pkgval, mlprefix)
+""" % (pkg, mlprefix)
 
         postinst = d.getVar('pkg_postinst_%s' % pkg)
         postinst_ontarget = d.getVar('pkg_postinst_ontarget_%s' % pkg)
@@ -143,28 +139,50 @@ fi
                     total_size += fstat.st_size
             except FileNotFoundError as e:
                 bb.warn(str(e))
-        d.setVar('FILES_INFO', json.dumps(files, sort_keys=True))
-
-        process_postinst_on_target(pkg, d.getVar("MLPREFIX"))
-        add_set_e_to_scriptlets(pkg)
+        d.setVar('FILES_INFO', json.dumps(files))
 
         subdata_file = pkgdatadir + "/runtime/%s" % pkg
-        with open(subdata_file, 'w') as sf:
-            for var in (d.getVar('PKGDATA_VARS') or "").split():
-                val = write_if_exists(sf, pkg, var)
+        sf = open(subdata_file, 'w')
+        write_if_exists(sf, pkg, 'PN')
+        write_if_exists(sf, pkg, 'PE')
+        write_if_exists(sf, pkg, 'PV')
+        write_if_exists(sf, pkg, 'PR')
+        write_if_exists(sf, pkg, 'PKGE')
+        write_if_exists(sf, pkg, 'PKGV')
+        write_if_exists(sf, pkg, 'PKGR')
+        write_if_exists(sf, pkg, 'LICENSE')
+        write_if_exists(sf, pkg, 'DESCRIPTION')
+        write_if_exists(sf, pkg, 'SUMMARY')
+        write_if_exists(sf, pkg, 'RDEPENDS')
+        rprov = write_if_exists(sf, pkg, 'RPROVIDES')
+        write_if_exists(sf, pkg, 'RRECOMMENDS')
+        write_if_exists(sf, pkg, 'RSUGGESTS')
+        write_if_exists(sf, pkg, 'RREPLACES')
+        write_if_exists(sf, pkg, 'RCONFLICTS')
+        write_if_exists(sf, pkg, 'SECTION')
+        write_if_exists(sf, pkg, 'PKG')
+        write_if_exists(sf, pkg, 'ALLOW_EMPTY')
+        write_if_exists(sf, pkg, 'FILES')
+        write_if_exists(sf, pkg, 'CONFFILES')
+        process_postinst_on_target(pkg, d.getVar("MLPREFIX"))
+        add_set_e_to_scriptlets(pkg)
+        write_if_exists(sf, pkg, 'pkg_postinst')
+        write_if_exists(sf, pkg, 'pkg_postrm')
+        write_if_exists(sf, pkg, 'pkg_preinst')
+        write_if_exists(sf, pkg, 'pkg_prerm')
+        write_if_exists(sf, pkg, 'FILERPROVIDESFLIST')
+        write_if_exists(sf, pkg, 'FILES_INFO')
+        for dfile in (d.getVar('FILERPROVIDESFLIST_' + pkg) or "").split():
+            write_if_exists(sf, pkg, 'FILERPROVIDES_' + dfile)
 
-            write_if_exists(sf, pkg, 'FILERPROVIDESFLIST')
-            for dfile in (d.getVar('FILERPROVIDESFLIST_' + pkg) or "").split():
-                write_if_exists(sf, pkg, 'FILERPROVIDES_' + dfile)
+        write_if_exists(sf, pkg, 'FILERDEPENDSFLIST')
+        for dfile in (d.getVar('FILERDEPENDSFLIST_' + pkg) or "").split():
+            write_if_exists(sf, pkg, 'FILERDEPENDS_' + dfile)
 
-            write_if_exists(sf, pkg, 'FILERDEPENDSFLIST')
-            for dfile in (d.getVar('FILERDEPENDSFLIST_' + pkg) or "").split():
-                write_if_exists(sf, pkg, 'FILERDEPENDS_' + dfile)
-
-            sf.write('%s_%s: %d\n' % ('PKGSIZE', pkg, total_size))
+        sf.write('%s_%s: %d\n' % ('PKGSIZE', pkg, total_size))
+        sf.close()
 
         # Symlinks needed for rprovides lookup
-        rprov = d.getVar('RPROVIDES_%s' % pkg) or d.getVar('RPROVIDES')
         if rprov:
             for p in rprov.strip().split():
                 subdata_sym = pkgdatadir + "/runtime-rprovides/%s/%s" % (p, pkg)
