@@ -123,7 +123,6 @@ PKGS="\
         python3-msgcheck-native \
         python3-mypy-extensions-native \
         python3-mypy-native \
-        python3-native \
         python3-networkx-native \
         python3-ninja-native \
         python3-nose-native \
@@ -167,7 +166,6 @@ PKGS="\
         python3-scandir-native \
         python3-scikit-build-native \
         python3-setuptools-lint-native \
-        python3-setuptools-native \
         python3-setuptools-scm-git-archive-native \
         python3-setuptools-scm-native \
         python3-six-native \
