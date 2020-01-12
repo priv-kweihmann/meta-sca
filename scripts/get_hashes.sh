@@ -5,6 +5,9 @@ for number in $@; do
     res="${res}\n${x}"
 done
 _BRANCHES="master zeus warrior thud"
+if [ ! -z "${BRANCHES}" ]; then
+    _BRANCHES=${BRANCHES}
+fi
 for b in ${_BRANCHES}; do
     git checkout ${b} 1> /dev/null
     git pull 1> /dev/null
