@@ -15,7 +15,7 @@ jobs:
       PARAMFILE: standard_01
       MAXRUNTIME: 21000s
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
 
     steps:
       - uses: actions/checkout@v1
