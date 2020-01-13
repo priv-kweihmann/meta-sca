@@ -5,7 +5,7 @@ bitbake \
         bad-nginx \
         bad-perl \
         bad-python-reqs \
-        bad-pythoon-types \
+        bad-python-types \
         bad-systemd \
         bad-xml \
         bad-yaml \
