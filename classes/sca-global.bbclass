@@ -87,7 +87,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           ropgadget \
                           safety \
                           setuptoolslint \
-                          shellcheck \
                           sparse \
                           splint \
                           systemdlint \

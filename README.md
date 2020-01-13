@@ -24,7 +24,7 @@ See the badge at the top of the README for details.
 ## Table of content <!-- omit in toc -->
 
 - [Notice](#notice)
-- [Differences to releases starting with thud](#differences-to-releases-starting-with-thud)
+- [Differences to releases starting with `thud`](#differences-to-releases-starting-with-thud)
 - [Purpose](#purpose)
 - [Getting started](#getting-started)
 - [Installation](#installation)
@@ -162,7 +162,6 @@ The layer can check on a recipe-level or on an image-level.
 | ropgadget       | Determine ROP exploitability in binaries              | https://github.com/JonathanSalwan/ROPgadget                           |                             |               |              | x             |   |     |        |       |            |     |    |        |     |          |         | x        |          |               | x              |                  |             |
 | safety          | Check for known vulnerabilities in python-packages    | https://github.com/pyupio/safety                                      |                             |               |              | x             |   |     | x      |       |            |     |    |        |     |          |         |          | x        |               | x              |                  |             |
 | setuptoolslint  | Lint python-setup.py                                  | https://github.com/johnnoone/setuptools-pylint                        |                             |               |              | x             |   |     | x      |       |            |     |    |        |     |          |         |          |          |               |                | x                |             |
-| shellcheck      | Shell script linter                                   | https://github.com/koalaman/shellcheck                                |                             |               | x            | x             |   |     |        | x     |            |     |    |        |     |          |         |          |          |               |                | x                | x           |
 | sparse          | C linter                                              | https://sparse.wiki.kernel.org/index.php/Main_Page                    |                             |               |              | x             | x |     |        |       |            |     |    |        |     |          |         |          |          |               |                | x                |             |
 | splint          | C linter                                              | https://github.com/splintchecker/splint                               |                             |               |              | x             | x |     |        |       |            |     |    |        |     |          |         |          |          |               | x              | x                | x           |
 | systemdlint     | Systemd unit linter                                   | https://github.com/priv-kweihmann/systemdlint                         |                             |               | x            |               |   |     |        |       |            |     |    |        |     |          |         |          |          | x             | x              | x                | x           |
@@ -227,7 +226,6 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
     - [ropgadget](docs/conf/module/ropgadget.md)
     - [safety](docs/conf/module/safety.md)
     - [setuptoolslint](docs/conf/module/setuptoolslint.md)
-    - [shellcheck](docs/conf/module/shellcheck.md)
     - [sparse](docs/conf/module/sparse.md)
     - [splint](docs/conf/module/splint.md)
     - [systemdlint](docs/conf/module/systemdlint.md)

@@ -26,7 +26,6 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             oelint \
                             pyfindinjection \
                             pylint \
-                            shellcheck \
                             systemdlint \
                             tiger \
                             tlv \

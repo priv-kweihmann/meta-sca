@@ -42,7 +42,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             ropgadget \
                             safety \
                             setuptoolslint \
-                            shellcheck \
                             sparse \
                             splint \
                             tlv \
