@@ -11,7 +11,7 @@ jobs:
     env:
       DISTRO: scatest
       MACHINE: qemux86
-      SCABRANCH: master
+      SCABRANCH: krogoth
       PARAMFILE: standard_01
       MAXRUNTIME: 21000s
 
