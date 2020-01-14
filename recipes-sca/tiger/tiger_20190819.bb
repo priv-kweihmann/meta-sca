@@ -3,7 +3,7 @@ HOMEPAGE = "http://www.nongnu.org/tiger/"
 LICENSE = "GPL-2.0"
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
 
-SRC_URI = "git://git.savannah.gnu.org/tiger.git;protocol=https \
+SRC_URI = "git://git.savannah.gnu.org/git/tiger.git;protocol=https \
            file://tiger.sca.description"
 
 SRCREV = "1ae0a295bcd6fe4e772d74b206eb10a6fb4d9a0e"
