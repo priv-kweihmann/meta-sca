@@ -40,7 +40,7 @@ PACKAGECONFIG[curses] = "--enable-curses,--disable-curses,ncurses"
 
 PACKAGES += "libaspell libpspell aspell-utils"
 
-RDEPENDS_${PN}-utils += "perl"
+RDEPENDS_${PN}-utils += "perl-native"
 
 FILES_libaspell = "${libdir}/libaspell.so.* ${libdir}/aspell*"
 FILES_aspell-utils = "${bindir}/word-list-compress ${bindir}/aspell-import ${bindir}/run-with-aspell ${bindir}/pre*"
