@@ -22,10 +22,14 @@ SCA_FILE_FILTER_EXTRA ??= ""
 
 def sca_filter_files(d, path, addfilter=[]):
     import os
-    import glob
+    import subprocess
     res = []
     _filter = [x for x in d.getVar("SCA_FILE_FILTER", True).split(" ") if x] + addfilter
     for item in _filter:
-        res += glob.glob(os.path.join(d.getVar("SCA_SOURCES_DIR", True), item), recursive=True)
+        try:
+            cmd_out = subprocess.check_output(["find", d.getVar("SCA_SOURCES_DIR", True), "-type", "f", "-wholename", item])
+        except subprocess.CalledProcessError as e:
+            cmd_out = e.output or ""
+        res += [x.strip() for x in cmd_out.split("\n") if x]
     res += sca_filter_by_license(d)
     return sorted(list(set(res)))

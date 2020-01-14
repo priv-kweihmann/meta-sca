@@ -28,7 +28,7 @@ def sca_conv_to_export(d):
 
 def sca_conv_export_get_deployname(d, tool):
     _exportformat = d.getVar("SCA_EXPORT_FORMAT", True)
-    _exportsuffix = d.getVar("SCA_EXPORT_FORMAT_SUFFIX_{}".format(d.getVar("SCA_EXPORT_FORMAT", True), True))
+    _exportsuffix = d.getVar("SCA_EXPORT_FORMAT_SUFFIX_{}".format(d.getVar("SCA_EXPORT_FORMAT", True)), True)
     return "sca_{}_{}.{}".format(_exportformat, tool, _exportsuffix)
 
 def sca_conv_deploy(d, tool, rawsuffix):
@@ -38,14 +38,20 @@ def sca_conv_deploy(d, tool, rawsuffix):
 
     _dmsuffix = "dm"
     _exportformat = d.getVar("SCA_EXPORT_FORMAT", True)
-    _exportsuffix = d.getVar("SCA_EXPORT_FORMAT_SUFFIX_{}".format(d.getVar("SCA_EXPORT_FORMAT"), True), True)
+    _exportsuffix = d.getVar("SCA_EXPORT_FORMAT_SUFFIX_{}".format(d.getVar("SCA_EXPORT_FORMAT", True)), True)
 
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR", True), tool, "raw"), 
-                exist_ok=True)
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR", True), tool, "datamodel"), 
-                exist_ok=True)
-    os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR", True), tool, d.getVar("SCA_EXPORT_FORMAT", True)), 
-                exist_ok=True)
+    try:
+        os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR", True), tool, "raw"))
+    except:
+        pass
+    try:
+        os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR", True), tool, "datamodel"))
+    except:
+        pass
+    try:
+        os.makedirs(os.path.join(d.getVar("SCA_EXPORT_DIR", True), tool, d.getVar("SCA_EXPORT_FORMAT", True)))
+    except:
+        pass
 
     if d.getVar("SCA_CLEAN_BEFORE_EXPORT", True) == "1":
         import glob

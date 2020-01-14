@@ -189,10 +189,15 @@ def clean_split(d, _var):
     return [x for x in (d.getVar(_var, True) or "").split(" ") if x]
 
 def get_local_includes(path):
-    import glob
+    import subprocess
     res = set()
+    try:
+        cmd_out = subprocess.check_output(["find", path, "-type", "f", "-name", "*.h"])
+    except subprocess.CalledProcessError as e:
+        cmd_out = e.output or ""
+    
     for g in ["*.h", "**/*.h"]:
-        for i in glob.glob(os.path.join(path, g), recursive=True):
+        for i in [x.strip() for x in cmd_out.split("\n") if x]:
             chunks = i.split("/")
             limit = len(chunks)
             if "include" in chunks:
