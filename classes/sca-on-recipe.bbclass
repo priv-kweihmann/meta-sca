@@ -12,7 +12,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             bandit \
                             bashate \
                             bitbake \
-                            cbmc \
                             checkbashism \
                             cppcheck \
                             cpplint \
