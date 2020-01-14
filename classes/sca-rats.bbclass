@@ -101,7 +101,7 @@ python do_sca_rats() {
         except UnicodeDecodeError:
             cmd_output = ""
         except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+            cmd_output = e.output or ""
         xml_output = xml_combine(d, xml_output, cmd_output)
 
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR", True), ".*perl", ".perl .pl", _excludes)
@@ -114,7 +114,7 @@ python do_sca_rats() {
         except UnicodeDecodeError:
             cmd_output = ""
         except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+            cmd_output = e.output or ""
         xml_output = xml_combine(d, xml_output, cmd_output)
 
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR", True), d.getVar("SCA_PYTHON_SHEBANG", True), ".py", _excludes)
@@ -127,7 +127,7 @@ python do_sca_rats() {
         except UnicodeDecodeError:
             cmd_output = ""
         except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+            cmd_output = e.output or ""
         xml_output = xml_combine(d, xml_output, cmd_output)
 
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR", True), ".*php", ".php", _excludes)
@@ -140,7 +140,7 @@ python do_sca_rats() {
         except UnicodeDecodeError:
             cmd_output = ""
         except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+            cmd_output = e.output or ""
         xml_output = xml_combine(d, xml_output, cmd_output)
 
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR", True), ".*ruby", ".ruby", _excludes)
@@ -153,7 +153,7 @@ python do_sca_rats() {
         except UnicodeDecodeError:
             cmd_output = ""
         except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+            cmd_output = e.output or ""
         xml_output = xml_combine(d, xml_output, cmd_output)
     
     with open(tmp_result, "w") as o:

@@ -84,7 +84,7 @@ python do_sca_pyfindinjection_core() {
         try:
             cmd_output = subprocess.check_output(_args + _files, universal_newlines=True)
         except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+            cmd_output = e.output or ""
     with open(result_raw_file, "w") as o:
         o.write(cmd_output)
     

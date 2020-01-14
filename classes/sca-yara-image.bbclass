@@ -1184,7 +1184,7 @@ python do_sca_yara() {
         try:
             cmd_output += subprocess.check_output(_args + [_r, d.getVar("IMAGE_ROOTFS", True)], universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
-            cmd_output += e.stdout or ""
+            cmd_output += e.output or ""
 
     with open(result_raw_file, "w") as o:
         o.write(cmd_output)

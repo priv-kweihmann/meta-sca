@@ -71,7 +71,7 @@ python do_sca_msgcheck() {
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_msgcheck.txt")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
-    _args = ["msgcheck"]
+    _args = [os.environ.get("PYTHON", "python3"), "-m", "msgcheck"]
 
     _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR", True), ".po", \
         sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
@@ -80,12 +80,12 @@ python do_sca_msgcheck() {
             _targs = _args + [f]
             cmd_output += subprocess.check_output(_targs, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
-            cmd_output += e.stdout or ""
+            cmd_output += e.output or ""
         try:
             _targs = _args + ["-c", f]
             cmd_output += subprocess.check_output(_targs, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
-            cmd_output += e.stdout or ""
+            cmd_output += e.output or ""
     
     with open(tmp_result, "w") as o:
         o.write(cmd_output)

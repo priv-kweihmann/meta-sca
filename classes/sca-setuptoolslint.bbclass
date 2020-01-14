@@ -81,7 +81,7 @@ python do_sca_setuptoolslint() {
                 # linting, as pylint is already run by a different module
                 tmp_output = subprocess.check_output(_args + [f, "lint", "--lint-packages=2107066c996809c8e5cec0a3ce1b10cfe4ab1fbf"], universal_newlines=True, stderr=subprocess.STDOUT)
             except subprocess.CalledProcessError as e:
-                tmp_output = e.stdout or ""
+                tmp_output = e.output or ""
             # Prefix all lines with full file path
             cmd_output += "\n".join(["{}:{}".format(f, x) for x in tmp_output.splitlines()])
 

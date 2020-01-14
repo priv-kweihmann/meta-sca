@@ -12,6 +12,7 @@ inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
 inherit sca-suppress
+inherit python3native
 
 def do_sca_conv_bashate(d):
     import os
@@ -76,7 +77,7 @@ python do_sca_bashate_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "bashate-{}-suppress".format(d.getVar("SCA_MODE", True))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "bashate-{}-fatal".format(d.getVar("SCA_MODE", True))))
 
-    _args = ["bashate"]
+    _args = [os.environ.get("PYTHON", "python3"), "-m", "bashate"]
 
     ## Run
     cmd_output = ""
@@ -89,7 +90,7 @@ python do_sca_bashate_core() {
         try:
             cmd_output = subprocess.check_output(_args + _files, universal_newlines=True)
         except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+            cmd_output = e.output or ""
     with open(tmp_result, "w") as o:
         o.write(cmd_output)
 

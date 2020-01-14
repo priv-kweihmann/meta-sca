@@ -95,7 +95,7 @@ python do_sca_zrd() {
         try:
             cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+            cmd_output = e.output or ""
     
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/zrd.dm".format(d.getVar("T", True)))

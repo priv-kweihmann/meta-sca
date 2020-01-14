@@ -93,7 +93,7 @@ python do_sca_bandit_core() {
         try:
             cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+            cmd_output = e.output or ""
 
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/bandit.dm".format(d.getVar("T", True)))

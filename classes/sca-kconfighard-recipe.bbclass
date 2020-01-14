@@ -104,7 +104,7 @@ python do_sca_kconfighard() {
         try:
             cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+            cmd_output = e.output or ""
 
         with open(tmp_result, "w") as o:
             o.write(cmd_output)

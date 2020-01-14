@@ -115,8 +115,13 @@ def do_sca_conv_bitbake(d):
     return sca_save_model_to_string(d)
 
 python do_sca_bitbake () {
+    import os
     content = ""
-    with open(d.getVar("CONLOG")) as f:
+    # CONLOG is pointing to nowhere
+    # so we need to find the latest console log ourselves
+    _basepath = os.path.dirname(d.getVar("CONLOG", True))
+    x = sorted([os.path.join(_basepath, x) for x in os.listdir(_basepath)])[-1]
+    with open(x) as f:
         content = f.read()
     result_raw_file = os.path.join(d.getVar("T", True), "sca_raw_bitbake.txt")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)

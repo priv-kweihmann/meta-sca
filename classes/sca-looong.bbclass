@@ -77,7 +77,7 @@ python do_sca_looong() {
         try:
             cmd_output += subprocess.check_output(_args, universal_newlines=True)
         except subprocess.CalledProcessError as e:
-            cmd_output += e.stdout or ""
+            cmd_output += e.output or ""
     with open(tmp_result, "w") as o:
         escaped = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
         o.write(escaped.sub('', cmd_output))

@@ -81,7 +81,7 @@ python do_sca_perl() {
         try:
             cmd_output += subprocess.check_output(_args + [f], universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
-            cmd_output += e.stdout or ""
+            cmd_output += e.output or ""
     with open(tmp_result, "w") as o:
         o.write(cmd_output)
     

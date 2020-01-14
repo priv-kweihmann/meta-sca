@@ -73,7 +73,7 @@ python do_sca_xmllint_core() {
         try:
             cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+            cmd_output = e.output or ""
 
     result_raw_file = os.path.join(d.getVar("T", True), "sca_raw_xmllint.txt")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)

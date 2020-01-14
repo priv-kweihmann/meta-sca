@@ -130,7 +130,7 @@ python do_sca_ropgadget() {
         try:
             raw_output = subprocess.check_output(_args + [_f], universal_newlines=True)
         except subprocess.CalledProcessError as e:
-            raw_output = e.stdout or ""
+            raw_output = e.output or ""
         cmd_output += convert_veryraw(d, _f, raw_output)
     with open(tmp_result, "w") as o:
         o.write(cmd_output)

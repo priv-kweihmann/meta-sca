@@ -118,17 +118,19 @@ python do_sca_tscancode() {
     _cfgdir = os.path.join(d.getVar("T", True), "tscancode", "cfg")
     if os.path.exists(_cfgdir):
         shutil.rmtree(os.path.join(d.getVar("T", True), "tscancode"), ignore_errors=True)
-    os.makedirs(os.path.dirname(_cfgdir), exist_ok=True)
-    os.symlink(os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "tscancode"), _cfgdir, target_is_directory=True)
+    try:
+        os.makedirs(os.path.dirname(_cfgdir))
+    except:
+        pass
+    os.symlink(os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "tscancode"), _cfgdir)
 
     _curdir = os.getcwd()
     os.chdir(os.path.join(d.getVar("T", True), "tscancode"))
 
     try:
-        x = subprocess.run(_args, universal_newlines=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
-        cmd_output = x.stderr
+        cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
     except subprocess.CalledProcessError as e:
-        cmd_output = e.stderr or ""
+        cmd_output = e.output or ""
     os.chdir(_curdir)
 
     with open(tmp_result, "w") as o:

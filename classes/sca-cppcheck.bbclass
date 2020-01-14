@@ -113,7 +113,7 @@ python do_sca_cppcheck() {
     _args += ["--output-file={}".format(result_raw_file)]
     _files = get_files_by_extention(d, 
                                     d.getVar("SCA_SOURCES_DIR", True), 
-                                    clean_split(d, "SCA_CPPCHECK_FILE_FILTER", True), 
+                                    clean_split(d, "SCA_CPPCHECK_FILE_FILTER"), 
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     _file_list = os.path.join(d.getVar("T", True), ".cppcheck_filelist")
     with open(_file_list, "w") as o:
@@ -141,7 +141,7 @@ python do_sca_cppcheck() {
     try:
         cmd_output = subprocess.check_output(_args, universal_newlines=True)
     except subprocess.CalledProcessError as e:
-        cmd_output = e.stdout or ""
+        cmd_output = e.output or ""
 
     if os.path.exists("std.cfg"):
         os.remove("std.cfg")

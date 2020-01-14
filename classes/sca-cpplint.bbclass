@@ -88,14 +88,14 @@ python do_sca_cpplint() {
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     _files = get_files_by_extention(d, 
                                     d.getVar("SCA_SOURCES_DIR", True), 
-                                    clean_split(d, "SCA_CPPLINT_FILE_FILTER", True), 
+                                    clean_split(d, "SCA_CPPLINT_FILE_FILTER"), 
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR", True), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     if any(_files):
         _args += _files
         try:
             cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+            cmd_output = e.output or ""
     with open(tmp_result, "w") as o:
         o.write(cmd_output)
     os.chdir(cur_dir)

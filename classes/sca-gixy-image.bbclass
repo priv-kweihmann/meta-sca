@@ -115,7 +115,7 @@ python do_sca_gixy() {
         try:
             cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+            cmd_output = e.output or ""
     
     if not os.path.exists(tmp_result):
         import json
