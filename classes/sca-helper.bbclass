@@ -196,6 +196,9 @@ def get_local_includes(path):
     except subprocess.CalledProcessError as e:
         cmd_out = e.output or ""
     
+    if not isinstance(cmd_out, str):
+        cmd_out = cmd_out.decode('utf-8')
+    
     for g in ["*.h", "**/*.h"]:
         for i in [x.strip() for x in cmd_out.split("\n") if x]:
             chunks = i.split("/")
