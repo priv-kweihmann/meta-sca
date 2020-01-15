@@ -34,7 +34,6 @@ setuptoolslint,Lint python-setup.py,https://github.com/johnnoone/setuptools-pyli
 sparse,C linter,https://sparse.wiki.kernel.org/index.php/Main_Page,,,,x,x,,,,,,,,,,,,,,,x,
 splint,C linter,https://github.com/splintchecker/splint,,,,x,x,,,,,,,,,,,,,,x,x,x
 systemdlint,Systemd unit linter,https://github.com/priv-kweihmann/systemdlint,,,x,,,,,,,,,,,,,,,x,x,x,x
-tiger,security audit and intrusion detection tool,http://www.nongnu.org/tiger/,,,x,,,,,,,,,x,,,,,,,x,,
 tlv,Find duplicate code,https://github.com/priv-kweihmann/tlv,manual enable,,x,x,x,x,x,,x,x,x,,,,,,,,x,,x
 tscancode,C and lua linter,https://github.com/Tencent/TscanCode,,,,x,x,,,,,,,,,,,,,,,x,
 upc,check for simple privilege escalation vectors,https://github.com/pentestmonkey/unix-privesc-check,,,x,,,,,,,,,x,,,,,,,x,,
