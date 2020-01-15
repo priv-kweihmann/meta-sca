@@ -1,6 +1,5 @@
 alexkohler
 bashate
-checkbashisms
 cppcheck
 cpplint
 flawfinder
@@ -12,10 +11,6 @@ govet
 kconfighard
 pscan
 rats
-revive
-shellcheck
-slick
 sparse
 splint
-stank
 tscancode
