@@ -1,6 +1,6 @@
 # meta-sca <!-- omit in toc -->
 
-![https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CPython%2CShell%2Cperl-informational](https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CPython%2CShell%2Cperl-informational)
+![https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CPython%2CShell-informational](https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CPython%2CShell-informational)
 
 [![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=krogoth)](https://travis-ci.org/priv-kweihmann/meta-sca)
 [![Nightly classic](https://github.com/priv-kweihmann/meta-sca/workflows/[krogoth]-classic/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
@@ -130,7 +130,6 @@ The layer can check on a recipe-level or on an image-level.
 | bandit          | Scan python code for insecurities                     | https://github.com/PyCQA/bandit                                       |                             |               | x            | x             |   |     | x      |       |            |     |    |        |     |          |         |          |          |               | x              |                  |             |
 | bashate         | Shell script linter                                   | http://docs.openstack.org/developer/bashate/                          |                             |               | x            | x             |   |     |        | x     |            |     |    |        |     |          |         |          |          |               |                | x                | x           |
 | bitbake         | Bitbake issue handling                                |                                                                       |                             |               | x            | x             |   |     |        |       |            |     |    |        |     |          |         |          | x        |               |                | x                | x           |
-| checkbashisms   | Shell script linter                                   | https://manpages.debian.org/jessie/devscripts/checkbashisms.1.en.html |                             |               | x            | x             |   |     |        | x     |            |     |    |        |     |          |         |          |          |               |                | x                | x           |
 | configcheck     | Check application configurations                      |                                                                       |                             |               | x            |               |   |     |        |       |            |     |    |        |     |          |         |          |          | x             |                | x                |             |
 | cppcheck        | C/C++ linter                                          | https://github.com/danmar/cppcheck                                    |                             |               |              | x             | x | x   |        |       |            |     |    |        |     |          |         |          |          |               | x              | x                | x           |
 | cpplint         | C/C++ linter                                          | https://github.com/cpplint/cpplint                                    |                             |               |              | x             | x | x   |        |       |            |     |    |        |     |          |         |          |          |               | x              | x                | x           |
@@ -147,13 +146,10 @@ The layer can check on a recipe-level or on an image-level.
 | kconfighard     | Kernel config hardening checker                       | https://github.com/a13xp0p0v/kconfig-hardened-check                   |                             |               |              | x             |   |     |        |       |            |     |    |        |     |          |         |          |          | x             | x              |                  |             |
 | looong          | Find functions with too long arglists                 | https://github.com/anapaulagomes/looong                               |                             |               |              | x             |   |     | x      |       |            |     |    |        |     |          |         |          |          |               |                |                  | x           |
 | lynis           | Auditing tool for images                              | https://github.com/CISOfy/lynis                                       |                             |               | x            |               |   |     |        |       |            |     |    | x      |     |          |         |          |          |               | x              |                  |             |
-| msgcheck        | I18n linter                                           | https://github.com/codingjoe/msgcheck                                 |                             |               |              | x             |   |     |        |       |            |     |    |        |     |          |         |          |          | x             |                |                  | x           |
 | multimetric     | Coding metrics                                        | https://github.com/priv-kweihmann/multimetric                         |                             |               | x            | x             | x | x   | x      |       | x          | x   | x  |        | x   |          | x       |          |          |               |                |                  | x           |
 | mypy            | Python linter                                         | https://github.com/python/mypy                                        |                             |               | x            | x             |   |     | x      |       |            |     |    |        |     |          |         |          |          |               |                | x                |             |
 | nixauditor      | Auditing tool for images                              | https://github.com/XalfiE/Nix-Auditor                                 |                             |               | x            |               |   |     |        |       |            |     |    | x      |     |          |         |          |          |               | x              |                  |             |
 | oelint          | Bitbake recipe linter                                 | https://github.com/priv-kweihmann/oelint-adv                          |                             |               | x            | x             |   |     |        |       |            |     |    |        |     |          |         |          |          | x             |                |                  | x           |
-| perl            | Perl warnings check                                   |                                                                       |                             |               |              | x             |   |     |        |       |            |     |    |        |     |          |         |          |          | x             |                | x                |             |
-| perlcritic      | Perl linter                                           | https://metacpan.org/pod/perlcritic                                   |                             |               |              | x             |   |     |        |       |            |     |    |        |     |          |         |          |          | x             |                | x                |             |
 | pscan           | Find insecure printfs                                 | http://deployingradius.com/pscan/                                     |                             |               |              | x             | x |     |        |       |            |     |    |        |     |          |         |          |          |               |                | x                |             |
 | pyfindinjection | Find SQL injections in python code                    | https://github.com/uber/py-find-injection                             |                             |               | x            | x             |   |     | x      |       |            |     |    |        |     |          |         |          |          |               | x              |                  |             |
 | pylint          | Python linter                                         | https://github.com/PyCQA/pylint                                       |                             |               | x            | x             |   |     | x      |       |            |     |    |        |     |          |         |          |          |               |                | x                | x           |
@@ -173,7 +169,6 @@ The layer can check on a recipe-level or on an image-level.
 | vulture         | Find dead python code                                 | https://github.com/jendrikseipp/vulture                               |                             |               | x            | x             |   |     | x      |       |            |     |    |        |     |          |         |          |          |               |                | x                |             |
 | xmllint         | XML linter                                            | http://xmlsoft.org/xmllint.html                                       |                             |               | x            | x             |   |     |        |       |            |     |    |        |     |          |         |          |          | x             |                | x                |             |
 | yamllint        | YAML linter                                           | https://github.com/adrienverge/yamllint                               |                             |               | x            | x             |   |     |        |       |            |     |    |        |     |          |         |          |          | x             |                |                  | x           |
-| yara            | Find suspicious pattern in binaries                   | https://github.com/VirusTotal/yara                                    |                             |               | x            |               |   |     |        |       |            |     |    | x      |     |          |         |          |          |               | x              |                  |             |
 | zrd             | I18N/G18N linter                                      | https://github.com/0Cubed/ZeroResourceDetector                        |                             |               |              | x             |   |     |        |       |            |     |    |        |     |          |         |          |          | x             |                |                  | x           |
 
 each tool does have it's own benefits and flaws so don't be mad if you have 10k+ findings on the initial run.
@@ -194,7 +189,6 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
     - [bandit](docs/conf/module/bandit.md)
     - [bashate](docs/conf/module/bashate.md)
     - [bitbake](docs/conf/module/bitbake.md)
-    - [checkbashism](docs/conf/module/checkbashism.md)
     - [configcheck](docs/conf/module/configcheck.md)
     - [cppcheck](docs/conf/module/cppcheck.md)
     - [cpplint](docs/conf/module/cpplint.md)
@@ -210,13 +204,10 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
     - [kconfighard](docs/conf/module/kconfighard.md)
     - [looong](docs/conf/module/looong.md)
     - [lynis](docs/conf/module/lynis.md)
-    - [msgcheck](docs/conf/module/msgcheck.md)
     - [multimetric](docs/conf/module/multimetric.md)
     - [mypy](docs/conf/module/mypy.md)
     - [nixauditor](docs/conf/module/nixauditor.md)
     - [oelint](docs/conf/module/oelint.md)
-    - [perl](docs/conf/module/perl.md)
-    - [perlcritic](docs/conf/module/perlcritic.md)
     - [pscan](docs/conf/module/pscan.md)
     - [pyfindinjection](docs/conf/module/pyfindinjection.md)
     - [pylint](docs/conf/module/pylint.md)
@@ -236,7 +227,6 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
     - [vulture](docs/conf/module/vulture.md)
     - [xmllint](docs/conf/module/xmllint.md)
     - [yamllint](docs/conf/module/yamllint.md)
-    - [yara](docs/conf/module/yara.md)
     - [zrd](docs/conf/module/zrd.md)
   - Extra modes
     - [BestOf](docs/conf/extra/bestof.md)

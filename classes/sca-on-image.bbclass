@@ -13,7 +13,6 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             bandit \
                             bashate \
                             bitbake \
-                            checkbashism \
                             configcheck \
                             detectsecrets \
                             flake8 \
@@ -27,13 +26,11 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             pyfindinjection \
                             pylint \
                             systemdlint \
-                            tiger \
                             tlv \
                             upc \
                             vulture \
                             xmllint \
                             yamllint \
-                            yara \
                             "
 SCA_SOURCES_DIR ?= "${IMAGE_ROOTFS}"
 

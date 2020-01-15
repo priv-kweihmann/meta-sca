@@ -1,2 +1,0 @@
-finger.pl and mailto.pl are taken from https://www.perlmonks.org/?node_id=294758.
-No explicit license information found

@@ -12,7 +12,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             bandit \
                             bashate \
                             bitbake \
-                            checkbashism \
                             cppcheck \
                             cpplint \
                             darglint \
@@ -26,12 +25,9 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             kconfighard \
                             looong \
                             luacheck \
-                            msgcheck \
                             multimetric \
                             mypy \
                             oelint \
-                            perl \
-                            perlcritic \
                             pscan \
                             pyfindinjection \
                             pylint \

@@ -7,24 +7,12 @@ import os
 import sys
 
 _data = {
-    "alexkohler": [
-        "bad-go"
-    ],
     "bashate": [
         "busybox",
         "openssh"
     ],
     "bitbake": [
         "bad-bitbake"
-    ],
-    "cbmc": [
-        "openssh",
-        "simple-c"
-    ],
-    "checkbashism": [
-        "busybox",
-        "core-image-minimal-scatest",
-        "openssh"
     ],
     "cppcheck": [
         "busybox",
@@ -35,9 +23,6 @@ _data = {
         "busybox",
         "openssh",
         "simple-c"
-    ],
-    "eslint": [
-        "bad-javascript"
     ],
     "flake8": [
         "bad-python-types",
@@ -62,12 +47,6 @@ _data = {
     "golint": [
         "bad-go"
     ],
-    "htmlhint": [
-        "bad-html"
-    ],
-    "jshint": [
-        "bad-javascript"
-    ],
     "jsonlint": [
         "bad-json"
     ],
@@ -90,22 +69,6 @@ _data = {
     "oelint": [
         "bad-bitbake"
     ],
-    "perl": [
-        "bad-perl"
-    ],
-    "perlcritic": [
-        "bad-perl"
-    ],
-    "phpcodersniffer": [
-        "bad-php",
-        "bad-javascript"
-    ],
-    "phpsecaudit": [
-        "bad-php"
-    ],
-    "proselint": [
-        "busybox",
-    ],
     "pscan": [
         "busybox"
     ],
@@ -116,12 +79,6 @@ _data = {
         "busybox",
         "openssh",
         "simple-c"
-    ],
-    "reek": [
-        "rubycritic-test"
-    ],
-    "retire": [
-        "cspell"
     ],
     "revive": [
         "bad-go"
@@ -135,23 +92,9 @@ _data = {
     "setuptoolslint": [
         "bad-python-reqs"
     ],
-    "shellcheck": [
-        "busybox",
-        "openssh"
-    ],
-    "slick": [
-        "busybox"
-    ],
     "sparse": [
         "busybox",
         "simple-c"
-    ],
-    "standard": [
-        "bad-javascript"
-    ],
-    "stank": [
-        "busybox",
-        "openssh"
     ],
     "systemdlint": [
         "core-image-minimal-scatest"
@@ -166,17 +109,11 @@ _data = {
     "upc": [
         "core-image-minimal-scatest"
     ],
-    "wotan": [
-        "bad-javascript"
-    ],
     "xmllint": [
         "bad-xml"
     ],
     "yamllint": [
         "bad-yaml"
-    ],
-    "yara": [
-        "core-image-minimal-scatest"
     ]
 }
 ret = 0

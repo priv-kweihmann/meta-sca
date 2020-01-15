@@ -1,6 +1,5 @@
 alexkohler
 bashate
-cbmc
 checkbashisms
 cppcheck
 cpplint
@@ -11,8 +10,6 @@ golint
 gosec
 govet
 kconfighard
-perl
-perlcritic
 pscan
 rats
 revive

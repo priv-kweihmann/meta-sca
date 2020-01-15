@@ -54,7 +54,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           bandit \
                           bashate \
                           bitbake \
-                          checkbashism \
                           configcheck \
                           cppcheck \
                           cpplint \
@@ -70,13 +69,10 @@ SCA_AVAILABLE_MODULES ?= "\
                           kconfighard \
                           looong \
                           lynis \
-                          msgcheck \
                           multimetric \
                           mypy \
                           nixauditor \
                           oelint \
-                          perl \
-                          perlcritic \
                           pscan \
                           pyfindinjection \
                           pylint \
@@ -89,7 +85,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           sparse \
                           splint \
                           systemdlint \
-                          tiger \
                           tscancode \
                           upc \
                           vulture \
