@@ -1,3 +1,46 @@
+## SPDX-License-Identifier: BSD-2-Clause AND MIT
+## Copyright (c) 2019, Konrad Weihmann
+## COpyright (c) 2019, Yocto project
+
+def get_path_in_other_layer(d, _file):
+    import glob
+    ## Find out if we need to inherit the core-class or not
+    tmp = d.getVar("BBLAYERS") or ""
+    for item in tmp.split(" "):
+        if not item.strip():
+            continue
+        chunks = _file.split("/")
+        res = glob.glob(item.strip() + "/**/{}".format(chunks[-1]), recursive=True)
+        if not res:
+            res = glob.glob(item.strip() + "/{}".format(_file))
+        res = [x for x in res or [] if not x.endswith("meta-sca/classes/staging.bbclass")]
+        if any(res):
+            return res[0]
+    return ""
+
+def get_path_for_layer(d, name):
+    tmp = d.getVar("BBLAYERS") or ""
+    for item in tmp.split(" "):
+        if not item.strip():
+            continue
+        _chunks = [x for x in item.split("/") if x]
+        if _chunks[-1] == name:
+            return item
+    return ""
+
+def get_rel_path(d, _file):
+    import os
+    res = ""
+    x = get_path_in_other_layer(d, _file)
+    if x:
+        res = os.path.relpath(x, os.path.dirname(os.path.join(get_path_for_layer(d, "meta-sca"), "classes/staging.bbclass")))
+    else:
+        raise Exception("Can't find poky-staging.bbclass - Can't proceed")
+    return res
+
+require ${@get_rel_path(d, "meta/classes/package.bbclass")}
+
+#
 # This is a copy of the emit_pkgdata function
 # from package.bbclass of poky
 # published under the following terms and conditions
