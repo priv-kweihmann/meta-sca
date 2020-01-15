@@ -9,7 +9,7 @@ SRC_URI = " git://github.com/splintchecker/splint.git;protocol=https \
 ## build issues
 SRCREV = "a28a60fd537cb0271a43a54f1f09870e03c2ba1a"
 
-DEPENDS += "bison-native"
+DEPENDS += "bison-native flex-native"
 
 LICENSE = "GPL-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b931e8e52482b68bdefacc87a3d98c10"
