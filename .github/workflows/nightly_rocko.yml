@@ -1,4 +1,4 @@
-name: "[krogoth]-classic"
+name: "[rocko]-classic"
 
 on: 
   push:
@@ -11,7 +11,7 @@ jobs:
     env:
       DISTRO: scatest
       MACHINE: qemux86
-      SCABRANCH: krogoth
+      SCABRANCH: rocko
       PARAMFILE: standard_01
       MAXRUNTIME: 21000s
 
@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
         with:
-          ref: krogoth
+          ref: rocko
       - name: Update APT
         run: sudo apt-get update
       - name: Install Dependencies

@@ -25,7 +25,7 @@ env:
       # distro to build
       - DISTRO=scatest
       # Target branch of other layer-repos
-      - SCA_BRANCH=krogoth
+      - SCA_BRANCH=rocko
       # bitbake target to build
       - SCA_TARGET_IMG=core-image-minimal-scatest
       # Builddir
