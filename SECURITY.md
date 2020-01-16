@@ -1,5 +1,12 @@
 # Security Policy
 
+## Staging branch
+
+The `staging` branch is always first point where changes will be introduced, like package updates, features a.s.o.
+Package updates from that branch are synced into all [supported branches](#supported-branches) ~2 weeks, to minimize the 
+size of the changeset, as package updates can occur very frequently.
+**Don't** create branches from `staging` as it could be rebased or rewritten at any time.
+
 ## Supported branches
 
 Following branches are actively maintained.
