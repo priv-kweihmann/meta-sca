@@ -18,6 +18,7 @@ For further explanations on the variables see the manpage of cppcheck
 | SCA_CPPCHECK_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".c .cpp .h .hpp"
 | SCA_CPPCHECK_LANG_STD | C standard to check on | space separated list | "c99"
 | SCA_CPPCHECK_CHECK_DEPTH | Depth of analysis - higher value = higher effort | int | "3"
+| SCA_CPPCHECK_RUNMODE | Choose the runmode of the tool. Fast or complete, while fast isn't capable of finding some issues | string: fast or complete | "fast"
 
 ## Supports
 

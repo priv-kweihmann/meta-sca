@@ -16,6 +16,8 @@ SCA_CPPCHECK_LANG_STD ?= "c99"
 SCA_CPPCHECK_FILE_FILTER ?= ".c .cpp .h .hpp"
 ## Depth of analysis - higher value = higher effort
 SCA_CPPCHECK_CHECK_DEPTH ?= "3"
+## Mode of running the tool fast=multithreaded, complete=singlethreaded
+SCA_CPPCHECK_RUNMODE ?= "fast"
 
 inherit sca-conv-to-export
 inherit sca-datamodel
@@ -96,7 +98,11 @@ python do_sca_cppcheck() {
     if os.path.exists(_user_rules):
         _args += ["--rule-file={}".format(_user_rules)]
 
-    _args += ["--enable=all"]
+    if d.getVar("SCA_CPPCHECK_RUNMODE") == "complete":
+        _args += ["--enable=all"]
+    elif d.getVar("SCA_CPPCHECK_RUNMODE") == "fast":
+        _args += ["--enable=warning,style,performance,portability,information"]
+        _args += ["-j", d.getVar("BB_NUMBER_THREADS")]
     _args += ["--inline-suppr"]
     _args += ["-I", d.getVar("STAGING_INCDIR", True)]
     for item in _add_include:
