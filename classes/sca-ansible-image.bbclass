@@ -178,6 +178,7 @@ python do_sca_ansible() {
     os.environ["ANSIBLE_ACTION_WARNINGS"] = "False"
     os.environ["ANSIBLE_COMMAND_WARNINGS"] = "False"
     os.environ["ANSIBLE_LOCALHOST_WARNING"] = "False"
+    os.environ["DEFAULT_LOCAL_TMP"] = d.getVar("T")
     _args = ["ansible-playbook"]
     _args += ["--check"]
     _args += ["--flush-cache"]
