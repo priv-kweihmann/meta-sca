@@ -98,6 +98,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           pysymcheck \
                           pytype \
                           rats \
+                          reconbf \
                           reek \
                           retire \
                           revive \
