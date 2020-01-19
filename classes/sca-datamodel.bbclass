@@ -202,7 +202,7 @@ def sca_get_model_class(d, **kwargs):
             return os.path.join(exportPath or self.__BuildPath or "", self.__File)
 
         def __repr__(self):
-            return "{}:{}:{} [{}]: {} ({})".format(self.__File, self.__Line, self.__Column, self.__Severity, self.__Message, self.__ID)
+            return "{}:{}:{} [{}]: {} ({}) :: {}".format(self.__File, self.__Line, self.__Column, self.__Severity, self.__Message, self.GetFormattedID(), self.__Scope)
 
         def __eq__(self, other):
             if isinstance(other, SCADataModel) or issubclass(other, SCADataModel):

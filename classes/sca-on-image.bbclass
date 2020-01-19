@@ -32,6 +32,7 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             proselint \
                             pyfindinjection \
                             pylint \
+                            reconbf \
                             shellcheck \
                             slick \
                             standard \
