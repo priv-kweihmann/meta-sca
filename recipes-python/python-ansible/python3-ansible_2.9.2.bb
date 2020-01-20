@@ -13,10 +13,9 @@ SRC_URI[sha256sum] = "2f83f8ccc50640aa41a24f6e7757ac06b0ee6189fdcaacab68851771d3
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
-inherit native
 inherit setuptools3
 
-DEPENDS += "${PYTHON_PN}-pyyaml-native ${PYTHON_PN}-jinja2-native"
+DEPENDS += "${PYTHON_PN}-pyyaml ${PYTHON_PN}-jinja2"
 
 do_install_append() {
     set +e
@@ -36,3 +35,4 @@ do_install_append() {
 
 CLEANBROKEN = "1"
 
+BBCLASSEXTEND = "native"
