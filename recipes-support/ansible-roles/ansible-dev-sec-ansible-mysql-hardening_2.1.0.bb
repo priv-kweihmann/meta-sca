@@ -25,6 +25,12 @@ do_install () {
     chown root:root ${D}/${datadir}/ansible-roles/${ROLE_NAME}
 }
 
+SRC_URI += "file://ansible-${ROLE_NAME}.json"
+do_install_append() {
+    install -d ${D}/${datadir}/ansible-roles/
+    install -m 0444 ${WORKDIR}/ansible-${ROLE_NAME}.json ${D}/${datadir}/ansible-roles/ansible-${ROLE_NAME}.json
+}
+
 RDEPENDS_${PN}_class-target += "python3-ansible perl"
 RDEPENDS_${PN}_class-native += "python3-ansible-native perl-native"
 
