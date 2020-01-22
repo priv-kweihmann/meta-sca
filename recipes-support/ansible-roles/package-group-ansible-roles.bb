@@ -9,4 +9,5 @@ DEPENDS += "\
              ansible-dev-sec-ansible-ssh-hardening \
              ansible-konstruktoid-ansible-role-hardening \
              ansible-sansible-security-hardening \
+             ansible-role-merger-native \
             "
