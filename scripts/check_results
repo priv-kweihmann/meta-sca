@@ -129,8 +129,6 @@ _data = {
         "python3-git"
     ],
     "pytype": [
-        "bad-python-types",
-        "python3-git"
     ],
     "rats": [
         "busybox",
