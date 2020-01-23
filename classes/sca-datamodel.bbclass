@@ -205,10 +205,7 @@ def sca_get_model_class(d, **kwargs):
             return "{}:{}:{} [{}]: {} ({})".format(self.__File, self.__Line, self.__Column, self.__Severity, self.__Message, self.__ID)
 
         def __eq__(self, other):
-            if isinstance(other, SCADataModel) or issubclass(other, SCADataModel):
-                return str(other) == str(self)
-            else:
-                return False
+            return str(other) == str(self)
 
         def __ne__(self, other):
             return (not self.__eq__(other))
@@ -262,12 +259,13 @@ def __sca_unique_model(d):
     _t = list(set(_t))
     return __sca_model_to_list(d, _t)
 
-def sca_save_model_to_file(d, path):
+def sca_save_model_to_file(d, model, path):
     import json
-    _t = sca_save_model_to_string(d)
     with open(path, "w") as o:
-        bb.warn(str(_t))
-        json.dump(_t, o, indent=2, sort_keys=True)
+        if isinstance(model, list):
+            json.dump(__sca_model_to_list(d, model), o, indent=2, sort_keys=True)
+        else:
+            o.write(model)
 
 def sca_save_model_to_string(d, model=None):
     import json

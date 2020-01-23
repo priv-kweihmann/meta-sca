@@ -8,10 +8,11 @@ SCA_EXPORT_DIR ?= "${DEPLOY_DIR_IMAGE}/sca"
 SCA_EXPORT_FINDING_SRC = "1"
 SCA_EXPORT_FINDING_DIR ?= "${DEPLOY_DIR_IMAGE}/sca/sources/${PN}/"
 
-## Valid values are 'checkstyle' or 'console'
+## Valid values are 'checkstyle' or 'console' or 'diff'
 SCA_EXPORT_FORMAT ?= "checkstyle"
 SCA_EXPORT_FORMAT_SUFFIX_checkstyle = "xml"
 SCA_EXPORT_FORMAT_SUFFIX_console = "txt"
+SCA_EXPORT_FORMAT_SUFFIX_diff = "txt"
 
 SCA_AUTO_INH_ON_IMAGE ?= "1"
 SCA_AUTO_INH_ON_RECIPE ?= "1"
@@ -20,7 +21,7 @@ SCA_AUTO_INH_ON_RECIPE ?= "1"
 SCA_AUTO_LICENSE_FILTER ?= ".*"
 
 ## All findings below this level will be dropped
-## from checkstyle-result
+## from output result
 ## possible options error, warning or info
 SCA_WARNING_LEVEL ?= "warning"
 
