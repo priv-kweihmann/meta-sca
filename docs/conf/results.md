@@ -4,15 +4,15 @@ Depending on how you configured the variable __SCA_EXPORT_DIR__ (default \${DEPL
 
 - sca
   - cppcheck
-    - checkstyle or console
+    - checkstyle or console or diff
     - datamodel
     - raw
   - cpplint
-    - checkstyle or console
+    - checkstyle or console or diff
     - datamodel
     - raw
   - pylint
-    - checkstyle or console
+    - checkstyle or console or diff
     - datamodel
     - raw
 
@@ -27,11 +27,19 @@ This document contains all findings in checkstyle-format.
 
 ## console folder
 
-In each checkstyle-subfolder you will find a txt-document named __\${PN}_\${PV}.txt__ e.g. for recipe **acl** this would be **acl_1.2.3.txt**.
+In each console-subfolder you will find a txt-document named __\${PN}_\${PV}.txt__ e.g. for recipe **acl** this would be **acl_1.2.3.txt**.
 This document contains all findings in plain text format.
 See [output formats](output_formats.md) for details.
 
 **NOTE**: this applies only if __SCA_EXPORT_FORMAT__ is set to __console__
+
+## diff folder
+
+In each diff-subfolder you will find a txt-document named __\${PN}_\${PV}.txt__ e.g. for recipe **acl** this would be **acl_1.2.3.txt**.
+This document contains all findings in plain text format.
+See [output formats](output_formats.md) for details.
+
+**NOTE**: this applies only if __SCA_EXPORT_FORMAT__ is set to __diff__
 
 ## datamodel folder
 
