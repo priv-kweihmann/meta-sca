@@ -70,6 +70,7 @@ python do_sca_setuptoolslint() {
     os.environ["STAGING_INCDIR"] = d.getVar("STAGING_INCDIR")
     os.environ["STAGING_LIBDIR"] = d.getVar("STAGING_LIBDIR")
     os.environ["HTTP_PROXY"] = d.getVar("SCA_SETUPTOOLSLINT_LOCAL_PROXY")
+    os.environ["PYTHONPATH"] = ":".join([os.environ.get("PYTHONPATH", ""), os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "python-sysconfigdata")])
     _args = [d.getVar("PYTHON")]
 
     cmd_output = ""
@@ -100,7 +101,7 @@ python do_sca_setuptoolslint() {
 SCA_DEPLOY_TASK = "do_sca_deploy_setuptoolslint"
 
 python do_sca_deploy_setuptoolslint() {
-    sca_conv_deploy(d, "setuptoolslint", "text")
+    sca_conv_deploy(d, "setuptoolslint", "txt")
 }
 
 addtask do_sca_setuptoolslint before do_install after do_compile
