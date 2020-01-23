@@ -10,7 +10,3 @@ S = "${WORKDIR}/source"
 B = "${WORKDIR}/source"
 
 inherit sca
-
-SCA_AVAILABLE_MODULES = ""
-
-inherit sca-setuptoolslint
