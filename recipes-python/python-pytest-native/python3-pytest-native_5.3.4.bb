@@ -1,6 +1,6 @@
 SUMMARY = "The pytest framework makes it easy to write small tests, yet scales to support complex functional testing"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=640061b8cee64b308a4d2f9f556c12f2"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=81eb9f71d006c6b268cf4388e3c98f7b"
 
 PYPI_PACKAGE = "pytest"
 
@@ -21,5 +21,5 @@ inherit pypi
 inherit native
 inherit setuptools3
 
-SRC_URI[md5sum] = "71a8eb2ab5efb76512d9a69bd6477034"
-SRC_URI[sha256sum] = "6b571215b5a790f9b41f19f3531c53a45cf6bb8ef2988bc1ff9afb38270b25fa"
+SRC_URI[md5sum] = "456c17c027af39cde0acff64810ad152"
+SRC_URI[sha256sum] = "1d122e8be54d1a709e56f82e2d85dcba3018313d64647f38a91aec88c239b600"
