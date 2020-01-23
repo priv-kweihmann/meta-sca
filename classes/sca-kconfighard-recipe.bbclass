@@ -12,6 +12,8 @@ inherit sca-global
 inherit sca-helper
 inherit sca-suppress
 
+inherit python3native
+
 DEPENDS += "kconfig-hardened-check-native sca-recipe-kconfighard-rules-native"
 
 def get_architeture(d):
@@ -95,7 +97,7 @@ python do_sca_kconfighard() {
         tmp_result = os.path.join(d.getVar("T", True), "sca_raw_kconfighard.txt")
         d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
-        _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "kconfig-hardening-check", "kconfig-hardened-check.py")]      
+        _args = ["nativepython3", os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "kconfig-hardening-check", "kconfig-hardened-check.py")]      
         _args += ["--print", get_architeture(d) ]
         _args += ["-c", os.path.join(d.getVar("B"), ".config")]
 
