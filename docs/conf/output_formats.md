@@ -5,6 +5,7 @@ Currently supported are
 
 * checkstyle
 * console
+* diff
 
 ## Checkstyle format
 
@@ -68,3 +69,8 @@ General format is the following
 | {line}     | starting line of the finding
 | {message}  | the human readable message of the finding
 | {severity} | the set severity of the finding
+
+## diff format
+
+The diff format is the same as [console output](#console-format), but shows only the items changed since the last run.
+So this mode might be useful when actively working on recipes and sources
