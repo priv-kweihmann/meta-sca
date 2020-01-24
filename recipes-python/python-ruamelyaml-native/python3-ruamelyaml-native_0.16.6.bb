@@ -2,7 +2,7 @@ SUMMARY = "ruamel.yaml is a YAML parser/emitter that support comment preservatio
 DESCRIPTION = "ruamel.yaml is a YAML parser/emitter that support comment preservation"
 HOMEPAGE = "https://bitbucket.org/ruamel/yaml/src/default/"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=caf8bd842440b537c044e131785a4666"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=60afc0a1bb0501c0c555cabe78bba022"
 
 PYPI_PACKAGE = "ruamel.yaml"
 
@@ -17,5 +17,5 @@ inherit pypi
 inherit native
 inherit setuptools3
 
-SRC_URI[md5sum] = "7d5a5b0a7621a1247b081cc8e4978354"
-SRC_URI[sha256sum] = "412a6f5cfdc0525dee6a27c08f5415c7fd832a7afcb7a0ed7319628aed23d408"
+SRC_URI[md5sum] = "6a0b7fe48578cf8e4a77d788ac4fe58b"
+SRC_URI[sha256sum] = "966e5a049eebf011c90424b9ec7dab6358cee8de0907354b27a27f20a8c4c2ec"
