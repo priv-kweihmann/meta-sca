@@ -3,8 +3,8 @@ HOMEPAGE = "https://metacpan.org/pod/Path::Tiny"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "1a7fbdccc4585074ce4419b7bec0966c"
-SRC_URI[sha256sum] = "3c49482be2b3eb7ddd7e73a5b90cff648393f5d5de334ff126ce7a3632723ff5"
+SRC_URI[md5sum] = "da6316a7b9e4fd747cf98c11be95f630"
+SRC_URI[sha256sum] = "a849dc0777315899689d0b351e815d90eaa636a01ed1d5e6de99a368529b5cfa"
 
 S = "${WORKDIR}/Path-Tiny-${PV}"
 
