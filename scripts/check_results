@@ -116,8 +116,7 @@ _data = {
         "bad-php"
     ],
     "proselint": [
-        "busybox",
-        "python3-git"
+        "busybox"
     ],
     "pscan": [
         "busybox"
