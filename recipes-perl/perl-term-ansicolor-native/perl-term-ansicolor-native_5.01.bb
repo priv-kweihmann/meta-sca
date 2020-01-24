@@ -3,8 +3,8 @@ HOMEPAGE = "https://metacpan.org/pod/Term::ANSIColor"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/R/RR/RRA/Term-ANSIColor-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "4f9286b2615cc10d4e38e6ef480148ed"
-SRC_URI[sha256sum] = "abcd5c6d289bcd4e0602aba8d0b627b6d1d2c23c566f69a7064d42d04c7c249f"
+SRC_URI[md5sum] = "5b097ce054447c649de4a022213349c6"
+SRC_URI[sha256sum] = "6281bd87cced7a885c38aa104498e3cd4b5f4c276087442cf68c67379318f27d"
 
 S = "${WORKDIR}/Term-ANSIColor-${PV}"
 
