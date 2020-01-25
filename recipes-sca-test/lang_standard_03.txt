@@ -4,6 +4,7 @@ gixy
 lynis
 nixauditor
 ropgadget
+sudokiller
 systemdlint
 tiger
 upc
