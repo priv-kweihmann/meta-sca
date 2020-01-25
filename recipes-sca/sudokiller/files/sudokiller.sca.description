@@ -1,0 +1,16 @@
+{
+    "buildspeed": 10,
+    "execspeed": 7,
+    "languages": [
+        "system"
+    ],
+    "quality": 8,
+    "scope": [
+        "security"
+    ],
+    "score": {
+        "security": [
+            "sudokiller.sudokiller.*"
+        ]
+    }
+}

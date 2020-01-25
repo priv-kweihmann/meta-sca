@@ -172,6 +172,9 @@ _data = {
         "busybox",
         "openssh"
     ],
+    "sudokiller": [
+        "core-image-minimal-scatest"
+    ],
     "systemdlint": [
         "core-image-minimal-scatest"
     ],

@@ -110,6 +110,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           standard \
                           stank \
                           stylelint \
+                          sudokiller \
                           systemdlint \
                           textlint \
                           tiger \
