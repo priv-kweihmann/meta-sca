@@ -7,7 +7,7 @@ bashate,Shell script linter,http://docs.openstack.org/developer/bashate/,,,x,x,,
 bitbake,Bitbake issue handling,,,,x,x,,,,,,,,,,,,,x,,,x,x
 cbmc,C Bounded Model Checker,https://github.com/diffblue/cbmc/,,x,,x,x,,,,,,,,,,,,,,,x,
 checkbashisms,Shell script linter,https://manpages.debian.org/jessie/devscripts/checkbashisms.1.en.html,,,x,x,,,,x,,,,,,,,,,,,x,x
-clang,C/C++ linter using LLVM,https://clang.llvm.org/extra/clang-tidy/,"Meta-clang, manual enable",,,,x,x,x,,,,,,,,,,,,,,x
+clang,C/C++ linter using LLVM,https://clang.llvm.org/extra/clang-tidy/,"meta-clang, manual enable",,,,x,x,x,,,,,,,,,,,,,,x
 configcheck,Check application configurations,,,,x,,,,,,,,,,,,,,,x,,x,
 cppcheck,C/C++ linter,https://github.com/danmar/cppcheck,,,,x,x,x,,,,,,,,,,,,,x,x,x
 cpplint,C/C++ linter,https://github.com/cpplint/cpplint,,,,x,x,x,,,,,,,,,,,,,x,x,x
@@ -44,7 +44,7 @@ perl,Perl warnings check,,,,,x,,,,,,,,,,,,,,x,,x,
 perlcritic,Perl linter,https://metacpan.org/pod/perlcritic,,,,x,,,,,,,,,,,,,,x,,x,
 phan,PHP linter,https://github.com/phan/phan,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,,x
 phpcodefixer,Find deprecated PHP functions,https://github.com/wapmorgan/PhpCodeFixer,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,x,
-phpcodesniffer,"PHP, Js and CSS linter",https://github.com/squizlabs/PHP_CodeSniffer,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,,x
+phpcodesniffer,PHP, Js and CSS linter,https://github.com/squizlabs/PHP_CodeSniffer,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,,x
 phpmd,PHP Linter,https://github.com/phpmd/phpmd,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,x,x
 phpsecaudit,Find vulnerabilities in PHP code,https://github.com/FloeDesignTechnologies/phpcs-security-audit,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,x,,
 phpstan,PHP linter,https://github.com/phpstan/phpstan,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,,x
