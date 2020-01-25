@@ -38,6 +38,7 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             standard \
                             stank \
                             stylelint \
+                            sudokiller \
                             systemdlint \
                             tiger \
                             tlv \

@@ -198,6 +198,7 @@ The layer can check on a recipe-level or on an image-level.
 | standard        | Javascript linter                                     | https://github.com/standard/standard                                  |                             | x             | x            | x             |   |     |        |       | x          |     |    |        |     |          |         |          |          |               |                | x                | x           |
 | stank           | Shell script linter                                   | https://github.com/mcandre/stank                                      |                             |               | x            | x             |   |     |        | x     |            |     |    |        |     |          |         |          |          |               |                | x                | x           |
 | stylelint       | CSS/SCSS linter                                       | https://github.com/stylelint/stylelint                                |                             |               | x            | x             |   |     |        |       |            |     |    |        |     |          |         |          |          | x             |                |                  | x           |
+| sudokiller      | check on sudo                                         | https://github.com/TH3xACE/SUDO_KILLER                                |                             |               | x            |               |   |     |        |       |            |     |    | x      |     |          |         |          |          |               | x              |                  |             |
 | systemdlint     | Systemd unit linter                                   | https://github.com/priv-kweihmann/systemdlint                         |                             |               | x            |               |   |     |        |       |            |     |    |        |     |          |         |          |          | x             | x              | x                | x           |
 | textlint        | Spelling and text linter                              | https://github.com/textlint/textlint                                  |                             | x             |              | x             |   |     |        |       |            |     |    |        |     | x        |         |          |          |               |                |                  | x           |
 | tiger           | security audit and intrusion detection tool           | http://www.nongnu.org/tiger/                                          |                             |               | x            |               |   |     |        |       |            |     |    | x      |     |          |         |          |          |               | x              |                  |             |
@@ -210,7 +211,6 @@ The layer can check on a recipe-level or on an image-level.
 | yamllint        | YAML linter                                           | https://github.com/adrienverge/yamllint                               |                             |               | x            | x             |   |     |        |       |            |     |    |        |     |          |         |          |          | x             |                |                  | x           |
 | yara            | Find suspicious pattern in binaries                   | https://github.com/VirusTotal/yara                                    |                             |               | x            |               |   |     |        |       |            |     |    | x      |     |          |         |          |          |               | x              |                  |             |
 | zrd             | I18N/G18N linter                                      | https://github.com/0Cubed/ZeroResourceDetector                        |                             |               |              | x             |   |     |        |       |            |     |    |        |     |          |         |          |          | x             |                |                  | x           |
-
 each tool does have it's own benefits and flaws so don't be mad if you have 10k+ findings on the initial run.
 
 ## Further documentation
@@ -297,6 +297,7 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
     - [standard](docs/conf/module/standard.md)
     - [stank](docs/conf/module/stank.md)
     - [stylelint](docs/conf/module/stylelint.md)
+    - [sudokiller](docs/conf/module/sudokiller.md)
     - [systemdlint](docs/conf/module/systemdlint.md)
     - [textlint](docs/conf/module/textlint.md)
     - [tiger](docs/conf/module/tiger.md)
