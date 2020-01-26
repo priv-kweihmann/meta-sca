@@ -14,20 +14,6 @@ inherit sca-suppress
 
 DEPENDS += "kconfig-hardened-check-native sca-recipe-kconfighard-rules-native"
 
-def get_architeture(d):
-    arch = d.getVar("TARGET_ARCH", True)
-    if arch == "x86_64":
-        return "X86_64"
-    elif arch == "i586":
-        return "X86_32"
-    elif arch == "ARM64":
-        return "ARM64"
-    elif arch == "ARM":
-        return "ARM"
-    else:
-        bb.note("Unknown Arch {} can't do kconfig-hardened-check".format(arch))
-        return ""
-
 def do_sca_conv_kconfighard(d):
     import os
     import re
@@ -86,7 +72,7 @@ python do_sca_kconfighard() {
     import os
     import subprocess
 
-    if get_architeture(d) and d.getVar("PN", True) == "linux-yocto":
+    if d.getVar("PN", True) == "linux-yocto":
         d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_KCONFIGHARD_EXTRA_SUPPRESS", True))
         d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_KCONFIGHARD_EXTRA_FATAL", True))
         d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "kconfighard-{}-suppress".format(d.getVar("SCA_MODE", True))))
@@ -96,7 +82,6 @@ python do_sca_kconfighard() {
         d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
         _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "kconfig-hardening-check", "kconfig-hardened-check.py")]      
-        _args += ["--print", get_architeture(d) ]
         _args += ["-c", os.path.join(d.getVar("B", True), ".config")]
 
         cmd_output = ""
