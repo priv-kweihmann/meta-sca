@@ -26,7 +26,7 @@ def sca_filter_files(d, path, addfilter=[]):
     res = []
     _filter = [x for x in d.getVar("SCA_FILE_FILTER", True).split(" ") if x] + addfilter
     for item in _filter:
-        _pattern = os.path.join(d.getVar("SCA_SOURCES_DIR"), item)
+        _pattern = os.path.join(d.getVar("SCA_SOURCES_DIR", True), item)
         try:
             cmd_out = subprocess.check_output(["find", path, "-type", "f", "-wholename", _pattern])
         except subprocess.CalledProcessError as e:
