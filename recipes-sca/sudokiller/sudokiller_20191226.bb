@@ -39,4 +39,9 @@ do_install_append_class-native () {
 FILES_${PN} = "${bindir}"
 FILES_${PN}_class-native += "${datadir}"
 
+# Package contains exploit sample from (maybe) not matching arch
+# plus all the dependencies from that arch
+# Ignore that while packaging
+INSAKE_SKIP_${PN} += "file-rdeps arch"
+
 BBCLASSEXTEND = "native"
