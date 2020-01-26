@@ -17,10 +17,12 @@ For the list of current findings from pipelines see [meta-sca report](https://pr
 - [Getting started](#getting-started)
 - [Installation](#installation)
   - [Prerequisites](#prerequisites)
+  - [Use of containers](#use-of-containers)
   - [Setup](#setup)
   - [Optional layer](#optional-layer)
     - [meta-clang](#meta-clang)
     - [meta-oe](#meta-oe)
+- [Web monitor](#web-monitor)
 - [Support](#support)
   - [Release cycle](#release-cycle)
     - [Releases](#releases)
@@ -55,6 +57,10 @@ To install clone the needed brach(es) to any path on your local system.
 - You need at least **python 3.5** needs to be installed on your build host.
 - You need **glib-2.0-dev** installed on your build host (used for e.g. configcheck, lynis, tiger, upc)
 
+### Use of containers
+
+It is recommended to use `privkweihmann/yocto-sca-minimal:latest` docker container for building, which has all necessary requirements already installed.
+
 ### Setup
 
 In your __bblayers.conf__-file add the following line
@@ -78,6 +84,10 @@ To make the integration of clang or ikos-module (clang-tidy) work you need to ad
 #### meta-oe
 
 To enable the php/lua support you need to add the [meta-oe](http://cgit.openembedded.org/meta-openembedded) layer to your bblayer-file.
+
+## Web monitor
+
+If you not quite convinced what this layer can do for you, have a look at the [web monitor](https://priv-kweihmann.github.io/), where all findings from the layer CI pipelines are publically available.
 
 ## Support
 
