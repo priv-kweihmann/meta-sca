@@ -39,6 +39,10 @@ do_install_append_class-native () {
 FILES_${PN} = "${bindir}"
 FILES_${PN}_class-native += "${datadir}"
 
+# We don't really care about debug package for this one
+# also because of the issue mentioned below
+INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
+
 # Package contains exploit sample from (maybe) not matching arch
 # plus all the dependencies from that arch
 # Ignore that while packaging
