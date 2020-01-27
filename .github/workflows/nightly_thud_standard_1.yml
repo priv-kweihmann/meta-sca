@@ -16,14 +16,18 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    container:
+      image: privkweihmann/yocto-sca-minimal:latest
+      env:
+        GITHUB_WORKSPACE: /opt/build/${{ github.repository }}
+        WEB_REPOSITORY: priv-kweihmann/priv-kweihmann.github.io
+      volumes:
+        - ${{ github.workspace }}:/opt/build
+
     steps:
       - uses: actions/checkout@v1
         with:
           ref: thud
-      - name: Update APT
-        run: sudo apt-get update
-      - name: Install Dependencies
-        run: sudo apt-get -yq --no-install-suggests --no-install-recommends install build-essential chrpath diffstat gawk gcc-multilib git-core libsdl1.2-dev python3 socat texinfo unzip wget xterm
       - name: Check out poky
         run: git clone git://git.yoctoproject.org/poky.git/ -b $SCABRANCH poky
       - name: Setup poky
@@ -46,8 +50,27 @@ jobs:
         run: |
           source poky/oe-init-build-env
           timeout --foreground $MAXRUNTIME $(pwd)/../recipes-sca-test/test_$PARAMFILE.sh || if [ $? == 124 ]; then echo "Timeout"; else return 1; fi;
+      - name: get latest webdeloy
+        run: |
+          git clone https://github.com/${WEB_REPOSITORY}.git ${{ github.workspace }}/website
+      - name: export findings
+        run: |
+          source poky/oe-init-build-env
+          eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR")
+          eval $(bitbake busybox -e | grep "^SCA_EXPORT_FINDING_DIR")
+          cd ${{ github.workspace }}/website
+          ./tools/report ${SCA_EXPORT_DIR} ${SCA_EXPORT_FINDING_DIR} data/${SCABRANCH}/${PARAMFILE}.json
+          ./tools/jsonmerge data/${SCABRANCH}/result.json data/${SCABRANCH}/*.json
+          git add .
+          git config --local user.email "web@deploy.bot"
+          git config --local user.name "Webdeploy bot"
+          git remote rm origin
+          git remote add origin https://priv-kweihmann:${{ secrets.WEBDEPLOY }}@github.com/${WEB_REPOSITORY}.git
+          export COMMIT_MSG="Update findings from ${SCABRANCH}:${PARAMFILE}"
+          git diff --quiet && git diff --staged --quiet || (git commit -m "${COMMIT_MSG}"; git push origin master) || true
       - name: test results
         run: |
+          cd ${{ github.workspace }}
           source poky/oe-init-build-env
           eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR")
           $(pwd)/../scripts/check_results $SCA_EXPORT_DIR $(cat $(pwd)/../recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ') || true
