@@ -9,6 +9,8 @@
 [![Nightly clang](https://github.com/priv-kweihmann/meta-sca/workflows/[master]-meta-clang/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
 [![Nightly meta-oe](https://github.com/priv-kweihmann/meta-sca/workflows/[master]-meta-oe/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
 
+For the list of current findings from pipelines see [meta-sca report](https://priv-kweihmann.github.io/)
+
 ## Table of content <!-- omit in toc -->
 
 - [Purpose](#purpose)
