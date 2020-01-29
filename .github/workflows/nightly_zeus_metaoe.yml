@@ -19,7 +19,7 @@ jobs:
     container:
       image: privkweihmann/yocto-sca-minimal:latest
       env:
-        GITHUB_WORKSPACE: /opt/build/${{ github.repository }}
+        WORKSPACE: ${{ github.workspace }}
         WEB_REPOSITORY: priv-kweihmann/priv-kweihmann.github.io
       volumes:
         - ${{ github.workspace }}:/opt/build
@@ -29,31 +29,38 @@ jobs:
         with:
           ref: zeus
       - name: Check out poky
-        run: git clone git://git.yoctoproject.org/poky.git/ -b $SCABRANCH poky
+        run: git clone git://git.yoctoproject.org/poky.git/ -b $SCABRANCH ${{ github.workspace }}/poky
       - name: Check out meta-oe
-        run: git clone git://git.openembedded.org/meta-openembedded -b $SCABRANCH meta-oe
+        run: git clone git://git.openembedded.org/meta-openembedded -b $SCABRANCH ${{ github.workspace }}/meta-oe
       - name: Setup poky
-        run: source poky/oe-init-build-env
+        run: |
+          cd ${{ github.workspace }}
+          source poky/oe-init-build-env
       - name: add meta-sca
         run: |
+          cd ${{ github.workspace }}
           source poky/oe-init-build-env
           bitbake-layers add-layer $(pwd)/..
       - name: add meta-oe
         run: |
+          cd ${{ github.workspace }}
           source poky/oe-init-build-env
           bitbake-layers add-layer $(pwd)/../meta-oe/meta-oe
       - name: prepare local.conf
         run: |
+          cd ${{ github.workspace }}
           source poky/oe-init-build-env
           echo 'INHERIT +="rm_work"' >> conf/local.conf
           echo 'SCA_VERBOSE_OUTPUT = "1"' >> conf/local.conf
       - name: set modules
         run: |
+          cd ${{ github.workspace }}
           source poky/oe-init-build-env
           mods=$(cat $(pwd)/../recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ')
           echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> conf/local.conf
       - name: build
         run: |
+          cd ${{ github.workspace }}
           source poky/oe-init-build-env
           timeout --foreground $MAXRUNTIME $(pwd)/../recipes-sca-test/test_$PARAMFILE.sh || if [ $? == 124 ]; then echo "Timeout"; else return 1; fi;
       - name: get latest webdeloy
@@ -61,6 +68,7 @@ jobs:
           git clone https://github.com/${WEB_REPOSITORY}.git ${{ github.workspace }}/website
       - name: export findings
         run: |
+          cd ${{ github.workspace }}
           source poky/oe-init-build-env
           eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR")
           eval $(bitbake busybox -e | grep "^SCA_EXPORT_FINDING_DIR")
