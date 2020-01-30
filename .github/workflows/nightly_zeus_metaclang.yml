@@ -38,12 +38,12 @@ jobs:
       - name: Check out meta-sca
         run: |
           git clone https://github.com/priv-kweihmann/meta-sca.git -b $SCABRANCH ${WORKSPACE}/meta-sca
-      - if: env.ENABLEMETAOE == "1"
+      - if: env.ENABLEMETAOE == '1'
         name: Check out meta-oe
         run: |
           git clone git://git.openembedded.org/meta-openembedded -b $SCABRANCH ${WORKSPACE}/meta-oe
         shell: bash
-      - if: env.ENABLEMETACLANG == "1"
+      - if: env.ENABLEMETACLANG == '1'
         name: Check out meta-clang
         run: |
           git clone https://github.com/kraj/meta-clang.git -b $SCABRANCH ${WORKSPACE}/meta-clang
@@ -58,14 +58,14 @@ jobs:
           source poky/oe-init-build-env
           bitbake-layers add-layer ${WORKSPACE}/meta-sca
         shell: bash
-      - if: env.ENABLEMETAOE == "1"
+      - if: env.ENABLEMETAOE == '1'
         name: add meta-oe
         run: |
           cd ${WORKSPACE}
           source poky/oe-init-build-env
           bitbake-layers add-layer ${WORKSPACE}/meta-oe/meta-oe
         shell: bash
-      - if: env.ENABLEMETACLANG == "1"
+      - if: env.ENABLEMETACLANG == '1'
         name: add meta-clang
         run: |
           cd ${WORKSPACE}
