@@ -29,6 +29,7 @@ See the badge at the top of the README for details.
 - [Getting started](#getting-started)
 - [Installation](#installation)
   - [Prerequisites](#prerequisites)
+  - [Use of containers](#use-of-containers)
   - [Setup](#setup)
 - [Support](#support)
   - [Release cycle](#release-cycle)
@@ -63,6 +64,10 @@ To install clone the needed brach(es) to any path on your local system.
 - You need the `krogoth` standard [__poky__-layer](https://git.yoctoproject.org/cgit/cgit.cgi/poky/?h=krogoth) installed onto your local build environment.
 - You need at least **python 3.4** needs to be installed on your build host.
 - You need **glib-2.0-dev** installed on your build host (used for e.g. configcheck, lynis, tiger, upc)
+
+### Use of containers
+
+It is recommended to use `privkweihmann/yocto-sca-minimal:krogoth` docker container for building, which has all necessary requirements already installed.
 
 ### Setup
 
