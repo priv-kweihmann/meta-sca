@@ -47,6 +47,8 @@ SRC_URI[sha256sum] = "39af1837f439af7b4dc40ec18a64221c688c3982858168ae535bbe4911
 
 S = "${WORKDIR}/node-v${PV}"
 
+UPSTREAM_CHECK_REGEX = "(?P<pver>12\.\d+\.\d+)"
+
 # v8 errors out if you have set CCACHE
 CCACHE = ""
 
