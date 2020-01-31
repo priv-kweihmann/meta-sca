@@ -10,6 +10,8 @@ SRC_URI = "git://github.com/jshint/jshint.git;protocol=https;tag=${PV} \
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://LICENSE;md5=4e19041df56fbb7a49fb87c4322d5849"
 
+UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+\.\d+)"
+
 DEPENDS += "nodejs-native"
 
 inherit native

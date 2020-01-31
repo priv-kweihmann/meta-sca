@@ -11,6 +11,8 @@ SRC_URI = "git://github.com/microsoft/pyright.git;protocol=https;tag=${PV} \
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://LICENSE.txt;md5=a2a1e4d251b834bf3e0ceee69ab1d4c9"
 
+UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>1\.\d+\.\d+)"
+
 DEPENDS += "nodejs-native"
 
 inherit native
