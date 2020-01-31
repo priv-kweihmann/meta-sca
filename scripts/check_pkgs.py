@@ -41,6 +41,8 @@ def get_updates():
     res = []
     for m in re.finditer(pattern, devtool_out, re.MULTILINE):
         if m.group("nextversion") not in ["UNKNOWN_BROKEN"]:
+            if m.group("nextversion").rstrip(".") == m.group("curversion"):
+                continue
             print(UPDATE_FORMAT.format(m.group("recipe"),
                                        m.group("nextversion").rstrip(".")))
             res.append((m.group("recipe"), m.group("nextversion").rstrip(".")))
