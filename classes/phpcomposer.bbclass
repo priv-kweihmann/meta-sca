@@ -28,7 +28,6 @@ python __anonymous() {
                 found = True
                 break
     if not found:
-        d.setVar("NPM_EXTRA_ARGS", "--package-lock")
         for _dir in d.getVar("FILESPATH").split(":"):
             if os.path.exists(_dir):
                 try:
@@ -76,6 +75,7 @@ phpcomposer_do_compile() {
 
 phpcomposer_do_install() {
     cd ${B}
+    export COMPOSER_HOME=${STAGING_DATADIR_NATIVE}/composer
     export COMPOSER_CACHE_DIR=${PHPCOMPOSER_CACHE_DIR}
     composer.phar require -vv \
         ${PHPCOMPOSER_ADD_ARGS_REQUIRE} ${PHPCOMPOSER_PKGS_NAME}
