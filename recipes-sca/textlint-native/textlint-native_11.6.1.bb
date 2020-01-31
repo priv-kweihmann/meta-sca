@@ -11,6 +11,8 @@ SRC_URI = "git://github.com/textlint/textlint.git;protocol=https;nobranch=1;tag=
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://LICENSE;md5=f3452a94937d21f84bc38880f636e3ba"
 
+UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d{2}\.\d+\.\d+)"
+
 DEPENDS += "nodejs-native"
 
 inherit native
