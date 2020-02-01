@@ -2,7 +2,7 @@ SUMMARY = "Implements the wildcard file matching in Go"
 HOMEPAGE = "https://github.com/mgechev/dots"
 
 SRC_URI = "git://${GO_IMPORT};protocol=https"
-SRCREV = "18fa4c4b71cc044b836fdcf922b26c44962164e0"
+SRCREV = "c36f7dcfbb81d2220bbddabf29c757c861c3e4d8"
 UPSTREAM_CHECK_COMMITS = "1"
 
 GO_IMPORT = "github.com/mgechev/dots"
