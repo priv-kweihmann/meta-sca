@@ -14,8 +14,8 @@ LICENSE = "GPLv2 & LGPLv2.1"
 
 SRC_URI = "https://download.qemu.org/qemu-${PV}.tar.xz"
 
-SRC_URI[md5sum] = "cdf2b5ca52b9abac9bacb5842fa420f8"
-SRC_URI[sha256sum] = "656e60218689bdeec69903087fd7582d5d3e72238d02f4481d8dc6d79fd909c6"
+SRC_URI[md5sum] = "278eeb294e4b497e79af7a57e660cb9a"
+SRC_URI[sha256sum] = "d3481d4108ce211a053ef15be69af1bdd9dde1510fda80d92be0f6c3e98768f0"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=441c28d2cf86e15a37fa47e15a72fbac \
                     file://COPYING.LIB;endline=24;md5=8c5efda6cf1e1b03dcfd0e6c0d271c7f"
