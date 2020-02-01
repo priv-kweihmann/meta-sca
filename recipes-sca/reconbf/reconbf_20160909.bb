@@ -7,6 +7,8 @@ SRC_URI = "git://github.com/HewlettPackard/reconbf.git;protocol=https \
            file://reconbf.sca.description"
 
 SRCREV = "bfd15bef549f011a3de885c3267d4f718223b798"
+UPSTREAM_CHECK_COMMITS = "1"
+
 S = "${WORKDIR}/git"
 
 inherit setuptools3

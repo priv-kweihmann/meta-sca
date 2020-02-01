@@ -8,6 +8,7 @@ SRC_URI = " git://github.com/splintchecker/splint.git;protocol=https \
 ## This version is 3.12 plus some commit which addresses
 ## build issues
 SRCREV = "a28a60fd537cb0271a43a54f1f09870e03c2ba1a"
+UPSTREAM_CHECK_COMMITS = "1"
 
 DEPENDS += "bison-native"
 

@@ -7,6 +7,8 @@ SRC_URI = "git://git.savannah.gnu.org/git/tiger.git;protocol=https \
            file://tiger.sca.description"
 
 SRCREV = "1ae0a295bcd6fe4e772d74b206eb10a6fb4d9a0e"
+UPSTREAM_CHECK_COMMITS = "1"
+
 S = "${WORKDIR}/git"
 
 inherit autotools-brokensep
