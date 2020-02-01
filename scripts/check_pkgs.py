@@ -41,21 +41,17 @@ def get_updates():
     pattern = r"^INFO:\s+(?P<recipe>[A-Za-z0-9\+\.\-_]+)\s+(?P<curversion>[A-Za-z0-9\.\-_]+)\s+(?P<nextversion>[A-Za-z0-9\.\-_]+)\s+.*"
     res = []
     for m in re.finditer(pattern, devtool_out, re.MULTILINE):
-        if m.group("nextversion") not in ["UNKNOWN_BROKEN"]:
+        if m.group("nextversion") not in ["UNKNOWN_BROKEN", "new"]:
             if m.group("nextversion").rstrip(".") == m.group("curversion"):
                 continue
             if m.group("recipe") not in layer_list:
                 continue
-            print(UPDATE_FORMAT.format(m.group("recipe"),
-                                       m.group("nextversion").rstrip(".")))
             res.append((m.group("recipe"), m.group("nextversion").rstrip(".")))
-    pattern = r"^INFO:\s+(?P<recipe>[A-Za-z0-9\+\.\-_]+)\s+(?P<curversion>[A-Za-z0-9\.\-_]+)\s+new\scommits\s+.*\s+(?P<rev>[a-f0-9]+)"
+    pattern = r"^INFO:\s+(?P<recipe>[A-Za-z0-9\+\.\-_]+)\s+(?P<curversion>[A-Za-z0-9\.\-_]+)\s+new\scommits\s+.*\s+(?P<rev>[a-f0-9]{2,})"
     res = []
     for m in re.finditer(pattern, devtool_out, re.MULTILINE):
         if m.group("recipe") not in layer_list:
             continue
-        print(UPDATE_FORMAT.format(m.group("recipe"),
-                                    m.group("rev").rstrip(".")))
         res.append((m.group("recipe"), m.group("rev").rstrip(".")))
     return res
 
@@ -72,7 +68,7 @@ if __name__ == '__main__':
     repo = login.repository('priv-kweihmann', 'meta-sca')
     issue_list = [issue for issue in repo.issues(state="open")]
     _blacklist = get_blacklist(_args.blacklistfile)
-    print("Blacklist: {}".fomat(",".join(_blacklist))
+    print("Blacklist: {}".format(",".join(_blacklist)))
     for up in updates:
         if up[0] in _blacklist:
             continue
