@@ -11,6 +11,8 @@ SRC_URI = "git://github.com/streetsidesoftware/cspell.git;protocol=https;tag=v${
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://LICENSE;md5=b1befbdcbeb73a7fd9b944d31f0fee64"
 
+UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>3\.\d+\.\d+)"
+
 DEPENDS += "nodejs-native"
 
 inherit native
