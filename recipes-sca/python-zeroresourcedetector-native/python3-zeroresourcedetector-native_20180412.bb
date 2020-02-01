@@ -5,6 +5,7 @@ SRC_URI = "git://github.com/0Cubed/ZeroResourceDetector.git;protocol=https;branc
            file://zrd.sca.description"
 
 SRCREV = "117218499db07c34f072026e618546deeb682fab"
+UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
 
