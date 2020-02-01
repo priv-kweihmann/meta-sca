@@ -3,6 +3,7 @@ HOMEPAGE = "https://github.com/composer/composer"
 
 SRC_URI = "git://github.com/composer/getcomposer.org.git;protocol=https"
 SRCREV = "b9cc694e39b669376d7a033fb348324b945bce05"
+UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
 

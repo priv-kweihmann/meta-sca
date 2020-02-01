@@ -5,6 +5,8 @@ SRC_URI = "git://github.com/redNixon/rats.git;protocol=https;branch=master \
            file://rats.sca.description"
 
 SRCREV = "6bb2d62938156ecd16afb4ee4af9eeb98d9b5f06"
+UPSTREAM_CHECK_COMMITS = "1"
+
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
 
 HOMEPAGE = "https://github.com/redNixon/rats"

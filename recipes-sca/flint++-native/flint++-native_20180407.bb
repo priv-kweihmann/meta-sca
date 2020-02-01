@@ -10,6 +10,7 @@ SRC_URI = "git://github.com/JossWhittle/FlintPlusPlus.git;protocol=https;branch=
            file://flint.sca.description"
 
 SRCREV = "e209329bdf0d1c53c43474519bd875b692f9d61e"
+UPSTREAM_CHECK_COMMITS = "1"
 
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e4224ccaecb14d942c71d31bef20d78c"
 

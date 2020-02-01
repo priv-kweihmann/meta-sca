@@ -3,6 +3,7 @@ HOMEPAGE = "https://github.com/mvdan/editorconfig"
 
 SRC_URI = "git://github.com/mvdan/editorconfig.git;protocol=https"
 SRCREV = "890940e3f00e17dad9e1dc8a06b9dbf474b337e7"
+UPSTREAM_CHECK_COMMITS = "1"
 
 GO_IMPORT = "mvdan.cc/editorconfig"
 
