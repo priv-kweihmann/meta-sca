@@ -16,6 +16,7 @@ UPDATE_REGEX = r"Update\s+{}\s+to\s+.*"
 def create_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("--blacklistfile", default=None, help="File with blacklisted packages")
+    parser.add_argument("--dryrun", default=False, action="store_true", help="dry run")
     parser.add_argument("username", help="GitHub username")
     parser.add_argument("token", help="GitHub token")
     return parser.parse_args()
@@ -48,6 +49,14 @@ def get_updates():
             print(UPDATE_FORMAT.format(m.group("recipe"),
                                        m.group("nextversion").rstrip(".")))
             res.append((m.group("recipe"), m.group("nextversion").rstrip(".")))
+    pattern = r"^INFO:\s+(?P<recipe>[A-Za-z0-9\+\.\-_]+)\s+(?P<curversion>[A-Za-z0-9\.\-_]+)\s+new\scommits\s+.*\s+(?P<rev>[a-f0-9]+)"
+    res = []
+    for m in re.finditer(pattern, devtool_out, re.MULTILINE):
+        if m.group("recipe") not in layer_list:
+            continue
+        print(UPDATE_FORMAT.format(m.group("recipe"),
+                                    m.group("rev").rstrip(".")))
+        res.append((m.group("recipe"), m.group("rev").rstrip(".")))
     return res
 
 def get_blacklist(_file):
@@ -63,7 +72,7 @@ if __name__ == '__main__':
     repo = login.repository('priv-kweihmann', 'meta-sca')
     issue_list = [issue for issue in repo.issues(state="open")]
     _blacklist = get_blacklist(_args.blacklistfile)
-    print(_blacklist)
+    print("Blacklist: {}".fomat(",".join(_blacklist))
     for up in updates:
         if up[0] in _blacklist:
             continue
@@ -78,9 +87,11 @@ if __name__ == '__main__':
                   matches[0].original_labels,
                   UPDATE_FORMAT.format(up[0], up[1]),
                   [str(x) for x in matches[0].original_labels if str(x) != "Staging"] + ["Update Bot"]))
-            matches[0].edit(title=UPDATE_FORMAT.format(up[0], up[1]), 
-                            labels=[str(x) for x in matches[0].original_labels if str(x) != "Staging"] + ["Update Bot"])
+            if not _args.dryrun:
+                matches[0].edit(title=UPDATE_FORMAT.format(up[0], up[1]), 
+                                labels=[str(x) for x in matches[0].original_labels if str(x) != "Staging"] + ["Update Bot"])
         else:
             print("Create new issue {}:{}".format(UPDATE_FORMAT.format(
                 up[0], up[1]), ["Package Update", "Update Bot"]))
-            repo.create_issue(title=UPDATE_FORMAT.format(up[0], up[1]), labels=["Package Update", "Update Bot"])
+            if not _args.dryrun:
+                repo.create_issue(title=UPDATE_FORMAT.format(up[0], up[1]), labels=["Package Update", "Update Bot"])
