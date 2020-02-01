@@ -7,6 +7,7 @@ SRC_URI = "git://github.com/pentestmonkey/unix-privesc-check.git;protocol=https 
            file://upc.sca.description"
 
 SRCREV = "de8223a7b2ff3ed8fa6344cf4a358ec624e42270"
+UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
 

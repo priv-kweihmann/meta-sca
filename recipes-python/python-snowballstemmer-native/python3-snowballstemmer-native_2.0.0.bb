@@ -6,6 +6,7 @@ LIC_FILES_CHKSUM = "file://../git/COPYING;md5=2750797da77c1d784e7626b3f7d7ff3e"
 
 SRC_URI += "git://github.com/snowballstem/snowball.git;protocol=https"
 SRCREV = "69ea0d05cdb5aeb073015912cf8e1d18e1d645a4"
+UPSTREAM_CHECK_COMMITS = "1"
 
 PYPI_PACKAGE = "snowballstemmer"
 

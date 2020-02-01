@@ -3,6 +3,7 @@ HOMEPAGE = "https://github.com/mozilla/tls-observatory"
 
 SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "a3c1b6cfecfd7a0cf8f64c6bdc2b1e1d6a87e06c"
+UPSTREAM_CHECK_COMMITS = "1"
 
 GO_IMPORT = "github.com/mozilla/tls-observatory"
 

@@ -3,6 +3,7 @@ HOMEPAGE = "https://github.com/go-check/check"
 
 SRC_URI = "git://github.com/go-check/check;protocol=https;branch=v1"
 SRCREV = "20d25e2804050c1cd24a7eea1e7a6447dd0e74ec"
+UPSTREAM_CHECK_COMMITS = "1"
 
 GO_IMPORT ?= "github.com/go-check/check"
 
