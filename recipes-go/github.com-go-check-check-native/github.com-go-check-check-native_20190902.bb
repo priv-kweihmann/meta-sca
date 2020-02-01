@@ -2,8 +2,10 @@ SUMMARY = "Rich testing for the Go language"
 HOMEPAGE = "https://github.com/go-check/check"
 
 SRC_URI = "git://github.com/go-check/check;protocol=https;branch=v1"
-SRCREV = "20d25e2804050c1cd24a7eea1e7a6447dd0e74ec"
+SRCREV = "41f04d3bba152ddec2103e299fed053415705330"
 UPSTREAM_CHECK_COMMITS = "1"
+
+DEPENDS += "github.com-kr-pretty-native"
 
 GO_IMPORT ?= "github.com/go-check/check"
 
