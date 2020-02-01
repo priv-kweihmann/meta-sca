@@ -3,10 +3,13 @@ HOMEPAGE = "https://metacpan.org/pod/PPIx::Regexp"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/W/WY/WYANT/PPIx-Regexp-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "09d5640036adf9165e5a7e3306f9216e"
-SRC_URI[sha256sum] = "b5444b699a3c7ad79506c796559449c6f858dc62deb60e08249f96782636e5f4"
+SRC_URI[md5sum] = "f36baa47b78772de628d647debe82168"
+SRC_URI[sha256sum] = "ad8afb77066aa71e878570e88a2c05a0ca0a13ddd76138592f656b0592d38a54"
 
 S = "${WORKDIR}/PPIx-Regexp-${PV}"
+
+# Temporary fix to PV
+PV = "0.068_01"
 
 DEPENDS += "\
             libmodule-build-perl-native \
