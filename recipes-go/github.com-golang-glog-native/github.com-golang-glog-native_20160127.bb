@@ -3,6 +3,7 @@ HOMEPAGE = "https://github.com/golang/glog"
 
 SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "23def4e6c14b4da8ac2ed8007337bc5eb5007998"
+UPSTREAM_CHECK_COMMITS = "1"
 
 GO_IMPORT = "github.com/golang/glog"
 

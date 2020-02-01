@@ -11,6 +11,7 @@ S = "${WORKDIR}/git"
 SRCREV_gomega = "90e289841c1ed79b7a598a7cd9959750cb5e89e2"
 ## v1.8.0
 SRCREV_ginkgo = "eea6ad008b96acdaa524f5b409513bf062b500ad"
+UPSTREAM_CHECK_COMMITS = "1"
 
 GO_IMPORT = "github.com/onsi"
 

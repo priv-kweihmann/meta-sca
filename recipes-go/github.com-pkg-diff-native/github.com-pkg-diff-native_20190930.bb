@@ -3,6 +3,8 @@ HOMEPAGE = "https://github.com/pkg/diff"
 
 SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "531926345625d489a6b56f860a569e68245ace36"
+UPSTREAM_CHECK_COMMITS = "1"
+
 GO_IMPORT = "github.com/pkg/diff"
 
 LICENSE = "BSD-3-Clause"

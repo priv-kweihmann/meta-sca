@@ -21,6 +21,7 @@ SRCREV_dogsled = "dad318941ed237414e932c0bd27a2431aa85fcce"
 SRCREV_prealloc = "4fce4887dad9de1bfcb1198774138a30c193f778"
 SRCREV_identypo = "dcb8a79840450edb48a29a1621321101510b338e"
 SRCREV_unimport = "e6f2b2e2d406ad19518ce48d88278589d86b193d"
+UPSTREAM_CHECK_COMMITS = "1"
 
 GO_IMPORT = "github.com/alexkohler"
 

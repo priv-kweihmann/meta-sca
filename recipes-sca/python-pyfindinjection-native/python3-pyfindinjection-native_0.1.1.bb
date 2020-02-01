@@ -6,6 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=1d25d70fea8b21087517ef9490406cb9"
 
 SRC_URI = "git://github.com/priv-kweihmann/py-find-injection.git;protocol=https"
 SRCREV = "31a0b2e45efe228a780e02c249637871c9e17777"
+UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
 
