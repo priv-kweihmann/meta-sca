@@ -74,5 +74,5 @@ jobs:
         run: |
           cd ${WORKSPACE}
           source poky/oe-init-build-env
-          $(WORKSPACE)/meta-sca/scripts/check_pkgs.py --blacklistfile=$(WORKSPACE)/meta-sca/recipes-sca-test/blacklist.txt priv-kweihmann ${{ secrets.WEBDEPLOY }}
+          ${WORKSPACE}/meta-sca/scripts/check_pkgs.py --blacklistfile=${WORKSPACE}/meta-sca/recipes-sca-test/blacklist.txt priv-kweihmann ${{ secrets.WEBDEPLOY }}
         shell: bash
