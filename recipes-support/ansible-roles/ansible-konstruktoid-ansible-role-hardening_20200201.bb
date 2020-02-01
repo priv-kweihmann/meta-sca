@@ -5,7 +5,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=0a69df9dc95cd69be37c3c6b9a06cfa0"
 
 SRC_URI = "git://github.com/konstruktoid/ansible-role-hardening.git;protocol=https"
-SRCREV = "6080477b066495e6b78c7f32639baac8a9edd277"
+SRCREV = "d08e60d3a2d1023dc43431182ce3ce8e9e049fc5"
 UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
