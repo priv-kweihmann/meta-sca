@@ -31,7 +31,7 @@ jobs:
     steps:
       - name: Check out poky
         run: |
-          git clone git://git.yoctoproject.org/poky.git/ -b $SCABRANCH ${WORKSPACE}/poky
+          git clone git://git.yoctoproject.org/poky.git/ -b master ${WORKSPACE}/poky
         shell: bash
       - name: Check out meta-sca
         run: |
@@ -39,12 +39,12 @@ jobs:
       - if: env.ENABLEMETAOE == '1'
         name: Check out meta-oe
         run: |
-          git clone git://git.openembedded.org/meta-openembedded -b $SCABRANCH ${WORKSPACE}/meta-oe
+          git clone git://git.openembedded.org/meta-openembedded -b master ${WORKSPACE}/meta-oe
         shell: bash
       - if: env.ENABLEMETACLANG == '1'
         name: Check out meta-clang
         run: |
-          git clone https://github.com/kraj/meta-clang.git -b $SCABRANCH ${WORKSPACE}/meta-clang
+          git clone https://github.com/kraj/meta-clang.git -b master ${WORKSPACE}/meta-clang
       - name: Setup poky
         run: |
           cd ${WORKSPACE} 
