@@ -66,6 +66,9 @@ if __name__ == '__main__':
         # 1. no issue open found -> Create one
         # 2. issue found -> alter title, remove staging label (if present)
         matches = [x for x in issue_list if re.match(UPDATE_REGEX.format(up[0]), x.title)]
+        # if exact issue text found -> continue
+        if any([x for x in issue_list if x.title == UPDATE_FORMAT.format(up[0], up[1])]):
+            continue
         if any(matches):
             print("Alter issue from {}:{} -> {}:{}".format(matches[0].title,
                   matches[0].original_labels,

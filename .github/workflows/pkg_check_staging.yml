@@ -70,7 +70,6 @@ jobs:
           source poky/oe-init-build-env
           bitbake-layers add-layer ${WORKSPACE}/meta-clang
         shell: bash
-        shell: bash
       - name: perform package check
         run: |
           cd ${WORKSPACE}
