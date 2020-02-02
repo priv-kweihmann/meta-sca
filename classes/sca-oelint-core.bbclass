@@ -39,7 +39,7 @@ def do_sca_conv_oelint(d):
                                             PackageName=package_name,
                                             Tool="oelint",
                                             File=m.group("file"),
-                                            Line=m.group("line"),
+                                            Line=str(int(m.group("line")) + 1),
                                             Message=m.group("message"),
                                             ID=m.group("id").replace(".", "_"),
                                             Severity=severity_map[m.group("severity")])
