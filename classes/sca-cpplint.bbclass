@@ -50,7 +50,7 @@ def do_sca_conv_cpplint(d):
                                                 Tool="cpplint",
                                                 BuildPath=buildpath,
                                                 File=_filename,
-                                                Line=m.group("line"),
+                                                Line=str(int(m.group("line")) + 1),
                                                 Message=m.group("message"),
                                                 ID=m.group("id"),
                                                 Severity=severity_map[m.group("severity")])
