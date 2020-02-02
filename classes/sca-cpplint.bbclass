@@ -17,8 +17,6 @@ inherit sca-suppress
 def do_sca_conv_cpplint(d):
     import os
     import re
-    from xml.etree.ElementTree import Element, SubElement, Comment, tostring
-    from xml.etree import ElementTree
     
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
@@ -27,43 +25,36 @@ def do_sca_conv_cpplint(d):
 
     severity_map = {
         "5" : "warning",
-        "4" : "info",
+        "4" : "warning",
         "3" : "info",
         "2" : "info",
         "1" : "ignore"
     }
-    pattern = r"^(?P<line>\d+):\s+(?P<message>.*)\s+\[(?P<id>.*)\]\s+\[(?P<severity>\d)\]"
+    pattern = r"^(?P<file>.*):(?P<line>\d+):\s+(?P<message>.*)\s+\[(?P<id>.*)\]\s+\[(?P<severity>\d)\]"
     _findings = []
     _suppress = sca_suppress_init(d)
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        try:
-            data = ElementTree.ElementTree(ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE"))).getroot()
-            for node in data.findall(".//testcase"):
-                _filename = node.attrib.get("name")
-                fail = node.find("failure")
-                if not fail is None:
-                    for m in re.finditer(pattern, fail.text, re.MULTILINE):
-                        try:
-                            g = sca_get_model_class(d,
-                                                PackageName=package_name,
-                                                Tool="cpplint",
-                                                BuildPath=buildpath,
-                                                File=_filename,
-                                                Line=str(int(m.group("line")) + 1),
-                                                Message=m.group("message"),
-                                                ID=m.group("id"),
-                                                Severity=severity_map[m.group("severity")])
-                            if _suppress.Suppressed(g):
-                                continue
-                            if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
-                                continue
-                            if g.Severity in sca_allowed_warning_level(d):
-                                _findings.append(g)
-                        except Exception as exp:
-                            bb.warn(str(exp))
-        except:
-            pass
+        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+            for m in re.finditer(pattern, f.read(), re.MULTILINE):
+                try:
+                    g = sca_get_model_class(d,
+                                        PackageName=package_name,
+                                        Tool="cpplint",
+                                        BuildPath=buildpath,
+                                        File=m.group("file"),
+                                        Line=str(int(m.group("line")) + 1),
+                                        Message=m.group("message"),
+                                        ID=m.group("id"),
+                                        Severity=severity_map[m.group("severity")])
+                    if _suppress.Suppressed(g):
+                        continue
+                    if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
+                        continue
+                    if g.Severity in sca_allowed_warning_level(d):
+                        _findings.append(g)
+                except Exception as exp:
+                    bb.warn(str(exp))
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
@@ -75,16 +66,14 @@ python do_sca_cpplint() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cpplint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cpplint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _args = ["python3", os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "cpplint.py")]
-    _args += ["--output=junit"]
+    _args = ["nativepython3", "-m", "cpplint"]
+    _args += ["--output=emacs"]
     _args += ["--quiet"]
     _args += ["--root={}".format(d.getVar("B", True))]
 
     ## Run
-    cur_dir = os.getcwd()
-    os.chdir(d.getVar("B", True))
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_cpplint.xml")
+    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_cpplint.txt")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     _files = get_files_by_extention(d, 
                                     d.getVar("SCA_SOURCES_DIR"), 
@@ -96,9 +85,9 @@ python do_sca_cpplint() {
             cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
+
     with open(tmp_result, "w") as o:
         o.write(cmd_output)
-    os.chdir(cur_dir)
     
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/cpplint.dm".format(d.getVar("T")))
@@ -112,7 +101,7 @@ python do_sca_cpplint() {
 SCA_DEPLOY_TASK = "do_sca_deploy_cpplint"
 
 python do_sca_deploy_cpplint() {
-    sca_conv_deploy(d, "cpplint", "xml")
+    sca_conv_deploy(d, "cpplint", "txt")
 }
 
 addtask do_sca_cpplint before do_install after do_compile
