@@ -57,7 +57,7 @@ def do_sca_conv_flake8(d):
                                             Tool="flake8",
                                             BuildPath=buildpath,
                                             File=m.group("file"),
-                                            Line=m.group("line"),
+                                            Line=str(int(m.group("line")) + 1),
                                             Column=m.group("col"),
                                             Message=m.group("message"),
                                             ID="{}{}".format(m.group("severity"), m.group("id")),
