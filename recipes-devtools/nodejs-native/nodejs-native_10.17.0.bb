@@ -1,5 +1,5 @@
-# This file is a modified version of the one to be found at 
-# https://git.openembedded.org/meta-openembedded/commit/?h=master-next&id=4c4db545bf203c989d98afda860c762f79c64f5e
+# This file is a modified version to found at 
+# http://cgit.openembedded.org/meta-openembedded/plain/meta-oe/recipes-devtools/nodejs
 # 
 # The recipe and the provided patches are licensed under the following terms
 #
@@ -24,15 +24,13 @@
 DESCRIPTION = "nodeJS Evented I/O for V8 JavaScript"
 HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT & BSD & Artistic-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=be4d5107c64dc3d7c57e3797e1a0674b"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=be980eb7ccafe287cb438076a65e888c"
 
-DEPENDS = "openssl"
+DEPENDS = "openssl-native"
 
-inherit pkgconfig python3native native
-
-COMPATIBLE_MACHINE_armv4 = "(!.*armv4).*"
-COMPATIBLE_MACHINE_armv5 = "(!.*armv5).*"
-COMPATIBLE_MACHINE_mips64 = "(!.*mips64).*"
+inherit pkgconfig
+inherit native
+inherit pythonnative
 
 COMPATIBLE_HOST_riscv64 = "null"
 COMPATIBLE_HOST_riscv32 = "null"
@@ -40,16 +38,14 @@ COMPATIBLE_HOST_riscv32 = "null"
 SRC_URI = "http://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz \
            file://0001-Disable-running-gyp-files-for-bundled-deps.patch \
            file://0003-Install-both-binaries-and-use-libdir.patch \
-           file://0004-v8-don-t-override-ARM-CFLAGS.patch \
-           file://0005-Bind-python-to-nativepython3.patch \
+           file://0004-Make-compatibility-with-gcc-4.8.patch \
+           file://0007-v8-don-t-override-ARM-CFLAGS.patch \
            "
-
-SRC_URI[md5sum] = "1c78a75f5c95321f533ecccca695e814"
-SRC_URI[sha256sum] = "877b4b842318b0e09bc754faf7343f2f097f0fc4f88ab9ae57cf9944e88e7adb"
+           
+SRC_URI[md5sum] = "d5a56d0abf764a91f627f0690cd4b9f3"
+SRC_URI[sha256sum] = "412667d76bd5273c07cb69c215998109fd5bb35c874654f93e6a0132d666c58e"
 
 S = "${WORKDIR}/node-v${PV}"
-
-UPSTREAM_CHECK_REGEX = "(?P<pver>12\.\d+\.\d+)"
 
 # v8 errors out if you have set CCACHE
 CCACHE = ""
@@ -72,58 +68,19 @@ ARCHFLAGS_arm = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '-
 GYP_DEFINES_append_mipsel = " mips_arch_variant='r1' "
 ARCHFLAGS ?= ""
 
-PACKAGECONFIG ??= "icu zlib"
-PACKAGECONFIG[ares] = "--shared-cares,,c-ares"
-PACKAGECONFIG[gyp] = ",,gyp-py2-native"
-PACKAGECONFIG[icu] = "--with-intl=system-icu,--without-intl,icu"
-PACKAGECONFIG[libuv] = "--shared-libuv,,libuv"
-PACKAGECONFIG[nghttp2] = "--shared-nghttp2,,nghttp2"
-PACKAGECONFIG[shared] = "--shared"
-PACKAGECONFIG[zlib] = "--shared-zlib,,zlib"
-
-# We don't want to cross-compile during target compile,
-# and we need to use the right flags during host compile,
-# too.
-EXTRA_OEMAKE = "\
-    CC.host='${CC}' \
-    CFLAGS.host='${CPPFLAGS} ${CFLAGS}' \
-    CXX.host='${CXX}' \
-    CXXFLAGS.host='${CPPFLAGS} ${CXXFLAGS}' \
-    LDFLAGS.host='${LDFLAGS}' \
-    AR.host='${AR}' \
-    \
-    builddir_name=./ \
-"
-
-python do_unpack() {
-    import shutil
-
-    bb.build.exec_func('base_do_unpack', d)
-
-    shutil.rmtree(d.getVar('S') + '/deps/openssl', True)
-    if 'ares' in d.getVar('PACKAGECONFIG'):
-        shutil.rmtree(d.getVar('S') + '/deps/cares', True)
-    if 'gyp' in d.getVar('PACKAGECONFIG'):
-        shutil.rmtree(d.getVar('S') + '/tools/gyp', True)
-    if 'libuv' in d.getVar('PACKAGECONFIG'):
-        shutil.rmtree(d.getVar('S') + '/deps/uv', True)
-    if 'nghttp2' in d.getVar('PACKAGECONFIG'):
-        shutil.rmtree(d.getVar('S') + '/deps/nghttp2', True)
-    if 'zlib' in d.getVar('PACKAGECONFIG'):
-        shutil.rmtree(d.getVar('S') + '/deps/zlib', True)
-}
+PACKAGECONFIG ??= "zlib icu"
+PACKAGECONFIG[zlib] = "--shared-zlib,,zlib-native"
+PACKAGECONFIG[icu] = "--with-intl=system-icu,--without-intl,icu-native"
 
 # Node is way too cool to use proper autotools, so we install two wrappers to forcefully inject proper arch cflags to workaround gypi
 do_configure () {
+    rm -rf ${S}/deps/openssl
     export LD="${CXX}"
     GYP_DEFINES="${GYP_DEFINES}" export GYP_DEFINES
     # $TARGET_ARCH settings don't match --dest-cpu settings
-    # run configure.py through native python to work around
-    # some crude stuff done in the original configure script
-    nativepython3 configure.py --prefix=${prefix} --without-snapshot --shared-openssl \
+   ./configure --prefix=${prefix} --without-snapshot --shared-openssl \
                --dest-cpu="${@map_nodejs_arch(d.getVar('TARGET_ARCH'), d)}" \
                --dest-os=linux \
-               --libdir=${D}${libdir} \
                ${ARCHFLAGS} \
                ${PACKAGECONFIG_CONFARGS}
 }
@@ -149,17 +106,14 @@ do_install () {
     # npm-cli.js continues to use old shebang
     sed "1s^.*^#\!/usr/bin/env node^g" -i ${D}${exec_prefix}/lib/node_modules/npm/bin/npm-cli.js
 
-    # Install the native binaries to provide it within sysroot for the target compilation
+    # Install the native torque to provide it within sysroot for the target compilation
     install -d ${D}${bindir}
     install -m 0755 ${S}/out/Release/torque ${D}${bindir}/torque
-    install -m 0755 ${S}/out/Release/bytecode_builtins_list_generator ${D}${bindir}/bytecode_builtins_list_generator
-    install -m 0755 ${S}/out/Release/gen-regexp-special-case ${D}${bindir}/gen-regexp-special-case
-    install -m 0755 ${S}/out/Release/mkcodecache ${D}${bindir}/mkcodecache
-    install -m 0755 ${S}/out/Release/node_mksnapshot ${D}${bindir}/node_mksnapshot
 }
 
-FILES_${PN} = "${exec_prefix}/lib/node_modules ${bindir}/npm ${bindir}/npx ${datadir}/systemtap"
-DEPENDS += "\
-            bash-native \
-            python3 \
-           "
+PACKAGES =+ "${PN}-npm"
+FILES_${PN}-npm = "${exec_prefix}/lib/node_modules ${bindir}/npm ${bindir}/npx"
+DEPENDS += "bash-native python-native"
+
+PACKAGES =+ "${PN}-systemtap"
+FILES_${PN}-systemtap = "${datadir}/systemtap"
