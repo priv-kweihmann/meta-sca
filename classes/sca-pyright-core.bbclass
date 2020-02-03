@@ -97,7 +97,7 @@ def do_sca_conv_pyright(d):
                                                 Tool="pyright",
                                                 BuildPath=buildpath,
                                                 File=m["file"],
-                                                Line=str(m["range"]["start"]["line"]),
+                                                Line=str(m["range"]["start"]["line"] + 1),
                                                 Message=m["message"],
                                                 ID=hashlib.md5(str.encode(m["message"])).hexdigest(),
                                                 Severity=_severity_map[m["severity"]])
