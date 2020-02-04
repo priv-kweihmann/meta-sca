@@ -54,8 +54,8 @@ To install clone the needed brach(es) to any path on your local system.
 ### Prerequisites
 
 - You need the current standard [__poky__-layer](https://git.yoctoproject.org/cgit/cgit.cgi/poky/) installed onto your local build environment.
-- You need at least **python 3.5** needs to be installed on your build host.
-- You need **glib-2.0-dev** installed on your build host (used for e.g. configcheck, lynis, tiger, upc)
+- You need at least **python 3.5** to be installed on your build host.
+- You need **glib-2.0-dev** package installed on your build host (used for e.g. configcheck, lynis, tiger, upc)
 
 ### Use of containers
 
@@ -87,7 +87,7 @@ To enable the php/lua support you need to add the [meta-oe](http://cgit.openembe
 
 ## Web monitor
 
-If you not quite convinced what this layer can do for you, have a look at the [web monitor](https://priv-kweihmann.github.io/), where all findings from the layer CI pipelines are publically available.
+If you're not quite convinced what this layer can do for you, have a look at the [web monitor](https://priv-kweihmann.github.io/), where all findings from the layer CI pipelines are publically available.
 
 ## Support
 
