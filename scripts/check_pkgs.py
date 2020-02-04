@@ -47,7 +47,7 @@ def get_updates():
             if m.group("recipe") not in layer_list:
                 continue
             res.append((m.group("recipe"), m.group("nextversion").rstrip(".")))
-        else:
+        elif m.group("nextversion") in ["UNKNOWN_BROKEN"]:
             print("Unknown broken for {}".format(m.group("recipe")))
     pattern = r"^INFO:\s+(?P<recipe>[A-Za-z0-9\+\.\-_]+)\s+(?P<curversion>[A-Za-z0-9\.\-_]+)\s+new\scommits\s+.*\s+(?P<rev>[a-f0-9]{2,})"
     res = []
