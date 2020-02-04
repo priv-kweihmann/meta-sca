@@ -13,7 +13,7 @@ DEPENDS += "\
             ninja-native \
             "
 
-UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>cmbc-[\d\.a-f]+)"
+UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>cbmc-[\d\.a-f]+)"
 
 S = "${WORKDIR}/git"
 
