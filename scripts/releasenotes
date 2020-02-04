@@ -1,0 +1,88 @@
+#!/usr/bin/env python3
+import argparse
+import re
+import github3
+
+
+def create_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("branch", help="branch to query")
+    parser.add_argument("tag", help="tag to query from")
+    parser.add_argument("username", help="GitHub username")
+    parser.add_argument("token", help="GitHub token")
+    return parser.parse_args()
+
+
+def get_commits(_args):
+    login = github3.login(_args.username, _args.token)
+    repo = login.repository('priv-kweihmann', 'meta-sca')
+    branch = repo.branch(_args.branch)
+    for tag in repo.tags():
+        if tag.name == _args.tag:
+            return repo.compare_commits(tag.commit.sha, branch.latest_sha()).commits
+    return []
+
+
+def get_issues_from_commits(_args, commits):
+    res = set()
+    for c in commits:
+        if any([x for x in commits if "This reverts commit {}".format(c.sha) in x.message]):
+            continue
+        m = re.search(r"Closes #(?P<id>\d+)", c.message)
+        if m:
+            res.add(int(m.group("id")))
+    return list(res)
+
+
+def get_issues(_args):
+    login = github3.login(_args.username, _args.token)
+    repo = login.repository('priv-kweihmann', 'meta-sca')
+    return repo.issues(state="closed")
+
+
+section_map = {
+    "new": ["FEATURE REQUEST"],
+    "fixes": ["BUG"],
+    "misc": ["ENHANCEMENT"],
+    "updates": ["PACKAGE UPDATE"]
+}
+
+template = """
+# Main features
+
+# New
+
+%%new%%
+
+# Updates
+
+%%updates%%
+
+# Bugfixes
+
+%%fixes%%
+
+# Misc
+
+%%misc%%
+
+"""
+
+if __name__ == '__main__':
+    _args = create_parser()
+    _commitids = get_issues_from_commits(_args, get_commits(_args))
+    _ids = [x for x in get_issues(_args) if x.number in _commitids]
+    for k, v in section_map.items():
+        _id_map = []
+        for label in v:
+            for i in _ids:
+                _labels = [str(x).upper() for x in i.original_labels if str(x) not in [
+                    "Staging", "Update Bot"]]
+                if label in _labels:
+                    _id_map.append("#{} - {} - {}".format(i.number, i.title.strip(),
+                                                          ",".join(_labels)))
+
+        template = template.replace("%%{}%%".format(k),
+                                    "\n".join(["* {}".format(x) for x in sorted(_id_map)]))
+
+    print(template)
