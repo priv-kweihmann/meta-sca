@@ -44,7 +44,7 @@ def do_sca_conv_phpstan(d):
                                                 BuildPath=buildpath,
                                                 Tool="phpstan",
                                                 File=k,
-                                                Line=str(m["line"]),
+                                                Line=str(m["line"] or 1),
                                                 Message=m["message"],
                                                 ID=hashlib.md5(str.encode(m["message"])).hexdigest(),
                                                 Severity=_severity_map[str(m["ignorable"])])
