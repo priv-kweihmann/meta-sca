@@ -6,6 +6,8 @@ PYPI_PACKAGE = "setuptools_scm_git_archive"
 
 DEPENDS = "${PYTHON_PN}-setuptools-scm-native"
 
+UPSTREAM_CHECK_REGEX ?= "/setuptools-scm-git-archive/(?P<pver>(\d+[\.\-_]*)+)"
+
 inherit pypi
 inherit native
 inherit setuptools3

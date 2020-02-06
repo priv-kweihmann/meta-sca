@@ -6,6 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e88ae122f3925d8bde8319060f2ddb8e"
 
 PYPI_PACKAGE = "importlib_metadata"
 
+UPSTREAM_CHECK_REGEX ?= "/importlib-metadata/(?P<pver>(\d+[\.\-_]*)+)"
+
 DEPENDS += "${PYTHON_PN}-zipp-native"
 
 inherit pypi
