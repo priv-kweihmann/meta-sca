@@ -3,8 +3,8 @@ HOMEPAGE = "https://metacpan.org/pod/List::Util"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "901d8cd8859b9b9a56002df1023e94ea"
-SRC_URI[sha256sum] = "bd4086b066fb3b18a0be2e7d9bc100a99aa0f233ad659492340415c7b2bdae99"
+SRC_URI[md5sum] = "eac720c0b94856b5c91c68b19d5cd80d"
+SRC_URI[sha256sum] = "a6eda0eb8fd69890c2369ad12c1fd1b8aab5b38793cac3688d7fc402c630bf79"
 
 S = "${WORKDIR}/Scalar-List-Utils-${PV}"
 
