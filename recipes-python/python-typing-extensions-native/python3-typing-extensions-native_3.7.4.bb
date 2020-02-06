@@ -6,6 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=64fc2b30b67d0a8423c250e0386ed72f"
 
 PYPI_PACKAGE = "typing_extensions"
 
+UPSTREAM_CHECK_REGEX ?= "/typing-extensions/(?P<pver>(\d+[\.\-_]*)+)"
+
 inherit pypi
 inherit native
 inherit setuptools3

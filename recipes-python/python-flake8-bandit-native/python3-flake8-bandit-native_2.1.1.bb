@@ -6,6 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=c3f9dda449e4d01bf0045d5476dcfefd"
 
 PYPI_PACKAGE = "flake8_bandit"
 
+UPSTREAM_CHECK_REGEX ?= "/flake8-bandit/(?P<pver>(\d+[\.\-_]*)+)"
+
 DEPENDS += " \  
             ${PYTHON_PN}-bandit-native \
             ${PYTHON_PN}-flake8-native \

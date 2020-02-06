@@ -6,6 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=97f1494e93daf66a5df47118407a4c4f"
 
 PYPI_PACKAGE = "typed_ast"
 
+UPSTREAM_CHECK_REGEX ?= "/typed-ast/(?P<pver>(\d+[\.\-_]*)+)"
+
 inherit pypi
 inherit native
 inherit setuptools3
