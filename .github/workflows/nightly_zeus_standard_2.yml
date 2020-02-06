@@ -90,7 +90,7 @@ jobs:
         run: |
           cd ${WORKSPACE}
           source poky/oe-init-build-env
-          timeout --foreground $MAXRUNTIME ${WORKSPACE}/meta-sca/recipes-sca-test/test_$PARAMFILE.sh || if [ $? == 124 ]; then echo "Timeout"; else exit 1; fi;
+          timeout --foreground $MAXRUNTIME -k 60s ${WORKSPACE}/meta-sca/recipes-sca-test/test_$PARAMFILE.sh || if [ $? == 124 ]; then echo "Timeout"; else exit 1; fi;
         shell: bash
       - name: get latest webdeloy
         run: |
