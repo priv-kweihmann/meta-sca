@@ -20,5 +20,5 @@ do_install_append() {
     install ${WORKDIR}/vulture.sca.description ${D}${datadir}
 }
 
-SRC_URI[md5sum] = "70abb6433d157618f76465e5232dbae2"
-SRC_URI[sha256sum] = "c200a01ec47c05d75c5feffe096aeb85a4d3f0e18563be125fae72c13b584ea5"
+SRC_URI[md5sum] = "b4b43e80971979831ca2b059733737c7"
+SRC_URI[sha256sum] = "4da42bee8968906fb1f47c64008817515baec8ccff0c31746d1573103a6e920c"
