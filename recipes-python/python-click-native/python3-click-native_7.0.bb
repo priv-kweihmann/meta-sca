@@ -8,6 +8,8 @@ DEPENDS += "${PYTHON_PN}-native"
 
 PYPI_PACKAGE = "Click"
 
+UPSTREAM_CHECK_REGEX ?= "/click/(?P<pver>(\d+[\.\-_]*)+)"
+
 inherit pypi
 inherit setuptools3
 inherit native

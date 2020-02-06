@@ -2,7 +2,7 @@ SUMMARY = "A toolkit with common assertions and mocks that plays nicely with the
 HOMEPAGE = "https://github.com/stretchr/testify"
 
 SRC_URI = "\
-	git://github.com/stretchr/testify.git;protocol=https;tag=v1.4.0;name=testify;destsuffix=git/src/github.com/stretchr/testify \
+	git://github.com/stretchr/testify.git;protocol=https;tag=v${PV};name=testify;destsuffix=git/src/github.com/stretchr/testify \
 	git://github.com/stretchr/objx.git;protocol=https;tag=v0.1.0;name=objx;destsuffix=git/src/github.com/stretchr/objx \
     "
 
