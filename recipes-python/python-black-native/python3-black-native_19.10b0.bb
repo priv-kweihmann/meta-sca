@@ -15,6 +15,8 @@ DEPENDS += " \
 
 PYPI_PACKAGE = "black"
 
+UPSTREAM_CHECK_REGEX ?= "/${PYPI_PACKAGE}/(?P<pver>(\d+[a-z0-9\.\-_]*)+)"
+
 inherit pypi
 inherit native
 inherit setuptools3

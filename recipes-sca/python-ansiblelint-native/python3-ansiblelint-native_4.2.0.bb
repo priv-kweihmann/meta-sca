@@ -9,6 +9,9 @@ SRC_URI = "https://files.pythonhosted.org/packages/13/26/3dbb5aee479c3e60b97ebba
 SRC_URI[md5sum] = "fb1931a3222d1d534cb10cbd97b54f5f"
 SRC_URI[sha256sum] = "b9fc9a6564f5d60a4284497f966f38ef78f0e2505edbe2bd1225f1ade31c2d8a"
 
+UPSTREAM_CHECK_URI ?= "https://pypi.python.org/pypi/ansible_lint/"
+UPSTREAM_CHECK_REGEX = "ansible_lint-(?P<pver>\d+\.\d+\.\d+)-py2\.py3-none-any\.whl"
+
 DEPENDS += "\
             ${PYTHON_PN}-ansible-native \
             ${PYTHON_PN}-bcrypt-native \

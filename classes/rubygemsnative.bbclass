@@ -85,3 +85,6 @@ FILES_${PN} += "\
                 ${GEM_DIR}/specifications \
                 ${GEM_DIR}/extensions \
                 "
+
+UPSTREAM_CHECK_URI ?= "https://rubygems.org/gems/${GEM_NAME}/versions"
+UPSTREAM_CHECK_REGEX ?= "/gems/${GEM_NAME}/versions/(?P<pver>(\d+[\.\-_]*)+)"
