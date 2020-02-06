@@ -1,4 +1,6 @@
 #! /usr/bin/env python3
+# SPDX-License-Identifier: BSD-2-Clause
+# Copyright (c) 2020, Konrad Weihmann
 # This script checks all recipes from this layer for updates
 # and creates GitHub issues from that info
 
@@ -22,39 +24,49 @@ def create_parser():
     return parser.parse_args()
 
 
-def get_updates():
+def get_updates(_blacklist):
     try:
         layer_list = subprocess.check_output(["bitbake-layers", "show-recipes", "-l", "meta-sca", "-b"],
                                              universal_newlines=True, stderr=subprocess.STDOUT)
     except subprocess.CalledProcessError as e:
         layer_list = e.stdout or ""
 
+    __beginmarker = "=== Available recipes: ==="
+    layer_list = layer_list[layer_list.find(__beginmarker) + len(__beginmarker):]
+
     layer_list = [x.strip().rstrip(":")
                   for x in layer_list.split("\n") if ":" in x]
 
-    try:
-        devtool_out = subprocess.check_output(["devtool", "check-upgrade-status"] + layer_list,
-                                              universal_newlines=True, stderr=subprocess.STDOUT)
-    except subprocess.CalledProcessError as e:
-        devtool_out = e.stdout or ""
-
-    pattern = r"^INFO:\s+(?P<recipe>[A-Za-z0-9\+\.\-_]+)\s+(?P<curversion>[A-Za-z0-9\.\-_]+)\s+(?P<nextversion>[A-Za-z0-9\.\-_]+)\s+.*"
+    devtool_out = ""
     res = []
-    for m in re.finditer(pattern, devtool_out, re.MULTILINE):
-        if m.group("nextversion") not in ["UNKNOWN_BROKEN", "new"]:
-            if m.group("nextversion").rstrip(".") == m.group("curversion"):
-                continue
+    for l in layer_list:
+        if l in _blacklist:
+            continue
+        print("Checking {}...".format(l), end='', flush=True)
+        try:
+            devtool_out = subprocess.check_output(["devtool", "check-upgrade-status"] + [l],
+                                                   universal_newlines=True, 
+                                                   stderr=subprocess.STDOUT)
+        except subprocess.CalledProcessError as e:
+            devtool_out = e.stdout or ""
+        pattern = r"^INFO:\s+(?P<recipe>[A-Za-z0-9\+\.\-_]+)\s+(?P<curversion>[A-Za-z0-9\.\-_]+)\s+(?P<nextversion>[A-Za-z0-9\.\-_]+)\s+.*"
+        for m in re.finditer(pattern, devtool_out, re.MULTILINE):
+            if m.group("nextversion") not in ["UNKNOWN_BROKEN", "new"]:
+                if m.group("nextversion").rstrip(".") == m.group("curversion"):
+                    continue
+                if m.group("recipe") not in layer_list:
+                    continue
+                print("update to {} found...".format(m.group("nextversion").rstrip(".")), end='', flush=True)
+                res.append((m.group("recipe"), m.group("nextversion").rstrip(".")))        
+            elif m.group("nextversion") in ["UNKNOWN_BROKEN"]:
+                print("Unknown broken...", end='', flush=True)
+        pattern = r"^INFO:\s+(?P<recipe>[A-Za-z0-9\+\.\-_]+)\s+(?P<curversion>[A-Za-z0-9\.\-_]+)\s+new\scommits\s+.*\s+(?P<rev>[a-f0-9]{2,})"
+        for m in re.finditer(pattern, devtool_out, re.MULTILINE):
             if m.group("recipe") not in layer_list:
                 continue
-            res.append((m.group("recipe"), m.group("nextversion").rstrip(".")))
-        elif m.group("nextversion") in ["UNKNOWN_BROKEN"]:
-            print("Unknown broken for {}".format(m.group("recipe")))
-    pattern = r"^INFO:\s+(?P<recipe>[A-Za-z0-9\+\.\-_]+)\s+(?P<curversion>[A-Za-z0-9\.\-_]+)\s+new\scommits\s+.*\s+(?P<rev>[a-f0-9]{2,})"
-    res = []
-    for m in re.finditer(pattern, devtool_out, re.MULTILINE):
-        if m.group("recipe") not in layer_list:
-            continue
-        res.append((m.group("recipe"), m.group("rev").rstrip(".")))
+            print("update to {} found...".format(m.group("rev").rstrip(".")), end='', flush=True)
+            res.append((m.group("recipe"), m.group("rev").rstrip(".")))
+        print("[done]", flush=True)
     return res
 
 def get_blacklist(_file):
@@ -65,12 +77,11 @@ def get_blacklist(_file):
 
 if __name__ == '__main__':
     _args = create_parser()
-    updates = get_updates()
+    _blacklist = get_blacklist(_args.blacklistfile)
+    updates = get_updates(_blacklist)
     login = github3.login(_args.username, _args.token)
     repo = login.repository('priv-kweihmann', 'meta-sca')
     issue_list = [issue for issue in repo.issues(state="open")]
-    _blacklist = get_blacklist(_args.blacklistfile)
-    print("Blacklist: {}".format(",".join(_blacklist)))
     for up in updates:
         if up[0] in _blacklist:
             continue
