@@ -2,7 +2,7 @@ name: "Package check"
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "* */12 * * *"
 
 jobs:
   qemux86:
