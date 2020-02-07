@@ -4,8 +4,8 @@ HOMEPAGE = "https://github.com/mgechev/revive"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://License.txt;md5=59252b93b9ae85dab91487d72990f77c"
 
-SRC_URI[md5sum] = "0e503ba9669e5c0d89abbbee5357cf6f"
-SRC_URI[sha256sum] = "8706f6013da6ebfde5f9483c906593ae296b938358ca363798ad23f47df76435"
+SRC_URI[md5sum] = "265803d907e520f43583bb0c669a252f"
+SRC_URI[sha256sum] = "c20ab6c8ba6d129f90d470b7869e2e92777cfd189cf11b196623b49927ac8fbf"
 
 GEM_NAME = "reek"
 
