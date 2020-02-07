@@ -80,6 +80,7 @@ python do_sca_alexkohler() {
                 tmp_output = e.stdout or ""
             lines = [x.strip() for x in tmp_output.split("\n") if x and not x.startswith("running on package")]
             lines = ["[{}] {}".format(mod, x) for x in lines]
+            lines = lines.replace("[", "\n[")
             cmd_output += "\n".join(lines)
     with open(tmp_result, "w") as o:
         o.write(cmd_output)
