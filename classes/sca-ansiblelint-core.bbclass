@@ -66,6 +66,7 @@ python do_sca_ansiblelint_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "ansiblelint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "ansiblelint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
+    os.environ["HOME"] = d.getVar("T")
     _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "python3-native", "python3")]
     _args += ["-m", "ansiblelint"]
     _args += ["-p"]
