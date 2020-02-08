@@ -2,12 +2,12 @@
 
 ![https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CPython%2CShell%2Cperl-informational](https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CPython%2CShell%2Cperl-informational)
 
-[![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=rocko)](https://travis-ci.org/priv-kweihmann/meta-sca)
-[![Nightly classic](https://github.com/priv-kweihmann/meta-sca/workflows/[rocko]-classic/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
+[![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=sumo)](https://travis-ci.org/priv-kweihmann/meta-sca)
+[![Nightly classic](https://github.com/priv-kweihmann/meta-sca/workflows/[sumo]-classic/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
 
 ## Notice
 
-This is the release branch for YOCTO `rocko`.
+This is the release branch for YOCTO `sumo`.
 
 As this layer ran out of support by YOCTO, don't expect regular updates here as well.
 
@@ -61,7 +61,7 @@ To install clone the needed brach(es) to any path on your local system.
 
 ### Prerequisites
 
-- You need the `rocko` standard [__poky__-layer](https://git.yoctoproject.org/cgit/cgit.cgi/poky/?h=rocko) installed onto your local build environment.
+- You need the `sumo` standard [__poky__-layer](https://git.yoctoproject.org/cgit/cgit.cgi/poky/?h=sumo) installed onto your local build environment.
 - You need at least **python 3.4** needs to be installed on your build host.
 - You need **glib-2.0-dev** installed on your build host (used for e.g. configcheck, lynis, tiger, upc)
 
