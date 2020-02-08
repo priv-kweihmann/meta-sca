@@ -78,9 +78,9 @@ python do_sca_alexkohler() {
                 tmp_output = subprocess.check_output([mod] + _files, universal_newlines=True, stderr=subprocess.STDOUT)
             except subprocess.CalledProcessError as e:
                 tmp_output = e.stdout or ""
+            tmp_output = tmp_output.replace("[", "\n[")
             lines = [x.strip() for x in tmp_output.split("\n") if x and not x.startswith("running on package")]
             lines = ["[{}] {}".format(mod, x) for x in lines]
-            lines = lines.replace("[", "\n[")
             cmd_output += "\n".join(lines)
     with open(tmp_result, "w") as o:
         o.write(cmd_output)
