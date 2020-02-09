@@ -91,7 +91,7 @@ fakeroot python do_sca_sudokiller() {
         _password = "-s \"{}\"".format(d.getVar("SCA_SUDOKILLER_PASSWORD"))
     _args = ["/bin/sh", "-c", "[ ! -z \"$(which sudo)\" ] && cd /usr/bin/sudokiller && ./sudokiller -c {} | sed 's/\x1b\[[0-9;]*m//g'".format(_password)]
 
-    cmd_output = sca_crossemu(d, _args, ["sudokiller"], "sudokiller", ";")
+    cmd_output, _ = sca_crossemu(d, _args, ["sudokiller"], "sudokiller", ";")
 
     with open(result_raw_file, "wb") as o:
         o.write(cmd_output)

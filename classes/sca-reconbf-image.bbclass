@@ -83,7 +83,7 @@ fakeroot python do_sca_reconbf() {
 
     _args = ["/bin/sh", "-c", "mkdir -p /tmp;python3 -m reconbf -c {} -rt json -dm all -rf /tmp/reconbf.result >/dev/null 2>&1;cat /tmp/reconbf.result".format(d.getVar("SCA_RECONBF_CONFIG"))]
 
-    cmd_output = sca_crossemu(d, _args, ["reconbf"], "reconbf", ";")
+    cmd_output, _ = sca_crossemu(d, _args, ["reconbf"], "reconbf", ";")
 
     if not isinstance(cmd_output, str):
         cmd_output = cmd_output.decode("utf-8")
