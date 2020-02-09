@@ -86,7 +86,7 @@ fakeroot python do_sca_configcheck() {
         _conv_args_name = "do_sca_configcheck_conv_{}".format(mod)
         try:
             _args = sca_get_func_by_name(d, _run_args_name)(d)
-            _cmd_output = sca_crossemu(d, _args, [], "configcheck", ";", nocreateroot=True)
+            _cmd_output, _ = sca_crossemu(d, _args, [], "configcheck", ";", nocreateroot=True)
             if _cmd_output:
                 _cmd_output = _cmd_output.decode("utf-8")
                 cmd_output += _cmd_output + "\n###########\n"

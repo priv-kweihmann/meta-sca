@@ -64,7 +64,7 @@ fakeroot python do_sca_nixauditor() {
 
     _args = ["/bin/sh", "-c", "/usr/bin/nixauditor | sed 's/\x1b\[[0-9;]*m//g'"]
 
-    cmd_output = sca_crossemu(d, _args, ["nixauditor"], "nixauditor", ";")
+    cmd_output, _ = sca_crossemu(d, _args, ["nixauditor"], "nixauditor", ";")
 
     with open(result_raw_file, "wb") as o:
         o.write(cmd_output)
