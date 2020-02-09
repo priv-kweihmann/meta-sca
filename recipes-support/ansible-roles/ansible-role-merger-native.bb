@@ -10,7 +10,7 @@ inherit native python3native
 DEPENDS += "${PYTHON_PN}-pyyaml-native"
 
 do_install() {
-    install -d ${D}/${bindir}/ansible-roles/
+    install -d ${D}/${bindir}
     sed -i "s#/usr/bin/env python3#/usr/bin/env nativepython3#g" ${WORKDIR}/ansible-role-merger
     install -m 0755 ${WORKDIR}/ansible-role-merger ${D}/${bindir}
 }

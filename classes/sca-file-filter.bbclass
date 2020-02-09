@@ -39,3 +39,15 @@ def sca_filter_files(d, path, addfilter=[]):
 
     res += sca_filter_by_license(d)
     return sorted(list(set(res)))
+
+def sca_get_installed_pkgs(d):
+    import os
+    import json
+
+    try:
+        with open(d.getVar("SCA_IMAGE_PKG_LIST")) as i:
+            _json = json.load(i)
+            return _json.keys()
+    except:
+        pass
+    return []
