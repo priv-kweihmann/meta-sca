@@ -113,7 +113,7 @@ fakeroot python do_sca_upc() {
 
     _args = ["/bin/sh", "-c", "cd /usr/bin/upc && ./upc.sh --checks {}".format(",".join(clean_split(d, "SCA_UPC_MODULES")))]
 
-    cmd_output = sca_crossemu(d, _args, ["upc"], "upc", ";")
+    cmd_output, _ = sca_crossemu(d, _args, ["upc"], "upc", ";")
 
     with open(result_raw_file, "wb") as o:
         o.write(cmd_output)
