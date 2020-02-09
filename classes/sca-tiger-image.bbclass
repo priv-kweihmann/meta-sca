@@ -72,7 +72,7 @@ fakeroot python do_sca_tiger() {
 
     _args = ["/bin/sh", "-c", "/usr/bin/tiger && cat /usr/share/tiger/security.report.*"]
 
-    cmd_output = sca_crossemu(d, _args, ["tiger"], "tiger", ";")
+    cmd_output, _ = sca_crossemu(d, _args, ["tiger"], "tiger", ";")
 
     with open(result_raw_file, "wb") as o:
         o.write(cmd_output)

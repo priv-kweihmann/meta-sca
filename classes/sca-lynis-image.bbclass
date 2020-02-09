@@ -75,7 +75,7 @@ fakeroot python do_sca_lynis() {
 
     _args = ["/bin/sh", "/usr/bin/lynis", "--verbose" ,"--no-colors", "audit", "system"]
 
-    cmd_output = sca_crossemu(d, _args, ["lynis"], "lynis", "sca_lynis_do_replace_var_log;")
+    cmd_output, _ = sca_crossemu(d, _args, ["lynis"], "lynis", "sca_lynis_do_replace_var_log;")
 
     with open(result_raw_file, "wb") as o:
         o.write(cmd_output)
