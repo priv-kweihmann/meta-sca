@@ -15,10 +15,10 @@
     "nginx_add_header": [
         "X-Frame-Options SAMEORIGIN",
         "X-Content-Type-Options nosniff",
-        "X-XSS-Protection \"1; mode=block\"",
+        "X-XSS-Protection \"1; mode=block\""
     ],
     "nginx_ssl_protocols": "TLSv1.2",
     "nginx_ssl_ciphers": "see defaults.yml",
     "nginx_ssl_prefer_server_ciphers": "on",
-    "nginx_dh_size": 2048,
+    "nginx_dh_size": 2048
 }
