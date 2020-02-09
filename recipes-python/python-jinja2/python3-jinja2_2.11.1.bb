@@ -5,6 +5,7 @@ LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.rst;md5=5dc88300786f1c214c1e9827a5229462"
 
 DEPENDS += "${PYTHON_PN}-markupsafe"
+RDEPENDS_${PN} += "${PYTHON_PN}-markupsafe"
 
 PYPI_PACKAGE = "Jinja2"
 
