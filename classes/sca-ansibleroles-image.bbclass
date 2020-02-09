@@ -1,7 +1,6 @@
 ## SPDX-License-Identifier: BSD-2-Clause
 ## Copyright (c) 2020, Konrad Weihmann
 
-SCA_ANSIBLEROLES_EXTRA_SUPPRESS ?= ""
 SCA_ANSIBLEROLES_EXTRA_FATAL ?= ""
 SCA_ANSIBLEROLES_ROLES ?= "\
                            dev-sec.mysql-hardening \
@@ -68,7 +67,6 @@ def do_sca_conv_ansibleroles(d):
                         if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                             continue
                         if g.Severity in sca_allowed_warning_level(d):
-                            bb.warn(str(g))
                             _findings.append(g)
                 except Exception as exp:
                     bb.warn(str(exp))
@@ -91,6 +89,9 @@ def sca_ansibleroles_create_config(d, rootfs, path, playbooks):
     with open(path, "w") as o:
         o.write(output)
 
+# Some of the roles try to os specific settings
+# fake that by symlinking againt the one specified
+# with SCA_ANSIBLEROLES_FAKEOS
 do_sca_ansibleroles_fix_osvars() {
     for f in dev-sec.os-hardening dev-sec.mysql-hardening dev-sec.nginx-hardening dev-sec.ssh-hardening; do
         if [ -d ${IMAGE_ROOTFS}/${datadir}/ansible/roles/${f}/vars ]; then
@@ -106,49 +107,45 @@ fakeroot python do_sca_ansibleroles() {
     import subprocess
 
     if not os.path.exists("/dev/shm"):
-        bb.fatal("SCA: ansibleroles module requires /dev/shm on the host.\nThis is a known issue of python/ansible.\nCan't proceed, please remove 'ansiberoles' from SCA_AVAILABLE_MODULES")
+        bb.warn("SCA: ansibleroles module requires /dev/shm on the host.\nThis is a known issue of python/ansible.\nThis module won't produce any output till that is fixed")
+    else:
+        d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_ANSIBLEROLES_EXTRA_FATAL"))
+        result_raw_file = os.path.join(d.getVar("T"), "sca_raw_ansibleroles.txt")
+        d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_ANSIBLEROLES_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_ANSIBLEROLES_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "ansibleroles-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "ansibleroles-{}-fatal".format(d.getVar("SCA_MODE"))))
+        os.environ["ANSIBLE_STDOUT_CALLBACK"] = "oneline"
+        os.environ["ANSIBLE_ACTION_WARNINGS"] = "False"
+        os.environ["ANSIBLE_COMMAND_WARNINGS"] = "False"
+        os.environ["ANSIBLE_LOCALHOST_WARNING"] = "False"
+        # First create rootfs
+        cmd_output, rootfs_path = sca_crossemu(d, [], ["packagegroup-ansible-roles"], "ansibleroles", "do_sca_ansibleroles_fix_osvars;")
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_ansibleroles.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
+        _args = ["/bin/sh", "-c", "ansible-playbook --flush-cache /rolebook.yaml"]
+        cmd_output = b""
 
-    os.environ["ANSIBLE_STDOUT_CALLBACK"] = "oneline"
-    os.environ["ANSIBLE_ACTION_WARNINGS"] = "False"
-    os.environ["ANSIBLE_COMMAND_WARNINGS"] = "False"
-    os.environ["ANSIBLE_LOCALHOST_WARNING"] = "False"
-    # First create rootfs
-    cmd_output, rootfs_path = sca_crossemu(d, [], ["packagegroup-ansible-roles"], "ansibleroles", "do_sca_ansibleroles_fix_osvars;")
+        _installed_pkgs = sca_get_installed_pkgs(d)
+        _role_flags = d.getVarFlags("SCA_ANSIBLEROLES_ROLES")
+        # As playbooks could crash run each in a single instance
+        for pb in clean_split(d, "SCA_ANSIBLEROLES_ROLES"):
+            # Check if the package that is checked is installed
+            if pb in _role_flags.keys():
+                if not any(intersect_lists(d, _installed_pkgs, _role_flags[pb].split(","))):
+                    bb.note("Skipping {}, as none of {} is installed".format(pb, _role_flags[pb]))
+                    continue
+            sca_ansibleroles_create_config(d, rootfs_path, os.path.join(rootfs_path, "rolebook.yaml"), [pb])
+            _tmp, _ = sca_crossemu(d, _args, [], "ansibleroles", "", nocreateroot=True, addargs=["-b", "/dev/shm:/dev/shm"])
+            cmd_output += _tmp
 
-    _args = ["/bin/sh", "-c", "ansible-playbook --flush-cache /rolebook.yaml"]
-    cmd_output = b""
+        with open(result_raw_file, "wb") as o:
+            o.write(cmd_output)
 
-    _installed_pkgs = sca_get_installed_pkgs(d)
-    _role_flags = d.getVarFlags("SCA_ANSIBLEROLES_ROLES")
-    # As playbooks could crash run each in a single instance
-    for pb in clean_split(d, "SCA_ANSIBLEROLES_ROLES"):
-        # Check if the package that is checked is installed
-        if pb in _role_flags.keys():
-            if not any(intersect_lists(d, _installed_pkgs, _role_flags[pb].split(","))):
-                bb.note("Skipping {}, as none of {} is installed".format(pb, _role_flags[pb]))
-                continue
-        sca_ansibleroles_create_config(d, rootfs_path, os.path.join(rootfs_path, "rolebook.yaml"), [pb])
-        _tmp, _ = sca_crossemu(d, _args, [], "ansibleroles", "", nocreateroot=True, addargs=["-b", "/dev/shm:/dev/shm"])
-        cmd_output += _tmp
+        ## Create data model
+        d.setVar("SCA_DATAMODEL_STORAGE", "{}/ansibleroles.dm".format(d.getVar("T")))
+        dm_output = do_sca_conv_ansibleroles(d)
+        with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
+            o.write(dm_output)
 
-    with open(result_raw_file, "wb") as o:
-        o.write(cmd_output)
-
-    ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/ansibleroles.dm".format(d.getVar("T")))
-    dm_output = do_sca_conv_ansibleroles(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
-        o.write(dm_output)
-
-    sca_task_aftermath(d, "ansibleroles", get_fatal_entries(d))
+        sca_task_aftermath(d, "ansibleroles", get_fatal_entries(d))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_ansibleroles_image"
@@ -162,5 +159,3 @@ addtask do_sca_deploy_ansibleroles_image before do_image_complete after do_sca_a
 
 do_sca_ansibleroles[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
 do_sca_deploy_ansibleroles_image[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-
-DEPENDS += "sca-image-ansibleroles-rules-native"
