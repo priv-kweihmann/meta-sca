@@ -61,6 +61,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           alexkohler \
                           ansible \
                           ansiblelint \
+                          ansibleroles \
                           bandit \
                           bashate \
                           bitbake \

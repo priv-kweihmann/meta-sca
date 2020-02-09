@@ -16,6 +16,9 @@ _data = {
     "ansiblelint": [
         "bad-ansible"
     ],
+    "ansibleroles": [
+        "core-image-minimal-scatest"
+    ],
     "bandit": [
         "python3-git"
     ],
