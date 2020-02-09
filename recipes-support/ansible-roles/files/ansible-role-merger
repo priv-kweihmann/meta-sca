@@ -13,7 +13,7 @@ def create_parser():
 
 
 if __name__ == '__main__':
-    res = [{"hosts": "localhost", "roles": []}]
+    res = [{"hosts": "localhost", "gather_facts": "yes", "roles": []}]
     args = create_parser()
 
     for f in args.files:

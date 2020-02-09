@@ -1,0 +1,16 @@
+{
+    "buildspeed": 5,
+    "execspeed": 4,
+    "languages": [
+        "system"
+    ],
+    "quality": 8,
+    "scope": [
+        "security"
+    ],
+    "score": {
+        "security": [
+            "ansibleroles.ansibleroles.*"
+        ]
+    }
+}
