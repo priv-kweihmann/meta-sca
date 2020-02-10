@@ -2,7 +2,12 @@
 ## Copyright (c) 2019, Konrad Weihmann
 
 ## File extension filter list (whitespace separated)
-SCA_MULTIMETRIC_FILE_FILTER ?= ".c .C .c++ .cc .cp .cpp .CPP .cxx .go .h .H .h++ .hh .hpp .hxx .idc .js .jsm .lua .php .php3 .php4 .php5 .pl .pm .pxd .pxi .py .pyx .t .wlua"
+SCA_MULTIMETRIC_FILE_FILTER ?= ".c .C .c++ .cc .cp .cpp .CPP \
+                                .cxx .go .h .H .h++ .hh .hpp \
+                                .hxx .idc .js .jsm .lua .php \
+                                .php3 .php4 .php5 .pl .pm .pxd \
+                                .pxi .py .pyx .rb .ruby .duby \
+                                .t .wlua"
 SCA_MULTIMETRIC_EXTRA_SUPPRESS ?= ""
 SCA_MULTIMETRIC_EXTRA_FATAL ?= ""
 
