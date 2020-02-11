@@ -15,6 +15,7 @@ inherit sca-suppress
 def do_sca_conv_rats(d):
     import os
     import re
+    import hashlib
     from xml.etree.ElementTree import Element, SubElement, Comment, tostring
     from xml.etree import ElementTree
     
@@ -47,9 +48,12 @@ def do_sca_conv_rats(d):
                         _msg = re.sub(r"\s{2,}", " ", _text).strip()
                     for _i in node.iter(tag="type"):
                         _id = _i.text.replace(" ", "_")
-                    
                     if not _severity in sca_allowed_warning_level(d):
                         continue
+                    # address the bug that rats sometimes doesn't report 
+                    # a proper ID for the findings
+                    if not _id:
+                        _id = hashlib.md5(str.encode(_msg)).hexdigest()
                     for _i in node.iter(tag="file"):
                         _filename = ""
                         for _j in _i.iter(tag="name"):
