@@ -21,7 +21,7 @@ def do_sca_conv_jsonlint(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     items = []
-    pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<col>\d+):(?P<severity>(warning|error|info)):(?P<id>.*):(?P<message>.*)$"
+    pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<col>\d+):(?P<severity>(warning|error|info)):(?P<id>.*?):(?P<message>.*)$"
 
     severity_map = {
         "error" : "error",
@@ -74,7 +74,7 @@ python do_sca_jsonlint_core() {
                 with open(_f) as i:
                     json.load(i)
             except json.JSONDecodeError as e:
-                o.write("{}:{}:{}:error:jsonlint.parsererror:{}\n".format(e.doc, e.lineno, e.colno, e.msg))
+                o.write("{}:{}:{}:error:jsonlint.parsererror:{}\n".format(_f, e.lineno, e.colno, e.msg))
 
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/jsonlint.dm".format(d.getVar("T")))
