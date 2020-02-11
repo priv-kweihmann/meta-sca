@@ -22,13 +22,15 @@ def do_sca_conv_standard(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<col>\d+):\s+(?P<msg>.*)\s+\((?P<id>.*)\)"
+    pattern_parser = r"^(?P<file>.*?):(?P<line>\d+):(?P<col>\d+):\s+Parsing error:\s+(?P<msg>.*)\s+\(.*"
 
     _suppress = sca_suppress_init(d)
     _findings = []
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
-            for m in re.finditer(pattern, f.read(), re.MULTILINE):
+            content = f.read()
+            for m in re.finditer(pattern, content, re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
@@ -40,6 +42,30 @@ def do_sca_conv_standard(d):
                                             Message=m.group("msg"),
                                             ID=m.group("id"),
                                             Severity="warning")
+                    if g.ID == "null":
+                        # this is a parser error, which is catched by
+                        # the pattern below
+                        continue
+                    if _suppress.Suppressed(g):
+                        continue
+                    if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
+                        continue
+                    if g.Severity in sca_allowed_warning_level(d):
+                        _findings.append(g)
+                except Exception as exp:
+                    bb.warn(str(exp))
+            for m in re.finditer(pattern_parser, content, re.MULTILINE):
+                try:
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            File=m.group("file"),
+                                            BuildPath=buildpath,
+                                            Column=m.group("col"),
+                                            Tool="standard",
+                                            Line=m.group("line"),
+                                            Message=m.group("msg"),
+                                            ID="parser_error",
+                                            Severity="error")
                     if _suppress.Suppressed(g):
                         continue
                     if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
