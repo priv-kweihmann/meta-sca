@@ -42,7 +42,23 @@ def do_sca_create_crossemu_img(d, tool, addpkgs, postcmd=""):
     dc.appendVar("PACKAGE_INSTALL", " " + " ".join(pkg_list))
     dc.setVar("IMAGE_ROOTFS", _target_path)
     dc.setVar("T", "{}_{}".format(d.getVar("T"), tool))
+
+    ## As we need to override WORKDIR
+    ## to apply a conflict free version of 
+    ## the package install cache
+    ## we have to perform a backup of certain vars
+    ## which depend on WORKDIR, but shouldn't get overriden
+    ## first
+    _backup_vars = {"RECIPE_SYSROOT": "", "RECIPE_SYSROOT_NATIVE": ""}
+    for item in _backup_vars.keys():
+        _backup_vars[item] = d.getVar(item)
+
     dc.setVar("WORKDIR", os.path.join(d.getVar("WORKDIR"), "work_{}".format(tool)))
+
+    ## Then we apply the previously expanded values
+    ## back to the vars
+    for k, v in _backup_vars.items():
+        dc.setVar(k, v)
 
     ## Create dirs
     os.makedirs(dc.getVar("T"), exist_ok=True)
