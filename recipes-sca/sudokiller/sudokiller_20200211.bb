@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/TH3xACE/SUDO_KILLER"
 
 SRC_URI = " git://github.com/TH3xACE/SUDO_KILLER.git;protocol=https \
             file://sudokiller.sca.description"
-SRCREV = "eef689995d3ee9f2ddf4b1a5237387fca05954c0"
+SRCREV = "a9ac9bfe7cd6482a5f5d4414e5cdaff9927d12f5"
 UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
@@ -27,7 +27,7 @@ do_install() {
     install -d ${D}${bindir}/sudokiller
     cp -r ${S}/* ${D}${bindir}/sudokiller/
     # Rename main script to strip the version
-    mv ${D}${bindir}/sudokiller/SUDO_KILLER*.sh ${D}${bindir}/sudokiller/sudokiller
+    mv ${D}${bindir}/sudokiller/SUDO_KILLERv2*.sh ${D}${bindir}/sudokiller/sudokiller
     chmod +x ${D}${bindir}/sudokiller/sudokiller
     chown -R root:root ${D}${bindir}/sudokiller/
 }
