@@ -24,7 +24,7 @@
 DESCRIPTION = "nodeJS Evented I/O for V8 JavaScript"
 HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT & BSD & Artistic-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=be4d5107c64dc3d7c57e3797e1a0674b"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=126890df35936bbffe9fa00c90ad4870"
 
 DEPENDS = "openssl"
 
@@ -39,13 +39,13 @@ COMPATIBLE_HOST_riscv32 = "null"
 
 SRC_URI = "http://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz \
            file://0001-Disable-running-gyp-files-for-bundled-deps.patch \
-           file://0003-Install-both-binaries-and-use-libdir.patch \
-           file://0004-v8-don-t-override-ARM-CFLAGS.patch \
-           file://0005-Bind-python-to-nativepython3.patch \
+           file://0005-Install-both-binaries-and-use-libdir.patch \
+           file://0003-v8-don-t-override-ARM-CFLAGS.patch \
+           file://0004-Bind-python-to-nativepython3.patch \
            "
 
-SRC_URI[md5sum] = "e0299d7be20a2c8d5dd932f8494b072b"
-SRC_URI[sha256sum] = "d2fb4fa80ccf321570552b0a6e6b5f2aedeb281a8450207b057cf54c54d5a81b"
+SRC_URI[md5sum] = "5677fc8907a16ab3c1f36f0605e83767"
+SRC_URI[sha256sum] = "b8c90637473fce4444a0b4fdae2c1560a1cf9f5959fdf9670541fc52868cf925"
 
 S = "${WORKDIR}/node-v${PV}"
 
