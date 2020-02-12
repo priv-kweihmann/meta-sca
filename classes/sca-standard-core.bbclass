@@ -58,7 +58,7 @@ def do_sca_conv_standard(d):
                 try:
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
-                                            File=m.group("file"),
+                                            File=m.group("file").strip(),
                                             BuildPath=buildpath,
                                             Column=m.group("col"),
                                             Tool="standard",
