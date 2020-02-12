@@ -23,7 +23,7 @@ def do_sca_conv_flawfinder(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     items = []
-    pattern = r"^(?P<file>.*):(?P<line>\d+):\s+\[(?P<severity>\d+)\]\s+\(.*\)\s+(?P<id>.*):(?P<msg>.*)"
+    pattern = r"^(?P<file>.*):(?P<line>\d+):\s+\[(?P<severity>\d+)\]\s+\(.*\)\s+(?P<id>.*?):(?P<msg>.*)"
 
     severity_map = {
         "5" : "error",
