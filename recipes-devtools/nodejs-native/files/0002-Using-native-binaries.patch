@@ -1,4 +1,4 @@
-From 6c3ac20477a4bac643088f24df3c042e627fafa9 Mon Sep 17 00:00:00 2001
+From aea7ce8f63ddc9ba8e5db6b7341a7b2789131088 Mon Sep 17 00:00:00 2001
 From: Guillaume Burel <guillaume.burel@stormshield.eu>
 Date: Fri, 3 Jan 2020 11:25:54 +0100
 Subject: [PATCH] Using native binaries
@@ -9,10 +9,10 @@ Subject: [PATCH] Using native binaries
  2 files changed, 6 insertions(+), 9 deletions(-)
 
 diff --git a/node.gyp b/node.gyp
-index 8f4dc518..d9389190 100644
+index 51c424d..dd3cc20 100644
 --- a/node.gyp
 +++ b/node.gyp
-@@ -446,7 +446,7 @@
+@@ -457,7 +457,7 @@
                  '<(SHARED_INTERMEDIATE_DIR)/node_code_cache.cc',
                ],
                'action': [
@@ -21,7 +21,7 @@ index 8f4dc518..d9389190 100644
                  '<@(_outputs)',
                ],
              },
-@@ -471,7 +471,7 @@
+@@ -482,7 +482,7 @@
                  '<(SHARED_INTERMEDIATE_DIR)/node_snapshot.cc',
                ],
                'action': [
@@ -31,10 +31,10 @@ index 8f4dc518..d9389190 100644
                ],
              },
 diff --git a/tools/v8_gypfiles/v8.gyp b/tools/v8_gypfiles/v8.gyp
-index a506a67d..c91f7dde 100644
+index d154dcd..1427c15 100644
 --- a/tools/v8_gypfiles/v8.gyp
 +++ b/tools/v8_gypfiles/v8.gyp
-@@ -140,7 +140,8 @@
+@@ -154,7 +154,8 @@
              '<@(torque_outputs)',
            ],
            'action': [
@@ -44,7 +44,7 @@ index a506a67d..c91f7dde 100644
              '-o', '<(torque_output_root)/torque-generated',
              '-v8-root', '<(V8_ROOT)'
            ],
-@@ -247,9 +248,7 @@
+@@ -261,9 +262,7 @@
              '<(generate_bytecode_builtins_list_output)',
            ],
            'action': [
@@ -55,7 +55,7 @@ index a506a67d..c91f7dde 100644
              '<@(_outputs)',
            ],
          },
-@@ -1396,9 +1395,7 @@
+@@ -1410,9 +1409,7 @@
              '<(SHARED_INTERMEDIATE_DIR)/src/regexp/special-case.cc',
            ],
            'action': [
@@ -66,6 +66,3 @@ index a506a67d..c91f7dde 100644
              '<@(_outputs)',
            ],
          },
--- 
-2.20.1
-
