@@ -8,8 +8,8 @@ SRCNAME = "ansible"
 
 SRC_URI = "http://releases.ansible.com/ansible/${SRCNAME}-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "82b99c84dadcc3e199c2fb6404a33858"
-SRC_URI[sha256sum] = "2517bf4743d52f00d509396a41e9ce44e5bc1285bd7aa53dfe28ea02fc1a75a6"
+SRC_URI[md5sum] = "825bd14d48eb5265070739b66cd3ef7b"
+SRC_URI[sha256sum] = "51ae50d33264eb644ecb79a0208a20569a1127ec3440e8de60eda3a2b3d9caa5"
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
