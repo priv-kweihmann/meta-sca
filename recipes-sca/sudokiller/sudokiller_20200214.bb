@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/TH3xACE/SUDO_KILLER"
 
 SRC_URI = " git://github.com/TH3xACE/SUDO_KILLER.git;protocol=https \
             file://sudokiller.sca.description"
-SRCREV = "a9ac9bfe7cd6482a5f5d4414e5cdaff9927d12f5"
+SRCREV = "93ef0d4bb20638a1926ed2a7677bdf35cdfb6a0c"
 UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
