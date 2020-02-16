@@ -66,7 +66,9 @@ python do_sca_cpplint() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cpplint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cpplint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _args = ["nativepython3", "-m", "cpplint"]
+    os.environ["OTMP"] = d.getVar("T")
+    _args = ["cpplint-multi"]
+    _args += ["--jobs={}".format(d.getVar("BB_NUMBER_THREADS"))]
     _args += ["--output=emacs"]
     _args += ["--quiet"]
     _args += ["--root={}".format(d.getVar("B", True))]
