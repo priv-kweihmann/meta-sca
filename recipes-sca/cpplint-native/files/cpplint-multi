@@ -1,0 +1,69 @@
+#!/bin/sh
+_OBJS=""
+_OPTS=""
+
+# sanity checks
+[ -z "${OTMP}" ] && OTMP=/tmp/cpplint-multi
+[ -z "$(which make)" ] && echo "'make' found found. Can't proceed" && exit 1
+if [ -z "$(which nproc)" ]; then
+    echo "'nproc' found found. You need to specify the job count manually"
+    _JOBS="-j1"
+else
+    _JOBS="-j$(nproc)"
+fi
+
+usage()
+{
+    echo "cpplint-multi - a multi process wrapper around cpplint"
+    echo ""
+    echo "Environment vars"
+    echo "\tOTMP temporary directory for tempfile - default:${OTMP}"
+    echo ""
+    echo "\t--jobs= Number of jobs, otherwise CPUCOUNT"
+    echo "\t--wraphelp this help here"
+    echo "all other arguments will be forwared to cpplint"
+    echo ""
+}
+
+# argparse
+while [ "$1" != "" ]; do
+    PARAM=$(echo "$1" | awk -F= '{print $1}')
+    VALUE=$(echo "$1" | awk -F= '{print $2}')
+    case $PARAM in
+        --help|--version)
+            cpplint "$PARAM"
+            exit
+            ;;
+        --wraphelp)
+            usage
+            exit
+            ;;
+        --jobs)
+            _JOBS="-j""$VALUE"
+            ;;
+        --*)
+            [ -z "$VALUE" ] && _OPTS="${_OPTS} $PARAM"
+            [ -n "$VALUE" ] && _OPTS="${_OPTS} $PARAM=$VALUE"
+            ;;
+        *)
+            _OBJS="${_OBJS} ${PARAM}"
+            ;;
+    esac
+    shift
+done
+
+# run
+cat << EOF | make "${_JOBS}" -f -
+OBJ=${_OBJS}
+OTMP:=/tmp/cpplintmulti
+OUT=\$(patsubst %, \$(OTMP)%.done, \$(OBJ))
+
+all: \$(OUT)
+
+\$(OTMP)%.done : %
+	@mkdir -p \$(OTMP)\$\$(dirname \$<)
+	PYTHONUNBUFFERED=1 cpplint ${_OPTS} \$< || true > \$@
+	@rm -f \$@
+
+.PHONY: all
+EOF

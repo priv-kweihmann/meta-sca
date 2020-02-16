@@ -5,7 +5,8 @@ HOMEPAGE = "https://github.com/cpplint/cpplint"
 BUGTRACKER = "https://github.com/cpplint/cpplint/issues"
 
 SRC_URI = " git://github.com/cpplint/cpplint.git;protocol=https;tag=${PV};nobranch=1 \
-            file://cpplint.sca.description"
+            file://cpplint.sca.description \
+            file://cpplint-multi"
 
 S = "${WORKDIR}/git"
 
@@ -23,5 +24,9 @@ FILES_${PN} += "${datadir}"
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/cpplint.sca.description ${D}${datadir}/
+
+    if [ ! -e ${D}${bindir}/cpplint-multi ]; then
+        install -m 0755 ${WORKDIR}/cpplint-multi ${D}${bindir}/cpplint-multi
+    fi
 }
 
