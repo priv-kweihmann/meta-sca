@@ -39,6 +39,7 @@ def do_sca_conv_luacheck(d):
                                             PackageName=package_name,
                                             Tool="luacheck",
                                             BuildPath=buildpath,
+                                            Line=m.group("line"),
                                             File=m.group("file"),
                                             Column=m.group("col"),
                                             Message=m.group("msg"),
