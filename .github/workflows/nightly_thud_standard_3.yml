@@ -105,7 +105,7 @@ jobs:
           eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR")
           eval $(bitbake busybox -e | grep "^SCA_EXPORT_FINDING_DIR")
           eval $(bitbake busybox -e | grep "^DL_DIR")
-          [ -n "${DL_DIR} ] && rm -rf ${DL_DIR}/*
+          [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/*
           cd ${WORKSPACE}/website
           ./tools/report ${SCA_EXPORT_DIR} ${SCA_EXPORT_FINDING_DIR} data/${SCABRANCH}/${PARAMFILE}.json
           ./tools/jsonmerge data/${SCABRANCH}/result.json data/${SCABRANCH}/*.json
