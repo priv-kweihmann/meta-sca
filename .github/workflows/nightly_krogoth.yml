@@ -79,6 +79,7 @@ jobs:
           source poky/oe-init-build-env
           echo 'INHERIT +="rm_work"' >> conf/local.conf
           echo 'SCA_VERBOSE_OUTPUT = "1"' >> conf/local.conf
+          echo 'BB_DISKMON_DIRS = ""' >> conf/local.conf
         shell: bash
       - name: set modules
         run: |
