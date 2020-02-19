@@ -118,8 +118,7 @@ jobs:
           git config --local user.name "Webdeploy bot"
           git remote rm origin
           git remote add origin https://priv-kweihmann:${{ secrets.WEBDEPLOY }}@github.com/${WEB_REPOSITORY}.git
-          export COMMIT_MSG="Update findings from ${SCABRANCH}:${PARAMFILE}"
-          git diff --quiet && git diff --staged --quiet || (git commit -m "${COMMIT_MSG}"; git push origin master) || true
+          git diff --quiet && git diff --staged --quiet || (git commit --amend; git push origin master --force) || true
         shell: bash
       - name: test results
         run: |
