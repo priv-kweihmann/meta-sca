@@ -52,7 +52,7 @@ def do_sca_conv_reconbf(d):
                         g = sca_get_model_class(d,
                                                 PackageName=package_name,
                                                 Tool="reconbf",
-                                                BuildPath=buildpath,
+                                                BuildPath=sca_get_layer_path_for_file(d, d.getVar("FILE")),
                                                 File=d.getVar("FILE"),
                                                 Message=_msg,
                                                 ID=_name,
