@@ -38,6 +38,7 @@ def do_sca_conv_safety(d, cmd_output=""):
                 g = sca_get_model_class(d,
                                         PackageName=package_name,
                                         Tool="safety",
+                                        BuildPath=sca_get_layer_path_for_file(d, d.getVar("FILE")),
                                         File=d.getVar("FILE"),
                                         Message="{} - {}".format(k[0], k[3]),
                                         ID="vulnerability",
