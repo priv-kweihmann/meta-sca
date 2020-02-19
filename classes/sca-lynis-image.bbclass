@@ -38,7 +38,7 @@ def do_sca_conv_lynis(d):
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
                                             Tool="lynis",
-                                            BuildPath=buildpath,
+                                            BuildPath=sca_get_layer_path_for_file(d, d.getVar("FILE")),
                                             File=d.getVar("FILE"),
                                             Message="{} - Details: https://cisofy.com/lynis/controls/{}".format(m.group("msg"), m.group("id")),
                                             ID=m.group("id"),

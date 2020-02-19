@@ -44,6 +44,7 @@ def do_sca_conv_npmaudit(d, cmd_output=""):
                 g = sca_get_model_class(d,
                                         PackageName=package_name,
                                         Tool="npmaudit",
+                                        BuildPath=sca_get_layer_path_for_file(d, d.getVar("FILE")),
                                         File=d.getVar("FILE"),
                                         Message=v["title"],
                                         ID=str(v["id"]),
