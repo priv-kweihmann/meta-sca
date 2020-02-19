@@ -79,6 +79,9 @@ jobs:
           echo 'INHERIT +="rm_work"' >> conf/local.conf
           echo 'SCA_VERBOSE_OUTPUT = "1"' >> conf/local.conf
           echo 'BB_DISKMON_DIRS = ""' >> conf/local.conf
+          echo 'BB_GIT_SHALLOW = "1"' >> conf/local.conf
+          echo 'BB_GIT_SHALLOW_DEPTH = "1"' >> conf/local.conf
+          echo 'BB_GENERATE_SHALLOW_TARBALLS = "1"' >> conf/local.conf
         shell: bash
       - name: set modules
         run: |
@@ -95,6 +98,9 @@ jobs:
         shell: bash
       - name: get latest webdeloy
         run: |
+          source poky/oe-init-build-env
+          eval $(bitbake busybox -e | grep "^DL_DIR")
+          [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/*
           cd ${WORKSPACE}
           git clone https://github.com/${WEB_REPOSITORY}.git ${WORKSPACE}/website
         shell: bash
@@ -104,8 +110,6 @@ jobs:
           source poky/oe-init-build-env
           eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR")
           eval $(bitbake busybox -e | grep "^SCA_EXPORT_FINDING_DIR")
-          eval $(bitbake busybox -e | grep "^DL_DIR")
-          [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/*
           cd ${WORKSPACE}/website
           ./tools/report ${SCA_EXPORT_DIR} ${SCA_EXPORT_FINDING_DIR} data/${SCABRANCH}/${PARAMFILE}.json
           ./tools/jsonmerge data/${SCABRANCH}/result.json data/${SCABRANCH}/*.json
