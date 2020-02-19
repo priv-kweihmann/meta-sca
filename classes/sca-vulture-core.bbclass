@@ -35,11 +35,14 @@ def do_sca_conv_vulture(d):
                     _id = "syntaxerror"
                     _sev = "error"
                 try:
+                    _file = m.group("file")
+                    if not _file.startswith("/"):
+                        _file = "/" + _file
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
                                             Tool="vulture",
                                             BuildPath=buildpath,
-                                            File=m.group("file"),
+                                            File=_file,
                                             Line=m.group("line"),
                                             Message=m.group("message"),
                                             ID=_id,
