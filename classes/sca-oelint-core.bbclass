@@ -37,6 +37,7 @@ def do_sca_conv_oelint(d):
                 try:
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
+                                            BuildPath=sca_get_layer_path_for_file(d, m.group("file")),
                                             Tool="oelint",
                                             File=m.group("file"),
                                             Line=str(int(m.group("line")) + 1),

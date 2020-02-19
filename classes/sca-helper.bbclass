@@ -251,3 +251,9 @@ def sca_get_func_by_name(d, name):
         return globals()[name]
     else:
         raise NotImplementedError()
+
+def sca_get_layer_path_for_file(d, file):
+    for dir in clean_split(d, "BBLAYERS"):
+        if file.startswith(dir):
+            return dir
+    return ""

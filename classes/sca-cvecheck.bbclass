@@ -42,7 +42,7 @@ def sca_create_data_file(d, patched, unpatched, cve_data):
         g = sca_get_model_class(d,
                                 PackageName=package_name,
                                 Tool="cvecheck",
-                                BuildPath=None,
+                                BuildPath=sca_get_layer_path_for_file(d, d.getVar("FILE")),
                                 File=d.getVar("FILE"),
                                 Message="{},Score={},Url={}".format(cve_data[cve]["summary"], cve_data[cve]["score"], nvd_link, cve),
                                 ID="cvecheck.unpatched",

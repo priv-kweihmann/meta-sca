@@ -33,7 +33,7 @@ def do_sca_conv_nixauditor(d):
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
                                             Tool="nixauditor",
-                                            BuildPath=buildpath,
+                                            BuildPath=sca_get_layer_path_for_file(d, d.getVar("FILE")),
                                             File=d.getVar("FILE"),
                                             Message="Check for {} failed".format(m.group("id")),
                                             ID=m.group("id").replace(" ", "_"),
