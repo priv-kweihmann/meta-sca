@@ -14,7 +14,7 @@ jobs:
       ENABLEMETAOE: 0
       ENABLEMETACLANG: 0
       PARAMFILE: standard_02
-      MAXRUNTIME: 20100s
+      MAXRUNTIME: 12900s
       PYTHONIOENCODING: utf8
       LC_ALL: en_US.UTF-8
       LANG: en_US.UTF-8
@@ -90,6 +90,13 @@ jobs:
           mods=$(cat ${WORKSPACE}/meta-sca/recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ')
           echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> conf/local.conf
         shell: bash
+      - name: build kernel
+        run: |
+          cd ${WORKSPACE}
+          source poky/oe-init-build-env
+          eval $(bitbake busybox -e | grep "^DL_DIR")
+          bitbake linux-yocto
+          [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/*
       - name: build
         run: |
           cd ${WORKSPACE}
