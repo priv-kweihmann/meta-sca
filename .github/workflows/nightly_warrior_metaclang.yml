@@ -97,6 +97,7 @@ jobs:
           eval $(bitbake busybox -e | grep "^DL_DIR")
           bitbake linux-yocto
           [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/*
+        shell: bash
       - name: build
         run: |
           cd ${WORKSPACE}

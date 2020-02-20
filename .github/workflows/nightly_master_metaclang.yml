@@ -93,10 +93,11 @@ jobs:
       - name: build kernel
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
+          source poky/oe-init-build-envs
           eval $(bitbake busybox -e | grep "^DL_DIR")
           bitbake linux-yocto
           [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/*
+        shell: bash
       - name: build
         run: |
           cd ${WORKSPACE}
