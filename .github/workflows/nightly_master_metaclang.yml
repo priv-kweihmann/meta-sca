@@ -98,6 +98,7 @@ jobs:
         shell: bash
       - name: get latest webdeloy
         run: |
+          cd ${WORKSPACE}
           source poky/oe-init-build-env
           eval $(bitbake busybox -e | grep "^DL_DIR")
           [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/*
