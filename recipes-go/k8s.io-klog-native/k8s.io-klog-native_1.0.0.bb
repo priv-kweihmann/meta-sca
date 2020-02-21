@@ -12,7 +12,7 @@ DEPENDS += "\
             github.com-golang-glog-native \
             "
 
-LICENSE = "APACHE-2.0"
+LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM  = "file://src/${GO_IMPORT}/LICENSE;md5=19cbd64715b51267a47bf3750cc6a8a5"
 
 inherit go
