@@ -127,7 +127,7 @@ jobs:
           git config --local user.name "Webdeploy bot"
           git remote rm origin
           git remote add origin https://priv-kweihmann:${{ secrets.WEBDEPLOY }}@github.com/${WEB_REPOSITORY}.git
-          git diff --quiet && git diff --staged --quiet || (git commit --amend; git push origin master --force) || true
+          git diff --quiet && git diff --staged --quiet || (git commit --amend -m "Update findings"; git push origin master --force) || true
         shell: bash
       - name: test results
         run: |
