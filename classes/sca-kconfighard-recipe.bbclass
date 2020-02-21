@@ -49,7 +49,7 @@ def do_sca_conv_kconfighard(d):
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
                                             Tool="kconfighard",
-                                            File=buildpath,
+                                            File=".config",
                                             BuildPath=d.getVar("B"),
                                             Message="{} should be {} but is {}".format(m.group("symbol"), m.group("exp").strip(), clean_result),
                                             ID=m.group("symbol"))
@@ -82,6 +82,8 @@ python do_sca_kconfighard() {
 
         tmp_result = os.path.join(d.getVar("T", True), "sca_raw_kconfighard.txt")
         d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
+
+        os.symlink(os.path.join(d.getVar("B"), ".config"), os.path.join(d.getVar("B"), "config"))
 
         _args = ["nativepython3", os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "kconfig-hardening-check", "kconfig-hardened-check.py")]      
         _args += ["-c", os.path.join(d.getVar("B"), ".config")]
