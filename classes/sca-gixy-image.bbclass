@@ -48,6 +48,7 @@ def do_sca_conv_gixy(d, cmd_output=""):
                 g = sca_get_model_class(d,
                                         PackageName=package_name,
                                         Tool="gixy",
+                                        BuildPath=d.getVar("IMAGE_ROOTFS"),
                                         File=item["path"],
                                         Message="{} {}".format(item["summary"], item["reason"]),
                                         ID=item["plugin"].replace(" ", "_"),
