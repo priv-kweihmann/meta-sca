@@ -35,9 +35,7 @@ def do_sca_conv_vulture(d):
                     _id = "syntaxerror"
                     _sev = "error"
                 try:
-                    _file = m.group("file")
-                    if not _file.startswith("/"):
-                        _file = "/" + _file
+                    _file = os.path.join(d.getVar("TOPDIR"), m.group("file"))
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
                                             Tool="vulture",
