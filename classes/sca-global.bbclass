@@ -7,6 +7,17 @@ SCA_ENABLE ?= "1"
 SCA_EXPORT_DIR ?= "${DEPLOY_DIR_IMAGE}/sca"
 SCA_EXPORT_FINDING_SRC = "1"
 SCA_EXPORT_FINDING_DIR ?= "${DEPLOY_DIR_IMAGE}/sca/sources/${PN}/"
+# Add layer names, like 'core' or 'openembedded-layer' to suppress
+# SCA on all recipes of that layer
+SCA_SPARE_LAYER ?= ""
+# Additional regular expressions for paths that shouldn't
+# run SCA
+SCA_SPARE_DIRS ?= ""
+# if set to 1 all bbappends from non-suppressed layer will
+# not invoke SCA, which means in consequence that if the value
+# is != 1 an bbappend from a non-supressed layer will
+# lead SCA to be invoked
+SCA_SPARE_IGNORE_BBAPPEND ?= "0"
 
 ## Valid values are 'checkstyle' or 'console' or 'diff' or 'codeclimate'
 SCA_EXPORT_FORMAT ?= "checkstyle"

@@ -12,10 +12,10 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_AVAILABLE_MODULES | List of all available modules, use to globally enable/disable modules | space-separated-string | all available modules
 | SCA_CLEAN_BEFORE_EXPORT | Remove old files from export dir | string: 0 or 1 | "1"
 | SCA_ENABLE | Does globally enable the analysis | string | "1"
-| SCA_ENABLED_MODULES_IMAGE | The analysis modules to be activated on images | space-separated-string | see sca-on-image.bbclass
-| SCA_ENABLED_MODULES_RECIPE | The analysis modules to be activated on recipes | space-separated-string | see sca-on-recipe.bbclass
 | SCA_ENABLE_BESTOF | Enables/disables the BestOf mode (see chapter BestOf Mode) | string | "0"
 | SCA_ENABLE_IMAGE_SUMMARY | En/disable the image-summary module | string | "1"
+| SCA_ENABLED_MODULES_IMAGE | The analysis modules to be activated on images | space-separated-string | see sca-on-image.bbclass
+| SCA_ENABLED_MODULES_RECIPE | The analysis modules to be activated on recipes | space-separated-string | see sca-on-recipe.bbclass
 | SCA_EXPORT_DIR | Directory where to store the results of analysis | path | \${DEPLOY_DIR_IMAGE}/sca
 | SCA_EXPORT_FINDING_DIR | The folder where to store the original source-files of findings | path | \${DEPLOY_DIR_IMAGE}/sca/sources/\${PN}/
 | SCA_EXPORT_FINDING_SRC | Do copy the source-files of any finding to deploy-dir. This proved to helpful when integrating into Jenkins. | string | "1"
@@ -25,6 +25,9 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_LOCAL_FILE_FILTER | List of glob-expression of additional files to skip for testing. This is applied when S dir is the same as WORKDIR | space separated list | "$RECIPE_SYSROOT $RECIPE_SYSROOT_NATIVE $T"
 | SCA_SCOPE_FILTER | Filter for scope of findings | space separted list of 'security', 'functional' and 'style' | "security functional style"
 | SCA_SOURCES_DIR | Path where to find the source-files to be checked | path | "\${B}" for recipes, "\${IMAGE_ROOTFS}" for images
+| SCA_SPARE_DIRS | Additional regular expressions for paths that shouldn't run SCA | space seperated list | ""
+| SCA_SPARE_IGNORE_BBAPPEND | Ignore bbappend files for making the decision if the recipe should be spared or not | string: 1 = yes, other no | "0"
+| SCA_SPARE_LAYER | layer names, like 'core' or 'openembedded-layer' to suppress SCA on all recipes of that layer | space seperated list | ""
 | SCA_VERBOSE_OUTPUT | Verbose output of included tools | string: 0 or 1 | "1"
 | SCA_WARNING_LEVEL | Filter for severity of findings | string: info, warning or error | "warning"
 
