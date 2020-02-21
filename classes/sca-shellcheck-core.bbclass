@@ -73,6 +73,8 @@ python do_sca_shellcheck_core() {
                 cmd_output = subprocess.check_output(_t_args, universal_newlines=True)
             except subprocess.CalledProcessError as e:
                 cmd_output = e.stdout or ""
+                if e.stderr:
+                    bb.warn(str(e.stderr))
             xml_output = xml_combine(d, xml_output, cmd_output)
     result_raw_file = os.path.join(d.getVar("T"), "sca_raw_shellcheck.xml")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
