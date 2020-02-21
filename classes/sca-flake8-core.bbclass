@@ -20,6 +20,7 @@ def do_sca_conv_flake8(d):
     pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<col>\d+):\s*(?P<severity>[A-Z]+)(?P<id>\d+)\s+(?P<message>.*)"
 
     severity_map = {
+        "DAR": "warning",
         "DUO": "warning",
         "EXE": "error",
         "RST": "warning",
@@ -43,7 +44,7 @@ def do_sca_conv_flake8(d):
         "R": "info",
         "S": "error",
         "T": "warning",
-        "W": "warning"
+        "W": "warning",
     }
     _findings = []
     _suppress = sca_suppress_init(d)
