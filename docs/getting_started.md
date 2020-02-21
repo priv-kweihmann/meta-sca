@@ -69,6 +69,21 @@ Now it's time to decide what to check on
     echo 'INHERIT += "sca"' >> /mnt/mydisk/workspace/poky/build/local.conf
     ```
 
+### Checking on ALL recipes but spare some layer
+
+* just add 'INHERIT += "sca"' to your __local.conf__
+
+    ```shell
+    echo 'INHERIT += "sca"' >> /mnt/mydisk/workspace/poky/build/local.conf
+    ```
+
+* additionally add the names of all layer to **SCA_SPARE_LAYER**.
+  E.g. to disable SCA for all layer shipped with poky
+
+    ```shell
+    echo 'SCA_SPARE_LAYER = "core yocto yoctobsp"' >> /mnt/mydisk/workspace/poky/build/local.conf
+    ```
+
 ### Checking on selected recipe only
 
 * add 'inherit sca' to the recipe you want
