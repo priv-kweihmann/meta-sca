@@ -162,10 +162,10 @@ def sca_get_model_class(d, **kwargs):
                         self.__File = self.__File.replace(self.__BuildPath, "")
                     if self.__File.startswith(self.__BuildPath[1:]):
                         self.__File = self.__File.replace(self.__BuildPath[1:], "")
-                if self.__File.startswith("."):
-                    self.__File = self.__File.lstrip(".")
-                if self.__File.startswith("/"):
-                    self.__File = self.__File.lstrip("/")
+                    if self.__File.startswith("."):
+                        self.__File = self.__File.lstrip(".")
+                    if self.__File.startswith("/"):
+                        self.__File = self.__File.lstrip("/")
 
         def __sev_transform(self):
             import re
