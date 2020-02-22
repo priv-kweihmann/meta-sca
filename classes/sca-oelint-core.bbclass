@@ -40,7 +40,7 @@ def do_sca_conv_oelint(d):
                                             BuildPath=sca_get_layer_path_for_file(d, m.group("file")),
                                             Tool="oelint",
                                             File=m.group("file"),
-                                            Line=str(int(m.group("line")) + 1),
+                                            Line=m.group("line"),
                                             Message=m.group("message"),
                                             ID=m.group("id").replace(".", "_"),
                                             Severity=severity_map[m.group("severity")])
