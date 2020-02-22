@@ -33,6 +33,7 @@ def do_sca_conv_pytype(d):
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
                                             Tool="pytype",
+                                            BuildPath=buildpath,
                                             File=m.group("file"),
                                             Line=m.group("line"),
                                             Message="{}:{}".format(m.group("name"), m.group("msg")),
