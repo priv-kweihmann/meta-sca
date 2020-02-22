@@ -21,7 +21,7 @@ def do_sca_conv_darglint(d):
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
-    pattern = r"^(?P<file>.*):(?P<line>\d+):\s*(?P<severity>[A-Z]+)(?P<id>\d+):\s+(?P<msg>.*)"
+    pattern = r"^(?P<file>.*?):(\w+):(?P<line>\d+):\s*(?P<severity>[A-Z]+)(?P<id>[0-9]+):\s*(?P<msg>.*)"
 
     _suppress = sca_suppress_init(d)
     _findings = []
