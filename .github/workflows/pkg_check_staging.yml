@@ -48,31 +48,31 @@ jobs:
       - name: Setup poky
         run: |
           cd ${WORKSPACE} 
-          source poky/oe-init-build-env
+          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
         shell: bash
       - name: add meta-sca
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
+          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
           bitbake-layers add-layer ${WORKSPACE}/meta-sca
         shell: bash
       - if: env.ENABLEMETAOE == '1'
         name: add meta-oe
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
+          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
           bitbake-layers add-layer ${WORKSPACE}/meta-oe/meta-oe
         shell: bash
       - if: env.ENABLEMETACLANG == '1'
         name: add meta-clang
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
+          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
           bitbake-layers add-layer ${WORKSPACE}/meta-clang
         shell: bash
       - name: perform package check
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
+          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
           ${WORKSPACE}/meta-sca/scripts/check_pkgs.py --blacklistfile=${WORKSPACE}/meta-sca/recipes-sca-test/blacklist.txt priv-kweihmann ${{ secrets.WEBDEPLOY }}
         shell: bash
