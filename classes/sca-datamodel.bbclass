@@ -162,11 +162,12 @@ def sca_get_model_class(d, **kwargs):
                         self.__File = self.__File.replace(self.__BuildPath, "")
                     if self.__File.startswith(self.__BuildPath[1:]):
                         self.__File = self.__File.replace(self.__BuildPath[1:], "")
-                    if self.__File.startswith("."):
+                    if self.__File.startswith(".") and not \
+                       os.path.exists(os.path.join(self.__BuildPath, self.__File)):
                         self.__File = self.__File.lstrip(".")
-                    if self.__File.startswith("/"):
-                        self.__File = self.__File.lstrip("/")
-
+                if self.__File.startswith("/"):
+                    self.__File = self.__File.lstrip("/")
+                
         def __sev_transform(self):
             import re
             if self.__SevTrans and self.__ID and self.__Severity:
@@ -199,6 +200,7 @@ def sca_get_model_class(d, **kwargs):
             return res
 
         def GetPath(self, exportPath=None):
+            self.__fixupPaths()
             return os.path.join(exportPath or self.__BuildPath or "", self.__File)
 
         def __repr__(self):
