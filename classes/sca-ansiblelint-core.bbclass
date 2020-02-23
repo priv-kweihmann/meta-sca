@@ -35,7 +35,7 @@ def do_sca_conv_ansiblelint(d):
         with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
-                    _file = m.group("msg")
+                    _file = m.group("file")
                     if not _file.startswith("/"):
                         _file = "/" + _file
                     g = sca_get_model_class(d,
