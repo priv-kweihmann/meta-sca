@@ -50,32 +50,32 @@ jobs:
       - name: Setup poky
         run: |
           cd ${WORKSPACE} 
-          source poky/oe-init-build-env
+          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
         shell: bash
       - name: add meta-sca
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
+          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
           bitbake-layers add-layer ${WORKSPACE}/meta-sca
         shell: bash
       - if: env.ENABLEMETAOE == '1'
         name: add meta-oe
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
+          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
           bitbake-layers add-layer ${WORKSPACE}/meta-oe/meta-oe
         shell: bash
       - if: env.ENABLEMETACLANG == '1'
         name: add meta-clang
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
+          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
           bitbake-layers add-layer ${WORKSPACE}/meta-clang
         shell: bash
       - name: prepare local.conf
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
+          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
           echo 'INHERIT +="rm_work"' >> conf/local.conf
           echo 'SCA_VERBOSE_OUTPUT = "1"' >> conf/local.conf
           echo 'BB_DISKMON_DIRS = ""' >> conf/local.conf
@@ -86,29 +86,30 @@ jobs:
       - name: set modules
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
+          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
           mods=$(cat ${WORKSPACE}/meta-sca/recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ')
           echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> conf/local.conf
         shell: bash
       - name: build kernel
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
-          eval $(bitbake busybox -e | grep "^DL_DIR")
-          bitbake linux-yocto
+          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
+          eval $(bitbake busybox -e | grep "^DL_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
+          bitbake linux-yocto && rm -f bitbake.sock && rm -f bitbake.lock
           [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/*
         shell: bash
       - name: build
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
+          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
           timeout --foreground --kill-after=60s $MAXRUNTIME ${WORKSPACE}/meta-sca/recipes-sca-test/test_$PARAMFILE.sh || if [ $? == 124 ]; then echo "Timeout"; else exit 1; fi;
+          rm -f bitbake.sock && rm -f bitbake.lock
         shell: bash
       - name: get latest webdeloy
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
-          eval $(bitbake busybox -e | grep "^DL_DIR")
+          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
+          eval $(bitbake busybox -e | grep "^DL_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
           [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/*
           cd ${WORKSPACE}
           git clone https://github.com/${WEB_REPOSITORY}.git ${WORKSPACE}/website
@@ -116,9 +117,9 @@ jobs:
       - name: export findings
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
-          eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR")
-          eval $(bitbake busybox -e | grep "^SCA_EXPORT_FINDING_DIR")
+          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
+          eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
+          eval $(bitbake busybox -e | grep "^SCA_EXPORT_FINDING_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
           cd ${WORKSPACE}/website
           ./tools/report ${SCA_EXPORT_DIR} ${SCA_EXPORT_FINDING_DIR} data/${SCABRANCH}/${PARAMFILE}.json
           ./tools/jsonmerge data/${SCABRANCH}/result.json data/${SCABRANCH}/*.json
@@ -132,8 +133,8 @@ jobs:
       - name: test results
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
-          eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR")
+          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
+          eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
           ${WORKSPACE}/meta-sca/scripts/check_results $SCA_EXPORT_DIR $(cat ${WORKSPACE}/meta-sca/recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ') || true
         shell: bash
     
