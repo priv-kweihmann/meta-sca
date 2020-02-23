@@ -52,6 +52,7 @@ def do_sca_conv_phan(d):
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
                                             Tool="phan",
+                                            BuildPath=d.getVar("SCA_SOURCES_DIR"),
                                             File=m["location"]["path"],
                                             Line=str(m["location"]["lines"]["begin"]),
                                             Message=m["description"],
