@@ -94,7 +94,7 @@ def do_sca_conv_ropgadget(d):
                                     PackageName=package_name,
                                     Tool="ropgadget",
                                     File=k,
-                                    BuildPath=buildpath,
+                                    BuildPath=os.path.join(d.getVar("WORKDIR"), "packages-split"),
                                     Message="{} exceeded ROP exploit threshold ({}/{})".format(package_name, v, _threshold),
                                     ID="thresholdexceeded",
                                     Severity="warning")
@@ -116,7 +116,8 @@ python do_sca_ropgadget() {
     _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "ROPgadget")]
     _args += ["--binary"]
 
-    _files = get_files_by_mimetype(d, os.path.join(d.getVar("WORKDIR"), "packages-split"), ["application/x-executable", 'application/x-sharedlib'],[])
+    _files = get_files_by_mimetype(d, os.path.join(d.getVar("WORKDIR"), "packages-split"), 
+             ["application/x-executable", 'application/x-sharedlib', 'application/x-pie-executable'],[])
     ## Run
     cmd_output = ""
     raw_output = ""
