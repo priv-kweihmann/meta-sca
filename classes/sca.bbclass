@@ -15,6 +15,9 @@ python sca_invoke_handler() {
     import os
     import re
     from bb.parse.parse_py import BBHandler
+    if bb.data.inherits_class('packagegroup', d):
+        bb.note("Skip {} because of being a packagegroup, can't run SCA here".format(d.getVar("PN")))
+        return
     # Check if the file should be spared
     _layer = [d.getVar("BBFILE_PATTERN_{}".format(x)) or "" for x in d.getVar("SCA_SPARE_LAYER").split(" ") if x]
     _layer = [x for x in _layer if x]
