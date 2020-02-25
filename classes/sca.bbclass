@@ -19,8 +19,8 @@ python sca_invoke_handler() {
         bb.note("Skip {} because of being a packagegroup, can't run SCA here".format(d.getVar("PN")))
         return
     # Check if the file should be spared
-    _layer = [d.getVar("BBFILE_PATTERN_{}".format(x)) or "" for x in d.getVar("SCA_SPARE_LAYER").split(" ") if x]
-    _layer = [x for x in _layer if x]
+    _layer = [os.path.abspath(d.getVar("BBFILE_PATTERN_{}".format(x)) or "") or "" for x in d.getVar("SCA_SPARE_LAYER").split(" ") if x]
+    _layer = ["^{}/".format(x.lstrip("^").rstrip("/")) for x in _layer if x]
     _dirs = [x for x in d.getVar("SCA_SPARE_DIRS").split(" ") if x]
     _files = [d.getVar("FILE")]
     if d.getVar("SCA_SPARE_IGNORE_BBAPPEND") != "1":
