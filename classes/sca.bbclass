@@ -47,10 +47,21 @@ python sca_invoke_handler() {
         # so we quit here
         return
     if d.getVar("SCA_ENABLE") == "1":
+        py2 = bb.data.inherits_class('pythonnative', d)
+        if py2:
+            # backup some value before invoking sca
+            py2_PYTHON = d.getVar("PYTHON")
+            py2_PYTHON_PN = d.getVar("PYTHON_PN")
+            py2_PYTHON_BASEVERSION = d.getVar("PYTHON_BASEVERSION")
         if d.getVar("IMAGE_INSTALL") and d.getVar("IMAGE_TYPES") and d.getVar("SCA_AUTO_INH_ON_IMAGE") == "1":
             BBHandler.inherit("sca-on-image", "sca", 1, d)
             sca_on_image_init(d)
         elif d.getVar("SCA_AUTO_INH_ON_RECIPE") == "1":
             BBHandler.inherit("sca-on-recipe", "sca", 1, d)
             sca_on_recipe_init(d)
+        if py2:
+            # Readd the original values of python2 to avoid confusion
+            d.setVar("PYTHON", py2_PYTHON)
+            d.setVar("PYTHON_PN", py2_PYTHON_PN)
+            d.setVar("PYTHON_BASEVERSION", py2_PYTHON_BASEVERSION)
 }
