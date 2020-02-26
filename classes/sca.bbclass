@@ -19,6 +19,8 @@ def sca_files_part_of_unspared_layer(d, files):
         _tmp = os.path.abspath(_tmp)
         _layer.append("^{}/".format(_tmp))
     _layer += [x for x in d.getVar("SCA_SPARE_DIRS").split(" ") if x]
+    if not any(_layer):
+        return files
     res = set()
     for f in files:
         if any([True for x in _layer if not re.match(x, f)]):

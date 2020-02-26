@@ -4,6 +4,13 @@
 SCA_OELINT_EXTRA_SUPPRESS ?= ""
 SCA_OELINT_EXTRA_FATAL ?= ""
 SCA_OELINT_IGNORE_SPARED_LAYER ?= "1"
+SCA_OELINT_EXTRA_KNOWN_VARS ?= ""
+SCA_OELINT_EXTRA_MANDATORY_VARS ?= ""
+SCA_OELINT_EXTRA_PROTECTED_VARS ?= ""
+SCA_OELINT_EXTRA_PROTECTED_APPEND_VARS ?= ""
+SCA_OELINT_EXTRA_SUGGESTED_VARS ?= ""
+# Note: format is mirror:replacement without any ${} framing
+SCA_OELINT_EXTRA_KNOWN_MIRRORS ?= ""
 
 DEPENDS += "python3-oelint-adv-native"
 
@@ -68,6 +75,7 @@ python do_sca_oelint_core() {
     import os
     import subprocess
     import glob
+    import json
 
     d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_OELINT_EXTRA_SUPPRESS"))
     d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_OELINT_EXTRA_FATAL"))
@@ -77,8 +85,26 @@ python do_sca_oelint_core() {
     result_raw_file = os.path.join(d.getVar("T"), "sca_raw_oelint.txt")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
 
-    _args = ['oelint-adv']
+    _constantfile = os.path.join(d.getVar("T"), "oelint-constants.json")
+    _contantcontent = {
+        "known_vars": clean_split(d, "SCA_OELINT_EXTRA_KNOWN_VARS"),
+        "mandatory_vars": clean_split(d, "SCA_OELINT_EXTRA_MANDATORY_VARS"),
+        "protected_vars": clean_split(d, "SCA_OELINT_EXTRA_PROTECTED_VARS"),
+        "protected_append_vars": clean_split(d, "SCA_OELINT_EXTRA_PROTECTED_APPEND_VARS"),
+        "protected_vars": clean_split(d, "SCA_OELINT_EXTRA_SUGGESTED_VARS"),
+        "known_mirrors": {}
+    }
+    for x in clean_split(d, "SCA_OELINT_EXTRA_KNOWN_MIRRORS"):
+        chunks = x.split(":")
+        if len(chunks) > 1:
+            _contantcontent["known_mirrors"]["${{{}}}".format(chunks[0])] = ":".join(chunks[1:])
+
+    with open(_constantfile, "w") as o:
+        json.dump(_contantcontent, o)
+
+    _args = ['nativepython3', '-m', 'oelint_adv']
     _args += ["--output={}".format(result_raw_file)]
+    _args += ["--constantfile={}".format(_constantfile)]
     _files = [x.strip() for x in d.getVar("BBINCLUDED").split(" ") if x.strip().endswith(".bb") or x.strip().endswith(".bbappend")]
 
     with open(d.getVar("SCA_RAW_RESULT_FILE"), "w") as o:
