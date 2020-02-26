@@ -31,7 +31,7 @@ def sca_conv_dm_console(d):
                 except Exception as e:
                     bb.note("SCA_EXPORT_FINDING_SRC-error: {}".format(e))
     for i in _items:
-        res.append("[{}] {}:{}:{} - {} - [{}]".format(i.Severity, i.File, i.Line, i.Column, i.Message, i.GetFormattedID()))
+        res.append("[{}] {} :{}:{} - {} - [{}]".format(i.Severity, i.GetPath(), i.Line, i.Column, i.Message, i.GetFormattedID()))
         bb.warn(res[-1])
     
     return "\n".join(res)
