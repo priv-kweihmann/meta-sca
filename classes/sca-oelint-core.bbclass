@@ -3,6 +3,7 @@
 
 SCA_OELINT_EXTRA_SUPPRESS ?= ""
 SCA_OELINT_EXTRA_FATAL ?= ""
+SCA_OELINT_IGNORE_SPARED_LAYER ?= "1"
 
 DEPENDS += "python3-oelint-adv-native"
 
@@ -13,7 +14,7 @@ inherit sca-license-filter
 inherit sca-suppress
 inherit python3native
 
-def do_sca_conv_oelint(d):
+def do_sca_conv_oelint(d, _files):
     import os
     import re
 
@@ -30,11 +31,17 @@ def do_sca_conv_oelint(d):
     }
     _findings = []
     _suppress = sca_suppress_init(d)
+    _spared_layer_files = _files
+    if d.getVar("SCA_OELINT_IGNORE_SPARED_LAYER") == "1":
+        _spared_layer_files = sca_files_part_of_unspared_layer(d, _files)
 
     if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
         with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
+                    if not m.group("file") in _spared_layer_files:
+                        # if file is not in unspared layer continue
+                        continue
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
                                             BuildPath=sca_get_layer_path_for_file(d, m.group("file")),
@@ -86,7 +93,7 @@ python do_sca_oelint_core() {
 
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/oelint.dm".format(d.getVar("T")))
-    dm_output = do_sca_conv_oelint(d)
+    dm_output = do_sca_conv_oelint(d, _files)
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
