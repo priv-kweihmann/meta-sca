@@ -52,8 +52,8 @@ Each finding will be put into a single line.
 Example output looks like this
 
 ```shell
-[error] simple-hello-world.c:23:1 - Array 'c[250]' accessed at index -1, which is out of bounds. - [cppcheck.cppcheck.negativeIndex]
-[error] simple-hello-world.c:20:1 - Array 'c[250]' accessed at index -1, which is out of bounds. - [cppcheck.cppcheck.negativeIndex]
+[error] /full/path/to/simple-hello-world.c :23:1 - Array 'c[250]' accessed at index -1, which is out of bounds. - [cppcheck.cppcheck.negativeIndex]
+[error] /full/path/to/simple-hello-world.c :20:1 - Array 'c[250]' accessed at index -1, which is out of bounds. - [cppcheck.cppcheck.negativeIndex]
 ```
 
 General format is the following
