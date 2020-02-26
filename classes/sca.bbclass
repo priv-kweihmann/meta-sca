@@ -8,28 +8,39 @@
 ## Settings can be found in sca-global
 inherit sca-global
 
+def sca_files_part_of_unspared_layer(d, files):
+    import re
+    import os
+    _layer = []
+    for x in d.getVar("SCA_SPARE_LAYER").split(" "):
+        if not x:
+            continue
+        _tmp = d.getVar("BBFILE_PATTERN_{}".format(x)).lstrip("^").rstrip("/") or ""
+        _tmp = os.path.abspath(_tmp)
+        _layer.append("^{}/".format(_tmp))
+    _layer += [x for x in d.getVar("SCA_SPARE_DIRS").split(" ") if x]
+    res = set()
+    for f in files:
+        if any([True for x in _layer if not re.match(x, f)]):
+            res.add(f)
+    return list(res)
+
 addhandler sca_invoke_handler
 sca_invoke_handler[eventmask] = "bb.event.RecipePreFinalise"
 python sca_invoke_handler() {
     import bb
     import os
-    import re
     from bb.parse.parse_py import BBHandler
     if bb.data.inherits_class('packagegroup', d):
         bb.note("Skip {} because of being a packagegroup, can't run SCA here".format(d.getVar("PN")))
         return
     # Check if the file should be spared
-    _layer = [os.path.abspath(d.getVar("BBFILE_PATTERN_{}".format(x)) or "") or "" for x in d.getVar("SCA_SPARE_LAYER").split(" ") if x]
-    _layer = ["^{}/".format(x.lstrip("^").rstrip("/")) for x in _layer if x]
-    _dirs = [x for x in d.getVar("SCA_SPARE_DIRS").split(" ") if x]
     _files = [d.getVar("FILE")]
     if d.getVar("SCA_SPARE_IGNORE_BBAPPEND") != "1":
         _files += [x for x in bb.parse.get_file_depends(d).split(" ") if x and os.path.exists(x) and x.endswith(".bbappend")]
-    _matches = []
-    for f in _files:
-        _matches += [f for x in _layer + _dirs if re.match(x, f)]
-    if all([x in _matches for x in _files]):
-        # all files are also in the match list
+    _matches = sca_files_part_of_unspared_layer(d, _files)
+    if not any(_matches):
+        # none of the files are in the match list
         # which means that all should be spared
         # so we quit here
         return

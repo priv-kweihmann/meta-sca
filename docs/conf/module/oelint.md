@@ -11,6 +11,7 @@
 | SCA_BLACKLIST_oelint | Blacklist filter for this tool | space-separated-list | ""
 | SCA_OELINT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_OELINT_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
+| SCA_OELINT_IGNORE_SPARED_LAYER | Ignore findings from spared layer | 1 = yes, 0 = no | "1"
 
 ## Supports
 
