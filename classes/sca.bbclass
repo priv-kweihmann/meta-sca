@@ -15,16 +15,18 @@ def sca_files_part_of_unspared_layer(d, files):
     for x in d.getVar("SCA_SPARE_LAYER").split(" "):
         if not x:
             continue
-        _tmp = d.getVar("BBFILE_PATTERN_{}".format(x)).lstrip("^").rstrip("/") or ""
-        _tmp = os.path.abspath(_tmp)
-        _layer.append("^{}/".format(_tmp))
+        _tmp = d.getVar("BBFILE_PATTERN_{}".format(x))
+        if _tmp:
+            _tmp = _tmp.lstrip("^").rstrip("/") or ""
+            _tmp = os.path.abspath(_tmp)
+            _layer.append("^{}/".format(_tmp))
     _layer += [x for x in d.getVar("SCA_SPARE_DIRS").split(" ") if x]
     if not any(_layer):
         return files
     res = set()
     for f in files:
-        if any([True for x in _layer if not re.match(x, f)]):
-            res.add(f)
+        if not any([True for x in _layer if re.match(x, os.path.abspath(f))]):
+            res.add(os.path.abspath(f))
     return list(res)
 
 addhandler sca_invoke_handler
@@ -34,7 +36,7 @@ python sca_invoke_handler() {
     import os
     from bb.parse.parse_py import BBHandler
     if bb.data.inherits_class('packagegroup', d):
-        bb.note("Skip {} because of being a packagegroup, can't run SCA here".format(d.getVar("PN")))
+        bb.debug(2, "Skip {} because of being a packagegroup, can't run SCA here".format(d.getVar("PN")))
         return
     # Check if the file should be spared
     _files = [d.getVar("FILE")]
