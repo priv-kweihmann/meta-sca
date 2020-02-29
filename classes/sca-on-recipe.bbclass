@@ -52,6 +52,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             phpmd \
                             phpsecaudit \
                             phpstan \
+                            pkgqaenc \
                             progpilot \
                             proselint \
                             pscan \
