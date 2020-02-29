@@ -20,6 +20,7 @@ def do_sca_conv_flake8(d):
     pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<col>\d+):\s*(?P<severity>[A-Z]+)(?P<id>\d+)\s+(?P<message>.*)"
 
     severity_map = {
+        "CFQ": "warning",
         "DAR": "warning",
         "DUO": "warning",
         "EXE": "error",
