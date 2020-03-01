@@ -3,8 +3,8 @@ HOMEPAGE = "https://metacpan.org/pod/PPIx::Regexp"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/W/WY/WYANT/PPIx-Regexp-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "d5e1843648c3641463e7305e2f03a2a4"
-SRC_URI[sha256sum] = "f000601899f102d28187ca0e3021b2e1ea990992fcf3f28ca6c55f20dd91e062"
+SRC_URI[md5sum] = "4e1f495ef2383a9b886b28034eda85c8"
+SRC_URI[sha256sum] = "da93c086bc05cc6fd016f385d24db17f45b1ae72d07f07c111fb4e935e317d53"
 
 S = "${WORKDIR}/PPIx-Regexp-${PV}"
 
