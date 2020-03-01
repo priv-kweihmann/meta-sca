@@ -1,7 +1,7 @@
 SUMMARY = "Miscellaneous functions for formatting text "
 HOMEPAGE = "https://github.com/kr/text"
 
-SRC_URI = "git://${GO_IMPORT};protocol=https;tag=v${PV}"
+SRC_URI = "git://${GO_IMPORT};protocol=https;tag=v${PV};nobranch=1"
 GO_IMPORT = "github.com/kr/text"
 
 LICENSE = "MIT"
