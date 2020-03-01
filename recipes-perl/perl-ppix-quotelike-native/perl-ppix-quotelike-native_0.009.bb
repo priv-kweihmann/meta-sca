@@ -3,8 +3,8 @@ HOMEPAGE = "https://metacpan.org/pod/PPIx::QuoteLike"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/W/WY/WYANT/PPIx-QuoteLike-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "9e2a6eca8cb777e738f301a5a11aa463"
-SRC_URI[sha256sum] = "e42b0d3f92e696bec90e6610845ba93cb9bf347c2248193ed2c77eb75b63f437"
+SRC_URI[md5sum] = "7e8124a3f38bf44857119345c0c48676"
+SRC_URI[sha256sum] = "7b2ac4faf15cf5b6d72110d8142ad75847611c0c48d858ba1ba97a04233e6920"
 
 S = "${WORKDIR}/PPIx-QuoteLike-${PV}"
 
