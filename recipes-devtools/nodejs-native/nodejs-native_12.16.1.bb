@@ -44,8 +44,8 @@ SRC_URI = "http://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz \
            file://0004-Bind-python-to-nativepython3.patch \
            "
 
-SRC_URI[md5sum] = "5677fc8907a16ab3c1f36f0605e83767"
-SRC_URI[sha256sum] = "b8c90637473fce4444a0b4fdae2c1560a1cf9f5959fdf9670541fc52868cf925"
+SRC_URI[md5sum] = "549582c075072c689c245ba12ecac54a"
+SRC_URI[sha256sum] = "0a95845ba02c46102b5671d0c5732460073f2d397488337e18d1fc30146d412d"
 
 S = "${WORKDIR}/node-v${PV}"
 
