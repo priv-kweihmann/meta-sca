@@ -47,6 +47,10 @@ def rel_path(root, obj, _args):
     return os.path.relpath(os.path.join(root, obj), os.path.dirname(_args.directory))
 
 
+def rel_path_self(root, obj, _args):
+    return os.path.relpath(os.path.join(root, obj), _args.directory)
+
+
 def create_parser():
     parser = argparse.ArgumentParser(description='Enhanced package-qa')
     parser.add_argument("--debug", default=False,
@@ -69,10 +73,10 @@ def walk_dir(_args):
             if _args.debug:
                 info(rel_path(root, d, _args), "Directory found")
             if _args.config["acceptableDirs"]:
-                if not any([d.startswith(x.lstrip("/")) for x in _args.config["acceptableDirs"]]):
+                if not any([rel_path_self(root, d, _args).lstrip("/").startswith(x.lstrip("/")) for x in _args.config["acceptableDirs"]]):
                     warning("unacceptable-dir", rel_path(root, d, _args),
                             "Directory is not in acceptable paths")
-            if any([d.startswith(x.lstrip("/")) for x in _args.config["blacklistDirs"]]):
+            if any([rel_path_self(root, d, _args).lstrip("/").startswith(x.lstrip("/")) for x in _args.config["blacklistDirs"]]):
                 warning("blacklist-dir", rel_path(root, d, _args),
                         "Directory is blacklisted")
         for f in files:
