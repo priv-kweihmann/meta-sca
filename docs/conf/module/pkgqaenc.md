@@ -30,6 +30,7 @@ the keys
 
 * `default` for all files, that are not catched by more specific rules
 * `script` for all files, that have been identified as scripts (they do contain a shebang entry)
+* `dir` for all directories
 
 ### File matching
 
@@ -41,9 +42,10 @@ The configuration for `SCA_PKGQAENC_PERM_MAX_MASK`, `SCA_PKGQAENC_PERM_MIN_MASK`
 
 The tool determines in the following order
 
-* file extension -> specific rule
+* file extension -> specific rule (doesn't apply to directories)
 * mime type -> specfic rule
-* if detected as a script -> `script` rule
+* if detected as a script -> `script` rule (doesn't apply to directories)
+* if detected as a directory -> `dir` rule
 * if `default` is configured -> `default` rule
 
 ### Applied standard configuration

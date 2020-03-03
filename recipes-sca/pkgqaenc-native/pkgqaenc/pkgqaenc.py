@@ -70,6 +70,8 @@ def create_parser():
 def walk_dir(_args):
     for root, dirs, files in os.walk(_args.directory):
         for d in dirs:
+            if d in ["CONTROL"]:
+                continue
             if _args.debug:
                 info(rel_path(root, d, _args), "Directory found")
             if _args.config["acceptableDirs"]:
@@ -79,8 +81,34 @@ def walk_dir(_args):
             if any([rel_path_self(root, d, _args).lstrip("/").startswith(x.lstrip("/")) for x in _args.config["blacklistDirs"]]):
                 warning("blacklist-dir", rel_path(root, d, _args),
                         "Directory is blacklisted")
+            _maxItem = None
+            _minItem = None
+            if "inode/directory" in _args.config["maxMask"].keys():
+                _maxItem = _args.config["maxMask"]["inode/directory"]
+            elif "dir" in _args.config["maxMask"].keys():
+                _maxItem = _args.config["maxMask"]["dir"]
+            elif "default" in _args.config["maxMask"].keys():
+                _maxItem = _args.config["maxMask"]["default"]
+            if "inode/directory" in _args.config["minMask"].keys():
+                _minItem = _args.config["minMask"]["inode/directory"]
+            elif "dir" in _args.config["minMask"].keys():
+                _minItem = _args.config["minMask"]["dir"]
+            elif "default" in _args.config["minMask"].keys():
+                _minItem = _args.config["minMask"]["default"]
+            if _maxItem:
+                _cmode = int(_maxItem, 8)
+                if _filemode > _cmode:
+                    warning("too-permissive", rel_path(root, f, _args),
+                            "Too permissive filemode {}. Allowed maximum {}".format(oct(_filemode), oct(_cmode)))
+            if _minItem:
+                _cmode = int(_minItem, 8)
+                if _filemode < _cmode:
+                    warning("too-restrictive", rel_path(root, f, _args),
+                            "Too resrictive filemode {}. Allowed minimum {}".format(oct(_filemode), oct(_cmode)))
         for f in files:
             _filename = os.path.join(root, f)
+            if os.path.basename(os.path.dirname(_filename)) in ["CONTROL"]:
+                continue
             _filemode = int(
                 oct(stat.S_IMODE(os.stat(_filename).st_mode)), 8) & 0x1ff
             _, _ext = os.path.splitext(_filename)
