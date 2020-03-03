@@ -7,6 +7,7 @@ SCA_PKGQAENC_EXTRA_SUPPRESS ?= ""
 SCA_PKGQAENC_EXTRA_FATAL ?= ""
 
 SCA_PKGQAENC_PERM_MAX_MASK[default] ?= "0644"
+SCA_PKGQAENC_PERM_MAX_MASK[dir] ?= "0644"
 SCA_PKGQAENC_PERM_MAX_MASK[application_x-executable] ?= "0755"
 SCA_PKGQAENC_PERM_MAX_MASK[application_x-pie-executable] ?= "0755"
 SCA_PKGQAENC_PERM_MAX_MASK[application_x-sh] ?= "0755"
