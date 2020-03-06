@@ -259,6 +259,8 @@ def sca_get_layer_path_for_file(d, file):
     import os
     for dir in clean_split(d, "BBLAYERS"):
         dir = os.path.abspath(dir)
+        if not dir.endswith("/"):
+            dir += "/"
         if file.startswith(dir):
             return dir
     return ""
