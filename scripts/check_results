@@ -204,6 +204,12 @@ _data = {
     ],
     "yara": [
         "core-image-minimal-scatest"
+    ],
+    "licensecheck": [
+        "bad-package"
+    ],
+    "pkgqaenc": [
+        "bad-package"
     ]
 }
 ret = 0
