@@ -4,6 +4,7 @@ bitbake \
         bad-go \
         bad-html \
         bad-perl \
+        bad-package \
         busybox \
         cspell \
         linux-yocto \
