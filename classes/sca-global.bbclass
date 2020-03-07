@@ -92,6 +92,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           jshint \
                           jsonlint \
                           kconfighard \
+                          licensecheck \
                           looong \
                           lynis \
                           msgcheck \
