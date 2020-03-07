@@ -37,6 +37,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             jshint \
                             jsonlint \
                             kconfighard \
+                            licensecheck \
                             looong \
                             luacheck \
                             npmaudit \
