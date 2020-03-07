@@ -12,6 +12,7 @@ inherit native
 inherit sca-sanity
 
 DEPENDS += "python3-native python3-python-magic-native"
+RDEPENDS_${PN} += "python3-native python3-python-magic-native"
 
 FILES_${PN} = "${bindir} ${datadir}"
 
