@@ -48,7 +48,10 @@ def rel_path(root, obj, _args):
 
 
 def rel_path_self(root, obj, _args):
-    return os.path.relpath(os.path.join(root, obj), _args.directory)
+    _tmp = os.path.relpath(root, _args.directory)
+    if "/" not in _tmp:
+        return ""
+    return os.path.join(_tmp, obj)
 
 
 def create_parser():
@@ -70,7 +73,7 @@ def create_parser():
 def walk_dir(_args):
     for root, dirs, files in os.walk(_args.directory):
         for d in dirs:
-            if d in ["CONTROL"]:
+            if d in ["CONTROL"] or not rel_path_self(root, d, _args):
                 continue
             if _args.debug:
                 info(rel_path(root, d, _args), "Directory found")
@@ -83,6 +86,8 @@ def walk_dir(_args):
                         "Directory is blacklisted")
             _maxItem = None
             _minItem = None
+            _filemode = int(
+                oct(stat.S_IMODE(os.stat(os.path.join(root, d)).st_mode)), 8) & 0x1ff
             if "inode/directory" in _args.config["maxMask"].keys():
                 _maxItem = _args.config["maxMask"]["inode/directory"]
             elif "dir" in _args.config["maxMask"].keys():
@@ -98,12 +103,12 @@ def walk_dir(_args):
             if _maxItem:
                 _cmode = int(_maxItem, 8)
                 if _filemode > _cmode:
-                    warning("too-permissive", rel_path(root, f, _args),
+                    warning("too-permissive", rel_path(root, d, _args),
                             "Too permissive filemode {}. Allowed maximum {}".format(oct(_filemode), oct(_cmode)))
             if _minItem:
                 _cmode = int(_minItem, 8)
                 if _filemode < _cmode:
-                    warning("too-restrictive", rel_path(root, f, _args),
+                    warning("too-restrictive", rel_path(root, d, _args),
                             "Too resrictive filemode {}. Allowed minimum {}".format(oct(_filemode), oct(_cmode)))
         for f in files:
             _filename = os.path.join(root, f)
@@ -131,7 +136,7 @@ def walk_dir(_args):
 
             if _args.debug:
                 info(rel_path(root, f, _args),
-                     "mode: {}, mime: {}".format(oct(_filemode), _mime))
+                     "mode: {}, mime: {}, ext: {}".format(oct(_filemode), _mime, _ext))
             _maxItem = None
             _minItem = None
             if _mime in _args.config["maxMask"].keys():
@@ -161,8 +166,7 @@ def walk_dir(_args):
                     warning("too-restrictive", rel_path(root, f, _args),
                             "Too resrictive filemode {}. Allowed minimum {}".format(oct(_filemode), oct(_cmode)))
 
-            if any(_args.config["blacklistFiles"]) and \
-               any([x in _args.config["blacklistFiles"] for x in [_mime, _ext, _basename]]):
+            if any([x in _args.config["blacklistFiles"] for x in [_mime, _ext, _basename]]):
                 warning("blacklisted-file", rel_path(root, f, _args),
                         "Blacklisted file mime:'{}' found".format(_mime))
 
