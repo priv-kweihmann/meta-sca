@@ -42,6 +42,7 @@ SCA_PKGQAENC_BLACKLIST_FILES ?= "\
                                 .h \
                                 .hpp \
                                 .man \
+                                text/x-c \
                                 "
 
 SCA_PKGQAENC_BLACKLIST_FILES-dev ?= "\
@@ -88,7 +89,6 @@ def do_sca_conv_pkgqaenc(d):
                     if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
-                        bb.warn(str(g))
                         _findings.append(g)
                 except Exception as e:
                     bb.warn(str(e))
@@ -115,9 +115,7 @@ python do_sca_pkgqaenc() {
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
     for p in clean_split(d, "PACKAGES"):
-        _suffix = ""
-        if "-" in p:
-            _suffix = "-" + p.split("-")[-1]
+        _suffix = p.replace(d.getVar("PN"), "", 1)
         conf = {
             "minMask": {},
             "maxMask": {},
@@ -138,7 +136,6 @@ python do_sca_pkgqaenc() {
         conf["blacklistFiles"] = [x for x in (d.getVar("SCA_PKGQAENC_BLACKLIST_FILES{}".format(_suffix)) or "").split(" ") if x]
         with open(_config_tmp, "w") as o:
             json.dump(conf, o)
-
         _destDir = os.path.join(d.getVar("PKGDEST"), p)
         try:
             cmd_output += subprocess.check_output(_args + [_destDir], universal_newlines=True, stderr=subprocess.STDOUT)
