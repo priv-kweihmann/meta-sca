@@ -158,6 +158,22 @@ def get_files_by_extention(d, path, pattern, excludes=[]):
                     res.append(_filepath)
     return [x for x in res if os.path.isfile(x)]
 
+def get_files(d, path, excludes=[]):
+    import os
+    res = []
+    local_dirs = clean_split(d, "SCA_LOCAL_FILE_FILTER")
+    for root, dirs, files in os.walk(path, topdown=True):
+        for item in files:
+            _filepath = os.path.join(root, item)
+            if not os.path.isfile(_filepath):
+                continue
+            if any([_filepath.startswith(x) for x in local_dirs]):
+                continue
+            if _filepath in excludes:
+                continue
+            res.append(_filepath)
+    return [x for x in res if os.path.isfile(x)]
+
 def get_files_by_extention_or_shebang(d, path, shebang, extentions, excludes=[]):
     res = get_files_by_shebang(d, path, shebang, excludes) + get_files_by_extention(d, path, extentions, excludes)
     return sorted(list(set(res)))

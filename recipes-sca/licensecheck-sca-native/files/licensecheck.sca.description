@@ -1,0 +1,16 @@
+{
+    "buildspeed": 6,
+    "execspeed": 9,
+    "languages": [
+        "package"
+    ],
+    "quality": 8,
+    "scope": [
+        "security"
+    ],
+    "score": {
+        "security": [
+            "licensecheck.licensecheck..*"
+        ]
+    }
+}
