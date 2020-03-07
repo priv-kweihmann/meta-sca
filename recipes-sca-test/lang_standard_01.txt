@@ -10,8 +10,10 @@ gcc
 golint
 govet
 kconfighard
+licensecheck
 perl
 perlcritic
+pkgqaenc
 pscan
 rats
 revive
