@@ -1,6 +1,6 @@
 {
     "buildspeed": 6,
-    "execspeed": 9,
+    "execspeed": 3,
     "languages": [
         "package"
     ],
