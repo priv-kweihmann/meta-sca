@@ -18,7 +18,7 @@
 * [x] terminate build on fatal
 * [x] run on recipe
 * [ ] run on image
-* [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
+* [ ] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 
@@ -38,7 +38,7 @@
 ## Statistics
 
 * ⬛⬛⬛⬛⬛⬛⬜⬜⬜⬜ 06/10 Build Speed
-* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Execution Speed
+* ⬛⬛⬛⬜⬜⬜⬜⬜⬜⬜ 03/10 Execution Speed
 * ⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 08/10 Quality
 
 ## Score mapping
