@@ -64,7 +64,7 @@ python do_cve_check() {
 
     if os.path.exists(d.getVar("CVE_CHECK_TMP_FILE")):
         patched_cves = get_patches_cves(d)
-        patched, unpatched = check_cves(d, patched_cves)
+        _, patched, unpatched = check_cves(d, patched_cves)
         if patched or unpatched:
             cve_data = get_cve_info(d, patched + unpatched)
 
