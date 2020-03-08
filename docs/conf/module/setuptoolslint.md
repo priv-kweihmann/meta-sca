@@ -34,6 +34,7 @@ setuptoolslint.setuptoolslint.PackageNotFound
 
 * [ ] security
 * [x] functional defects
+* [ ] compliance
 * [ ] style issues
 
 ## Statistics
@@ -51,6 +52,10 @@ setuptoolslint.setuptoolslint.PackageNotFound
 ### Error considered as functional defect
 
 * setuptoolslint.setuptoolslint.PackageNotFound
+
+### Error consired as compliance issue
+
+* n.a.
 
 ### Error considered as style issue
 

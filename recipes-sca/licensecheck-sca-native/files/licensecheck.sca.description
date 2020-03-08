@@ -6,10 +6,10 @@
     ],
     "quality": 8,
     "scope": [
-        "security"
+        "compliance"
     ],
     "score": {
-        "security": [
+        "compliance": [
             "licensecheck.licensecheck..*"
         ]
     }

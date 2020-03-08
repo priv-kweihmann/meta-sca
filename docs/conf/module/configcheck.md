@@ -57,6 +57,7 @@
 
 * [ ] security
 * [x] functional defects
+* [ ] compliance
 * [ ] style issues
 
 ## Statistics
@@ -74,6 +75,10 @@
 ### Error considered as functional defect
 
 * configcheck.configcheck.*
+
+### Error consired as compliance issue
+
+* n.a.
 
 ### Error considered as style issue
 

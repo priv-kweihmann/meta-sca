@@ -85,6 +85,7 @@
 
 * [ ] security
 * [x] functional defects
+* [ ] compliance
 * [x] style issues
 
 ## Statistics
@@ -145,6 +146,10 @@
 * revive.revive.unused-receiver
 * revive.revive.var-declaration
 * revive.revive.waitgroup-by-value
+
+### Error consired as compliance issue
+
+* n.a.
 
 ### Error considered as style issue
 

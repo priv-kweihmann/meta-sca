@@ -119,6 +119,7 @@ SCA_PKGQAENC_BLACKLIST_FILES-dev ?= "\
 
 * [x] security
 * [ ] functional defects
+* [ ] compliance
 * [ ] style issues
 
 ## Statistics
@@ -134,6 +135,10 @@ SCA_PKGQAENC_BLACKLIST_FILES-dev ?= "\
 * pkgqaenc.pkgqaenc.*
 
 ### Error considered as functional defect
+
+* n.a.
+
+### Error consired as compliance issue
 
 * n.a.
 

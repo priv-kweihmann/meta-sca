@@ -52,6 +52,7 @@ __tbd__
 
 * [x] security
 * [x] functional defects
+* [ ] compliance
 * [x] style issues
 
 ## Statistics
@@ -69,6 +70,10 @@ __tbd__
 ### Error considered as functional defect
 
 * flake8.flake.*
+
+### Error consired as compliance issue
+
+* n.a.
 
 ### Error considered as style issue
 

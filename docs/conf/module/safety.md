@@ -36,6 +36,7 @@ safety.safety.vulnerability - a vulnerability was detected in referenced package
 
 * [x] security
 * [ ] functional defects
+* [ ] compliance
 * [ ] style issues
 
 ## Statistics
@@ -51,6 +52,10 @@ safety.safety.vulnerability - a vulnerability was detected in referenced package
 * safety.safety.vulnerability
 
 ### Error considered as functional defect
+
+* n.a.
+
+### Error consired as compliance issue
 
 * n.a.
 

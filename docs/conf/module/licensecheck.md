@@ -30,8 +30,9 @@
 
 ## Checking scope
 
-* [x] security
+* [ ] security
 * [ ] functional defects
+* [x] compliance
 * [ ] style issues
 
 ## Statistics
@@ -44,11 +45,15 @@
 
 ### Error considered as security relevant
 
-* licensecheck.licensecheck.*
+* n.a.
 
 ### Error considered as functional defect
 
 * n.a.
+
+### Error consired as compliance issue
+
+* licensecheck.licensecheck.*
 
 ### Error considered as style issue
 
