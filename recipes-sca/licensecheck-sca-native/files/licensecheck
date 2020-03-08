@@ -30,14 +30,43 @@ import os
 import argparse
 import re
 
-from license_expression import Licensing, LicenseSymbol
+from license_expression import Licensing, LicenseSymbol, LicenseExpression
+from boolean import AND, OR
 from csv import DictReader
+
+
+def validate_expression(lic_literals, parsed_list):
+    res = []
+    for item in parsed_list.args:
+        if isinstance(item, LicenseSymbol):
+            if item.key in lic_literals:
+                res.append("1")
+            else:
+                res.append("0")
+        elif isinstance(item, OR):
+            _, sub = validate_expression(lic_literals, item)
+            res.append("( {} )".format(" | ".join(sub)))
+        elif isinstance(item, AND):
+            _, sub = validate_expression(lic_literals, item)
+            res.append("( {} )".format(" & ".join(sub)))
+    return (" & ".join(res), res)
+
+
+def explode_plus_modifier(prefix, version):
+    res = []
+    valid_mods = ["1.0", "1.1", "2.0", "2.1", "3.0"]
+    valid_mods = valid_mods[valid_mods.index(version):]
+    for i in valid_mods:
+        res.append("{}{}".format(prefix, i))
+    return "( {} )".format(" OR ".join(res))
 
 
 def create_parser():
     parser = argparse.ArgumentParser(description='License check')
     parser.add_argument("--ignore", default="license,licence,copying,readme",
                         help="Comma seperated list of files to ignore")
+    parser.add_argument("--noassertdefault", default="CLOSED",
+                        help="In case no assertation can be made on a file, take this license as the basis")
     parser.add_argument("license", help="Currently set license")
     parser.add_argument("lcresult", help="Result of lc run")
 
@@ -51,16 +80,27 @@ def read_lc_result(args):
         reader = DictReader(i)
         for row in reader:
             if not re.match(ig_pattern, row["filename"], re.IGNORECASE):
-                res.append(row["license"])
+                _lic = row["license"]
+                # -only suffix will applied automatically
+                _lic = _lic.rstrip("-only")
+                # replace -or-later with +, which is exploded afterwards
+                _lic = _lic.replace("-or-later", "+")
+                # replace NOASSERTION with the default from argparse
+                _lic = _lic.replace("NOASSERTION", args.noassertdefault)
+                for m in re.finditer(r"(^|\s)(?P<prefix>[A-Za-z\-]+)(?P<version>\d\.\d)\+", _lic):
+                    _lic = _lic.replace(m.group(0), explode_plus_modifier(
+                        m.group("prefix"), m.group("version")))
+                res.append(_lic)
     return " AND ".join(res)
 
 
 if __name__ == '__main__':
     _args = create_parser()
     licensing = Licensing()
-    _set = licensing.parse(_args.license).simplify()
-    _det = licensing.parse(read_lc_result(_args)).simplify()
+    _set = licensing.parse(_args.license)
+    _det = licensing.parse(read_lc_result(_args))
+    _res, _ = validate_expression([x.key for x in _set.literals], _det)
 
-    if not licensing.is_equivalent(_set, _det):
+    if not eval(_res):
         print("Wrong license found. Detected '{}', but set is '{}'".format(
-            _det.render(), _set.render()))
+            _det.simplify().render(), _set.render()))
