@@ -61,6 +61,7 @@ If you plan to use it, you need to supply a matching GO-version from a different
 
 * [x] security
 * [ ] functional defects
+* [ ] compliance
 * [ ] style issues
 
 ## Statistics
@@ -76,6 +77,10 @@ If you plan to use it, you need to supply a matching GO-version from a different
 * gosec.gosec.*
 
 ### Error considered as functional defect
+
+* n.a.
+
+### Error consired as compliance issue
 
 * n.a.
 

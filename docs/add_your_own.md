@@ -45,7 +45,7 @@ As already mentioned the description file is a json which usually looks like thi
     ],
     // information how 'good' the findings of the tool are on a scale between 0 (worst) - 10 (best)
     "quality": 8,
-    // defines the scope(s) of the tool. Possible entries are 'security', 'functional' and/or 'style'
+    // defines the scope(s) of the tool. Possible entries are 'security', 'functional', 'compliance' and/or 'style'
     "scope": [
         "style"
     ],

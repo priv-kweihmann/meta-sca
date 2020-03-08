@@ -35,6 +35,7 @@ __tbd__
 
 * [ ] security
 * [x] functional defects
+* [ ] compliance
 * [ ] style issues
 
 ## Statistics
@@ -52,6 +53,10 @@ __tbd__
 ### Error considered as functional defect
 
 * eslint.eslint.*
+
+### Error consired as compliance issue
+
+* n.a.
 
 ### Error considered as style issue
 
