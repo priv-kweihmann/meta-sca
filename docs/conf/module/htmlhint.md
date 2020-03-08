@@ -32,6 +32,7 @@ __tbd__
 
 * [ ] security
 * [x] functional defects
+* [ ] compliance
 * [x] style issues
 
 ## Statistics
@@ -51,6 +52,10 @@ __tbd__
 * htmlhint.htmlhint.tag-pair
 * htmlhint.htmlhint.spec-char-escape
 * htmlhint.htmlhint.id-unique
+
+### Error consired as compliance issue
+
+* n.a.
 
 ### Error considered as style issue
 

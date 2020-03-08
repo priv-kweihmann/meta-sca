@@ -46,6 +46,7 @@ __tbd__
 
 * [ ] security
 * [x] functional defects
+* [ ] compliance
 * [x] style issues
 
 ## Statistics
@@ -65,6 +66,10 @@ __tbd__
 * pylint.pylint.E*
 * pylint.pylint.F*
 * pylint.pylint.W*
+
+### Error consired as compliance issue
+
+* n.a.
 
 ### Error considered as style issue
 

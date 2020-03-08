@@ -42,6 +42,7 @@ alexkohler is a collection of analyzer tools by Alex Kohler
 
 * [ ] security
 * [ ] functional defects
+* [ ] compliance
 * [x] style issues
 
 ## Statistics
@@ -57,6 +58,10 @@ alexkohler is a collection of analyzer tools by Alex Kohler
 * n.a.
 
 ### Error considered as functional defect
+
+* n.a.
+
+### Error consired as compliance issue
 
 * n.a.
 

@@ -36,6 +36,7 @@ So if you tend to include this module, please do it in an appropriate environmen
 
 * [x] security
 * [ ] functional defects
+* [ ] compliance
 * [ ] style issues
 
 ## Statistics
@@ -51,6 +52,10 @@ So if you tend to include this module, please do it in an appropriate environmen
 * cvecheck.cvecheck.unpatched
 
 ### Error considered as functional defect
+
+* n.a.
+
+### Error consired as compliance issue
 
 * n.a.
 

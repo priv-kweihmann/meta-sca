@@ -32,6 +32,7 @@ pscan.pscan.InsecurePrintf
 
 * [ ] security
 * [x] functional defects
+* [ ] compliance
 * [ ] style issues
 
 ## Statistics
@@ -50,6 +51,10 @@ pscan.pscan.InsecurePrintf
 
 * pscan.pscan.NonConstantString
 * pscan.pscan.InsecurePrintf
+
+### Error consired as compliance issue
+
+* n.a.
 
 ### Error considered as style issue
 

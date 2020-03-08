@@ -32,6 +32,7 @@
         "enum": [
           "security",
           "functional",
+          "compliance",
           "style"
         ]
       },
@@ -47,6 +48,12 @@
           "type": "array"
         },
         "security": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "compliance": {
           "items": {
             "type": "string"
           },
