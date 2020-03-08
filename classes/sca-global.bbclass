@@ -56,7 +56,7 @@ SCA_FORCE_RUN ??= "0"
 SCA_VERBOSE_OUTPUT ??= "0"
 
 ## Filter by scope
-SCA_SCOPE_FILTER ?= "security functional style"
+SCA_SCOPE_FILTER ?= "security functional compliance style"
 
 ## List of rules for transforming severity
 ## example: pylint.pylint.C0103=error

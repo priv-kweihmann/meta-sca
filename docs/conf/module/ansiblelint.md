@@ -33,6 +33,7 @@ __tbd__
 
 * [x] security
 * [x] functional defects
+* [ ] compliance
 * [x] style issues
 
 ## Statistics
@@ -65,6 +66,10 @@ __tbd__
 * ansiblelint.ansiblelint.402
 * ansiblelint.ansiblelint.501
 * ansiblelint.ansiblelint.602
+
+### Error consired as compliance issue
+
+* n.a.
 
 ### Error considered as style issue
 

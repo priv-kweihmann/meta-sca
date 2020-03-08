@@ -34,6 +34,7 @@ __tbd__
 
 * [ ] security
 * [ ] functional defects
+* [ ] compliance
 * [x] style issues
 
 ## Statistics
@@ -49,6 +50,10 @@ __tbd__
 * n.a.
 
 ### Error considered as functional defect
+
+* n.a.
+
+### Error consired as compliance issue
 
 * n.a.
 

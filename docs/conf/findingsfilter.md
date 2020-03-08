@@ -13,7 +13,7 @@ E.g. if you configure **SCA_WARNING_LEVEL** to __warning__, all findings with th
 
 You can additionally filter by the scope of a finding.
 
-For each tool the specific findings are categorized to scope-level (security, functional or style).
+For each tool the specific findings are categorized to scope-level (security, functional, compliance or style).
 By setting global variable **SCA_SCOPE_FILTER** you can configure which scope will be exported.
 
 E.g. if you configure **SCA_SCOPE_FILTER** to __security__ only findings with the 'security' scope will be exported.

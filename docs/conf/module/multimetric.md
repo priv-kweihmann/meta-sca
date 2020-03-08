@@ -94,6 +94,7 @@ To configure a threshold define a variable
 
 * [ ] security
 * [ ] functional defects
+* [ ] compliance
 * [x] style issues
 
 ## Statistics
@@ -109,6 +110,10 @@ To configure a threshold define a variable
 * n.a.
 
 ### Error considered as functional defect
+
+* n.a.
+
+### Error consired as compliance issue
 
 * n.a.
 

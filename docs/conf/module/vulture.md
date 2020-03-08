@@ -35,6 +35,7 @@ Vulture finds dead code in python code
 
 * [ ] security
 * [x] functional defects
+* [ ] compliance
 * [ ] style issues
 
 ## Statistics
@@ -53,6 +54,10 @@ Vulture finds dead code in python code
 
 * vulture.vulture.deadcode
 * vulture.vulture.syntaxerror
+
+### Error consired as compliance issue
+
+* n.a.
 
 ### Error considered as style issue
 

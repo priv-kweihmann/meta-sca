@@ -55,6 +55,8 @@ def sca_conv_dm_codeclimate(d):
             _sub["categories"] = "Security"
         elif i.Scope in ["functional"]:
             _sub["categories"] = "Bug Risk"
+        elif i.Scope in ["compliance"]:
+            _sub["categories"] = "Compatibility"
         elif i.Scope in ["style"]:
             _sub["categories"] = "Style"
         else:

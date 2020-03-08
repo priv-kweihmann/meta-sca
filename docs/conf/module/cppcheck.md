@@ -40,6 +40,7 @@ __tbd__
 
 * [x] security
 * [x] functional defects
+* [ ] compliance
 * [x] style issues
 
 ## Statistics
@@ -215,6 +216,10 @@ __tbd__
 * cppcheck.cppcheck.wrongPrintfScanfParameterPositionError
 * cppcheck.cppcheck.zerodiv
 * cppcheck.cppcheck.zerodivcond
+
+### Error consired as compliance issue
+
+* n.a.
 
 ### Error considered as style issue
 

@@ -146,7 +146,7 @@ def do_sca_conv_multimetric(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
-def get_findings_as_csv(d, tools, scope=["security", "functional", "style"]):
+def get_findings_as_csv(d, tools, scope=["security", "functional", "compliance", "style"]):
     res = ""
     for t in tools:
         _path = "{}/{}.dm".format(d.getVar("T"), t)
