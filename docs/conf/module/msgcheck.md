@@ -36,6 +36,7 @@
 
 * [ ] security
 * [ ] functional defects
+* [ ] compliance
 * [x] style issues
 
 ## Statistics
@@ -51,6 +52,10 @@
 * n.a.
 
 ### Error considered as functional defect
+
+* n.a.
+
+### Error consired as compliance issue
 
 * n.a.
 

@@ -32,6 +32,7 @@ __tbd__
 
 * [ ] security
 * [x] functional defects
+* [ ] compliance
 * [x] style issues
 
 ## Statistics
@@ -49,6 +50,10 @@ __tbd__
 ### Error considered as functional defect
 
 * shellcheck.shellcheck.*
+
+### Error consired as compliance issue
+
+* n.a.
 
 ### Error considered as style issue
 

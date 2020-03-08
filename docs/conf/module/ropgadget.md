@@ -40,6 +40,7 @@ A large value does not actually mean that your binary __is__ exploitable, but a 
 
 * [x] security
 * [ ] functional defects
+* [ ] compliance
 * [ ] style issues
 
 ## Statistics
@@ -55,6 +56,10 @@ A large value does not actually mean that your binary __is__ exploitable, but a 
 * ropgadget.ropgadget.*
 
 ### Error considered as functional defect
+
+* n.a.
+
+### Error consired as compliance issue
 
 * n.a.
 

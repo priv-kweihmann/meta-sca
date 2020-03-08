@@ -35,6 +35,7 @@ __tbd__
 
 * [x] security
 * [ ] functional defects
+* [ ] compliance
 * [ ] style issues
 
 ## Statistics
@@ -50,6 +51,10 @@ __tbd__
 * phpsecaudit.phpsecaudit.*
 
 ### Error considered as functional defect
+
+* n.a.
+
+### Error consired as compliance issue
 
 * n.a.
 

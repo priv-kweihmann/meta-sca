@@ -34,6 +34,7 @@
 
 * [x] security
 * [ ] functional defects
+* [ ] compliance
 * [ ] style issues
 
 ## Statistics
@@ -49,6 +50,10 @@
 * retire.retire.knownVulnerability
 
 ### Error considered as functional defect
+
+* n.a.
+
+### Error consired as compliance issue
 
 * n.a.
 

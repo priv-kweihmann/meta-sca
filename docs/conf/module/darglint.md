@@ -46,6 +46,7 @@ darglint.darglint.DAR501: The docstring describes a variable which is not define
 
 * [ ] security
 * [ ] functional defects
+* [ ] compliance
 * [x] style issues
 
 ## Statistics
@@ -61,6 +62,10 @@ darglint.darglint.DAR501: The docstring describes a variable which is not define
 * n.a.
 
 ### Error considered as functional defect
+
+* n.a.
+
+### Error consired as compliance issue
 
 * n.a.
 

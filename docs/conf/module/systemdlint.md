@@ -53,6 +53,7 @@
 
 * [x] security
 * [x] functional defects
+* [ ] compliance
 * [x] style issues
 
 ## Statistics
@@ -84,6 +85,10 @@
 * systemdlint.systemdlint.UnitSectionMissing
 * systemdlint.systemdlint.UnknownUnitType
 * systemdlint.systemdlint.ExecNotFound
+
+### Error consired as compliance issue
+
+* n.a.
 
 ### Error considered as style issue
 

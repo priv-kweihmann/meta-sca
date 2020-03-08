@@ -145,7 +145,7 @@ def sca_get_model_class(d, **kwargs):
             
             import re
             _id = self.GetFormattedID()
-            for s in ["security", "functional", "style"]:
+            for s in ["security", "functional", "compliance", "style"]:
                 if s not in self.__description["score"]:
                     continue
                 for f in self.__description["score"][s]:

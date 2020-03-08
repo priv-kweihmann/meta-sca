@@ -34,6 +34,7 @@ __tbd__
 
 * [x] security
 * [x] functional defects
+* [ ] compliance
 * [x] style issues
 
 ## Statistics
@@ -55,6 +56,10 @@ __tbd__
 * cpplint.cpplint.build.header_guard
 * cpplint.cpplint.build.printf_format
 * cpplint.cpplint.runtime.memset
+
+### Error consired as compliance issue
+
+* n.a.
 
 ### Error considered as style issue
 

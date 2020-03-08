@@ -34,6 +34,7 @@ __TDB__
 
 * [x] security
 * [x] functional defects
+* [ ] compliance
 * [x] style issues
 
 ## Statistics
@@ -217,6 +218,10 @@ __TDB__
 * splint.splint.usevarargs
 * splint.splint.whileblock
 * splint.splint.whileempty
+
+### Error consired as compliance issue
+
+* n.a.
 
 ### Error considered as style issue
 

@@ -34,6 +34,7 @@ __TDB__
 
 * [ ] security
 * [x] functional defects
+* [ ] compliance
 * [ ] style issues
 
 ## Statistics
@@ -51,6 +52,10 @@ __TDB__
 ### Error considered as functional defect
 
 * sparse.sparse.*
+
+### Error consired as compliance issue
+
+* n.a.
 
 ### Error considered as style issue
 
