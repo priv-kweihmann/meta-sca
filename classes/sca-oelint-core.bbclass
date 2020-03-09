@@ -105,6 +105,11 @@ python do_sca_oelint_core() {
     _args = ['nativepython3', '-m', 'oelint_adv']
     _args += ["--output={}".format(result_raw_file)]
     _args += ["--constantfile={}".format(_constantfile)]
+    if bb.data.inherits_class('image', d):
+        # On images we don't need certain rules
+        _args += ["--suppress=oelint.var.mandatoryvar"]
+        _args += ["--suppress=oelint.var.suggestedvar"]
+        _args += ["--suppress=oelint.var.bbclassextend"]
     _files = [x.strip() for x in d.getVar("BBINCLUDED").split(" ") if x.strip().endswith(".bb") or x.strip().endswith(".bbappend")]
 
     with open(d.getVar("SCA_RAW_RESULT_FILE"), "w") as o:
