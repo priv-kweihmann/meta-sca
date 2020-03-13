@@ -7,6 +7,8 @@ GO_IMPORT = "github.com/tealeg/xlsx"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE;md5=f609f72877939978ce194fa2431db040"
 
+UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+\.\d+)"
+
 DEPENDS += "\
             github.com-frankban-quicktest-native \
             gopkg.in-check.v1-native \
