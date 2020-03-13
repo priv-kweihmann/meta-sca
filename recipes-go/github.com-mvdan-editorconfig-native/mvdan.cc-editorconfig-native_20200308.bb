@@ -2,7 +2,7 @@ SUMMARY = "EditorConfig support in Go"
 HOMEPAGE = "https://github.com/mvdan/editorconfig"
 
 SRC_URI = "git://github.com/mvdan/editorconfig.git;protocol=https"
-SRCREV = "e40951bde157136dcd6f65b73d541e5c2860cb77"
+SRCREV = "44790c7b343f4390136ed2831f11c67420a3362b"
 UPSTREAM_CHECK_COMMITS = "1"
 
 GO_IMPORT = "mvdan.cc/editorconfig"
