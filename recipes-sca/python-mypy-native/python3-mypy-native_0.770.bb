@@ -25,5 +25,5 @@ do_install_append() {
     install ${WORKDIR}/mypy.sca.description ${D}${datadir}
 }
 
-SRC_URI[md5sum] = "195d07fece6e4f4625036291846c0bec"
-SRC_URI[sha256sum] = "85baab8d74ec601e86134afe2bcccd87820f79d2f8d5798c889507d1088287bf"
+SRC_URI[md5sum] = "54d69434af352a32b6c012d9812e37ae"
+SRC_URI[sha256sum] = "8a627507ef9b307b46a1fea9513d5c98680ba09591253082b4c48697ba05a4ae"
