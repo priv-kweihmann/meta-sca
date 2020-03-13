@@ -24,5 +24,5 @@ do_install_append() {
     install ${WORKDIR}/bashate.sca.description ${D}${datadir}
 }
 
-SRC_URI[md5sum] = "ddf02b9b48b0bfce643c86eefb429251"
-SRC_URI[sha256sum] = "6bc2ce99f534d7d1dd2b7f579a78fcc84f55b9dfe581000fb10ebf09f5d292bb"
+SRC_URI[md5sum] = "8143df66c83808ab25a59319da236fb1"
+SRC_URI[sha256sum] = "eb990cf07c0ca09ee06f3b7eff79232a2d6eff9d2bdf141e8126efebb0521a17"
