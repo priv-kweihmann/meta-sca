@@ -3,8 +3,8 @@ HOMEPAGE = "https://metacpan.org/pod/Test::Deep"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Deep-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "9bc47147ea720fc01bc6b214afb884ff"
-SRC_URI[sha256sum] = "852d7e836fba8269b0b755082051a24a1a309d015a8b76838790af9e3760092f"
+SRC_URI[md5sum] = "d466e471108f7f7a5df3802cb13761ac"
+SRC_URI[sha256sum] = "4064f494f5f62587d0ae501ca439105821ee5846c687dc6503233f55300a7c56"
 
 S = "${WORKDIR}/Test-Deep-${PV}"
 
