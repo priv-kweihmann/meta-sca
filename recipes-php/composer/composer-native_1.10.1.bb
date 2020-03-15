@@ -2,7 +2,7 @@ SUMMARY = "Dependency Manager for PHP"
 HOMEPAGE = "https://github.com/composer/composer"
 
 SRC_URI = "git://github.com/composer/getcomposer.org.git;protocol=https"
-SRCREV = "d2c7283f9a7df2db2ab64097a047aae780b8f6b7"
+SRCREV = "dd82de6ec1fedb6df56ed1790ce7f8bbbaf802d8"
 UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
