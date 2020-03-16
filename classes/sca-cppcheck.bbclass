@@ -18,6 +18,8 @@ SCA_CPPCHECK_FILE_FILTER ?= ".c .cpp .h .hpp"
 SCA_CPPCHECK_CHECK_DEPTH ?= "3"
 ## Mode of running the tool fast=multithreaded, complete=singlethreaded
 SCA_CPPCHECK_RUNMODE ?= "fast"
+## Number of config permutations
+SCA_CPPCHECK_MAX_CONFIG ?= "1"
 
 inherit sca-conv-to-export
 inherit sca-datamodel
@@ -100,7 +102,9 @@ python do_sca_cppcheck() {
 
     if d.getVar("SCA_CPPCHECK_RUNMODE") == "complete":
         _args += ["--enable=all"]
+        _args += ["--force"]
     elif d.getVar("SCA_CPPCHECK_RUNMODE") == "fast":
+        _args += ["--max-configs={}".format(d.getVar("SCA_CPPCHECK_MAX_CONFIG"))]
         _args += ["--enable=warning,style,performance,portability,information"]
         _args += ["-j", d.getVar("BB_NUMBER_THREADS")]
     _args += ["--inline-suppr"]
@@ -108,8 +112,6 @@ python do_sca_cppcheck() {
     for item in _add_include:
         _args += ["-I", item]
     _args += ["--xml-version=2"]
-    _args += ["--force"]
-    _args += ["--max-configs=1"]
     _args += ["--max-ctu-depth={}".format(d.getVar("SCA_CPPCHECK_CHECK_DEPTH"))]
     for item in d.getVar("SCA_CPPCHECK_LANG_STD").split(" "):
         _args += ["--std={}".format(item)]
