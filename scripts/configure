@@ -5,7 +5,6 @@
 import glob
 import os
 import json
-import sys
 import argparse
 
 class ToolDescriptions(object):
@@ -121,7 +120,7 @@ class InputElement(object):
             val = self.__present(__data)
             try:
                 val = int(val)
-            except:
+            except Exception:
                 pass
             if isinstance(val, int):
                 if val in range(len(__data)):
