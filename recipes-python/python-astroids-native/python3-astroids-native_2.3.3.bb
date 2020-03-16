@@ -19,3 +19,11 @@ SRC_URI[sha256sum] = "71ea07f44df9568a75d0f354c49143a4575d90645e9fead6dfb52c26a8
 inherit pypi
 inherit native
 inherit setuptools3
+
+# Temporary fix, till new astroid version will be available
+# This fix relaxes the requirements for wrapt like done upstream
+# with https://github.com/PyCQA/astroid/commit/597c044378bdcac0e02205e151f180f85a40a729
+do_configure_prepend() {
+    sed -i 's#wrapt==1.11.\*#wrapt~=1.11#g' ${S}/astroid.egg-info/requires.txt
+    sed -i 's#wrapt==1.11.\*#wrapt~=1.11#g' ${S}/astroid/__pkginfo__.py
+}
