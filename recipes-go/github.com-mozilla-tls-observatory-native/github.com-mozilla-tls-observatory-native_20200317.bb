@@ -2,7 +2,7 @@ SUMMARY = "An observatory for TLS configurations, X509 certificates, and more"
 HOMEPAGE = "https://github.com/mozilla/tls-observatory"
 
 SRC_URI = "git://${GO_IMPORT};protocol=https"
-SRCREV = "406508670b4528643abf6c33e19e85f2fd0ad637"
+SRCREV = "4fa42e1c2dee78ceb2461d88221da37cf3738237"
 UPSTREAM_CHECK_COMMITS = "1"
 
 GO_IMPORT = "github.com/mozilla/tls-observatory"
