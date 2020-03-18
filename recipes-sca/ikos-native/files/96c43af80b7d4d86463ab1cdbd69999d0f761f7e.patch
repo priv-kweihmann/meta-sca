@@ -1,0 +1,172 @@
+From 96c43af80b7d4d86463ab1cdbd69999d0f761f7e Mon Sep 17 00:00:00 2001
+From: Maxime Arthaud <maxime.arthaud@nasa.gov>
+Date: Mon, 17 Dec 2018 19:36:32 -0800
+Subject: [PATCH] [cmake] Fix #48: Set cmake policy CMP0056 to NEW
+
+This fixes link errors when using ninja.
+---
+ CMakeLists.txt               |  3 +++
+ analyzer/CMakeLists.txt      | 21 ++++++++++-----------
+ ar/CMakeLists.txt            | 15 +++++++--------
+ core/CMakeLists.txt          | 15 +++++++--------
+ frontend/llvm/CMakeLists.txt | 21 ++++++++++-----------
+ 5 files changed, 37 insertions(+), 38 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d15b954..6e5c00d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -43,6 +43,9 @@ cmake_minimum_required(VERSION 2.8.12.2 FATAL_ERROR)
+ if (POLICY CMP0025)
+   cmake_policy(SET CMP0025 NEW) # recognize Apple Clang
+ endif()
++if (POLICY CMP0056)
++  cmake_policy(SET CMP0056 NEW)
++endif()
+ 
+ project(ikos)
+ set(PACKAGE_VERSION "2.1")
+diff --git a/analyzer/CMakeLists.txt b/analyzer/CMakeLists.txt
+index 7b60e5e..27988be 100644
+--- a/analyzer/CMakeLists.txt
++++ b/analyzer/CMakeLists.txt
+@@ -40,6 +40,16 @@
+ 
+ cmake_minimum_required(VERSION 2.8.12.2 FATAL_ERROR)
+ 
++if (POLICY CMP0056)
++  cmake_policy(SET CMP0056 NEW)
++endif()
++if (POLICY CMP0074)
++  cmake_policy(SET CMP0074 NEW)
++endif()
++if (POLICY CMP0077)
++  cmake_policy(SET CMP0077 NEW)
++endif()
++
+ project(ikos-analyzer)
+ 
+ #
+@@ -75,17 +85,6 @@ macro(add_cxx_flag policy name flag)
+   endif()
+ endmacro()
+ 
+-#
+-# CMake policies
+-#
+-
+-if (POLICY CMP0074)
+-  cmake_policy(SET CMP0074 NEW)
+-endif()
+-if (POLICY CMP0077)
+-  cmake_policy(SET CMP0077 NEW)
+-endif()
+-
+ #
+ # Dependency checks
+ #
+diff --git a/ar/CMakeLists.txt b/ar/CMakeLists.txt
+index a066ed1..7943e23 100644
+--- a/ar/CMakeLists.txt
++++ b/ar/CMakeLists.txt
+@@ -40,6 +40,13 @@
+ 
+ cmake_minimum_required(VERSION 2.8.12.2 FATAL_ERROR)
+ 
++if (POLICY CMP0056)
++  cmake_policy(SET CMP0056 NEW)
++endif()
++if (POLICY CMP0074)
++  cmake_policy(SET CMP0074 NEW)
++endif()
++
+ project(ikos-abstract-representation)
+ 
+ #
+@@ -75,14 +82,6 @@ macro(add_cxx_flag policy name flag)
+   endif()
+ endmacro()
+ 
+-#
+-# CMake policies
+-#
+-
+-if (POLICY CMP0074)
+-  cmake_policy(SET CMP0074 NEW)
+-endif()
+-
+ #
+ # Dependency checks
+ #
+diff --git a/core/CMakeLists.txt b/core/CMakeLists.txt
+index 41088d3..b397e36 100644
+--- a/core/CMakeLists.txt
++++ b/core/CMakeLists.txt
+@@ -40,6 +40,13 @@
+ 
+ cmake_minimum_required(VERSION 2.8.12.2 FATAL_ERROR)
+ 
++if (POLICY CMP0056)
++  cmake_policy(SET CMP0056 NEW)
++endif()
++if (POLICY CMP0074)
++  cmake_policy(SET CMP0074 NEW)
++endif()
++
+ project(ikos-core)
+ 
+ #
+@@ -75,14 +82,6 @@ macro(add_cxx_flag policy name flag)
+   endif()
+ endmacro()
+ 
+-#
+-# CMake policies
+-#
+-
+-if (POLICY CMP0074)
+-  cmake_policy(SET CMP0074 NEW)
+-endif()
+-
+ #
+ # Dependency checks
+ #
+diff --git a/frontend/llvm/CMakeLists.txt b/frontend/llvm/CMakeLists.txt
+index c1cf601..c2788d4 100644
+--- a/frontend/llvm/CMakeLists.txt
++++ b/frontend/llvm/CMakeLists.txt
+@@ -40,6 +40,16 @@
+ 
+ cmake_minimum_required(VERSION 2.8.12.2 FATAL_ERROR)
+ 
++if (POLICY CMP0056)
++  cmake_policy(SET CMP0056 NEW)
++endif()
++if (POLICY CMP0074)
++  cmake_policy(SET CMP0074 NEW)
++endif()
++if (POLICY CMP0077)
++  cmake_policy(SET CMP0077 NEW)
++endif()
++
+ project(ikos-frontend-llvm)
+ 
+ #
+@@ -75,17 +85,6 @@ macro(add_cxx_flag policy name flag)
+   endif()
+ endmacro()
+ 
+-#
+-# CMake policies
+-#
+-
+-if (POLICY CMP0074)
+-  cmake_policy(SET CMP0074 NEW)
+-endif()
+-if (POLICY CMP0077)
+-  cmake_policy(SET CMP0077 NEW)
+-endif()
+-
+ #
+ # Dependency checks
+ #

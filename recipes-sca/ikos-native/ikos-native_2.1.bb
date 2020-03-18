@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/nasa-sw-vnv/ikos"
 LICENSE = "NASA"
 
 SRC_URI = "git://github.com/NASA-SW-VnV/ikos.git;protocol=https;tag=v${PV} \
+           file://96c43af80b7d4d86463ab1cdbd69999d0f761f7e.patch \
            file://ikos.sca.description"
 
 S = "${WORKDIR}/git"
