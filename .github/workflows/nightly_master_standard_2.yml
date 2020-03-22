@@ -37,19 +37,23 @@ jobs:
       - name: Check out poky
         run: |
           git clone git://git.yoctoproject.org/poky.git/ -b $SCABRANCH ${WORKSPACE}/poky
+          rm -rf ${WORKSPACE}/poky/.git
         shell: bash
       - name: Check out meta-sca
         run: |
           git clone https://github.com/priv-kweihmann/meta-sca.git -b $SCABRANCH ${WORKSPACE}/meta-sca
+          rm -rf ${WORKSPACE}/meta-sca/.git
       - if: env.ENABLEMETAOE == '1'
         name: Check out meta-oe
         run: |
           git clone git://git.openembedded.org/meta-openembedded -b $SCABRANCH ${WORKSPACE}/meta-oe
+          rm -rf ${WORKSPACE}/meta-oe/.git
         shell: bash
       - if: env.ENABLEMETACLANG == '1'
         name: Check out meta-clang
         run: |
           git clone https://github.com/kraj/meta-clang.git -b $SCABRANCH ${WORKSPACE}/meta-clang
+          rm -rf ${WORKSPACE}/meta-clang/.git
       - name: Setup poky
         run: |
           cd ${WORKSPACE} 
