@@ -96,7 +96,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           looong \
                           lynis \
                           msgcheck \
-                          multimetric \
                           mypy \
                           nixauditor \
                           npmaudit \
@@ -116,7 +115,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           reek \
                           retire \
                           revive \
-                          ropgadget \
                           safety \
                           setuptoolslint \
                           shellcheck \
@@ -141,3 +139,20 @@ SCA_AVAILABLE_MODULES ?= "\
                         "
 
 SCA_ENABLED_MODULES := "${SCA_ENABLED_MODULES_${SCA_MODE_UPPER}}"
+
+SCA_HASHEXCLUDE_VARS = "\
+                        __SCA_DATAMODEL_STORAGE \
+                        BB_NUMBER_THREADS \
+                        BBINCLUDED \
+                        BBLAYERS \
+                        FILESPATH \
+                        SCA_DATAMODEL_STORAGE \
+                        SCA_DEPLOY_TASK \
+                        SCA_EXTRA_FATAL \
+                        SCA_EXTRA_SUPPRESS \
+                        SCA_FATAL_FILE \
+                        SCA_RAW_RESULT_FILE \
+                        SCA_RESULT_FILE \
+                        SCA_SUPRESS_FILE \
+                        TOPDIR \
+                        "
