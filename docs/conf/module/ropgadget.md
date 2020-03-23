@@ -22,7 +22,7 @@ So if you actually want to see the details you can have a look into the raw-file
 * [ ] terminate build on fatal
 * [x] run on recipe
 * [ ] run on image
-* [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
+* [ ] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 
