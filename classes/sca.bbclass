@@ -58,7 +58,7 @@ python sca_invoke_handler() {
         if bb.data.inherits_class('image', d) and d.getVar("SCA_AUTO_INH_ON_IMAGE") == "1":
             BBHandler.inherit("sca-on-image", "sca", 1, d)
             sca_on_image_init(d)
-        elif d.getVar("SCA_AUTO_INH_ON_RECIPE") == "1":
+        elif not bb.data.inherits_class('image', d) and d.getVar("SCA_AUTO_INH_ON_RECIPE") == "1":
             BBHandler.inherit("sca-on-recipe", "sca", 1, d)
             sca_on_recipe_init(d)
         if py2:
@@ -66,4 +66,18 @@ python sca_invoke_handler() {
             d.setVar("PYTHON", py2_PYTHON)
             d.setVar("PYTHON_PN", py2_PYTHON_PN)
             d.setVar("PYTHON_BASEVERSION", py2_PYTHON_BASEVERSION)
+    # instead on tuning each any every function manually
+    # patch them here
+    _vars = set(["__SCA_DATAMODEL_STORAGE"])
+    for e in d.keys():
+        if not d.getVarFlag(e, 'task') and e.startswith("SCA_"):
+            _vars.add(e)
+    for e in d.keys():
+        if d.getVarFlag(e, 'task'):
+            if not e.startswith("do_sca"):
+                # Exclude all SCA var from going into to non-sca task hashes
+                d.appendVarFlag(e, "vardepsexclude", " " + " ".join(_vars))
+            else:
+                # on sca tasks exclude several problematic vars from being hashed
+                d.appendVarFlag(e, "vardepsexclude", " " + d.getVar("SCA_HASHEXCLUDE_VARS"))
 }
