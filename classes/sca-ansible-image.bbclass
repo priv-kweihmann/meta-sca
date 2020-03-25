@@ -225,7 +225,4 @@ python do_sca_deploy_ansible() {
 addtask do_sca_ansible before do_image_complete after do_image
 addtask do_sca_deploy_ansible before do_image_complete after do_sca_ansible
 
-do_sca_ansible[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_ansible[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-
 DEPENDS += "python3-ansible-native ansible-sca-native sca-image-ansible-rules-native"

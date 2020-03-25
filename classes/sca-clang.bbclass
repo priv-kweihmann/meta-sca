@@ -141,7 +141,4 @@ python do_sca_deploy_clang() {
 addtask do_sca_clang before do_install after do_compile
 addtask do_sca_deploy_clang after do_sca_clang before do_package
 
-do_sca_clang[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_clang[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-
 DEPENDS += "clang-native sca-recipe-clang-rules-native clang-sca-native"

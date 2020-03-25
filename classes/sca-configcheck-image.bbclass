@@ -119,7 +119,4 @@ python do_sca_deploy_configcheck_image() {
 addtask do_sca_configcheck before do_image_complete after do_image
 addtask do_sca_deploy_configcheck_image before do_image_complete after do_sca_configcheck
 
-do_sca_configcheck[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_configcheck_image[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-
 DEPENDS += "configcheck-sca-native sca-image-configcheck-rules-native bash"

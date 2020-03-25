@@ -68,16 +68,12 @@ python sca_invoke_handler() {
             d.setVar("PYTHON_BASEVERSION", py2_PYTHON_BASEVERSION)
     # instead on tuning each any every function manually
     # patch them here
-    _vars = set(["__SCA_DATAMODEL_STORAGE"])
-    for e in d.keys():
-        if not d.getVarFlag(e, 'task') and e.startswith("SCA_"):
-            _vars.add(e)
+    _force_run = d.getVar("SCA_FORCE_RUN") == "1"
     for e in d.keys():
         if d.getVarFlag(e, 'task'):
-            if not e.startswith("do_sca"):
-                # Exclude all SCA var from going into to non-sca task hashes
-                d.appendVarFlag(e, "vardepsexclude", " " + " ".join(_vars))
+            d.appendVarFlag(e, "vardepsexclude", " " + d.getVar("SCA_HASHEXCLUDE_VARS"))
+            if not _force_run:
+                d.delVarFlag(e, "nostamp")
             else:
-                # on sca tasks exclude several problematic vars from being hashed
-                d.appendVarFlag(e, "vardepsexclude", " " + d.getVar("SCA_HASHEXCLUDE_VARS"))
+                d.setVarFlag(e, "nostamp", "1")
 }

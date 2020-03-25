@@ -108,7 +108,4 @@ python do_sca_deploy_gosec() {
 addtask do_sca_gosec before do_compile after do_configure
 addtask do_sca_deploy_gosec after do_sca_gosec before do_package
 
-do_sca_gosec[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_gosec[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-
 DEPENDS += "gosec-native sca-recipe-gosec-rules-native"
