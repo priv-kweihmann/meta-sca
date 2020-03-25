@@ -104,7 +104,4 @@ python do_sca_deploy_reek() {
 addtask do_sca_reek before do_install after do_configure
 addtask do_sca_deploy_reek after do_sca_reek before do_package
 
-do_sca_reek[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_reek[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-
 DEPENDS += "reek-native sca-recipe-reek-rules-native"

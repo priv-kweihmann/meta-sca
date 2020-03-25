@@ -107,9 +107,6 @@ python do_sca_deploy_setuptoolslint() {
 addtask do_sca_setuptoolslint before do_install after do_compile
 addtask do_sca_deploy_setuptoolslint after do_sca_setuptoolslint before do_package
 
-do_sca_setuptoolslint[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_setuptoolslint[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-
 DEPENDS += "\
             python3-setuptools-lint-native \
             python3-setuptools-native \

@@ -113,7 +113,4 @@ python do_sca_deploy_perlcritic() {
 addtask do_sca_perlcritic before do_compile after do_configure
 addtask do_sca_deploy_perlcritic after do_sca_perlcritic before do_package
 
-do_sca_perlcritic[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_perlcritic[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-
 DEPENDS += "perl-critic-native sca-recipe-perlcritic-rules-native"

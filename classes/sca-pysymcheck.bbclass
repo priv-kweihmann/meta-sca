@@ -107,7 +107,4 @@ python do_sca_deploy_pysymcheck() {
 addtask do_sca_pysymcheck before do_install after do_compile
 addtask do_sca_deploy_pysymcheck after do_sca_pysymcheck before do_package
 
-do_sca_pysymcheck[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_pysymcheck[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-
 DEPENDS += "python3-pysymbolcheck-native sca-recipe-pysymcheck-rules-native"
