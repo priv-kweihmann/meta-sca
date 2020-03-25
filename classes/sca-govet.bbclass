@@ -121,7 +121,4 @@ python do_sca_deploy_govet() {
 addtask do_sca_govet before do_compile after do_configure
 addtask do_sca_deploy_govet after do_sca_govet before do_package
 
-do_sca_govet[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_govet[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-
 DEPENDS += "govet-sca-native sca-recipe-govet-rules-native"

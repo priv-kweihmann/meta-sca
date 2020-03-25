@@ -96,7 +96,4 @@ python do_sca_deploy_cvecheck() {
 
 addtask do_sca_deploy_cvecheck after do_cve_check before do_package
 
-do_cve_check[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_cvecheck[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-
 DEPENDS += "cvecheck-sca-native"

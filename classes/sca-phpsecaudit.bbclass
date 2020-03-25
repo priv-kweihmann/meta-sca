@@ -111,7 +111,4 @@ python do_sca_deploy_phpsecaudit() {
 addtask do_sca_phpsecaudit before do_install after do_configure
 addtask do_sca_deploy_phpsecaudit after do_sca_phpsecaudit before do_package
 
-do_sca_phpsecaudit[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_phpsecaudit[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-
 DEPENDS += "phpcs-security-audit-native sca-recipe-phpsecaudit-rules-native"
