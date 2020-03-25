@@ -156,6 +156,3 @@ python do_sca_deploy_ansibleroles_image() {
 
 addtask do_sca_ansibleroles before do_image_complete after do_image
 addtask do_sca_deploy_ansibleroles_image before do_image_complete after do_sca_ansibleroles
-
-do_sca_ansibleroles[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_ansibleroles_image[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"

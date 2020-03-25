@@ -163,7 +163,4 @@ python do_sca_deploy_pkgqaenc() {
 addtask do_sca_pkgqaenc before do_package_qa after do_package
 addtask do_sca_deploy_pkgqaenc after do_sca_pkgqaenc before do_package_qa
 
-do_sca_pkgqaenc[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_pkgqaenc[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-
 DEPENDS += "pkgqaenc-native sca-recipe-pkgqaenc-rules-native"
