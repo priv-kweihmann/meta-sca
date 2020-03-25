@@ -114,7 +114,4 @@ python do_sca_deploy_sparse() {
 addtask do_sca_sparse before do_install after do_compile
 addtask do_sca_deploy_sparse after do_sca_sparse before do_package
 
-do_sca_sparse[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_sparse[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-
 DEPENDS += "sparse-native sca-recipe-sparse-rules-native"

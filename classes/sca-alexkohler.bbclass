@@ -104,7 +104,4 @@ python do_sca_deploy_alexkohler() {
 addtask do_sca_alexkohler before do_compile after do_configure
 addtask do_sca_deploy_alexkohler after do_sca_alexkohler before do_package
 
-do_sca_alexkohler[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_alexkohler[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-
 DEPENDS += "alexkohler-native sca-recipe-alexkohler-rules-native"

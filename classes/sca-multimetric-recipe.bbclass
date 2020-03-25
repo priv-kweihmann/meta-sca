@@ -28,7 +28,4 @@ python sca_multimetric_init() {
 addtask do_sca_multimetric_core after do_install before do_package do_rm_work
 addtask do_sca_deploy_multimetric_recipe after do_sca_multimetric_core before do_package
 
-do_sca_multimetric_core[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_multimetric_recipe[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-
 DEPENDS += "sca-recipe-multimetric-rules-native"

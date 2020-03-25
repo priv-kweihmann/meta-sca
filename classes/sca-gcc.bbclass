@@ -198,7 +198,7 @@ def sca_gcc_hardening(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
-
+    
 def do_sca_conv_gcc(d):
     import os
     import re
@@ -284,9 +284,4 @@ python do_sca_deploy_gcc() {
 
 addtask do_sca_gcc before do_install after do_compile
 addtask do_sca_deploy_gcc after do_sca_gcc before do_package
-
-do_sca_gcc[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_gcc[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_compile[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-
 DEPENDS += "sca-recipe-gcc-rules-native gcc-sca-native"

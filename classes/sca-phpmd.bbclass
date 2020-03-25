@@ -106,7 +106,4 @@ python do_sca_deploy_phpmd() {
 addtask do_sca_phpmd before do_install after do_configure
 addtask do_sca_deploy_phpmd after do_sca_phpmd before do_package
 
-do_sca_phpmd[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_phpmd[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-
 DEPENDS += "phpmd-native sca-recipe-phpmd-rules-native"
