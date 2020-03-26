@@ -1,8 +1,6 @@
 ## SPDX-License-Identifier: BSD-2-Clause
 ## Copyright (c) 2019, Konrad Weihmann
 
-inherit sca-globalfunc
-
 SCA_ENABLE ?= "1"
 SCA_EXPORT_DIR ?= "${DEPLOY_DIR_IMAGE}/sca"
 SCA_EXPORT_FINDING_SRC = "1"
@@ -145,14 +143,21 @@ SCA_HASHEXCLUDE_VARS = "\
                         BB_NUMBER_THREADS \
                         BBINCLUDED \
                         BBLAYERS \
+                        DEPLOY_DIR_IMAGE \
+                        DL_DIR \
                         FILESPATH \
+                        PYTHON_SITEPACKAGES_DIR \
+                        RECIPE_SYSROOT \
+                        RECIPE_SYSROOT_NATIVE \
                         SCA_DATAMODEL_STORAGE \
                         SCA_DEPLOY_TASK \
                         SCA_EXTRA_FATAL \
                         SCA_EXTRA_SUPPRESS \
                         SCA_FATAL_FILE \
+                        SCA_LAYERDIR \
                         SCA_RAW_RESULT_FILE \
                         SCA_RESULT_FILE \
                         SCA_SUPRESS_FILE \
+                        STAGING_DATADIR_NATIVE \
                         TOPDIR \
                         "
