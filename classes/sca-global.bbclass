@@ -145,15 +145,6 @@ SCA_ENABLED_MODULES := "${SCA_ENABLED_MODULES_${SCA_MODE_UPPER}}"
 
 SCA_HASHEXCLUDE_VARS = "\
                         __SCA_DATAMODEL_STORAGE \
-                        BB_NUMBER_THREADS \
-                        BBINCLUDED \
-                        BBLAYERS \
-                        DEPLOY_DIR_IMAGE \
-                        DL_DIR \
-                        FILESPATH \
-                        PYTHON_SITEPACKAGES_DIR \
-                        RECIPE_SYSROOT \
-                        RECIPE_SYSROOT_NATIVE \
                         SCA_DATAMODEL_STORAGE \
                         SCA_DEPLOY_TASK \
                         SCA_EXTRA_FATAL \
@@ -163,6 +154,4 @@ SCA_HASHEXCLUDE_VARS = "\
                         SCA_RAW_RESULT_FILE \
                         SCA_RESULT_FILE \
                         SCA_SUPRESS_FILE \
-                        STAGING_DATADIR_NATIVE \
-                        TOPDIR \
                         "
