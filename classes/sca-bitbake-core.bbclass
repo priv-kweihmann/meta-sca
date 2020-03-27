@@ -114,6 +114,7 @@ def do_sca_conv_bitbake(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
+do_sca_bitbake[vardepsexlude] += "BBINCLUDED"
 python do_sca_bitbake () {
     content = ""
     with open(d.getVar("CONLOG")) as f:

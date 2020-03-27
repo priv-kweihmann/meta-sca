@@ -84,6 +84,7 @@ def get_local_includes(path):
                 res.add(_incpath)
     return res
 
+do_sca_ikos[vardepsexclude] += "TOPDIR"
 python do_sca_ikos() {
     import os
     import subprocess
