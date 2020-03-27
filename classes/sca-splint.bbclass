@@ -60,6 +60,7 @@ def do_sca_conv_splint(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
+do_sca_splint[vardepsexclude] += "TOPDIR"
 python do_sca_splint() {
     import os
     import subprocess
