@@ -57,6 +57,7 @@ def do_sca_conv_vulture(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
+do_sca_vulture_core[vardepsexclude] += "BB_NUMBER_THREADS"
 python do_sca_vulture_core() {
     import os
     import subprocess
