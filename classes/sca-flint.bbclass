@@ -70,9 +70,9 @@ python do_sca_flint() {
     _args += ["-r"]
     _args += ["-l", "3"]
     _args += ["-v"]
-    _args += get_files_by_extention(d, 
-                                    d.getVar("SCA_SOURCES_DIR"), 
-                                    clean_split(d, "SCA_FLINT_FILE_FILTER"), 
+    _args += get_files_by_extention(d,    
+                                    d.getVar("SCA_SOURCES_DIR"),    
+                                    clean_split(d, "SCA_FLINT_FILE_FILTER"),    
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run

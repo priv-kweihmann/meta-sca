@@ -57,7 +57,7 @@ def do_sca_conv_safety(d, cmd_output=""):
 
 ## happily taken from https://stackoverflow.com/a/37078593
 def import_and_extract(d, parent_dir):
-    import sys 
+    import sys    
     import unittest.mock as mock
     import tempfile
     import os
@@ -74,7 +74,7 @@ def import_and_extract(d, parent_dir):
     sys.path.insert(0, parent_dir)
     with tempfile.NamedTemporaryFile(prefix="setup_temp_", mode='w', dir=parent_dir, suffix='.py') as temp_fh:
         with open(os.path.join(parent_dir, "setup.py"), 'r') as setup_fh:
-            temp_fh.write(setup_fh.read()) 
+            temp_fh.write(setup_fh.read())    
             temp_fh.flush()
         try:
             with mock.patch.object(setuptools, 'setup') as mock_setup:
@@ -120,7 +120,7 @@ python do_sca_safety() {
         _args += ["-m", "safety", "check"]
         _args += ["--output", tmp_result, "--json"]
         _args += ["-r", tmp_req]
-        
+    
         try:
             subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError:

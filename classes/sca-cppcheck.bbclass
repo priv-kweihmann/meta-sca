@@ -28,7 +28,7 @@ inherit sca-helper
 inherit sca-suppress
 
 def get_platform_type(d):
-    ## Let's assume that 64bit platforms 
+    ## Let's assume that 64bit platforms    
     ## end with a 64 in their platform name
     tmp = d.getVar("TARGET_ARCH")
     if tmp.endswith("64"):
@@ -120,9 +120,9 @@ python do_sca_cppcheck() {
     result_raw_file = os.path.join(d.getVar("T", True), "sca_raw_cppcheck.xml")
     d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
     _args += ["--output-file={}".format(result_raw_file)]
-    _files = get_files_by_extention(d, 
-                                    d.getVar("SCA_SOURCES_DIR"), 
-                                    clean_split(d, "SCA_CPPCHECK_FILE_FILTER"), 
+    _files = get_files_by_extention(d,    
+                                    d.getVar("SCA_SOURCES_DIR"),    
+                                    clean_split(d, "SCA_CPPCHECK_FILE_FILTER"),    
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     _file_list = os.path.join(d.getVar("T"), ".cppcheck_filelist")
     with open(_file_list, "w") as o:

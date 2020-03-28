@@ -25,7 +25,7 @@ FILES_${PN} = "${bindir} ${datadir}"
 do_install() {
     mkdir -p ${D}${bindir}
     install -d ${D}${datadir}
-    
+
     install -m 0755 ${S}/scripts/checkbashisms.bash_completion ${D}${bindir}
     install -m 0755 ${S}/scripts/checkbashisms.pl ${D}${bindir}
 

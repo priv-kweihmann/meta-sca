@@ -80,7 +80,7 @@ python do_sca_clang() {
 
     _add_include = d.getVar("SCA_CLANG_ADD_INCLUDES", True).split(" ")
 
-    inc_dirs = [d.getVar("SCA_SOURCES_DIR"), 
+    inc_dirs = [d.getVar("SCA_SOURCES_DIR"),    
                 os.path.join(d.getVar("SCA_SOURCES_DIR"), "include"),
                 os.path.join(d.getVar("STAGING_DIR"), "include"),
                 d.getVar("STAGING_INCDIR")]

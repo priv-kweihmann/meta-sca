@@ -12,7 +12,7 @@ DEPENDS += " \
             ${PYTHON_PN}-six-native \
             "
 
-## A python file with /usr/bin/python-shebang is 
+## A python file with /usr/bin/python-shebang is
 ## used - ignore this error
 INSANE_SKIP_${PN} += "file-rdeps"
 
