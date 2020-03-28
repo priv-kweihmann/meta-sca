@@ -11,7 +11,7 @@ SCA_MULTIMETRIC_FILE_FILTER ?= ".c .C .c++ .cc .cp .cpp .CPP \
 SCA_MULTIMETRIC_EXTRA_SUPPRESS ?= ""
 SCA_MULTIMETRIC_EXTRA_FATAL ?= ""
 
-# possible entries for variables are 
+# possible entries for variables are    
 # comment_ratio
 # cyclomatic_complexity
 # fanout_external
@@ -32,7 +32,7 @@ SCA_MULTIMETRIC_EXTRA_FATAL ?= ""
 # tiobe_complexity
 # tiobe_coverage
 # tiobe_duplication
-# tiobe_fanout          
+# tiobe_fanout    
 # tiobe_functional
 # tiobe_security
 # tiobe_standard
@@ -218,9 +218,9 @@ python do_sca_multimetric_core() {
     json_output = {}
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_multimetric.json")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
-    _files = get_files_by_extention(d, 
-                                    d.getVar("SCA_SOURCES_DIR"), 
-                                    clean_split(d, "SCA_MULTIMETRIC_FILE_FILTER"), 
+    _files = get_files_by_extention(d,    
+                                    d.getVar("SCA_SOURCES_DIR"),    
+                                    clean_split(d, "SCA_MULTIMETRIC_FILE_FILTER"),    
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     cmd_output = "{}"
     if any(_files):
@@ -228,7 +228,7 @@ python do_sca_multimetric_core() {
             cmd_output = subprocess.check_output(_args + _files, universal_newlines=True)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
-        
+    
     with open(tmp_result, "w") as o:
         if not cmd_output:
             cmd_output = "{}"

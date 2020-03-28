@@ -22,7 +22,7 @@ do_configure () {
     echo "<?xml version=\"1.0\"?>" > "${rulefile}"
     if [ ! -z "${rules}" ]; then
         for r in ${@" ".join(find_cfgs(d))}; do
-            cat ${r} >> "${rulefile}" 
+            cat ${r} >> "${rulefile}"
         done
     fi
 }

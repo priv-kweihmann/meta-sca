@@ -110,9 +110,9 @@ python do_sca_tscancode() {
         _args += ["-D{}{}".format(d.getVar("SCA_TSCANCODE_SYMBOL_PREFIX"), sym)]
     for x in [x for x in d.getVar("SCA_TSCANCODE_INCLUDE_PATHS") if x]:
         _args += ["-I", x]
-    _args += get_files_by_extention(d, 
-                                    d.getVar("SCA_SOURCES_DIR"), 
-                                    clean_split(d, "SCA_TSCANCODE_FILE_FILTER"), 
+    _args += get_files_by_extention(d,    
+                                    d.getVar("SCA_SOURCES_DIR"),    
+                                    clean_split(d, "SCA_TSCANCODE_FILE_FILTER"),    
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## create tmpdir

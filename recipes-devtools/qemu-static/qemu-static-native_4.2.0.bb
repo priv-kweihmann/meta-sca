@@ -67,7 +67,7 @@ QEMU_TARGETS = "arm-linux-user \
 QEMU_TARGET_CONF_OPT = "${@','.join(d.getVar('QEMU_TARGETS').split(' '))}"
 
 do_configure() {
-    ${S}/configure ${QEMU_CONFIGURE_OPTS} \    
+    ${S}/configure ${QEMU_CONFIGURE_OPTS} \
     --target-list=${QEMU_TARGET_CONF_OPT}
 }
 

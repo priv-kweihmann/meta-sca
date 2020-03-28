@@ -15,5 +15,5 @@ do_compile() {
 
 do_install() {
     install -d ${D}${bindir}
-    install -m 0755 simple-hello-world ${D}${bindir} 
+    install -m 0755 simple-hello-world ${D}${bindir}
 }

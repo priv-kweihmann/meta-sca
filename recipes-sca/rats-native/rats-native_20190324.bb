@@ -33,7 +33,7 @@ do_install() {
     install ${B}/rats-ruby.xml ${D}/${datadir}
     install ${B}/rats-openssl.xml ${D}/${datadir}
     install ${B}/rats.1    ${D}/${mandir}/man1
-    
+
     install ${WORKDIR}/rats.sca.description ${D}${datadir}/
 }
 

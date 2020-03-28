@@ -9,7 +9,7 @@ DEPENDS += "${PYTHON_PN}-setuptools-scm-native"
 PYPI_PACKAGE = "py"
 
 inherit native
-inherit pypi 
+inherit pypi
 inherit setuptools3
 
 SRC_URI[md5sum] = "42c67de84b07ac9cc867b8b70843a45b"

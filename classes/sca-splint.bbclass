@@ -90,9 +90,9 @@ python do_sca_splint() {
     for i in get_local_includes(d.getVar("STAGING_INCDIR")):
         _args += ["-I{}".format(i)]
 
-    _files = get_files_by_extention(d, 
-                                    d.getVar("SCA_SOURCES_DIR"), 
-                                    clean_split(d, "SCA_SPLINT_FILE_FILTER"), 
+    _files = get_files_by_extention(d,    
+                                    d.getVar("SCA_SOURCES_DIR"),    
+                                    clean_split(d, "SCA_SPLINT_FILE_FILTER"),    
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     tmp_result = os.path.join(d.getVar("T"), "sca_raw_splint.csv")

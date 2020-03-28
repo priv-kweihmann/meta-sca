@@ -8,7 +8,7 @@ PYPI_PACKAGE = "flake8_bandit"
 
 UPSTREAM_CHECK_REGEX ?= "/flake8-bandit/(?P<pver>(\d+[\.\-_]*)+)"
 
-DEPENDS += " \  
+DEPENDS += " \
             ${PYTHON_PN}-bandit-native \
             ${PYTHON_PN}-flake8-native \
             ${PYTHON_PN}-flake8-polyfill-native \
