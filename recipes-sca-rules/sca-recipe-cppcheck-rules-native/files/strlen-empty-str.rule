@@ -1,4 +1,3 @@
-
 <rule version="1">
     <pattern> if \( ([!] )*?(strlen) \( \w+? \) ([>] [0] )*?\) { </pattern>
     <message>

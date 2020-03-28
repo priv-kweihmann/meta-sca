@@ -12,7 +12,7 @@ SRC_URI += "file://shellcheck.sca.description"
 
 DEPENDS += "gmp-native libffi-native dpkg-native dpkg-native"
 
-FILES_${PN}-man = "${mandir}/**"
+FILES_${PN}-man = "${mandir}"
 FILES_${PN} = "${bindir}/shellcheck ${datadir}"
 
 ## We know it's already stripped - because we're using prebuild things

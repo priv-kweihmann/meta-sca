@@ -20,7 +20,7 @@ DEPENDS = "perl-native"
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
-FILES_${PN} = "${bindir}/** ${datadir}"
+FILES_${PN} = "${bindir} ${datadir}"
 
 do_install() {
     mkdir -p ${D}${bindir}

@@ -15,4 +15,4 @@ do_install() {
     install "${WORKDIR}/fatal" "${D}${datadir}/zrd-recipe-fatal"
 }
 
-FILES_${PN} = "${datadir}/**"
+FILES_${PN} = "${datadir}"
