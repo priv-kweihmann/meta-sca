@@ -114,6 +114,4 @@ python do_sca_flake8_core() {
     sca_task_aftermath(d, "flake8", get_fatal_entries(d))
 }
 
-## addtask do_static_code_analysis_flake8 before do_install after do_compile
-
 DEPENDS += "python3-flake8-sca-native"

@@ -84,6 +84,8 @@ python do_sca_deploy_nixauditor_image() {
     sca_conv_deploy(d, "nixauditor", "txt")
 }
 
+do_sca_nixauditor[doc] = "Audit image with nixautidor"
+do_sca_deploy_nixauditor_image[doc] = "Deploy results of do_sca_nixauditor"
 addtask do_sca_nixauditor before do_image_complete after do_image
 addtask do_sca_deploy_nixauditor_image before do_image_complete after do_sca_nixauditor
 

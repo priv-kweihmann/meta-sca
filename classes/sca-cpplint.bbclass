@@ -107,6 +107,8 @@ python do_sca_deploy_cpplint() {
     sca_conv_deploy(d, "cpplint", "txt")
 }
 
+do_sca_cppcheck[doc] = "Lint C/C++ files with cpplint"
+do_sca_deploy_cpplint[doc] = "Deploy results of do_sca_cpplint"
 addtask do_sca_cpplint before do_install after do_compile
 addtask do_sca_deploy_cpplint after do_sca_cpplint before do_package
 

@@ -95,6 +95,8 @@ python do_sca_deploy_lynis_image() {
     sca_conv_deploy(d, "lynis", "txt")
 }
 
+do_sca_lynis[doc] = "Audit image with lynis"
+do_sca_deploy_lynis_image[doc] = "Deploy results of do_sca_lynis"
 addtask do_sca_lynis before do_image_complete after do_image
 addtask do_sca_deploy_lynis_image before do_image_complete after do_sca_lynis
 

@@ -103,6 +103,8 @@ python do_sca_deploy_phpcodefixer() {
     sca_conv_deploy(d, "phpcodefixer", "json")
 }
 
+do_sca_phpcodefixer[doc] = "Lint php scripts with phpcodefixer in workspace"
+do_sca_deploy_phpcodefixer[doc] = "Deploy results of do_sca_phpcodefixer"
 addtask do_sca_phpcodefixer before do_install after do_configure
 addtask do_sca_deploy_phpcodefixer after do_sca_phpcodefixer before do_package
 

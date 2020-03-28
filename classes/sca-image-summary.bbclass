@@ -44,5 +44,7 @@ python do_sca_deploy_image_summary() {
     sca_conv_deploy(d, "image-summary", "notexists")
 }
 
+do_sca_image_summary[doc] = "Get summary of SCA findings in image"
+do_sca_deploy_image_summary[doc] = "Deploy results of do_sca_image_summary"
 addtask do_sca_image_summary after do_rootfs before do_image_complete
 addtask do_sca_deploy_image_summary before do_image_complete after do_sca_image_summary

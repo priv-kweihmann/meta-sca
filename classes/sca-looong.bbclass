@@ -97,6 +97,8 @@ python do_sca_deploy_looong() {
     sca_conv_deploy(d, "looong", "txt")
 }
 
+do_sca_looong[doc] = "Find python function to be refactored"
+do_sca_deploy_looong[doc] = "Deploy results of do_sca_looong"
 addtask do_sca_looong before do_install after do_compile
 addtask do_sca_deploy_looong after do_sca_looong before do_package
 

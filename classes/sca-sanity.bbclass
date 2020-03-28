@@ -12,4 +12,5 @@ python do_nonetwork_sanity() {
             pass
 }
 
+do_nonetwork_sanity[doc] = "Sanity check for network access given"
 addtask do_nonetwork_sanity after do_unpack before do_configure

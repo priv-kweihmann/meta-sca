@@ -138,6 +138,8 @@ python do_sca_deploy_gixy() {
     sca_conv_deploy(d, "gixy", "json")
 }
 
+do_sca_gixy[doc] = "Scan for nxginx misconfigurations in image"
+do_sca_deploy_gixy[doc] = "Deploy results of do_sca_gixy"
 addtask do_sca_gixy before do_image_complete after do_image
 addtask do_sca_deploy_gixy before do_image_complete after do_sca_gixy
 

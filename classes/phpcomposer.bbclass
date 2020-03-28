@@ -61,6 +61,7 @@ python do_package_refresh() {
 
 ## Requires install
 do_package_refresh[depends] += "${PN}:do_install"
+do_package_refresh[doc] = "Create tarball with pre-fetched dependencies"
 addtask do_package_refresh
 
 B = "${WORKDIR}/build"

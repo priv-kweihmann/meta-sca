@@ -11,6 +11,8 @@ python do_sca_deploy_shellcheck_image() {
     sca_conv_deploy(d, "shellcheck", "xml")
 }
 
+do_sca_shellcheck_core[doc] = "Lint shell script with shellcheck in image"
+do_sca_deploy_shellcheck_image[doc] = "Deploy results of do_sca_shellcheck_core"
 addtask do_sca_shellcheck_core before do_image_complete after do_image
 addtask do_sca_deploy_shellcheck_image before do_image_complete after do_sca_shellcheck_core
 

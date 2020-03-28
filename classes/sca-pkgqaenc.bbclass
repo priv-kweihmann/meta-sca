@@ -160,6 +160,8 @@ python do_sca_deploy_pkgqaenc() {
     sca_conv_deploy(d, "pkgqaenc", "txt")
 }
 
+do_sca_pkgqaenc[doc] = "Lint produced packages"
+do_sca_deploy_pkgqaenc[doc] = "Deploy results of do_sca_pkgqaenc"
 addtask do_sca_pkgqaenc before do_package_qa after do_package
 addtask do_sca_deploy_pkgqaenc after do_sca_pkgqaenc before do_package_qa
 

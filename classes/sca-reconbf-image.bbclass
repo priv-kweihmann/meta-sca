@@ -107,6 +107,8 @@ python do_sca_deploy_reconbf_image() {
     sca_conv_deploy(d, "reconbf", "json")
 }
 
+do_sca_reconbf[doc] = "Run reconbf audit on image"
+do_sca_deploy_reconbf_image[doc] = "Deploy results of do_sca_reconbf"
 addtask do_sca_reconbf before do_image_complete after do_image
 addtask do_sca_deploy_reconbf_image before do_image_complete after do_sca_reconbf
 

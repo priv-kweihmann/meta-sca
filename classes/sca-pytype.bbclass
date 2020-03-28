@@ -102,6 +102,8 @@ python do_sca_deploy_pytype() {
     sca_conv_deploy(d, "pytype", "txt")
 }
 
+do_sca_pytype[doc] = "Lint python scripts with pytype"
+do_sca_deploy_pytype[doc] = "Deploy results of do_sca_pytype"
 addtask do_sca_pytype before do_install after do_configure
 addtask do_sca_deploy_pytype after do_sca_pytype before do_package
 

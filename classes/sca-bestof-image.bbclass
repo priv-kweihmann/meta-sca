@@ -18,5 +18,7 @@ python do_sca_deploy_bestof_image() {
     sca_conv_deploy(d, "bestof", "json")
 }
 
+do_sca_bestof_core[doc] = "Gather result for BestOf mode on image"
 addtask do_sca_bestof_core before do_image_complete after do_image
+do_sca_deploy_bestof_image[doc] = "Deploy results of do_sca_bestof_core"
 addtask do_sca_deploy_bestof_image before do_image_complete after do_sca_bestof_core

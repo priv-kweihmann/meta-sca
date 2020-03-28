@@ -116,6 +116,8 @@ python do_sca_deploy_configcheck_image() {
     sca_conv_deploy(d, "configcheck", "txt")
 }
 
+do_sca_configcheck[doc] = "Check configuration of tools for validity in image"
+do_sca_deploy_configcheck_image[doc] = "Deploy results of do_sca_configcheck"
 addtask do_sca_configcheck before do_image_complete after do_image
 addtask do_sca_deploy_configcheck_image before do_image_complete after do_sca_configcheck
 

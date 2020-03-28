@@ -141,6 +141,8 @@ python do_sca_deploy_ikos() {
     sca_conv_deploy(d, "ikos", "txt")
 }
 
+do_sca_ikos[doc] = "Lint C/C++ files with ikos"
+do_sca_deploy_ikos[doc] = "Deploy results of do_sca_ikos"
 addtask do_sca_ikos before do_install after do_compile
 addtask do_sca_deploy_ikos after do_sca_ikos before do_package
 

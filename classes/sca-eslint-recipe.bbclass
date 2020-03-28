@@ -12,6 +12,8 @@ python do_sca_deploy_eslint_recipe() {
     sca_conv_deploy(d, "eslint", "xml")
 }
 
+do_sca_eslint_core[doc] = "LInt js files with eslint"
+do_sca_deploy_eslint_recipe[doc] = "Deploy results of do_sca_eslint_core"
 addtask do_sca_eslint_core before do_install after do_compile
 addtask do_sca_deploy_eslint_recipe before do_package after do_sca_eslint_core
 

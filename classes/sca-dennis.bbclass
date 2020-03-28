@@ -103,6 +103,8 @@ python do_sca_deploy_dennis() {
     sca_conv_deploy(d, "dennis", "txt")
 }
 
+do_sca_dennis[doc] = "Lint i18n files"
+do_sca_deploy_dennis[doc] = "Deploy results of do_sca_dennis"
 addtask do_sca_dennis before do_install after do_configure
 addtask do_sca_deploy_dennis after do_sca_dennis before do_package
 
