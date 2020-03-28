@@ -78,8 +78,8 @@ do_compile() {
 FILES_${PN} = "${bindir}"
 
 do_install () {
-	export STRIP=""
-	oe_runmake 'DESTDIR=${D}' install
+    export STRIP=""
+    oe_runmake 'DESTDIR=${D}' install
 
     ## This otherwise collides with qemu-native, as we only need the binaries, it's okay here
     rm -rf ${D}${datadir}

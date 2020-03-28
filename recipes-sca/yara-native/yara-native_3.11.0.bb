@@ -18,7 +18,7 @@ SRC_URI[patch.md5sum] = "8d390c86878f983e7ab79b03f5bef696"
 SRC_URI[patch.sha256sum] = "f112d8aca20a27b6c18adcc200e12ed02424a37fe4ae36d71d8611963ddc9f8f"
 
 do_install_append () {
-	install -d ${D}/${datadir}
+    install -d ${D}/${datadir}
 
     install ${WORKDIR}/yara.sca.description ${D}${datadir}
 }

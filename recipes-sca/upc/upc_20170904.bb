@@ -14,32 +14,32 @@ S = "${WORKDIR}/git"
 inherit sca-sanity
 
 do_compile() {
-	:
+    :
 }
 
 do_configure() {
-	:
+    :
 }
 
 do_install() {
-	install -d ${D}${bindir}/upc
-	install -d ${D}${bindir}/upc/tools
-	install -d ${D}${bindir}/upc/lib
-	for _d in "tools" "lib"; do
-		cd ${S}/${_d}
-		for f in $(find . -type f); do
-			_f=$(echo "$f" | sed "s#^./##g")
-			[ ! -z $(dirname $_f ) ] && install -d ${D}${bindir}/upc/${_d}/$(dirname $_f)
-			install $_f ${D}${bindir}/upc/${_d}/$_f
-		done
-		cd -
-	done
-	install ${S}/lib/checks/ssh_key ${D}${bindir}/upc/lib/misc/ssh_key
-	install -m 0755 ${S}/upc.sh ${D}${bindir}/upc/
+    install -d ${D}${bindir}/upc
+    install -d ${D}${bindir}/upc/tools
+    install -d ${D}${bindir}/upc/lib
+    for _d in "tools" "lib"; do
+        cd ${S}/${_d}
+        for f in $(find . -type f); do
+            _f=$(echo "$f" | sed "s#^./##g")
+            [ ! -z $(dirname $_f ) ] && install -d ${D}${bindir}/upc/${_d}/$(dirname $_f)
+            install $_f ${D}${bindir}/upc/${_d}/$_f
+        done
+        cd -
+    done
+    install ${S}/lib/checks/ssh_key ${D}${bindir}/upc/lib/misc/ssh_key
+    install -m 0755 ${S}/upc.sh ${D}${bindir}/upc/
 }
 
 do_install_append_class-native () {
-	install -d ${D}/${datadir}
+    install -d ${D}/${datadir}
 
     install ${WORKDIR}/upc.sca.description ${D}${datadir}
 }

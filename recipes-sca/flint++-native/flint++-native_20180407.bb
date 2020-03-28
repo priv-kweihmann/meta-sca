@@ -23,7 +23,7 @@ INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
 do_compile() {
     cd ${B}/flint
-	oe_runmake
+    oe_runmake
     cd -
 }
 

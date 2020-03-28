@@ -21,7 +21,7 @@ do_compile() {
 }
 
 do_install () {
-	install -d ${D}/${datadir}/ansible/roles/${ROLE_NAME}
+    install -d ${D}/${datadir}/ansible/roles/${ROLE_NAME}
     cp -r ${S}/* ${D}/${datadir}/ansible/roles/${ROLE_NAME}
     rm -rf ${D}/${datadir}/ansible/roles/${ROLE_NAME}/.git
     chown root:root ${D}/${datadir}/ansible/roles/${ROLE_NAME}
