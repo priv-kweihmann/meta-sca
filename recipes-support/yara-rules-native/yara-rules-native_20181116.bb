@@ -23,7 +23,7 @@ do_compile() {
 }
 
 do_install () {
-	install -d ${D}/${datadir}/yara-rules
+    install -d ${D}/${datadir}/yara-rules
     cd ${S}
     for f in $(find . -type f); do
         _f=$(echo "$f" | sed "s#^./##g")
