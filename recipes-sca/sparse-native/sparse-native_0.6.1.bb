@@ -17,7 +17,7 @@ inherit sca-sanity
 S = "${WORKDIR}/git"
 
 do_compile() {
-	oe_runmake
+    oe_runmake
 }
 
 FILES_${PN} = "${bindir} ${mandir} ${datadir}"

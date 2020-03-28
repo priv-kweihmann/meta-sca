@@ -33,7 +33,7 @@ do_install() {
 }
 
 do_install_append_class-native () {
-	install -d ${D}/${datadir}
+    install -d ${D}/${datadir}
     install ${WORKDIR}/sudokiller.sca.description ${D}${datadir}
 }
 

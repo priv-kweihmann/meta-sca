@@ -61,9 +61,9 @@ OUT=\$(patsubst %, \$(OTMP)%.done, \$(OBJ))
 all: \$(OUT)
 
 \$(OTMP)%.done : %
-	@mkdir -p \$(OTMP)\$\$(dirname \$<)
-	PYTHONUNBUFFERED=1 cpplint ${_OPTS} \$< || true > \$@
-	@rm -f \$@
+    @mkdir -p \$(OTMP)\$\$(dirname \$<)
+    PYTHONUNBUFFERED=1 cpplint ${_OPTS} \$< || true > \$@
+    @rm -f \$@
 
 .PHONY: all
 EOF

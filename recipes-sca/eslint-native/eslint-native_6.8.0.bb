@@ -55,10 +55,10 @@ do_install() {
     npm install --prefix ${D}${prefix} ${NPM_EXTRA_ARGS} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --save-dev eslint-plugin-vue@6.2.2
     npm install --prefix ${D}${prefix} ${NPM_EXTRA_ARGS} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --save-dev eslint-plugin-xss@0.1.9
 
-	if [ -d ${D}${prefix}/etc ] ; then
-		# This will be empty
-		rmdir ${D}${prefix}/etc
-	fi
+    if [ -d ${D}${prefix}/etc ] ; then
+        # This will be empty
+        rmdir ${D}${prefix}/etc
+    fi
 
     mkdir -p ${D}/${datadir}/eslint/configs
     for _f in ${WORKDIR}/configs/*; do

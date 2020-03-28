@@ -15,23 +15,23 @@ inherit autotools-brokensep
 inherit sca-sanity
 
 EXTRA_OECONF += "--with-tigerhome=${datadir}/tiger \
-				 --with-tigerconfig=${datadir}/tiger \
-				 --with-tigerwork=${datadir}/tiger \
-  				 --with-tigerlog=${datadir}/tiger \
-				 --with-tigerbin=${bindir} \
-				 "
+                 --with-tigerconfig=${datadir}/tiger \
+                 --with-tigerwork=${datadir}/tiger \
+                   --with-tigerlog=${datadir}/tiger \
+                 --with-tigerbin=${bindir} \
+                 "
 do_install_prepend() {
-	mkdir -p ${D}${datadir}/tiger
-	mkdir -p ${D}${bindir}
-	mkdir -p ${D}${mandir}
+    mkdir -p ${D}${datadir}/tiger
+    mkdir -p ${D}${bindir}
+    mkdir -p ${D}${mandir}
 }
 
 do_install_append_class-target() {
-	chown -R root:root ${D}${datadir}/tiger
+    chown -R root:root ${D}${datadir}/tiger
 }
 
 do_install_append_class-native () {
-	install -d ${D}/${datadir}
+    install -d ${D}/${datadir}
 
     install ${WORKDIR}/tiger.sca.description ${D}${datadir}
 }

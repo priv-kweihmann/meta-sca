@@ -38,7 +38,7 @@
         "ecmaVersion": 2018
     },
     "rules": {
-    	"immutable/no-this": 2,
+        "immutable/no-this": 2,
         "@getify/proper-arrows/name": ["error",{"trivial":false}],
         "@getify/proper-arrows/params": ["error",{"unused":"trailing"}],
         "@getify/proper-arrows/return": ["error",{"object":true}],

@@ -27,7 +27,7 @@ do_compile() {
 do_install() {
     export HOME=${S}
     cd ${S}
-	mkdir -p ${D}${libdir}/node_modules
+    mkdir -p ${D}${libdir}/node_modules
     npm install --prefix ${D}${prefix} -g ${NPM_EXTRA_ARGS} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production ${BPN}@${PV}
     npm install --prefix ${D}${prefix} -g ${NPM_EXTRA_ARGS} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-no-todo@2.0.1
     npm install --prefix ${D}${prefix} -g ${NPM_EXTRA_ARGS} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-no-start-duplicated-conjunction@2.0.2
@@ -58,10 +58,10 @@ do_install() {
     npm install --prefix ${D}${prefix} -g ${NPM_EXTRA_ARGS} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-diacritics@1.0.0
     npm install --prefix ${D}${prefix} -g ${NPM_EXTRA_ARGS} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-stop-words@2.0.3
     npm install --prefix ${D}${prefix} -g ${NPM_EXTRA_ARGS} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-en-capitalization@2.0.2
-	if [ -d ${D}${prefix}/etc ] ; then
-		# This will be empty
-		rmdir ${D}${prefix}/etc
-	fi
+    if [ -d ${D}${prefix}/etc ] ; then
+        # This will be empty
+        rmdir ${D}${prefix}/etc
+    fi
 
     mkdir -p ${D}${datadir}
 

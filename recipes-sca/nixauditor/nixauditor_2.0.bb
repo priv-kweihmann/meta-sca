@@ -13,14 +13,14 @@ inherit sca-sanity
 RDEPENDS_${PN}_class-target += "bash"
 
 do_install_class-target() {
-	install -d ${D}${bindir}
-	install -m 0755 "${S}/nixauditor 2.0" ${D}${bindir}/nixauditor
+    install -d ${D}${bindir}
+    install -m 0755 "${S}/nixauditor 2.0" ${D}${bindir}/nixauditor
 }
 
 FILES_${PN}_class-target = "${bindir}"
 
 do_install_class-native () {
-	install -d ${D}/${datadir}
+    install -d ${D}/${datadir}
 
     install ${WORKDIR}/nixauditor.sca.description ${D}${datadir}
 }

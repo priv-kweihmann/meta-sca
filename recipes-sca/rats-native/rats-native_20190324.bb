@@ -27,12 +27,12 @@ do_install() {
 
     install ${B}/rats ${D}${bindir}/
     install ${B}/rats-python.xml ${D}/${datadir}
-	install ${B}/rats-c.xml ${D}/${datadir}
-	install ${B}/rats-perl.xml ${D}/${datadir}
-	install ${B}/rats-php.xml ${D}/${datadir}
-	install ${B}/rats-ruby.xml ${D}/${datadir}
-	install ${B}/rats-openssl.xml ${D}/${datadir}
-	install ${B}/rats.1	${D}/${mandir}/man1
+    install ${B}/rats-c.xml ${D}/${datadir}
+    install ${B}/rats-perl.xml ${D}/${datadir}
+    install ${B}/rats-php.xml ${D}/${datadir}
+    install ${B}/rats-ruby.xml ${D}/${datadir}
+    install ${B}/rats-openssl.xml ${D}/${datadir}
+    install ${B}/rats.1    ${D}/${mandir}/man1
     
     install ${WORKDIR}/rats.sca.description ${D}${datadir}/
 }

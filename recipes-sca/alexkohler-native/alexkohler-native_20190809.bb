@@ -3,14 +3,14 @@ HOMEPAGE = "https://github.com/alexkohler"
 
 SRC_URI = "\
     file://alexkohler.sca.description \
-	git://github.com/alexkohler/noret.git;protocol=https;name=noret;destsuffix=git/src/github.com/alexkohler/noret \
+    git://github.com/alexkohler/noret.git;protocol=https;name=noret;destsuffix=git/src/github.com/alexkohler/noret \
     git://github.com/alexkohler/nargs.git;protocol=https;name=nargs;destsuffix=git/src/github.com/alexkohler/nargs \
     git://github.com/alexkohler/nakedret.git;protocol=https;name=nakedret;destsuffix=git/src/github.com/alexkohler/nakedret \
     git://github.com/alexkohler/dogsled.git;protocol=https;name=dogsled;destsuffix=git/src/github.com/alexkohler/dogsled \
     git://github.com/alexkohler/prealloc.git;protocol=https;name=prealloc;destsuffix=git/src/github.com/alexkohler/prealloc \
     git://github.com/alexkohler/identypo.git;protocol=https;name=identypo;destsuffix=git/src/github.com/alexkohler/identypo \
     git://github.com/alexkohler/unimport.git;protocol=https;name=unimport;destsuffix=git/src/github.com/alexkohler/unimport \
-	"
+    "
 
 S = "${WORKDIR}/git"
 

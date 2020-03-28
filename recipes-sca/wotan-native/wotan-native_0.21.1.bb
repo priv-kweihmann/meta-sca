@@ -27,10 +27,10 @@ do_install() {
     cd ${S}
     npm install --prefix ${D}${prefix} -g ${NPM_EXTRA_ARGS} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production @fimbul/wotan @fimbul/valtyr @fimbul/ve
     npm install --prefix ${D}${prefix} -g ${NPM_EXTRA_ARGS} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production typescript@3.6.3
-	if [ -d ${D}${prefix}/etc ] ; then
-		# This will be empty
-		rmdir ${D}${prefix}/etc
-	fi
+    if [ -d ${D}${prefix}/etc ] ; then
+        # This will be empty
+        rmdir ${D}${prefix}/etc
+    fi
 
     mkdir -p ${D}${datadir}
 
