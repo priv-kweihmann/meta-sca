@@ -11,6 +11,8 @@ python do_sca_deploy_standard_image() {
     sca_conv_deploy(d, "standard", "txt")
 }
 
+do_sca_standard_core[doc] = "Lint js files with standard in image"
+do_sca_deploy_standard_image[doc] = "Deploy results of do_sca_standard_core"
 addtask do_sca_standard_core before do_image_complete after do_image
 addtask do_sca_deploy_standard_image before do_image_complete after do_sca_standard_core
 

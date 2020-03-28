@@ -133,6 +133,8 @@ python do_sca_deploy_upc_image() {
     sca_conv_deploy(d, "upc", "txt")
 }
 
+do_sca_upc[doc] = "Find priviledge esacalation vectors in image"
+do_sca_deploy_upc_image[doc] = "Deploy results of do_sca_upc"
 addtask do_sca_upc before do_image_complete after do_image
 addtask do_sca_deploy_upc_image before do_image_complete after do_sca_upc
 

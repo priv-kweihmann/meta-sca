@@ -173,6 +173,8 @@ python do_sca_deploy_cppcheck() {
     sca_conv_deploy(d, "cppcheck", "xml")
 }
 
+do_sca_cppcheck[doc] = "Lint C/C++ files with cppcheck"
+do_sca_deploy_cppcheck[doc] = "Deploy results of do_sca_cppcheck"
 addtask do_sca_cppcheck before do_install after do_compile
 addtask do_sca_deploy_cppcheck after do_sca_cppcheck before do_package
 

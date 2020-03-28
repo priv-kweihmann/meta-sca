@@ -104,6 +104,8 @@ python do_sca_deploy_pysymcheck() {
     sca_conv_deploy(d, "pysymcheck", "txt")
 }
 
+do_sca_pysymcheck[doc] = "Find forbidden function linkage"
+do_sca_deploy_pysymcheck[doc] = "Deploy results of do_sca_pysymcheck"
 addtask do_sca_pysymcheck before do_install after do_compile
 addtask do_sca_deploy_pysymcheck after do_sca_pysymcheck before do_package
 

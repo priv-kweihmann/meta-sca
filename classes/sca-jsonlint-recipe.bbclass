@@ -12,6 +12,8 @@ python do_sca_deploy_jsonlint_recipe() {
     sca_conv_deploy(d, "jsonlint", "txt")
 }
 
+do_sca_jsonlint_core[doc] = "Lint json files"
+do_sca_deploy_jsonlint_recipe[doc] = "Deploy results of do_sca_jsonlint_core"
 addtask do_sca_jsonlint_core before do_install after do_compile
 addtask do_sca_deploy_jsonlint_recipe before do_package after do_sca_jsonlint_core
 

@@ -104,6 +104,8 @@ python do_sca_deploy_flint() {
     sca_conv_deploy(d, "flint", "txt")
 }
 
+do_sca_flint[doc] = "Lint C/C++ files wiht flint++"
+do_sca_deploy_flint[doc] = "Deploy results of do_sca_flint"
 addtask do_sca_flint before do_install after do_compile
 addtask do_sca_deploy_flint after do_sca_flint before do_package
 

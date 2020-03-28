@@ -101,7 +101,9 @@ python do_sca_deploy_alexkohler() {
     sca_conv_deploy(d, "alexkohler", "txt")
 }
 
+do_sca_alexkohler[doc] = "Lint go files with alex kohler tools"
 addtask do_sca_alexkohler before do_compile after do_configure
+do_sca_deploy_alexkohler[doc] = "Deploy results of do_sca_alexkohler"
 addtask do_sca_deploy_alexkohler after do_sca_alexkohler before do_package
 
 DEPENDS += "alexkohler-native sca-recipe-alexkohler-rules-native"

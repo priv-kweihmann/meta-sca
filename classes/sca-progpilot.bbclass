@@ -98,6 +98,8 @@ python do_sca_deploy_progpilot() {
     sca_conv_deploy(d, "progpilot", "json")
 }
 
+do_sca_progpilot[doc] = "Lint php scripts with progpilot"
+do_sca_deploy_progpilot[doc] = "Deploy results of do_sca_progpilot"
 addtask do_sca_progpilot before do_install after do_configure
 addtask do_sca_deploy_progpilot after do_sca_progpilot before do_package
 

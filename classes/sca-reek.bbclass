@@ -101,6 +101,8 @@ python do_sca_deploy_reek() {
     sca_conv_deploy(d, "reek", "json")
 }
 
+do_sca_reek[doc] = "Lint ruby scripts with reek"
+do_sca_deploy_reek[doc] = "Deploy results of do_sca_reek"
 addtask do_sca_reek before do_install after do_configure
 addtask do_sca_deploy_reek after do_sca_reek before do_package
 

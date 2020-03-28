@@ -94,6 +94,7 @@ python do_sca_deploy_cvecheck() {
     sca_conv_deploy(d, "cvecheck", "json")
 }
 
+do_sca_deploy_cvecheck[doc] = "Deploy results of do_cve_check"
 addtask do_sca_deploy_cvecheck after do_cve_check before do_package
 
 DEPENDS += "cvecheck-sca-native"

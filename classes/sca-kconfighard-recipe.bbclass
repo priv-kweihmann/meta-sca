@@ -121,5 +121,7 @@ python do_sca_deploy_kconfighard() {
     sca_conv_deploy(d, "kconfighard", "txt")
 }
 
+do_sca_kconfighard[doc] = "Scan for kernel config hardening options"
+do_sca_deploy_kconfighard[doc] = "Deploy results of do_sca_kconfighard"
 addtask do_sca_kconfighard before do_compile after do_configure
 addtask do_sca_deploy_kconfighard after do_sca_kconfighard before do_compile

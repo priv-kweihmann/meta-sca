@@ -127,6 +127,8 @@ python do_sca_deploy_phan() {
     sca_conv_deploy(d, "phan", "json")
 }
 
+do_sca_phan[doc] = "Lint php scripts with phan in workspace"
+do_sca_deploy_phan[doc] = "Deploy results of do_sca_phan"
 addtask do_sca_phan before do_install after do_configure
 addtask do_sca_deploy_phan after do_sca_phan before do_package
 

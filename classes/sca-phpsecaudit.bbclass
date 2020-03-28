@@ -108,6 +108,8 @@ python do_sca_deploy_phpsecaudit() {
     sca_conv_deploy(d, "phpsecaudit", "json")
 }
 
+do_sca_phpsecaudit[doc] = "Lint php scripts with phpsecaudit in workspace"
+do_sca_deploy_phpsecaudit[doc] = "Deploy results of do_sca_phpsecaudit"
 addtask do_sca_phpsecaudit before do_install after do_configure
 addtask do_sca_deploy_phpsecaudit after do_sca_phpsecaudit before do_package
 

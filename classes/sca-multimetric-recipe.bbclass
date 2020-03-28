@@ -25,6 +25,8 @@ python sca_multimetric_init() {
                 d.appendVarFlag("do_sca_multimetric_core", "depends", " {}:{}".format(d.getVar("PN"), taskstr))
 }
 
+do_sca_multimetric_core[doc] = "Get code metrics"
+do_sca_deploy_multimetric_recipe[doc] = "Deploy results of do_sca_multimetric_core"
 addtask do_sca_multimetric_core after do_install before do_package do_rm_work
 addtask do_sca_deploy_multimetric_recipe after do_sca_multimetric_core before do_package
 

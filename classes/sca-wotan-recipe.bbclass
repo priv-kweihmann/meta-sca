@@ -11,6 +11,8 @@ python do_sca_deploy_wotan_recipe() {
     sca_conv_deploy(d, "wotan", "json")
 }
 
+do_sca_wotan_core[doc] = "Lint type/javascript files"
+do_sca_deploy_wotan_recipe[doc] = "Deploy results of do_sca_wotan_core"
 addtask do_sca_wotan_core before do_install after do_compile
 addtask do_sca_deploy_wotan_recipe before do_package after do_sca_wotan_core
 

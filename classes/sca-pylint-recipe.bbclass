@@ -23,6 +23,8 @@ python do_sca_deploy_pylint_recipe() {
    sca_conv_deploy(d, "pylint", "txt")
 }
 
+do_sca_pylint_core[doc] = "Lint python code with pylint"
+do_sca_deploy_pylint_recipe[doc] = "Deploy results of do_sca_pylint_core"
 addtask do_sca_pylint_core before do_install after do_compile
 addtask do_sca_deploy_pylint_recipe before do_package after do_sca_pylint_core
 

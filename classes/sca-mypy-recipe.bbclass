@@ -17,6 +17,8 @@ python do_sca_deploy_mypy_recipe() {
    sca_conv_deploy(d, "mypy", "txt")
 }
 
+do_sca_mypy_core[doc] = "Lint python files wtth mypy"
+do_sca_deploy_mypy_recipe[doc] = "Deploy results of do_sca_mypy_core"
 addtask do_sca_mypy_core before do_install after do_compile
 addtask do_sca_deploy_mypy_recipe before do_package after do_sca_mypy_core
 

@@ -96,6 +96,8 @@ python do_sca_deploy_revive() {
     sca_conv_deploy(d, "revive", "txt")
 }
 
+do_sca_revive[doc] = "Lint go code with revive"
+do_sca_deploy_revive[doc] = "Deploy results of do_sca_revive"
 addtask do_sca_revive before do_compile after do_configure
 addtask do_sca_deploy_revive after do_sca_revive before do_package
 

@@ -11,7 +11,9 @@ python do_sca_deploy_bandit_image() {
     sca_conv_deploy(d, "bandit", "json")
 }
 
+do_sca_bandit_core[doc] = "Find insecure python code in image"
 addtask do_sca_bandit_core before do_image_complete after do_image
+do_sca_deploy_bandit_image[doc] = "Deploy results of do_sca_bandit_core"
 addtask do_sca_deploy_bandit_image before do_image_complete after do_sca_bandit_core
 
 DEPENDS += "sca-image-bandit-rules-native"

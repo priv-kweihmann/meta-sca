@@ -154,5 +154,7 @@ python do_sca_deploy_ansibleroles_image() {
     sca_conv_deploy(d, "ansibleroles", "txt")
 }
 
+do_sca_ansibleroles[doc] = "Audit image with ansible roles"
 addtask do_sca_ansibleroles before do_image_complete after do_image
+do_sca_deploy_ansibleroles_image[doc] = "Deploy results of do_sca_ansibleroles"
 addtask do_sca_deploy_ansibleroles_image before do_image_complete after do_sca_ansibleroles

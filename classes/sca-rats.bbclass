@@ -178,6 +178,8 @@ python do_sca_deploy_rats() {
     sca_conv_deploy(d, "rats", "xml")
 }
 
+do_sca_rats[doc] = "Find risky functions in multiple languages"
+do_sca_deploy_rats[doc] = "Deploy results of do_sca_rats"
 addtask do_sca_rats before do_install after do_configure
 addtask do_sca_deploy_rats after do_sca_rats before do_package
 
