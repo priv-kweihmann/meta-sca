@@ -1,2 +1,2 @@
 inherit sca
-SCA_AVAILABLE_MODULES = "msgcheck"
+SCA_ENABLED_MODULES = "msgcheck"
