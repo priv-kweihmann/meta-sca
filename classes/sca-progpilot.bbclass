@@ -70,11 +70,11 @@ python do_sca_progpilot() {
     _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "progpilot/vendor/bin/progpilot")]
     _args += ["--ansi"]
     _args += ["-n"]
-   
+    
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*php", [".php"], \
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     
-    if any(_files): 
+    if any(_files):    
         try:
             cmd_output += subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:

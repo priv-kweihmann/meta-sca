@@ -10,7 +10,7 @@ SRC_URI[sha256sum] = "69fc8210aaab40d568658cf026aecf8190cdbcdd1ea2925433d92e6728
 GEM_NAME = "parser"
 
 DEPENDS += "\
-            ruby-ast-native \ 
+            ruby-ast-native \
             "
 
 inherit sca-sanity

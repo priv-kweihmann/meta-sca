@@ -14,14 +14,14 @@ def sca_suppress_init(d):
 
             if _in:
                 self.File, self.ID, self.LineRange, self.ColumnRange = _in.strip().split(",")
-        
+    
         def __unquote(self, value):
             return urllib.parse.unquote(value)
 
         @property
         def File(self):
             return self.__File
-        
+    
         @File.setter
         def File(self, value):
             self.__File = self.__unquote(value)
@@ -29,7 +29,7 @@ def sca_suppress_init(d):
         @property
         def ID(self):
             return self.__ID
-        
+    
         @ID.setter
         def ID(self, value):
             self.__ID = self.__unquote(value)
@@ -37,7 +37,7 @@ def sca_suppress_init(d):
         @property
         def LineRange(self):
             return self.__LineRange
-        
+    
         @LineRange.setter
         def LineRange(self, value):
             value = self.__unquote(value)
@@ -51,11 +51,11 @@ def sca_suppress_init(d):
                 self.__LineRange = (int(value), int(value))
             elif isinstance(value, tuple) and len(value) == 2:
                 self.__LineRange = value
-        
+    
         @property
         def ColumnRange(self):
             return self.__ColumnRange
-        
+    
         @ColumnRange.setter
         def ColumnRange(self, value):
             value = self.__unquote(value)
@@ -63,7 +63,7 @@ def sca_suppress_init(d):
                 m = re.match(r"(?P<start>\d+)-(?P<end>\d+)", value)
                 if m:
                     self.__ColumnRange = (int(m.group("start")), int(m.group("end")))
-            elif value == "*":  
+            elif value == "*":    
                 self.__ColumnRange = (0, sys.maxsize)
             elif str.isdecimal(value):
                 self.__ColumnRange = (int(value), int(value))
@@ -81,7 +81,7 @@ def sca_suppress_init(d):
     class SCASuppress():
         def __init__(self, d):
             self.__Items = self.__add_global_items(d) + self.__add_local_items(d)
-        
+    
         def __add_global_items(self, d):
             res = []
             for i in get_suppress_entries(d):
@@ -89,13 +89,13 @@ def sca_suppress_init(d):
                 x.ID = i
                 res.append(x)
             return res
-        
+    
         def __add_local_items(self, d):
             res = []
             for i in clean_split(d, "SCA_SUPPRESS_LOCALS"):
                 res.append(SCASuppressItem(i))
             return res
-        
+    
         def Suppressed(self, dm):
             return any([x.Match(dm) for x in self.__Items])
 

@@ -78,7 +78,7 @@ python do_sca_licensecheck() {
     except subprocess.CalledProcessError as e:
         pass
     os.chdir(_cwd)
-            
+    
     cmd_output = ""
     try:
         cmd_output = subprocess.check_output(["nativepython3",

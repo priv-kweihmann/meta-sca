@@ -79,7 +79,7 @@ python do_sca_dennis() {
         except subprocess.CalledProcessError as e:
             ## manually add syntax or similar error
             cmd_output = "E999: Parsing Error.\n1"
-       
+
         if cmd_output:
             prefix = "{}: ".format(f)
             cmd_output = prefix + prefix.join(cmd_output.splitlines(True))

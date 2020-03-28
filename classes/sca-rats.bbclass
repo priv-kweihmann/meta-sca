@@ -50,7 +50,7 @@ def do_sca_conv_rats(d):
                         _id = _i.text.replace(" ", "_")
                     if not _severity in sca_allowed_warning_level(d):
                         continue
-                    # address the bug that rats sometimes doesn't report 
+                    # address the bug that rats sometimes doesn't report    
                     # a proper ID for the findings
                     if not _id:
                         _id = hashlib.md5(str.encode(_msg)).hexdigest()

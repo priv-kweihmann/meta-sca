@@ -24,9 +24,9 @@ def convert_veryraw(d, bin, content):
     _addr2line = os.environ.get("AS", "-as").replace("-as", "-addr2line").strip()
     _args = [_addr2line]
     ## Find debug symbol file
-    _relpath = os.path.relpath(bin, 
+    _relpath = os.path.relpath(bin,    
                                os.path.join(d.getVar("WORKDIR"), "packages-split", d.getVar("PN")))
-    _dbg = os.path.join(os.path.join(d.getVar("WORKDIR"), "packages-split", 
+    _dbg = os.path.join(os.path.join(d.getVar("WORKDIR"), "packages-split",    
             "{}-dbg".format(d.getVar("PN")), os.path.dirname(_relpath), ".debug", os.path.basename(bin)))
     output = ""
     if os.path.isfile(_dbg):
@@ -116,7 +116,7 @@ python do_sca_ropgadget() {
     _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "ROPgadget")]
     _args += ["--binary"]
 
-    _files = get_files_by_mimetype(d, os.path.join(d.getVar("WORKDIR"), "packages-split"), 
+    _files = get_files_by_mimetype(d, os.path.join(d.getVar("WORKDIR"), "packages-split"),    
              ["application/x-executable", 'application/x-sharedlib', 'application/x-pie-executable'],[])
     ## Run
     cmd_output = ""

@@ -65,7 +65,7 @@ python do_sca_tlv_core() {
     _args += ["--jobs={}".format(d.getVar("BB_NUMBER_THREADS"))]
 
     ## Run
-    _files = get_files_by_glob(d, d.getVar("SCA_TLV_FILES"), 
+    _files = get_files_by_glob(d, d.getVar("SCA_TLV_FILES"),    
                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_tlv.txt")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
