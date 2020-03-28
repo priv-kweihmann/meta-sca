@@ -18,4 +18,4 @@ do_install() {
 
 SCA_BLACKLIST_proselint += "${PN}"
 
-SCA_AVAILABLE_MODULES = "retire"
+SCA_ENABLED_MODULES = "retire"

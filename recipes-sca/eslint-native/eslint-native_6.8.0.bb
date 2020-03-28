@@ -5,7 +5,10 @@ inherit npm-helper
 
 SRC_URI = "git://github.com/eslint/eslint.git;protocol=https;tag=v${PV} \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
-           file://configs/* \
+           file://configs/eslint-airbnb.json \
+           file://configs/eslint-google.json \
+           file://configs/eslint-plain.json \
+           file://configs/eslint-standard.json \
            file://eslint.sca.description"
 
 LICENSE = "MIT"

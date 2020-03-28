@@ -15,4 +15,4 @@ do_install() {
     install "${WORKDIR}/suppress" "${D}${datadir}/ikos-recipe-suppress"
 }
 
-FILES_${PN} = "${datadir}/**"
+FILES_${PN} = "${datadir}"
