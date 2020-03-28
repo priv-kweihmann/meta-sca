@@ -155,6 +155,8 @@ python do_sca_deploy_cspell() {
     sca_conv_deploy(d, "cspell", "txt")
 }
 
+do_sca_cspell[doc] = "Lint test files with cspell"
+do_sca_deploy_cspell[doc] = "Deploy results of do_sca_cspell"
 addtask do_sca_cspell before do_install after do_compile
 addtask do_sca_deploy_cspell before do_package after do_sca_cspell
 

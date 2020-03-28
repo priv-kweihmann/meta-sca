@@ -12,6 +12,8 @@ python do_sca_deploy_vulture_image() {
     sca_conv_deploy(d, "vulture", "txt")
 }
 
+do_sca_vulture_core[doc] = "Find dead python code in image"
+do_sca_deploy_vulture_image[doc] = "Deploy results of do_sca_vulture_core"
 addtask do_sca_vulture_core before do_image_complete after do_image
 addtask do_sca_deploy_vulture_image before do_image_complete after do_sca_vulture_core
 

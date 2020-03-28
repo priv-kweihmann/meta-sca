@@ -1204,6 +1204,8 @@ python do_sca_deploy_yara_image() {
     sca_conv_deploy(d, "yara", "txt")
 }
 
+do_sca_yara[doc] = "Find suspious/malware vectors in image"
+do_sca_deploy_yara_image[doc] = "Deploy results of do_sca_yara"
 addtask do_sca_yara before do_image_complete after do_image
 addtask do_sca_deploy_yara_image before do_image_complete after do_sca_yara
 

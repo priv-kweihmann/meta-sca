@@ -150,6 +150,8 @@ python do_sca_deploy_tscancode() {
     sca_conv_deploy(d, "tscancode", "xml")
 }
 
+do_sca_tscancode[doc] = "Lint C/C++ files with tscancode"
+do_sca_deploy_tscancode[doc] = "Deploy results of do_sca_tscancode"
 addtask do_sca_tscancode before do_install after do_configure
 addtask do_sca_deploy_tscancode after do_sca_tscancode before do_package
 

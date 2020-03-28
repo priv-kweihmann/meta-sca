@@ -105,6 +105,8 @@ python do_sca_deploy_retire() {
     sca_conv_deploy(d, "retire", "json")
 }
 
+do_sca_retire[doc] = "Find vulnerable js code"
+do_sca_deploy_retire[doc] = "Deploy results of do_sca_retire"
 addtask do_sca_retire before do_package after do_install
 addtask do_sca_deploy_retire after do_sca_retire before do_package
 

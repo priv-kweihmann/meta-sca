@@ -151,5 +151,7 @@ python do_sca_deploy_ropgadget() {
     sca_conv_deploy(d, "ropgadget", "txt")
 }
 
+do_sca_ropgadget[doc] = "Find ROP exploitable pattern in binaries"
+do_sca_deploy_ropgadget[doc] = "Deploy results of do_sca_ropgadget"
 addtask do_sca_ropgadget before do_package_qa after do_package
 addtask do_sca_deploy_ropgadget after do_sca_ropgadget before do_package_qa

@@ -103,6 +103,8 @@ python do_sca_deploy_phpmd() {
     sca_conv_deploy(d, "phpmd", "json")
 }
 
+do_sca_phpmd[doc] = "Lint php scripts with phpmd in workspace"
+do_sca_deploy_phpmd[doc] = "Deploy results of do_sca_phpmd"
 addtask do_sca_phpmd before do_install after do_configure
 addtask do_sca_deploy_phpmd after do_sca_phpmd before do_package
 

@@ -97,6 +97,8 @@ python do_sca_deploy_darglint() {
     sca_conv_deploy(d, "darglint", "txt")
 }
 
+do_sca_darglint[doc] = "Lint python docstrings"
+do_sca_deploy_darglint[doc] = "Deploy results of do_sca_darglint"
 addtask do_sca_darglint before do_install after do_configure
 addtask do_sca_deploy_darglint after do_sca_darglint before do_package
 

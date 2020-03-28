@@ -17,6 +17,8 @@ python do_sca_deploy_mypy_image() {
     sca_conv_deploy(d, "mypy", "txt")
 }
 
+do_sca_mypy_core[doc] = "Lint python files wtth mypy in image"
+do_sca_deploy_mypy_image[doc] = "Deploy results of do_sca_mypy_core"
 addtask do_sca_mypy_core before do_image_complete after do_image
 addtask do_sca_deploy_mypy_image before do_image_complete after do_sca_mypy_core
 

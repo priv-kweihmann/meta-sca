@@ -11,6 +11,8 @@ python do_sca_deploy_stylelint_recipe() {
     sca_conv_deploy(d, "stylelint", "txt")
 }
 
+do_sca_stylelint_core[doc] = "Lint s/css files with stylelint"
+do_sca_deploy_stylelint_recipe[doc] = "Deploy results of do_sca_stylelint_core"
 addtask do_sca_stylelint_core before do_install after do_compile
 addtask do_sca_deploy_stylelint_recipe before do_package after do_sca_stylelint_core
 

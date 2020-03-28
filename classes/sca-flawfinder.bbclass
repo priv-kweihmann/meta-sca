@@ -105,6 +105,8 @@ python do_sca_deploy_flawfinder() {
     sca_conv_deploy(d, "flawfinder", "txt")
 }
 
+do_sca_flawfinder[doc] = "Find insecure C/C++ code"
+do_sca_deploy_flawfinder[doc] = "Deploy results of do_sca_flawfinder"
 addtask do_sca_flawfinder before do_install after do_compile
 addtask do_sca_deploy_flawfinder after do_sca_flawfinder before do_package
 

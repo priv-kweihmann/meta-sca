@@ -12,6 +12,8 @@ python do_sca_deploy_htmlhint_recipe() {
     sca_conv_deploy(d, "htmlhint", "json")
 }
 
+do_sca_htmlhint_core[doc] = "Lint html files with htmlhint"
+do_sca_deploy_htmlhint_recipe[doc] = "Deploy results of do_sca_htmlhint_core"
 addtask do_sca_htmlhint_core before do_install after do_compile
 addtask do_sca_deploy_htmlhint_recipe before do_package after do_sca_htmlhint_core
 

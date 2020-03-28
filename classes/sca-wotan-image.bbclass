@@ -11,6 +11,8 @@ python do_sca_deploy_wotan_image() {
     sca_conv_deploy(d, "wotan", "json")
 }
 
+do_sca_wotan_core[doc] = "Lint type/javascript files in image"
+do_sca_deploy_wotan_image[doc] = "Deploy results of do_sca_wotan_core"
 addtask do_sca_wotan_core before do_image_complete after do_image
 addtask do_sca_deploy_wotan_image before do_image_complete after do_sca_wotan_core
 

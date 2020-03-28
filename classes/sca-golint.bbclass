@@ -97,6 +97,8 @@ python do_sca_deploy_golint() {
     sca_conv_deploy(d, "golint", "txt")
 }
 
+do_sca_golint[doc] = "Lint go files with golint"
+do_sca_deploy_golint[doc] = "Deploy results of do_sca_golint"
 addtask do_sca_golint before do_compile after do_configure
 addtask do_sca_deploy_golint after do_sca_golint before do_package
 

@@ -10,6 +10,8 @@ python do_sca_deploy_checkbashism_image() {
     sca_conv_deploy(d, "checkbashism", "txt")
 }
 
+do_sca_checkbashism_core[doc] = "Lint shell scripts with checkbashisms in image"
+do_sca_deploy_checkbashism_image[doc] = "Deploy results of do_sca_checkbashism_core"
 addtask do_sca_checkbashism_core before do_image_complete after do_image
 addtask do_sca_deploy_checkbashism_image before do_image_complete after do_sca_checkbashism_core
 

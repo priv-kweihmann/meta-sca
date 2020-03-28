@@ -101,6 +101,8 @@ python do_sca_deploy_pscan() {
     sca_conv_deploy(d, "pscan", "txt")
 }
 
+do_sca_pscan[doc] = "Lint (s|v|f)print usage in c files"
+do_sca_deploy_pscan[doc] = "Deploy results of do_sca_pscan"
 addtask do_sca_pscan before do_install after do_compile
 addtask do_sca_deploy_pscan after do_sca_pscan before do_package
 

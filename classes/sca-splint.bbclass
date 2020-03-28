@@ -130,6 +130,8 @@ python do_sca_deploy_splint() {
     sca_conv_deploy(d, "splint", "csv")
 }
 
+do_sca_splint[doc] = "Lint C files with splint"
+do_sca_deploy_splint[doc] = "Deploy results of do_sca_splint"
 addtask do_sca_splint before do_install after do_compile
 addtask do_sca_deploy_splint after do_sca_splint before do_package
 

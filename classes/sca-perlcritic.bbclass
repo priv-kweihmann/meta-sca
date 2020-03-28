@@ -110,6 +110,8 @@ python do_sca_deploy_perlcritic() {
     sca_conv_deploy(d, "perlcritic", "txt")
 }
 
+do_sca_perlcritic[doc] = "Lint perl scripts with perlcritic in workspace"
+do_sca_deploy_perlcritic[doc] = "Deploy results of do_sca_perlcritic"
 addtask do_sca_perlcritic before do_compile after do_configure
 addtask do_sca_deploy_perlcritic after do_sca_perlcritic before do_package
 
