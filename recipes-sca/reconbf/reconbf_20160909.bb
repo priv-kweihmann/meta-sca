@@ -17,19 +17,19 @@ inherit sca-sanity
 DEPENDS += "${PYTHON_PN}-pbr-native"
 
 RDEPENDS_${PN}_class-target += "\
-								${PYTHON_PN}-core \
-								${PYTHON_PN}-json \
-								${PYTHON_PN}-logging \
-								${PYTHON_PN}-multiprocessing \
-								${PYTHON_PN}-netserver \
-								${PYTHON_PN}-pkgutil \
-								${PYTHON_PN}-threading \
-								"
+                                ${PYTHON_PN}-core \
+                                ${PYTHON_PN}-json \
+                                ${PYTHON_PN}-logging \
+                                ${PYTHON_PN}-multiprocessing \
+                                ${PYTHON_PN}-netserver \
+                                ${PYTHON_PN}-pkgutil \
+                                ${PYTHON_PN}-threading \
+                                "
 
 FILES_${PN} += "${datadir}"
 
 do_install_append_class-native () {
-	install -d ${D}/${datadir}
+    install -d ${D}/${datadir}
     install ${WORKDIR}/reconbf.sca.description ${D}${datadir}
 }
 

@@ -2,16 +2,16 @@ SUMMARY = "Go supplementary libraries"
 HOMEPAGE = "https://github.com/golang"
 
 SRC_URI = "\
-	git://github.com/golang/crypto.git;protocol=https;name=crypto;destsuffix=git/src/golang.org/x/crypto \
-	git://github.com/golang/net.git;protocol=https;name=net;destsuffix=git/src/golang.org/x/net \
-	git://github.com/golang/text.git;protocol=https;name=text;destsuffix=git/src/golang.org/x/text \
+    git://github.com/golang/crypto.git;protocol=https;name=crypto;destsuffix=git/src/golang.org/x/crypto \
+    git://github.com/golang/net.git;protocol=https;name=net;destsuffix=git/src/golang.org/x/net \
+    git://github.com/golang/text.git;protocol=https;name=text;destsuffix=git/src/golang.org/x/text \
     git://github.com/golang/mod.git;protocol=https;name=mod;destsuffix=git/src/golang.org/x/mod \
     git://github.com/golang/sync.git;protocol=https;name=sync;destsuffix=git/src/golang.org/x/sync \
     git://github.com/golang/sys.git;protocol=https;name=sys;destsuffix=git/src/golang.org/x/sys \
     git://github.com/golang/tools.git;protocol=https;name=tools;destsuffix=git/src/golang.org/x/tools \
     git://github.com/golang/lint.git;protocol=https;name=lint;destsuffix=git/src/golang.org/x/lint \
     git://github.com/golang/xerrors.git;protocol=https;name=xerrors;destsuffix=git/src/golang.org/x/xerrors \
-	"
+    "
 
 S = "${WORKDIR}/git"
 
