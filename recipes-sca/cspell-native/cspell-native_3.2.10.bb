@@ -28,10 +28,10 @@ do_install() {
     export HOME=${S}
     cd ${S}
     npm install --prefix ${D}${prefix} ${NPM_EXTRA_ARGS} -g --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production ${BPN}@${PV}
-	if [ -d ${D}${prefix}/etc ] ; then
-		# This will be empty
-		rmdir ${D}${prefix}/etc
-	fi
+    if [ -d ${D}${prefix}/etc ] ; then
+        # This will be empty
+        rmdir ${D}${prefix}/etc
+    fi
 
     mkdir -p ${D}${datadir}
 

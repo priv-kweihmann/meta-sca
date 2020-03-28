@@ -16,7 +16,7 @@ inherit pkgconfig
 DEPENDS += "libtalloc-native"
 
 do_compile() {
-	oe_runmake PREFIX=${prefix} BINDIR=${bindir}
+    oe_runmake PREFIX=${prefix} BINDIR=${bindir}
 }
 
 FILES_${PN} = "${bindir}"

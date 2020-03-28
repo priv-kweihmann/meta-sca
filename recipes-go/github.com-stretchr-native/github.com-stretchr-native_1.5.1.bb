@@ -2,8 +2,8 @@ SUMMARY = "A toolkit with common assertions and mocks that plays nicely with the
 HOMEPAGE = "https://github.com/stretchr/testify"
 
 SRC_URI = "\
-	git://github.com/stretchr/testify.git;protocol=https;tag=v${PV};name=testify;destsuffix=git/src/github.com/stretchr/testify \
-	git://github.com/stretchr/objx.git;protocol=https;tag=v0.1.0;name=objx;destsuffix=git/src/github.com/stretchr/objx \
+    git://github.com/stretchr/testify.git;protocol=https;tag=v${PV};name=testify;destsuffix=git/src/github.com/stretchr/testify \
+    git://github.com/stretchr/objx.git;protocol=https;tag=v0.1.0;name=objx;destsuffix=git/src/github.com/stretchr/objx \
     "
 
 S = "${WORKDIR}/git"
@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM  = "file://src/${GO_IMPORT}/testify/LICENSE;md5=d4c9e9b2abd3afa
 
 DEPENDS += "\
             github.com-davecgh-go-spew-native \
-	        github.com-pmezard-go-difflib-native \
+            github.com-pmezard-go-difflib-native \
             gopkg.in-yaml.v2-native \
             "
 

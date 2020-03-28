@@ -17,7 +17,7 @@ INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 EXTRA_OEMAKE = "HAVE_RULES=yes"
 
 do_compile() {
-	oe_runmake
+    oe_runmake
 }
 
 FILES_${PN} = "${bindir} ${datadir}"
