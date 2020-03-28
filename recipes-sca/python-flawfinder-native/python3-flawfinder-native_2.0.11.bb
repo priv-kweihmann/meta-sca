@@ -16,7 +16,7 @@ inherit sca-sanity
 inherit setuptools3
 
 do_install_prepend() {
-    # Remove the data_files section from setup, as 
+    # Remove the data_files section from setup, as
     # it isn't really needed
     sed -i "/data_files/d" ${S}/setup.py
 }

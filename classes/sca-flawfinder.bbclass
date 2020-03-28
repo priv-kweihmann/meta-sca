@@ -72,9 +72,9 @@ python do_sca_flawfinder() {
     _args += ["--dataonly"]
     _args += ["--quiet"]
     _args += ["--singleline"]
-    _files = get_files_by_extention(d, 
-                                    d.getVar("SCA_SOURCES_DIR"), 
-                                    clean_split(d, "SCA_FLAWFINDER_FILE_FILTER"), 
+    _files = get_files_by_extention(d,    
+                                    d.getVar("SCA_SOURCES_DIR"),    
+                                    clean_split(d, "SCA_FLAWFINDER_FILE_FILTER"),    
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run

@@ -67,18 +67,18 @@ python do_sca_pytype() {
     ## Run
     _paths = [os.path.join(d.getVar("STAGING_DIR"), d.getVar("PYTHON_SITEPACKAGES_DIR").lstrip("/")),
               d.getVar("SCA_SOURCES_DIR"),
-              os.environ.get("PYTHONPATH", "") 
+              os.environ.get("PYTHONPATH", "")    
               ]
     _args = ["pytype"]
     _args += ["--keep-going"]
     _args += ["-V", d.getVar("PYTHON_BASEVERSION")]
     _args += ["-P", ":".join(_paths)]
     _args += ["-o", os.path.join(d.getVar("T"), "pytypeout")]
-   
+    
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_PYTHON_SHEBANG"), [".py"], \
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     
-    if any(_files): 
+    if any(_files):    
         try:
             cmd_output += subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:

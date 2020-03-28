@@ -45,7 +45,7 @@ def do_sca_conv_kconfighard(d):
                     if not result_fail:
                         continue
                     clean_result = m.group("result").strip().replace("FAIL:", "").replace("OK:", "").replace("\"", "").strip()
-                    
+    
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
                                             Tool="kconfighard",
@@ -86,7 +86,7 @@ python do_sca_kconfighard() {
         if not os.path.exists(os.path.join(d.getVar("B"), "config")):
             os.symlink(os.path.join(d.getVar("B"), ".config"), os.path.join(d.getVar("B"), "config"))
 
-        _args = ["nativepython3", os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "kconfig-hardening-check", "kconfig-hardened-check.py")]      
+        _args = ["nativepython3", os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "kconfig-hardening-check", "kconfig-hardened-check.py")]    
         _args += ["-c", os.path.join(d.getVar("B"), ".config")]
 
         cmd_output = ""

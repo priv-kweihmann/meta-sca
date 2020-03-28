@@ -79,7 +79,7 @@ python do_sca_npmaudit() {
         cur_dir = os.getcwd()
         os.chdir(d.getVar("SCA_SOURCES_DIR"))
         _args = ["npm", "audit", "--json"]
-        
+    
         try:
             cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:

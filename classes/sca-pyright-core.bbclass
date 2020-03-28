@@ -154,7 +154,7 @@ python do_sca_pyright_core() {
     tmp_result = os.path.join(d.getVar("T", True), "sca_raw_pyright.json")
     d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
-    _includes = [   d.getVar("SCA_SOURCES_DIR") + "/*", 
+    _includes = [   d.getVar("SCA_SOURCES_DIR") + "/*",    
                     d.getVar("SCA_SOURCES_DIR") + "/**/*",
                     os.path.join(d.getVar("STAGING_DIR"), d.getVar("libdir").lstrip("/"), d.getVar("PYTHON_DIR")) + "/*",
                     os.path.join(d.getVar("STAGING_DIR"), d.getVar("libdir").lstrip("/"), d.getVar("PYTHON_DIR")) + "/**/*",
@@ -175,7 +175,7 @@ python do_sca_pyright_core() {
         ## (and keep our fingers crossed that 5 files don't produce more than 128k of output)
         os.environ["PYTHONPATH"] = ":".join([
                                         d.getVar("SCA_SOURCES_DIR"),
-                                        os.path.join(d.getVar("STAGING_DIR"), d.getVar("libdir").lstrip("/"), d.getVar("PYTHON_DIR")), 
+                                        os.path.join(d.getVar("STAGING_DIR"), d.getVar("libdir").lstrip("/"), d.getVar("PYTHON_DIR")),    
                                         os.path.join(d.getVar("STAGING_DIR"), d.getVar("PYTHON_SITEPACKAGES_DIR").lstrip("/"))
                                     ])
         for f in sca_chunckify_input(_files, 5):

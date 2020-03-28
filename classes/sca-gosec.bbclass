@@ -78,9 +78,9 @@ python do_sca_gosec() {
 
     _args += ["-out={}".format(tmp_result)]
 
-    _files = get_files_by_extention(d, 
-                                    d.getVar("SCA_SOURCES_DIR"), 
-                                    clean_split(d, "SCA_GOSEC_FILE_FILTER"), 
+    _files = get_files_by_extention(d,    
+                                    d.getVar("SCA_SOURCES_DIR"),    
+                                    clean_split(d, "SCA_GOSEC_FILE_FILTER"),    
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run

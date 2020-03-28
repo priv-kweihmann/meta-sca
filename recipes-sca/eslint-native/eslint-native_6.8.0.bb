@@ -66,7 +66,7 @@ do_install() {
     done
 
     mkdir -p ${D}${datadir}
-    
+
     install ${WORKDIR}/eslint.sca.description ${D}${datadir}
 }
 

@@ -64,6 +64,6 @@ def sca_conv_dm_codeclimate(d):
             _sub["categories"] = "Clarity"
         res["findings"].append(_sub)
 
-        # Possible TODO export 
+        # Possible TODO export    
 
     return json.dumps(res)

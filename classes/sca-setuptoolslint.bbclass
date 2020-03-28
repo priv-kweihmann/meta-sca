@@ -78,7 +78,7 @@ python do_sca_setuptoolslint() {
     for f in clean_split(d, "SCA_SETUPTOOLSLINT_FILES"):
         if os.path.exists(f):
             try:
-                # Lint using a fake package, as we only need to first stage of 
+                # Lint using a fake package, as we only need to first stage of    
                 # linting, as pylint is already run by a different module
                 tmp_output = subprocess.check_output(_args + [f, "lint", "--lint-packages=2107066c996809c8e5cec0a3ce1b10cfe4ab1fbf"], universal_newlines=True, stderr=subprocess.STDOUT)
             except subprocess.CalledProcessError as e:

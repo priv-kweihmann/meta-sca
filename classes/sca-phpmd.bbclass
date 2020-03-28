@@ -70,7 +70,7 @@ python do_sca_phpmd() {
 
     ## Run
     _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "phpmd/vendor/bin/phpmd")]
-      
+    
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*php", d.getVar("SCA_PHPMD_FILE_FILTER"), \
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     
@@ -79,7 +79,7 @@ python do_sca_phpmd() {
     _args += [",".join(clean_split(d, "SCA_PHPMD_CHECKS"))]
     _args += ["--suffixes", ",".join([x.lstrip(".") for x in clean_split(d, "SCA_PHPMD_FILE_FILTER")])]
     
-    if any(_files): 
+    if any(_files):    
         try:
             cmd_output += subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
