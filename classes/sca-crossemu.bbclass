@@ -30,4 +30,3 @@ def sca_crossemu(d, cmd, addpkgs, toolname, postcmd="", subprocargs={}, nocreate
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
     return (cmd_output, _target_path)
-    

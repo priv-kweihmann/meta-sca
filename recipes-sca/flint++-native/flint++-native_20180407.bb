@@ -27,7 +27,7 @@ do_compile() {
     cd -
 }
 
-FILES_${PN} = "${bindir}/** ${datadir}"
+FILES_${PN} = "${bindir} ${datadir}"
 
 
 do_install() {
