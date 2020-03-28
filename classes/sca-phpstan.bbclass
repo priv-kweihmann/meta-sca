@@ -107,6 +107,8 @@ python do_sca_deploy_phpstan() {
     sca_conv_deploy(d, "phpstan", "json")
 }
 
+do_sca_phpstan[doc] = "Lint php scripts with phpstan in workspace"
+do_sca_deploy_phpstan[doc] = "Deploy results of do_sca_phpstan"
 addtask do_sca_phpstan before do_install after do_configure
 addtask do_sca_deploy_phpstan after do_sca_phpstan before do_package
 

@@ -105,6 +105,8 @@ python do_sca_deploy_msgcheck() {
     sca_conv_deploy(d, "msgcheck", "txt")
 }
 
+do_sca_msgcheck[doc] = "Lint i18n files"
+do_sca_deploy_msgcheck[doc] = "Deploy results of do_sca_msgcheck"
 addtask do_sca_msgcheck before do_install after do_configure
 addtask do_sca_deploy_msgcheck after do_sca_msgcheck before do_package
 

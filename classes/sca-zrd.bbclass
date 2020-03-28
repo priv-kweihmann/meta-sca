@@ -112,6 +112,8 @@ python do_sca_deploy_zrd() {
     sca_conv_deploy(d, "zrd", "csv")
 }
 
+do_sca_zrd[doc] = "Lint i18n files"
+do_sca_deploy_zrd[doc] = "Deploy results of do_sca_zrd"
 addtask do_sca_zrd before do_install after do_compile
 addtask do_sca_deploy_zrd after do_sca_zrd before do_package
 

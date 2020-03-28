@@ -12,6 +12,8 @@ python do_sca_deploy_oelint_image() {
     sca_conv_deploy(d, "oelint", "txt")
 }
 
+do_sca_oelint_core[doc] = "Lint bitbake recipes"
+do_sca_deploy_oelint_image[doc] = "Deploy results of do_sca_oelint_core"
 addtask do_sca_oelint_core before do_image_complete after do_image
 addtask do_sca_deploy_oelint_image before do_image_complete after do_sca_oelint_core
 

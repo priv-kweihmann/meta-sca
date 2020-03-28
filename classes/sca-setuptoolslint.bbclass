@@ -104,6 +104,8 @@ python do_sca_deploy_setuptoolslint() {
     sca_conv_deploy(d, "setuptoolslint", "txt")
 }
 
+do_sca_setuptoolslint[doc] = "Lint python library installation"
+do_sca_deploy_setuptoolslint[doc] = "Deploy results of do_sca_setuptoolslint"
 addtask do_sca_setuptoolslint before do_install after do_compile
 addtask do_sca_deploy_setuptoolslint after do_sca_setuptoolslint before do_package
 

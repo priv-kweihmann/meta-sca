@@ -42,7 +42,7 @@ DEPENDS += "ruby-native"
 python () {
     d.appendVarFlag('do_unpack_gem', 'depends', ' ruby-native:do_populate_sysroot')
 }
-
+unpack_gem[doc] = "Unpack fetched GEM into workspace"
 addtask unpack_gem after do_unpack before do_patch
 
 do_generate_spec() {
@@ -53,7 +53,7 @@ do_generate_spec() {
 
     gem spec -V --ruby ${GEM_FILE} > ${GEM_SPEC_FILE}
 }
-
+generate_spec[doc] = "Generate GEM-spec file"
 addtask generate_spec after do_unpack_gem before do_patch
 
 rubygemsnative_do_compile() {

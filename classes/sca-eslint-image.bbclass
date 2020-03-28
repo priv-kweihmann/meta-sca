@@ -12,6 +12,8 @@ python do_sca_deploy_eslint_image() {
     sca_conv_deploy(d, "eslint", "xml")
 }
 
+do_sca_eslint_core[doc] = "LInt js files with eslint in image"
+do_sca_deploy_eslint_recipe[doc] = "Deploy results of do_sca_eslint_core"
 addtask do_sca_eslint_core before do_image_complete after do_image
 addtask do_sca_deploy_eslint_image before do_image_complete after do_sca_eslint_core
 

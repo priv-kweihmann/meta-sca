@@ -12,6 +12,8 @@ python do_sca_deploy_proselint_recipe() {
     sca_conv_deploy(d, "proselint", "json")
 }
 
+do_sca_proselint_core[doc] = "Lint text documents with proselint"
+do_sca_deploy_proselint_recipe[doc] = "Deploy results of do_sca_proselint_core"
 addtask do_sca_proselint_core before do_install after do_compile
 addtask do_sca_deploy_proselint_recipe before do_package after do_sca_proselint_core
 

@@ -100,6 +100,8 @@ python do_sca_deploy_perl() {
     sca_conv_deploy(d, "perl", "txt")
 }
 
+do_sca_perl[doc] = "Lint perl scripts in workspace"
+do_sca_deploy_perl[doc] = "Deploy results of do_sca_perl"
 addtask do_sca_perl before do_compile after do_configure
 addtask do_sca_deploy_perl after do_sca_perl before do_package
 

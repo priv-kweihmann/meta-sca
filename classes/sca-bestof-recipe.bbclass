@@ -18,5 +18,7 @@ python do_sca_deploy_bestof_recipe() {
     sca_conv_deploy(d, "bestof", "json")
 }
 
+do_sca_bestof_core[doc] = "Gather result for BestOf mode on recipe"
 addtask do_sca_bestof_core after do_install before do_package_write_rpm
+do_sca_deploy_bestof_recipe[doc] = "Gather result for BestOf mode on recipe"
 addtask do_sca_deploy_bestof_recipe before do_package_write_rpm after do_sca_bestof_core

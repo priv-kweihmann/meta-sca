@@ -105,6 +105,8 @@ python do_sca_deploy_gosec() {
     sca_conv_deploy(d, "gosec", "json")
 }
 
+do_sca_gosec[doc] = "Lint go files with gosec for security issues"
+do_sca_deploy_gosec[doc] = "Deploy results of do_sca_gosec"
 addtask do_sca_gosec before do_compile after do_configure
 addtask do_sca_deploy_gosec after do_sca_gosec before do_package
 

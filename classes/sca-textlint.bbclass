@@ -161,6 +161,8 @@ python do_sca_deploy_textlint() {
     sca_conv_deploy(d, "textlint", "json")
 }
 
+do_sca_textlint[doc] = "Lint text files with textlint"
+do_sca_deploy_textlint[doc] = "Deploy results of do_sca_textlint"
 addtask do_sca_textlint before do_install after do_compile
 addtask do_sca_deploy_textlint before do_package after do_sca_textlint
 

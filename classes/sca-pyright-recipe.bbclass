@@ -12,6 +12,8 @@ python do_sca_deploy_pyright_recipe() {
    sca_conv_deploy(d, "pyright", "txt")
 }
 
+do_sca_pyright_core[doc] = "Lint python code with pyright"
+do_sca_deploy_pyright_recipe[doc] = "Deploy results of do_sca_pyright_core"
 addtask do_sca_pyright_core before do_install after do_compile
 addtask do_sca_deploy_pyright_recipe before do_package after do_sca_pyright_core
 

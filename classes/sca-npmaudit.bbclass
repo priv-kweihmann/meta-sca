@@ -104,6 +104,8 @@ python do_sca_deploy_npmaudit() {
     sca_conv_deploy(d, "npmaudit", "json")
 }
 
+do_sca_npmaudit[doc] = "Audit of used NPM packages"
+do_sca_deploy_npmaudit[doc] = "Deploy results of do_sca_npmaudit"
 addtask do_sca_npmaudit before do_install after do_compile
 addtask do_sca_deploy_npmaudit after do_sca_npmaudit before do_package
 

@@ -87,6 +87,4 @@ python do_sca_tlv_core() {
     sca_task_aftermath(d, "tlv", get_fatal_entries(d))
 }
 
-## addtask do_static_code_analysis_tlv before do_install after do_compile
-
 DEPENDS += "python3-tlv-native"

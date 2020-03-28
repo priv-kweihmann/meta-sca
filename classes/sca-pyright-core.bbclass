@@ -204,6 +204,4 @@ python do_sca_pyright_core() {
     sca_task_aftermath(d, "pyright", get_fatal_entries(d))
 }
 
-## addtask do_static_code_analysis_pyright before do_install after do_compile
-
 DEPENDS += "pyright-native"
