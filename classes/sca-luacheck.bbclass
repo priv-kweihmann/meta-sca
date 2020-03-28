@@ -97,6 +97,8 @@ python do_sca_deploy_luacheck() {
     sca_conv_deploy(d, "luacheck", "txt")
 }
 
+do_sca_luacheck[doc] = "Lint lua files"
+do_sca_deploy_luacheck[doc] = "Deploy results of do_sca_luacheck"
 addtask do_sca_luacheck before do_install after do_compile
 addtask do_sca_deploy_luacheck after do_sca_luacheck before do_package
 

@@ -118,6 +118,8 @@ python do_sca_deploy_govet() {
     sca_conv_deploy(d, "govet", "txt")
 }
 
+do_sca_govet[doc] = "Lint go files with go vet"
+do_sca_deploy_govet[doc] = "Deploy results of do_sca_govet"
 addtask do_sca_govet before do_compile after do_configure
 addtask do_sca_deploy_govet after do_sca_govet before do_package
 

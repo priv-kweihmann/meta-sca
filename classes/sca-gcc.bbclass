@@ -282,6 +282,8 @@ python do_sca_deploy_gcc() {
     sca_conv_deploy(d, "gcc", "txt")
 }
 
+do_sca_gcc[doc] = "Get compiler warnings and hardening potentials"
+do_sca_deploy_gcc[doc] = "Deploy results of do_sca_gcc"
 addtask do_sca_gcc before do_install after do_compile
 addtask do_sca_deploy_gcc after do_sca_gcc before do_package
 DEPENDS += "sca-recipe-gcc-rules-native gcc-sca-native"

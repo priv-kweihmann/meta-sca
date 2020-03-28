@@ -160,6 +160,8 @@ python do_sca_deploy_cbmc() {
     sca_conv_deploy(d, "cbmc", "json")
 }
 
+do_sca_cbmc[doc] = "Lint c files with cmbc"
+do_sca_deploy_cbmc[doc] = "Deploy results of do_sca_cbmc"
 addtask do_sca_cbmc before do_install after do_compile
 addtask do_sca_deploy_cbmc after do_sca_cbmc before do_package
 

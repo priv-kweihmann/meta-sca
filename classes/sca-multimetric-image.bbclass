@@ -84,6 +84,8 @@ python do_sca_multimetric_image() {
     sca_task_aftermath(d, "multimetric", get_fatal_entries(d))
 }
 
+do_sca_multimetric_image[doc] = "Get code metrics for image"
+do_sca_deploy_multimetric_image[doc] = "Deploy results of do_sca_multimetric_image"
 addtask do_sca_multimetric_image before do_image_complete after do_image
 addtask do_sca_deploy_multimetric_image before do_image_complete after do_sca_multimetric_image
 

@@ -11,6 +11,8 @@ python do_sca_deploy_stylelint_image() {
     sca_conv_deploy(d, "stylelint", "txt")
 }
 
+do_sca_stylelint_core[doc] = "Lint s/css files with stylelint in image"
+do_sca_deploy_stylelint_image[doc] = "Deploy results of do_sca_stylelint_core"
 addtask do_sca_stylelint_core before do_image_complete after do_image
 addtask do_sca_deploy_stylelint_image before do_image_complete after do_sca_stylelint_core
 

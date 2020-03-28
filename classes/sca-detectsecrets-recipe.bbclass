@@ -12,6 +12,8 @@ python do_sca_deploy_detectsecrets_recipe() {
     sca_conv_deploy(d, "detectsecrets", "json")
 }
 
+do_sca_detectsecrets_core[doc] = "Find hardcoded secrets in code"
+do_sca_deploy_detectsecrets_recipe[doc] = "Deploy results of do_sca_detectsecrets_core"
 addtask do_sca_detectsecrets_core before do_install after do_compile
 addtask do_sca_deploy_detectsecrets_recipe before do_package after do_sca_detectsecrets_core
 

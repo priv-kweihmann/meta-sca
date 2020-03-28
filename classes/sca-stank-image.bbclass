@@ -11,6 +11,8 @@ python do_sca_deploy_stank_image() {
     sca_conv_deploy(d, "stank", "txt")
 }
 
+do_sca_stank_core[doc] = "Lint shell scripts with stank in image"
+do_sca_deploy_stank_image[doc] = "Deploy results of do_sca_stank_core"
 addtask do_sca_stank_core before do_image_complete after do_image
 addtask do_sca_deploy_stank_image before do_image_complete after do_sca_stank_core
 

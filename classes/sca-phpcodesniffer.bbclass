@@ -106,6 +106,8 @@ python do_sca_deploy_phpcodesniffer() {
     sca_conv_deploy(d, "phpcodesniffer", "json")
 }
 
+do_sca_phpcodesniffer[doc] = "Lint php scripts with phpcodesniffer in workspace"
+do_sca_deploy_phpcodesniffer[doc] = "Deploy results of do_sca_phpcodesniffer"
 addtask do_sca_phpcodesniffer before do_install after do_configure
 addtask do_sca_deploy_phpcodesniffer after do_sca_phpcodesniffer before do_package
 

@@ -92,6 +92,8 @@ python do_sca_deploy_tiger_image() {
     sca_conv_deploy(d, "tiger", "txt")
 }
 
+do_sca_tiger[doc] = "Run audit with tiger on image"
+do_sca_deploy_tiger_image[doc] = "Deploy results of do_sca_tiger"
 addtask do_sca_tiger before do_image_complete after do_image
 addtask do_sca_deploy_tiger_image before do_image_complete after do_sca_tiger
 

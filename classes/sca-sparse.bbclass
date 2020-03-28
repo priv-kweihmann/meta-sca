@@ -111,6 +111,8 @@ python do_sca_deploy_sparse() {
     sca_conv_deploy(d, "sparse", "txt")
 }
 
+do_sca_sparse[doc] = "Lint C files with sparse"
+do_sca_deploy_sparse[doc] = "Deploy results of do_sca_sparse"
 addtask do_sca_sparse before do_install after do_compile
 addtask do_sca_deploy_sparse after do_sca_sparse before do_package
 
