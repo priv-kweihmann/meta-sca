@@ -95,8 +95,8 @@ def sca_gcc_hardening(d):
                 _findings.append(g)
 
     for item in ["-Wall", "-Wcast-align", "-Wconversion", "-Wextra", "-Wformat-security",
-                 "-Wformat=2", "-Wsign-conversion", "-Wstrict-overflow", "-Wstrict-prototypes", 
-                 "-Wtrampolines", "-fno-common", "-fno-omit-frame-pointer", "-fsanitize=address", 
+                 "-Wformat=2", "-Wsign-conversion", "-Wstrict-overflow", "-Wstrict-prototypes",    
+                 "-Wtrampolines", "-fno-common", "-fno-omit-frame-pointer", "-fsanitize=address",    
                  "-fsanitize=thread", "-fstack-check"]:
         if not item in _cflags and not item in logcontent:
             g = sca_get_model_class(d,
@@ -125,7 +125,7 @@ def sca_gcc_hardening(d):
             if (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                 continue
             if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)   
+                _findings.append(g)    
 
     if d.getVar("DEBUG_BUILD") != "1" and ("-DDEBUG=1" in _cflags or "-DDEBUG=1" in logcontent):
         g = sca_get_model_class(d,

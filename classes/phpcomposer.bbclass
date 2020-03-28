@@ -31,8 +31,8 @@ python __anonymous() {
         for _dir in d.getVar("FILESPATH").split(":"):
             if os.path.exists(_dir):
                 try:
-                    subprocess.check_call(["tar", 
-                                            "cvzf", 
+                    subprocess.check_call(["tar",    
+                                            "cvzf",    
                                             os.path.join(_dir, d.getVar("PHPCOMPOSER_TAR_FILENAME")),
                                             "-T", "/dev/null"])
                 except subprocess.CalledProcessError as e:
@@ -49,8 +49,8 @@ python do_package_refresh() {
     for _dir in d.getVar("FILESPATH").split(":"):
         if os.path.exists(_dir):
             try:
-                subprocess.check_call(["tar", 
-                                       "cvzf", 
+                subprocess.check_call(["tar",    
+                                       "cvzf",    
                                        os.path.join(_dir, d.getVar("PHPCOMPOSER_TAR_FILENAME")),
                                        "-C", d.getVar("PHPCOMPOSER_CACHE_DIR_BASE"),
                                        d.getVar("PHPCOMPOSER_CACHE_DIR_NAME")])

@@ -28,7 +28,7 @@ DEPENDS += "\
             ${PYTHON_PN}-six-native \
             "
 
-do_unpack[depends] += "unzip-native:do_populate_sysroot"  
+do_unpack[depends] += "unzip-native:do_populate_sysroot"
 
 inherit python3native
 inherit sca-sanity
@@ -42,7 +42,7 @@ do_install() {
     install -d ${D}${PYTHON_SITEPACKAGES_DIR}/ansiblelint
     install -d ${D}${PYTHON_SITEPACKAGES_DIR}/ansible_lint-${PV}.dist-info
 
-    cp -r ${S}/ansiblelint/* ${D}${libdir}/${PYTHON_DIR}/site-packages/ansiblelint/          
+    cp -r ${S}/ansiblelint/* ${D}${libdir}/${PYTHON_DIR}/site-packages/ansiblelint/
     install -m 644 ${S}/ansible_lint-${PV}.dist-info/* ${D}${libdir}/${PYTHON_DIR}/site-packages/ansible_lint-${PV}.dist-info/
 
     install -d ${D}${datadir}

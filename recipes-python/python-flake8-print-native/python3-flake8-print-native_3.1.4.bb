@@ -11,7 +11,7 @@ DEPENDS += " \
             ${PYTHON_PN}-flake8-native \
             ${PYTHON_PN}-pycodestyle-native \
             ${PYTHON_PN}-six-native \
-            "   
+            "
 
 inherit native
 inherit setuptools3

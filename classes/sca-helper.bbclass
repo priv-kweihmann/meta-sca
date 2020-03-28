@@ -251,7 +251,7 @@ def sca_task_aftermath(d, tool, fatals=None):
 
 def get_bb_exec_ext_parameter_support(d):
     ## Since commit https://github.com/openembedded/bitbake/commit/cfeffb602dd5319f071cd6bcf84139ec77f2d170
-    ## The support for pythonexception=True was removed from bb.build.exec_func 
+    ## The support for pythonexception=True was removed from bb.build.exec_func    
     ## which this layer uses heavily
     ## so we need to probe here for it
     ## if we are able to pass it or not

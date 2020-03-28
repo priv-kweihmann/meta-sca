@@ -112,7 +112,7 @@ python do_sca_gixy() {
         _args += ["-l"]
         _args += ["-o", tmp_result]
         _args += [d.getVar("SCA_GIXY_NGINX_CONF")]
-        
+    
         try:
             cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
