@@ -26,16 +26,11 @@ HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT & BSD & Artistic-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=126890df35936bbffe9fa00c90ad4870"
 
-DEPENDS = "openssl"
-
-inherit pkgconfig python3native native
-
-COMPATIBLE_MACHINE_armv4 = "(!.*armv4).*"
-COMPATIBLE_MACHINE_armv5 = "(!.*armv5).*"
-COMPATIBLE_MACHINE_mips64 = "(!.*mips64).*"
-
-COMPATIBLE_HOST_riscv64 = "null"
-COMPATIBLE_HOST_riscv32 = "null"
+DEPENDS += "\
+            bash-native \
+            openssl \
+            python3 \
+           "
 
 SRC_URI = "http://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz \
            file://0001-Disable-running-gyp-files-for-bundled-deps.patch \
@@ -49,6 +44,15 @@ SRC_URI[sha256sum] = "0a95845ba02c46102b5671d0c5732460073f2d397488337e18d1fc3014
 
 S = "${WORKDIR}/node-v${PV}"
 
+inherit pkgconfig python3native native
+
+COMPATIBLE_MACHINE_armv4 = "(!.*armv4).*"
+COMPATIBLE_MACHINE_armv5 = "(!.*armv5).*"
+COMPATIBLE_MACHINE_mips64 = "(!.*mips64).*"
+
+COMPATIBLE_HOST_riscv64 = "null"
+COMPATIBLE_HOST_riscv32 = "null"
+
 UPSTREAM_CHECK_REGEX = "(?P<pver>12\.\d+\.\d+)"
 
 # v8 errors out if you have set CCACHE
@@ -56,7 +60,7 @@ CCACHE = ""
 
 def map_nodejs_arch(a, d):
     import re
-
+    
     if   re.match('i.86$', a): return 'ia32'
     elif re.match('x86_64$', a): return 'x64'
     elif re.match('aarch64$', a): return 'arm64'
@@ -66,9 +70,9 @@ def map_nodejs_arch(a, d):
 
 ARCHFLAGS_arm = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '--with-arm-float-abi=hard', '--with-arm-float-abi=softfp', d)} \
                  ${@bb.utils.contains('TUNE_FEATURES', 'neon', '--with-arm-fpu=neon', \
-                    bb.utils.contains('TUNE_FEATURES', 'vfpv3d16', '--with-arm-fpu=vfpv3-d16', \
-                    bb.utils.contains('TUNE_FEATURES', 'vfpv3', '--with-arm-fpu=vfpv3', \
-                    '--with-arm-fpu=vfp', d), d), d)}"
+                 bb.utils.contains('TUNE_FEATURES', 'vfpv3d16', '--with-arm-fpu=vfpv3-d16', \
+                 bb.utils.contains('TUNE_FEATURES', 'vfpv3', '--with-arm-fpu=vfpv3', \
+                 '--with-arm-fpu=vfp', d), d), d)}"
 GYP_DEFINES_append_mipsel = " mips_arch_variant='r1' "
 ARCHFLAGS ?= ""
 
@@ -85,14 +89,13 @@ PACKAGECONFIG[zlib] = "--shared-zlib,,zlib"
 # and we need to use the right flags during host compile,
 # too.
 EXTRA_OEMAKE = "\
-    CC.host='${CC}' \
-    CFLAGS.host='${CPPFLAGS} ${CFLAGS}' \
-    CXX.host='${CXX}' \
-    CXXFLAGS.host='${CPPFLAGS} ${CXXFLAGS}' \
-    LDFLAGS.host='${LDFLAGS}' \
-    AR.host='${AR}' \
-    \
-    builddir_name=./ \
+                CC.host='${CC}' \
+                CFLAGS.host='${CPPFLAGS} ${CFLAGS}' \
+                CXX.host='${CXX}' \
+                CXXFLAGS.host='${CPPFLAGS} ${CXXFLAGS}' \
+                LDFLAGS.host='${LDFLAGS}' \
+                AR.host='${AR}' \
+                builddir_name=./ \
 "
 
 python do_unpack() {
@@ -159,7 +162,3 @@ do_install () {
 }
 
 FILES_${PN} = "${exec_prefix}/lib/node_modules ${bindir}/npm ${bindir}/npx ${datadir}/systemtap"
-DEPENDS += "\
-            bash-native \
-            python3 \
-           "
