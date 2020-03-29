@@ -1,6 +1,6 @@
 inherit sstate
 
-python do_populate_sysroot_doublecheck() {
+def doublecheck_manifests(d):
     import os
 
     if not d.getVar("PN").endswith("-native"):
@@ -17,6 +17,15 @@ python do_populate_sysroot_doublecheck() {
                     o.write(line)
                 else:
                     bb.warn("{} is missing but found in manifest".format(_sline))
+
+python do_populate_sysroot_doublecheck() {
+    doublecheck_manifests(d)
 }
-do_populate_sysroot_doublecheck[doc] = "Double check manifest files for native packages"
+do_populate_sysroot_doublecheck[doc] = "Double check manifest files for native packages after populate"
 addtask do_populate_sysroot_doublecheck after do_populate_sysroot before do_build
+
+python do_prepare_sysroot_doublecheck() {
+    doublecheck_manifests(d)
+}
+do_prepare_sysroot_doublecheck[doc] = "Double check manifest files for native packages before rollout"
+addtask do_prepare_sysroot_doublecheck before do_prepare_recipe_sysroot
