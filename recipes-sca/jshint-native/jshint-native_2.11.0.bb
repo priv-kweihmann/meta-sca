@@ -1,23 +1,22 @@
-SUMMARY = "JSHint is a tool that helps to detect errors and potential problems in your JavaScript code"
+SUMMARY = "Helps to detect errors and potential problems in your JavaScript code"
 HOMEPAGE = "https://github.com/jshint/jshint"
 
-inherit npm-helper
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=4e19041df56fbb7a49fb87c4322d5849"
+
+DEPENDS += "nodejs-native"
 
 SRC_URI = "git://github.com/jshint/jshint.git;protocol=https;tag=${PV} \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
            file://jshint.sca.description"
 
-LICENSE = "MIT"
-LIC_FILES_CHKSUM  = "file://LICENSE;md5=4e19041df56fbb7a49fb87c4322d5849"
+S = "${WORKDIR}/git"
 
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+\.\d+)"
 
-DEPENDS += "nodejs-native"
-
 inherit native
 inherit sca-sanity
-
-S = "${WORKDIR}/git"
+inherit npm-helper
 
 do_compile() {
     :
@@ -32,7 +31,7 @@ do_install() {
         rmdir ${D}${prefix}/etc
     fi
 
-    mkdir -p ${D}${datadir}
+    install -d ${D}${datadir}
 
     install ${WORKDIR}/jshint.sca.description ${D}${datadir}
 }
