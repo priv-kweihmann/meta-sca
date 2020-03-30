@@ -11,4 +11,4 @@ do_nopycache_class-native() {
     fi
 }
 
-addtask do_nopycache after do_install before do_package
+addtask do_nopycache after do_install before do_package do_populate_sysroot
