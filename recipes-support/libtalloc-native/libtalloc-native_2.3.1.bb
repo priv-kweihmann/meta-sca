@@ -27,18 +27,33 @@ LICENSE = "LGPL-3.0+ & GPL-3.0+"
 LIC_FILES_CHKSUM = "file://talloc.h;beginline=3;endline=27;md5=a301712782cad6dd6d5228bfa7825249 \
                     file://pytalloc.h;beginline=1;endline=18;md5=2c498cc6f2263672483237b20f46b43d"
 
+DEPENDS += "\
+            docbook-xsl-stylesheets-native \
+            libxslt-native \
+            python3 \
+            qemu-native \
+           "
 
 SRC_URI = "https://samba.org/ftp/talloc/talloc-${PV}.tar.gz \
            file://0001-talloc-Add-configure-options-for-packages.patch \
            file://0002-waf-add-support-of-cross_compile.patch \
 "
+SRC_URI += "${@bb.utils.contains('PACKAGECONFIG', 'attr', '', 'file://avoid-attr-unless-wanted.patch', d)}"
+
 SRC_URI[md5sum] = "ce40593428c0de6b85946189dcc37b5e"
 SRC_URI[sha256sum] = "ef4822d2fdafd2be8e0cabc3ec3c806ae29b8268e932c5e9a4cd5585f37f9f77"
 
+S = "${WORKDIR}/talloc-${PV}"
+
+# The following includes a stripped version of waf-samba.bbclass from
+# http://cgit.openembedded.org/meta-openembedded/tree/meta-networking/classes/waf-samba.bbclass
+
+inherit qemu python3native native
+
 PACKAGECONFIG ??= "\
-    ${@bb.utils.filter('DISTRO_FEATURES', 'acl', d)} \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'xattr', 'attr', '', d)} \
-"
+                   ${@bb.utils.filter('DISTRO_FEATURES', 'acl', d)} \
+                   ${@bb.utils.contains('DISTRO_FEATURES', 'xattr', 'attr', '', d)} \
+                  "
 PACKAGECONFIG[acl] = "--with-acl,--without-acl,acl"
 PACKAGECONFIG[attr] = "--with-attr,--without-attr,attr"
 PACKAGECONFIG[libaio] = "--with-libaio,--without-libaio,libaio"
@@ -46,13 +61,25 @@ PACKAGECONFIG[libbsd] = "--with-libbsd,--without-libbsd,libbsd"
 PACKAGECONFIG[libcap] = "--with-libcap,--without-libcap,libcap"
 PACKAGECONFIG[valgrind] = "--with-valgrind,--without-valgrind,valgrind"
 
-SRC_URI += "${@bb.utils.contains('PACKAGECONFIG', 'attr', '', 'file://avoid-attr-unless-wanted.patch', d)}"
-
-S = "${WORKDIR}/talloc-${PV}"
-
 #cross_compile cannot use preforked process, since fork process earlier than point subproces.popen
 #to cross Popen
 export WAF_NO_PREFORK="yes"
+
+CONFIGUREOPTS = "--prefix=${prefix} \
+                 --bindir=${bindir} \
+                 --sbindir=${sbindir} \
+                 --libexecdir=${libexecdir} \
+                 --datadir=${datadir} \
+                 --sysconfdir=${sysconfdir} \
+                 --sharedstatedir=${sharedstatedir} \
+                 --localstatedir=${localstatedir} \
+                 --libdir=${libdir} \
+                 --includedir=${includedir} \
+                 --oldincludedir=${oldincludedir} \
+                 --infodir=${infodir} \
+                 --mandir=${mandir} \
+                 ${PACKAGECONFIG_CONFARGS} \
+                "
 
 EXTRA_OECONF += "--disable-rpath \
                  --disable-rpath-install \
@@ -60,43 +87,6 @@ EXTRA_OECONF += "--disable-rpath \
                  --builtin-libraries=replace \
                  --disable-silent-rules \
                  --with-libiconv=${STAGING_DIR_HOST}${prefix}\
-                "
-
-PACKAGES += "pytalloc pytalloc-dev"
-
-RPROVIDES_${PN}-dbg += "pytalloc-dbg"
-
-FILES_pytalloc = "${libdir}/python${PYTHON_BASEVERSION}/site-packages \
-                  ${libdir}/libpytalloc-util.so.2 \
-                  ${libdir}/libpytalloc-util.so.2.1.1 \
-                 "
-FILES_pytalloc-dev = "${libdir}/libpytalloc-util.so"
-RDEPENDS_pytalloc = "python3"
-
-# The following is a stripped version of waf-samba.bbclass from
-# http://cgit.openembedded.org/meta-openembedded/tree/meta-networking/classes/waf-samba.bbclass
-
-# waf is a build system which is used by samba related project.
-# Obtain details from https://wiki.samba.org/index.php/Waf
-#
-inherit qemu python3native native
-
-DEPENDS += "qemu-native libxslt-native docbook-xsl-stylesheets-native python3"
-
-CONFIGUREOPTS = " --prefix=${prefix} \
-                  --bindir=${bindir} \
-                  --sbindir=${sbindir} \
-                  --libexecdir=${libexecdir} \
-                  --datadir=${datadir} \
-                  --sysconfdir=${sysconfdir} \
-                  --sharedstatedir=${sharedstatedir} \
-                  --localstatedir=${localstatedir} \
-                  --libdir=${libdir} \
-                  --includedir=${includedir} \
-                  --oldincludedir=${oldincludedir} \
-                  --infodir=${infodir} \
-                  --mandir=${mandir} \
-                  ${PACKAGECONFIG_CONFARGS} \
                 "
 
 # avoids build breaks when using no-static-libs.inc
@@ -116,10 +106,8 @@ def get_waf_parallel_make(d):
                 v = opt[2:].strip()
             else:
                 continue
-
             v = min(64, int(v))
             return '-j' + str(v)
-
     return ""
 
 ## Original function from waf-samba isn't supporting
@@ -135,10 +123,22 @@ do_configure() {
 }
 
 do_compile[progress] = "outof:^\[\s*(\d+)/\s*(\d+)\]\s+"
-do_compile () {
+do_compile() {
     python3 ./buildtools/bin/waf ${@oe.utils.parallel_make_argument(d, '-j%d', limit=64)}
 }
 
 do_install() {
     oe_runmake install DESTDIR=${D}
 }
+
+PACKAGES += "pytalloc pytalloc-dev"
+
+RDEPENDS_pytalloc = "python3"
+
+RPROVIDES_${PN}-dbg += "pytalloc-dbg"
+
+FILES_pytalloc = "${libdir}/python${PYTHON_BASEVERSION}/site-packages \
+                  ${libdir}/libpytalloc-util.so.2 \
+                  ${libdir}/libpytalloc-util.so.2.1.1 \
+                 "
+FILES_pytalloc-dev = "${libdir}/libpytalloc-util.so"

@@ -14,8 +14,6 @@ S = "${WORKDIR}/git"
 inherit native
 inherit sca-sanity
 
-FILES_${PN} = "${bindir} ${datadir}"
-
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
@@ -25,3 +23,5 @@ do_install() {
     install -d ${D}${datadir}
     install ${WORKDIR}/kconfighard.sca.description ${D}${datadir}/
 }
+
+FILES_${PN} = "${bindir} ${datadir}"
