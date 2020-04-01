@@ -1,7 +1,10 @@
 SUMMARY = "Security auditing tool for Linux, macOS, and UNIX-based systems"
 HOMEPAGE = "https://github.com/CISOfy/lynis"
+
 LICENSE = "GPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3edd6782854304fd11da4975ab9799c1"
+
+DEPENDS_class_native += "${BPN}"
 
 SRC_URI = "git://github.com/CISOfy/lynis.git;protocol=https;tag=${PV} \
            file://lynis.sca.description"
@@ -11,17 +14,11 @@ S = "${WORKDIR}/git"
 inherit autotools-brokensep
 inherit sca-sanity
 
-do_compile() {
-    :
-}
-
-do_configure() {
-    :
-}
+do_configure[noexec] = "1"
+do_compile[noexec] = "1"
 
 do_install_class-native () {
     install -d ${D}/${datadir}
-
     install ${WORKDIR}/lynis.sca.description ${D}${datadir}
 }
 
@@ -46,6 +43,5 @@ FILES_${PN}_class-native = "${datadir}"
 FILES_${PN}_class-target = "${datadir} ${sysconfdir} ${bindir}"
 
 RDEPENDS_${PN}_class-target += "procps"
-DEPENDS_class_native += "${BPN}"
 
 BBCLASSEXTEND = "native"

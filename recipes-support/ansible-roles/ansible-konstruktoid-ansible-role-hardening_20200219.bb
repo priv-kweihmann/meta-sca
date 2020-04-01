@@ -4,7 +4,8 @@ LICENSE = "Apache-2.0"
 
 LIC_FILES_CHKSUM = "file://LICENSE;md5=0a69df9dc95cd69be37c3c6b9a06cfa0"
 
-SRC_URI = "git://github.com/konstruktoid/ansible-role-hardening.git;protocol=https"
+SRC_URI = "git://github.com/konstruktoid/ansible-role-hardening.git;protocol=https \
+           file://${ROLE_NAME}.json"
 SRCREV = "19cd4a8821289f009b652eb6062d81c309c0d0d3"
 UPSTREAM_CHECK_COMMITS = "1"
 
@@ -27,15 +28,20 @@ do_install () {
     chown root:root ${D}/${datadir}/ansible/roles/${ROLE_NAME}
 }
 
-SRC_URI += "file://${ROLE_NAME}.json"
 do_install_append() {
     install -d ${D}/${datadir}/ansible/roles/
     install -m 0444 ${WORKDIR}/${ROLE_NAME}.json ${D}/${datadir}/ansible/roles/${ROLE_NAME}.json
 }
 
-RDEPENDS_${PN}_class-target += "python3-ansible perl"
-RDEPENDS_${PN}_class-native += "python3-ansible-native perl-native"
-
 FILES_${PN} += "${datadir}"
+
+RDEPENDS_${PN}_class-target += "\
+                                perl \
+                                python3-ansible \
+                               "
+RDEPENDS_${PN}_class-native += "\
+                                perl-native \
+                                python3-ansible-native \
+                               "
 
 BBCLASSEXTEND = "native"

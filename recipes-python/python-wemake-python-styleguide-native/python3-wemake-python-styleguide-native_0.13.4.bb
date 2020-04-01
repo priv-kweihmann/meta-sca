@@ -1,12 +1,10 @@
 SUMMARY = "The strictest and most opinionated python linter ever!"
-
 HOMEPAGE = "https://github.com/wemake-services/wemake-python-styleguide"
+
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=dee021f8214bb1b3fd62729a11603bf5"
 
-PYPI_PACKAGE = "wemake-python-styleguide"
-
-DEPENDS += " \
+DEPENDS += "\
             ${PYTHON_PN}-astor-native \
             ${PYTHON_PN}-attrs-native \
             ${PYTHON_PN}-cognitive-complexity-native \
@@ -37,9 +35,11 @@ DEPENDS += " \
             ${PYTHON_PN}-typing-extensions-native \
             "
 
-inherit pypi
-inherit native
-inherit setuptools3
+PYPI_PACKAGE = "wemake-python-styleguide"
 
 SRC_URI[md5sum] = "55d742735d786f687515a9a88a974da0"
 SRC_URI[sha256sum] = "927236eef999ef4a67ec6e120586da7d9e33f99568775d6ed28c3c6670872264"
+
+inherit pypi
+inherit native
+inherit setuptools3

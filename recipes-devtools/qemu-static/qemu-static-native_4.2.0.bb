@@ -2,6 +2,11 @@ SUMMARY = "Fast open source processor emulator (compiled statically)"
 HOMEPAGE = "http://qemu.org"
 LICENSE = "GPLv2 & LGPLv2.1"
 
+LIC_FILES_CHKSUM = "file://COPYING;md5=441c28d2cf86e15a37fa47e15a72fbac \
+                    file://COPYING.LIB;endline=24;md5=8c5efda6cf1e1b03dcfd0e6c0d271c7f"
+
+DEPENDS += "glib-2.0-native zlib-native"
+
 # NOTE: If you get an configure error like
 # ERROR: sizeof(size_t) doesn't match GLIB_SIZEOF_SIZE_T.
 #        You probably need to set PKG_CONFIG_LIBDIR
@@ -17,13 +22,8 @@ SRC_URI = "https://download.qemu.org/qemu-${PV}.tar.xz"
 SRC_URI[md5sum] = "278eeb294e4b497e79af7a57e660cb9a"
 SRC_URI[sha256sum] = "d3481d4108ce211a053ef15be69af1bdd9dde1510fda80d92be0f6c3e98768f0"
 
-LIC_FILES_CHKSUM = "file://COPYING;md5=441c28d2cf86e15a37fa47e15a72fbac \
-                    file://COPYING.LIB;endline=24;md5=8c5efda6cf1e1b03dcfd0e6c0d271c7f"
-
 S = "${WORKDIR}/qemu-${PV}"
 B = "${WORKDIR}/build"
-
-DEPENDS = "glib-2.0-native zlib-native"
 
 inherit pkgconfig
 inherit native

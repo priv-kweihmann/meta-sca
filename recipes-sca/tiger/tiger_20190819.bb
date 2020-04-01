@@ -1,7 +1,10 @@
 SUMMARY = "The Unix security audit and intrusion detection tool"
 HOMEPAGE = "http://www.nongnu.org/tiger/"
+
 LICENSE = "GPL-2.0"
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
+
+DEPENDS += "bash perl"
 
 SRC_URI = "git://git.savannah.gnu.org/git/tiger.git;protocol=https \
            file://tiger.sca.description"
@@ -17,13 +20,13 @@ inherit sca-sanity
 EXTRA_OECONF += "--with-tigerhome=${datadir}/tiger \
                  --with-tigerconfig=${datadir}/tiger \
                  --with-tigerwork=${datadir}/tiger \
-                   --with-tigerlog=${datadir}/tiger \
+                 --with-tigerlog=${datadir}/tiger \
                  --with-tigerbin=${bindir} \
                  "
 do_install_prepend() {
-    mkdir -p ${D}${datadir}/tiger
-    mkdir -p ${D}${bindir}
-    mkdir -p ${D}${mandir}
+    install -d ${D}${datadir}/tiger
+    install -d ${D}${bindir}
+    install -d ${D}${mandir}
 }
 
 do_install_append_class-target() {
@@ -32,14 +35,11 @@ do_install_append_class-target() {
 
 do_install_append_class-native () {
     install -d ${D}/${datadir}
-
     install ${WORKDIR}/tiger.sca.description ${D}${datadir}
 }
 
-INSANE_SKIP_${PN} += "ldflags file-rdeps"
-
-DEPENDS += "bash perl"
-
 FILES_${PN}_class-native += "${datadir}"
+
+INSANE_SKIP_${PN} += "ldflags file-rdeps"
 
 BBCLASSEXTEND = "native"
