@@ -1,7 +1,9 @@
 SUMMARY = "A fully pluggable tool for identifying and reporting on patterns in JavaScript"
-DESCRIPTION = "A fully pluggable tool for identifying and reporting on patterns in JavaScript"
 
-inherit npm-helper
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=04d32f89e7aa1677f8a860eb0b6adb83"
+
+DEPENDS += "nodejs-native"
 
 SRC_URI = "git://github.com/eslint/eslint.git;protocol=https;tag=v${PV} \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
@@ -11,15 +13,11 @@ SRC_URI = "git://github.com/eslint/eslint.git;protocol=https;tag=v${PV} \
            file://configs/eslint-standard.json \
            file://eslint.sca.description"
 
-LICENSE = "MIT"
-LIC_FILES_CHKSUM  = "file://LICENSE;md5=04d32f89e7aa1677f8a860eb0b6adb83"
-
-DEPENDS += "nodejs-native"
+S = "${WORKDIR}/git"
 
 inherit native
+inherit npm-helper
 inherit sca-sanity
-
-S = "${WORKDIR}/git"
 
 do_compile() {
     :
@@ -60,12 +58,12 @@ do_install() {
         rmdir ${D}${prefix}/etc
     fi
 
-    mkdir -p ${D}/${datadir}/eslint/configs
+    install -d ${D}/${datadir}/eslint/configs
     for _f in ${WORKDIR}/configs/*; do
         install ${_f} ${D}/${datadir}/eslint/configs/
     done
 
-    mkdir -p ${D}${datadir}
+    install -d ${D}${datadir}
 
     install ${WORKDIR}/eslint.sca.description ${D}${datadir}
 }

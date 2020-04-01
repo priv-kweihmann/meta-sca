@@ -1,6 +1,6 @@
 ## This is a alias-recipe
 GO_IMPORT = "mvdan.cc/sh"
-include github.com-mvdan-sh-native_${PV}.bb
+require github.com-mvdan-sh-native_${PV}.bb
 
 DEPENDS_remove = "mvdan.cc-sh-native"
 DEPENDS += "\

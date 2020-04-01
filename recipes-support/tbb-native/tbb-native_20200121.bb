@@ -22,25 +22,27 @@
 # THE SOFTWARE.
 
 DESCRIPTION = "Parallelism library for C++ - runtime files \
-    TBB is a library that helps you leverage multi-core processor \
-    performance without having to be a threading expert. It represents a \
-    higher-level, task-based parallelism that abstracts platform details \
-    and threading mechanism for performance and scalability."
+               TBB is a library that helps you leverage multi-core processor \
+               performance without having to be a threading expert. It represents a \
+               higher-level, task-based parallelism that abstracts platform details \
+               and threading mechanism for performance and scalability."
 HOMEPAGE = "http://threadingbuildingblocks.org/"
+
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
+
 PRDATE = "20170412"
 BRANCH = "tbb_2017"
-SRCREV = "75224c4c1f3c0b8b44eacf86118d142586d28ac0"
-UPSTREAM_CHECK_COMMITS = "1"
-
 PV = "${PRDATE}+${SRCPV}"
+
 SRC_URI = "git://github.com/01org/tbb;branch=${BRANCH} \
            file://cross-compile.patch \
            file://0001-mallinfo-is-glibc-specific-API-mark-it-so.patch \
            file://0002-linux-Fix-gcc-version-check.patch \
            file://tbb.pc \
 "
+SRCREV = "75224c4c1f3c0b8b44eacf86118d142586d28ac0"
+UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
 

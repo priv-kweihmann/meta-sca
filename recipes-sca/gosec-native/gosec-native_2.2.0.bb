@@ -1,19 +1,8 @@
 SUMMARY = "Golang security checker"
 HOMEPAGE = "https://github.com/securego/gosec"
 
-SRC_URI = "file://gosec.sca.description \
-           git://${GO_IMPORT};protocol=https;tag=v${PV}"
-
-GO_IMPORT = "github.com/securego/gosec"
-
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM  = "file://src/${GO_IMPORT}/LICENSE.txt;md5=d3999b969cc50f5755737db7ce41ca2e"
-
-inherit go
-inherit native
-inherit sca-sanity
-
-FILES_${PN} += "${datadir}"
+LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE.txt;md5=d3999b969cc50f5755737db7ce41ca2e"
 
 DEPENDS += "\
             github.com-davecgh-go-spew-native \
@@ -33,8 +22,18 @@ DEPENDS += "\
             gopkg.in-yaml.v2-native \
            "
 
+SRC_URI = "file://gosec.sca.description \
+           git://${GO_IMPORT};protocol=https;tag=v${PV}"
+
+GO_IMPORT = "github.com/securego/gosec"
+
+inherit go
+inherit native
+inherit sca-sanity
+
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/gosec.sca.description ${D}${datadir}/
 }
 
+FILES_${PN} += "${datadir}"
