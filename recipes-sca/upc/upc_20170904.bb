@@ -1,5 +1,6 @@
 SUMMARY = "Shell script to check for simple privilege escalation vectors on Unix systems"
 HOMEPAGE = "https://github.com/pentestmonkey/unix-privesc-check"
+
 LICENSE = "GPL-2.0"
 LIC_FILES_CHKSUM = "file://doc/COPYING.GPL;md5=751419260aa954499f7abaabaa882bbe"
 
@@ -13,13 +14,8 @@ S = "${WORKDIR}/git"
 
 inherit sca-sanity
 
-do_compile() {
-    :
-}
-
-do_configure() {
-    :
-}
+do_compile[noexec] = "1"
+do_configure[noexec] = "1"
 
 do_install() {
     install -d ${D}${bindir}/upc
@@ -40,13 +36,12 @@ do_install() {
 
 do_install_append_class-native () {
     install -d ${D}/${datadir}
-
     install ${WORKDIR}/upc.sca.description ${D}${datadir}
 }
 
-INSANE_SKIP_${PN} += "file-rdeps"
-
 FILES_${PN} = "${bindir}"
 FILES_${PN}_class-native += "${datadir}"
+
+INSANE_SKIP_${PN} += "file-rdeps"
 
 BBCLASSEXTEND = "native"

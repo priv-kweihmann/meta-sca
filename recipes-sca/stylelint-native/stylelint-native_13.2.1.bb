@@ -1,26 +1,22 @@
 SUMMARY = "A mighty, modern style linter"
-DESCRIPTION = "A mighty, modern style linter"
 HOMEPAGE = "https://github.com/stylelint/stylelint"
 
-inherit npm-helper
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=0e0ecf49fffcf64b1f3fa0a956ea44a0"
+
+DEPENDS += "nodejs-native"
 
 SRC_URI = "git://github.com/stylelint/stylelint.git;protocol=https;tag=${PV} \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
            file://stylelint.sca.description"
 
-LICENSE = "MIT"
-LIC_FILES_CHKSUM  = "file://LICENSE;md5=0e0ecf49fffcf64b1f3fa0a956ea44a0"
+S = "${WORKDIR}/git"
 
-DEPENDS += "nodejs-native"
-
+inherit npm-helper
 inherit native
 inherit sca-sanity
 
-S = "${WORKDIR}/git"
-
-do_compile() {
-    :
-}
+do_compile[noexec] = "1"
 
 do_install() {
     export HOME=${S}
@@ -31,8 +27,7 @@ do_install() {
         rmdir ${D}${prefix}/etc
     fi
 
-    mkdir -p ${D}${datadir}
-
+    install -d ${D}${datadir}
     install ${WORKDIR}/stylelint.sca.description ${D}${datadir}
 }
 

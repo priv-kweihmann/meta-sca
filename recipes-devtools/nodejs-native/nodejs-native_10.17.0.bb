@@ -23,13 +23,14 @@
 
 DESCRIPTION = "nodeJS Evented I/O for V8 JavaScript"
 HOMEPAGE = "http://nodejs.org"
+
 LICENSE = "MIT & BSD & Artistic-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=be980eb7ccafe287cb438076a65e888c"
 
 DEPENDS += "\
             bash-native \
-            openssl \
-            python3 \
+            openssl-native \
+            python-native \
            "
 
 SRC_URI = "http://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz \
@@ -38,22 +39,18 @@ SRC_URI = "http://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz \
            file://0004-Make-compatibility-with-gcc-4.8.patch \
            file://0007-v8-don-t-override-ARM-CFLAGS.patch \
            "
-           
+
 SRC_URI[md5sum] = "d5a56d0abf764a91f627f0690cd4b9f3"
 SRC_URI[sha256sum] = "412667d76bd5273c07cb69c215998109fd5bb35c874654f93e6a0132d666c58e"
 
 S = "${WORKDIR}/node-v${PV}"
 
-inherit pkgconfig python3native native
-
-COMPATIBLE_MACHINE_armv4 = "(!.*armv4).*"
-COMPATIBLE_MACHINE_armv5 = "(!.*armv5).*"
-COMPATIBLE_MACHINE_mips64 = "(!.*mips64).*"
+inherit pkgconfig
+inherit native
+inherit pythonnative
 
 COMPATIBLE_HOST_riscv64 = "null"
 COMPATIBLE_HOST_riscv32 = "null"
-
-UPSTREAM_CHECK_REGEX = "(?P<pver>12\.\d+\.\d+)"
 
 # v8 errors out if you have set CCACHE
 CCACHE = ""
@@ -70,51 +67,15 @@ def map_nodejs_arch(a, d):
 
 ARCHFLAGS_arm = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '--with-arm-float-abi=hard', '--with-arm-float-abi=softfp', d)} \
                  ${@bb.utils.contains('TUNE_FEATURES', 'neon', '--with-arm-fpu=neon', \
-                 bb.utils.contains('TUNE_FEATURES', 'vfpv3d16', '--with-arm-fpu=vfpv3-d16', \
-                 bb.utils.contains('TUNE_FEATURES', 'vfpv3', '--with-arm-fpu=vfpv3', \
-                 '--with-arm-fpu=vfp', d), d), d)}"
+                    bb.utils.contains('TUNE_FEATURES', 'vfpv3d16', '--with-arm-fpu=vfpv3-d16', \
+                    bb.utils.contains('TUNE_FEATURES', 'vfpv3', '--with-arm-fpu=vfpv3', \
+                    '--with-arm-fpu=vfp', d), d), d)}"
 GYP_DEFINES_append_mipsel = " mips_arch_variant='r1' "
 ARCHFLAGS ?= ""
 
-PACKAGECONFIG ??= "icu zlib"
-PACKAGECONFIG[ares] = "--shared-cares,,c-ares"
-PACKAGECONFIG[gyp] = ",,gyp-py2-native"
-PACKAGECONFIG[icu] = "--with-intl=system-icu,--without-intl,icu"
-PACKAGECONFIG[libuv] = "--shared-libuv,,libuv"
-PACKAGECONFIG[nghttp2] = "--shared-nghttp2,,nghttp2"
-PACKAGECONFIG[shared] = "--shared"
-PACKAGECONFIG[zlib] = "--shared-zlib,,zlib"
-
-# We don't want to cross-compile during target compile,
-# and we need to use the right flags during host compile,
-# too.
-EXTRA_OEMAKE = "\
-                CC.host='${CC}' \
-                CFLAGS.host='${CPPFLAGS} ${CFLAGS}' \
-                CXX.host='${CXX}' \
-                CXXFLAGS.host='${CPPFLAGS} ${CXXFLAGS}' \
-                LDFLAGS.host='${LDFLAGS}' \
-                AR.host='${AR}' \
-                builddir_name=./ \
-"
-
-python do_unpack() {
-    import shutil
-
-    bb.build.exec_func('base_do_unpack', d)
-
-    shutil.rmtree(d.getVar('S') + '/deps/openssl', True)
-    if 'ares' in d.getVar('PACKAGECONFIG'):
-        shutil.rmtree(d.getVar('S') + '/deps/cares', True)
-    if 'gyp' in d.getVar('PACKAGECONFIG'):
-        shutil.rmtree(d.getVar('S') + '/tools/gyp', True)
-    if 'libuv' in d.getVar('PACKAGECONFIG'):
-        shutil.rmtree(d.getVar('S') + '/deps/uv', True)
-    if 'nghttp2' in d.getVar('PACKAGECONFIG'):
-        shutil.rmtree(d.getVar('S') + '/deps/nghttp2', True)
-    if 'zlib' in d.getVar('PACKAGECONFIG'):
-        shutil.rmtree(d.getVar('S') + '/deps/zlib', True)
-}
+PACKAGECONFIG ??= "zlib icu"
+PACKAGECONFIG[zlib] = "--shared-zlib,,zlib-native"
+PACKAGECONFIG[icu] = "--with-intl=system-icu,--without-intl,icu-native"
 
 # Node is way too cool to use proper autotools, so we install two wrappers to forcefully inject proper arch cflags to workaround gypi
 do_configure () {
@@ -155,4 +116,6 @@ do_install () {
     install -m 0755 ${S}/out/Release/torque ${D}${bindir}/torque
 }
 
-FILES_${PN} = "${exec_prefix}/lib/node_modules ${bindir}/npm ${bindir}/npx ${datadir}/systemtap"
+PACKAGES =+ "${PN}-npm ${PN}-systemtap"
+FILES_${PN}-npm = "${exec_prefix}/lib/node_modules ${bindir}/npm ${bindir}/npx"
+FILES_${PN}-systemtap = "${datadir}/systemtap"

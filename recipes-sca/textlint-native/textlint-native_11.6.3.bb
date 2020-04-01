@@ -1,33 +1,29 @@
-SUMMARY = "The pluggable natural language linter for text and markdown."
-DESCRIPTION = "The pluggable natural language linter for text and markdown."
+SUMMARY = "The pluggable natural language linter for text and markdown"
 HOMEPAGE = "https://github.com/textlint/textlint"
 
-inherit npm-helper
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=f3452a94937d21f84bc38880f636e3ba"
+
+DEPENDS += "nodejs-native"
 
 SRC_URI = "git://github.com/textlint/textlint.git;protocol=https;nobranch=1;tag=textlint@${PV} \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
            file://textlint.sca.description"
 
-LICENSE = "MIT"
-LIC_FILES_CHKSUM  = "file://LICENSE;md5=f3452a94937d21f84bc38880f636e3ba"
-
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d{2}\.\d+\.\d+)"
-
-DEPENDS += "nodejs-native"
-
-inherit native
-inherit sca-sanity
 
 S = "${WORKDIR}/git"
 
-do_compile() {
-    :
-}
+inherit npm-helper
+inherit native
+inherit sca-sanity
+
+do_compile[noexec] = "1"
 
 do_install() {
     export HOME=${S}
     cd ${S}
-    mkdir -p ${D}${libdir}/node_modules
+    install -d ${D}${libdir}/node_modules
     npm install --prefix ${D}${prefix} -g ${NPM_EXTRA_ARGS} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production ${BPN}@${PV}
     npm install --prefix ${D}${prefix} -g ${NPM_EXTRA_ARGS} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-no-todo@2.0.1
     npm install --prefix ${D}${prefix} -g ${NPM_EXTRA_ARGS} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production textlint-rule-no-start-duplicated-conjunction@2.0.2
@@ -63,8 +59,7 @@ do_install() {
         rmdir ${D}${prefix}/etc
     fi
 
-    mkdir -p ${D}${datadir}
-
+    install -d ${D}${datadir}
     install ${WORKDIR}/textlint.sca.description ${D}${datadir}
 }
 
