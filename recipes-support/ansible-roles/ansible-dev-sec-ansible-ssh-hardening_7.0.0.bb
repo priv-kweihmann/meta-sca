@@ -1,10 +1,12 @@
-SUMMARY = "This Ansible role provides numerous security-related ssh configurations, providing all-round base protection"
+SUMMARY = "All-round base SSH protection ansible role"
+DESCRIPTION = "This Ansible role provides numerous security-related ssh configurations, providing all-round base protection"
 HOMEPAGE = "https://github.com/dev-sec/ansible-ssh-hardening"
-LICENSE = "Apache-2.0"
 
+LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://README.md;beginline=201;endline=215;md5=9ef02fc7042855790be12396a3fe645b"
 
-SRC_URI = "git://github.com/dev-sec/ansible-ssh-hardening.git;protocol=https;tag=${PV}"
+SRC_URI = "git://github.com/dev-sec/ansible-ssh-hardening.git;protocol=https;tag=${PV} \
+           file://${ROLE_NAME}.json"
 
 S = "${WORKDIR}/git"
 
@@ -25,15 +27,20 @@ do_install () {
     chown root:root ${D}/${datadir}/ansible/roles/${ROLE_NAME}
 }
 
-SRC_URI += "file://${ROLE_NAME}.json"
 do_install_append() {
     install -d ${D}/${datadir}/ansible/roles/
     install -m 0444 ${WORKDIR}/${ROLE_NAME}.json ${D}/${datadir}/ansible/roles/${ROLE_NAME}.json
 }
 
-RDEPENDS_${PN}_class-target += "python3-ansible perl"
-RDEPENDS_${PN}_class-native += "python3-ansible-native perl-native"
-
 FILES_${PN} += "${datadir}"
+
+RDEPENDS_${PN}_class-target += "\
+                                perl \
+                                python3-ansible \
+                               "
+RDEPENDS_${PN}_class-native += "\
+                                perl-native \
+                                python3-ansible-native \
+                               "
 
 BBCLASSEXTEND = "native"

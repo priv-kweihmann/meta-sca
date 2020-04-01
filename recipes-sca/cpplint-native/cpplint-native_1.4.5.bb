@@ -4,22 +4,20 @@ AUTHOR = "Google Inc."
 HOMEPAGE = "https://github.com/cpplint/cpplint"
 BUGTRACKER = "https://github.com/cpplint/cpplint/issues"
 
-SRC_URI = " git://github.com/cpplint/cpplint.git;protocol=https;tag=${PV};nobranch=1 \
-            file://cpplint.sca.description \
-            file://cpplint-multi"
-
-S = "${WORKDIR}/git"
+LICENSE = "BSD-3-Clause"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=a58572e3501e262ddd5da01be644887d"
 
 DEPENDS += "${PYTHON_PN}-pytest-runner-native"
 
-LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=a58572e3501e262ddd5da01be644887d"
+SRC_URI = "git://github.com/cpplint/cpplint.git;protocol=https;tag=${PV};nobranch=1 \
+           file://cpplint.sca.description \
+           file://cpplint-multi"
+
+S = "${WORKDIR}/git"
 
 inherit native
 inherit sca-sanity
 inherit setuptools3
-
-FILES_${PN} += "${datadir}"
 
 do_install_append() {
     install -d ${D}${datadir}
@@ -30,3 +28,4 @@ do_install_append() {
     fi
 }
 
+FILES_${PN} += "${datadir}"

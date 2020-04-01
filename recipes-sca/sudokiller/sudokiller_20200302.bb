@@ -1,26 +1,21 @@
-SUMMARY = "A tool to identify and exploit sudo rules' misconfigurations and vulnerabilities within sudo"
+SUMMARY = "Find misconfigurations and vulnerabilities within sudo"
+DESCRIPTION = "A tool to identify and exploit sudo rules' misconfigurations and vulnerabilities within sudo"
 HOMEPAGE = "https://github.com/TH3xACE/SUDO_KILLER"
 
-SRC_URI = " git://github.com/TH3xACE/SUDO_KILLER.git;protocol=https \
-            file://sudokiller.sca.description"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=f45999e825d6792e32a1cbadd968b1b7"
+
+SRC_URI = "git://github.com/TH3xACE/SUDO_KILLER.git;protocol=https \
+           file://sudokiller.sca.description"
 SRCREV = "c24882d0d5eaaab6ab199e2ba86ebefd300a9456"
 UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
-LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=f45999e825d6792e32a1cbadd968b1b7"
 
 inherit sca-sanity
 
-RDEPENDS_${PN} += "bash"
-
-do_configure() {
-    :
-}
-
-do_compile() {
-    :
-}
+do_configure[noexec] = "1"
+do_compile[noexec] = "1"
 
 do_install() {
     install -d ${D}${bindir}
@@ -39,6 +34,8 @@ do_install_append_class-native () {
 
 FILES_${PN} = "${bindir}"
 FILES_${PN}_class-native += "${datadir}"
+
+RDEPENDS_${PN} += "bash"
 
 # We don't really care about debug package for this one
 # also because of the issue mentioned below

@@ -1,26 +1,22 @@
 SUMMARY = "JavaScript Style Guide, with linter & automatic code fixer"
-DESCRIPTION = "JavaScript Style Guide, with linter & automatic code fixer"
 HOMEPAGE = "https://github.com/standard/standard"
 
-inherit npm-helper
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=fb42e5aa12bb9e365d38b4b5691d6984"
+
+DEPENDS += "nodejs-native"
 
 SRC_URI = "git://github.com/standard/standard.git;protocol=https;tag=v${PV} \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
            file://standard.sca.description"
 
-LICENSE = "MIT"
-LIC_FILES_CHKSUM  = "file://LICENSE;md5=fb42e5aa12bb9e365d38b4b5691d6984"
+S = "${WORKDIR}/git"
 
-DEPENDS += "nodejs-native"
-
+inherit npm-helper
 inherit native
 inherit sca-sanity
 
-S = "${WORKDIR}/git"
-
-do_compile() {
-    :
-}
+do_compile[noexec] = "1"
 
 do_install() {
     export HOME=${S}
@@ -31,8 +27,7 @@ do_install() {
         rmdir ${D}${prefix}/etc
     fi
 
-    mkdir -p ${D}${datadir}
-
+    install -d ${D}${datadir}
     install ${WORKDIR}/standard.sca.description ${D}${datadir}
 }
 
