@@ -2,7 +2,7 @@ SUMMARY = "Python HTTP Requests for Humans"
 HOMEPAGE = "https://github.com/psf/requests"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=979d6a23b143e13ea0e5e3aa81248820"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=19b6be66ed463d93fa88c29f7860bcd7"
 
 DEPENDS += "\
             ${PYTHON_PN}-certifi-native \
@@ -11,10 +11,10 @@ DEPENDS += "\
             ${PYTHON_PN}-urllib3-native \
            "
 
-PYPI_PACKAGE = "requests2"
+PYPI_PACKAGE = "requests"
 
-SRC_URI[md5sum] = "1f33ee336999c654adad28b152e4c3b7"
-SRC_URI[sha256sum] = "f7685b2d620a172053cced288dddf12d4b3441a382cc382821c0f36c02488516"
+SRC_URI[md5sum] = "abfdc28db1065bbd0bc32592ac9d27a6"
+SRC_URI[sha256sum] = "b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
 
 inherit pypi
 inherit native
