@@ -83,12 +83,13 @@ jobs:
         run: |
           cd ${WORKSPACE}
           source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
-          echo 'INHERIT +="rm_work"' >> conf/local.conf
+          echo 'INHERIT += "rm_work_and_downloads"' >> conf/local.conf
           echo 'SCA_VERBOSE_OUTPUT = "1"' >> conf/local.conf
           echo 'BB_DISKMON_DIRS = ""' >> conf/local.conf
           echo 'BB_GIT_SHALLOW = "1"' >> conf/local.conf
-          echo 'BB_GIT_SHALLOW_DEPTH = "1"' >> conf/local.conf
           echo 'BB_GENERATE_SHALLOW_TARBALLS = "1"' >> conf/local.conf
+          echo 'PACKAGE_CLASSES = "package_rpm"' >> conf/local.conf
+          sed -i "s/buildstats//g" conf/local.conf
         shell: bash
       - name: set modules
         run: |
