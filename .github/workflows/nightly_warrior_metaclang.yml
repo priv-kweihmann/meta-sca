@@ -106,7 +106,7 @@ jobs:
           eval $(bitbake busybox -e | grep "^DL_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
           bitbake linux-yocto && rm -f bitbake.sock && rm -f bitbake.lock
           [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/*
-          find ${TMPDIR} -type d -name "temp" -exec rm -rf {} \;
+          find ${TMPDIR} -type d -name "temp" -exec rm -rf {} \; || true
         shell: bash
       - name: build
         run: |
