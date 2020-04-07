@@ -44,7 +44,7 @@ def sca_create_data_file(d, patched, unpatched, cve_data):
                                 Tool="cvecheck",
                                 BuildPath=sca_get_layer_path_for_file(d, d.getVar("FILE")),
                                 File=d.getVar("FILE"),
-                                Message="{},Score={},Url={}".format(cve_data[cve]["summary"], cve_data[cve]["score"], nvd_link, cve),
+                                Message="{},Score={},Url={}".format(cve_data[cve]["summary"], cve_data[cve]["scorev3"], nvd_link, cve),
                                 ID="cvecheck.unpatched",
                                 Severity="error")
         if _suppress.Suppressed(g):
