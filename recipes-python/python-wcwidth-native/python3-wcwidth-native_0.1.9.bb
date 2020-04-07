@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=11fba47286258744a6bc6e43530c32a1"
 
 PYPI_PACKAGE = "wcwidth"
 
-SRC_URI[md5sum] = "dc6677d099e6f49c0f6fbc310de261e9"
-SRC_URI[sha256sum] = "f28b3e8a6483e5d49e7f8949ac1a78314e740333ae305b4ba5defd3e74fb37a8"
+SRC_URI[md5sum] = "b32584cd6084b4a8c81df13a2a6b4351"
+SRC_URI[sha256sum] = "ee73862862a156bf77ff92b09034fc4825dd3af9cf81bc5b360668d425f3c5f1"
 
 inherit pypi
 inherit native
