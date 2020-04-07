@@ -5,6 +5,7 @@ do_nopycache() {
         # Remove all pyc files in native packages
         find ${D} -type f -name "*.pyc" -exec rm -f {} \;
     fi
+    sync
 }
 
 do_install[postfuncs] += "do_nopycache"
