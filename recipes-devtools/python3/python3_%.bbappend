@@ -10,5 +10,4 @@ py_package_preprocess_fixups() {
         # Remove all pyc files in native packages
         find ${PKGD} -type f -name "*.pyc" -exec rm -f {} \;
     fi
-    sync
 }
