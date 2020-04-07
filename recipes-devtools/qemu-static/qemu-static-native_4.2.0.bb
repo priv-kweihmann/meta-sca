@@ -51,20 +51,20 @@ QEMU_CONFIGURE_OPTS = "\
                        --disable-guest-agent \
                     "
 
-QEMU_TARGETS = "arm-linux-user \
-                aarch64-linux-user \
-                i386-linux-user \
-                mips-linux-user \
-                mipsel-linux-user \
-                mips64-linux-user \
-                mips64el-linux-user \
-                ppc-linux-user \
-                riscv32-linux-user \
-                riscv64-linux-user \
-                sh4-linux-user \
-                x86_64-linux-user"
+QEMU_TARGETS_STATIC ?= "arm-linux-user \
+                        aarch64-linux-user \
+                        i386-linux-user \
+                        mips-linux-user \
+                        mipsel-linux-user \
+                        mips64-linux-user \
+                        mips64el-linux-user \
+                        ppc-linux-user \
+                        riscv32-linux-user \
+                        riscv64-linux-user \
+                        sh4-linux-user \
+                        x86_64-linux-user"
 
-QEMU_TARGET_CONF_OPT = "${@','.join(d.getVar('QEMU_TARGETS').split(' '))}"
+QEMU_TARGET_CONF_OPT = "${@','.join(d.getVar('QEMU_TARGETS_STATIC').split(' '))}"
 
 do_configure() {
     ${S}/configure ${QEMU_CONFIGURE_OPTS} \
