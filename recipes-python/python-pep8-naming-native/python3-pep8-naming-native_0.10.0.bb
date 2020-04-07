@@ -8,8 +8,8 @@ DEPENDS += "${PYTHON_PN}-flake8-polyfill-native"
 
 PYPI_PACKAGE = "pep8-naming"
 
-SRC_URI[md5sum] = "a87bddde53f805b87e2c9af54c4e057d"
-SRC_URI[sha256sum] = "a33d38177056321a167decd6ba70b890856ba5025f0a8eca6a3eda607da93caf"
+SRC_URI[md5sum] = "e6b280cb698c2f0d7660329201fc7120"
+SRC_URI[sha256sum] = "f3b4a5f9dd72b991bf7d8e2a341d2e1aa3a884a769b5aaac4f56825c1763bf3a"
 
 inherit pypi
 inherit native
