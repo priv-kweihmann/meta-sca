@@ -33,7 +33,9 @@ jobs:
 
     steps:
       - name: Prep container
-        run: sudo sysctl fs.inotify.max_user_watches=524288
+        run: |
+          sudo sysctl fs.inotify.max_user_watches=524288
+          sudo chown yoctouser:yoctouser ${WORKSPACE}
       - name: Check out poky
         run: |
           git clone git://git.yoctoproject.org/poky.git/ -b $SCABRANCH ${WORKSPACE}/poky
