@@ -14,5 +14,8 @@
         ".c",
         ".h",
         "text/x-c"
+    ],
+    "whitelistFiles": [
+        ".myext"
     ]
 }
