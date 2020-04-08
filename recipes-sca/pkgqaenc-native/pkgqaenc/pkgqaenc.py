@@ -166,6 +166,9 @@ def walk_dir(_args):
                     warning("too-restrictive", rel_path(root, f, _args),
                             "Too resrictive filemode {}. Allowed minimum {}".format(oct(_filemode), oct(_cmode)))
 
+            if any([x in _args.config["whitelistFiles"] for x in [_mime, _ext, _basename]]):
+                continue
+
             if any([x in _args.config["blacklistFiles"] for x in [_mime, _ext, _basename]]):
                 warning("blacklisted-file", rel_path(root, f, _args),
                         "Blacklisted file mime:'{}' found".format(_mime))
