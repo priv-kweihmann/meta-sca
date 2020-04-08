@@ -44,13 +44,12 @@ SCA_PKGQAENC_BLACKLIST_FILES ?= "\
                                 .man \
                                 text/x-c \
                                 "
-
+SCA_PKGQAENC_WHITELIST_FILES ?= ""
 SCA_PKGQAENC_BLACKLIST_FILES-dev ?= "\
                                     application/x-executable \
                                     application/x-sharedlib \
                                     application/x-pie-executable \
                                     "
-
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -134,6 +133,7 @@ python do_sca_pkgqaenc() {
         conf["acceptableDirs"] = [x for x in (d.getVar("SCA_PKGQAENC_ACCEPTABLE_DIRS{}".format(_suffix)) or "").split(" ") if x]
         conf["blacklistDirs"] = [x for x in (d.getVar("SCA_PKGQAENC_BLACKLIST_DIRS{}".format(_suffix)) or "").split(" ") if x]
         conf["blacklistFiles"] = [x for x in (d.getVar("SCA_PKGQAENC_BLACKLIST_FILES{}".format(_suffix)) or "").split(" ") if x]
+        conf["whitelistFiles"] = [x for x in (d.getVar("SCA_PKGQAENC_WHITELIST_FILES{}".format(_suffix)) or "").split(" ") if x]
         with open(_config_tmp, "w") as o:
             json.dump(conf, o)
         _destDir = os.path.join(d.getVar("PKGDEST"), p)

@@ -16,6 +16,7 @@
 | SCA_PKGQAENC_ACCEPTABLE_DIRS | Directories where packages could install data | space-separated-list | see sca-pkgqaenc.bbclass
 | SCA_PKGQAENC_BLACKLIST_DIRS | Directories where no files should be installed | space-separated-list | \${infodir} \${docdir} \${mandir} 
 | SCA_PKGQAENC_BLACKLIST_FILES | Files that shouldn't be installed | space-separated-list | ".c .h .cpp .hpp .man" for base, "application/x-executable application/x-sharedlib application/x-pie-executable" for -dev
+| SCA_PKGQAENC_WHITELIST_FILES | Files that are okay to be installed | space-separated-list | ""
 
 ### Package based rules
 
