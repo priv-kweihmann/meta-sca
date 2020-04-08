@@ -32,52 +32,52 @@ jobs:
     steps:
       - name: Prep container
         run: |
-          sudo sysctl fs.inotify.max_user_watches=524288
-          sudo chown yoctouser:yoctouser ${WORKSPACE}
+          sudo sysctl fs.inotify.max_user_watches=524288 2>&1
+          sudo chown yoctouser:yoctouser ${WORKSPACE} 2>&1
       - name: Check out poky
         run: |
-          git clone git://git.yoctoproject.org/poky.git/ -b master ${WORKSPACE}/poky
+          git clone git://git.yoctoproject.org/poky.git/ -b master ${WORKSPACE}/poky 2>&1
         shell: bash
       - name: Check out meta-sca
         run: |
-          git clone https://github.com/priv-kweihmann/meta-sca.git -b $SCABRANCH ${WORKSPACE}/meta-sca
+          git clone https://github.com/priv-kweihmann/meta-sca.git -b $SCABRANCH ${WORKSPACE}/meta-sca 2>&1
       - if: env.ENABLEMETAOE == '1'
         name: Check out meta-oe
         run: |
-          git clone git://git.openembedded.org/meta-openembedded -b master ${WORKSPACE}/meta-oe
+          git clone git://git.openembedded.org/meta-openembedded -b master ${WORKSPACE}/meta-oe 2>&1
         shell: bash
       - if: env.ENABLEMETACLANG == '1'
         name: Check out meta-clang
         run: |
-          git clone https://github.com/kraj/meta-clang.git -b master ${WORKSPACE}/meta-clang
+          git clone https://github.com/kraj/meta-clang.git -b master ${WORKSPACE}/meta-clang 2>&1
       - name: Setup poky
         run: |
           cd ${WORKSPACE} 
-          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
+          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
         shell: bash
       - name: add meta-sca
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
-          bitbake-layers add-layer ${WORKSPACE}/meta-sca
+          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          bitbake-layers add-layer ${WORKSPACE}/meta-sca 2>&1
         shell: bash
       - if: env.ENABLEMETAOE == '1'
         name: add meta-oe
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
-          bitbake-layers add-layer ${WORKSPACE}/meta-oe/meta-oe
+          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          bitbake-layers add-layer ${WORKSPACE}/meta-oe/meta-oe 2>&1
         shell: bash
       - if: env.ENABLEMETACLANG == '1'
         name: add meta-clang
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
-          bitbake-layers add-layer ${WORKSPACE}/meta-clang
+          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          bitbake-layers add-layer ${WORKSPACE}/meta-clang 2>&1
         shell: bash
       - name: perform package check
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env && rm -f bitbake.sock && rm -f bitbake.lock
-          ${WORKSPACE}/meta-sca/scripts/check_pkgs.py --blacklistfile=${WORKSPACE}/meta-sca/recipes-sca-test/blacklist.txt priv-kweihmann ${{ secrets.WEBDEPLOY }}
+          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          ${WORKSPACE}/meta-sca/scripts/check_pkgs.py --blacklistfile=${WORKSPACE}/meta-sca/recipes-sca-test/blacklist.txt priv-kweihmann ${{ secrets.WEBDEPLOY }} 2>&1
         shell: bash
