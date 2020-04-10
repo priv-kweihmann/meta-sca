@@ -1,12 +1,10 @@
-From d6c2247a7d5732d5050753326d264633b1878dba Mon Sep 17 00:00:00 2001
+From b3bc3aa65e1d07cc86ffc35f21a6f2ce1b5d937a Mon Sep 17 00:00:00 2001
 From: Konrad Weihmann <kweihmann@outlook.com>
-Date: Wed, 22 Jan 2020 17:15:59 +0100
+Date: Fri, 10 Apr 2020 16:15:20 +0200
 Subject: [PATCH] Bind python to nativepython3
 
 This should ensure that no call is done to maybe non-existing python
-on host
 ---
- Makefile                                                        | 2 +-
  deps/uv/gyp_uv.py                                               | 2 +-
  deps/v8/third_party/binutils/detect_v8_host_arch.py             | 2 +-
  deps/v8/third_party/binutils/download.py                        | 2 +-
@@ -23,6 +21,7 @@ on host
  deps/v8/tools/clusterfuzz/v8_foozzie.py                         | 2 +-
  deps/v8/tools/clusterfuzz/v8_foozzie_test.py                    | 2 +-
  deps/v8/tools/concatenate-files.py                              | 2 +-
+ deps/v8/tools/debug_helper/gen-heap-constants.py                | 2 +-
  deps/v8/tools/deprecation_stats.py                              | 2 +-
  deps/v8/tools/dev/gen-tags.py                                   | 2 +-
  deps/v8/tools/dev/gm.py                                         | 2 +-
@@ -108,9 +107,7 @@ on host
  tools/compress_json.py                                          | 2 +-
  tools/configure.d/nodedownload.py                               | 2 +-
  tools/genv8constants.py                                         | 2 +-
- tools/gyp/buildbot/buildbot_run.py                              | 2 +-
  tools/gyp/gyp_main.py                                           | 2 +-
- tools/gyp/gyptest.py                                            | 2 +-
  tools/gyp/pylib/gyp/MSVSSettings_test.py                        | 2 +-
  tools/gyp/pylib/gyp/__init__.py                                 | 2 +-
  tools/gyp/pylib/gyp/common_test.py                              | 2 +-
@@ -140,21 +137,8 @@ on host
  tools/run-valgrind.py                                           | 2 +-
  tools/specialize_node_d.py                                      | 2 +-
  tools/test.py                                                   | 2 +-
- 134 files changed, 134 insertions(+), 134 deletions(-)
+ 132 files changed, 132 insertions(+), 132 deletions(-)
 
-diff --git a/Makefile b/Makefile
-index 965e4f8..cde6d4a 100644
---- a/Makefile
-+++ b/Makefile
-@@ -1,7 +1,7 @@
- -include config.mk
- 
- BUILDTYPE ?= Release
--PYTHON ?= python
-+PYTHON ?= nativepython3
- DESTDIR ?=
- SIGN ?=
- PREFIX ?= /usr/local
 diff --git a/deps/uv/gyp_uv.py b/deps/uv/gyp_uv.py
 index c2add5c..3f36565 100755
 --- a/deps/uv/gyp_uv.py
@@ -315,6 +299,16 @@ index a5dbe45..41f38d8 100644
  #
  # Copyright 2014 the V8 project authors. All rights reserved.
  # Redistribution and use in source and binary forms, with or without
+diff --git a/deps/v8/tools/debug_helper/gen-heap-constants.py b/deps/v8/tools/debug_helper/gen-heap-constants.py
+index 0fd575a..a064f4e 100644
+--- a/deps/v8/tools/debug_helper/gen-heap-constants.py
++++ b/deps/v8/tools/debug_helper/gen-heap-constants.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env nativepython3
+ # Copyright 2019 the V8 project authors. All rights reserved.
+ # Use of this source code is governed by a BSD-style license that can be
+ # found in the LICENSE file.
 diff --git a/deps/v8/tools/deprecation_stats.py b/deps/v8/tools/deprecation_stats.py
 index 628eebc..83db036 100755
 --- a/deps/v8/tools/deprecation_stats.py
@@ -1165,18 +1159,8 @@ index 8ab2ed8..ea02aeb 100755
  
  #
  # genv8constants.py output_file libv8_base.a
-diff --git a/tools/gyp/buildbot/buildbot_run.py b/tools/gyp/buildbot/buildbot_run.py
-index cdd347d..dc8d692 100755
---- a/tools/gyp/buildbot/buildbot_run.py
-+++ b/tools/gyp/buildbot/buildbot_run.py
-@@ -1,4 +1,4 @@
--#!/usr/bin/env python
-+#!/usr/bin/env nativepython3
- # Copyright (c) 2012 Google Inc. All rights reserved.
- # Use of this source code is governed by a BSD-style license that can be
- # found in the LICENSE file.
 diff --git a/tools/gyp/gyp_main.py b/tools/gyp/gyp_main.py
-index 25a6eba..7f6d37a 100755
+index f738e80..2711427 100755
 --- a/tools/gyp/gyp_main.py
 +++ b/tools/gyp/gyp_main.py
 @@ -1,4 +1,4 @@
@@ -1185,18 +1169,8 @@ index 25a6eba..7f6d37a 100755
  
  # Copyright (c) 2009 Google Inc. All rights reserved.
  # Use of this source code is governed by a BSD-style license that can be
-diff --git a/tools/gyp/gyptest.py b/tools/gyp/gyptest.py
-index 1a9ffca..47b549b 100755
---- a/tools/gyp/gyptest.py
-+++ b/tools/gyp/gyptest.py
-@@ -1,4 +1,4 @@
--#!/usr/bin/env python
-+#!/usr/bin/env nativepython3
- # Copyright (c) 2012 Google Inc. All rights reserved.
- # Use of this source code is governed by a BSD-style license that can be
- # found in the LICENSE file.
 diff --git a/tools/gyp/pylib/gyp/MSVSSettings_test.py b/tools/gyp/pylib/gyp/MSVSSettings_test.py
-index 245478c..6aab7a4 100755
+index 77b79e6..d3d0469 100755
 --- a/tools/gyp/pylib/gyp/MSVSSettings_test.py
 +++ b/tools/gyp/pylib/gyp/MSVSSettings_test.py
 @@ -1,4 +1,4 @@
@@ -1286,7 +1260,7 @@ index 1bc5e3d..88293d1 100755
  # Copyright 2013 Google Inc. All rights reserved.
  # Use of this source code is governed by a BSD-style license that can be
 diff --git a/tools/gyp/pylib/gyp/mac_tool.py b/tools/gyp/pylib/gyp/mac_tool.py
-index c4c4a6d..d8ee183 100755
+index 781a863..4a89818 100755
 --- a/tools/gyp/pylib/gyp/mac_tool.py
 +++ b/tools/gyp/pylib/gyp/mac_tool.py
 @@ -1,4 +1,4 @@
@@ -1296,7 +1270,7 @@ index c4c4a6d..d8ee183 100755
  # Use of this source code is governed by a BSD-style license that can be
  # found in the LICENSE file.
 diff --git a/tools/gyp/pylib/gyp/win_tool.py b/tools/gyp/pylib/gyp/win_tool.py
-index ab6db1c..6716923 100755
+index cfdacb0..858b02c 100755
 --- a/tools/gyp/pylib/gyp/win_tool.py
 +++ b/tools/gyp/pylib/gyp/win_tool.py
 @@ -1,4 +1,4 @@
@@ -1326,7 +1300,7 @@ index 538b059..c784e7a 100755
  # Copyright (c) 2011 Google Inc. All rights reserved.
  # Use of this source code is governed by a BSD-style license that can be
 diff --git a/tools/gyp/tools/pretty_gyp.py b/tools/gyp/tools/pretty_gyp.py
-index d01c692..f53c2b4 100755
+index 633048a..f5b8802 100755
 --- a/tools/gyp/tools/pretty_gyp.py
 +++ b/tools/gyp/tools/pretty_gyp.py
 @@ -1,4 +1,4 @@
@@ -1346,7 +1320,7 @@ index 196566f..36de5ab 100755
  # Copyright (c) 2012 Google Inc. All rights reserved.
  # Use of this source code is governed by a BSD-style license that can be
 diff --git a/tools/gyp/tools/pretty_vcproj.py b/tools/gyp/tools/pretty_vcproj.py
-index 8263389..9d8c7f4 100755
+index 3212626..73baa65 100755
 --- a/tools/gyp/tools/pretty_vcproj.py
 +++ b/tools/gyp/tools/pretty_vcproj.py
 @@ -1,4 +1,4 @@
@@ -1426,7 +1400,7 @@ index abe636e..15b9f81 100644
  # Use of this source code is governed by a BSD-style license that can be
  # found in the LICENSE file.
 diff --git a/tools/install.py b/tools/install.py
-index 6558029..7e662a1 100755
+index fe4723b..131ddd7 100755
 --- a/tools/install.py
 +++ b/tools/install.py
 @@ -1,4 +1,4 @@
@@ -1476,7 +1450,7 @@ index 825047c..ee0decd 100755
  #
  # specialize_node_d.py output_file src/node.d flavor arch
 diff --git a/tools/test.py b/tools/test.py
-index 8a7e898..41a1834 100755
+index 71a7540..c0f3cc3 100755
 --- a/tools/test.py
 +++ b/tools/test.py
 @@ -1,4 +1,4 @@
@@ -1485,3 +1459,6 @@ index 8a7e898..41a1834 100755
  #
  # Copyright 2008 the V8 project authors. All rights reserved.
  # Redistribution and use in source and binary forms, with or without
+-- 
+2.20.1
+
