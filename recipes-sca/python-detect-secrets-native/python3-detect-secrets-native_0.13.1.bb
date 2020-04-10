@@ -1,5 +1,4 @@
 SUMMARY = "An enterprise friendly way of detecting and preventing secrets in code"
-DESCRIPTION = "An enterprise friendly way of detecting and preventing secrets in code"
 HOMEPAGE = "https://github.com/Yelp/detect-secrets"
 
 LICENSE = "Apache-2.0"
