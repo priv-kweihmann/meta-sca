@@ -1,5 +1,5 @@
 SUMMARY = "Code smell detector for Ruby"
-HOMEPAGE = "https://github.com/mgechev/revive"
+HOMEPAGE = "https://github.com/troessner/reek"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://License.txt;md5=59252b93b9ae85dab91487d72990f77c"
@@ -13,8 +13,8 @@ DEPENDS += "\
             "
 
 SRC_URI += "file://reek.sca.description"
-SRC_URI[md5sum] = "265803d907e520f43583bb0c669a252f"
-SRC_URI[sha256sum] = "c20ab6c8ba6d129f90d470b7869e2e92777cfd189cf11b196623b49927ac8fbf"
+SRC_URI[md5sum] = "fbcd55cfc102a0b035f4a53f005574f9"
+SRC_URI[sha256sum] = "dfc580d8ac122fbd302aae3d7f959d2a1dccf33a316767b415f99360a7fd165b"
 
 GEM_NAME = "reek"
 
