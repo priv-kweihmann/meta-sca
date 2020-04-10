@@ -3,7 +3,7 @@
 
 PYNATIVE_NOCACHE ?= "1"
 
-PACKAGE_PREPROCESS_FUNCS += "${oe.utils.ifelse(d.getVar('DISTRO') == 'scatest','py_package_preprocess_fixups','', d)}"
+PACKAGE_PREPROCESS_FUNCS += "py_package_preprocess_fixups"
 
 py_package_preprocess_fixups() {
     if [ ${PYNATIVE_NOCACHE} -eq 1 ]; then
