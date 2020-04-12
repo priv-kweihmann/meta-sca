@@ -151,6 +151,9 @@ _data = {
     "ropgadget": [
         "busybox"
     ],
+    "rubycritic": [
+        "rubycritic-test"
+    ],
     "safety": [
         "bad-python-reqs"
     ],
