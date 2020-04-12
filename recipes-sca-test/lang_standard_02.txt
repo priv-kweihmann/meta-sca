@@ -25,6 +25,7 @@ pysymcheck
 pytype
 reek
 retire
+rubycritic
 safety
 setuptoolslint
 standard
