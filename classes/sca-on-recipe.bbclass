@@ -67,6 +67,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             retire \
                             revive \
                             ropgadget \
+                            rubycritic \
                             safety \
                             setuptoolslint \
                             shellcheck \
