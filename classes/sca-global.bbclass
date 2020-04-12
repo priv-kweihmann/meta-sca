@@ -113,6 +113,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           reek \
                           retire \
                           revive \
+                          rubycritic \
                           safety \
                           setuptoolslint \
                           shellcheck \
