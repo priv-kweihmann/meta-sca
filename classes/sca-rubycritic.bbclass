@@ -86,8 +86,7 @@ python do_sca_rubycritic() {
         try:
             subprocess.check_call(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
-            with open(tmp_result, "w") as o:
-                json.dump({"analysed_modules": []}, o)   
+            pass
     
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/rubycritic.dm".format(d.getVar("T")))
