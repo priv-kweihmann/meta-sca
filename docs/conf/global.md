@@ -28,6 +28,9 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_SPARE_DIRS | Additional regular expressions for paths that shouldn't run SCA | space seperated list | ""
 | SCA_SPARE_IGNORE_BBAPPEND | Ignore bbappend files for making the decision if the recipe should be spared or not | string: 1 = yes, other no | "0"
 | SCA_SPARE_LAYER | layer names, like 'core' or 'openembedded-layer' to suppress SCA on all recipes of that layer | space seperated list | ""
+| SCA_TRACEFILES_LOOSE_INC | Files extensions to add in loose mode of tracefiles | space seperated list | .h .hpp
+| SCA_TRACEFILES_MODE | Mode to trace source files from compiled binaries | string: full, loose or strict | "full"
+| SCA_TRACEFILES_PKGS | Packages to inspect for tracing files | space seperated list | "\${PN}-lib \${PN}-bin \${PN}"
 | SCA_VERBOSE_OUTPUT | Verbose output of included tools | string: 0 or 1 | "1"
 | SCA_WARNING_LEVEL | Filter for severity of findings | string: info, warning or error | "warning"
 

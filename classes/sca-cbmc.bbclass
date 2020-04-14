@@ -26,11 +26,14 @@ SCA_CBMC_MODULES ?= "\
 ## Extra command line options for CBMC
 SCA_CBMC_EXTRA_OPTIONS ?= ""
 
+SCA_RAW_RESULT_FILE[cbmc] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_cbmc(d):
     import os
@@ -51,8 +54,8 @@ def do_sca_conv_cbmc(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "cbmc")):
+        with open(sca_raw_result_file(d, "cbmc"), "r") as f:
             content = []
             try:
                 content = json.load(f)
@@ -132,8 +135,6 @@ python do_sca_cbmc() {
                                     clean_split(d, "SCA_CBMC_FILE_FILTER"),    
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
-    tmp_result = os.path.join(d.getVar("T"), "sca_raw_cbmc.json")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
     
     ## Run
@@ -142,9 +143,13 @@ python do_sca_cbmc() {
             cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or "[]"
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "cbmc"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_cbmc_report() {
+    import os
+
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/cbmc.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_cbmc(d)
@@ -157,12 +162,14 @@ python do_sca_cbmc() {
 SCA_DEPLOY_TASK = "do_sca_deploy_cbmc"
 
 python do_sca_deploy_cbmc() {
-    sca_conv_deploy(d, "cbmc", "json")
+    sca_conv_deploy(d, "cbmc")
 }
 
 do_sca_cbmc[doc] = "Lint c files with cmbc"
+do_sca_cbmc_report[doc] = "Report findings of do_sca_cbmc"
 do_sca_deploy_cbmc[doc] = "Deploy results of do_sca_cbmc"
-addtask do_sca_cbmc before do_install after do_compile
-addtask do_sca_deploy_cbmc after do_sca_cbmc before do_package
+addtask do_sca_cbmc after do_compile before do_sca_tracefiles
+addtask do_sca_cbmc_report after do_sca_tracefiles
+addtask do_sca_deploy_cbmc after do_sca_cbmc_report before do_package
 
 DEPENDS += "cbmc-native sca-recipe-cbmc-rules-native"

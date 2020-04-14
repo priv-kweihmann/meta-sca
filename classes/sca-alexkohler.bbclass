@@ -14,6 +14,9 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
+
+SCA_RAW_RESULT_FILE[alexkohler] = "txt"
 
 def do_sca_conv_alexkohler(d):
     import os
@@ -29,8 +32,8 @@ def do_sca_conv_alexkohler(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "alexkohler")):
+        with open(sca_raw_result_file(d, "alexkohler"), "r") as f:
             content = f.read()
             for m in re.finditer(pattern, content, re.MULTILINE):
                 try:
@@ -63,8 +66,6 @@ python do_sca_alexkohler() {
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "alexkohler-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_alexkohler.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
     _files = get_files_by_extention(d,    
                                     d.getVar("SCA_SOURCES_DIR"),    
@@ -83,9 +84,12 @@ python do_sca_alexkohler() {
             lines = ["[{}] {}".format(mod, x) for x in lines]
             cmd_output += "\n".join(lines)
             cmd_output += "\n"
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "alexkohler"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_alexkohler_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/alexkohler.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_alexkohler(d)
@@ -98,12 +102,14 @@ python do_sca_alexkohler() {
 SCA_DEPLOY_TASK = "do_sca_deploy_alexkohler"
 
 python do_sca_deploy_alexkohler() {
-    sca_conv_deploy(d, "alexkohler", "txt")
+    sca_conv_deploy(d, "alexkohler")
 }
 
 do_sca_alexkohler[doc] = "Lint go files with alex kohler tools"
-addtask do_sca_alexkohler before do_compile after do_configure
+do_sca_alexkohler_report[doc] = "Report findings from do_sca_alexkohler"
 do_sca_deploy_alexkohler[doc] = "Deploy results of do_sca_alexkohler"
-addtask do_sca_deploy_alexkohler after do_sca_alexkohler before do_package
+addtask do_sca_alexkohler after do_configure before do_sca_tracefiles
+addtask do_sca_alexkohler_report after do_sca_tracefiles
+addtask do_sca_deploy_alexkohler after do_sca_alexkohler_report before do_package
 
 DEPENDS += "alexkohler-native sca-recipe-alexkohler-rules-native"

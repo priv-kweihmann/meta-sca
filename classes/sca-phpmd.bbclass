@@ -8,11 +8,14 @@ SCA_PHPMD_EXTRA_FATAL ?= ""
 SCA_PHPMD_FILE_FILTER ?= ".php .phtml"
 SCA_PHPMD_CHECKS ?= "codesize cleancode controversial naming unusedcode design"
 
+SCA_RAW_RESULT_FILE[phpmd] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_phpmd(d):
     import os
@@ -25,9 +28,9 @@ def do_sca_conv_phpmd(d):
     _findings = []
     _suppress = sca_suppress_init(d)
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "phpmd")):
         content = []
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+        with open(sca_raw_result_file(d, "phpmd"), "r") as f:
             try:
                 content = json.load(f)
             except json.JSONDecodeError:
@@ -64,8 +67,6 @@ python do_sca_phpmd() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "phpmd-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "phpmd-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_phpmd.json")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
 
     ## Run
@@ -85,9 +86,12 @@ python do_sca_phpmd() {
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
 
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "phpmd"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_phpmd_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/phpmd.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_phpmd(d)
@@ -100,12 +104,14 @@ python do_sca_phpmd() {
 SCA_DEPLOY_TASK = "do_sca_deploy_phpmd"
 
 python do_sca_deploy_phpmd() {
-    sca_conv_deploy(d, "phpmd", "json")
+    sca_conv_deploy(d, "phpmd")
 }
 
 do_sca_phpmd[doc] = "Lint php scripts with phpmd in workspace"
+do_sca_phpmd_report[doc] = "Report findings of do_sca_phpmd"
 do_sca_deploy_phpmd[doc] = "Deploy results of do_sca_phpmd"
-addtask do_sca_phpmd before do_install after do_configure
-addtask do_sca_deploy_phpmd after do_sca_phpmd before do_package
+addtask do_sca_phpmd after do_configure before do_sca_tracefiles
+addtask do_sca_phpmd_report after do_sca_tracefiles
+addtask do_sca_deploy_phpmd after do_sca_phpmd_report before do_package
 
 DEPENDS += "phpmd-native sca-recipe-phpmd-rules-native"

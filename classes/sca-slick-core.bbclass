@@ -6,6 +6,8 @@ SCA_SLICK_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_SLICK_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[slick] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -26,8 +28,8 @@ def do_sca_conv_slick(d):
     _findings = []
     _suppress = sca_suppress_init(d)
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "slick")):
+        with open(sca_raw_result_file(d, "slick"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -63,8 +65,6 @@ python do_sca_slick_core() {
 
     ## Run
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_slick.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*/(ba|k|mk)*sh", ".sh",
                                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
@@ -73,9 +73,12 @@ python do_sca_slick_core() {
             cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "slick"), "w") as o:
         o.write(cmd_output)
+}
 
+python do_sca_slick_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/slick.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_slick(d)

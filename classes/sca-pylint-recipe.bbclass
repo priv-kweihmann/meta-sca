@@ -3,6 +3,7 @@
 
 inherit sca-pylint-core
 inherit sca-global
+inherit sca-tracefiles
 
 inherit python3-dir
 
@@ -20,12 +21,14 @@ SCA_PYLINT_LIBATH ?= "${STAGING_LIBDIR}/python${PYTHON_BASEVERSION}/:${STAGING_L
 SCA_DEPLOY_TASK = "do_sca_deploy_pylint_recipe"
 
 python do_sca_deploy_pylint_recipe() {
-   sca_conv_deploy(d, "pylint", "txt")
+   sca_conv_deploy(d, "pylint")
 }
 
 do_sca_pylint_core[doc] = "Lint python code with pylint"
+do_sca_pylint_core_report[doc] = "Report findings from do_sca_pylint_core"
 do_sca_deploy_pylint_recipe[doc] = "Deploy results of do_sca_pylint_core"
-addtask do_sca_pylint_core before do_install after do_compile
-addtask do_sca_deploy_pylint_recipe before do_package after do_sca_pylint_core
+addtask do_sca_pylint_core after do_compile before do_sca_tracefiles
+addtask do_sca_pylint_core_report after do_sca_tracefiles
+addtask do_sca_deploy_pylint_recipe after do_sca_pylint_core_report before do_package
 
 DEPENDS += "sca-recipe-pylint-rules-native"

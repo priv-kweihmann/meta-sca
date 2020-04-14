@@ -126,16 +126,22 @@ def get_files_by_mimetype(d, path, mime, excludes=[]):
     except ImportError:
         return []
 
-def get_files_by_glob(d, pattern, excludes=[]):
+def get_files_by_glob(d, basedir, pattern, excludes=[]):
     import os
-    import glob
+    import subprocess
     res = []
     if isinstance(pattern, str):
         pattern = pattern.split(" ")
     res = []
     for p in pattern:
-        res += glob.glob(p)
-    return [x for x in res if os.path.isfile(x)]
+        try:
+            cmd_out = subprocess.check_output(["find", basedir, "-type", "f", "-wholename", p])
+        except subprocess.CalledProcessError as e:
+            cmd_out = e.output or ""
+        if not isinstance(cmd_out, str):
+            cmd_out = cmd_out.decode('utf-8')
+        res += [x.strip() for x in cmd_out.split("\n") if x.strip() and x not in excludes]
+    return res
 
 def get_files_by_extention(d, path, pattern, excludes=[]):
     import os
@@ -224,7 +230,6 @@ def get_local_includes(path):
 def sca_task_aftermath(d, tool, fatals=None):
     ## Write to final export
     result_file = os.path.join(d.getVar("T"), sca_conv_export_get_deployname(d, tool))
-    d.setVar("SCA_RESULT_FILE", result_file)
     with open(result_file, "w") as o:
         o.write(sca_conv_to_export(d))
 
@@ -280,3 +285,7 @@ def sca_get_layer_path_for_file(d, file):
         if file.startswith(dir):
             return dir
     return ""
+
+def sca_raw_result_file(d, tool):
+    _filename = "sca_raw_{}.{}".format(tool, d.getVarFlag("SCA_RAW_RESULT_FILE", tool))
+    return os.path.join(d.getVar("T"), _filename)

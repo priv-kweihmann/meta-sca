@@ -6,6 +6,8 @@ SCA_SAFETY_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_SAFETY_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[safety] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -22,13 +24,13 @@ def do_sca_conv_safety(d, cmd_output=""):
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     items = []
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, file_trace=False)
     _findings = []
 
     ## Result file parsing
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "safety")):
         io = []
-        with open(d.getVar("SCA_RAW_RESULT_FILE")) as i:
+        with open(sca_raw_result_file(d, "safety")) as i:
             try:
                 io = json.load(i)
             except:
@@ -98,9 +100,6 @@ python do_sca_safety() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "safety-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "safety-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_safety.json")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
-
     ## Build tmp requirements.txt file
     tmp_req = os.path.join(d.getVar("T"), "_safety_tmp.txt")
     tmp_req_lines = []
@@ -118,7 +117,7 @@ python do_sca_safety() {
     if any(tmp_req_lines):
         _args = [d.getVar("PYTHON")]
         _args += ["-m", "safety", "check"]
-        _args += ["--output", tmp_result, "--json"]
+        _args += ["--output", sca_raw_result_file(d, "safety"), "--json"]
         _args += ["-r", tmp_req]
     
         try:
@@ -138,7 +137,7 @@ python do_sca_safety() {
 SCA_DEPLOY_TASK = "do_sca_deploy_safety"
 
 python do_sca_deploy_safety() {
-    sca_conv_deploy(d, "safety", "json")
+    sca_conv_deploy(d, "safety")
 }
 
 do_sca_safety[doc] = "Find known vulnarabilities in used python libraries"

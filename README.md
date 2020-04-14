@@ -242,6 +242,7 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
   - [Filter out files to check](docs/conf/filefilter.md)
   - [Output formats](docs/conf/output_formats.md)
   - [Suppress findings](docs/conf/suppression.md)
+  - [Trace source files](docs/conf/tracefiles.md)
   - Tools
     - [alexkohler](docs/conf/module/alexkohler.md)
     - [ansible](docs/conf/module/ansible.md)

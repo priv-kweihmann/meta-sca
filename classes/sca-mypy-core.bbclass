@@ -1,6 +1,8 @@
 ## SPDX-License-Identifier: BSD-2-Clause
 ## Copyright (c) 2019, Konrad Weihmann
 
+SCA_RAW_RESULT_FILE[mypy] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -27,8 +29,8 @@ def do_sca_conv_mypy(d):
     _findings = []
     _suppress = sca_suppress_init(d)
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "mypy")):
+        with open(sca_raw_result_file(d, "mypy"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -52,7 +54,6 @@ def do_sca_conv_mypy(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
-do_sca_mypy_core[vardepsexclude] += "TOPDIR"
 python do_sca_mypy_core() {
     import os
     import subprocess
@@ -72,17 +73,19 @@ python do_sca_mypy_core() {
 
     ## Run
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_mypy.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
     if any(_files):
         try:
             cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "mypy"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+do_sca_mypy_core[vardepsexclude] += "TOPDIR"
+python do_sca_mypy_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/mypy.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_mypy(d)

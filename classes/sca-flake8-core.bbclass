@@ -1,6 +1,8 @@
 ## SPDX-License-Identifier: BSD-2-Clause
 ## Copyright (c) 2019, Konrad Weihmann
 
+SCA_RAW_RESULT_FILE[flake8] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -50,8 +52,8 @@ def do_sca_conv_flake8(d):
     _findings = []
     _suppress = sca_suppress_init(d)
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "flake8")):
+        with open(sca_raw_result_file(d, "flake8"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -94,17 +96,18 @@ python do_sca_flake8_core() {
                                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_flake8.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
     if any(_files):
         try:
             cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "flake8"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_flake8_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/flake8.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_flake8(d)

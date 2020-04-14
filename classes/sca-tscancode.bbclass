@@ -14,11 +14,14 @@ SCA_TSCANCODE_SYMBOL_PREFIX ?= "ENABLE_"
 ## File filter
 SCA_TSCANCODE_FILE_FILTER = ".cpp .cxx .cc .c++ .c .tpp .txx"
 
+SCA_RAW_RESULT_FILE[tscancode] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def get_config_symbols(d, config_file=".config", strip="CONFIG_"):
     import re
@@ -59,9 +62,9 @@ def do_sca_conv_tscancode(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "tscancode")):
         try:
-            data = ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE")).getroot()
+            data = ElementTree.parse(sca_raw_result_file(d, "tscancode")).getroot()
             for node in data.findall(".//error"):
                 try:
                     g = sca_get_model_class(d,
@@ -97,9 +100,6 @@ python do_sca_tscancode() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "tscancode-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "tscancode-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_tscancode.xml")
-
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     xml_output = ""
     _args = ["tscancode"]
     _args += ["--xml"]
@@ -132,9 +132,12 @@ python do_sca_tscancode() {
         cmd_output = e.stderr or ""
     os.chdir(_curdir)
 
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "tscancode"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_tscancode_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/tscancode.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_tscancode(d)
@@ -147,12 +150,14 @@ python do_sca_tscancode() {
 SCA_DEPLOY_TASK = "do_sca_deploy_tscancode"
 
 python do_sca_deploy_tscancode() {
-    sca_conv_deploy(d, "tscancode", "xml")
+    sca_conv_deploy(d, "tscancode")
 }
 
 do_sca_tscancode[doc] = "Lint C/C++ files with tscancode"
+do_sca_tscancode_report[doc] = "Report findings of do_sca_tscancode"
 do_sca_deploy_tscancode[doc] = "Deploy results of do_sca_tscancode"
-addtask do_sca_tscancode before do_install after do_configure
-addtask do_sca_deploy_tscancode after do_sca_tscancode before do_package
+addtask do_sca_tscancode after do_configure before do_sca_tracefiles
+addtask do_sca_tscancode_report after do_sca_tracefiles
+addtask do_sca_deploy_tscancode after do_sca_tscancode_report before do_package
 
 DEPENDS += "tscancode-native sca-recipe-tscancode-rules-native"

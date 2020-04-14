@@ -6,6 +6,8 @@ SCA_ZRD_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_ZRD_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[zrd] = "csv"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -41,12 +43,12 @@ def do_sca_conv_zrd(d):
         "2010" : "encoding error"
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, file_trace=False)
     __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r", encoding='utf-8-sig') as f:
+    if os.path.exists(sca_raw_result_file(d, "zrd")):
+        with open(sca_raw_result_file(d, "zrd"), "r", encoding='utf-8-sig') as f:
             reader = csv.DictReader(f)
             for row in reader:
                 try:
@@ -81,12 +83,9 @@ python do_sca_zrd() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "zrd-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "zrd-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_zrd.csv")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
-
     _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), d.getVar("PYTHON_PN") + "-native", d.getVar("PYTHON_PN"))]
     _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "zrd", "resource_detector.py")]
-    _args += ["-d", tmp_result]
+    _args += ["-d", sca_raw_result_file(d, "zrd")]
     _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), "",
                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
@@ -109,7 +108,7 @@ python do_sca_zrd() {
 SCA_DEPLOY_TASK = "do_sca_deploy_zrd"
 
 python do_sca_deploy_zrd() {
-    sca_conv_deploy(d, "zrd", "csv")
+    sca_conv_deploy(d, "zrd")
 }
 
 do_sca_zrd[doc] = "Lint i18n files"

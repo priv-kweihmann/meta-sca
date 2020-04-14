@@ -7,11 +7,14 @@ SCA_PROGPILOT_EXTRA_SUPPRESS ?= ""
 SCA_PROGPILOT_EXTRA_FATAL ?= ""
 SCA_PROGPILOT_FILE_FILTER ?= ".php"
 
+SCA_RAW_RESULT_FILE[progpilot] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_progpilot(d):
     import os
@@ -23,9 +26,9 @@ def do_sca_conv_progpilot(d):
     _findings = []
     _suppress = sca_suppress_init(d)
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "progpilot")):
         content = []
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+        with open(sca_raw_result_file(d, "progpilot"), "r") as f:
             try:
                 content = json.load(f)
             except json.JSONDecodeError:
@@ -62,8 +65,6 @@ python do_sca_progpilot() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "progpilot-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "progpilot-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_progpilot.json")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
 
     ## Run
@@ -80,9 +81,12 @@ python do_sca_progpilot() {
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
 
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "progpilot"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_progpilot_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/progpilot.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_progpilot(d)
@@ -95,12 +99,14 @@ python do_sca_progpilot() {
 SCA_DEPLOY_TASK = "do_sca_deploy_progpilot"
 
 python do_sca_deploy_progpilot() {
-    sca_conv_deploy(d, "progpilot", "json")
+    sca_conv_deploy(d, "progpilot")
 }
 
 do_sca_progpilot[doc] = "Lint php scripts with progpilot"
+do_sca_progpilot_report[doc] = "Report findings of do_sca_progpilot"
 do_sca_deploy_progpilot[doc] = "Deploy results of do_sca_progpilot"
-addtask do_sca_progpilot before do_install after do_configure
-addtask do_sca_deploy_progpilot after do_sca_progpilot before do_package
+addtask do_sca_progpilot after do_configure before do_sca_tracefiles
+addtask do_sca_progpilot_report after do_sca_tracefiles
+addtask do_sca_deploy_progpilot after do_sca_progpilot_report before do_package
 
 DEPENDS += "progpilot-native sca-recipe-progpilot-rules-native"

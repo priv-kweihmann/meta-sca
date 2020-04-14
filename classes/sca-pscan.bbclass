@@ -8,11 +8,14 @@ SCA_PSCAN_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)
 SCA_PSCAN_FILE_FILTER ?= ".c"
 
+SCA_RAW_RESULT_FILE[pscan] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_pscan(d):
     import os
@@ -32,8 +35,8 @@ def do_sca_conv_pscan(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "pscan")):
+        with open(sca_raw_result_file(d, "pscan"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     _id = "NonConstantString"
@@ -76,16 +79,17 @@ python do_sca_pscan() {
 
     ## Run
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_pscan.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     if any(_files):
         try:
             cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "pscan"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_pscan_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/pscan.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_pscan(d)
@@ -98,12 +102,14 @@ python do_sca_pscan() {
 SCA_DEPLOY_TASK = "do_sca_deploy_pscan"
 
 python do_sca_deploy_pscan() {
-    sca_conv_deploy(d, "pscan", "txt")
+    sca_conv_deploy(d, "pscan")
 }
 
 do_sca_pscan[doc] = "Lint (s|v|f)print usage in c files"
+do_sca_pscan_report[doc] = "Report findings of do_sca_pscan"
 do_sca_deploy_pscan[doc] = "Deploy results of do_sca_pscan"
-addtask do_sca_pscan before do_install after do_compile
-addtask do_sca_deploy_pscan after do_sca_pscan before do_package
+addtask do_sca_pscan after do_compile before do_sca_tracefiles
+addtask do_sca_pscan_report after do_sca_tracefiles
+addtask do_sca_deploy_pscan after do_sca_pscan_report before do_package
 
 DEPENDS += "pscan-native sca-recipe-pscan-rules-native"

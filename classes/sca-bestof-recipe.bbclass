@@ -15,7 +15,7 @@ python sca_bestof_init() {
 SCA_DEPLOY_TASK = "do_sca_deploy_bestof_recipe"
 
 python do_sca_deploy_bestof_recipe() {
-    sca_conv_deploy(d, "bestof", "json")
+    sca_conv_deploy(d, "bestof")
 }
 
 do_sca_bestof_core[doc] = "Gather result for BestOf mode on recipe"

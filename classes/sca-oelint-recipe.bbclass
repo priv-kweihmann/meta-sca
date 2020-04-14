@@ -9,7 +9,7 @@ inherit sca-conv-to-export
 SCA_DEPLOY_TASK = "do_sca_deploy_oelint_recipe"
 
 python do_sca_deploy_oelint_recipe() {
-    sca_conv_deploy(d, "oelint", "txt")
+    sca_conv_deploy(d, "oelint")
 }
 
 do_sca_oelint_core[doc] = "Lint bitbake recipes"

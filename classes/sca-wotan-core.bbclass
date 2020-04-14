@@ -15,6 +15,8 @@ inherit sca-suppress
 
 DEPENDS += "wotan-native"
 
+SCA_RAW_RESULT_FILE[wotan] = "json"
+
 def do_sca_conv_wotan(d):
     import os
     import re
@@ -26,9 +28,9 @@ def do_sca_conv_wotan(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "wotan")):
         content = []
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+        with open(sca_raw_result_file(d, "wotan"), "r") as f:
             try:
                 content = json.load(f)
             except json.JSONDecodeError:
@@ -83,11 +85,12 @@ python do_sca_wotan_core() {
     
     cmd_output = "\n".join([x for x in cmd_output.split("\n") if not x.startswith("Rule") and not x.endswith("requires type information.")])
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_wotan.json")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-    with open(result_raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "wotan"), "w") as o:
         o.write(cmd_output)
+}
 
+python do_sca_wotan_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/wotan.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_wotan(d)
