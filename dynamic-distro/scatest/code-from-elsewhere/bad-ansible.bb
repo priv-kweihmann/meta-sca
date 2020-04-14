@@ -11,3 +11,10 @@ SCA_SCORE_SECURITY_ERROR = "0"
 SCA_SCORE_FUNCTIONAL_ERROR = "0"
 SCA_SCORE_STYLE_ERROR = "0"
 inherit sca
+
+do_install() {
+    install -d ${D}${datadir}
+    install -m 0644 ${S}/1.yaml ${D}${datadir}
+}
+
+FILES_${PN} += "${datadir}"

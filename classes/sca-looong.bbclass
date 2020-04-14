@@ -6,10 +6,14 @@ SCA_LOOONG_EXTRA_FATAL ?= ""
 ## Error threshold
 SCA_LOOONG_ERR_THRESHOLD ?= "8"
 
+SCA_RAW_RESULT_FILE[looong] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
+inherit sca-suppress
+inherit sca-tracefiles
 
 inherit python3-dir
 
@@ -22,12 +26,13 @@ def do_sca_conv_looong(d):
 
     pattern = r"^(?P<func>.*?)\s+\[(?P<file>.*)\]\s+\[.*\]\s+(?P<level>\d+)"
 
+    _suppress = sca_suppress_init(d)
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "looong")):
+        with open(sca_raw_result_file(d, "looong"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     _severity = ""
@@ -45,7 +50,7 @@ def do_sca_conv_looong(d):
                                             Message=_msg,
                                             ID="TooLongArgumentList",
                                             Severity=_severity)
-                    if g.File in _excludes:
+                    if g.File in _excludes or _suppress.Suppressed(g):
                         continue
                     if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                         continue
@@ -71,17 +76,18 @@ python do_sca_looong() {
                                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     ## Run
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_looong.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     if any(_files):
         try:
             cmd_output += subprocess.check_output(_args, universal_newlines=True)
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "looong"), "w") as o:
         escaped = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
         o.write(escaped.sub('', cmd_output))
-    
+}
+
+python do_sca_looong_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/looong.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_looong(d)
@@ -94,12 +100,14 @@ python do_sca_looong() {
 SCA_DEPLOY_TASK = "do_sca_deploy_looong"
 
 python do_sca_deploy_looong() {
-    sca_conv_deploy(d, "looong", "txt")
+    sca_conv_deploy(d, "looong")
 }
 
 do_sca_looong[doc] = "Find python function to be refactored"
+do_sca_looong_report[doc] = "Report findings of do_sca_looong"
 do_sca_deploy_looong[doc] = "Deploy results of do_sca_looong"
-addtask do_sca_looong before do_install after do_compile
-addtask do_sca_deploy_looong after do_sca_looong before do_package
+addtask do_sca_looong after do_compile before do_sca_tracefiles
+addtask do_sca_looong_report after do_sca_tracefiles
+addtask do_sca_deploy_looong after do_sca_looong_report before do_package
 
 DEPENDS += "python3-looong-native sca-recipe-looong-rules-native"

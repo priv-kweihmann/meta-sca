@@ -30,12 +30,15 @@ SCA_TEXTLINT_RULES ?= "\
                         textlint-rule-write-good \
                     "
 
+SCA_RAW_RESULT_FILE[textlint] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
 inherit sca-suppress
+inherit sca-tracefiles
 
 def write_config(_base, _extra_dicts, _target):
     import os
@@ -66,9 +69,9 @@ def do_sca_conv_textlint(d):
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "textlint")):
         jobj = []
-        with open(d.getVar("SCA_RAW_RESULT_FILE")) as f:
+        with open(sca_raw_result_file(d, "textlint")) as f:
             try:
                 jobj = json.load(f)
             except Exception as e:
@@ -127,15 +130,12 @@ python do_sca_textlint() {
             _config["rules"][_rule] = True
         json.dump(_config, o)
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_textlint.json")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-
     _args = ["textlint"]
     _args += ["-c", _config_file]
     _args += ["--no-color"]
     _args += ["--debug"]
     _args += ["-f", "json"]
-    _args += ["-o", result_raw_file]
+    _args += ["-o", sca_raw_result_file(d, "textlint")]
     _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), "",
                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
@@ -145,7 +145,10 @@ python do_sca_textlint() {
             cmd_output += subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
-    
+}
+
+python do_sca_textlint_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/textlint.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_textlint(d)
@@ -158,12 +161,14 @@ python do_sca_textlint() {
 SCA_DEPLOY_TASK = "do_sca_deploy_textlint"
 
 python do_sca_deploy_textlint() {
-    sca_conv_deploy(d, "textlint", "json")
+    sca_conv_deploy(d, "textlint")
 }
 
 do_sca_textlint[doc] = "Lint text files with textlint"
+do_sca_textlint_report[doc] = "Report findings of do_sca_textlint"
 do_sca_deploy_textlint[doc] = "Deploy results of do_sca_textlint"
-addtask do_sca_textlint before do_install after do_compile
-addtask do_sca_deploy_textlint before do_package after do_sca_textlint
+addtask do_sca_textlint after do_compile before do_sca_tracefiles
+addtask do_sca_textlint_report after do_sca_tracefiles
+addtask do_sca_deploy_textlint after do_sca_textlint_report before do_package
 
 DEPENDS += "textlint-native sca-recipe-textlint-rules-native"

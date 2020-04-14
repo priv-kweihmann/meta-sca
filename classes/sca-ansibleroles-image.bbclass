@@ -25,6 +25,8 @@ inherit sca-file-filter
 inherit sca-crossemu
 inherit sca-suppress
 
+SCA_RAW_RESULT_FILE[ansibleroles] = "txt"
+
 DEPENDS += "ansibleroles-sca-native ansible-role-merger-native packagegroup-ansible-roles"
 
 def do_sca_conv_ansibleroles(d):
@@ -40,8 +42,8 @@ def do_sca_conv_ansibleroles(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "ansibleroles")):
+        with open(sca_raw_result_file(d, "ansibleroles"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     _dict = json.loads(m.group("msg"))
@@ -110,8 +112,6 @@ fakeroot python do_sca_ansibleroles() {
         bb.warn("SCA: ansibleroles module requires /dev/shm on the host.\nThis is a known issue of python/ansible.\nThis module won't produce any output till that is fixed")
     else:
         d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_ANSIBLEROLES_EXTRA_FATAL"))
-        result_raw_file = os.path.join(d.getVar("T"), "sca_raw_ansibleroles.txt")
-        d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
 
         os.environ["ANSIBLE_STDOUT_CALLBACK"] = "oneline"
         os.environ["ANSIBLE_ACTION_WARNINGS"] = "False"
@@ -136,7 +136,7 @@ fakeroot python do_sca_ansibleroles() {
             _tmp, _ = sca_crossemu(d, _args, [], "ansibleroles", "", nocreateroot=True, addargs=["-b", "/dev/shm:/dev/shm"])
             cmd_output += _tmp
 
-        with open(result_raw_file, "wb") as o:
+        with open(sca_raw_result_file(d, "ansibleroles"), "wb") as o:
             o.write(cmd_output)
 
         ## Create data model
@@ -151,7 +151,7 @@ fakeroot python do_sca_ansibleroles() {
 SCA_DEPLOY_TASK = "do_sca_deploy_ansibleroles_image"
 
 python do_sca_deploy_ansibleroles_image() {
-    sca_conv_deploy(d, "ansibleroles", "txt")
+    sca_conv_deploy(d, "ansibleroles")
 }
 
 do_sca_ansibleroles[doc] = "Audit image with ansible roles"

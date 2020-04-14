@@ -8,6 +8,8 @@ SCA_ESLINT_EXTRA_SUPPRESS ?= ""
 SCA_ESLINT_EXTRA_FATAL ?= ""
 SCA_ESLINT_FILE_FILTER ?= ".js .vue .html .htm"
 
+SCA_RAW_RESULT_FILE[eslint] = "xml"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -39,9 +41,9 @@ def do_sca_conv_eslint(d):
     __suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "eslint")):
         try:
-            data = ElementTree.ElementTree(ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE")))
+            data = ElementTree.ElementTree(ElementTree.parse(sca_raw_result_file(d, "eslint")))
             for _file in data.findall(".//file"):
                 if _file.attrib["name"] in __excludes:
                     continue
@@ -96,16 +98,17 @@ python do_sca_eslint_core() {
             cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_eslint.xml")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-    with open(result_raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "eslint"), "w") as o:
         o.write(cmd_output)
 
     try:
         os.remove("node_modules")
     except FileNotFoundError:
         pass
-    
+}
+
+python do_sca_eslint_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/eslint.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_eslint(d)

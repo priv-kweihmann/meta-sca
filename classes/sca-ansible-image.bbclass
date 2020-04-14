@@ -42,6 +42,8 @@ _SCA_ANSIBLE_GLOBAL_VARS = "base_prefix prefix exec_prefix base_bindir base_sbin
 
 SCA_ANSIBLE_PLAYBOOKS ?= "*.yaml"
 
+SCA_RAW_RESULT_FILE[ansible] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -119,9 +121,9 @@ def do_sca_conv_ansible(d):
     __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
     _findings = []
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "ansible")):
         jobj = []
-        with open(d.getVar("SCA_RAW_RESULT_FILE")) as f:
+        with open(sca_raw_result_file(d, "ansible")) as f:
             try:
                 jobj = json.load(f)
             except Exception as e:
@@ -184,8 +186,6 @@ python do_sca_ansible() {
     _args += ["--flush-cache"]
     _args += ["-i", _inventory]
 
-    result_raw_file = os.path.join(d.getVar("T", True), "sca_raw_ansible.json")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
     json_output = {}
 
     for pb_glob in clean_split(d, "SCA_ANSIBLE_PLAYBOOKS"):
@@ -202,7 +202,7 @@ python do_sca_ansible() {
             except:
                 pass
 
-    with open(result_raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "ansible"), "w") as o:
         json.dump(json_output, o)
     
     os.remove(_inventory)
@@ -219,7 +219,7 @@ python do_sca_ansible() {
 SCA_DEPLOY_TASK = "do_sca_deploy_ansible"
 
 python do_sca_deploy_ansible() {
-    sca_conv_deploy(d, "ansible", "json")
+    sca_conv_deploy(d, "ansible")
 }
 
 do_sca_ansible[doc] = "Audit image with ansible playbooks"

@@ -12,11 +12,14 @@ SCA_SPARSE_WARNINGS = "\
                         -Wsparse-all \
                         "
 
+SCA_RAW_RESULT_FILE[sparse] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_sparse(d):
     import os
@@ -38,8 +41,8 @@ def do_sca_conv_sparse(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "sparse")):
+        with open(sca_raw_result_file(d, "sparse"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -86,16 +89,17 @@ python do_sca_sparse() {
 
     ## Run
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_sparse.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     for _f in _files:
         try:
             cmd_output += subprocess.check_output(_args + [_f], universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "sparse"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_sparse_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/sparse.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_sparse(d)
@@ -108,12 +112,14 @@ python do_sca_sparse() {
 SCA_DEPLOY_TASK = "do_sca_deploy_sparse"
 
 python do_sca_deploy_sparse() {
-    sca_conv_deploy(d, "sparse", "txt")
+    sca_conv_deploy(d, "sparse")
 }
 
 do_sca_sparse[doc] = "Lint C files with sparse"
+do_sca_sparse_report[doc] = "Report findings of do_sca_sparse"
 do_sca_deploy_sparse[doc] = "Deploy results of do_sca_sparse"
-addtask do_sca_sparse before do_install after do_compile
-addtask do_sca_deploy_sparse after do_sca_sparse before do_package
+addtask do_sca_sparse after do_compile before do_sca_tracefiles
+addtask do_sca_sparse_report after do_sca_tracefiles
+addtask do_sca_deploy_sparse after do_sca_sparse_report before do_package
 
 DEPENDS += "sparse-native sca-recipe-sparse-rules-native"

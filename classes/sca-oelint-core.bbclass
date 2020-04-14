@@ -13,6 +13,8 @@ SCA_OELINT_EXTRA_SUGGESTED_VARS ?= ""
 SCA_OELINT_EXTRA_KNOWN_MIRRORS ?= ""
 SCA_OELINT_CUSTOM_RULES ?= "${STAGING_DATADIR_NATIVE}/oelint-rules"
 
+SCA_RAW_RESULT_FILE[oelint] = "txt"
+
 DEPENDS += "python3-oelint-adv-native"
 
 inherit sca-conv-to-export
@@ -38,13 +40,13 @@ def do_sca_conv_oelint(d, _files):
         "info": "info"
     }
     _findings = []
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, file_trace=False)
     _spared_layer_files = _files
     if d.getVar("SCA_OELINT_IGNORE_SPARED_LAYER") == "1":
         _spared_layer_files = sca_files_part_of_unspared_layer(d, _files)
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "oelint")):
+        with open(sca_raw_result_file(d, "oelint"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     if not m.group("file") in _spared_layer_files:
@@ -83,9 +85,6 @@ python do_sca_oelint_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "oelint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "oelint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_oelint.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-
     _constantfile = os.path.join(d.getVar("T"), "oelint-constants.json")
     _contantcontent = {
         "known_vars": clean_split(d, "SCA_OELINT_EXTRA_KNOWN_VARS"),
@@ -104,7 +103,7 @@ python do_sca_oelint_core() {
         json.dump(_contantcontent, o)
 
     _args = ['nativepython3', '-m', 'oelint_adv']
-    _args += ["--output={}".format(result_raw_file)]
+    _args += ["--output={}".format(sca_raw_result_file(d, "oelint"))]
     _args += ["--constantfile={}".format(_constantfile)]
     if bb.data.inherits_class('image', d):
         # On images we don't need certain rules
@@ -115,7 +114,7 @@ python do_sca_oelint_core() {
         _args += ["--customrules={}".format(x)]
     _files = [x.strip() for x in d.getVar("BBINCLUDED").split(" ") if x.strip().endswith(".bb") or x.strip().endswith(".bbappend")]
 
-    with open(d.getVar("SCA_RAW_RESULT_FILE"), "w") as o:
+    with open(sca_raw_result_file(d, "oelint"), "w") as o:
         o.write("")
 
     if any(_files):

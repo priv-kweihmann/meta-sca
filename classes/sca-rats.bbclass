@@ -6,11 +6,14 @@ SCA_RATS_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_RATS_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[rats] = "xml"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_rats(d):
     import os
@@ -33,9 +36,9 @@ def do_sca_conv_rats(d):
 
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "rats")):
         try:
-            data = ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE")).getroot()
+            data = ElementTree.parse(sca_raw_result_file(d, "rats")).getroot()
             for node in data.findall(".//vulnerability"):
                 try:
                     _severity=""
@@ -87,8 +90,6 @@ python do_sca_rats() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "rats-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "rats-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_rats.xml")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     xml_output = ""
     _args = ["rats"]
     _args += ["--xml"]
@@ -160,9 +161,12 @@ python do_sca_rats() {
             cmd_output = e.stdout or ""
         xml_output = xml_combine(d, xml_output, cmd_output)
     
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "rats"), "w") as o:
         o.write(xml_output)
-    
+}
+
+python do_sca_rats_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/rats.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_rats(d)
@@ -175,12 +179,14 @@ python do_sca_rats() {
 SCA_DEPLOY_TASK = "do_sca_deploy_rats"
 
 python do_sca_deploy_rats() {
-    sca_conv_deploy(d, "rats", "xml")
+    sca_conv_deploy(d, "rats")
 }
 
 do_sca_rats[doc] = "Find risky functions in multiple languages"
+do_sca_rats_report[doc] = "Report findings of do_sca_rats"
 do_sca_deploy_rats[doc] = "Deploy results of do_sca_rats"
-addtask do_sca_rats before do_install after do_configure
-addtask do_sca_deploy_rats after do_sca_rats before do_package
+addtask do_sca_rats after do_configure before do_sca_tracefiles
+addtask do_sca_rats_report after do_sca_tracefiles
+addtask do_sca_deploy_rats after do_sca_rats_report before do_package
 
 DEPENDS += "rats-native sca-recipe-rats-rules-native"

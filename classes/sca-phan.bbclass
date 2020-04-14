@@ -7,11 +7,14 @@ SCA_PHAN_EXTRA_SUPPRESS ?= ""
 SCA_PHAN_EXTRA_FATAL ?= ""
 SCA_PHAN_FILE_FILTER ?= ".php"
 
+SCA_RAW_RESULT_FILE[phan] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 PHP_EXTENSION = "ast"
 inherit php-ext
@@ -40,9 +43,9 @@ def do_sca_conv_phan(d):
         "0": "info",
     }
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "phan")):
         content = []
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+        with open(sca_raw_result_file(d, "phan"), "r") as f:
             try:
                 content = json.load(f)
             except json.JSONDecodeError:
@@ -79,8 +82,6 @@ python do_sca_phan() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "phan-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "phan-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_phan.json")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
 
     os.makedirs(os.path.join(d.getVar("T"), "phanout"), exist_ok=True)
@@ -105,13 +106,16 @@ python do_sca_phan() {
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
 
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "phan"), "w") as o:
         if not cmd_output.startswith("[") and "[" in cmd_output:
             cmd_output = cmd_output[cmd_output.find("["):]
         elif not cmd_output.startswith("["):
             cmd_output = "[]"
         o.write(cmd_output)
-    
+}
+
+python do_sca_phan_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/phan.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_phan(d)
@@ -124,12 +128,14 @@ python do_sca_phan() {
 SCA_DEPLOY_TASK = "do_sca_deploy_phan"
 
 python do_sca_deploy_phan() {
-    sca_conv_deploy(d, "phan", "json")
+    sca_conv_deploy(d, "phan")
 }
 
 do_sca_phan[doc] = "Lint php scripts with phan in workspace"
+do_sca_phan_report[doc] = "Report findings of do_sca_phan"
 do_sca_deploy_phan[doc] = "Deploy results of do_sca_phan"
-addtask do_sca_phan before do_install after do_configure
-addtask do_sca_deploy_phan after do_sca_phan before do_package
+addtask do_sca_phan after do_configure before do_sca_tracefiles
+addtask do_sca_phan_report after do_sca_tracefiles
+addtask do_sca_deploy_phan after do_sca_phan_report before do_package
 
 DEPENDS += "phan-native sca-recipe-phan-rules-native"

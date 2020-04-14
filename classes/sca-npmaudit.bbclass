@@ -6,13 +6,15 @@ SCA_NPMAUDIT_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_NPMAUDIT_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[npmaudit] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
 
-def do_sca_conv_npmaudit(d, cmd_output=""):
+def do_sca_conv_npmaudit(d):
     import os
     import json
     
@@ -27,13 +29,13 @@ def do_sca_conv_npmaudit(d, cmd_output=""):
         "low" : "info"
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, file_trace=False)
     _findings = []
 
     ## Result file parsing
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "npmaudit")):
         io = {}
-        with open(d.getVar("SCA_RAW_RESULT_FILE")) as i:
+        with open(sca_raw_result_file(d, "npmaudit")) as i:
             try:
                 io = json.load(i)
                 io = io["advisories"]
@@ -69,8 +71,6 @@ python do_sca_npmaudit() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "npmaudit-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "npmaudit-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_npmaudit.json")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = "{}"
 
     ## Run
@@ -86,12 +86,12 @@ python do_sca_npmaudit() {
             cmd_output = e.stdout or "{}"
         os.chdir(cur_dir)
     
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "npmaudit"), "w") as o:
         o.write(cmd_output)
     
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/npmaudit.dm".format(d.getVar("T")))
-    dm_output = do_sca_conv_npmaudit(d, cmd_output)
+    dm_output = do_sca_conv_npmaudit(d)
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
@@ -101,7 +101,7 @@ python do_sca_npmaudit() {
 SCA_DEPLOY_TASK = "do_sca_deploy_npmaudit"
 
 python do_sca_deploy_npmaudit() {
-    sca_conv_deploy(d, "npmaudit", "json")
+    sca_conv_deploy(d, "npmaudit")
 }
 
 do_sca_npmaudit[doc] = "Audit of used NPM packages"

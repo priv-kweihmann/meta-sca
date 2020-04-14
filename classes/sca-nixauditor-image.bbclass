@@ -4,6 +4,8 @@
 SCA_NIXAUDITOR_EXTRA_SUPPRESS ?= ""
 SCA_NIXAUDITOR_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[nixauditor] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -26,8 +28,8 @@ def do_sca_conv_nixauditor(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "nixauditor")):
+        with open(sca_raw_result_file(d, "nixauditor"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -59,14 +61,11 @@ fakeroot python do_sca_nixauditor() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "nixauditor-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "nixauditor-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_nixauditor.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-
     _args = ["/bin/sh", "-c", "/usr/bin/nixauditor | sed 's/\x1b\[[0-9;]*m//g'"]
 
     cmd_output, _ = sca_crossemu(d, _args, ["nixauditor"], "nixauditor", ";")
 
-    with open(result_raw_file, "wb") as o:
+    with open(sca_raw_result_file(d, "nixauditor"), "wb") as o:
         o.write(cmd_output)
 
     ## Create data model
@@ -81,7 +80,7 @@ fakeroot python do_sca_nixauditor() {
 SCA_DEPLOY_TASK = "do_sca_deploy_nixauditor_image"
 
 python do_sca_deploy_nixauditor_image() {
-    sca_conv_deploy(d, "nixauditor", "txt")
+    sca_conv_deploy(d, "nixauditor")
 }
 
 do_sca_nixauditor[doc] = "Audit image with nixautidor"

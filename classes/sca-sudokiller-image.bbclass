@@ -5,6 +5,8 @@ SCA_SUDOKILLER_EXTRA_SUPPRESS ?= ""
 SCA_SUDOKILLER_EXTRA_FATAL ?= ""
 SCA_SUDOKILLER_PASSWORD ?= ""
 
+SCA_RAW_RESULT_FILE[sudokiller] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -29,8 +31,8 @@ def do_sca_conv_sudokiller(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "sudokiller")):
+        with open(sca_raw_result_file(d, "sudokiller"), "r") as f:
             _content = f.read()
             for m in re.finditer(pattern, _content, re.MULTILINE):
                 try:
@@ -83,9 +85,6 @@ fakeroot python do_sca_sudokiller() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "sudokiller-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "sudokiller-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_sudokiller.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-
     _password = ""
     if d.getVar("SCA_SUDOKILLER_PASSWORD"):
         _password = "-s \"{}\"".format(d.getVar("SCA_SUDOKILLER_PASSWORD"))
@@ -93,7 +92,7 @@ fakeroot python do_sca_sudokiller() {
 
     cmd_output, _ = sca_crossemu(d, _args, ["sudokiller"], "sudokiller", ";")
 
-    with open(result_raw_file, "wb") as o:
+    with open(sca_raw_result_file(d, "sudokiller"), "wb") as o:
         o.write(cmd_output)
 
     ## Create data model
@@ -108,7 +107,7 @@ fakeroot python do_sca_sudokiller() {
 SCA_DEPLOY_TASK = "do_sca_deploy_sudokiller_image"
 
 python do_sca_deploy_sudokiller_image() {
-    sca_conv_deploy(d, "sudokiller", "txt")
+    sca_conv_deploy(d, "sudokiller")
 }
 
 do_sca_sudokiller[doc] = "Find exploitable CVEs of sudo in image"

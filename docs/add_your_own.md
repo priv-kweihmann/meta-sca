@@ -80,11 +80,15 @@ Also mind the inline comments
 SCA_<TOOL_CAPITALIZED>_EXTRA_SUPPRESS ?= ""
 SCA_<TOOL_CAPITALIZED>_EXTRA_FATAL ?= ""
 
+# Sets the output format of the tool
+SCA_RAW_RESULT_FILE[<TOOL>] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 # Converter function
 def do_sca_conv_<TOOL>(d):
@@ -95,21 +99,24 @@ python do_sca_<TOOL>() {
     ...
 }
 
+# Reporting task
+python do_sca_<TOOL>_report() {
+    ...
+}
+
 # Reference the task, which exports the resulting files
 SCA_DEPLOY_TASK = "do_sca_deploy_<TOOL>"
 
 # export task
 python do_sca_deploy_<TOOL>() {
     # internal exporter function
-    # the last parameter sets the file type of the export
-    # so for text based raw output if the tool it would "txt",
-    # for json based raw output it would "json", a.s.o
-    sca_conv_deploy(d, "<TOOL>", "txt")
+    sca_conv_deploy(d, "<TOOL>")
 }
 
 # Announce the bitbake tasks
-addtask do_sca_<TOOL> before do_install after do_compile
-addtask do_sca_deploy_<TOOL> after do_sca_<TOOL> before do_package
+addtask do_sca_<TOOL> after do_configure before do_sca_tracefiles
+addtask do_sca_<TOOL>_report after do_sca_tracefiles
+addtask do_sca_deploy_<TOOL> after do_sca_<TOOL>_report before do_package
 
 # Controls the behavior of the bitbake tasks regarding SCA_FORCE_RUN settings
 do_sca_<TOOL>[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
@@ -129,11 +136,14 @@ which makes it the following for the example `myfoolint`
 SCA_MYFOOLINT_EXTRA_SUPPRESS ?= ""
 SCA_MYFOOLINT_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[myfoolint] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_myfoolint(d):
     ...
@@ -143,17 +153,19 @@ python do_sca_myfoolint() {
     ...
 }
 
+python do_sca_myfoolint_report() {
+    ...
+}
+
 SCA_DEPLOY_TASK = "do_sca_deploy_myfoolint"
 
 python do_sca_deploy_myfoolint() {
-    sca_conv_deploy(d, "myfoolint", "txt")
+    sca_conv_deploy(d, "myfoolint")
 }
 
-addtask do_sca_myfoolint before do_install after do_compile
-addtask do_sca_deploy_myfoolint after do_sca_myfoolint before do_package
-
-do_sca_myfoolint[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_myfoolint[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+addtask do_sca_myfoolint after do_configure before do_sca_tracefiles
+addtask do_sca_myfoolint_report after do_sca_tracefiles
+addtask do_sca_deploy_myfoolint after do_sca_myfoolint_report before do_package
 
 DEPENDS += "\
             myfoolint-native \
@@ -212,6 +224,9 @@ The function `do_sca_myfoolint` does the following
 * prep the environment
 * find any files that should be linted
 * execute linter tool
+
+The function `do_sca_myfoolint_report` does the following
+
 * convert result of linting
 * eval result and store it
 
@@ -292,8 +307,6 @@ python do_sca_myfoolint() {
 
     # Create a reference where to store the raw result of the tool
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T"), "sca_raw_myfoolint.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
     # If any files found run the tool
     if any(_files):
@@ -305,9 +318,11 @@ python do_sca_myfoolint() {
             cmd_output += e.stdout or ""
 
     # Write raw result to referenced file
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "myfoolint"), "w") as o:
         o.write(cmd_output)
+}
 
+python do_sca_myfoolint_report() {
     # Now it time to convert the raw findings into the sca data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/myfoolint.dm".format(d.getVar("T")))
     # for this purpose an extra function exists. Here in our case it's called do_sca_conv_myfoolint
@@ -387,8 +402,8 @@ def do_sca_conv_myfoolint(d):
     _findings = []
 
     # Try to open the raw result file
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "myfoolint")):
+        with open(sca_raw_result_file(d, "myfoolint")) as f:
             # loop over all matching pattern
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:

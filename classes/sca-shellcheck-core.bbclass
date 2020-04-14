@@ -1,6 +1,8 @@
 ## SPDX-License-Identifier: BSD-2-Clause
 ## Copyright (c) 2019, Konrad Weihmann
 
+SCA_RAW_RESULT_FILE[shellcheck] = "xml"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -19,9 +21,9 @@ def do_sca_conv_shellcheck(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "shellcheck")):
         try:
-            data = ElementTree.ElementTree(ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE"))).getroot()
+            data = ElementTree.ElementTree(ElementTree.parse(sca_raw_result_file(d, "shellcheck"))).getroot()
             items = []
 
             for _file in data.findall(".//file"):
@@ -74,11 +76,12 @@ python do_sca_shellcheck_core() {
             except subprocess.CalledProcessError as e:
                 cmd_output = e.stdout or ""
             xml_output = xml_combine(d, xml_output, cmd_output)
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_shellcheck.xml")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-    with open(result_raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "shellcheck"), "w") as o:
         o.write(xml_output)
-    
+}
+
+python do_sca_shellcheck_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/shellcheck.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_shellcheck(d)

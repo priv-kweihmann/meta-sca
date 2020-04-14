@@ -14,6 +14,8 @@ inherit sca-suppress
 
 DEPENDS += "python3-ansiblelint-native"
 
+SCA_RAW_RESULT_FILE[ansiblelint] = "txt"
+
 def do_sca_conv_ansiblelint(d):
     import os
     import re
@@ -31,13 +33,13 @@ def do_sca_conv_ansiblelint(d):
     _suppress = sca_suppress_init(d)
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "ansiblelint")):
+        with open(sca_raw_result_file(d, "ansiblelint"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     _file = m.group("file")
                     if not _file.startswith("/"):
-                        _file = "/" + _file
+                        _file = os.path.join(d.getVar("TOPDIR"), _file)
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
                                             Tool="ansiblelint",
@@ -84,11 +86,13 @@ python do_sca_ansiblelint_core() {
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_ansiblelint.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-    with open(result_raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "ansiblelint"), "w") as o:
         o.write(cmd_output)
+}
 
+do_sca_ansiblelint_core_report[vardepsexclude] += "TOPDIR"
+python do_sca_ansiblelint_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/ansiblelint.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_ansiblelint(d)

@@ -8,6 +8,8 @@ inherit sca-global
 inherit sca-helper
 inherit sca-suppress
 
+SCA_RAW_RESULT_FILE[cvecheck] = "json"
+
 python sca_cvecheck_init() {
     ## Move the do_cve_check from before do_build to before do_package_qa
     _flags = d.getVarFlag("do_build", "deps")
@@ -32,7 +34,7 @@ def sca_create_data_file(d, patched, unpatched, cve_data):
     bb.utils.mkdirhier(os.path.dirname(cve_file))
 
     package_name = d.getVar("PN")
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, file_trace=False)
     items = []
     _findings = []
 
@@ -75,9 +77,7 @@ python do_cve_check() {
         output = sca_create_data_file(d, [], [], [])
         bb.note("Failed to update CVE database, skipping CVE check")
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_cvecheck.json")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-    with open(result_raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "cvecheck"), "w") as o:
         o.write(output)
 
     ## Create data model
@@ -91,7 +91,7 @@ python do_cve_check() {
 SCA_DEPLOY_TASK = "do_sca_deploy_cvecheck"
 
 python do_sca_deploy_cvecheck() {
-    sca_conv_deploy(d, "cvecheck", "json")
+    sca_conv_deploy(d, "cvecheck")
 }
 
 do_sca_deploy_cvecheck[doc] = "Deploy results of do_cve_check"

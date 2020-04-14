@@ -31,12 +31,13 @@ def sca_conv_export_get_deployname(d, tool):
     _exportsuffix = d.getVar("SCA_EXPORT_FORMAT_SUFFIX_{}".format(d.getVar("SCA_EXPORT_FORMAT")))
     return "sca_{}_{}.{}".format(_exportformat, tool, _exportsuffix)
 
-def sca_conv_deploy(d, tool, rawsuffix):
+def sca_conv_deploy(d, tool):
     import os
     import shutil
     import os
 
     _dmsuffix = "dm"
+    _rawsuffix = d.getVarFlag("SCA_RAW_RESULT_FILE", tool)
     _exportformat = d.getVar("SCA_EXPORT_FORMAT")
     _exportsuffix = d.getVar("SCA_EXPORT_FORMAT_SUFFIX_{}".format(d.getVar("SCA_EXPORT_FORMAT")))
 
@@ -52,7 +53,7 @@ def sca_conv_deploy(d, tool, rawsuffix):
         raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"),    
                               tool,    
                               "raw",    
-                              "{}-*.{}".format(d.getVar("PN"), rawsuffix))
+                              "{}-*.{}".format(d.getVar("PN"), _rawsuffix))
         dm_target = os.path.join(d.getVar("SCA_EXPORT_DIR"),    
                                 tool,    
                                 "datamodel",
@@ -72,7 +73,7 @@ def sca_conv_deploy(d, tool, rawsuffix):
     raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"),    
                               tool,    
                               "raw",    
-                              "{}-{}.{}".format(d.getVar("PN"), d.getVar("PV"), rawsuffix))
+                              "{}-{}.{}".format(d.getVar("PN"), d.getVar("PV"), _rawsuffix))
     dm_target = os.path.join(d.getVar("SCA_EXPORT_DIR"),    
                               tool,    
                               "datamodel",
@@ -81,7 +82,7 @@ def sca_conv_deploy(d, tool, rawsuffix):
                              tool,    
                              _exportformat,    
                              "{}-{}.{}".format(d.getVar("PN"), d.getVar("PV"), _exportsuffix))
-    src_raw = os.path.join(d.getVar("T"), "sca_raw_{}.{}".format(tool, rawsuffix))
+    src_raw = os.path.join(d.getVar("T"), "sca_raw_{}.{}".format(tool, _rawsuffix))
     src_dm = os.path.join(d.getVar("T"), "{}.dm".format(tool))
     src_conv = os.path.join(d.getVar("T"), sca_conv_export_get_deployname(d, tool))
     if os.path.exists(src_raw):
