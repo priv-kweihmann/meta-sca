@@ -8,11 +8,14 @@ SCA_FLAWFINDER_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)
 SCA_FLAWFINDER_FILE_FILTER ?= ".c .cpp .h .hpp"
 
+SCA_RAW_RESULT_FILE[flawfinder] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_flawfinder(d):
     import os
@@ -36,8 +39,8 @@ def do_sca_conv_flawfinder(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "flawfinder")):
+        with open(sca_raw_result_file(d, "flawfinder"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -79,17 +82,18 @@ python do_sca_flawfinder() {
 
     ## Run
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_flawfinder.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
     if any(_files):
         try:
             cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "flawfinder"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_flawfinder_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/flawfinder.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_flawfinder(d)
@@ -102,12 +106,14 @@ python do_sca_flawfinder() {
 SCA_DEPLOY_TASK = "do_sca_deploy_flawfinder"
 
 python do_sca_deploy_flawfinder() {
-    sca_conv_deploy(d, "flawfinder", "txt")
+    sca_conv_deploy(d, "flawfinder")
 }
 
 do_sca_flawfinder[doc] = "Find insecure C/C++ code"
+do_sca_flawfinder_report[doc] = "Report findings of do_sca_flawfinder"
 do_sca_deploy_flawfinder[doc] = "Deploy results of do_sca_flawfinder"
-addtask do_sca_flawfinder before do_install after do_compile
-addtask do_sca_deploy_flawfinder after do_sca_flawfinder before do_package
+addtask do_sca_flawfinder after do_compile before do_sca_tracefiles
+addtask do_sca_flawfinder_report after do_sca_tracefiles
+addtask do_sca_deploy_flawfinder after do_sca_flawfinder_report before do_package
 
 DEPENDS += "python3-flawfinder-native sca-recipe-flawfinder-rules-native"

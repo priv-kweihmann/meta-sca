@@ -152,7 +152,5 @@ SCA_HASHEXCLUDE_VARS = "\
                         SCA_EXTRA_SUPPRESS \
                         SCA_FATAL_FILE \
                         SCA_LAYERDIR \
-                        SCA_RAW_RESULT_FILE \
-                        SCA_RESULT_FILE \
                         SCA_SUPRESS_FILE \
                         "

@@ -167,12 +167,18 @@ if __name__ == '__main__':
 
     _questions = {
         "SCA_AVAILABLE_MODULES": [
-            InputElement("Do you have online access while building?", dataobj=_tools, dataget={"ListTools": "online"}, dataset={"GetTools": "languages"}),
-            InputElement("What content to you want to check?", dataobj=_tools, dataget={"ListTools": "languages"}, dataset={"GetTools": "languages"}, endkey='q'),
-            InputElement("What scope of checks would like to perform?", dataobj=_tools, dataget={"ListTools": "scope"}, dataset={"GetTools": "scope"}, endkey='q'),
-            InputElement("How fast should the tools be build? [0=slow, 10=instantly]", dataobj=_tools, dataget={"ListToolsRange": "buildspeed"}, dataset={"GetToolsGE": "buildspeed"}),
-            InputElement("How fast should the tools be executed? [0=slow, 10=instantly]", dataobj=_tools, dataget={"ListToolsRange": "execspeed"}, dataset={"GetToolsGE": "execspeed"}),
-            InputElement("What quality do you expect of the tools? [0=error-prone, 10=always-true]", dataobj=_tools, dataget={"ListToolsRange": "quality"}, dataset={"GetToolsGE": "quality"}),
+            InputElement("Do you have online access while building?", dataobj=_tools, dataget={
+                         "ListTools": "online"}, dataset={"GetTools": "languages"}),
+            InputElement("What content to you want to check?", dataobj=_tools, dataget={
+                         "ListTools": "languages"}, dataset={"GetTools": "languages"}, endkey='q'),
+            InputElement("What scope of checks would like to perform?", dataobj=_tools, dataget={
+                         "ListTools": "scope"}, dataset={"GetTools": "scope"}, endkey='q'),
+            InputElement("How fast should the tools be build? [0=slow, 10=instantly]", dataobj=_tools, dataget={
+                         "ListToolsRange": "buildspeed"}, dataset={"GetToolsGE": "buildspeed"}),
+            InputElement("How fast should the tools be executed? [0=slow, 10=instantly]", dataobj=_tools, dataget={
+                         "ListToolsRange": "execspeed"}, dataset={"GetToolsGE": "execspeed"}),
+            InputElement("What quality do you expect of the tools? [0=error-prone, 10=always-true]", dataobj=_tools, dataget={
+                         "ListToolsRange": "quality"}, dataset={"GetToolsGE": "quality"}),
         ],
         "SCA_AUTO_INH_ON_IMAGE": InputElement("Do you want to check images?", dataobj={"yes": "1", "no": "0"}),
         "SCA_AUTO_INH_ON_RECIPE": InputElement("Do you want to check recipes?", dataobj={"yes": "1", "no": "0"}),
@@ -181,6 +187,12 @@ if __name__ == '__main__':
         "SCA_ENABLE_BESTOF": InputElement("Do you want to use best-of functionality?", dataobj={"yes": "1", "no": "0"}),
         "SCA_AUTO_LICENSE_FILTER": RawInputElement("Enter a license filter", dataobj=".*"),
         "SCA_EXPORT_FINDING_SRC": InputElement("Do you want export the findings to Jenkins?", dataobj={"yes": "1", "no": "0"}),
+        "SCA_TRACEFILES_MODE": InputElement("What kind input files should be considered?", 
+                                            dataobj={
+                                                "All": "full", 
+                                                "Only things deployed to the image": "strict", 
+                                                "Deployed and a few support files": "loose"}
+                                           ),
     }
     _data = {
 

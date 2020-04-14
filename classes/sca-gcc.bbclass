@@ -8,11 +8,14 @@ SCA_GCC_EXTRA_FATAL ?= ""
 ## Enable additional hardening checks
 SCA_GCC_HARDENING ?= "1"
 
+SCA_RAW_RESULT_FILE[gcc] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def sca_gcc_hardening(d):
     import re
@@ -34,8 +37,8 @@ def sca_gcc_hardening(d):
     _findings = []
 
     logcontent = ""
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "gcc")):
+        with open(sca_raw_result_file(d, "gcc"), "r") as f:
             logcontent = f.read()
 
     for item in ["-z,relro", "-z,now", "-fPIC", "-fPIE"]:
@@ -219,8 +222,8 @@ def do_sca_conv_gcc(d):
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "gcc")):
+        with open(sca_raw_result_file(d, "gcc"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -256,16 +259,16 @@ python do_sca_gcc() {
     d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_GCC_EXTRA_FATAL"))
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gcc-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gcc-{}-fatal".format(d.getVar("SCA_MODE"))))
-
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_gcc.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
-    
+   
     if not os.path.exists(os.path.join(d.getVar("T"), "log.do_compile")):
-        with open(tmp_result, "w") as f:
+        with open(sca_raw_result_file(d, "gcc"), "w") as f:
             f.write("")
     else:
-        shutil.copy(os.path.join(d.getVar("T"), "log.do_compile"), tmp_result)
+        shutil.copy(os.path.join(d.getVar("T"), "log.do_compile"), sca_raw_result_file(d, "gcc"))
+}
 
+python do_sca_gcc_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/gcc.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_gcc(d)
@@ -279,11 +282,14 @@ python do_sca_gcc() {
 SCA_DEPLOY_TASK = "do_sca_deploy_gcc"
 
 python do_sca_deploy_gcc() {
-    sca_conv_deploy(d, "gcc", "txt")
+    sca_conv_deploy(d, "gcc")
 }
 
 do_sca_gcc[doc] = "Get compiler warnings and hardening potentials"
+do_sca_gcc_report[doc] = "Report findings of do_sca_gcc"
 do_sca_deploy_gcc[doc] = "Deploy results of do_sca_gcc"
-addtask do_sca_gcc before do_install after do_compile
-addtask do_sca_deploy_gcc after do_sca_gcc before do_package
+addtask do_sca_gcc after do_compile before do_sca_tracefiles 
+addtask do_sca_gcc_report after do_sca_tracefiles
+addtask do_sca_deploy_gcc after do_sca_gcc_report before do_package
+
 DEPENDS += "sca-recipe-gcc-rules-native gcc-sca-native"

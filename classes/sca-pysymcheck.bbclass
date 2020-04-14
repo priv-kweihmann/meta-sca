@@ -8,6 +8,8 @@ SCA_PYSYMCHECK_EXTRA_FATAL ?= ""
 ## Used rule file
 SCA_PYSYMCHECK_RULE_FILE ?= "basic_rules.json"
 
+SCA_RAW_RESULT_FILE[pysymcheck] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -29,13 +31,13 @@ def do_sca_conv_pysymcheck(d):
         "info": "info"
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, file_trace=False)
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "pysymcheck")):
+        with open(sca_raw_result_file(d, "pysymcheck"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -79,14 +81,12 @@ python do_sca_pysymcheck() {
                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     ## Run
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_pysymcheck.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     for _f in _files:
         try:
             cmd_output += subprocess.check_output(_args + [_f], universal_newlines=True)
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "pysymcheck"), "w") as o:
         o.write(cmd_output)
     
     ## Create data model
@@ -101,7 +101,7 @@ python do_sca_pysymcheck() {
 SCA_DEPLOY_TASK = "do_sca_deploy_pysymcheck"
 
 python do_sca_deploy_pysymcheck() {
-    sca_conv_deploy(d, "pysymcheck", "txt")
+    sca_conv_deploy(d, "pysymcheck")
 }
 
 do_sca_pysymcheck[doc] = "Find forbidden function linkage"

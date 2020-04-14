@@ -6,6 +6,8 @@ SCA_XMLLINT_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)
 SCA_XMLLINT_FILE_FILTER ?= ".xml"
 
+SCA_RAW_RESULT_FILE[xmllint] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -27,8 +29,8 @@ def do_sca_conv_xmllint(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "xmllint")):
+        with open(sca_raw_result_file(d, "xmllint"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -75,11 +77,12 @@ python do_sca_xmllint_core() {
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_xmllint.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-    with open(result_raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "xmllint"), "w") as o:
         o.write(cmd_output)
+}
 
+python do_sca_xmllint_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/xmllint.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_xmllint(d)

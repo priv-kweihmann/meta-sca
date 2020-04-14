@@ -8,6 +8,8 @@ SCA_GIXY_EXTRA_FATAL ?= ""
 ## Default ngixn config file to pick
 SCA_GIXY_NGINX_CONF ?= "/etc/nginx/nginx.conf"
 
+SCA_RAW_RESULT_FILE[gixy] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -36,9 +38,9 @@ def do_sca_conv_gixy(d, cmd_output=""):
     _findings = []
 
     ## Result file parsing
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "gixy")):
         io = {}
-        with open(d.getVar("SCA_RAW_RESULT_FILE")) as i:
+        with open(sca_raw_result_file(d, "gixy")) as i:
             try:
                 io = json.load(i)
             except:
@@ -96,8 +98,6 @@ python do_sca_gixy() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gixy-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gixy-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_gixy.json")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
 
     ## Run
@@ -110,7 +110,7 @@ python do_sca_gixy() {
         _args += ["--root-dir={}".format(d.getVar("SCA_SOURCES_DIR"))]
         _args += ["-f", "json"]
         _args += ["-l"]
-        _args += ["-o", tmp_result]
+        _args += ["-o", sca_raw_result_file(d, "gixy")]
         _args += [d.getVar("SCA_GIXY_NGINX_CONF")]
     
         try:
@@ -118,9 +118,9 @@ python do_sca_gixy() {
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
     
-    if not os.path.exists(tmp_result):
+    if not os.path.exists(sca_raw_result_file(d, "gixy")):
         import json
-        with open(tmp_result, "w") as o:
+        with open(sca_raw_result_file(d, "gixy"), "w") as o:
             json.dump([], o)
     
     ## Create data model
@@ -135,7 +135,7 @@ python do_sca_gixy() {
 SCA_DEPLOY_TASK = "do_sca_deploy_gixy"
 
 python do_sca_deploy_gixy() {
-    sca_conv_deploy(d, "gixy", "json")
+    sca_conv_deploy(d, "gixy")
 }
 
 do_sca_gixy[doc] = "Scan for nxginx misconfigurations in image"

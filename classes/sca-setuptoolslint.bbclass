@@ -10,6 +10,8 @@ SCA_SETUPTOOLSLINT_LOCAL_PROXY ?= "http://localhost:65533"
 ## Target file(s)
 SCA_SETUPTOOLSLINT_FILES ?= "${S}/setup.py"
 
+SCA_RAW_RESULT_FILE[setuptoolslint] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -27,11 +29,11 @@ def do_sca_conv_setuptoolslint(d, cmd_output=""):
 
     pattern = r"^(?P<file>.*):error:\s+(?P<msg>.*)"
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, file_trace=False)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "setuptoolslint")):
+        with open(sca_raw_result_file(d, "setuptoolslint"), "r") as f:
             content = f.read()
             for m in re.finditer(pattern, content, re.MULTILINE):
                 try:
@@ -63,9 +65,6 @@ python do_sca_setuptoolslint() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "setuptoolslint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "setuptoolslint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_setuptoolslint.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
-
     ## Run
     os.environ["STAGING_INCDIR"] = d.getVar("STAGING_INCDIR")
     os.environ["STAGING_LIBDIR"] = d.getVar("STAGING_LIBDIR")
@@ -86,7 +85,7 @@ python do_sca_setuptoolslint() {
             # Prefix all lines with full file path
             cmd_output += "\n".join(["{}:{}".format(f, x) for x in tmp_output.splitlines()])
 
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "setuptoolslint"), "w") as o:
         o.write(cmd_output)
     
     ## Create data model
@@ -101,7 +100,7 @@ python do_sca_setuptoolslint() {
 SCA_DEPLOY_TASK = "do_sca_deploy_setuptoolslint"
 
 python do_sca_deploy_setuptoolslint() {
-    sca_conv_deploy(d, "setuptoolslint", "txt")
+    sca_conv_deploy(d, "setuptoolslint")
 }
 
 do_sca_setuptoolslint[doc] = "Lint python library installation"

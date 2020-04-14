@@ -6,6 +6,8 @@ SCA_JSONLINT_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)
 SCA_JSONLINT_FILE_FILTER ?= ".json"
 
+SCA_RAW_RESULT_FILE[jsonlint] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -31,8 +33,8 @@ def do_sca_conv_jsonlint(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "jsonlint")):
+        with open(sca_raw_result_file(d, "jsonlint"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -64,10 +66,7 @@ python do_sca_jsonlint_core() {
     d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_JSONLINT_EXTRA_FATAL"))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "jsonlint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_jsonlint.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-
-    with open(result_raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "jsonlint"), "w") as o:
         for _f in get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_JSONLINT_FILE_FILTER").split(" "),    
                                             sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))):
             try:
@@ -75,7 +74,10 @@ python do_sca_jsonlint_core() {
                     json.load(i)
             except json.JSONDecodeError as e:
                 o.write("{}:{}:{}:error:jsonlint.parsererror:{}\n".format(_f, e.lineno, e.colno, e.msg))
+}
 
+python do_sca_jsonlint_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/jsonlint.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_jsonlint(d)

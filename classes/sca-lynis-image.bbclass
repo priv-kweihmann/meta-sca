@@ -4,6 +4,8 @@
 SCA_LYNIS_EXTRA_SUPPRESS ?= ""
 SCA_LYNIS_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[lynis] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -31,8 +33,8 @@ def do_sca_conv_lynis(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "lynis")):
+        with open(sca_raw_result_file(d, "lynis"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -70,14 +72,11 @@ fakeroot python do_sca_lynis() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "lynis-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "lynis-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_lynis.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-
     _args = ["/bin/sh", "/usr/bin/lynis", "--verbose" ,"--no-colors", "audit", "system"]
 
     cmd_output, _ = sca_crossemu(d, _args, ["lynis"], "lynis", "sca_lynis_do_replace_var_log;")
 
-    with open(result_raw_file, "wb") as o:
+    with open(sca_raw_result_file(d, "lynis"), "wb") as o:
         o.write(cmd_output)
 
     ## Create data model
@@ -92,7 +91,7 @@ fakeroot python do_sca_lynis() {
 SCA_DEPLOY_TASK = "do_sca_deploy_lynis_image"
 
 python do_sca_deploy_lynis_image() {
-    sca_conv_deploy(d, "lynis", "txt")
+    sca_conv_deploy(d, "lynis")
 }
 
 do_sca_lynis[doc] = "Audit image with lynis"

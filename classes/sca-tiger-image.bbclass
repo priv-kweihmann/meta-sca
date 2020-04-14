@@ -4,6 +4,8 @@
 SCA_TIGER_EXTRA_SUPPRESS ?= ""
 SCA_TIGER_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[tiger] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -31,8 +33,8 @@ def do_sca_conv_tiger(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "tiger")):
+        with open(sca_raw_result_file(d, "tiger"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     if m.group("msg").find("/usr/share/tiger") != -1:
@@ -67,14 +69,11 @@ fakeroot python do_sca_tiger() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "tiger-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "tiger-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_tiger.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-
     _args = ["/bin/sh", "-c", "/usr/bin/tiger && cat /usr/share/tiger/security.report.*"]
 
     cmd_output, _ = sca_crossemu(d, _args, ["tiger"], "tiger", ";")
 
-    with open(result_raw_file, "wb") as o:
+    with open(sca_raw_result_file(d, "tiger"), "wb") as o:
         o.write(cmd_output)
 
     ## Create data model
@@ -89,7 +88,7 @@ fakeroot python do_sca_tiger() {
 SCA_DEPLOY_TASK = "do_sca_deploy_tiger_image"
 
 python do_sca_deploy_tiger_image() {
-    sca_conv_deploy(d, "tiger", "txt")
+    sca_conv_deploy(d, "tiger")
 }
 
 do_sca_tiger[doc] = "Run audit with tiger on image"

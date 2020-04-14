@@ -4,6 +4,8 @@
 SCA_DETECTSECRETS_EXTRA_SUPPRESS ?= ""
 SCA_DETECTSECRETS_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[detectsecrets] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -28,9 +30,9 @@ def do_sca_conv_detectsecrets(d):
     __suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "detectsecrets")):
         j = {}
-        with open(d.getVar("SCA_RAW_RESULT_FILE")) as i:
+        with open(sca_raw_result_file(d, "detectsecrets")) as i:
             try:
                 j = json.load(i)
             except:
@@ -87,11 +89,12 @@ python do_sca_detectsecrets_core() {
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_detectsecrets.json")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-    with open(result_raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "detectsecrets"), "w") as o:
         o.write(cmd_output)
+}
 
+python do_sca_detectsecrets_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/detectsecrets.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_detectsecrets(d)

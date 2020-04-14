@@ -6,6 +6,8 @@ SCA_LICENSECHECK_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_LICENSECHECK_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[licensecheck] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -22,11 +24,11 @@ def do_sca_conv_licensecheck(d):
 
     pattern = r"^(?P<msg>Wrong.*)$"
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, file_trace=False)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "licensecheck")):
+        with open(sca_raw_result_file(d, "licensecheck"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -59,8 +61,6 @@ python do_sca_licensecheck() {
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "licensecheck-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     lc_result = os.path.join(d.getVar("T"), "sca_raw_licensecheck.csv")
-    tmp_result = os.path.join(d.getVar("T"), "sca_raw_licensecheck.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
     _args = ["lc"]
     _args += ["-f", "csv"]
@@ -88,7 +88,7 @@ python do_sca_licensecheck() {
     except subprocess.CalledProcessError as e:
         pass
     
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "licensecheck"), "w") as o:
         o.write(cmd_output)
     
     ## Create data model
@@ -103,7 +103,7 @@ python do_sca_licensecheck() {
 SCA_DEPLOY_TASK = "do_sca_deploy_licensecheck"
 
 python do_sca_deploy_licensecheck() {
-    sca_conv_deploy(d, "licensecheck", "txt")
+    sca_conv_deploy(d, "licensecheck")
 }
 
 do_sca_licensecheck[doc] = "Scan license information in workspace"

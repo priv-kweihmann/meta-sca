@@ -6,12 +6,15 @@ SCA_MSGCHECK_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_MSGCHECK_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[msgcheck] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-file-filter
 inherit sca-suppress
+
 inherit python3native
 
 def do_sca_conv_msgcheck(d):
@@ -27,8 +30,8 @@ def do_sca_conv_msgcheck(d):
     __suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "msgcheck")):
+        with open(sca_raw_result_file(d, "msgcheck"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 _id = m.group("id")
                 _sev = m.group("severity")
@@ -68,8 +71,6 @@ python do_sca_msgcheck() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "msgcheck-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "msgcheck-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_msgcheck.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
     _args = ["msgcheck"]
 
@@ -87,9 +88,9 @@ python do_sca_msgcheck() {
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
     
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "msgcheck"), "w") as o:
         o.write(cmd_output)
-    
+
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/msgcheck.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_msgcheck(d)
@@ -102,12 +103,12 @@ python do_sca_msgcheck() {
 SCA_DEPLOY_TASK = "do_sca_deploy_msgcheck"
 
 python do_sca_deploy_msgcheck() {
-    sca_conv_deploy(d, "msgcheck", "txt")
+    sca_conv_deploy(d, "msgcheck")
 }
 
 do_sca_msgcheck[doc] = "Lint i18n files"
 do_sca_deploy_msgcheck[doc] = "Deploy results of do_sca_msgcheck"
-addtask do_sca_msgcheck before do_install after do_configure
+addtask do_sca_msgcheck after do_configure before do_install
 addtask do_sca_deploy_msgcheck after do_sca_msgcheck before do_package
 
 DEPENDS += "python3-msgcheck-native sca-recipe-msgcheck-rules-native"

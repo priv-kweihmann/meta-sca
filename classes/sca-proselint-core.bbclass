@@ -5,6 +5,8 @@ SCA_PROSELINT_EXTRA_SUPPRESS ?= ""
 SCA_PROSELINT_EXTRA_FATAL ?= ""
 SCA_PROSELINT_FILE_FILTER ?= ".txt .md .rst .me"
 
+SCA_RAW_RESULT_FILE[proselint] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -30,10 +32,10 @@ def do_sca_conv_proselint(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "proselint")):
         jobj = {}
         try:
-            with open(d.getVar("SCA_RAW_RESULT_FILE")) as f:
+            with open(sca_raw_result_file(d, "proselint")) as f:
                 jobj = json.load(f)
         except Exception as e:
             pass
@@ -73,9 +75,6 @@ python do_sca_proselint_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "proselint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "proselint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_proselint.json")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-
     _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "proselint")]
     _args += ["-j"]
     _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_PROSELINT_FILE_FILTER"),
@@ -108,9 +107,12 @@ python do_sca_proselint_core() {
     except subprocess.CalledProcessError as e:
         pass
 
-    with open(d.getVar("SCA_RAW_RESULT_FILE"), "w") as o:
+    with open(sca_raw_result_file(d, "proselint"), "w") as o:
         json.dump(json_output, o)
+}
 
+python do_sca_proselint_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/proselint.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_proselint(d)

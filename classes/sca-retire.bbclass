@@ -8,11 +8,14 @@ SCA_RETIRE_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)
 SCA_RETIRE_FILE_FILTER ?= ".js .json"
 
+SCA_RAW_RESULT_FILE[retire] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_retire(d):
     import os
@@ -32,9 +35,11 @@ def do_sca_conv_retire(d):
         "low": "info"
     }
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    _suppress = sca_suppress_init(d)
+
+    if os.path.exists(sca_raw_result_file(d, "retire")):
         content = []
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+        with open(sca_raw_result_file(d, "retire"), "r") as f:
             try:
                 content = json.load(f)
             except json.JSONDecodeError as e:
@@ -53,6 +58,8 @@ def do_sca_conv_retire(d):
                                                     Message="{}: Used version has a known vulnerability of {}".format(_component, vul["identifiers"]["summary"]),
                                                     ID="knownVulnerability",
                                                     Severity=_severity_map[vul["severity"]])
+                            if _suppress.Suppressed(g):
+                                continue
                             if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                                 continue
                             if g.Severity in sca_allowed_warning_level(d):
@@ -71,8 +78,6 @@ python do_sca_retire() {
     _args = ["retire", "-c", "--outputformat", "jsonsimple", "--path", d.getVar("SCA_SOURCES_DIR")]
 
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_retire.json")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
     _files = get_files_by_extention(d,    
                                     d.getVar("SCA_SOURCES_DIR"),    
@@ -85,11 +90,14 @@ python do_sca_retire() {
             cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "retire"), "w") as o:
         if not cmd_output:
             cmd_output = "[]"
         o.write(cmd_output)
-    
+}
+
+python do_sca_retire_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/retire.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_retire(d)
@@ -102,12 +110,14 @@ python do_sca_retire() {
 SCA_DEPLOY_TASK = "do_sca_deploy_retire"
 
 python do_sca_deploy_retire() {
-    sca_conv_deploy(d, "retire", "json")
+    sca_conv_deploy(d, "retire")
 }
 
 do_sca_retire[doc] = "Find vulnerable js code"
+do_sca_retire_report[doc] = "Report finding of do_sca_retire"
 do_sca_deploy_retire[doc] = "Deploy results of do_sca_retire"
-addtask do_sca_retire before do_package after do_install
-addtask do_sca_deploy_retire after do_sca_retire before do_package
+addtask do_sca_retire after do_install before do_sca_tracefiles
+addtask do_sca_retire_report after do_sca_tracefiles
+addtask do_sca_deploy_retire after do_sca_retire_report before do_package
 
 DEPENDS += "retire-native sca-recipe-retire-rules-native"

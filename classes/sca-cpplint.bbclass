@@ -8,11 +8,14 @@ SCA_CPPLINT_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)
 SCA_CPPLINT_FILE_FILTER ?= ".c .cpp .h .hpp"
 
+SCA_RAW_RESULT_FILE[cpplint] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_cpplint(d):
     import os
@@ -34,8 +37,8 @@ def do_sca_conv_cpplint(d):
     _findings = []
     _suppress = sca_suppress_init(d)
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "cpplint")):
+        with open(sca_raw_result_file(d, "cpplint"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -76,8 +79,6 @@ python do_sca_cpplint() {
 
     ## Run
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_cpplint.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     _files = get_files_by_extention(d,    
                                     d.getVar("SCA_SOURCES_DIR"),    
                                     clean_split(d, "SCA_CPPLINT_FILE_FILTER"),    
@@ -89,9 +90,12 @@ python do_sca_cpplint() {
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
 
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "cpplint"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_cpplint_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/cpplint.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_cpplint(d)
@@ -104,12 +108,14 @@ python do_sca_cpplint() {
 SCA_DEPLOY_TASK = "do_sca_deploy_cpplint"
 
 python do_sca_deploy_cpplint() {
-    sca_conv_deploy(d, "cpplint", "txt")
+    sca_conv_deploy(d, "cpplint")
 }
 
 do_sca_cppcheck[doc] = "Lint C/C++ files with cpplint"
+do_sca_cppcheck_report[doc] = "Report findings of do_sca_cppcheck"
 do_sca_deploy_cpplint[doc] = "Deploy results of do_sca_cpplint"
-addtask do_sca_cpplint before do_install after do_compile
-addtask do_sca_deploy_cpplint after do_sca_cpplint before do_package
+addtask do_sca_cpplint after do_compile before do_sca_tracefiles
+addtask do_sca_cppcheck_report after do_sca_tracefiles
+addtask do_sca_deploy_cpplint after do_sca_cppcheck_report before do_package
 
 DEPENDS += "cpplint-native sca-recipe-cpplint-rules-native"

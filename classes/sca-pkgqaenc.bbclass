@@ -50,6 +50,9 @@ SCA_PKGQAENC_BLACKLIST_FILES-dev ?= "\
                                     application/x-sharedlib \
                                     application/x-pie-executable \
                                     "
+
+SCA_RAW_RESULT_FILE[pkgqaenc] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -67,11 +70,11 @@ def do_sca_conv_pkgqaenc(d):
     items = []
     pattern = r"^WARNING:\s+\[(?P<id>.*?)\]:\s+(?P<path>.*?):\s+(?P<msg>.*)"
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, file_trace=False)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "pkgqaenc")):
+        with open(sca_raw_result_file(d, "pkgqaenc"), "r") as f:
             content = f.read()
             for m in re.finditer(pattern, content, re.MULTILINE):
                 try:
@@ -110,8 +113,6 @@ python do_sca_pkgqaenc() {
     _args += [_config_tmp]
 
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_pkgqaenc.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
     for p in clean_split(d, "PACKAGES"):
         _suffix = p.replace(d.getVar("PN"), "", 1)
@@ -142,7 +143,7 @@ python do_sca_pkgqaenc() {
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
 
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "pkgqaenc"), "w") as o:
         o.write(cmd_output)
     
     ## Create data model
@@ -157,7 +158,7 @@ python do_sca_pkgqaenc() {
 SCA_DEPLOY_TASK = "do_sca_deploy_pkgqaenc"
 
 python do_sca_deploy_pkgqaenc() {
-    sca_conv_deploy(d, "pkgqaenc", "txt")
+    sca_conv_deploy(d, "pkgqaenc")
 }
 
 do_sca_pkgqaenc[doc] = "Lint produced packages"

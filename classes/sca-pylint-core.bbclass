@@ -1,5 +1,6 @@
 ## SPDX-License-Identifier: BSD-2-Clause
 ## Copyright (c) 2019, Konrad Weihmann
+SCA_RAW_RESULT_FILE[pylint] = "txt"
 
 inherit sca-conv-to-export
 inherit sca-datamodel
@@ -28,8 +29,8 @@ def do_sca_conv_pylint(d):
     _findings = []
     _suppress = sca_suppress_init(d)
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "pylint")):
+        with open(sca_raw_result_file(d, "pylint"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -74,8 +75,6 @@ python do_sca_pylint_core() {
     cur_dir = os.getcwd()
     os.chdir(d.getVar("SCA_SOURCES_DIR", True))
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_pylint.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
     os.environ["STAGING_LIBDIR"] = d.getVar("STAGING_LIBDIR")
 
@@ -92,10 +91,13 @@ python do_sca_pylint_core() {
             cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "pylint"), "w") as o:
         o.write(cmd_output)
     os.chdir(cur_dir)
-    
+}
+
+python do_sca_pylint_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/pylint.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_pylint(d)

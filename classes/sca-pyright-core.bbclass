@@ -61,6 +61,8 @@ SCA_PYRIGHT_ENABLED_CHECKS ?= "\
                                 reportAssertAlwaysTrue \
                             "
 
+SCA_RAW_RESULT_FILE[pyright] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -86,9 +88,9 @@ def do_sca_conv_pyright(d):
         "warning": "warning"
     }
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "pyright")):
         try:
-            with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+            with open(sca_raw_result_file(d, "pyright"), "r") as f:
                 content = json.load(f)
                 for m in content["diagnostics"]:
                     try:
@@ -151,8 +153,6 @@ python do_sca_pyright_core() {
 
     ## Run
     cmd_output = {}
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_pyright.json")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
     _includes = [   d.getVar("SCA_SOURCES_DIR") + "/*",    
                     d.getVar("SCA_SOURCES_DIR") + "/**/*",
@@ -192,9 +192,12 @@ python do_sca_pyright_core() {
                     cmd_output["diagnostics"] += json.loads(_tmp)["diagnostics"]
             except Exception as e:
                 pass
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "pyright"), "w") as o:
         json.dump(cmd_output, o)
-    
+}
+
+python do_sca_pyright_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/pyright.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_pyright(d)

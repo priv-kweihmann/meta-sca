@@ -19,6 +19,8 @@ SCA_CONFIGCHECK_MODULES ?= "\
                             vsftpd \
                            "
 
+SCA_RAW_RESULT_FILE[configcheck] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -70,9 +72,6 @@ fakeroot python do_sca_configcheck() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "configcheck-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "configcheck-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_configcheck.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-
     cmd_output = ""
 
     ## Create rootfs first
@@ -98,7 +97,7 @@ fakeroot python do_sca_configcheck() {
         except Exception as e:
             bb.warn(str(e))
 
-    with open(result_raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "configcheck"), "w") as o:
         o.write(cmd_output)
 
     ## Create data model
@@ -113,7 +112,7 @@ fakeroot python do_sca_configcheck() {
 SCA_DEPLOY_TASK = "do_sca_deploy_configcheck_image"
 
 python do_sca_deploy_configcheck_image() {
-    sca_conv_deploy(d, "configcheck", "txt")
+    sca_conv_deploy(d, "configcheck")
 }
 
 do_sca_configcheck[doc] = "Check configuration of tools for validity in image"

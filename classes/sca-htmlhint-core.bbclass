@@ -4,6 +4,8 @@
 SCA_HTMLHINT_EXTRA_SUPPRESS ?= ""
 SCA_HTMLHINT_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[htmlhint] = "json"
+
 DEPENDS += "htmlhint-native"
 
 inherit sca-conv-to-export
@@ -25,10 +27,10 @@ def do_sca_conv_htmlhint(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "htmlhint")):
         j = []
         try:
-            with open(d.getVar("SCA_RAW_RESULT_FILE")) as i:
+            with open(sca_raw_result_file(d, "htmlhint")) as i:
                 j = json.load(i)
         except:
             pass
@@ -79,12 +81,13 @@ python do_sca_htmlhint_core() {
         cmd_output = subprocess.check_output(_args, universal_newlines=True)
     except subprocess.CalledProcessError as e:
         cmd_output = e.stdout or ""
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_htmlhint.json")
-
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-    with open(result_raw_file, "w") as o:
+    
+    with open(sca_raw_result_file(d, "htmlhint"), "w") as o:
         o.write(cmd_output)
+}
 
+python do_sca_htmlhint_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/htmlhint.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_htmlhint(d)

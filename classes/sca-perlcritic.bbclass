@@ -8,11 +8,14 @@ SCA_PERLCRITIC_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)
 SCA_PERLCRITIC_FILE_FILTER ?= ".pl"
 
+SCA_RAW_RESULT_FILE[perlcritic] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_perlcritic(d):
     import os
@@ -36,8 +39,8 @@ def do_sca_conv_perlcritic(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "perlcritic")):
+        with open(sca_raw_result_file(d, "perlcritic"), "r") as f:
             content = f.read()
             for m in re.finditer(pattern, content, re.MULTILINE):
                 try:
@@ -77,8 +80,6 @@ python do_sca_perlcritic() {
     _args += ["--verbose", '%f: [%p] %m at line %l, column %c.  (Severity: %s)\n']
 
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_perlcritic.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
     _files = get_files_by_extention_or_shebang(d,    
                                                 d.getVar("SCA_SOURCES_DIR"),
@@ -92,9 +93,12 @@ python do_sca_perlcritic() {
             cmd_output += subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "perlcritic"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_perlcritic_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/perlcritic.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_perlcritic(d)
@@ -107,12 +111,14 @@ python do_sca_perlcritic() {
 SCA_DEPLOY_TASK = "do_sca_deploy_perlcritic"
 
 python do_sca_deploy_perlcritic() {
-    sca_conv_deploy(d, "perlcritic", "txt")
+    sca_conv_deploy(d, "perlcritic")
 }
 
 do_sca_perlcritic[doc] = "Lint perl scripts with perlcritic in workspace"
+do_sca_perlcritic_report[doc] = "Report findings from do_sca_perlcritic"
 do_sca_deploy_perlcritic[doc] = "Deploy results of do_sca_perlcritic"
-addtask do_sca_perlcritic before do_compile after do_configure
-addtask do_sca_deploy_perlcritic after do_sca_perlcritic before do_package
+addtask do_sca_perlcritic after do_configure before do_sca_tracefiles
+addtask do_sca_perlcritic_report after do_sca_tracefiles
+addtask do_sca_deploy_perlcritic after do_sca_perlcritic_report before do_package
 
 DEPENDS += "perl-critic-native sca-recipe-perlcritic-rules-native"

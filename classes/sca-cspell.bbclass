@@ -14,12 +14,15 @@ SCA_CSPELL_LANG_PYTHON_shebang ?= "${SCA_PYTHON_SHEBANG}"
 SCA_CSPELL_LANG_TXT_dicts ?= ""
 SCA_CSPELL_LANG_TXT_files ?= ".txt .md .rst"
 
+SCA_RAW_RESULT_FILE[cspell] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
 inherit sca-suppress
+inherit sca-tracefiles
 
 def write_config(_base, _extra_dicts, _target):
     import os
@@ -44,8 +47,8 @@ def do_sca_conv_cspell(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "cspell")):
+        with open(sca_raw_result_file(d, "cspell"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -135,11 +138,12 @@ python do_sca_cspell() {
             except subprocess.CalledProcessError as e:
                 cmd_output += e.stdout or ""
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_cspell.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-    with open(result_raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "cspell"), "w") as o:
         o.write(cmd_output)
+}
 
+python do_sca_cspell_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/cspell.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_cspell(d)
@@ -152,12 +156,14 @@ python do_sca_cspell() {
 SCA_DEPLOY_TASK = "do_sca_deploy_cspell"
 
 python do_sca_deploy_cspell() {
-    sca_conv_deploy(d, "cspell", "txt")
+    sca_conv_deploy(d, "cspell")
 }
 
 do_sca_cspell[doc] = "Lint test files with cspell"
+do_sca_cspell_report[doc] = "Report findings of do_sca_cspell"
 do_sca_deploy_cspell[doc] = "Deploy results of do_sca_cspell"
-addtask do_sca_cspell before do_install after do_compile
-addtask do_sca_deploy_cspell before do_package after do_sca_cspell
+addtask do_sca_cspell after do_compile before do_sca_tracefiles
+addtask do_sca_cspell_report after do_sca_tracefiles
+addtask do_sca_deploy_cspell after do_sca_cspell_report before do_package
 
 DEPENDS += "cspell-native sca-recipe-cspell-rules-native cspell-user-dict-native"
