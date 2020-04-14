@@ -6,11 +6,14 @@ SCA_DENNIS_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_DENNIS_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[dennis] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+
 inherit python3native
 
 def do_sca_conv_dennis(d):
@@ -31,8 +34,8 @@ def do_sca_conv_dennis(d):
     __suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "dennis")):
+        with open(sca_raw_result_file(d, "dennis"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -64,8 +67,6 @@ python do_sca_dennis() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "dennis-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "dennis-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_dennis.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     allrun_output = ""
     _args = ["dennis-cmd"]
     _args += ["lint"]
@@ -85,9 +86,9 @@ python do_sca_dennis() {
             cmd_output = prefix + prefix.join(cmd_output.splitlines(True))
         allrun_output += cmd_output
     
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "dennis"), "w") as o:
         o.write(allrun_output)
-    
+
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/dennis.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_dennis(d)
@@ -100,12 +101,12 @@ python do_sca_dennis() {
 SCA_DEPLOY_TASK = "do_sca_deploy_dennis"
 
 python do_sca_deploy_dennis() {
-    sca_conv_deploy(d, "dennis", "txt")
+    sca_conv_deploy(d, "dennis")
 }
 
 do_sca_dennis[doc] = "Lint i18n files"
 do_sca_deploy_dennis[doc] = "Deploy results of do_sca_dennis"
-addtask do_sca_dennis before do_install after do_configure
+addtask do_sca_dennis after do_configure before do_install
 addtask do_sca_deploy_dennis after do_sca_dennis before do_package
 
 DEPENDS += "python3-dennis-native sca-recipe-dennis-rules-native"

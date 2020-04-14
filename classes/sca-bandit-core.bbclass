@@ -13,6 +13,8 @@ inherit sca-suppress
 
 DEPENDS += "python3-bandit-native"
 
+SCA_RAW_RESULT_FILE[bandit] = "json"
+
 def do_sca_conv_bandit(d):
     import os
     import re
@@ -30,8 +32,8 @@ def do_sca_conv_bandit(d):
     _findings = []
     _suppress = sca_suppress_init(d)
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE")) as f:
+    if os.path.exists(sca_raw_result_file(d, "bandit")):
+        with open(sca_raw_result_file(d, "bandit")) as f:
             try:
                 jobj = json.load(f)
             except Exception as e:
@@ -74,17 +76,13 @@ python do_sca_bandit_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "bandit-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "bandit-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_bandit.json")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-
     _args = ["bandit"]
     _args += ["-f", "json"]
-    _args += ["-o", result_raw_file]
+    _args += ["-o", sca_raw_result_file(d, "bandit")]
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_PYTHON_SHEBANG"), ".py",
                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
-    with open(d.getVar("SCA_RAW_RESULT_FILE"), "w") as o:
+    with open(sca_raw_result_file(d, "bandit"), "w") as o:
         json.dump([], o)
 
     if any(_files):
@@ -94,7 +92,10 @@ python do_sca_bandit_core() {
             cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
+}
 
+python do_sca_bandit_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/bandit.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_bandit(d)

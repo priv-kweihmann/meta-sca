@@ -9,11 +9,14 @@ SCA_PHPCODEFIXER_FILE_FILTER ?= ".php"
 ## Set explicit php-version to be checked against, default auto pick
 SCA_PHPCODEFIXER_PHP_VERSION ?= ""
 
+SCA_RAW_RESULT_FILE[phpcodefixer] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_phpcodefixer(d):
     import os
@@ -25,9 +28,9 @@ def do_sca_conv_phpcodefixer(d):
     _findings = []
     _suppress = sca_suppress_init(d)
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "phpcodefixer")):
         content = []
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+        with open(sca_raw_result_file(d, "phpcodefixer"), "r") as f:
             try:
                 content = json.load(f)
             except json.JSONDecodeError:
@@ -63,8 +66,6 @@ python do_sca_phpcodefixer() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "phpcodefixer-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "phpcodefixer-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_phpcodefixer.json")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
 
     ## Run
@@ -85,9 +86,12 @@ python do_sca_phpcodefixer() {
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
 
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "phpcodefixer"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_phpcodefixer_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/phpcodefixer.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_phpcodefixer(d)
@@ -100,12 +104,14 @@ python do_sca_phpcodefixer() {
 SCA_DEPLOY_TASK = "do_sca_deploy_phpcodefixer"
 
 python do_sca_deploy_phpcodefixer() {
-    sca_conv_deploy(d, "phpcodefixer", "json")
+    sca_conv_deploy(d, "phpcodefixer")
 }
 
 do_sca_phpcodefixer[doc] = "Lint php scripts with phpcodefixer in workspace"
+do_sca_phpcodefixer_report[doc] = "Report findings of do_sca_phpcodefixer"
 do_sca_deploy_phpcodefixer[doc] = "Deploy results of do_sca_phpcodefixer"
-addtask do_sca_phpcodefixer before do_install after do_configure
-addtask do_sca_deploy_phpcodefixer after do_sca_phpcodefixer before do_package
+addtask do_sca_phpcodefixer after do_configure before do_sca_tracefiles
+addtask do_sca_phpcodefixer_report after do_sca_tracefiles
+addtask do_sca_deploy_phpcodefixer after do_sca_phpcodefixer_report before do_package
 
 DEPENDS += "phpcodefixer-native sca-recipe-phpcodefixer-rules-native"

@@ -8,11 +8,14 @@ SCA_GOVET_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)
 SCA_GOVET_FILE_FILTER ?= ".go"
 
+SCA_RAW_RESULT_FILE[govet] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_govet(d):
     import os
@@ -30,8 +33,8 @@ def do_sca_conv_govet(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "govet")):
+        with open(sca_raw_result_file(d, "govet"), "r") as f:
             content = f.read()
             for m in re.finditer(pattern_warn, content, re.MULTILINE):
                 try:
@@ -86,9 +89,6 @@ python do_sca_govet() {
     _args = ["go", "tool", "vet", "-v", "-all"]
 
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_govet.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
-
     _files = get_files_by_extention(d,    
                                     d.getVar("SCA_SOURCES_DIR"),    
                                     clean_split(d, "SCA_GOVET_FILE_FILTER"),    
@@ -100,9 +100,12 @@ python do_sca_govet() {
             cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "govet"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_govet_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/govet.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_govet(d)
@@ -115,12 +118,14 @@ python do_sca_govet() {
 SCA_DEPLOY_TASK = "do_sca_deploy_govet"
 
 python do_sca_deploy_govet() {
-    sca_conv_deploy(d, "govet", "txt")
+    sca_conv_deploy(d, "govet")
 }
 
 do_sca_govet[doc] = "Lint go files with go vet"
+do_sca_govet_report[doc] = "Report findings of do_sca_govet"
 do_sca_deploy_govet[doc] = "Deploy results of do_sca_govet"
-addtask do_sca_govet before do_compile after do_configure
-addtask do_sca_deploy_govet after do_sca_govet before do_package
+addtask do_sca_govet after do_configure before do_sca_tracefiles
+addtask do_sca_govet_report after do_sca_tracefiles
+addtask do_sca_deploy_govet after do_sca_govet_report before do_package
 
 DEPENDS += "govet-sca-native sca-recipe-govet-rules-native"

@@ -6,6 +6,8 @@ SCA_STANK_SHEBANG ?= ".*ash|bash|csh|dash|elvish|fish|ion|ksh|ksh93|lksh|mksh|pd
 SCA_STANK_EXTRA_SUPPRESS ?= ""
 SCA_STANK_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[stank] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -38,8 +40,8 @@ def do_sca_conv_stank(d):
         "Rewrite script in ksh, bash, zsh, etc., and enable debugging flags for robustness": ["Robustness", "info"],
         "Rewrite script in sh, ksh, posh, dash, etc. for performance boost" : ["Performance", "info"],
     }
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "stank")):
+        with open(sca_raw_result_file(d, "stank"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -80,8 +82,6 @@ python do_sca_stank_core() {
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_STANK_SHEBANG"), d.getVar("SCA_STANK_FILE_FILTER"),
                                                       sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_stank.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
     cmd_output = ""
     if any(_files):
         for a in _args:
@@ -90,9 +90,12 @@ python do_sca_stank_core() {
             except subprocess.CalledProcessError as e:
                 cmd_output += e.stdout or ""
     
-    with open(result_raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "stank"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_stank_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/stank.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_stank(d)

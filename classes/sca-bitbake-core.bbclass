@@ -16,12 +16,14 @@ SCA_BITBAKE_HARDENING ?= "\
                           security_flags \
                           "
 
+SCA_RAW_RESULT_FILE[bitbake] = "txt"
+
 def do_sca_bitbake_hardening(d):
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
     _modules = clean_split(d, "SCA_BITBAKE_HARDENING")
     _findings = []
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, file_trace=False)
 
     if "debug_tweaks" in _modules:
         ## debug_tweaks in IMAGE_FEATURES isn't used in release build
@@ -84,12 +86,12 @@ def do_sca_conv_bitbake(d):
         "WARNING" : "warning",
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, file_trace=False)
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
     _findings = []
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "bitbake")):
+        with open(sca_raw_result_file(d, "bitbake"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -119,9 +121,7 @@ python do_sca_bitbake () {
     content = ""
     with open(d.getVar("CONLOG")) as f:
         content = f.read()
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_bitbake.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-    with open(result_raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "bitbake"), "w") as o:
         o.write(content)
 
     ## Create data model
@@ -137,7 +137,7 @@ python do_sca_bitbake () {
 SCA_DEPLOY_TASK = "do_sca_deploy_gcc"
 
 python do_sca_deploy_bitbake() {
-    sca_conv_deploy(d, "bitbake", "txt")
+    sca_conv_deploy(d, "bitbake")
 }
 
 DEPENDS += "bitbake-sca-native"

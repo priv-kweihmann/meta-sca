@@ -6,6 +6,8 @@ SCA_PYFINDINJECTION_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_PYFINDINJECTION_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[pyfindinjection] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -33,8 +35,8 @@ def do_sca_conv_pyfindinjection(d):
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "pyfindinjection")):
+        with open(sca_raw_result_file(d, "pyfindinjection"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     _sev, _id = severity_map[m.group("msg")]
@@ -72,9 +74,6 @@ python do_sca_pyfindinjection_core() {
     _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "python3-native", "python3")]
     _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "py-find-injection")]
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_pyfindinjection.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-
     cmd_output = ""
 
     ## Run
@@ -85,9 +84,12 @@ python do_sca_pyfindinjection_core() {
             cmd_output = subprocess.check_output(_args + _files, universal_newlines=True)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
-    with open(result_raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "pyfindinjection"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_pyfindinjection_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/pyfindinjection.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_pyfindinjection(d)

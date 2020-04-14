@@ -7,7 +7,9 @@ SCA_SYSTEMDLINT_SYSTEMD_VERSION ?= ""
 SCA_SYSTEMDLINT_FILES ?= ".automount .conf .link .mount .network .path .service .slice .socket .swap .target .timer"
 SCA_SYSTEMDLINT_PATHS ?= "${SCA_SOURCES_DIR}/${sysconfdir}/systemd \
                           ${SCA_SOURCES_DIR}/${libdir}/systemd \
-                          ${SCA_SOURCES_DIR}/run/systemd \"
+                          ${SCA_SOURCES_DIR}/run/systemd"
+
+SCA_RAW_RESULT_FILE[systemdlint] = "txt"
 
 inherit sca-conv-to-export
 inherit sca-datamodel
@@ -38,8 +40,8 @@ def do_sca_conv_systemdlint(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "systemdlint")):
+        with open(sca_raw_result_file(d, "systemdlint"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -72,12 +74,9 @@ python do_sca_systemdlint() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "systemdlint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "systemdlint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_systemdlint.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-
     _args = ['systemdlint']
     _args += ["--rootpath={}".format(d.getVar("SCA_SOURCES_DIR"))]
-    _args += ["--output={}".format(result_raw_file)]
+    _args += ["--output={}".format(sca_raw_result_file(d, "systemdlint"))]
     if d.getVar("SCA_SYSTEMDLINT_SYSTEMD_VERSION"):
         _args += ["--sversion={}".format(d.getVar("SCA_SYSTEMDLINT_SYSTEMD_VERSION"))]
     _files = []
@@ -85,7 +84,7 @@ python do_sca_systemdlint() {
         _files += get_files_by_extention(d, path,  d.getVar("SCA_SYSTEMDLINT_FILES"), \
                                             sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
-    with open(d.getVar("SCA_RAW_RESULT_FILE"), "w") as o:
+    with open(sca_raw_result_file(d, "systemdlint"), "w") as o:
         o.write("")
 
     if any(_files):
@@ -107,7 +106,7 @@ python do_sca_systemdlint() {
 SCA_DEPLOY_TASK = "do_sca_deploy_systemdlint_image"
 
 python do_sca_deploy_systemdlint_image() {
-    sca_conv_deploy(d, "systemdlint", "txt")
+    sca_conv_deploy(d, "systemdlint")
 }
 
 do_sca_systemdlint[doc] = "Lint systemd unit files in image"

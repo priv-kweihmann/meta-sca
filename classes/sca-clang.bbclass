@@ -18,6 +18,9 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
+
+SCA_RAW_RESULT_FILE[clang] = "txt"
 
 def do_sca_conv_clang(d):
     import os
@@ -37,8 +40,8 @@ def do_sca_conv_clang(d):
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "clang")):
+        with open(sca_raw_result_file(d, "clang"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -118,11 +121,12 @@ python do_sca_clang() {
     if os.path.exists(os.path.join(d.getVar("B"), "compile_commands.json")):
         os.remove(os.path.join(d.getVar("B"), "compile_commands.json"))
 
-    raw_file = os.path.join(d.getVar("T", True), "sca_raw_clang.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", raw_file)
-    with open(raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "clang"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_clang_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/clang.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_clang(d)
@@ -135,12 +139,14 @@ python do_sca_clang() {
 SCA_DEPLOY_TASK = "do_sca_deploy_clang"
 
 python do_sca_deploy_clang() {
-    sca_conv_deploy(d, "clang", "txt")
+    sca_conv_deploy(d, "clang")
 }
 
 do_sca_clang[doc] = "Run scan of clang-tidy on recipe"
+do_sca_clang_report[doc] = "Report findings of do_sca_clang"
 do_sca_deploy_clang[doc] = "Deploy results of do_sca_clang"
-addtask do_sca_clang before do_install after do_compile
-addtask do_sca_deploy_clang after do_sca_clang before do_package
+addtask do_sca_clang after do_compile before do_sca_tracefiles
+addtask do_sca_clang_report after do_sca_tracefiles
+addtask do_sca_deploy_clang after do_sca_clang_report before do_package
 
 DEPENDS += "clang-native sca-recipe-clang-rules-native clang-sca-native"

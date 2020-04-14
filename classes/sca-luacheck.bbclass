@@ -6,11 +6,14 @@ SCA_LUACHECK_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_LUACHECK_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[luacheck] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_luacheck(d):
     import os
@@ -31,8 +34,8 @@ def do_sca_conv_luacheck(d):
 
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "luacheck")):
+        with open(sca_raw_result_file(d, "luacheck"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -72,16 +75,17 @@ python do_sca_luacheck() {
                                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     ## Run
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_luacheck.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     if any(_files):
         try:
             cmd_output += subprocess.check_output(_args + _files, universal_newlines=True)
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "luacheck"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_luacheck_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/luacheck.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_luacheck(d)
@@ -94,12 +98,14 @@ python do_sca_luacheck() {
 SCA_DEPLOY_TASK = "do_sca_deploy_luacheck"
 
 python do_sca_deploy_luacheck() {
-    sca_conv_deploy(d, "luacheck", "txt")
+    sca_conv_deploy(d, "luacheck")
 }
 
 do_sca_luacheck[doc] = "Lint lua files"
+do_sca_luacheck_report[doc] = "Report findings of do_sca_luacheck"
 do_sca_deploy_luacheck[doc] = "Deploy results of do_sca_luacheck"
-addtask do_sca_luacheck before do_install after do_compile
-addtask do_sca_deploy_luacheck after do_sca_luacheck before do_package
+addtask do_sca_luacheck after do_compile before do_sca_tracefiles
+addtask do_sca_luacheck_report after do_sca_tracefiles
+addtask do_sca_deploy_luacheck after do_sca_luacheck_report before do_package
 
 DEPENDS += "luacheck-native sca-recipe-luacheck-rules-native"

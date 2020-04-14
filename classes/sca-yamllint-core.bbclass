@@ -6,6 +6,8 @@ SCA_YAMLLINT_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)
 SCA_YAMLLINT_FILE_FILTER ?= ".yaml"
 
+SCA_RAW_RESULT_FILE[yamllint] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -34,8 +36,8 @@ def do_sca_conv_yamllint(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "yamllint")):
+        with open(sca_raw_result_file(d, "yamllint"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -83,11 +85,12 @@ python do_sca_yamllint_core() {
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_yamllint.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-    with open(result_raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "yamllint"), "w") as o:
         o.write(cmd_output)
+}
 
+python do_sca_yamllint_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/yamllint.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_yamllint(d)

@@ -8,12 +8,15 @@ SCA_IKOS_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)
 SCA_IKOS_FILE_FILTER ?= ".c"
 
+SCA_RAW_RESULT_FILE[ikos] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-file-filter
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_ikos(d):
     import os
@@ -34,8 +37,8 @@ def do_sca_conv_ikos(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "ikos")):
+        with open(sca_raw_result_file(d, "ikos"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     _file = m.group("file")
@@ -84,7 +87,6 @@ def get_local_includes(path):
                 res.add(_incpath)
     return res
 
-do_sca_ikos[vardepsexclude] += "TOPDIR"
 python do_sca_ikos() {
     import os
     import subprocess
@@ -112,8 +114,6 @@ python do_sca_ikos() {
                                     clean_split(d, "SCA_IKOS_FILE_FILTER"),    
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
-    tmp_result = os.path.join(d.getVar("T"), "sca_raw_ikos.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
 
     ## Run
@@ -123,9 +123,13 @@ python do_sca_ikos() {
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout
 
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "ikos"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+do_sca_ikos_report[vardepsexclude] += "TOPDIR"
+python do_sca_ikos_report() {
+    import os
     # Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/ikos.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_ikos(d)
@@ -138,12 +142,14 @@ python do_sca_ikos() {
 SCA_DEPLOY_TASK = "do_sca_deploy_ikos"
 
 python do_sca_deploy_ikos() {
-    sca_conv_deploy(d, "ikos", "txt")
+    sca_conv_deploy(d, "ikos")
 }
 
 do_sca_ikos[doc] = "Lint C/C++ files with ikos"
+do_sca_ikos_report[doc] = "Report findings of do_sca_ikos"
 do_sca_deploy_ikos[doc] = "Deploy results of do_sca_ikos"
-addtask do_sca_ikos before do_install after do_compile
-addtask do_sca_deploy_ikos after do_sca_ikos before do_package
+addtask do_sca_ikos after do_compile before do_sca_tracefiles
+addtask do_sca_ikos_report after do_sca_tracefiles
+addtask do_sca_deploy_ikos after do_sca_ikos_report before do_package
 
 DEPENDS += "ikos-native sca-recipe-ikos-rules-native"

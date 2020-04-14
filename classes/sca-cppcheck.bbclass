@@ -21,11 +21,14 @@ SCA_CPPCHECK_RUNMODE ?= "fast"
 ## Number of config permutations
 SCA_CPPCHECK_MAX_CONFIG ?= "1"
 
+SCA_RAW_RESULT_FILE[cppcheck] = "xml"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def get_platform_type(d):
     ## Let's assume that 64bit platforms    
@@ -60,8 +63,8 @@ def do_sca_conv_cppcheck(d):
     _findings = []
     _suppress = sca_suppress_init(d)
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        data = ElementTree.parse(d.getVar("SCA_RAW_RESULT_FILE")).getroot()
+    if os.path.exists(sca_raw_result_file(d, "cppcheck")):
+        data = ElementTree.parse(sca_raw_result_file(d, "cppcheck")).getroot()
         for node in data.findall(".//error"):
             try:
                 for loc in node.findall(".//location"):
@@ -117,9 +120,7 @@ python do_sca_cppcheck() {
     for item in d.getVar("SCA_CPPCHECK_LANG_STD").split(" "):
         _args += ["--std={}".format(item)]
     _args += [get_platform_type(d)]    
-    result_raw_file = os.path.join(d.getVar("T", True), "sca_raw_cppcheck.xml")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-    _args += ["--output-file={}".format(result_raw_file)]
+    _args += ["--output-file={}".format(sca_raw_result_file(d, "cppcheck"))]
     _files = get_files_by_extention(d,    
                                     d.getVar("SCA_SOURCES_DIR"),    
                                     clean_split(d, "SCA_CPPCHECK_FILE_FILTER"),    
@@ -157,7 +158,11 @@ python do_sca_cppcheck() {
     os.chdir(cur_dir)
     if os.path.exists("std.cfg"):
         os.remove("std.cfg")
+}
 
+python do_sca_cppcheck_report() {
+    import os
+    
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/cppcheck.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_cppcheck(d)
@@ -170,12 +175,14 @@ python do_sca_cppcheck() {
 SCA_DEPLOY_TASK = "do_sca_deploy_cppcheck"
 
 python do_sca_deploy_cppcheck() {
-    sca_conv_deploy(d, "cppcheck", "xml")
+    sca_conv_deploy(d, "cppcheck")
 }
 
 do_sca_cppcheck[doc] = "Lint C/C++ files with cppcheck"
+do_sca_cppcheck_report[doc] = "Create cppcheck result report"
 do_sca_deploy_cppcheck[doc] = "Deploy results of do_sca_cppcheck"
-addtask do_sca_cppcheck before do_install after do_compile
-addtask do_sca_deploy_cppcheck after do_sca_cppcheck before do_package
+addtask do_sca_cppcheck after do_compile before do_sca_tracefiles
+addtask do_sca_cppcheck_report after do_sca_tracefiles
+addtask do_sca_deploy_cppcheck after do_sca_cppcheck_report before do_package
 
 DEPENDS += "cppcheck-native sca-recipe-cppcheck-rules-native"

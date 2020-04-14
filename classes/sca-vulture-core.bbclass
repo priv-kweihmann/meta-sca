@@ -13,6 +13,8 @@ inherit python3native
 SCA_VULTURE_EXTRA_FATAL ?= ""
 SCA_VULTURE_MIN_CONFIDENCE ?= "80"
 
+SCA_RAW_RESULT_FILE[vulture] = "txt"
+
 def do_sca_conv_vulture(d):
     import os
     import re
@@ -26,8 +28,8 @@ def do_sca_conv_vulture(d):
 
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "vulture")):
+        with open(sca_raw_result_file(d, "vulture"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 _id = "deadcode"
                 _sev = "warning"
@@ -71,17 +73,18 @@ python do_sca_vulture_core() {
                                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_vulture.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
     if any(_files):
         try:
             cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "vulture"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_vulture_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/vulture.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_vulture(d)

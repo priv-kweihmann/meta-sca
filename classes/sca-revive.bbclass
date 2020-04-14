@@ -8,11 +8,14 @@ SCA_REVIVE_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)
 SCA_REVIVE_FILE_FILTER ?= ".go"
 
+SCA_RAW_RESULT_FILE[revive] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_revive(d):
     import os
@@ -27,8 +30,8 @@ def do_sca_conv_revive(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "revive")):
+        with open(sca_raw_result_file(d, "revive"), "r") as f:
             content = f.read()
             for m in re.finditer(pattern, content, re.MULTILINE):
                 try:
@@ -64,8 +67,6 @@ python do_sca_revive() {
     _args = ["revive", "-formatter", "unix"]
 
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_revive.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
     _files = get_files_by_extention(d,    
                                     d.getVar("SCA_SOURCES_DIR"),    
@@ -78,9 +79,12 @@ python do_sca_revive() {
             cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "revive"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_revive_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/revive.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_revive(d)
@@ -93,12 +97,14 @@ python do_sca_revive() {
 SCA_DEPLOY_TASK = "do_sca_deploy_revive"
 
 python do_sca_deploy_revive() {
-    sca_conv_deploy(d, "revive", "txt")
+    sca_conv_deploy(d, "revive")
 }
 
 do_sca_revive[doc] = "Lint go code with revive"
+do_sca_revive_report[doc] = "Report findings of do_sca_revive"
 do_sca_deploy_revive[doc] = "Deploy results of do_sca_revive"
-addtask do_sca_revive before do_compile after do_configure
-addtask do_sca_deploy_revive after do_sca_revive before do_package
+addtask do_sca_revive after do_configure before do_sca_tracefiles
+addtask do_sca_revive_report after do_sca_tracefiles
+addtask do_sca_deploy_revive after do_sca_revive_report before do_package
 
 DEPENDS += "revive-native sca-recipe-revive-rules-native"

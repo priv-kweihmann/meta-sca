@@ -5,6 +5,8 @@
 ## all other findings are reported as info-only
 SCA_ROPGADGET_WARNING_THRESHOLD ?= "500"
 
+SCA_RAW_RESULT_FILE[ropgadget] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -51,12 +53,12 @@ def do_sca_conv_ropgadget(d):
     pattern = r"^(?P<bin>.*)\s+-\s+(?P<file>.*):(?P<line>\d+)\s+-\s+(?P<msg>.*)"
 
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, file_trace=False)
     _findings = {}
     _findingsres = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "ropgadget")):
+        with open(sca_raw_result_file(d, "ropgadget"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -98,6 +100,8 @@ def do_sca_conv_ropgadget(d):
                                     Message="{} exceeded ROP exploit threshold ({}/{})".format(package_name, v, _threshold),
                                     ID="thresholdexceeded",
                                     Severity="warning")
+            if _suppress.Suppressed(g):
+                continue
             if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                 continue
             if g.Severity in sca_allowed_warning_level(d):
@@ -121,8 +125,6 @@ python do_sca_ropgadget() {
     ## Run
     cmd_output = ""
     raw_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_ropgadget.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
 
     for _f in _files:
         if ("{}-dbg".format(d.getVar("PN")) in _f.split("/")) or os.path.islink(_f):
@@ -133,7 +135,7 @@ python do_sca_ropgadget() {
         except subprocess.CalledProcessError as e:
             raw_output = e.stdout or ""
         cmd_output += convert_veryraw(d, _f, raw_output)
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "ropgadget"), "w") as o:
         o.write(cmd_output)
     
     ## Create data model
@@ -148,7 +150,7 @@ python do_sca_ropgadget() {
 SCA_DEPLOY_TASK = "do_sca_deploy_ropgadget"
 
 python do_sca_deploy_ropgadget() {
-    sca_conv_deploy(d, "ropgadget", "txt")
+    sca_conv_deploy(d, "ropgadget")
 }
 
 do_sca_ropgadget[doc] = "Find ROP exploitable pattern in binaries"

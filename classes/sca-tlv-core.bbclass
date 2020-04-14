@@ -1,6 +1,8 @@
 ## SPDX-License-Identifier: BSD-2-Clause
 ## Copyright (c) 2019, Konrad Weihmann
 
+SCA_RAW_RESULT_FILE[tlv] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -27,8 +29,8 @@ def do_sca_conv_tlv(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "tlv")):
+        with open(sca_raw_result_file(d, "tlv"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -65,19 +67,20 @@ python do_sca_tlv_core() {
     _args += ["--jobs={}".format(d.getVar("BB_NUMBER_THREADS"))]
 
     ## Run
-    _files = get_files_by_glob(d, d.getVar("SCA_TLV_FILES"),    
+    _files = get_files_by_glob(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_TLV_FILES"),    
                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_tlv.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
     if any(_files):
         try:
             cmd_output = subprocess.check_output(_args + _files, universal_newlines=True)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "tlv"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_tlv_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/tlv.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_tlv(d)

@@ -8,11 +8,14 @@ SCA_GOSEC_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)
 SCA_GOSEC_FILE_FILTER ?= ".go"
 
+SCA_RAW_RESULT_FILE[gosec] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_gosec(d):
     import os
@@ -32,9 +35,9 @@ def do_sca_conv_gosec(d):
         "HIGH": "error"
     }
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "gosec")):
         content = {}
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+        with open(sca_raw_result_file(d, "gosec"), "r") as f:
             try:
                 content = json.load(f)
             except json.JSONDecodeError:
@@ -72,11 +75,7 @@ python do_sca_gosec() {
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gosec-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _args = ["gosec", "-fmt=json"]
-
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_gosec.json")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
-
-    _args += ["-out={}".format(tmp_result)]
+    _args += ["-out={}".format(sca_raw_result_file(d, "gosec"))]
 
     _files = get_files_by_extention(d,    
                                     d.getVar("SCA_SOURCES_DIR"),    
@@ -89,7 +88,10 @@ python do_sca_gosec() {
             subprocess.check_output(_args + [d.getVar("SCA_SOURCES_DIR")], universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError:
             pass
-    
+}
+
+python do_sca_gosec_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/gosec.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_gosec(d)
@@ -102,12 +104,14 @@ python do_sca_gosec() {
 SCA_DEPLOY_TASK = "do_sca_deploy_gosec"
 
 python do_sca_deploy_gosec() {
-    sca_conv_deploy(d, "gosec", "json")
+    sca_conv_deploy(d, "gosec")
 }
 
 do_sca_gosec[doc] = "Lint go files with gosec for security issues"
+do_sca_gosec_report[doc] = "Report findings of do_sca_gosec"
 do_sca_deploy_gosec[doc] = "Deploy results of do_sca_gosec"
-addtask do_sca_gosec before do_compile after do_configure
-addtask do_sca_deploy_gosec after do_sca_gosec before do_package
+addtask do_sca_gosec after do_configure before do_sca_tracefiles
+addtask do_sca_gosec_report after do_sca_tracefiles
+addtask do_sca_deploy_gosec after do_sca_gosec_report before do_package
 
 DEPENDS += "gosec-native sca-recipe-gosec-rules-native"

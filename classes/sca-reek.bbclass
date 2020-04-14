@@ -7,11 +7,14 @@ SCA_REEK_EXTRA_SUPPRESS ?= ""
 SCA_REEK_EXTRA_FATAL ?= ""
 SCA_REEK_FILE_FILTER ?= ".rb"
 
+SCA_RAW_RESULT_FILE[reek] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_reek(d):
     import os
@@ -23,9 +26,9 @@ def do_sca_conv_reek(d):
     _findings = []
     _suppress = sca_suppress_init(d)
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "reek")):
         content = []
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+        with open(sca_raw_result_file(d, "reek"), "r") as f:
             try:
                 content = json.load(f)
             except json.JSONDecodeError:
@@ -61,8 +64,6 @@ python do_sca_reek() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "reek-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "reek-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_reek.json")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
 
     ## Run
@@ -83,9 +84,12 @@ python do_sca_reek() {
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
 
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "reek"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_reek_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/reek.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_reek(d)
@@ -98,12 +102,14 @@ python do_sca_reek() {
 SCA_DEPLOY_TASK = "do_sca_deploy_reek"
 
 python do_sca_deploy_reek() {
-    sca_conv_deploy(d, "reek", "json")
+    sca_conv_deploy(d, "reek")
 }
 
 do_sca_reek[doc] = "Lint ruby scripts with reek"
+do_sca_reek_report[doc] = "Report findings of do_sca_reek"
 do_sca_deploy_reek[doc] = "Deploy results of do_sca_reek"
-addtask do_sca_reek before do_install after do_configure
-addtask do_sca_deploy_reek after do_sca_reek before do_package
+addtask do_sca_reek after do_configure before do_sca_tracefiles
+addtask do_sca_reek_report after do_sca_tracefiles
+addtask do_sca_deploy_reek after do_sca_reek_report before do_package
 
 DEPENDS += "reek-native sca-recipe-reek-rules-native"

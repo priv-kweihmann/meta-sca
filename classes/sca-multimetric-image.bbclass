@@ -41,7 +41,7 @@ inherit sca-multimetric-core
 SCA_DEPLOY_TASK = "do_sca_deploy_multimetric_image"
 
 python do_sca_deploy_multimetric_image() {
-    sca_conv_deploy(d, "multimetric", "json")
+    sca_conv_deploy(d, "multimetric")
 }
 
 python do_sca_multimetric_image() {
@@ -71,22 +71,15 @@ python do_sca_multimetric_image() {
             bb.note(str(e))
 
     # from now on business as usual
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_multimetric.json")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "multimetric"), "w") as o:
         json.dump(res, o)
-
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/multimetric.dm".format(d.getVar("T")))
-    dm_output = do_sca_conv_multimetric(d)
-    with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
-        o.write(dm_output)
-
-    sca_task_aftermath(d, "multimetric", get_fatal_entries(d))
 }
 
 do_sca_multimetric_image[doc] = "Get code metrics for image"
-do_sca_deploy_multimetric_image[doc] = "Deploy results of do_sca_multimetric_image"
-addtask do_sca_multimetric_image before do_image_complete after do_image
-addtask do_sca_deploy_multimetric_image before do_image_complete after do_sca_multimetric_image
+do_sca_deploy_multimetric_image[doc] = "Deploy results of do_sca_multimetric_core"
+do_sca_multimetric_core_report[doc] = "Report findings from do_sca_multimetric_core"
+addtask do_sca_multimetric_core before do_image_complete after do_image
+addtask do_sca_multimetric_core_report after do_sca_multimetric_core
+addtask do_sca_deploy_multimetric_image before do_image_complete after do_sca_multimetric_core_report
 
 DEPENDS += "sca-image-multimetric-rules-native"

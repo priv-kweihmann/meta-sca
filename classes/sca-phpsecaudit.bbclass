@@ -7,11 +7,14 @@ SCA_PHPSECAUDIT_EXTRA_SUPPRESS ?= ""
 SCA_PHPSECAUDIT_EXTRA_FATAL ?= ""
 SCA_PHPSECAUDIT_FILE_FILTER ?= ".php"
 
+SCA_RAW_RESULT_FILE[phpsecaudit] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_phpsecaudit(d):
     import os
@@ -28,9 +31,9 @@ def do_sca_conv_phpsecaudit(d):
         "WARNING": "warning"
     }
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "phpsecaudit")):
         content = []
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+        with open(sca_raw_result_file(d, "phpsecaudit"), "r") as f:
             try:
                 content = json.load(f)
             except json.JSONDecodeError as e:
@@ -69,8 +72,6 @@ python do_sca_phpsecaudit() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "phpsecaudit-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "phpsecaudit-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_phpsecaudit.json")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
 
     ## Run
@@ -90,9 +91,12 @@ python do_sca_phpsecaudit() {
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
 
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "phpsecaudit"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_phpsecaudit_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/phpsecaudit.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_phpsecaudit(d)
@@ -105,12 +109,14 @@ python do_sca_phpsecaudit() {
 SCA_DEPLOY_TASK = "do_sca_deploy_phpsecaudit"
 
 python do_sca_deploy_phpsecaudit() {
-    sca_conv_deploy(d, "phpsecaudit", "json")
+    sca_conv_deploy(d, "phpsecaudit")
 }
 
 do_sca_phpsecaudit[doc] = "Lint php scripts with phpsecaudit in workspace"
+do_sca_phpsecaudit_report[doc] = "Report findings of do_sca_phpsecaudit"
 do_sca_deploy_phpsecaudit[doc] = "Deploy results of do_sca_phpsecaudit"
-addtask do_sca_phpsecaudit before do_install after do_configure
-addtask do_sca_deploy_phpsecaudit after do_sca_phpsecaudit before do_package
+addtask do_sca_phpsecaudit after do_configure before do_sca_tracefiles
+addtask do_sca_phpsecaudit_report after do_sca_tracefiles
+addtask do_sca_deploy_phpsecaudit after do_sca_phpsecaudit_report before do_package
 
 DEPENDS += "phpcs-security-audit-native sca-recipe-phpsecaudit-rules-native"

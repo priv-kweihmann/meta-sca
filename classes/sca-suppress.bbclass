@@ -1,9 +1,11 @@
 inherit sca-helper
 
-def sca_suppress_init(d):
+def sca_suppress_init(d, file_trace=True):
+    import os
     import sys
     import re
     import urllib
+    import bb
 
     class SCASuppressItem():
         def __init__(self, _in):
@@ -79,8 +81,14 @@ def sca_suppress_init(d):
             ])
 
     class SCASuppress():
-        def __init__(self, d):
+        def __init__(self, d, file_trace=True):
             self.__Items = self.__add_global_items(d) + self.__add_local_items(d)
+            # automatically set to false if running on image
+            self.__filetrace = file_trace and not bb.data.inherits_class('image', d)
+            self.__tracedfiles = []
+            if os.path.exists(d.getVar("SCA_TRACEFILES_LIST") or "/does/not/exist"):
+                with open(d.getVar("SCA_TRACEFILES_LIST")) as i:
+                    self.__tracedfiles = [x.strip("\n") for x in i.readlines() if x]
     
         def __add_global_items(self, d):
             res = []
@@ -97,6 +105,6 @@ def sca_suppress_init(d):
             return res
     
         def Suppressed(self, dm):
-            return any([x.Match(dm) for x in self.__Items])
+            return any([x.Match(dm) for x in self.__Items]) or (self.__filetrace and dm.File not in self.__tracedfiles)
 
-    return SCASuppress(d)
+    return SCASuppress(d, file_trace=file_trace)
