@@ -10,11 +10,14 @@ SCA_SPLINT_FILE_FILTER ?= ".c"
 ## Check intensivity (1-4)
 SCA_SPLINT_INTENSITY ?= "2"
 
+SCA_RAW_RESULT_FILE[splint] = "csv"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_splint(d):
     import os
@@ -34,8 +37,8 @@ def do_sca_conv_splint(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "splint")):
+        with open(sca_raw_result_file(d, "splint"), "r") as f:
             reader = csv.DictReader(f)
             for row in reader:
                 try:
@@ -60,7 +63,6 @@ def do_sca_conv_splint(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
-do_sca_splint[vardepsexclude] += "TOPDIR"
 python do_sca_splint() {
     import os
     import subprocess
@@ -95,8 +97,6 @@ python do_sca_splint() {
                                     clean_split(d, "SCA_SPLINT_FILE_FILTER"),    
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
-    tmp_result = os.path.join(d.getVar("T"), "sca_raw_splint.csv")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ["Warning,Flag Code,Flag Name,Priority,File,Line,Column,Warning Text,Additional Text"]
     
     ## Run
@@ -112,9 +112,13 @@ python do_sca_splint() {
             os.remove(os.path.join(d.getVar("T"), "sca_raw_splint_tmp.csv"))
         except:
             pass
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "splint"), "w") as o:
         o.write("\n".join(cmd_output))
-    
+}
+
+do_sca_splint_report[vardepsexclude] += "TOPDIR"
+python do_sca_splint_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/splint.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_splint(d)
@@ -127,12 +131,14 @@ python do_sca_splint() {
 SCA_DEPLOY_TASK = "do_sca_deploy_splint"
 
 python do_sca_deploy_splint() {
-    sca_conv_deploy(d, "splint", "csv")
+    sca_conv_deploy(d, "splint")
 }
 
 do_sca_splint[doc] = "Lint C files with splint"
+do_sca_splint_report[doc] = "Report findings of do_sca_splint"
 do_sca_deploy_splint[doc] = "Deploy results of do_sca_splint"
-addtask do_sca_splint before do_install after do_compile
-addtask do_sca_deploy_splint after do_sca_splint before do_package
+addtask do_sca_splint after do_compile before do_sca_tracefiles
+addtask do_sca_splint_report after do_sca_tracefiles
+addtask do_sca_deploy_splint after do_sca_splint_report before do_package
 
 DEPENDS += "splint-native sca-recipe-splint-rules-native"

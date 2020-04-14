@@ -8,11 +8,14 @@ SCA_FLINT_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)
 SCA_FLINT_FILE_FILTER ?= ".c .cpp .h .hpp"
 
+SCA_RAW_RESULT_FILE[flint] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_flint(d):
     import os
@@ -34,8 +37,8 @@ def do_sca_conv_flint(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "flint")):
+        with open(sca_raw_result_file(d, "flint"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -79,16 +82,17 @@ python do_sca_flint() {
     cur_dir = os.getcwd()
     os.chdir(d.getVar("B", True))
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_flint.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     try:
         cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
     except subprocess.CalledProcessError as e:
         cmd_output = e.stdout or ""
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "flint"), "w") as o:
         o.write(cmd_output)
     os.chdir(cur_dir)
-    
+}
+
+python do_sca_flint_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/flint.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_flint(d)
@@ -101,12 +105,14 @@ python do_sca_flint() {
 SCA_DEPLOY_TASK = "do_sca_deploy_flint"
 
 python do_sca_deploy_flint() {
-    sca_conv_deploy(d, "flint", "txt")
+    sca_conv_deploy(d, "flint")
 }
 
-do_sca_flint[doc] = "Lint C/C++ files wiht flint++"
+do_sca_flint[doc] = "Lint C/C++ files with flint++"
+do_sca_flint_report[doc] = "Report findings of do_sca_flint"
 do_sca_deploy_flint[doc] = "Deploy results of do_sca_flint"
-addtask do_sca_flint before do_install after do_compile
-addtask do_sca_deploy_flint after do_sca_flint before do_package
+addtask do_sca_flint after do_compile before do_sca_tracefiles
+addtask do_sca_flint_report after do_sca_tracefiles
+addtask do_sca_deploy_flint after do_sca_flint_report before do_package
 
 DEPENDS += "flint++-native sca-recipe-flint-rules-native"

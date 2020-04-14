@@ -7,6 +7,8 @@ SCA_JSHINT_EXTRA_SUPPRESS ?= ""
 SCA_JSHINT_EXTRA_FATAL ?= ""
 SCA_JSHINT_FILE_FILTER ?= ".js .html .htm"
 
+SCA_RAW_RESULT_FILE[jshint] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -32,8 +34,8 @@ def do_sca_conv_jshint(d):
     _findings = []
     _suppress = sca_suppress_init(d)
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "jshint")):
+        with open(sca_raw_result_file(d, "jshint"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -84,16 +86,17 @@ python do_sca_jshint_core() {
             cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_jshint.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-    with open(result_raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "jshint"), "w") as o:
         o.write(cmd_output)
 
     try:
         os.remove("node_modules")
     except FileNotFoundError:
         pass
-    
+}
+
+python do_sca_jshint_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/jshint.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_jshint(d)

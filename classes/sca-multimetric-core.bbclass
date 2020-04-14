@@ -40,6 +40,8 @@ SCA_MULTIMETRIC_EXTRA_FATAL ?= ""
 
 SCA_MULTIMETRIC_COMPILER_MODULES = "gcc"
 
+SCA_RAW_RESULT_FILE[multimetric] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -57,10 +59,10 @@ def do_sca_conv_multimetric(d):
 
     _suppress = sca_suppress_init(d)
     _findings = []
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "multimetric")):
         j = {}
         try:
-            with open(d.getVar("SCA_RAW_RESULT_FILE")) as i:
+            with open(sca_raw_result_file(d, "multimetric")) as i:
                 j = json.load(i)
         except Exception as e:
             j = {"files": {}}
@@ -216,8 +218,6 @@ python do_sca_multimetric_core() {
 
     ## Run
     json_output = {}
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_multimetric.json")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     _files = get_files_by_extention(d,    
                                     d.getVar("SCA_SOURCES_DIR"),    
                                     clean_split(d, "SCA_MULTIMETRIC_FILE_FILTER"),    
@@ -229,11 +229,14 @@ python do_sca_multimetric_core() {
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
     
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "multimetric"), "w") as o:
         if not cmd_output:
             cmd_output = "{}"
         o.write(cmd_output)
-    
+}
+
+python do_sca_multimetric_core_report() {
+    import os
     # Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/multimetric.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_multimetric(d)

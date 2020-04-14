@@ -5,6 +5,8 @@ SCA_RECONBF_EXTRA_SUPPRESS ?= ""
 SCA_RECONBF_EXTRA_FATAL ?= ""
 SCA_RECONBF_CONFIG ?= "${datadir}/etc/reconbf/hos.cfg"
 
+SCA_RAW_RESULT_FILE[reconbf] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -30,10 +32,10 @@ def do_sca_conv_reconbf(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "reconbf")):
         j = []
         try:
-            with open(d.getVar("SCA_RAW_RESULT_FILE")) as i:
+            with open(sca_raw_result_file(d, "reconbf")) as i:
                 j = json.load(i)
         except:
             j = []
@@ -78,16 +80,13 @@ fakeroot python do_sca_reconbf() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "reconbf-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "reconbf-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_reconbf.json")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-
     _args = ["/bin/sh", "-c", "mkdir -p /tmp;python3 -m reconbf -c {} -rt json -dm all -rf /tmp/reconbf.result >/dev/null 2>&1;cat /tmp/reconbf.result".format(d.getVar("SCA_RECONBF_CONFIG"))]
 
     cmd_output, _ = sca_crossemu(d, _args, ["reconbf"], "reconbf", ";")
 
     if not isinstance(cmd_output, str):
         cmd_output = cmd_output.decode("utf-8")
-    with open(result_raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "reconbf"), "w") as o:
         if not cmd_output.startswith("["):
             cmd_output = cmd_output[cmd_output.find("["):]
         o.write(cmd_output)
@@ -104,7 +103,7 @@ fakeroot python do_sca_reconbf() {
 SCA_DEPLOY_TASK = "do_sca_deploy_reconbf_image"
 
 python do_sca_deploy_reconbf_image() {
-    sca_conv_deploy(d, "reconbf", "json")
+    sca_conv_deploy(d, "reconbf")
 }
 
 do_sca_reconbf[doc] = "Run reconbf audit on image"

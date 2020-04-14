@@ -41,7 +41,7 @@ python do_sca_image_summary() {
 SCA_DEPLOY_TASK = "do_sca_deploy_image_summary"
 
 python do_sca_deploy_image_summary() {
-    sca_conv_deploy(d, "image-summary", "notexists")
+    sca_conv_deploy(d, "image-summary")
 }
 
 do_sca_image_summary[doc] = "Get summary of SCA findings in image"

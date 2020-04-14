@@ -6,6 +6,8 @@ SCA_KCONFIGHARD_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_KCONFIGHARD_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[kconfighard] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -24,7 +26,7 @@ def do_sca_conv_kconfighard(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     items = []
-    pattern = r"^\s*(?P<symbol>CONFIG_[A-Z0-9_]+)\s*\|\s*(?P<exp>.*?\s*)\|\s*(?P<source>\w+\s*)\|.*\|\|\s*(?P<result>.*)"
+    pattern = r"^\s*(?P<symbol>CONFIG_[A-Z0-9_]+)\s*\|\s*(?P<exp>.*?\s*)\|\s*(?P<source>\w+\s*)\|.*\|\s*(?P<result>.*)"
 
     severity_map = {
         "defconfig" : "error",
@@ -34,11 +36,11 @@ def do_sca_conv_kconfighard(d):
         "lockdown" : "warning"
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, file_trace=False)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "kconfighard")):
+        with open(sca_raw_result_file(d, "kconfighard"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     result_fail = m.group("result").strip().startswith("FAIL:")
@@ -80,9 +82,6 @@ python do_sca_kconfighard() {
         d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "kconfighard-{}-suppress".format(d.getVar("SCA_MODE"))))
         d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "kconfighard-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-        tmp_result = os.path.join(d.getVar("T", True), "sca_raw_kconfighard.txt")
-        d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
-
         if not os.path.exists(os.path.join(d.getVar("B"), "config")):
             os.symlink(os.path.join(d.getVar("B"), ".config"), os.path.join(d.getVar("B"), "config"))
 
@@ -96,11 +95,8 @@ python do_sca_kconfighard() {
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
 
-        with open(tmp_result, "w") as o:
+        with open(sca_raw_result_file(d, "kconfighard"), "w") as o:
             o.write(cmd_output)
-
-        result_file = os.path.join(d.getVar("T", True), "sca_checkstyle_kconfighard.xml")
-        d.setVar("SCA_RESULT_FILE", result_file)
 
         org_source_value = d.getVar("SCA_SOURCES_DIR")
         ## patch the source of the config-file
@@ -118,7 +114,7 @@ python do_sca_kconfighard() {
 SCA_DEPLOY_TASK = "do_sca_deploy_kconfighard"
 
 python do_sca_deploy_kconfighard() {
-    sca_conv_deploy(d, "kconfighard", "txt")
+    sca_conv_deploy(d, "kconfighard")
 }
 
 do_sca_kconfighard[doc] = "Scan for kernel config hardening options"

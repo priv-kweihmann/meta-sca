@@ -13,6 +13,8 @@ inherit sca-helper
 inherit sca-license-filter
 inherit sca-suppress
 
+SCA_RAW_RESULT_FILE[bashate] = "txt"
+
 def do_sca_conv_bashate(d):
     import os
     import re
@@ -43,8 +45,8 @@ def do_sca_conv_bashate(d):
     _findings = []
     _suppress = sca_suppress_init(d)
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "bashate")):
+        with open(sca_raw_result_file(d, "bashate"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -80,8 +82,6 @@ python do_sca_bashate_core() {
 
     ## Run
     cmd_output = ""
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_bashate.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*/(ba|k)*sh", ".sh",
                                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
@@ -90,9 +90,12 @@ python do_sca_bashate_core() {
             cmd_output = subprocess.check_output(_args + _files, universal_newlines=True)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "bashate"), "w") as o:
         o.write(cmd_output)
+}
 
+python do_sca_bashate_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/bashate.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_bashate(d)

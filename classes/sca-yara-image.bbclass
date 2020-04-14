@@ -1103,6 +1103,8 @@ SCA_YARA_MODULES ?= "\
                     yara-rules/xme/office_macro.yar \
                 "
 
+SCA_RAW_RESULT_FILE[yara] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -1138,8 +1140,8 @@ def do_sca_conv_yara(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "yara")):
+        with open(sca_raw_result_file(d, "yara"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 _desc = sca_yara_get_description(d, m.group("attr"))
                 if not _desc:
@@ -1174,9 +1176,6 @@ python do_sca_yara() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "yara-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "yara-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_yara.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-
     cmd_output = ""
     _args = ["yara", "-r", "--no-warnings", "--print-meta"]
     _rules = [os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), x) for x in clean_split(d, "SCA_YARA_MODULES")]
@@ -1186,7 +1185,7 @@ python do_sca_yara() {
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
 
-    with open(result_raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "yara"), "w") as o:
         o.write(cmd_output)
 
     ## Create data model
@@ -1201,7 +1200,7 @@ python do_sca_yara() {
 SCA_DEPLOY_TASK = "do_sca_deploy_yara_image"
 
 python do_sca_deploy_yara_image() {
-    sca_conv_deploy(d, "yara", "txt")
+    sca_conv_deploy(d, "yara")
 }
 
 do_sca_yara[doc] = "Find suspious/malware vectors in image"

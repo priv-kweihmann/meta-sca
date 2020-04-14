@@ -48,6 +48,8 @@ SCA_UPC_MODULES ?= "\
                     system_nx \
                     "
 
+SCA_RAW_RESULT_FILE[upc] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -75,8 +77,8 @@ def do_sca_conv_upc(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "upc")):
+        with open(sca_raw_result_file(d, "upc"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -108,14 +110,11 @@ fakeroot python do_sca_upc() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "upc-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "upc-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_upc.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-
     _args = ["/bin/sh", "-c", "cd /usr/bin/upc && ./upc.sh --checks {}".format(",".join(clean_split(d, "SCA_UPC_MODULES")))]
 
     cmd_output, _ = sca_crossemu(d, _args, ["upc"], "upc", ";")
 
-    with open(result_raw_file, "wb") as o:
+    with open(sca_raw_result_file(d, "upc"), "wb") as o:
         o.write(cmd_output)
 
     ## Create data model
@@ -130,7 +129,7 @@ fakeroot python do_sca_upc() {
 SCA_DEPLOY_TASK = "do_sca_deploy_upc_image"
 
 python do_sca_deploy_upc_image() {
-    sca_conv_deploy(d, "upc", "txt")
+    sca_conv_deploy(d, "upc")
 }
 
 do_sca_upc[doc] = "Find priviledge esacalation vectors in image"

@@ -6,11 +6,14 @@ SCA_DARGLINT_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_DARGLINT_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[darglint] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 inherit python3native
 
@@ -25,8 +28,8 @@ def do_sca_conv_darglint(d):
 
     _suppress = sca_suppress_init(d)
     _findings = []
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "darglint")):
+        with open(sca_raw_result_file(d, "darglint"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -57,8 +60,6 @@ python do_sca_darglint() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "darglint-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "darglint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_darglint.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
 
     os.makedirs(os.path.join(d.getVar("T"), "darglintout"), exist_ok=True)
@@ -79,9 +80,12 @@ python do_sca_darglint() {
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
 
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "darglint"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_darglint_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/darglint.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_darglint(d)
@@ -94,12 +98,14 @@ python do_sca_darglint() {
 SCA_DEPLOY_TASK = "do_sca_deploy_darglint"
 
 python do_sca_deploy_darglint() {
-    sca_conv_deploy(d, "darglint", "txt")
+    sca_conv_deploy(d, "darglint")
 }
 
 do_sca_darglint[doc] = "Lint python docstrings"
+do_sca_darglint_report[doc] = "Report findings of do_sca_darglint"
 do_sca_deploy_darglint[doc] = "Deploy results of do_sca_darglint"
-addtask do_sca_darglint before do_install after do_configure
-addtask do_sca_deploy_darglint after do_sca_darglint before do_package
+addtask do_sca_darglint after do_configure before do_sca_tracefiles 
+addtask do_sca_darglint_report after do_sca_tracefiles
+addtask do_sca_deploy_darglint after do_sca_darglint_report before do_package
 
 DEPENDS += "python3-darglint-native sca-recipe-darglint-rules-native"

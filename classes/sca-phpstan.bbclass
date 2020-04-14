@@ -7,11 +7,14 @@ SCA_PHPSTAN_EXTRA_SUPPRESS ?= ""
 SCA_PHPSTAN_EXTRA_FATAL ?= ""
 SCA_PHPSTAN_FILE_FILTER ?= ".php"
 
+SCA_RAW_RESULT_FILE[phpstan] = "json"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 def do_sca_conv_phpstan(d):
     import os
@@ -29,9 +32,9 @@ def do_sca_conv_phpstan(d):
         "False": "error"
     }
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
+    if os.path.exists(sca_raw_result_file(d, "phpstan")):
         content = []
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+        with open(sca_raw_result_file(d, "phpstan"), "r") as f:
             try:
                 content = json.load(f)
             except json.JSONDecodeError:
@@ -68,8 +71,6 @@ python do_sca_phpstan() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "phpstan-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "phpstan-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_phpstan.json")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
 
     ## Run
@@ -89,9 +90,12 @@ python do_sca_phpstan() {
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
 
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "phpstan"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_phpstan_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/phpstan.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_phpstan(d)
@@ -104,12 +108,14 @@ python do_sca_phpstan() {
 SCA_DEPLOY_TASK = "do_sca_deploy_phpstan"
 
 python do_sca_deploy_phpstan() {
-    sca_conv_deploy(d, "phpstan", "json")
+    sca_conv_deploy(d, "phpstan")
 }
 
 do_sca_phpstan[doc] = "Lint php scripts with phpstan in workspace"
+do_sca_phpstan_report[doc] = "Report findings of do_sca_phpstan"
 do_sca_deploy_phpstan[doc] = "Deploy results of do_sca_phpstan"
-addtask do_sca_phpstan before do_install after do_configure
-addtask do_sca_deploy_phpstan after do_sca_phpstan before do_package
+addtask do_sca_phpstan after do_configure before do_sca_tracefiles
+addtask do_sca_phpstan_report after do_sca_tracefiles
+addtask do_sca_deploy_phpstan after do_sca_phpstan_report before do_package
 
 DEPENDS += "phpstan-native sca-recipe-phpstan-rules-native"

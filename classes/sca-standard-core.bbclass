@@ -5,6 +5,8 @@ SCA_STANDARD_EXTRA_SUPPRESS ?= ""
 SCA_STANDARD_EXTRA_FATAL ?= ""
 SCA_STANDARD_FILE_FILTER ?= ".js .jsx"
 
+SCA_RAW_RESULT_FILE[standard] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
@@ -27,8 +29,8 @@ def do_sca_conv_standard(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "standard")):
+        with open(sca_raw_result_file(d, "standard"), "r") as f:
             content = f.read()
             for m in re.finditer(pattern, content, re.MULTILINE):
                 try:
@@ -101,11 +103,12 @@ python do_sca_standard_core() {
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
 
-    result_raw_file = os.path.join(d.getVar("T"), "sca_raw_standard.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", result_raw_file)
-    with open(result_raw_file, "w") as o:
+    with open(sca_raw_result_file(d, "standard"), "w") as o:
         o.write(cmd_output)
+}
 
+python do_sca_standard_core_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/standard.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_standard(d)

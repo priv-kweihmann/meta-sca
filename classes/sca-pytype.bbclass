@@ -6,11 +6,14 @@ SCA_PYTYPE_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_PYTYPE_EXTRA_FATAL ?= ""
 
+SCA_RAW_RESULT_FILE[pytype] = "txt"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-tracefiles
 
 inherit python3native
 
@@ -26,8 +29,8 @@ def do_sca_conv_pytype(d):
     _findings = []
     _suppress = sca_suppress_init(d)
 
-    if os.path.exists(d.getVar("SCA_RAW_RESULT_FILE")):
-        with open(d.getVar("SCA_RAW_RESULT_FILE"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "pytype")):
+        with open(sca_raw_result_file(d, "pytype"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -59,8 +62,6 @@ python do_sca_pytype() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pytype-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pytype-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    tmp_result = os.path.join(d.getVar("T", True), "sca_raw_pytype.txt")
-    d.setVar("SCA_RAW_RESULT_FILE", tmp_result)
     cmd_output = ""
 
     os.makedirs(os.path.join(d.getVar("T"), "pytypeout"), exist_ok=True)
@@ -84,9 +85,12 @@ python do_sca_pytype() {
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
 
-    with open(tmp_result, "w") as o:
+    with open(sca_raw_result_file(d, "pytype"), "w") as o:
         o.write(cmd_output)
-    
+}
+
+python do_sca_pytype_report() {
+    import os
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/pytype.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_pytype(d)
@@ -99,12 +103,14 @@ python do_sca_pytype() {
 SCA_DEPLOY_TASK = "do_sca_deploy_pytype"
 
 python do_sca_deploy_pytype() {
-    sca_conv_deploy(d, "pytype", "txt")
+    sca_conv_deploy(d, "pytype")
 }
 
 do_sca_pytype[doc] = "Lint python scripts with pytype"
+do_sca_pytype_report[doc] = "Report findings of do_sca_pytype"
 do_sca_deploy_pytype[doc] = "Deploy results of do_sca_pytype"
-addtask do_sca_pytype before do_install after do_configure
-addtask do_sca_deploy_pytype after do_sca_pytype before do_package
+addtask do_sca_pytype after do_configure before do_sca_tracefiles
+addtask do_sca_pytype_report after do_sca_tracefiles
+addtask do_sca_deploy_pytype after do_sca_pytype_report before do_package
 
 DEPENDS += "python3-pytype-native sca-recipe-pytype-rules-native"
