@@ -98,7 +98,7 @@ jobs:
         run: |
           cd ${WORKSPACE}
           source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          mods=$(cat ${WORKSPACE}/meta-sca/recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ')
+          mods=$(cat ${WORKSPACE}/meta-sca/test/lang_$PARAMFILE.txt | tr '\n' ' ')
           echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> conf/local.conf
         shell: bash
       - name: build kernel
@@ -118,7 +118,7 @@ jobs:
           eval $(bitbake busybox -e | grep "^DL_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
           eval $(bitbake busybox -e | grep "^SSTATE_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
           eval $(bitbake busybox -e | grep "^TMPDIR") && rm -f bitbake.sock && rm -f bitbake.lock
-          timeout --foreground --kill-after=60s $MAXRUNTIME ${WORKSPACE}/meta-sca/recipes-sca-test/test_$PARAMFILE.sh 2>&1 || if [ $? == 124 ]; then echo "Timeout"; else exit 1; fi;
+          timeout --foreground --kill-after=60s $MAXRUNTIME ${WORKSPACE}/meta-sca/test/test_$PARAMFILE.sh 2>&1 || if [ $? == 124 ]; then echo "Timeout"; else exit 1; fi;
           rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
           [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR} 2>&1
           [ -n "${SSTATE_DIR}" ] && rm -rf ${SSTATE_DIR} 2>&1
@@ -153,5 +153,5 @@ jobs:
           cd ${WORKSPACE}
           source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
           eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
-          ${WORKSPACE}/meta-sca/scripts/check_results $SCA_EXPORT_DIR $(cat ${WORKSPACE}/meta-sca/recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ') 2>&1 || true
+          ${WORKSPACE}/meta-sca/test/check_results $SCA_EXPORT_DIR $(cat ${WORKSPACE}/meta-sca/test/lang_$PARAMFILE.txt | tr '\n' ' ') 2>&1 || true
         shell: bash

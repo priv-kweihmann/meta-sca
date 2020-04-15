@@ -79,5 +79,5 @@ jobs:
         run: |
           cd ${WORKSPACE}
           source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          ${WORKSPACE}/meta-sca/scripts/check_pkgs.py --blacklistfile=${WORKSPACE}/meta-sca/recipes-sca-test/blacklist.txt priv-kweihmann ${{ secrets.WEBDEPLOY }} 2>&1
+          ${WORKSPACE}/meta-sca/scripts/check_pkgs.py --blacklistfile=${WORKSPACE}/meta-sca/scripts/blacklist.txt priv-kweihmann ${{ secrets.WEBDEPLOY }} 2>&1
         shell: bash
