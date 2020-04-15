@@ -54,7 +54,7 @@ python-dateutil==2.7.3
 pytz==2018.5
 pyzmq==17.1.2
 qtconsole==4.4.1
-requests==2.19.1
+requests==2.20.0
 requests-oauthlib==1.0.0
 Send2Trash==1.5.0
 simplegeneric==0.8.1
