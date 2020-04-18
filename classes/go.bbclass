@@ -42,3 +42,20 @@ require ${@get_rel_path(d, "meta/classes/go.bbclass")}
 
 ## This add the missing GOCACHE setting
 export GOCACHE = "${B}/.cache"
+## Add missing exports of env vars
+export GOARCH = "${TARGET_GOARCH}"
+export GOOS = "${TARGET_GOOS}"
+export GOHOSTARCH="${BUILD_GOARCH}"
+export GOHOSTOS="${BUILD_GOOS}"
+
+GOARM[export] = "0"
+GOARM_arm_class-target = "${TARGET_GOARM}"
+GOARM_arm_class-target[export] = "1"
+
+GO386[export] = "0"
+GO386_x86_class-target = "${TARGET_GO386}"
+GO386_x86_class-target[export] = "1"
+
+GOMIPS[export] = "0"
+GOMIPS_mips_class-target = "${TARGET_GOMIPS}"
+GOMIPS_mips_class-target[export] = "1"
