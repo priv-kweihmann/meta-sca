@@ -2,7 +2,7 @@ SUMMARY = "IO of git-style object databases"
 HOMEPAGE = "https://github.com/gitpython-developers/gitdb"
 
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=c910216328d3bde24e9f737d0b09c316"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=59e5ecb13339a936eedf83282eaf4528"
 
 DEPENDS += "\
             ${PYTHON_PN}-native \
@@ -11,8 +11,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "gitdb"
 
-SRC_URI[md5sum] = "2fd93921710ce40e1b60f0430130d3f1"
-SRC_URI[sha256sum] = "598e0096bb3175a0aab3a0b5aedaa18a9a25c6707e0eca0695ba1a0baf1b2150"
+SRC_URI[md5sum] = "00c75b9ff253972afc1a654a76d69786"
+SRC_URI[sha256sum] = "6f0ecd46f99bb4874e5678d628c3a198e2b4ef38daea2756a2bfd8df7dd5c1a5"
 
 inherit pypi
 inherit setuptools3
