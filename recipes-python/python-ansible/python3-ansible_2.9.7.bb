@@ -12,8 +12,8 @@ DEPENDS += "\
            "
 
 SRC_URI = "http://releases.ansible.com/ansible/ansible-${PV}.tar.gz"
-SRC_URI[md5sum] = "a871463bcd809363a5857f4690525a93"
-SRC_URI[sha256sum] = "59cf3a0781f89992d1dae5205b07e802dff1db205eebd238de9e503b62b8cbc9"
+SRC_URI[md5sum] = "755151f9df2dd627df0eda06c624452a"
+SRC_URI[sha256sum] = "7222ce925536a25b2912364e13b03a3e21dbf2f96799ebff304f48509324de7b"
 
 S = "${WORKDIR}/ansible-${PV}"
 
