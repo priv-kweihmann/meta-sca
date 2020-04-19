@@ -1,4 +1,4 @@
-name: "[thud]-classic"
+name: "[dunfell]-classic"
 
 on:
   schedule:
@@ -10,7 +10,7 @@ jobs:
     env:
       DISTRO: scatest
       MACHINE: qemux86
-      SCABRANCH: thud
+      SCABRANCH: dunfell
       ENABLEMETAOE: 0
       ENABLEMETACLANG: 0
       PARAMFILE: standard_01

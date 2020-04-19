@@ -1,4 +1,4 @@
-name: "[thud]-meta-oe"
+name: "[dunfell]-scripts"
 
 on:
   schedule:
@@ -10,10 +10,10 @@ jobs:
     env:
       DISTRO: scatest
       MACHINE: qemux86
-      SCABRANCH: thud
-      ENABLEMETAOE: 1
+      SCABRANCH: dunfell
+      ENABLEMETAOE: 0
       ENABLEMETACLANG: 0
-      PARAMFILE: metaoe
+      PARAMFILE: standard_02
       MAXRUNTIME: 12900s
       PYTHONIOENCODING: utf8
       LC_ALL: en_US.UTF-8

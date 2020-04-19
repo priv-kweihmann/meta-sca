@@ -1,4 +1,4 @@
-name: "[thud]-system"
+name: "[dunfell]-meta-oe"
 
 on:
   schedule:
@@ -10,10 +10,10 @@ jobs:
     env:
       DISTRO: scatest
       MACHINE: qemux86
-      SCABRANCH: thud
-      ENABLEMETAOE: 0
+      SCABRANCH: dunfell
+      ENABLEMETAOE: 1
       ENABLEMETACLANG: 0
-      PARAMFILE: standard_03
+      PARAMFILE: metaoe
       MAXRUNTIME: 12900s
       PYTHONIOENCODING: utf8
       LC_ALL: en_US.UTF-8
@@ -163,4 +163,3 @@ jobs:
           eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
           ${WORKSPACE}/meta-sca/test/check_results $SCA_EXPORT_DIR $(cat ${WORKSPACE}/meta-sca/test/lang_$PARAMFILE.txt | tr '\n' ' ') 2>&1 || true
         shell: bash
-    
