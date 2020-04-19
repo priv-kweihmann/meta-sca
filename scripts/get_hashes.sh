@@ -4,7 +4,7 @@ for number in $@; do
     x=$(git log --oneline --grep "Closes #${number}" --grep "Relates to #${number}" --pretty=format:"%h" --reverse)
     res="${res}\n${x}"
 done
-_BRANCHES="master zeus warrior thud"
+_BRANCHES="master dunfell zeus warrior"
 if [ ! -z "${BRANCHES}" ]; then
     _BRANCHES=${BRANCHES}
 fi
