@@ -3,16 +3,13 @@
 ![https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CLua%2CPHP%2CPython%2CShell%2Cjs%2Cperl%2Cruby-informational](https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CLua%2CPHP%2CPython%2CShell%2Cjs%2Cperl%2Cruby-informational)
 
 [![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=thud)](https://travis-ci.org/priv-kweihmann/meta-sca)
-[![Nightly classic](https://github.com/priv-kweihmann/meta-sca/workflows/[thud]-classic/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
-[![Nightly scripts](https://github.com/priv-kweihmann/meta-sca/workflows/[thud]-scripts/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
-[![Nightly system](https://github.com/priv-kweihmann/meta-sca/workflows/[thud]-system/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
-[![Nightly clang](https://github.com/priv-kweihmann/meta-sca/workflows/[thud]-meta-clang/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
-[![Nightly meta-oe](https://github.com/priv-kweihmann/meta-sca/workflows/[thud]-meta-oe/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
+[![thud-classic](https://github.com/priv-kweihmann/meta-sca/workflows/[thud]-classic/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
 
 For the list of current findings from pipelines see [meta-sca report](https://priv-kweihmann.github.io/)
 
 ## Table of content <!-- omit in toc -->
 
+- [Notice](#notice)
 - [Purpose](#purpose)
 - [Getting started](#getting-started)
 - [Installation](#installation)
@@ -35,6 +32,16 @@ For the list of current findings from pipelines see [meta-sca report](https://pr
 - [Contributing](#contributing)
   - [Get involved](#get-involved)
   - [Security Policy](#security-policy)
+
+## Notice
+
+This is the release branch for YOCTO `thud`.
+
+As this layer ran out of support by YOCTO, don't expect regular updates here as well.
+
+Basically there will be package updates from time to time, but without a fixed release cycle.
+
+You can also contribute package updates by pull request.
 
 ## Purpose
 
