@@ -135,28 +135,6 @@ jobs:
           [ -n "${SSTATE_DIR}" ] && rm -rf ${SSTATE_DIR} 2>&1
           find ${TMPDIR} -type d -maxdepth 1 -mindepth 1 -not -name "deploy" -exec rm -rf {} \; 2>&1
         shell: bash
-      - name: get latest webdeloy
-        run: |
-          cd ${WORKSPACE}
-          timeout --foreground --kill-after=60s 300s git clone https://github.com/${WEB_REPOSITORY}.git ${WORKSPACE}/website 2>&1 || exit 0;
-        shell: bash
-      - name: export findings
-        run: |
-          cd ${WORKSPACE}
-          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
-          eval $(bitbake busybox -e | grep "^SCA_EXPORT_FINDING_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
-          cd ${WORKSPACE}/website
-          ./tools/report ${SCA_EXPORT_DIR} ${SCA_EXPORT_FINDING_DIR} data/${SCABRANCH}/${PARAMFILE}.json 2>&1
-          ./tools/jsonmerge data/${SCABRANCH}/result.json data/${SCABRANCH}/*.json 2>&1
-          git add . 2>&1
-          git config --local user.email "web@deploy.bot" 2>&1
-          git config --local user.name "Webdeploy bot" 2>&1
-          git remote rm origin 2>&1
-          git remote add origin https://priv-kweihmann:${{ secrets.WEBDEPLOY }}@github.com/${WEB_REPOSITORY}.git 2>&1
-          git diff --quiet && git diff --staged --quiet 2>&1 || (git commit --amend -m "Update findings"; git push origin master --force) 2>&1 || true
-          rm -rf ${WORKSPACE}/website 2>&1
-        shell: bash
       - name: test results
         run: |
           cd ${WORKSPACE}
