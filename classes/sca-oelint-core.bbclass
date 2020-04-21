@@ -29,7 +29,7 @@ def do_sca_conv_oelint(d, _files):
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     items = []
-    pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<severity>(warning|error|info)):(?P<id>[a-z\.]*):(?P<message>.*)$"
+    pattern = r"^(?P<file>.*?):(?P<line>\d+):(?P<severity>(warning|error|info)):(?P<id>.*?):(?P<message>.*)$"
 
     severity_map = {
         "error" : "error",
