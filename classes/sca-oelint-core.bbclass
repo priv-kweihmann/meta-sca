@@ -11,6 +11,7 @@ SCA_OELINT_EXTRA_PROTECTED_APPEND_VARS ?= ""
 SCA_OELINT_EXTRA_SUGGESTED_VARS ?= ""
 # Note: format is mirror:replacement without any ${} framing
 SCA_OELINT_EXTRA_KNOWN_MIRRORS ?= ""
+SCA_OELINT_CUSTOM_RULES ?= "${STAGING_DATADIR_NATIVE}/oelint-rules"
 
 DEPENDS += "python3-oelint-adv-native"
 
@@ -110,6 +111,8 @@ python do_sca_oelint_core() {
         _args += ["--suppress=oelint.var.mandatoryvar"]
         _args += ["--suppress=oelint.var.suggestedvar"]
         _args += ["--suppress=oelint.var.bbclassextend"]
+    for x in clean_split(d, "SCA_OELINT_CUSTOM_RULES"):
+        _args += ["--customrules={}".format(x)]
     _files = [x.strip() for x in d.getVar("BBINCLUDED").split(" ") if x.strip().endswith(".bb") or x.strip().endswith(".bbappend")]
 
     with open(d.getVar("SCA_RAW_RESULT_FILE"), "w") as o:
