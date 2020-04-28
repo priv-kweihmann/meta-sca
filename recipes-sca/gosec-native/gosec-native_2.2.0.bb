@@ -23,7 +23,8 @@ DEPENDS += "\
            "
 
 SRC_URI = "file://gosec.sca.description \
-           git://${GO_IMPORT};protocol=https;tag=v${PV}"
+           git://${GO_IMPORT};protocol=https"
+SRCREV = "17df5b3702448a88cab19e4452cdaf7bdb6e6d8e"
 
 GO_IMPORT = "github.com/securego/gosec"
 

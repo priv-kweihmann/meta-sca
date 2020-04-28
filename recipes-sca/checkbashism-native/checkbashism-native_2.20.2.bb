@@ -5,10 +5,11 @@ HOMEPAGE = "https://salsa.debian.org/debian/devscripts"
 LICENSE = "GPLv2.0"
 LIC_FILES_CHKSUM = "file://COPYING;md5=faa39cbd7a7cded9a1436248295de3c2"
 
-DEPENDS = "perl-native"
+DEPENDS += "perl-native"
 
-SRC_URI = "git://salsa.debian.org/debian/devscripts.git;protocol=https;tag=v${PV} \
+SRC_URI = "git://salsa.debian.org/debian/devscripts.git;protocol=https \
            file://checkbashism.sca.description"
+SRCREV = "5f478aad4d41190c79b493e8ed5983cd1418152c"
 
 S = "${WORKDIR}/git"
 

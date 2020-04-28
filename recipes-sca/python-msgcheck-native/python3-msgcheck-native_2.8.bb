@@ -6,9 +6,9 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d32239bcb673463ab874e80d47fae504"
 
 DEPENDS += "${PYTHON_PN}-pyenchant-native"
 
-SRC_URI = "git://github.com/codingjoe/msgcheck.git;protocol=https;tag=${PV} \
+SRC_URI = "git://github.com/codingjoe/msgcheck.git;protocol=https \
            file://msgcheck.sca.description"
-
+SRCREV = "1c8809e4babf387256bc74e9d25fa634561ddd1e"
 S = "${WORKDIR}/git"
 
 inherit native
