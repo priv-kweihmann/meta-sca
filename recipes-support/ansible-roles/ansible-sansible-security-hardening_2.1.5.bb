@@ -4,9 +4,9 @@ HOMEPAGE = "https://github.com/sansible/security_hardening"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=6072eb3ddfc3ff6ddfeb4502d7976794"
 
-SRC_URI = "git://github.com/sansible/security_hardening.git;protocol=https;tag=v${PV} \
+SRC_URI = "git://github.com/sansible/security_hardening.git;protocol=https \
            file://${ROLE_NAME}.json"
-
+SRCREV = "4f3c56609181c575603f25b18f29e7375bbd6f7c"
 S = "${WORKDIR}/git"
 
 ROLE_NAME = "sansible.security_hardening"

@@ -12,9 +12,9 @@ DEPENDS += "\
             python3-urllib3-native \
             "
 
-SRC_URI = "git://github.com/priv-kweihmann/oelint-adv.git;protocol=https;branch=master;tag=${PV} \
+SRC_URI = "git://github.com/priv-kweihmann/oelint-adv.git;protocol=https;branch=master \
            file://oelint.sca.description"
-
+SRCREV = "c5a9732d583840da9afdf221ece111c8c961b0f2"
 S = "${WORKDIR}/git"
 
 inherit native

@@ -10,9 +10,9 @@ DEPENDS += "\
             ${PYTHON_PN}-pyelftools-native \
             "
 
-SRC_URI = "git://github.com/priv-kweihmann/pysymbolcheck.git;protocol=https;branch=master;tag=${PV} \
+SRC_URI = "git://github.com/priv-kweihmann/pysymbolcheck.git;protocol=https;branch=master \
            file://pysymcheck.sca.description"
-
+SRCREV = "946210df0edabc91ff5bdbed1ecb759e9d565b20"
 S = "${WORKDIR}/git"
 
 inherit native

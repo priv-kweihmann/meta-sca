@@ -1,18 +1,19 @@
 SUMMARY = "A fully pluggable tool for identifying and reporting on patterns in JavaScript"
+HOMEPAGE = "https://github.com/eslint/eslint"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=04d32f89e7aa1677f8a860eb0b6adb83"
 
 DEPENDS += "nodejs-native"
 
-SRC_URI = "git://github.com/eslint/eslint.git;protocol=https;tag=v${PV} \
+SRC_URI = "git://github.com/eslint/eslint.git;protocol=https \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
            file://configs/eslint-airbnb.json \
            file://configs/eslint-google.json \
            file://configs/eslint-plain.json \
            file://configs/eslint-standard.json \
            file://eslint.sca.description"
-
+SRCREV = "9738f8cc864d769988ccf42bb70f524444df1349"
 S = "${WORKDIR}/git"
 
 inherit native

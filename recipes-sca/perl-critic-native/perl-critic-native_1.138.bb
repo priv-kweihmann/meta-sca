@@ -1,4 +1,5 @@
 SUMMARY = "The leading static analyzer for Perl. Configurable, extensible, powerful"
+HOMEPAGE = "https://github.com/Perl-Critic/Perl-Critic"
 
 LICENSE = "GPL-1.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7aeaba565e72805da904a73fdc467406"
@@ -32,9 +33,9 @@ DEPENDS += "\
             perl-text-parsewords-native \
             "
 
-SRC_URI = "git://github.com/Perl-Critic/Perl-Critic.git;protocol=https;tag=v${PV} \
+SRC_URI = "git://github.com/Perl-Critic/Perl-Critic.git;protocol=https \
            file://perlcritic.sca.description"
-
+SRCREV = "47c8115b82f47bd27cba1af2f200694e69a1ef14"
 S = "${WORKDIR}/git"
 
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>1\.\d{3})"
