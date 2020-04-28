@@ -10,7 +10,8 @@ DEPENDS += "\
             ${PYTHON_PN}-six-native \
             "
 
-SRC_URI += "git://github.com/JBKahn/flake8-print.git;protocol=https;tag=${PV}"
+SRC_URI += "git://github.com/JBKahn/flake8-print.git;protocol=https"
+SRCREV = "f8ebe0dce3ce3ea097a58690a5a6a88afef99307"
 
 S = "${WORKDIR}/git"
 

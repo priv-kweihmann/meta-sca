@@ -4,9 +4,9 @@ HOMEPAGE = "https://github.com/phpstan/phpstan"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=bd7d90c38753ff54df51817ac7d4e5ff"
 
-SRC_URI = "git://github.com/phpstan/phpstan.git;protocol=https;nobranch=1;tag=${PV} \
+SRC_URI = "git://github.com/phpstan/phpstan.git;protocol=https \
            file://phpstan.sca.description"
-
+SRCREV = "1ce27fe29c8660a27926127d350d53d80c4d4286"
 PHPCOMPOSER_PKGS_NAME = "phpstan/phpstan:${PV}"
 
 S = "${WORKDIR}/git"

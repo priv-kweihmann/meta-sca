@@ -5,9 +5,9 @@ HOMEPAGE = "https://github.com/phpmd/phpmd"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=102189a3104d17e4cdd01198fef36372"
 
-SRC_URI = "git://github.com/phpmd/phpmd.git;protocol=https;nobranch=1;tag=${PV} \
+SRC_URI = "git://github.com/phpmd/phpmd.git;protocol=https \
            file://phpmd.sca.description"
-
+SRCREV = "714629ed782537f638fe23c4346637659b779a77"
 PHPCOMPOSER_PKGS_NAME = "phpmd/phpmd:${PV}"
 
 S = "${WORKDIR}/git"

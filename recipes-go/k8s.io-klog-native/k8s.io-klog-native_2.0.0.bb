@@ -9,7 +9,8 @@ DEPENDS += "\
             github.com-golang-glog-native \
            "
 
-SRC_URI = "git://github.com/kubernetes/klog.git;protocol=https;tag=v${PV}"
+SRC_URI = "git://github.com/kubernetes/klog.git;protocol=https"
+SRCREV = "4cae117fdf5d65aeb3f638b8d8c87cd1cf8c8d41"
 
 S = "${WORKDIR}/git"
 

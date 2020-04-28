@@ -6,11 +6,11 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=f3452a94937d21f84bc38880f636e3ba"
 
 DEPENDS += "nodejs-native"
 
-SRC_URI = "git://github.com/textlint/textlint.git;protocol=https;nobranch=1;tag=textlint@${PV} \
+SRC_URI = "git://github.com/textlint/textlint.git;protocol=https \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
            file://textlint.sca.description"
-
-UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d{2}\.\d+\.\d+)"
+SRCREV = "07ab1c204508da3f9b26f1299bcbdb48a52a58a9"
+UPSTREAM_CHECK_GITTAGREGEX = "textlint@(?P<pver>\d{2}\.\d+\.\d+)"
 
 S = "${WORKDIR}/git"
 

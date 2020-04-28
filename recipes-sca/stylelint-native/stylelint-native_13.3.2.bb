@@ -6,10 +6,10 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=0e0ecf49fffcf64b1f3fa0a956ea44a0"
 
 DEPENDS += "nodejs-native"
 
-SRC_URI = "git://github.com/stylelint/stylelint.git;protocol=https;tag=${PV} \
+SRC_URI = "git://github.com/stylelint/stylelint.git;protocol=https \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
            file://stylelint.sca.description"
-
+SRCREV = "515a845935061bc1771aac5f6956406464a3793d"
 S = "${WORKDIR}/git"
 
 inherit npm-helper

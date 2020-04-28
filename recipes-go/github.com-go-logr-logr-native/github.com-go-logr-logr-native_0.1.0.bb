@@ -4,7 +4,8 @@ HOMEPAGE = "https://github.com/go-logr/logr"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e"
 
-SRC_URI = "git://${GO_IMPORT};protocol=https;tag=v${PV}"
+SRC_URI = "git://${GO_IMPORT};protocol=https"
+SRCREV = "9fb12b3b21c5415d16ac18dc5cd42c1cfdd40c4e"
 
 GO_IMPORT = "github.com/go-logr/logr"
 

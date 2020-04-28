@@ -18,9 +18,11 @@ PROVIDES += "github.com-stretchr-testify-native"
 PROVIDES += "github.com-stretchr-objx-native"
 
 SRC_URI = "\
-           git://github.com/stretchr/testify.git;protocol=https;tag=v${PV};name=testify;destsuffix=git/src/github.com/stretchr/testify \
-           git://github.com/stretchr/objx.git;protocol=https;tag=v0.1.0;name=objx;destsuffix=git/src/github.com/stretchr/objx \
+           git://github.com/stretchr/testify.git;protocol=https;name=testify;destsuffix=git/src/github.com/stretchr/testify \
+           git://github.com/stretchr/objx.git;protocol=https;name=objx;destsuffix=git/src/github.com/stretchr/objx \
           "
+SRCREV_testify = "3ebf1ddaeb260c4b1ae502a01c7844fa8c1fa0e9"
+SRCREV_objx = "ea4fe68685ee0d3cee7032121851b57e7494e8ea"
 
 S = "${WORKDIR}/git"
 

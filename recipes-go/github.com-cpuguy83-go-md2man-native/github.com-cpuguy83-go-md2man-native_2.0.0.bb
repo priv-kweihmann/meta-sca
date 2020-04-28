@@ -8,7 +8,8 @@ DEPENDS += "\
             github.com-russross-blackfriday-native \
            "
 
-SRC_URI = "git://${GO_IMPORT};protocol=https;tag=v${PV}"
+SRC_URI = "git://${GO_IMPORT};protocol=https"
+SRCREV = "f79a8a8ca69da163eee19ab442bedad7a35bba5a"
 GO_IMPORT = "github.com/cpuguy83/go-md2man"
 
 inherit go
