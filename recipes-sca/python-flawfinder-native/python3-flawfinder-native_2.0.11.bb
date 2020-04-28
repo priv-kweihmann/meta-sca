@@ -6,9 +6,9 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=0636e73ff0215e8d672dc4c32c317bb3"
 
 DEPENDS += "${PYTHON_PN}-native"
 
-SRC_URI += "git://github.com/david-a-wheeler/flawfinder.git;protocol=https;tag=${PV} \
+SRC_URI += "git://github.com/david-a-wheeler/flawfinder.git;protocol=https \
             file://flawfinder.sca.description"
-
+SRCREV = "6d3a04cfeffed66401ec41e6f7be3b88f47c238c"
 S = "${WORKDIR}/git"
 
 inherit native

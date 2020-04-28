@@ -10,9 +10,9 @@ DEPENDS += "\
             ${PYTHON_PN}-requests-native \
            "
 
-SRC_URI = "git://github.com/Yelp/detect-secrets.git;protocol=https;tag=v${PV}"
+SRC_URI = "git://github.com/Yelp/detect-secrets.git;protocol=https"
 SRC_URI += "file://detectsecrets.sca.description"
-
+SRCREV = "a3e7998bfa4924b13df3f9cb49070abdbdff8802"
 S = "${WORKDIR}/git"
 
 inherit native

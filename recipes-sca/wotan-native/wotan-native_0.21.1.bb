@@ -6,10 +6,10 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 
 DEPENDS += "nodejs-native"
 
-SRC_URI = "git://github.com/fimbullinter/wotan.git;protocol=https;tag=v${PV} \
+SRC_URI = "git://github.com/fimbullinter/wotan.git;protocol=https \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
            file://wotan.sca.description"
-
+SRCREV = "0364756447c0df1064c1ee4b08d843c4f806782e"
 S = "${WORKDIR}/git"
 
 inherit npm-helper

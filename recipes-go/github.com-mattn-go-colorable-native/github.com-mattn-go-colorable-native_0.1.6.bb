@@ -6,7 +6,8 @@ LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE;md5=24ce168f90aec2456a73de18
 
 DEPENDS += "github.com-mattn-go-isatty-native"
 
-SRC_URI = "git://${GO_IMPORT};protocol=https;tag=v${PV}"
+SRC_URI = "git://${GO_IMPORT};protocol=https"
+SRCREV = "68e95eba382c972aafde02ead2cd2426a8a92480"
 GO_IMPORT = "github.com/mattn/go-colorable"
 
 inherit go

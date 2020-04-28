@@ -9,7 +9,8 @@ DEPENDS += "\
             gopkg.in-check.v1-native \
            "
 
-SRC_URI = "git://${GO_IMPORT};protocol=https;tag=v${PV}"
+SRC_URI = "git://${GO_IMPORT};protocol=https"
+SRCREV = "5fbeeeef05b0f65852efca277c23d75538835f57"
 GO_IMPORT = "github.com/tealeg/xlsx"
 
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+\.\d+)"

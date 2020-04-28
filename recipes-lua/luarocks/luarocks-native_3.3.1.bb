@@ -11,7 +11,8 @@ DEPENDS += "\
             unzip-native \
             "
 
-SRC_URI = "git://github.com/luarocks/luarocks;protocol=https;tag=v${PV}"
+SRC_URI = "git://github.com/luarocks/luarocks;protocol=https"
+SRCREV = "e28df4a24f9a3b5c0019117a878d515801df4733"
 
 S = "${WORKDIR}/git"
 

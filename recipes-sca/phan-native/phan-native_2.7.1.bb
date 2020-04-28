@@ -6,9 +6,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=fbdcd3d0ec03d3c2e54b19846ad2b027"
 
 DEPENDS += "php-ast-native"
 
-SRC_URI = "git://github.com/phan/phan.git;protocol=https;tag=${PV} \
+SRC_URI = "git://github.com/phan/phan.git;protocol=https \
            file://phan.sca.description"
-
+SRCREV = "67c51bb1593e5c30271fc16d691b82e318b90b77"
 PHP_EXTENSION += "ast"
 PHPCOMPOSER_PKGS_NAME = "phan/phan:${PV}"
 
