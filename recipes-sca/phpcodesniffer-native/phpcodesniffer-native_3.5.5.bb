@@ -5,9 +5,9 @@ HOMEPAGE = "https://github.com/squizlabs/PHP_CodeSniffer"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://licence.txt;md5=562f463f305c4d32b4fad9a4b03ad678"
 
-SRC_URI = "git://github.com/squizlabs/PHP_CodeSniffer.git;protocol=https;nobranch=1;tag=${PV} \
+SRC_URI = "git://github.com/squizlabs/PHP_CodeSniffer.git;protocol=https \
            file://phpcodesniffer.sca.description"
-
+SRCREV = "73e2e7f57d958e7228fce50dc0c61f58f017f9f6"
 PHPCOMPOSER_PKGS_NAME = "squizlabs/php_codesniffer=${PV}"
 
 S = "${WORKDIR}/git"

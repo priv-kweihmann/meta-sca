@@ -6,10 +6,10 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=a2a1e4d251b834bf3e0ceee69ab1d4c9"
 
 DEPENDS += "nodejs-native"
 
-SRC_URI = "git://github.com/microsoft/pyright.git;protocol=https;tag=${PV} \
+SRC_URI = "git://github.com/microsoft/pyright.git;protocol=https \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
            file://pyright.sca.description"
-
+SRCREV = "e85a7d62ad0133845d4c11e238c3a684b809fdc4"
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>1\.\d+\.\d+)"
 
 S = "${WORKDIR}/git"

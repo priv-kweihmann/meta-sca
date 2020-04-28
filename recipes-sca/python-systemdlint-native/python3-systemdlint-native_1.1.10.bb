@@ -9,9 +9,9 @@ DEPENDS += "\
             ${PYTHON_PN}-systemdunitparser-native \
            "
 
-SRC_URI = "git://github.com/priv-kweihmann/systemdlint.git;protocol=https;branch=master;tag=${PV} \
+SRC_URI = "git://github.com/priv-kweihmann/systemdlint.git;protocol=https;branch=master \
            file://systemdlint.sca.description"
-
+SRCREV = "ad4610c602a62eb90641be05e1436af9fe83d63c"
 S = "${WORKDIR}/git/systemdlint"
 
 inherit native

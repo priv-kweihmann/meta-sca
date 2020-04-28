@@ -6,9 +6,11 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b1befbdcbeb73a7fd9b944d31f0fee64"
 
 DEPENDS += "nodejs-native"
 
-SRC_URI = "git://github.com/streetsidesoftware/cspell.git;protocol=https;tag=v${PV} \
+SRC_URI = "git://github.com/streetsidesoftware/cspell.git;protocol=https \
            file://modules_${BPN}-${PV}.tar.gz;subdir=image/${libdir} \
            file://cspell.sca.description"
+
+SRCREV = "ab6d6f332b08f6d4f3151fa8dcbb2fd90c3cd6c5"
 
 UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>3\.\d+\.\d+)"
 

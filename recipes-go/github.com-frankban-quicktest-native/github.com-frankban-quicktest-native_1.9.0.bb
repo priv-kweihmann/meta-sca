@@ -9,7 +9,8 @@ DEPENDS += "\
             github.com-kr-pretty-native \
            "
 
-SRC_URI = "git://${GO_IMPORT};protocol=https;tag=v${PV}"
+SRC_URI = "git://${GO_IMPORT};protocol=https"
+SRCREV = "9eff64de74e6bca72d6caa9b653d908d9c1b10c5"
 GO_IMPORT = "github.com/frankban/quicktest"
 
 inherit go

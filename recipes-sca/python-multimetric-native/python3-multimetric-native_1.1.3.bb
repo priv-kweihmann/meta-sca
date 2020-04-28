@@ -11,9 +11,9 @@ DEPENDS += "\
 
 SRC_URI += "\
             file://multimetric.sca.description \
-            git://github.com/priv-kweihmann/multimetric.git;protocol=https;branch=master;tag=${PV} \
+            git://github.com/priv-kweihmann/multimetric.git;protocol=https;branch=master \
            "
-
+SRCREV = "0485e2ab445b35ae7d42c361932a46fa6231f686"
 S = "${WORKDIR}/git"
 
 inherit native
