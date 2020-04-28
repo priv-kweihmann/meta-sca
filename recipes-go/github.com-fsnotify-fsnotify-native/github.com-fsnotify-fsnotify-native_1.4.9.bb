@@ -6,7 +6,8 @@ LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE;md5=68f2948d3c4943313d07e084
 
 DEPENDS += "golang.org-x-sys-native"
 
-SRC_URI = "git://${GO_IMPORT};protocol=https;tag=v${PV}"
+SRC_URI = "git://${GO_IMPORT};protocol=https"
+SRCREV = "45d7d09e39ef4ac08d493309fa031790c15bfe8a"
 GO_IMPORT = "github.com/fsnotify/fsnotify"
 
 inherit go

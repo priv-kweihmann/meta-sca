@@ -10,9 +10,9 @@ DEPENDS += "\
             ${PYTHON_PN}-native \
            "
 
-SRC_URI = "git://github.com/JonathanSalwan/ROPgadget.git;protocol=https;tag=v${PV} \
+SRC_URI = "git://github.com/JonathanSalwan/ROPgadget.git;protocol=https \
            file://ropgadget.sca.description"
-
+SRCREV = "c29c50773ec7fb3df56396ce27fb71c3898c53ae"
 S = "${WORKDIR}/git"
 
 inherit native

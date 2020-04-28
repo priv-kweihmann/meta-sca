@@ -6,10 +6,10 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=4e19041df56fbb7a49fb87c4322d5849"
 
 DEPENDS += "nodejs-native"
 
-SRC_URI = "git://github.com/jshint/jshint.git;protocol=https;tag=${PV} \
+SRC_URI = "git://github.com/jshint/jshint.git;protocol=https \
            file://modules_${BPN}-${PV}.tar.gz;subdir=git \
            file://jshint.sca.description"
-
+SRCREV = "b7dd7d8f93244abb874fdb616c7a5725209e36b0"
 S = "${WORKDIR}/git"
 
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+\.\d+)"

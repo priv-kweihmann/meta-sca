@@ -1,5 +1,5 @@
 SUMMARY = "Static code analyzer for C/C++"
-HOMEPAGE = "http://cppcheck.sourceforge.net/"
+HOMEPAGE = "https://github.com/danmar/cppcheck"
 BUGTRACKER = "https://trac.cppcheck.net/"
 
 LICENSE = "GPLv3"
@@ -7,9 +7,10 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 DEPENDS += "libpcre-native"
 
-SRC_URI = "git://github.com/danmar/cppcheck.git;protocol=https;tag=${PV} \
+SRC_URI = "git://github.com/danmar/cppcheck.git;protocol=https \
            file://0001-Makefile-fixes.patch \
            file://cppcheck.sca.description"
+SRCREV = "077e652de43ad962be0454d7be347816f7482739"
 
 S = "${WORKDIR}/git"
 
