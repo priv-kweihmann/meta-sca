@@ -12,9 +12,10 @@ DEPENDS += "\
             sqlite3-native \
             "
 
-SRC_URI = "git://github.com/NASA-SW-VnV/ikos.git;protocol=https;tag=v${PV} \
+SRC_URI = "git://github.com/NASA-SW-VnV/ikos.git;protocol=https \
            file://96c43af80b7d4d86463ab1cdbd69999d0f761f7e.patch \
            file://ikos.sca.description"
+SRCREV = "cd4b363366180fced9128ece0c03b4215d4f155a"
 
 S = "${WORKDIR}/git"
 
