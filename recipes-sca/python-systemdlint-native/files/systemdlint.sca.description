@@ -29,7 +29,8 @@
         ],
         "security": [
             "systemdlint.systemdlint.FullPrivileges",
-            "systemdlint.systemdlint.WrongFileMask"
+            "systemdlint.systemdlint.WrongFileMask",
+            "systemdlint.systemdlint.Security.*"
         ],
         "style": [
             "systemdlint.systemdlint..*"
