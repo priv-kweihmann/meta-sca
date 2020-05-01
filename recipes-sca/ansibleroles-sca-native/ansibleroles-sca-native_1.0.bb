@@ -6,6 +6,7 @@ LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=a4a2bbea1db029f21b3a328c7
 SRC_URI = "file://ansibleroles.sca.description"
 
 inherit sca-sanity
+inherit sca-description
 inherit native
 
 B = "${WORKDIR}"

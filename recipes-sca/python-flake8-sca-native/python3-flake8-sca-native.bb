@@ -26,6 +26,7 @@ SRC_URI += "file://flake8.sca.description"
 
 inherit native
 inherit sca-sanity
+inherit sca-description
 inherit python3-dir
 
 do_configure[noexec] = "1"

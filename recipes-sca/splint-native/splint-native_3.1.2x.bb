@@ -20,6 +20,7 @@ S = "${WORKDIR}/git"
 inherit autotools
 inherit native
 inherit sca-sanity
+inherit sca-description
 
 do_install_append() {
     install -d ${D}${datadir}

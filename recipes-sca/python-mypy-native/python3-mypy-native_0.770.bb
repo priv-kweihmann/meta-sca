@@ -18,6 +18,7 @@ PYPI_PACKAGE = "mypy"
 
 inherit pypi
 inherit sca-sanity
+inherit sca-description
 inherit setuptools3
 inherit native
 

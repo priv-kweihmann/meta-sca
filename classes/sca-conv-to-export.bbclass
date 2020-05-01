@@ -10,7 +10,7 @@ def sca_allowed_warning_level(d):
         opts = opts[1:]
     return opts
 
-def sca_conv_to_export(d):
+def sca_conv_to_export(d, tool):
     import bb
     from bb.parse.parse_py import BBHandler
     try:
@@ -18,9 +18,9 @@ def sca_conv_to_export(d):
         BBHandler.inherit("sca-conv-dm-{}".format(item), "sca-export", 1, d)
         func = "sca_conv_dm_{}".format(item)
         if func in locals().keys():
-            return locals()[func](d)
+            return locals()[func](d, tool)
         elif func in globals().keys():
-            return globals()[func](d)
+            return globals()[func](d, tool)
         else:
             raise NotImplementedError()
     except bb.parse.ParseError as e:
