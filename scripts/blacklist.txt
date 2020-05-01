@@ -1,3 +1,6 @@
+ansible-role-merger-native
+ansible-sca-native
+ansibleroles-sca-native
 bad-ansible
 bad-bitbake
 bad-css
@@ -7,6 +10,7 @@ bad-javascript
 bad-json
 bad-lua
 bad-nginx
+bad-package
 bad-perl
 bad-php
 bad-python-reqs
@@ -15,8 +19,18 @@ bad-spelling
 bad-systemd
 bad-xml
 bad-yaml
+bitbake-sca-native
+clang-sca-native
+configcheck-sca-native
 core-image-minimal-scatest
 cspell
+cspell-user-dict-native
+cvecheck-sca-native
+gcc-sca-native
+npmaudit-sca-native
+packagegroup-ansible-roles
+packagegroup-sca-test
+pkgqaenc-native
 rubycritic-test
 sca-image-ansible-rules-native
 sca-image-ansiblelint-rules-native
@@ -59,8 +73,10 @@ sca-recipe-ansiblelint-rules-native
 sca-recipe-bandit-rules-native
 sca-recipe-bashate-rules-native
 sca-recipe-cbmc-rules
+sca-recipe-cbmc-rules-native
 sca-recipe-checkbashism-rules-native
 sca-recipe-clang-rules
+sca-recipe-clang-rules-native
 sca-recipe-cppcheck-rules-native
 sca-recipe-cpplint-rules-native
 sca-recipe-cspell-rules-native
@@ -80,6 +96,7 @@ sca-recipe-ikos-rules-native
 sca-recipe-jshint-rules-native
 sca-recipe-jsonlint-rules-native
 sca-recipe-kconfighard-rules-native
+sca-recipe-licensecheck-rules-native
 sca-recipe-looong-rules-native
 sca-recipe-luacheck-rules-native
 sca-recipe-msgcheck-rules-native
@@ -95,6 +112,7 @@ sca-recipe-phpcodesniffer-rules-native
 sca-recipe-phpmd-rules-native
 sca-recipe-phpsecaudit-rules-native
 sca-recipe-phpstan-rules-native
+sca-recipe-pkgqaenc-rules-native
 sca-recipe-progpilot-rules-native
 sca-recipe-proselint-rules-native
 sca-recipe-pscan-rules-native
@@ -107,6 +125,7 @@ sca-recipe-rats-rules-native
 sca-recipe-reek-rules-native
 sca-recipe-retire-rules-native
 sca-recipe-revive-rules-native
+sca-recipe-rubycritic-rules-native
 sca-recipe-safety-rules-native
 sca-recipe-setuptoolslint-rules-native
 sca-recipe-shellcheck-rules-native
@@ -124,3 +143,4 @@ sca-recipe-xmllint-rules-native
 sca-recipe-yamllint-rules-native
 sca-recipe-zrd-rules-native
 simple-c
+tracefiles
