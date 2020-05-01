@@ -63,7 +63,7 @@ def do_sca_conv_phpcodesniffer(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
-python do_sca_phpcodesniffer() {
+python do_sca_phpcodesniffer_report() {
     import os
     import subprocess
     d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_PHPCODESNIFFER_EXTRA_SUPPRESS"))
