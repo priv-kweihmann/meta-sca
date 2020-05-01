@@ -43,6 +43,7 @@ UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>1\.\d{3})"
 inherit native
 inherit cpan_build
 inherit sca-sanity
+inherit sca-description
 
 do_compile () {
     perl Build verbose=1

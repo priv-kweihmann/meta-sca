@@ -16,6 +16,7 @@ UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+\.\d+)"
 
 inherit native
 inherit sca-sanity
+inherit sca-description
 inherit npm-helper
 
 do_compile() {

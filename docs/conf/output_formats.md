@@ -7,6 +7,7 @@ Currently supported are
 * console
 * diff
 * codeclimate
+* sarif
 
 ## Checkstyle format
 
@@ -80,3 +81,8 @@ So this mode might be useful when actively working on recipes and sources
 
 This export format is compatible to CodeClimate exports and can be used in several editions of Gitlab.
 The complete format is described [here](https://github.com/fulldecent/structured-acceptance-test/blob/master/Stat-Output.md)
+
+## sarif format
+
+This export format is compatible to [SARIF](https://sarifweb.azurewebsites.net/#Specification).
+It is a JSON file based on the this [json schema](https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json)

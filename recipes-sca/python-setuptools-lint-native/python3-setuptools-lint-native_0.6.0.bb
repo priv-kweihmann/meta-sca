@@ -14,6 +14,7 @@ PYPI_PACKAGE = "setuptools-lint"
 
 inherit pypi
 inherit sca-sanity
+inherit sca-description
 inherit native
 inherit setuptools3
 

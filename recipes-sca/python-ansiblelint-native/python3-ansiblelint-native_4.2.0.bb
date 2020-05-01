@@ -34,6 +34,7 @@ do_unpack[depends] += "unzip-native:do_populate_sysroot"
 
 inherit python3native
 inherit sca-sanity
+inherit sca-description
 inherit native
 
 do_install() {

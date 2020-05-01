@@ -3,13 +3,11 @@
 
 inherit sca-datamodel
 
-def sca_conv_dm_codeclimate(d):
+def sca_conv_dm_codeclimate(d, tool):
     import json
     import os
     import stat
     import shutil
-
-    res = []
 
     _items = sca_get_datamodel(d, d.getVar("SCA_DATAMODEL_STORAGE"))
 
@@ -60,7 +58,7 @@ def sca_conv_dm_codeclimate(d):
         elif i.Scope in ["style"]:
             _sub["categories"] = "Style"
         else:
-            # Don't really what to use here, so lets use Clarity
+            # Don't really know what to use here, so lets use Clarity
             _sub["categories"] = "Clarity"
         res["findings"].append(_sub)
 

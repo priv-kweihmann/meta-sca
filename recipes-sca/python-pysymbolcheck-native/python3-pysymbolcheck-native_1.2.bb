@@ -17,6 +17,7 @@ S = "${WORKDIR}/git"
 
 inherit native
 inherit sca-sanity
+inherit sca-description
 inherit python3-dir
 
 do_configure[noexec] = "1"
