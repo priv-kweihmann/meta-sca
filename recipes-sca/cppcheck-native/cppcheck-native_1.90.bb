@@ -17,6 +17,7 @@ S = "${WORKDIR}/git"
 inherit native
 inherit pkgconfig
 inherit sca-sanity
+inherit sca-description
 
 ## we don't need debug packages
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"

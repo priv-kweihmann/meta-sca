@@ -16,6 +16,7 @@ UPSTREAM_CHECK_COMMITS = "1"
 
 inherit native
 inherit sca-sanity
+inherit sca-description
 inherit python3-dir
 
 S = "${WORKDIR}/git"

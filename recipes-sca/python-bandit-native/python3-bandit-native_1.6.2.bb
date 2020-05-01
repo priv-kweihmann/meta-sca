@@ -22,6 +22,7 @@ PYPI_PACKAGE = "bandit"
 inherit native
 inherit pypi
 inherit sca-sanity
+inherit sca-description
 inherit setuptools3
 
 do_install_append() {
