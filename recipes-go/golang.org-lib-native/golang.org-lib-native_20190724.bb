@@ -57,3 +57,8 @@ GO_IMPORT = "golang.org/x"
 
 inherit go
 inherit native
+
+do_install_append() {
+    # Remove /usr/bin/bundle as it otherwise collides with ruby
+    rm -rf ${D}${bindir}/bundle
+}
