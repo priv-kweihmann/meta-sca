@@ -20,6 +20,7 @@ S = "${WORKDIR}/src"
 
 inherit native
 inherit sca-sanity
+inherit sca-description
 
 do_configure[noexec] = "1"
 

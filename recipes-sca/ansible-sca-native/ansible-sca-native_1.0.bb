@@ -17,6 +17,7 @@ SRC_URI = "file://ansible.sca.description \
 
 inherit native
 inherit sca-sanity
+inherit sca-description
 
 B = "${WORKDIR}"
 

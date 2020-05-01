@@ -25,6 +25,7 @@ PYPI_PACKAGE = "pytype"
 inherit native
 inherit pypi
 inherit sca-sanity
+inherit sca-description
 inherit setuptools3
 
 do_configure_prepend() {

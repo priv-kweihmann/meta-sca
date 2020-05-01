@@ -12,6 +12,7 @@ S = "${WORKDIR}/git"
 
 inherit native
 inherit sca-sanity
+inherit sca-description
 inherit setuptools3
 
 do_install_append() {

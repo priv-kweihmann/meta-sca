@@ -18,6 +18,7 @@ PYPI_PACKAGE = "bashate"
 
 inherit pypi
 inherit sca-sanity
+inherit sca-description
 inherit setuptools3
 inherit native
 

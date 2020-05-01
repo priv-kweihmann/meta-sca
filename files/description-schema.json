@@ -7,10 +7,16 @@
       "minimum": 0,
       "type": "integer"
     },
+    "description": {
+      "type": "string"
+    },
     "execspeed": {
       "maximum": 10,
       "minimum": 0,
       "type": "integer"
+    },
+    "homepage": {
+      "type": "string"
     },
     "languages": {
       "items": {
@@ -41,6 +47,12 @@
     "score": {
       "additionalProperties": false,
       "properties": {
+        "compliance": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "functional": {
           "items": {
             "type": "string"
@@ -48,12 +60,6 @@
           "type": "array"
         },
         "security": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "compliance": {
           "items": {
             "type": "string"
           },
@@ -67,6 +73,9 @@
         }
       },
       "type": "object"
+    },
+    "version": {
+      "type": "string"
     }
   },
   "required": [
@@ -75,7 +84,8 @@
     "languages",
     "quality",
     "scope",
-    "score"
+    "score",
+    "version"
   ],
   "type": "object"
 }

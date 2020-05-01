@@ -10,6 +10,7 @@ SRCREV = "73b2a7d630f940a1c7bc13a51d628a7db136ec11"
 S = "${WORKDIR}/git"
 
 inherit sca-sanity
+inherit sca-description
 
 do_install_class-target() {
     install -d ${D}${bindir}
