@@ -1,16 +1,6 @@
-DEPENDS_class-native += "\
-                         libxml2-native \
-                         virtual/libiconv-native \
-                         zlib-native \
-                        "
-
-PACKAGECONFIG_class-native = "openssl zip"
-
-EXTRA_OECONF_class-native = "\
-                             --enable-mbstring \
-                             --with-zlib=${STAGING_LIBDIR_NATIVE}/.. \
-                             ${COMMON_EXTRA_OECONF} \
-"
+PACKAGECONFIG_class-native = "mbstring openssl zip"
+PACKAGECONFIG[zip] = "--with-zip --with-zlib-dir=${STAGING_EXECPREFIXDIR},,libzip"
+PACKAGECONFIG[mbstring] = "--enable-mbstring,,"
 
 FILES_${PN}_class-native += "${sysconfdir}"
 
