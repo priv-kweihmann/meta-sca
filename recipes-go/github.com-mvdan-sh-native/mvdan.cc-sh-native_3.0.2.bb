@@ -4,10 +4,9 @@ require github.com-mvdan-sh-native_${PV}.bb
 
 DEPENDS_remove = "mvdan.cc-sh-native"
 DEPENDS += "\
-            mvdan.cc-editorconfig-native \
-            golang.org-lib-native \
             github.com-pkg-diff-native \
-            github.com-google-renameio-native \
+            golang.org-lib-native \
+            mvdan.cc-editorconfig-native \
             "
 
 do_install_append() {
