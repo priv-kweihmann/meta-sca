@@ -11,7 +11,7 @@ def checkstyle_prettify(d, elem):
     reparsed = minidom.parseString(rough_string)
     return reparsed.toprettyxml(indent="  ")
 
-def sca_conv_dm_checkstyle(d):
+def sca_conv_dm_checkstyle(d, tool):
     from xml.etree.ElementTree import Element, SubElement, Comment, tostring
     from xml.etree import ElementTree
     from xml.dom import minidom

@@ -19,6 +19,7 @@ SRC_URI[sha256sum] = "dfc580d8ac122fbd302aae3d7f959d2a1dccf33a316767b415f99360a7
 GEM_NAME = "reek"
 
 inherit sca-sanity
+inherit sca-description
 inherit rubygemsnative
 
 do_install_append() {

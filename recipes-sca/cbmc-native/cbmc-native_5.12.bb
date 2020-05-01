@@ -21,6 +21,7 @@ S = "${WORKDIR}/git"
 inherit cmake
 inherit native
 inherit sca-sanity
+inherit sca-description
 
 EXTRA_OECMAKE += "-DWITH_JBMC=OFF -DWITH_MEMORY_ANALYZER=ON"
 CXXFLAGS += "-Wno-error=maybe-uninitialized"

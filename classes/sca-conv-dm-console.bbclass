@@ -3,7 +3,7 @@
 
 inherit sca-datamodel
 
-def sca_conv_dm_console(d):
+def sca_conv_dm_console(d, tool):
     import json
     import os
     import stat

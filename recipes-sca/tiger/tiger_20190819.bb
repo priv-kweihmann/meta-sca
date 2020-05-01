@@ -16,6 +16,7 @@ S = "${WORKDIR}/git"
 
 inherit autotools-brokensep
 inherit sca-sanity
+inherit sca-description
 
 EXTRA_OECONF += "--with-tigerhome=${datadir}/tiger \
                  --with-tigerconfig=${datadir}/tiger \

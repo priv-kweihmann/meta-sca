@@ -16,6 +16,7 @@ S = "${WORKDIR}/git"
 
 inherit setuptools3
 inherit sca-sanity
+inherit sca-description
 
 do_install_append_class-native () {
     install -d ${D}/${datadir}

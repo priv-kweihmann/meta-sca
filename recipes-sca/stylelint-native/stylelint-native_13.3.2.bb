@@ -15,6 +15,7 @@ S = "${WORKDIR}/git"
 inherit npm-helper
 inherit native
 inherit sca-sanity
+inherit sca-description
 
 do_compile[noexec] = "1"
 
