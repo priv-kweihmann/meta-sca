@@ -111,11 +111,11 @@ python do_sca_deploy_cpplint() {
     sca_conv_deploy(d, "cpplint")
 }
 
-do_sca_cppcheck[doc] = "Lint C/C++ files with cpplint"
-do_sca_cppcheck_report[doc] = "Report findings of do_sca_cppcheck"
+do_sca_cpplint[doc] = "Lint C/C++ files with cpplint"
+do_sca_cpplint_report[doc] = "Report findings of do_sca_cpplint"
 do_sca_deploy_cpplint[doc] = "Deploy results of do_sca_cpplint"
 addtask do_sca_cpplint after do_compile before do_sca_tracefiles
-addtask do_sca_cppcheck_report after do_sca_tracefiles
-addtask do_sca_deploy_cpplint after do_sca_cppcheck_report before do_package
+addtask do_sca_cpplint_report after do_sca_tracefiles
+addtask do_sca_deploy_cpplint after do_sca_cpplint_report before do_package
 
 DEPENDS += "cpplint-native sca-recipe-cpplint-rules-native"
