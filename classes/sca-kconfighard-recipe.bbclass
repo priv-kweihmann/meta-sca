@@ -24,7 +24,7 @@ def do_sca_conv_kconfighard(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     items = []
-    pattern = r"^\s*(?P<symbol>CONFIG_[A-Z0-9_]+)\s*\|\s*(?P<exp>.*?\s*)\|\s*(?P<source>\w+\s*)\|.*\|\|\s*(?P<result>.*)"
+    pattern = r"^\s*(?P<symbol>CONFIG_[A-Z0-9_]+)\s*\|\s*(?P<exp>.*?\s*)\|\s*(?P<source>\w+\s*)\|.*\|\s*(?P<result>.*)"
 
     severity_map = {
         "defconfig" : "error",
