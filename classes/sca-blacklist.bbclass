@@ -89,7 +89,6 @@ SCA_BLACKLIST_wotan ?= ""
 SCA_BLACKLIST_xmllint ?= ""
 SCA_BLACKLIST_yamllint ?= ""
 SCA_BLACKLIST_yara ?= ""
-SCA_BLACKLIST_zrd ?= "linux-.*"
 SCA_BLAckLIST_bashate ?= ""
 SCA_BLAckLIST_checkbashism ?= ""
 
