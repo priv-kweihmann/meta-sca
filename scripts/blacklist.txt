@@ -13,6 +13,7 @@ bad-nginx
 bad-package
 bad-perl
 bad-php
+bad-po
 bad-python-reqs
 bad-python-types
 bad-spelling
@@ -141,6 +142,5 @@ sca-recipe-vulture-rules-native
 sca-recipe-wotan-rules-native
 sca-recipe-xmllint-rules-native
 sca-recipe-yamllint-rules-native
-sca-recipe-zrd-rules-native
 simple-c
 tracefiles
