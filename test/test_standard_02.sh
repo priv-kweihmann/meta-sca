@@ -1,12 +1,12 @@
 #!/bin/sh
 bitbake \
-        acl \
         bad-ansible \
         bad-bitbake \
         bad-css \
         bad-html \
         bad-javascript \
         bad-json \
+        bad-po \
         bad-python-reqs \
         bad-python-types \
         bad-spelling \
