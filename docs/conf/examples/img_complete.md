@@ -88,7 +88,6 @@ SCA_ENABLED_MODULES_RECIPE = "\
                             vulture \
                             xmllint \
                             yamllint \
-                            zrd \
                             "
 ```
 

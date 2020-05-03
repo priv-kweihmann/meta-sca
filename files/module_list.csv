@@ -87,4 +87,3 @@ wotan,Typescript/javascript linter,https://github.com/fimbullinter/wotan,,x,x,x,
 xmllint,XML linter,http://xmlsoft.org/xmllint.html,,,x,x,,,,,,,,,,,,,,x,,x,
 yamllint,YAML linter,https://github.com/adrienverge/yamllint,,,x,x,,,,,,,,,,,,,,x,,,x
 yara,Find suspicious pattern in binaries,https://github.com/VirusTotal/yara,,,x,,,,,,,,,x,,,,,,,x,,
-zrd,I18N/G18N linter,https://github.com/0Cubed/ZeroResourceDetector,,,,x,,,,,,,,,,,,,,x,,,x

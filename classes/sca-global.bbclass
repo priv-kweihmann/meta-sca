@@ -140,7 +140,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           xmllint \
                           yamllint \
                           yara \
-                          zrd \
                         "
 
 SCA_ENABLED_MODULES := "${SCA_ENABLED_MODULES_${SCA_MODE_UPPER}}"
