@@ -84,7 +84,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             wotan \
                             xmllint \
                             yamllint \
-                            zrd \
                             "
 SCA_SOURCES_DIR ?= "${B}"
 

@@ -35,4 +35,3 @@ vulture
 wotan
 xmllint
 yamllint
-zrd
