@@ -31,7 +31,7 @@ def do_sca_conv_dennis(d):
         "W" : "warning",
     }
 
-    __suppress = sca_suppress_init(d)
+    __suppress = sca_suppress_init(d, file_trace=False)
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "dennis")):
