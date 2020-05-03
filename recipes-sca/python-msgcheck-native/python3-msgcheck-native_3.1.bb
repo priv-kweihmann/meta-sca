@@ -1,14 +1,14 @@
 SUMMARY = "Gettext file checker"
-HOMEPAGE = "https://github.com/codingjoe/msgcheck"
+HOMEPAGE = "https://github.com/flashcode/msgcheck"
 
 LICENSE = "GPL-3.0"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d32239bcb673463ab874e80d47fae504"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=c678957b0c8e964aa6c70fd77641a71e"
 
 DEPENDS += "${PYTHON_PN}-pyenchant-native"
 
-SRC_URI = "git://github.com/codingjoe/msgcheck.git;protocol=https \
+SRC_URI = "git://github.com/flashcode/msgcheck.git;protocol=https \
            file://msgcheck.sca.description"
-SRCREV = "1c8809e4babf387256bc74e9d25fa634561ddd1e"
+SRCREV = "08eb80622a5dedf4739c3942b3c22e7ed33d3507"
 S = "${WORKDIR}/git"
 
 inherit native
