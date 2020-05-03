@@ -93,7 +93,7 @@ _data = {
         "core-image-minimal-scatest"
     ],
     "msgcheck": [
-        "acl"
+        "bad-po"
     ],
     "mypy": [
         "bad-python-types",
