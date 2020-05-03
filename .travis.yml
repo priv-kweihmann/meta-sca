@@ -1,5 +1,6 @@
 # This is the basic pipeline
 language: shell
+dist: bionic
 sudo: false
 addons:
   apt:
