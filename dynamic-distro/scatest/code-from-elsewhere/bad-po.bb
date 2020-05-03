@@ -9,8 +9,5 @@ SRCREV = "08eb80622a5dedf4739c3942b3c22e7ed33d3507"
 S = "${WORKDIR}/git/tests"
 
 inherit sca
-inherit sca-msgcheck
-inherit sca-dennis
-inherit sca-zrd
 
-SCA_ENABLED_MODULES = "bitbake dennis msgcheck zrd"
+SCA_ENABLED_MODULES = "bitbake dennis msgcheck"
