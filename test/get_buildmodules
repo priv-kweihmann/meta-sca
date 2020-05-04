@@ -17,9 +17,12 @@ def get_tool_description(tool):
             return (name, json.load(i))
     raise Exception("[ERROR] No description found for {}".format(tool))
 
-_modsfile = sys.argv[1]
-with open(_modsfile) as i:
-    _mods = [x.strip("\n") for x in i.readlines() if x]
+if os.path.isabs(sys.argv[1]):
+    _modsfile = sys.argv[1]
+    with open(_modsfile) as i:
+        _mods = [x.strip("\n") for x in i.readlines() if x]
+else:
+    _mods = sys.argv[1:]
 
 ret = set()
 for mod in _mods:
