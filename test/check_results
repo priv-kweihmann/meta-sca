@@ -54,9 +54,12 @@ def test_results(tmppath, recipe, tool, name):
                         sys.stderr.write(">> {}".format(line.strip("\n"))) 
             raise Exception("[ERROR] No results found for {}@{}\n".format(name, finding))
 
-_modsfile = sys.argv[2]
-with open(_modsfile) as i:
-    _mods = [x.strip("\n") for x in i.readlines() if x]
+if os.path.isabs(sys.argv[2]):
+    _modsfile = sys.argv[2]
+    with open(_modsfile) as i:
+        _mods = [x.strip("\n") for x in i.readlines() if x]
+else:
+    _mods = sys.argv[2:]
 ret = 0
 for mod in _mods:
     try:
