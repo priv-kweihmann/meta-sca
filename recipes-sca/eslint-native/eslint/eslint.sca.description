@@ -13,5 +13,13 @@
         "functional": [
             "eslint.eslint..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["eslint", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "bad-javascript"
+        ]
     }
 }

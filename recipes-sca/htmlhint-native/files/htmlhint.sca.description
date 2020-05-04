@@ -19,5 +19,13 @@
         "style": [
             "htmlhint.htmlhint..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["htmlhint", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "bad-html"
+        ]
     }
 }

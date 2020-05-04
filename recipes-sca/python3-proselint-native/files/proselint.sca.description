@@ -1,0 +1,24 @@
+{
+    "buildspeed": 2,
+    "execspeed": 6,
+    "languages": [
+        "spelling"
+    ],
+    "quality": 8,
+    "scope": [
+        "style"
+    ],
+    "score": {
+        "style": [
+            "proselint.proselint..*"
+        ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["proselint", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "busybox"
+        ]
+    }
+}

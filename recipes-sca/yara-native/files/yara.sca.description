@@ -12,5 +12,10 @@
         "security": [
             "yara.yara..*"
         ]
+    },
+    "test": {
+        "findings": [
+            "core-image-minimal-scatest"
+        ]
     }
 }

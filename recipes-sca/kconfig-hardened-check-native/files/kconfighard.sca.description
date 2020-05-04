@@ -12,5 +12,13 @@
         "security": [
             "kconfighard.kconfighard..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["kconfig-hardened-check", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "linux-yocto"
+        ]
     }
 }

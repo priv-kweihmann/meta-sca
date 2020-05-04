@@ -13,5 +13,10 @@
         "style": [
             "reek.reek..*"
         ]
+    },
+    "test": {
+        "findings": [
+            "rubycritic-test"
+        ]
     }
 }

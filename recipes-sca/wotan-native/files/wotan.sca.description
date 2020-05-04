@@ -15,5 +15,13 @@
         "functional": [
             "wotan.wotan..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["wotan", "-v"], "returncode": 0}
+        ],
+        "findings": [
+            "bad-javascript"
+        ]
     }
 }

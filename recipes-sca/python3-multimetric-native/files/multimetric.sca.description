@@ -1,0 +1,28 @@
+{
+    "buildspeed": 3,
+    "execspeed": 8,
+    "languages": [
+        "python",
+        "c",
+        "cpp",
+        "php",
+        "javascript",
+        "perl",
+        "lua",
+        "go"
+    ],
+    "quality": 8,
+    "scope": [
+        "style"
+    ],
+    "score": {
+        "style": [
+            "multimetric.multimetric..*"
+        ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["multimetric", "--help"], "returncode": 0}
+        ]
+    }
+}

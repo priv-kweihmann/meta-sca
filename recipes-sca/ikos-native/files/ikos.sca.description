@@ -12,5 +12,13 @@
         "functional": [
             "ikos.ikos..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["ikos", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "simple-c"
+        ]
     }
 }

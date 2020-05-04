@@ -12,5 +12,10 @@
         "security": [
             "ansible.ansible.*"
         ]
+    },
+    "test": {
+        "findings": [
+            "core-image-minimal-scatest"
+        ]
     }
 }

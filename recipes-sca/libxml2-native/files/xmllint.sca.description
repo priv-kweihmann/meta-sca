@@ -12,5 +12,13 @@
         "functional": [
             "xmllint.xmllint..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["xmllint", "--version"], "returncode": 0}
+        ],
+        "findings": [
+            "bad-xml"
+        ]
     }
 }

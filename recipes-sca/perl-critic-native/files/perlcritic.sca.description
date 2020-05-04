@@ -12,5 +12,10 @@
         "functional": [
             "perlcritic.perlcritic..*"
         ]
+    },
+    "test": {
+        "findings": [
+            "bad-perl"
+        ]
     }
 }
