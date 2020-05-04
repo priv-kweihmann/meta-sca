@@ -74,7 +74,7 @@ python do_sca_stylelint_core() {
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "stylelint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _config = {
-        "extends": os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "stylelint", "node_modules", d.getVar("SCA_STYLELINT_CONFIG"))
+        "extends": os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "node_modules", d.getVar("SCA_STYLELINT_CONFIG"))
     }
 
     with open(os.path.join(d.getVar("T"), "stylelintrc"), "w") as o:
