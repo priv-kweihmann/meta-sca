@@ -16,6 +16,9 @@
     "test": {
         "integration": [
             {"cmd": ["go", "tool", "vet", "help"], "returncode": 2}
+        ],
+        "findings": [
+            "bad-go"
         ]
     }
 }
