@@ -133,10 +133,8 @@ python do_sca_textlint() {
     _args = ["textlint"]
     _args += ["-c", _config_file]
     _args += ["--no-color"]
-    _args += ["--debug"]
     _args += ["-f", "json"]
-    _args += ["-o", result_raw_file]
-    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), "",
+    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), ".txt .md .html",
                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     cmd_output = ""
@@ -146,6 +144,9 @@ python do_sca_textlint() {
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
     
+    with open(sca_raw_result_file(d, "textlint"), "w") as o:
+        o.write(cmd_output)
+
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/textlint.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_textlint(d)
