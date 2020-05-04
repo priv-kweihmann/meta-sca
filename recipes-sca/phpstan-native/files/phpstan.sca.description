@@ -12,5 +12,10 @@
         "functional": [
             "phpstan.phpstan..*"
         ]
+    },
+    "test": {
+        "findings": [
+            "bad-php"
+        ]
     }
 }

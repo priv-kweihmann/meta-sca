@@ -13,5 +13,13 @@
         "functional": [
             "tscancode.tscancode..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["tscancode", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "busybox"
+        ]
     }
 }

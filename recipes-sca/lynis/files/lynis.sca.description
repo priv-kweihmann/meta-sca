@@ -12,5 +12,10 @@
         "security": [
             "lynis.lynis..*"
         ]
+    },
+    "test": {
+        "findings": [
+            "core-image-minimal-scatest"
+        ]
     }
 }

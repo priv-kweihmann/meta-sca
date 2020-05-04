@@ -186,5 +186,10 @@
         "style": [
             "splint.splint..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["splint", "-h"], "returncode": 0}
+        ]
     }
 }

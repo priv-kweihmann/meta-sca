@@ -74,6 +74,42 @@
       },
       "type": "object"
     },
+    "test": {
+      "additionalProperties": false,
+      "properties": {
+        "findings": {
+          "items": {
+            "type": "string"
+          },
+          "minLength": 1,
+          "type": "array"
+        },
+        "integration": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "cmd": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "returncode": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "cmd",
+              "returncode"
+            ],
+            "type": "object"
+          },
+          "minLength": 1,
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "version": {
       "type": "string"
     }
@@ -85,6 +121,7 @@
     "quality",
     "scope",
     "score",
+    "test",
     "version"
   ],
   "type": "object"

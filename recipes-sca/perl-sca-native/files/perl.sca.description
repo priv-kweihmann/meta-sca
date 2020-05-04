@@ -12,5 +12,13 @@
         "functional": [
             "perl.perl..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["perl", "-h"],"returncode": 0}
+        ],
+        "findings": [
+            "bad-perl"
+        ]
     }
 }

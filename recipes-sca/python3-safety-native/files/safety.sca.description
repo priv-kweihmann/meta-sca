@@ -1,0 +1,24 @@
+{
+    "buildspeed": 2,
+    "execspeed": 10,
+    "languages": [
+        "python"
+    ],
+    "quality": 9,
+    "scope": [
+        "security"
+    ],
+    "score": {
+        "security": [
+            "safety.safety..*"
+        ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["nativepython3", "-m", "safety", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "bad-python-reqs"
+        ]
+    }
+}

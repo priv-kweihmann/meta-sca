@@ -12,5 +12,13 @@
         "security": [
             "pkgqaenc.pkgqaenc..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["pkgqaenc", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "bad-package"
+        ]
     }
 }

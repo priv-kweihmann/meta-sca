@@ -12,5 +12,10 @@
         "functional": [
             "jsonlint.jsonlint..*"
         ]
+    },
+    "test": {
+        "findings": [
+            "bad-json"
+        ]
     }
 }

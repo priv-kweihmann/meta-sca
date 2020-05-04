@@ -12,5 +12,10 @@
         "functional": [
             "govet.govet..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["go", "tool", "vet", "help"], "returncode": 2}
+        ]
     }
 }

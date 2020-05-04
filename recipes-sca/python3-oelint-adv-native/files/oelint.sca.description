@@ -1,0 +1,24 @@
+{
+    "buildspeed": 5,
+    "execspeed": 10,
+    "languages": [
+        "bitbake"
+    ],
+    "quality": 9,
+    "scope": [
+        "style"
+    ],
+    "score": {
+        "style": [
+            "oelint.oelint..*"
+        ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["oelint-adv", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "bad-bitbake"
+        ]
+    }
+}

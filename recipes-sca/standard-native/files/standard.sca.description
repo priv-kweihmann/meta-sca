@@ -14,5 +14,13 @@
         "functional": [
             "standard.standard..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["standard", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "bad-javascript"
+        ]
     }
 }

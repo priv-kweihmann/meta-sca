@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2020, Konrad Weihmann
+
+import glob
+import json
+import os
+import pathlib
+import subprocess
+import sys
+
+
+def get_tool_description(tool):
+    for f in glob.glob(os.path.join(os.path.dirname(__file__), "..", "recipes-sca", "*", "*", "{}.sca.description".format(tool))):
+        name = pathlib.Path(f).parts[-3]
+        with open(f) as i:
+            return (name, json.load(i))
+    raise Exception("[ERROR] No description found for {}".format(tool))
+
+_modsfile = sys.argv[1]
+with open(_modsfile) as i:
+    _mods = [x.strip("\n") for x in i.readlines() if x]
+
+ret = set()
+for mod in _mods:
+    try:
+        recipe, desc = get_tool_description(mod)
+        if "findings" in desc["test"]:
+            ret.update(desc["test"]["findings"])
+    except:
+        pass
+if not ret:
+    sys.exit(-1)
+print(" ".join(sorted(ret)))

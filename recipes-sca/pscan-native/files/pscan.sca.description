@@ -12,5 +12,13 @@
         "functional": [
             "pscan.pscan..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["pscan", "-h"], "returncode": 1}
+        ],
+        "findings": [
+            "busybox"
+        ]
     }
 }
