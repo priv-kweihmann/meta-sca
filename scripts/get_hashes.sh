@@ -1,9 +1,14 @@
 #!/bin/sh
 res=""
-for number in $@; do
-    x=$(git log --oneline --grep "Closes #${number}" --grep "Relates to #${number}" --pretty=format:"%h" --reverse)
-    res="${res}\n${x}"
-done
+mode=$1
+if [ ${mode} = "issue" ]; then
+    for number in $@; do
+        x=$(git log --oneline --grep "Closes #${number}" --grep "Relates to #${number}" --pretty=format:"%h" --reverse)
+        res="${res}\n${x}"
+    done
+else 
+    res=$2
+fi
 _BRANCHES="master dunfell zeus warrior"
 if [ ! -z "${BRANCHES}" ]; then
     _BRANCHES=${BRANCHES}
