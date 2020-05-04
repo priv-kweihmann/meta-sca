@@ -12,5 +12,14 @@
         "functional": [
             "sparse.sparse.*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["sparse", "-h"], "returncode": 0}
+        ],
+        "findings": [
+            "busybox",
+            "simple-c"
+        ]
     }
 }

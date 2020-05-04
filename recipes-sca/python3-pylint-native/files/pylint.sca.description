@@ -1,0 +1,30 @@
+{
+    "buildspeed": 2,
+    "execspeed": 9,
+    "languages": [
+        "python"
+    ],
+    "quality": 9,
+    "scope": [
+        "functional",
+        "style"
+    ],
+    "score": {
+        "functional": [
+            "pylint.pylint.E.*",
+            "pylint.pylint.F.*",
+            "pylint.pylint.W.*"
+        ],
+        "style": [
+            "pylint.pylint..*"
+        ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["pylint", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "python3-git"
+        ]
+    }
+}

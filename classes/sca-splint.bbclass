@@ -107,7 +107,7 @@ python do_sca_splint() {
         except subprocess.CalledProcessError as e:
             pass
         with open(os.path.join(d.getVar("T"), "sca_raw_splint_tmp.csv")) as i:
-            cmd_output += [x for x in i.readlines()[1:] if x]
+            cmd_output += [x.strip("\n") for x in i.readlines()[1:] if x]
         try:
             os.remove(os.path.join(d.getVar("T"), "sca_raw_splint_tmp.csv"))
         except:

@@ -12,5 +12,13 @@
         "style": [
             "golint.golint..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["golint", "--help"], "returncode": 2}
+        ],
+        "findings": [
+            "bad-go"
+        ]
     }
 }

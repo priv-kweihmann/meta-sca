@@ -1,0 +1,24 @@
+{
+    "buildspeed": 5,
+    "execspeed": 1,
+    "languages": [
+        "tlv"
+    ],
+    "quality": 8,
+    "scope": [
+        "style"
+    ],
+    "score": {
+        "style": [
+            "tlv.tlv..*"
+        ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["tlv", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "busybox"
+        ]
+    }
+}

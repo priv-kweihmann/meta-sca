@@ -13,5 +13,13 @@
         "security": [
             "npmaudit.npmaudit..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["npm", "audit", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "cspell"
+        ]
     }
 }

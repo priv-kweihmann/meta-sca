@@ -13,5 +13,13 @@
         "functional": [
             "checkbashism.checkbashism..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["checkbashisms.pl", "-h"], "returncode": 0}
+        ],
+        "findings": [
+            "busybox"
+        ]   
     }
 }

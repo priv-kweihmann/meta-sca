@@ -1,0 +1,21 @@
+{
+    "buildspeed": 2,
+    "execspeed": 9,
+    "languages": [
+        "python"
+    ],
+    "quality": 9,
+    "scope": [
+        "functional"
+    ],
+    "score": {
+        "functional": [
+            "setuptoolslint.setuptoolslint..*"
+        ]
+    },
+    "test": {
+        "findings": [
+            "bad-python-reqs"
+        ]
+    }
+}

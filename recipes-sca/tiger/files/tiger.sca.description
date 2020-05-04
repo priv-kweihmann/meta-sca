@@ -12,5 +12,10 @@
         "security": [
             "tiger.tiger..*"
         ]
+    },
+    "test": {
+        "findings": [
+            "core-image-minimal-scatest"
+        ]
     }
 }

@@ -85,7 +85,7 @@ python do_sca_kconfighard() {
         if not os.path.exists(os.path.join(d.getVar("B"), "config")):
             os.symlink(os.path.join(d.getVar("B"), ".config"), os.path.join(d.getVar("B"), "config"))
 
-        _args = ["nativepython3", os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "kconfig-hardening-check", "kconfig-hardened-check.py")]    
+        _args = ["kconfig-hardened-check"]    
         _args += ["-c", os.path.join(d.getVar("B"), ".config")]
 
         cmd_output = ""

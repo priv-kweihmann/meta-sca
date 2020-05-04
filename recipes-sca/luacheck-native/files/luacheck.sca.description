@@ -14,5 +14,13 @@
         "functional": [
             "luacheck.luacheck..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["luacheck", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "bad-lua"
+        ]
     }
 }

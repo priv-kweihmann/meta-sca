@@ -12,5 +12,10 @@
         "security": [
             "gosec.gosec..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["gosec", "--help"], "returncode": 2}
+        ]
     }
 }

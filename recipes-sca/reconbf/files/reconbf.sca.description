@@ -12,5 +12,10 @@
         "security": [
             "reconbf.reconbf..*"
         ]
+    },
+    "test": {
+        "findings": [
+            "core-image-minimal-scatest"
+        ]
     }
 }

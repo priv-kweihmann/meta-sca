@@ -13,5 +13,13 @@
         "security": [
             "retire.retire..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["retire", "-h"], "returncode": 0}
+        ],
+        "findings": [
+            "cspell"
+        ]
     }
 }

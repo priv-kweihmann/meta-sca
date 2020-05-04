@@ -12,5 +12,19 @@
         "style": [
             "alexkohler.alexkohler..*"
         ]
+    },
+    "test": {
+        "findings": [
+            "bad-go"
+        ],
+        "integration": [
+            { "cmd": [ "noret", "--help" ], "returncode": 2},
+            { "cmd": [ "nargs", "--help" ], "returncode": 2},
+            { "cmd": [ "nakedret", "--help" ], "returncode": 2},
+            { "cmd": [ "dogsled", "--help" ], "returncode": 2},
+            { "cmd": [ "prealloc", "--help" ], "returncode": 2},
+            { "cmd": [ "identypo", "--help" ], "returncode": 2},
+            { "cmd": [ "unimport", "--help" ], "returncode": 2}
+        ]
     }
 }

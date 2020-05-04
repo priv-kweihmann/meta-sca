@@ -1,0 +1,29 @@
+{
+    "buildspeed": 2,
+    "execspeed": 10,
+    "languages": [
+        "python"
+    ],
+    "quality": 10,
+    "scope": [
+        "functional",
+        "style"
+    ],
+    "score": {
+        "functional": [
+            "flake8.flake8..*"
+        ],
+        "security": [
+            "flake8.flake8.EXE.*"
+        ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["nativepython3", "-m", "flake8", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "bad-python-types",
+            "python3-git"
+        ]
+    }
+}

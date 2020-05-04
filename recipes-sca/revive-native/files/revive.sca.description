@@ -59,5 +59,13 @@
         "style": [
             "revive.revive.*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["revive", "--help"], "returncode": 2}
+        ],
+        "findings": [
+            "bad-go"
+        ]
     }
 }
