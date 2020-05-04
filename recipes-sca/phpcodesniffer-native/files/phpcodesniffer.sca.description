@@ -15,5 +15,10 @@
         "style": [
             "phpcodesniffer.phpcodesniffer..*"
         ]
+    },
+    "test": {
+        "findings": [
+            "bad-php"
+        ]
     }
 }

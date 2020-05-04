@@ -14,5 +14,13 @@
         "functional": [
             "jshint.jshint..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["jshint", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "bad-javascript"
+        ]
     }
 }

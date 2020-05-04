@@ -13,5 +13,10 @@
         "style": [
             "stylelint.stylelint..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["stylelint", "--help"], "returncode": 0}
+        ]
     }
 }

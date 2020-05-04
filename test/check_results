@@ -1,231 +1,69 @@
 #!/usr/bin/env python3
 ## SPDX-License-Identifier: BSD-2-Clause
-## Copyright (c) 2019, Konrad Weihmann
+## Copyright (c) 2020, Konrad Weihmann
 
-import subprocess
+import glob
+import json
 import os
+import pathlib
+import subprocess
 import sys
 
-_data = {
-    "alexkohler": [
-        "bad-go"
-    ],
-    "ansible": [
-        "core-image-minimal-scatest"
-    ],
-    "ansiblelint": [
-        "bad-ansible"
-    ],
-    "ansibleroles": [
-        "core-image-minimal-scatest"
-    ],
-    "bandit": [
-        "python3-git"
-    ],
-    "bashate": [
-        "busybox",
-        "openssh"
-    ],
-    "bitbake": [
-        "bad-bitbake"
-    ],
-    "cbmc": [
-        "openssh",
-        "simple-c"
-    ],
-    "checkbashism": [
-        "busybox",
-        "core-image-minimal-scatest",
-        "openssh"
-    ],
-    "cppcheck": [
-        "busybox",
-        "openssh",
-        "simple-c"
-    ],
-    "cpplint": [
-        "busybox",
-        "openssh",
-        "simple-c"
-    ],
-    "eslint": [
-        "bad-javascript"
-    ],
-    "flake8": [
-        "bad-python-types",
-        "python3-git"
-    ],
-    "flawfinder": [
-        "openssh",
-        "simple-c"
-    ],
-    "flint": [
-        "busybox",
-        "openssh"
-    ],
-    "gcc": [
-        "busybox",
-        "openssh",
-        "simple-c"
-    ],
-    "gixy": [
-        "core-image-minimal-scatest"
-    ],
-    "golint": [
-        "bad-go"
-    ],
-    "htmlhint": [
-        "bad-html"
-    ],
-    "jshint": [
-        "bad-javascript"
-    ],
-    "jsonlint": [
-        "bad-json"
-    ],
-    "kconfighard": [
-        "linux-yocto"
-    ],
-    "looong": [
-        "python3-git"
-    ],
-    "lynis": [
-        "core-image-minimal-scatest"
-    ],
-    "msgcheck": [
-        "bad-po"
-    ],
-    "mypy": [
-        "bad-python-types",
-        "python3-git"
-    ],
-    "nixauditor": [
-        "core-image-minimal-scatest"
-    ],
-    "oelint": [
-        "bad-bitbake",
-    ],
-    "perl": [
-        "bad-perl"
-    ],
-    "perlcritic": [
-        "bad-perl"
-    ],
-    "phpcodersniffer": [
-        "bad-php",
-        "bad-javascript"
-    ],
-    "phpsecaudit": [
-        "bad-php"
-    ],
-    "proselint": [
-        "busybox"
-    ],
-    "pscan": [
-        "busybox"
-    ],
-    "pylint": [
-        "python3-git"
-    ],
-    "pyright": [
-        "python3-git"
-    ],
-    "pytype": [
-    ],
-    "rats": [
-        "busybox",
-        "openssh",
-        "simple-c"
-    ],
-    "reek": [
-        "rubycritic-test"
-    ],
-    "retire": [
-        "cspell"
-    ],
-    "revive": [
-        "bad-go"
-    ],
-    "ropgadget": [
-        "busybox"
-    ],
-    "rubycritic": [
-        "rubycritic-test"
-    ],
-    "safety": [
-        "bad-python-reqs"
-    ],
-    "setuptoolslint": [
-        "bad-python-reqs"
-    ],
-    "shellcheck": [
-        "busybox",
-        "openssh"
-    ],
-    "slick": [
-        "busybox"
-    ],
-    "sparse": [
-        "busybox",
-        "simple-c"
-    ],
-    "standard": [
-        "bad-javascript"
-    ],
-    "stank": [
-        "busybox",
-        "openssh"
-    ],
-    "sudokiller": [
-        "core-image-minimal-scatest"
-    ],
-    "systemdlint": [
-        "core-image-minimal-scatest"
-    ],
-    "tiger": [
-        "core-image-minimal-scatest"
-    ],
-    "tscancode": [
-        "busybox",
-        "openssh"
-    ],
-    "upc": [
-        "core-image-minimal-scatest"
-    ],
-    "vulture": [
-        "python3-git"
-    ],
-    "wotan": [
-        "bad-javascript"
-    ],
-    "xmllint": [
-        "bad-xml"
-    ],
-    "yamllint": [
-        "bad-ansible",
-        "bad-yaml"
-    ],
-    "yara": [
-        "core-image-minimal-scatest"
-    ],
-    "licensecheck": [
-        "bad-package"
-    ],
-    "pkgqaenc": [
-        "bad-package"
-    ]
-}
-ret = 0
-script_path = os.path.join(os.path.dirname(__file__), "check_result")
-_mods = _data.keys()
-if len(sys.argv) > 2:
-    _mods = sys.argv[2:]
-for k,v in _data.items():
-    if k not in _mods:
-        continue
-    for finding in v:
+
+def get_tool_description(tool):
+    for f in glob.glob(os.path.join(os.path.dirname(__file__), "..", "recipes-sca", "*", "*", "{}.sca.description".format(tool))):
+        name = pathlib.Path(f).parts[-3]
+        with open(f) as i:
+            return (name, json.load(i))
+    raise Exception("[ERROR] No description found for {}".format(tool))
+
+def test_integration(tmppath, recipe, tool, name):
+    if "integration" not in tool["test"]:
+        return
+    subprocess.check_call(["bitbake", recipe, "-caddto_recipe_sysroot"], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
+    for item in tool["test"]["integration"]:
         try:
-            subprocess.check_call([script_path, k, finding, sys.argv[1]])
+            subprocess.check_output(["oe-run-native", recipe, *item["cmd"]], stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
-            ret = -1
+            if e.returncode != item["returncode"]:
+                raise e
+
+def test_results(tmppath, recipe, tool, name):
+    if "findings" not in tool["test"]:
+        return
+    for finding in tool["test"]["findings"]:
+        found = False
+        for f in glob.glob(os.path.join(tmppath, name, "datamodel", "{}*.dm".format(finding))):
+            with open(f) as i:
+                cnt = json.load(i)
+                if not cnt:
+                    sys.stderr.write("[ERROR] No results found for {}@{}\n".format(name, finding))
+                    for r in glob.glob(os.path.join(tmppath, name, "raw", "{}*".format(finding))):
+                        with open(r) as o:
+                            for line in o.readlines():
+                                sys.stderr.write(">> {}\n".format(line.strip("\n"))) 
+                    raise Exception("[ERROR] No results found for {}@{}\n".format(name, finding))
+                else:
+                    found = True
+                    print("[OKAY] Found {} result for {}@{}".format(len(cnt), name, finding))
+        if not found:
+            sys.stderr.write("[ERROR] No results found for {}@{}\n".format(name, finding))
+            for r in glob.glob(os.path.join(tmppath, name, "raw", "{}*".format(finding))):
+                with open(r) as o:
+                    for line in o.readlines():
+                        sys.stderr.write(">> {}".format(line.strip("\n"))) 
+            raise Exception("[ERROR] No results found for {}@{}\n".format(name, finding))
+
+_modsfile = sys.argv[2]
+with open(_modsfile) as i:
+    _mods = [x.strip("\n") for x in i.readlines() if x]
+ret = 0
+for mod in _mods:
+    try:
+        recipe, desc = get_tool_description(mod)
+        test_integration(sys.argv[1], recipe, desc, mod)
+        test_results(sys.argv[1], recipe, desc, mod)
+    except Exception as e:
+        sys.stderr.write(str(e) + "\n")
+        ret = -1
 sys.exit(ret)

@@ -12,5 +12,7 @@
         "functional": [
             "configcheck.configcheck..*"
         ]
+    },
+    "test": {
     }
 }

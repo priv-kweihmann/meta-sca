@@ -16,5 +16,14 @@
         "security": [
             "rats.rats..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["rats", "--help"], "returncode": 1}
+        ],
+        "findings": [
+            "busybox",
+            "simple-c"
+        ]
     }
 }

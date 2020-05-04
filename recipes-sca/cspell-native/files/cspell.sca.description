@@ -13,5 +13,10 @@
         "style": [
             "cspell.cspell..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["cspell", "--help"], "returncode": 0}
+        ]
     }
 }

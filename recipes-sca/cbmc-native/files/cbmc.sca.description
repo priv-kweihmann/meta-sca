@@ -13,5 +13,13 @@
         "functional": [
             "cbmc.cbmc..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["cbmc", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "simple-c"
+        ]
     }
 }

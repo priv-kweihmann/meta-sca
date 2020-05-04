@@ -26,7 +26,6 @@ do_install_append() {
     install ${WORKDIR}/licensecheck.sca.description ${D}${datadir}/
     install -d ${D}${bindir}
     install -m 0755 ${WORKDIR}/licensecheck ${D}${bindir}/licensecheck
-    sed -i "s#/usr/bin/env python3#/usr/bin/nativepython3#g" ${D}${bindir}/licensecheck
 }
 
 FILES_${PN} = "${bindir} ${datadir}"
