@@ -12,5 +12,10 @@
         "security": [
             "phpsecaudit.phpsecaudit..*"
         ]
+    },
+    "test": {
+        "findings": [
+            "bad-php"
+        ]
     }
 }

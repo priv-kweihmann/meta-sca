@@ -1,0 +1,28 @@
+{
+    "buildspeed": 5,
+    "execspeed": 10,
+    "languages": [
+        "i18n"
+    ],
+    "quality": 8,
+    "scope": [
+        "functional",
+        "style"
+    ],
+    "score": {
+        "functional": [
+            "dennis.dennis.E.*"
+        ],
+        "style": [
+            "dennis.dennis..*"
+        ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["dennis-cmd", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "bad-po"
+        ]
+    }
+}

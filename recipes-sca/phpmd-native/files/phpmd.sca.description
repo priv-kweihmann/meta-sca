@@ -13,5 +13,10 @@
         "functional": [
             "phpmd.phpmd..*"
         ]
+    },
+    "test": {
+        "findings": [
+            "bad-php"
+        ]
     }
 }

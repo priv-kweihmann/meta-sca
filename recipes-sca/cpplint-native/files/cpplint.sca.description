@@ -25,5 +25,14 @@
         "style": [
             "cpplint.cpplint..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["cpplint", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "busybox",
+            "simple-c"
+        ]
     }
 }

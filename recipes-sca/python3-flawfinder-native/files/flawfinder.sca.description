@@ -1,0 +1,25 @@
+{
+    "buildspeed": 5,
+    "execspeed": 10,
+    "languages": [
+        "c",
+        "cpp"
+    ],
+    "quality": 7,
+    "scope": [
+        "security"
+    ],
+    "score": {
+        "security": [
+            "flawfinder.flawfinder.*"
+        ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["flawfinder", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "simple-c"
+        ]
+    }
+}

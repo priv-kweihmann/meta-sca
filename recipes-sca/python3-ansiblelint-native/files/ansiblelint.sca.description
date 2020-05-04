@@ -1,0 +1,47 @@
+{
+    "buildspeed": 2,
+    "execspeed": 10,
+    "languages": [
+        "ansible"
+    ],
+    "quality": 10,
+    "scope": [
+        "security",
+        "functional",
+        "style"
+    ],
+    "score": {
+        "functional": [
+            "ansiblelint.ansiblelint.101",
+            "ansiblelint.ansiblelint.102",
+            "ansiblelint.ansiblelint.105",
+            "ansiblelint.ansiblelint.301",
+            "ansiblelint.ansiblelint.303",
+            "ansiblelint.ansiblelint.305",
+            "ansiblelint.ansiblelint.401",
+            "ansiblelint.ansiblelint.402",
+            "ansiblelint.ansiblelint.501",
+            "ansiblelint.ansiblelint.602"
+        ],
+        "security": [
+            "ansiblelint.ansiblelint.103",
+            "ansiblelint.ansiblelint.104",
+            "ansiblelint.ansiblelint.202",
+            "ansiblelint.ansiblelint.302",
+            "ansiblelint.ansiblelint.304",
+            "ansiblelint.ansiblelint.306",
+            "ansiblelint.ansiblelint.403"
+        ],
+        "style": [
+            "ansiblelint.ansiblelint..*"
+        ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["nativepython3", "-m", "ansiblelint", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "bad-ansible"
+        ]
+    }
+}

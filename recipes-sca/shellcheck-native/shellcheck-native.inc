@@ -23,10 +23,17 @@ do_install() {
     cp -R ${B}/usr/share/man/* ${D}${mandir}
     install -d ${D}${datadir}
     install ${WORKDIR}/shellcheck.sca.description ${D}${datadir}
+
+    # Add a wrapper script to fix the linking issues
+    cat << EOF > ${D}${bindir}/shellcheck-wrapper
+#!/bin/sh
+LD_LIBRARY_PATH=${STAGING_LIBDIR_NATIVE} shellcheck
+EOF
+    chmod 0755 ${D}${bindir}/shellcheck-wrapper
 }
 
 FILES_${PN}-man = "${mandir}"
-FILES_${PN} = "${bindir}/shellcheck ${datadir}"
+FILES_${PN} = "${bindir} ${datadir}"
 
 ## We know it's already stripped - because we're using prebuild things
-INSANE_SKIP_${PN} += "already-stripped file-rdeps arch"
+INSANE_SKIP_${PN} += "already-stripped arch"

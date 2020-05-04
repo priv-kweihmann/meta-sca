@@ -14,5 +14,10 @@
         "style": [
             "phan.phan..*"
         ]
+    },
+    "test": {
+        "findings": [
+            "bad-php"
+        ]
     }
 }

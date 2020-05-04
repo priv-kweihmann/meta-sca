@@ -13,5 +13,10 @@
         "style": [
             "rubycritic.rubycritic..*"
         ]
+    },
+    "test": {
+        "findings": [
+            "rubycritic-test"
+        ]
     }
 }

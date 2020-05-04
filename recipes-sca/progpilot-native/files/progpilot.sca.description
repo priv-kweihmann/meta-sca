@@ -12,5 +12,10 @@
         "security": [
             "progpilot.progpilot..*"
         ]
+    },
+    "test": {
+        "findings": [
+            "bad-php"
+        ]
     }
 }

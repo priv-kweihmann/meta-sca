@@ -1,0 +1,24 @@
+{
+    "buildspeed": 5,
+    "execspeed": 8,
+    "languages": [
+        "i18n"
+    ],
+    "quality": 8,
+    "scope": [
+        "style"
+    ],
+    "score": {
+        "style": [
+            "msgcheck.msgcheck..*"
+        ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["msgcheck", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "bad-po"
+        ]
+    }
+}

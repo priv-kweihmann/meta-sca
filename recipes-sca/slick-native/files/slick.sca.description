@@ -12,5 +12,13 @@
         "functional": [
             "slick.slick..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["slick", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "busybox"
+        ]
     }
 }

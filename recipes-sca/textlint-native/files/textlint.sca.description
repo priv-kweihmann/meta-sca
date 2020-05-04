@@ -13,5 +13,10 @@
         "style": [
             "textlint.textlint..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["textlint", "--help"], "returncode": 0}
+        ]
     }
 }

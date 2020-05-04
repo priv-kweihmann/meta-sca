@@ -17,5 +17,11 @@
         "security": [
             "gcc.gcc.hardening.*"
         ]
+    },
+    "test": {
+        "findings": [
+            "busybox",
+            "simple-c"
+        ]
     }
 }

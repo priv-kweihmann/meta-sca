@@ -13,5 +13,13 @@
         "functional": [
             "checkbashism.checkbashism..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["clang-tidy", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "simple-c"
+        ]
     }
 }

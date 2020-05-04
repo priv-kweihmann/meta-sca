@@ -13,5 +13,13 @@
         "functional": [
             "flint.flint..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["flint++", "--help"], "returncode": 1}
+        ],
+        "findings": [
+            "busybox"
+        ]
     }
 }

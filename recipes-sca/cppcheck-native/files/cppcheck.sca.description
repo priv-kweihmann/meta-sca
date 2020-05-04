@@ -179,5 +179,14 @@
         "style": [
             "cppcheck.cppcheck.*"
         ]
+    },
+    "test": {
+        "findings": [
+            "busybox",
+            "simple-c"
+        ],
+        "integration": [
+            {"cmd": [ "cppcheck", "--help" ], "returncode": 0 }
+        ]
     }
 }

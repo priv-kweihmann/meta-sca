@@ -12,5 +12,13 @@
         "functional": [
             "pyright.pyright..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["pyright", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "python3-git"
+        ]
     }
 }

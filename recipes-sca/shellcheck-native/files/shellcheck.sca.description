@@ -13,5 +13,13 @@
         "functional": [
             "ShellCheck.ShellCheck..*"
         ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["shellcheck-wrapper", "--help"], "returncode": 3}
+        ],
+        "findings": [
+            "busybox"
+        ]
     }
 }
