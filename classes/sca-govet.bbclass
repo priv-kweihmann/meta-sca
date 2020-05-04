@@ -27,8 +27,8 @@ def do_sca_conv_govet(d):
 
     items = []
     ## We use 2 pattern to catch compiler err and go vet warnings
-    pattern_warn = r"^(?P<file>.*):(?P<line>\d+):\s*(?P<msg>.*)"
-    pattern_err = r"^(?P<file>.*):(?P<line>\d+):(?P<col>\d+):\s*(?P<msg>.*)"
+    pattern_warn = r"^vet:\s+(?P<file>.*):(?P<line>\d+):\s*(?P<msg>.*)"
+    pattern_err = r"^vet:\s+(?P<file>.*):(?P<line>\d+):(?P<col>\d+):\s*(?P<msg>.*)"
 
     _suppress = sca_suppress_init(d)
     _findings = []
@@ -42,7 +42,7 @@ def do_sca_conv_govet(d):
                                             PackageName=package_name,
                                             Tool="govet",
                                             BuildPath=buildpath,
-                                            File=m.group("file"),
+                                            File=os.path.join(d.getVar("TOPDIR"), m.group("file")),
                                             Line=m.group("line"),
                                             Message=m.group("msg"),
                                             ID=hashlib.md5(str.encode(m.group("msg"))).hexdigest(),
@@ -61,7 +61,7 @@ def do_sca_conv_govet(d):
                                             PackageName=package_name,
                                             Tool="govet",
                                             BuildPath=buildpath,
-                                            File=m.group("file"),
+                                            File=os.path.join(d.getVar("TOPDIR"), m.group("file")),
                                             Column=m.group("col"),
                                             Line=m.group("line"),
                                             Message=m.group("msg"),
@@ -86,7 +86,7 @@ python do_sca_govet() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "govet-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "govet-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _args = ["go", "tool", "vet", "-v", "-all"]
+    _args = ["go", "vet", "-v", "-all"]
 
     cmd_output = ""
     _files = get_files_by_extention(d,    
@@ -104,6 +104,7 @@ python do_sca_govet() {
         o.write(cmd_output)
 }
 
+do_sca_govet_report[vardepsexclude] += "TOPDIR"
 python do_sca_govet_report() {
     import os
     ## Create data model
