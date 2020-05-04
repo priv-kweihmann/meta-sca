@@ -60,7 +60,7 @@ python do_sca_shellcheck_core() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "shellcheck-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "shellcheck-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _args = ["shellcheck"]
+    _args = ["shellcheck-wrapper"]
     _args += ["-f", "checkstyle"]
     
     xml_output = ""
