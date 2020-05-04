@@ -13,8 +13,10 @@ DEPENDS += "\
             tbb-native \
             "
 
-SRC_URI = "git://github.com/NASA-SW-VnV/ikos.git;protocol=https;tag=v${PV} \
+SRC_URI = "git://github.com/NASA-SW-VnV/ikos.git;protocol=https \
            file://ikos.sca.description"
+SRC_URI += "file://Upgrade-to-LLVM-10.patch"
+SRCREV = "72c70c79fdef482b78b131218d16c6c7aa82edd8"
 
 S = "${WORKDIR}/git"
 
