@@ -1,7 +1,7 @@
 alexkohler
 bashate
 cbmc
-checkbashisms
+checkbashism
 cppcheck
 cpplint
 flawfinder
