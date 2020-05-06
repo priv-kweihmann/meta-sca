@@ -17,8 +17,10 @@ DEPENDS += "\
             k8s.io-klog-native \
            "
 
-SRC_URI = "file://revive.sca.description \
-           git://${GO_IMPORT};protocol=https;name=revive"
+SRC_URI = "\
+           git://${GO_IMPORT};protocol=https;name=revive \
+           file://revive.sca.description \
+          "
 SRCREV = "b853e4e37a6db352eb227995d206b4599279f3d2"
 GO_IMPORT = "github.com/mgechev/revive"
 
