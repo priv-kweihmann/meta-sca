@@ -6,8 +6,10 @@ LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE.md;md5=4b1b7334dfc9809f7b03c
 
 DEPENDS += "github.com-mvdan-sh-native"
 
-SRC_URI = "file://slick.sca.description \
-           git://${GO_IMPORT};protocol=https"
+SRC_URI = "\
+            git://${GO_IMPORT};protocol=https \
+            file://slick.sca.description \
+           "
 SRCREV = "3f747eceace9609906a635fcf2a46862614d4d1b"
 GO_IMPORT = "github.com/mcandre/slick"
 
