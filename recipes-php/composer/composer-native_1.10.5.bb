@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=db4ebb1057458d039cb8f6edcc5d756e"
 
 DEPENDS += "php-native"
 
-SRC_URI = "https://github.com/composer/getcomposer.org/archive/${SRCREV}.zip;protocol=https;downloadname=composer-${PV}.zip"
+SRC_URI = "https://github.com/composer/getcomposer.org/archive/${SRCREV}.zip;protocol=https;downloadfilename=composer-${PV}.zip"
 SRC_URI[sha256sum] = "e6cad190dc921977b8334b31287946773b516caa96e3d758070259f12d1b397b"
 
 SRCREV = "a5874d7ceecca18772d44ed19e7da5fd267ba0a4"
