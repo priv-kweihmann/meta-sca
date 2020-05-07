@@ -22,8 +22,10 @@ DEPENDS += "\
             gopkg.in-yaml.v2-native \
            "
 
-SRC_URI = "file://gosec.sca.description \
-           git://${GO_IMPORT};protocol=https"
+SRC_URI = "\
+            git://${GO_IMPORT};protocol=https \
+            file://gosec.sca.description \
+           "
 SRCREV = "17df5b3702448a88cab19e4452cdaf7bdb6e6d8e"
 
 GO_IMPORT = "github.com/securego/gosec"
