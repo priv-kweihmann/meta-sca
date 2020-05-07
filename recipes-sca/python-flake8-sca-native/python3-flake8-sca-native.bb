@@ -22,7 +22,7 @@ DEPENDS += "${@oe.utils.ifelse(float(d.getVar('PYTHON_BASEVERSION') or '0.0') >=
 DEPENDS += "${@oe.utils.ifelse(float(d.getVar('PYTHON_BASEVERSION') or '0.0') >= 3.6, '${PYTHON_PN}-flake8-strict-native', '')}"
 DEPENDS += "${@oe.utils.ifelse(float(d.getVar('PYTHON_BASEVERSION') or '0.0') >= 3.6, '${PYTHON_PN}-flake8-variables-names-native', '')}"
 
-SRC_URI += "file://flake8.sca.description"
+SRC_URI_append = " file://flake8.sca.description"
 
 inherit native
 inherit sca-sanity

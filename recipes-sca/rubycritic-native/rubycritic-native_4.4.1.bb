@@ -17,7 +17,7 @@ DEPENDS += "\
             ruby-virtus-native \
             "
 
-SRC_URI += "file://rubycritic.sca.description"
+SRC_URI_append = " file://rubycritic.sca.description"
 SRC_URI[md5sum] = "8adf9c323e4d12fac3fb732e562c6716"
 SRC_URI[sha256sum] = "f404f5f0d4f7446d8c01f77f4b6b68614cd94999f22251d965b25055ff28e296"
 

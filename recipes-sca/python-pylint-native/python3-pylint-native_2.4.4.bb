@@ -13,7 +13,7 @@ DEPENDS += "\
             ${PYTHON_PN}-six-native \
             "
 
-SRC_URI += "file://pylint.sca.description"
+SRC_URI_append = " file://pylint.sca.description"
 SRC_URI[md5sum] = "6c1fd3345b63bd0160612882381579a7"
 SRC_URI[sha256sum] = "3db5468ad013380e987410a8d6956226963aed94ecb5f9d3a28acca6d9ac36cd"
 

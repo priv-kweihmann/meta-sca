@@ -16,7 +16,7 @@ DEPENDS += "\
             ninja-native \
             "
 
-SRC_URI += "file://pytype.sca.description"
+SRC_URI_append = " file://pytype.sca.description"
 SRC_URI[md5sum] = "4de8fab958614a755d243550235e67ab"
 SRC_URI[sha256sum] = "53803f0f1fadf4923efc88a0bd0cfa4c242d2fa3f04421b6f8ab4d658ffd2b90"
 
