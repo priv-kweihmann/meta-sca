@@ -10,7 +10,7 @@ DEPENDS += "\
             gmp-native \
             libffi-native \
            "
-SRC_URI += "file://shellcheck.sca.description"
+SRC_URI_append = " file://shellcheck.sca.description"
 
 inherit native
 inherit sca-sanity
