@@ -27,7 +27,7 @@ do_install() {
     # Add a wrapper script to fix the linking issues
     cat << EOF > ${D}${bindir}/shellcheck-wrapper
 #!/bin/sh
-LD_LIBRARY_PATH=${STAGING_LIBDIR_NATIVE} shellcheck
+LD_LIBRARY_PATH=${STAGING_LIBDIR_NATIVE} shellcheck \$@
 EOF
     chmod 0755 ${D}${bindir}/shellcheck-wrapper
 }
