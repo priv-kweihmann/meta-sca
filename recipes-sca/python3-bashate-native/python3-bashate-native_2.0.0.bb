@@ -10,7 +10,7 @@ DEPENDS += "\
             ${PYTHON_PN}-pbr-native \
            "
 
-SRC_URI += "file://bashate.sca.description"
+SRC_URI_append = " file://bashate.sca.description"
 SRC_URI[md5sum] = "8143df66c83808ab25a59319da236fb1"
 SRC_URI[sha256sum] = "eb990cf07c0ca09ee06f3b7eff79232a2d6eff9d2bdf141e8126efebb0521a17"
 
