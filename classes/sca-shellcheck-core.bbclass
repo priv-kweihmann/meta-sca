@@ -62,6 +62,7 @@ python do_sca_shellcheck_core() {
 
     _args = ["shellcheck-wrapper"]
     _args += ["-f", "checkstyle"]
+    _args += ["-a"]
     
     xml_output = ""
     for k,v in { "bash": "*./bash", "sh": "*./sh", "ksh": "*./ksh"}.items():
