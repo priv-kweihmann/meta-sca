@@ -86,6 +86,7 @@ python do_sca_govet() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "govet-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "govet-{}-fatal".format(d.getVar("SCA_MODE"))))
 
+    os.environ["GOCACHE"] = d.expand("${T}/.gocache")
     _args = ["go", "vet", "-v", "-all"]
 
     cmd_output = ""
