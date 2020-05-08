@@ -13,7 +13,7 @@ PHPCOMPOSER_CACHE_DIR_BASE ?= "${WORKDIR}"
 PHPCOMPOSER_CACHE_DIR ?= "${WORKDIR}/${PHPCOMPOSER_CACHE_DIR_NAME}"
 PHPCOMPOSER_TAR_FILENAME = "caches_${BPN}-${PV}.tar.gz"
 
-SRC_URI_append = "file://caches_${BPN}-${PV}.tar.gz"
+SRC_URI_append = " file://caches_${BPN}-${PV}.tar.gz"
 
 DEPENDS += "composer-native"
 
