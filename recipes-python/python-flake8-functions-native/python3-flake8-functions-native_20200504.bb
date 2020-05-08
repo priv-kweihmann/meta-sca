@@ -10,7 +10,7 @@ DEPENDS += "\
             ${PYTHON_PN}-setuptools-native \
             "
 SRC_URI += "git://github.com/best-doctor/flake8-functions.git;protocol=https"
-SRCREV = "ff27f7179a87fe5856d96e9e4d75277fc5e28ca4"
+SRCREV = "86fb295972908d9ecf805c0a64098cab4e48a577"
 
 UPSTREAM_CHECK_COMMITS = "1"
 S = "${WORKDIR}/git"
