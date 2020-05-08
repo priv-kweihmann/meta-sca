@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=91cc36cfafeefb7863673bcfcb1d4da4"
 
 PYPI_PACKAGE = "atomicwrites"
 
-SRC_URI[md5sum] = "ce11f780a4ce0fce8a55d64494a88178"
-SRC_URI[sha256sum] = "75a9445bac02d8d058d5e1fe689654ba5a6556a1dfd8ce6ec55a0ed79866cfa6"
+SRC_URI[md5sum] = "b5cc15c8f9f180a48665f9aacf91d817"
+SRC_URI[sha256sum] = "ae70396ad1a434f9c7046fd2dd196fc04b12f9e91ffb859164193be8b6168a7a"
 
 inherit pypi
 inherit native
