@@ -14,8 +14,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "astroid"
 
-SRC_URI[md5sum] = "5f3d73d82d1753b59bb49a6bc6046dee"
-SRC_URI[sha256sum] = "71ea07f44df9568a75d0f354c49143a4575d90645e9fead6dfb52c26a85ed13a"
+SRC_URI[md5sum] = "b0ab3129a634e7210f7b3647fb81c215"
+SRC_URI[sha256sum] = "4c17cea3e592c21b6e222f673868961bad77e1f985cb1694ed077475a89229c1"
 
 inherit pypi
 inherit native
