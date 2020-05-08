@@ -1,3 +1,7 @@
+cspell
+eslint
+htmlhint
+jshint
 luacheck
 phan
 phpcodefixer
@@ -6,3 +10,9 @@ phpmd
 phpsecaudit
 phpstan
 progpilot
+reek
+retire
+rubycritic
+standard
+textlint
+wotan
