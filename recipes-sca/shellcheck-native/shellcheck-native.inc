@@ -2,6 +2,8 @@ SUMMARY = "Static code analyzer for shell-scripts"
 HOMEPAGE = "https://www.shellcheck.net/"
 BUGTRACKER = "https://github.com/koalaman/shellcheck/issues"
 
+COMPATIBLE_HOST = "^x86_64-linux|^i586-linux|^arm-linux"
+
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://${S}/usr/share/doc/shellcheck/copyright;md5=4225f5a4cb918d258dc26493d45922ef"
 
