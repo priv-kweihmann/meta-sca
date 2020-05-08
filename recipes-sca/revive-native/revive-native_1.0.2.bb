@@ -21,7 +21,7 @@ SRC_URI = "\
            git://${GO_IMPORT};protocol=https;name=revive \
            file://revive.sca.description \
           "
-SRCREV = "b853e4e37a6db352eb227995d206b4599279f3d2"
+SRCREV = "c46974775893f4e0a0c16a1b08ddee7251a1f17d"
 GO_IMPORT = "github.com/mgechev/revive"
 
 inherit go
