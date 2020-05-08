@@ -13,8 +13,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "dparse"
 
-SRC_URI[md5sum] = "5866bbc00a014054378f1433228a9cfa"
-SRC_URI[sha256sum] = "db349e53f6d03c8ee80606c49b35f515ed2ab287a8e1579e2b4bdf52b12b1530"
+SRC_URI[md5sum] = "d5174ef465e97f8465a427a4aa64cce9"
+SRC_URI[sha256sum] = "a1b5f169102e1c894f9a7d5ccf6f9402a836a5d24be80a986c7ce9eaed78f367"
 
 inherit pypi
 inherit native
