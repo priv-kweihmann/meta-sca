@@ -11,11 +11,12 @@ DEPENDS += "\
             ${PYTHON_PN}-native \
             ${PYTHON_PN}-pytest-runner-native \
             ${PYTHON_PN}-six-native \
+            ${PYTHON_PN}-toml-native \
             "
 
 SRC_URI_append = " file://pylint.sca.description"
-SRC_URI[md5sum] = "6c1fd3345b63bd0160612882381579a7"
-SRC_URI[sha256sum] = "3db5468ad013380e987410a8d6956226963aed94ecb5f9d3a28acca6d9ac36cd"
+SRC_URI[md5sum] = "d843a9334b7c6ce3a46f4ee9c66ba5e1"
+SRC_URI[sha256sum] = "b95e31850f3af163c2283ed40432f053acbc8fc6eba6a069cb518d9dbf71848c"
 
 PYPI_PACKAGE = "pylint"
 
