@@ -170,7 +170,7 @@ python do_sca_multimetric_core() {
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "multimetric-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     # Disable multiprocessing as it's way slower than single process execution
-    _args = [d.getVar("PYTHON"), "-m", "multimetric", "--jobs=1"]
+    _args = ["multimetric", "--jobs=1"]
 
     _compiler_modules = clean_split(d, "SCA_MULTIMETRIC_COMPILER_MODULES")
 
