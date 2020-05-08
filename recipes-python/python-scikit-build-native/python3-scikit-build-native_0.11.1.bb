@@ -9,8 +9,8 @@ DEPENDS += "${PYTHON_PN}-packaging-native ${PYTHON_PN}-pyparsing-native"
 
 PYPI_PACKAGE = "scikit-build"
 
-SRC_URI[md5sum] = "c25d3e0dbffd1d01e5075cae40d72c4b"
-SRC_URI[sha256sum] = "7342017cc82dd6178e3b19377389b8a8d1f8b429d9cdb315cfb1094e34a0f526"
+SRC_URI[md5sum] = "a10abc6aec21c63ac924f6f69f270417"
+SRC_URI[sha256sum] = "da40dfd69b2456fad1349a894b90180b43712152b8a85d2a00f4ae2ce8ac9a5c"
 
 inherit pypi
 inherit setuptools3
