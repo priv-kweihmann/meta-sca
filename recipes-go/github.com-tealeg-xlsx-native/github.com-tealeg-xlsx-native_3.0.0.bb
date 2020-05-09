@@ -6,11 +6,14 @@ LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE;md5=f609f72877939978ce194fa2
 
 DEPENDS += "\
             github.com-frankban-quicktest-native \
+            github.com-peterbourgon-diskv-native \
+            github.com-rogpeppe-fastuuid-native \
+            github.com-shabbyrobe-xmlwriter-native \
             gopkg.in-check.v1-native \
            "
 
 SRC_URI = "git://${GO_IMPORT};protocol=https"
-SRCREV = "5fbeeeef05b0f65852efca277c23d75538835f57"
+SRCREV = "05284ea17355d0b7c62612710fb7e4eccc2be137"
 GO_IMPORT = "github.com/tealeg/xlsx"
 
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+\.\d+)"
