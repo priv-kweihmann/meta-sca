@@ -7,7 +7,8 @@ if [ ${mode} = "issue" ]; then
         res="${res}\n${x}"
     done
 else 
-    res=$2
+    shift
+    res=$@
 fi
 _BRANCHES="master dunfell zeus warrior"
 if [ ! -z "${BRANCHES}" ]; then
