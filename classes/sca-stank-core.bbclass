@@ -38,7 +38,11 @@ def do_sca_conv_stank(d):
         "Modulino ambiguity. Either have owner executable permissions with no extension, or else remove executable bits and use an extension like .lib.sh": ["ModulinoAmbiguity", "warning"],
         "Rewrite in pure POSIX sh for portability"                          : ["Portability", "info"],
         "Rewrite script in ksh, bash, zsh, etc., and enable debugging flags for robustness": ["Robustness", "info"],
-        "Rewrite script in sh, ksh, posh, dash, etc. for performance boost" : ["Performance", "info"],
+        "Rewrite script in sh, ksh, posh, dash, etc. for performance boost" : ["PortabilityShell", "info"],
+        "Tokenize like `unset IFS` at the top of executable scripts" : ["Tokenize", "warning"],
+        "Control program flow like `set -eu` at the top of executable scripts" : ["ControlFlow", "warning"],
+        "Ambiguous launch style. Either feature a file extensions, or else feature executable bits" : ["AmbiguousLaunchStyle", "warning"],
+        "Risk of parse error for interpreter space / secondary argument. Any safety flags will be ignored on `sh <script>` launch" : ["RiskyOp", "warning"],
     }
     if os.path.exists(sca_raw_result_file(d, "stank")):
         with open(sca_raw_result_file(d, "stank"), "r") as f:
@@ -59,7 +63,8 @@ def do_sca_conv_stank(d):
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)
                 except Exception as exp:
-                    bb.warn(str(exp))
+                    # turn into warn when upgrading version
+                    bb.note(str(exp))
 
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
