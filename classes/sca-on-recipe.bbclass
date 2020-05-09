@@ -85,7 +85,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             xmllint \
                             yamllint \
                             "
-SCA_SOURCES_DIR ?= "${B}"
+SCA_SOURCES_DIR ?= "${S}"
 
 SCA_MODE = "recipe"
 SCA_MODE_UPPER = "${@d.getVar('SCA_MODE').upper()}"
