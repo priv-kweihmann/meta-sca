@@ -4,8 +4,8 @@ HOMEPAGE = "https://github.com/pallets/click"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.rst;md5=1fa98232fd645608937a0fdc82e999b8"
 
-SRC_URI[md5sum] = "6d5c7077d8d3ce44de6e3d661b751585"
-SRC_URI[sha256sum] = "8a18b4ea89d8820c5d0c7da8a64b2c324b4dabb695804dbfea19b9be9d88c0cc"
+SRC_URI[md5sum] = "53692f62cb99a1a10c59248f1776d9c0"
+SRC_URI[sha256sum] = "d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"
 
 PYPI_PACKAGE = "click"
 
