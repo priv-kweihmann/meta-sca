@@ -37,10 +37,11 @@ SRC_URI = "http://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz \
            file://0005-Install-both-binaries-and-use-libdir.patch \
            file://0003-v8-don-t-override-ARM-CFLAGS.patch \
            file://0004-Bind-python-to-nativepython3.patch \
+           file://0001-Remove-soon-to-be-removed-getAllFieldPositions.patch \
            "
 
-SRC_URI[md5sum] = "c0106dcdd1d688b6b478ebbad0f1f41e"
-SRC_URI[sha256sum] = "555c47ca0a40e5526d9ab7b2e9c18f9dbd1d956cbdc013fd2223bb11a069be78"
+SRC_URI[md5sum] = "3f23ba05c01f6f03170059057a7bd727"
+SRC_URI[sha256sum] = "f0559b0829c7f2ac10bf5b3e157e498227e95e26cdb6af814969c49f367359a3"
 
 S = "${WORKDIR}/node-v${PV}"
 
