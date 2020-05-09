@@ -4,16 +4,14 @@ HOMEPAGE = "https://github.com/VirusTotal/yara"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://COPYING;md5=541962f9dacf27c928f57e3a7ba9e1f2"
 
-DEPENDS += "bison-native"
+DEPENDS += "\
+            bison-native"
 
 SRC_URI = "git://github.com/VirusTotal/yara.git;protocol=https \
-           file://yara.sca.description"
+           file://yara.sca.description \
+           file://0001-remove-protobuf-requirement.patch"
 
-# This patch fixes a build issue in 3.11 which is already upstreamed but not available in tagged release
-SRC_URI += "https://github.com/VirusTotal/yara/commit/04df811fa61fa54390b274bfcf56d7403c184404.patch;name=patch"
-SRC_URI[patch.md5sum] = "8d390c86878f983e7ab79b03f5bef696"
-SRC_URI[patch.sha256sum] = "f112d8aca20a27b6c18adcc200e12ed02424a37fe4ae36d71d8611963ddc9f8f"
-SRCREV = "b9f925bb4e2b998bd6bb2f2e3cc2087c62fdd5b9"
+SRCREV = "f4a5daab94d77f7ad4c404634976ddd4c7bd9da6"
 
 S = "${WORKDIR}/git"
 
