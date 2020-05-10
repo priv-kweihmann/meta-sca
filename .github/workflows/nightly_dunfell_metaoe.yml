@@ -135,15 +135,12 @@ jobs:
         run: |
           cd ${WORKSPACE}
           source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          eval $(bitbake busybox -e | grep "^DL_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
-          eval $(bitbake busybox -e | grep "^SSTATE_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
+          echo 'INHERIT += "rm_work_and_downloads"' >> conf/local.conf
           eval $(bitbake busybox -e | grep "^TMPDIR") && rm -f bitbake.sock && rm -f bitbake.lock
-                    timeout --foreground --kill-after=60s $MAXRUNTIME bitbake $(${WORKSPACE}/meta-sca/test/get_buildmodules ${WORKSPACE}/meta-sca/test/lang_$PARAMFILE.txt) 2>&1 \
+          timeout --foreground --kill-after=60s $MAXRUNTIME bitbake $(${WORKSPACE}/meta-sca/test/get_buildmodules ${WORKSPACE}/meta-sca/test/lang_$PARAMFILE.txt) 2>&1 \
             || if [ $? == 124 ]; then echo "Timeout"; else exit 1; fi;
           rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR} 2>&1
-          [ -n "${SSTATE_DIR}" ] && rm -rf ${SSTATE_DIR} 2>&1
-          find ${TMPDIR} -type d -maxdepth 1 -mindepth 1 -not -name "deploy" -exec rm -rf {} \; 2>&1
+          find ${TMPDIR} -type d -maxdepth 1 -mindepth 1 -not -name "deploy" -and -not -name "sysroot*"  -exec rm -rf {} \; 2>&1
           df -h
         shell: bash
       - name: get latest webdeloy
