@@ -11,15 +11,16 @@ For further explanations on the variables see the manpage of cppcheck
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLACKLIST_cppcheck | Blacklist filter for this tool | space-separated-list | "linux-*"
-| SCA_CPPCHECK_ADD_INCLUDES | Additional paths leading to includes | space-separated-list | ""
-| SCA_CPPCHECK_CHECK_DEPTH | Depth of analysis - higher value = higher effort | int | "3"
-| SCA_CPPCHECK_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
-| SCA_CPPCHECK_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
-| SCA_CPPCHECK_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".c .cpp .h .hpp"
-| SCA_CPPCHECK_LANG_STD | C standard to check on | space separated list | "c99"
-| SCA_CPPCHECK_MAX_CONFIG | Number of configuration permutations, applies only to fastmode | int | "1"
 | SCA_CPPCHECK_RUNMODE | Choose the runmode of the tool. Fast or complete, while fast isn't capable of finding some issues | string: fast or complete | "fast"
+| SCA_CPPCHECK_MAX_CONFIG | Number of configuration permutations, applies only to fastmode | int | "1"
+| SCA_CPPCHECK_LIBRARY | cppcheck configuration to use | string | "std.cfg"
+| SCA_CPPCHECK_LANG_STD | C standard to check on | space separated list | "c99"
+| SCA_CPPCHECK_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".c .cpp .h .hpp"
+| SCA_CPPCHECK_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
+| SCA_CPPCHECK_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
+| SCA_CPPCHECK_CHECK_DEPTH | Depth of analysis - higher value = higher effort | int | "3"
+| SCA_CPPCHECK_ADD_INCLUDES | Additional paths leading to includes | space-separated-list | ""
+| SCA_BLACKLIST_cppcheck | Blacklist filter for this tool | space-separated-list | "linux-*"
 
 ## Supports
 

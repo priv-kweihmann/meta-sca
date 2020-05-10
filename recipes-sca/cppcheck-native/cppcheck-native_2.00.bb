@@ -5,12 +5,10 @@ BUGTRACKER = "https://trac.cppcheck.net/"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
-DEPENDS += "libpcre-native"
-
 SRC_URI = "git://github.com/danmar/cppcheck.git;protocol=https \
            file://0001-Makefile-fixes.patch \
            file://cppcheck.sca.description"
-SRCREV = "077e652de43ad962be0454d7be347816f7482739"
+SRCREV = "aad6dc4367b253c221f7354b342d3000ba61aabb"
 
 S = "${WORKDIR}/git"
 
@@ -19,22 +17,16 @@ inherit pkgconfig
 inherit sca-sanity
 inherit sca-description
 
-## we don't need debug packages
-INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-
-EXTRA_OEMAKE = "HAVE_RULES=yes"
+PACKAGECONFIG ??= "rules"
+PACKAGECONFIG[rules] = "HAVE_RULES=yes,,libpcre-native"
+PACKAGECONFIG[z3] = "USE_Z3=yes,,z3-native"
 
 do_compile() {
-    oe_runmake
+    oe_runmake ${PACKAGECONFIG_CONFARGS} FILESDIR=.
 }
 
 do_install() {
-    install -d ${D}${bindir}
-    install -d ${D}${datadir}
-    install ${B}/cppcheck ${D}${bindir}
-    cp -R ${B}/addons ${D}${bindir}
-    cp -R ${B}/cfg ${D}${bindir}
-    install -D ${B}/htmlreport/cppcheck-htmlreport ${D}${bindir}
+    oe_runmake install DESTDIR=${D} FILESDIR=${datadir} PREFIX=${prefix}
     install ${WORKDIR}/cppcheck.sca.description ${D}${datadir}
 }
 

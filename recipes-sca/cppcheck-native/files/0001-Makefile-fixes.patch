@@ -1,17 +1,18 @@
-From 7e8e50f734aa6bf67b1c242b16fdb6e6b18b221c Mon Sep 17 00:00:00 2001
+From a3f4a437133a8d973a962e94dd25626cf3ca5cea Mon Sep 17 00:00:00 2001
 From: Konrad Weihmann <kweihmann@outlook.com>
-Date: Sun, 1 Sep 2019 20:18:17 +0200
+Date: Sun, 10 May 2020 20:00:35 +0200
 Subject: [PATCH] Makefile fixes
 
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
 ---
- Makefile | 24 +++++++++++++-----------
- 1 file changed, 13 insertions(+), 11 deletions(-)
+ Makefile | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index 5c9539ff2..17aad9d7b 100644
+index 94e6df241..30fe68f6a 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -106,17 +106,19 @@ else ifeq ($(CXX), c++)
+@@ -122,11 +122,11 @@ else ifeq ($(CXX), c++)
  endif
  
  ifeq ($(HAVE_RULES),yes)
@@ -26,41 +27,6 @@ index 5c9539ff2..17aad9d7b 100644
      endif
  endif
  
--ifndef PREFIX
--    PREFIX=/usr
--endif
-+DESTDIR?= ""
-+prefix?= "/usr"
-+bindir?= "$(prefix)/bin"
-+BINDIR=$(bindir)
-+PREFIX=$(prefix)
- 
- ifndef INCLUDE_FOR_LIB
-     INCLUDE_FOR_LIB=-Ilib -isystem externals -isystem externals/simplecpp -isystem externals/tinyxml
-@@ -130,8 +132,6 @@ ifndef INCLUDE_FOR_TEST
-     INCLUDE_FOR_TEST=-Ilib -Icli -isystem externals/simplecpp -isystem externals/tinyxml
- endif
- 
--BIN=$(DESTDIR)$(PREFIX)/bin
--
- # For 'make man': sudo apt-get install xsltproc docbook-xsl docbook-xml on Linux
- DB2MAN?=/usr/share/sgml/docbook/stylesheet/xsl/nwalsh/manpages/docbook.xsl
- XP=xsltproc -''-nonet -''-param man.charmap.use.subset "0"
-@@ -301,9 +301,11 @@ tags:
- 	ctags -R --exclude=doxyoutput --exclude=test/cfg --exclude=test/synthetic cli externals gui lib test
- 
- install: cppcheck
--	install -d ${BIN}
--	install cppcheck ${BIN}
--	install htmlreport/cppcheck-htmlreport ${BIN}
-+	install -d ${DESTDIR}${BINDIR}
-+	install cppcheck ${DESTDIR}${BINDIR}
-+	install addons/*.py ${DESTDIR}${BINDIR}
-+	install addons/*/*.py ${DESTDIR}${BINDIR}
-+	install htmlreport/cppcheck-htmlreport ${DESTDIR}${BINDIR}
- ifdef FILESDIR
- 	install -d ${DESTDIR}${FILESDIR}
- 	install -d ${DESTDIR}${FILESDIR}/addons
 -- 
-2.17.1
+2.20.1
 
