@@ -41,6 +41,9 @@ def do_sca_conv_splint(d):
         with open(sca_raw_result_file(d, "splint"), "r") as f:
             reader = csv.DictReader(f)
             for row in reader:
+                # ignore unresolved includes for now
+                if row["Warning Text"].startswith("Cannot find include file "):
+                    continue
                 try:
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
@@ -91,6 +94,7 @@ python do_sca_splint() {
         _args += ["-I{}".format(i)]
     for i in get_local_includes(d.getVar("STAGING_INCDIR")):
         _args += ["-I{}".format(i)]
+    _args += ["-I{}".format(d.getVar("SCA_SOURCES_DIR"))]
 
     _files = get_files_by_extention(d,    
                                     d.getVar("SCA_SOURCES_DIR"),    
