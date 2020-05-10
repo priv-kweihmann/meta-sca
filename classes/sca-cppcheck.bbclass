@@ -20,6 +20,8 @@ SCA_CPPCHECK_CHECK_DEPTH ?= "3"
 SCA_CPPCHECK_RUNMODE ?= "fast"
 ## Number of config permutations
 SCA_CPPCHECK_MAX_CONFIG ?= "1"
+## Config to use
+SCA_CPPCHECK_LIBRARY ?= "std.cfg"
 
 SCA_RAW_RESULT_FILE[cppcheck] = "xml"
 
@@ -100,6 +102,10 @@ python do_sca_cppcheck() {
     _user_rules = os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cppcheck-user-rules.xml")
     _add_include = d.getVar("SCA_CPPCHECK_ADD_INCLUDES", True).split(" ")
 
+    # Copy configurations into special dir
+    subprocess.check_call(["ln", "-sf", d.expand("${STAGING_DATADIR_NATIVE}/cfg"), d.expand("${T}/cfg")])
+    subprocess.check_call(["ln", "-sf", d.expand("${STAGING_DATADIR_NATIVE}/platform"), d.expand("${T}/platform")])
+
     _args = ["cppcheck"]
     if os.path.exists(_user_rules):
         _args += ["--rule-file={}".format(_user_rules)]
@@ -116,6 +122,7 @@ python do_sca_cppcheck() {
     for item in _add_include:
         _args += ["-I", item]
     _args += ["--xml-version=2"]
+    _args += ["--library={}".format(d.getVar("SCA_CPPCHECK_LIBRARY"))]
     _args += ["--max-ctu-depth={}".format(d.getVar("SCA_CPPCHECK_CHECK_DEPTH"))]
     for item in d.getVar("SCA_CPPCHECK_LANG_STD").split(" "):
         _args += ["--std={}".format(item)]
@@ -130,34 +137,16 @@ python do_sca_cppcheck() {
         o.write("\n".join(_files))
     _args += ["--file-list={}".format(_file_list)]
 
-    ## Run
-    if os.path.exists("std.cfg"):
-        os.remove("std.cfg")
-    try:
-        os.symlink(os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "cfg", "std.cfg"), "std.cfg")
-    except FileExistsError:
-        pass
-    cur_dir = os.getcwd()
-    os.chdir(d.getVar("B", True))
-    try:
-        os.remove("std.cfg")
-    except FileNotFoundError:
-        pass
-    try:
-        os.symlink(os.path.join(d.getVar("STAGING_BINDIR_NATIVE", True), "cfg", "std.cfg"), "std.cfg")
-    except FileExistsError:
-        pass
+    old_cwd = os.getcwd()
+    os.chdir(d.getVar("T"))
+
     cmd_output = ""
     try:
         cmd_output = subprocess.check_output(_args, universal_newlines=True)
     except subprocess.CalledProcessError as e:
         cmd_output = e.stdout or ""
 
-    if os.path.exists("std.cfg"):
-        os.remove("std.cfg")
-    os.chdir(cur_dir)
-    if os.path.exists("std.cfg"):
-        os.remove("std.cfg")
+    os.chdir(old_cwd)
 }
 
 python do_sca_cppcheck_report() {
