@@ -27,8 +27,8 @@ def do_sca_conv_govet(d):
 
     items = []
     ## We use 2 pattern to catch compiler err and go vet warnings
-    pattern_warn = r"^vet:\s+(?P<file>.*):(?P<line>\d+):\s*(?P<msg>.*)"
-    pattern_err = r"^vet:\s+(?P<file>.*):(?P<line>\d+):(?P<col>\d+):\s*(?P<msg>.*)"
+    pattern_warn = r"^(vet:\s+)*(?P<file>.*):(?P<line>\d+):\s*(?P<msg>.*)"
+    pattern_err = r"^(vet:\s+)*(?P<file>.*):(?P<line>\d+):(?P<col>\d+):\s*(?P<msg>.*)"
 
     _suppress = sca_suppress_init(d)
     _findings = []
