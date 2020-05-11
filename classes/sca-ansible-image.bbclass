@@ -59,7 +59,8 @@ def create_inventory(d, target_path):
     inv = {
         "all": {
             "vars": {
-
+                "local_tmp": d.getVar("T"),
+                "ansible_remote_tmp": d.getVar("T")
             }
         }
     }
@@ -180,7 +181,6 @@ python do_sca_ansible() {
     os.environ["ANSIBLE_ACTION_WARNINGS"] = "False"
     os.environ["ANSIBLE_COMMAND_WARNINGS"] = "False"
     os.environ["ANSIBLE_LOCALHOST_WARNING"] = "False"
-    os.environ["DEFAULT_LOCAL_TMP"] = d.getVar("T")
     _args = ["ansible-playbook"]
     _args += ["--check"]
     _args += ["--flush-cache"]
