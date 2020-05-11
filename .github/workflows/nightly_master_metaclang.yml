@@ -40,7 +40,6 @@ jobs:
         run: |
           git clone git://git.yoctoproject.org/poky.git/ -b $SCABRANCH ${WORKSPACE}/poky 2>&1
           rm -rf ${WORKSPACE}/poky/.git 2>&1
-          df -h
         shell: bash
       - name: Check out meta-sca
         run: |
@@ -51,7 +50,6 @@ jobs:
         run: |
           git clone git://git.openembedded.org/meta-openembedded -b $SCABRANCH ${WORKSPACE}/meta-oe 2>&1
           rm -rf ${WORKSPACE}/meta-oe/.git 2>&1
-          df -h
         shell: bash
       - if: env.ENABLEMETACLANG == '1'
         name: Check out meta-clang
@@ -62,14 +60,12 @@ jobs:
         run: |
           cd ${WORKSPACE} 
           source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          df -h
         shell: bash
       - name: add meta-sca
         run: |
           cd ${WORKSPACE}
           source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
           bitbake-layers add-layer ${WORKSPACE}/meta-sca 2>&1
-          df -h
         shell: bash
       - if: env.ENABLEMETAOE == '1'
         name: add meta-oe
@@ -77,7 +73,6 @@ jobs:
           cd ${WORKSPACE}
           source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
           bitbake-layers add-layer ${WORKSPACE}/meta-oe/meta-oe 2>&1
-          df -h
         shell: bash
       - if: env.ENABLEMETACLANG == '1'
         name: add meta-clang
@@ -85,7 +80,6 @@ jobs:
           cd ${WORKSPACE}
           source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
           bitbake-layers add-layer ${WORKSPACE}/meta-clang 2>&1
-          df -h
         shell: bash
       - name: prepare local.conf
         run: |
@@ -99,7 +93,6 @@ jobs:
           echo 'BB_GENERATE_SHALLOW_TARBALLS = "1"' >> conf/local.conf
           echo 'PACKAGE_CLASSES = "package_rpm"' >> conf/local.conf
           sed -i "s/buildstats//g" conf/local.conf
-          df -h
         shell: bash
       - name: set modules
         run: |
@@ -107,7 +100,6 @@ jobs:
           source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
           mods=$(cat ${WORKSPACE}/meta-sca/test/lang_$PARAMFILE.txt | tr '\n' ' ')
           echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> conf/local.conf
-          df -h
         shell: bash
       - name: build glibc
         run: |
@@ -118,7 +110,6 @@ jobs:
           bitbake glibc 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
           [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/* 2>&1
           find ${TMPDIR} -type d -name "temp" -exec rm -rf {} \; 2>&1 || true
-          df -h
         shell: bash
       - name: build clang
         run: |
@@ -129,7 +120,6 @@ jobs:
           bitbake clang-native 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
           [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/* 2>&1
           find ${TMPDIR} -type d -name "temp" -exec rm -rf {} \; 2>&1 || true
-          df -h
         shell: bash
       - name: build
         run: |
@@ -148,14 +138,13 @@ jobs:
           eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
           eval $(bitbake busybox -e | grep "^TMPDIR") && rm -f bitbake.sock && rm -f bitbake.lock
           ${WORKSPACE}/meta-sca/test/check_results $SCA_EXPORT_DIR ${WORKSPACE}/meta-sca/test/lang_$PARAMFILE.txt 2>&1 || true
-          find ${TMPDIR} -type d -maxdepth 1 -mindepth 1 -not -name "deploy" -exec rm -rf {} \; 2>&1
           df -h
+          find ${TMPDIR} -type d -maxdepth 1 -mindepth 1 -not -name "deploy" -exec rm -rf {} \; 2>&1
         shell: bash
       - name: get latest webdeloy
         run: |
           cd ${WORKSPACE}
           timeout --foreground --kill-after=60s 300s git clone https://github.com/${WEB_REPOSITORY}.git ${WORKSPACE}/website 2>&1 || exit 0;
-          df -h
         shell: bash
       - name: export findings
         run: |
@@ -173,6 +162,5 @@ jobs:
           git remote add origin https://priv-kweihmann:${{ secrets.WEBDEPLOY }}@github.com/${WEB_REPOSITORY}.git 2>&1
           git diff --quiet && git diff --staged --quiet 2>&1 || (git commit --amend -m "Update findings"; git push origin master --force) 2>&1 || true
           rm -rf ${WORKSPACE}/website 2>&1
-          df -h
         shell: bash
 
