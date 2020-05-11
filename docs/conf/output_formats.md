@@ -8,6 +8,7 @@ Currently supported are
 * diff
 * codeclimate
 * sarif
+* plain
 
 ## Checkstyle format
 
@@ -86,3 +87,29 @@ The complete format is described [here](https://github.com/fulldecent/structured
 
 This export format is compatible to [SARIF](https://sarifweb.azurewebsites.net/#Specification).
 It is a JSON file based on the this [json schema](https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json)
+
+## plain format
+
+Each finding will be put into a single line - it's pretty much the same as the console format, but without the severity.
+In this mode bitbake will take over the severity part.
+
+Example output looks like this
+
+```shell
+/full/path/to/simple-hello-world.c :23:1 - Array 'c[250]' accessed at index -1, which is out of bounds. - [cppcheck.cppcheck.negativeIndex]
+/full/path/to/simple-hello-world.c :20:1 - Array 'c[250]' accessed at index -1, which is out of bounds. - [cppcheck.cppcheck.negativeIndex]
+```
+
+General format is the following
+
+```shell
+{file}:{line}:{column} - {message} - [{id}]
+```
+
+| value      | description
+|:----------:|:-
+| {column}   | starting column of the finding
+| {file}     | path of the file relative to source directory
+| {id}       | the unique error-ID of the finding
+| {line}     | starting line of the finding
+| {message}  | the human readable message of the finding
