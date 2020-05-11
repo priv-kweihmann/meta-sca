@@ -251,7 +251,8 @@ def sca_task_aftermath(d, tool, fatals=None):
     
     if any(_fatals):
         bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK"), d)
-        bb.error("SCA has following fatal errors: {}".format("\n".join(_fatals)))
+        _str_fatals = ["{} :{}:{} - {} - [{}]".format(i.GetPath(), i.Line, i.Column, i.Message, i.GetFormattedID()) for i in _fatals]
+        bb.error("SCA has following fatal errors: {}".format("\n".join(_str_fatals)))
 
 
 def get_bb_exec_ext_parameter_support(d):
