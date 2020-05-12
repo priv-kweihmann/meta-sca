@@ -11,7 +11,7 @@
     ],
     "score": {
         "functional": [
-            "checkbashism.checkbashism..*"
+            "clang.clang..*"
         ]
     }
 }
