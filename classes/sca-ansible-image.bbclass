@@ -60,7 +60,7 @@ def create_inventory(d, target_path):
         "all": {
             "vars": {
                 "local_tmp": d.getVar("T"),
-                "ansible_remote_tmp": d.getVar("T")
+                "remote_tmp": d.getVar("T")
             }
         }
     }
