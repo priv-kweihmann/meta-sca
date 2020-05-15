@@ -193,9 +193,9 @@ def get_fatal_entries(d):
 def _get_x_from_result(d, lookup_key = "Severity", match_key = ""):
     _dm = sca_get_datamodel(d, d.getVar("SCA_DATAMODEL_STORAGE"))
     if lookup_key == "Severity":
-        res = [str(x) for x in _dm if x.Severity == match_key]
+        res = [x for x in _dm if x.Severity == match_key]
     elif lookup_key == "ID":
-        res = [str(x) for x in _dm if x.GetFormattedID() == match_key]
+        res = [x for x in _dm if x.GetFormattedID() == match_key]
     return res
 
 def get_warnings_from_result(d):
