@@ -2,16 +2,15 @@ SUMMARY = "NPM: jsonfile"
 DESCRIPTION = "Easily read/write JSON files."
 HOMEPAGE = "https://github.com/jprichardson/node-jsonfile#readme"
 
-DEPENDS = "npm-graceful-fs-native"
-
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=423f377ade95936f6fe009b1c137bfdb"
 
-SRC_URI = "https://registry.npmjs.org/jsonfile/-/jsonfile-4.0.0.tgz"
-SRC_URI[md5sum] = "73dff28a2f7b59aafdbba8a2e1882c2e"
-SRC_URI[sha256sum] = "5fb99597f70008b05f401d4d0d522a9c18e019be5e780fa17f7bd13a3c0be0e8"
+DEPENDS = "npm-graceful-fs-native \
+           npm-universalify-native"
 
-S = "${WORKDIR}/package"
+SRC_URI = "https://registry.npmjs.org/jsonfile/-/jsonfile-6.0.1.tgz"
+SRC_URI[md5sum] = "4591499456aad6813f9ef672dbcb48d3"
+SRC_URI[sha256sum] = "c04d98338f4acd435fdf19865693faabfb2867998a93b445a88436e9be518a31"
 
 NPM_PKGNAME = "jsonfile"
 
