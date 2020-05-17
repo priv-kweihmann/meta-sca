@@ -15,7 +15,6 @@ SRCREV = "ad4610c602a62eb90641be05e1436af9fe83d63c"
 S = "${WORKDIR}/git/systemdlint"
 
 inherit native
-inherit sca-sanity
 inherit sca-description
 inherit setuptools3
 

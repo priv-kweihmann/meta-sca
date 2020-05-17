@@ -12,7 +12,6 @@ S = "${WORKDIR}/git"
 
 inherit native
 inherit luarocks
-inherit sca-sanity
 inherit sca-description
 
 do_install_append() {

@@ -16,7 +16,6 @@ S = "${WORKDIR}/git"
 
 inherit autotools-brokensep
 inherit native
-inherit sca-sanity
 inherit sca-description
 
 do_install() {

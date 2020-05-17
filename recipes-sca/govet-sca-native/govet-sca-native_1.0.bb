@@ -8,7 +8,6 @@ DEPENDS += "go-native"
 SRC_URI = "file://govet.sca.description"
 
 inherit native
-inherit sca-sanity
 inherit sca-description
 
 do_configure[noexec] = "1"

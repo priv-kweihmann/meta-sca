@@ -16,7 +16,6 @@ SRCREV = "946210df0edabc91ff5bdbed1ecb759e9d565b20"
 S = "${WORKDIR}/git"
 
 inherit native
-inherit sca-sanity
 inherit sca-description
 inherit python3-dir
 

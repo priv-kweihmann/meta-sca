@@ -20,7 +20,6 @@ PYPI_PACKAGE = "safety"
 
 inherit pypi
 inherit native
-inherit sca-sanity
 inherit sca-description
 inherit setuptools3
 

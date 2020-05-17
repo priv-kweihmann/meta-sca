@@ -13,7 +13,6 @@ S = "${WORKDIR}/git"
 
 inherit native
 inherit phpcomposer
-inherit sca-sanity
 inherit sca-description
 
 do_compile_prepend() {
@@ -24,5 +23,7 @@ do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/phpstan.sca.description ${D}${datadir}/
 }
+
+X = "A"
 
 FILES_${PN} = "${bindir} ${datadir}"

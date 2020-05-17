@@ -9,5 +9,4 @@ SRC_URI[sha256sum] = "a7270b78d8c970e90a5b932471c691e3ca74aa8be030f1a954d38ec487
 
 GEM_NAME = "ast"
 
-inherit sca-sanity
 inherit rubygemsnative

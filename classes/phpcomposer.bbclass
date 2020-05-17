@@ -1,6 +1,8 @@
 ## SPDX-License-Identifier: BSD-2-Clause
 ## Copyright (c) 2019, Konrad Weihmann
 
+inherit sca-nonet-sanity
+
 ## Name of the package to be installed - if empty it looks for composer.json in S-dir
 PHPCOMPOSER_PKGS_NAME ?= "${BPN}:${PV}"
 ## Install dir
@@ -11,58 +13,8 @@ PHPCOMPOSER_ADD_ARGS_REQUIRE ?= "--no-suggest"
 PHPCOMPOSER_CACHE_DIR_NAME ?= "composer_cache"
 PHPCOMPOSER_CACHE_DIR_BASE ?= "${WORKDIR}"
 PHPCOMPOSER_CACHE_DIR ?= "${WORKDIR}/${PHPCOMPOSER_CACHE_DIR_NAME}"
-PHPCOMPOSER_TAR_FILENAME = "caches_${BPN}-${PV}.tar.gz"
-
-SRC_URI_append = " file://caches_${BPN}-${PV}.tar.gz"
 
 DEPENDS += "composer-native"
-
-python __anonymous() {
-    import os
-    import subprocess
-
-    found = False
-    for _dir in d.getVar("FILESPATH").split(":"):
-        if os.path.exists(os.path.join(_dir, d.getVar("PHPCOMPOSER_TAR_FILENAME"))):
-            if os.stat(os.path.join(_dir, d.getVar("PHPCOMPOSER_TAR_FILENAME"))).st_size != 0:
-                found = True
-                break
-    if not found:
-        for _dir in d.getVar("FILESPATH").split(":"):
-            if os.path.exists(_dir):
-                try:
-                    subprocess.check_call(["tar",    
-                                            "cvzf",    
-                                            os.path.join(_dir, d.getVar("PHPCOMPOSER_TAR_FILENAME")),
-                                            "-T", "/dev/null"])
-                except subprocess.CalledProcessError as e:
-                    bb.error(str(e))
-                break
-}
-
-# This function do create a dump of all
-# dependencies into a tarball
-python do_package_refresh() {
-    import os
-    import subprocess
-
-    for _dir in d.getVar("FILESPATH").split(":"):
-        if os.path.exists(_dir):
-            try:
-                subprocess.check_call(["tar",    
-                                       "cvzf",    
-                                       os.path.join(_dir, d.getVar("PHPCOMPOSER_TAR_FILENAME")),
-                                       "-C", d.getVar("PHPCOMPOSER_CACHE_DIR_BASE"),
-                                       d.getVar("PHPCOMPOSER_CACHE_DIR_NAME")])
-            except subprocess.CalledProcessError as e:
-                bb.error(str(e))
-            break;
-}
-
-## Requires install
-do_package_refresh[depends] += "${PN}:do_install"
-do_package_refresh[doc] = "Create tarball with pre-fetched dependencies"
-addtask do_package_refresh
 
 B = "${WORKDIR}/build"
 
