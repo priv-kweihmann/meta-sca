@@ -11,7 +11,6 @@ S = "${WORKDIR}/git"
 
 inherit native
 inherit pkgconfig
-inherit sca-sanity
 inherit sca-description
 
 do_compile() {

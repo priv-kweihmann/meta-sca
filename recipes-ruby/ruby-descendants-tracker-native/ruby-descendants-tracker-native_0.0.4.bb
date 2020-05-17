@@ -11,5 +11,4 @@ SRC_URI[sha256sum] = "e9c41dd4cfbb85829a9301ea7e7c48c2a03b26f09319db230e6479ccdc
 
 GEM_NAME = "descendants_tracker"
 
-inherit sca-sanity
 inherit rubygemsnative

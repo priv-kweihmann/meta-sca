@@ -16,6 +16,7 @@ UPSTREAM_CHECK_REGEX ?= "/composer/composer/releases/tag/(?P<pver>(\d+[\.\-_]*)+
 S = "${WORKDIR}/getcomposer.org-${SRCREV}"
 
 inherit native
+inherit sca-nonet-sanity
 
 do_install() {
     export COMPOSER_HOME=${D}${datadir}/composer
