@@ -8,7 +8,6 @@ DEPENDS += "golang.org-x-lint-native"
 SRC_URI = "file://golint.sca.description"
 
 inherit native
-inherit sca-sanity
 inherit sca-description
 
 do_configure[noexec] = "1"

@@ -18,7 +18,6 @@ SRC_URI[sha256sum] = "3a87eb393056d1bc77d898e4bcf8998f50e9ad84f7b9ff7cf2720509ac
 PYPI_PACKAGE = "proselint"
 
 inherit pypi
-inherit sca-sanity
 inherit sca-description
 inherit setuptools3
 inherit native

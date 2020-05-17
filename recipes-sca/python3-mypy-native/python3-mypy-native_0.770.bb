@@ -17,7 +17,6 @@ SRC_URI[sha256sum] = "8a627507ef9b307b46a1fea9513d5c98680ba09591253082b4c48697ba
 PYPI_PACKAGE = "mypy"
 
 inherit pypi
-inherit sca-sanity
 inherit sca-description
 inherit setuptools3
 inherit native

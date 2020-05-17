@@ -8,7 +8,6 @@ DEPENDS += "clang-native"
 SRC_URI = "file://clang.sca.description"
 
 inherit native
-inherit sca-sanity
 inherit sca-description
 
 do_configure[noexec] = "1"

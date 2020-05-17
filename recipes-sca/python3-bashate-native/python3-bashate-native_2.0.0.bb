@@ -17,7 +17,6 @@ SRC_URI[sha256sum] = "eb990cf07c0ca09ee06f3b7eff79232a2d6eff9d2bdf141e8126efebb0
 PYPI_PACKAGE = "bashate"
 
 inherit pypi
-inherit sca-sanity
 inherit sca-description
 inherit setuptools3
 inherit native

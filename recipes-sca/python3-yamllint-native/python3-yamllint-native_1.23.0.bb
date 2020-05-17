@@ -17,7 +17,6 @@ PYPI_PACKAGE = "yamllint"
 
 inherit native
 inherit pypi
-inherit sca-sanity
 inherit sca-description
 inherit setuptools3
 

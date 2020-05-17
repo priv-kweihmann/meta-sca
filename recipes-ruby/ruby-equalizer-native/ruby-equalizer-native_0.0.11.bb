@@ -9,5 +9,4 @@ SRC_URI[sha256sum] = "44e5bc46f49883e83d159ee9b1f7320b4ae8283bb6329e5d9716f5e7dd
 
 GEM_NAME = "equalizer"
 
-inherit sca-sanity
 inherit rubygemsnative

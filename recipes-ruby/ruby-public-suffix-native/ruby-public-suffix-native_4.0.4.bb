@@ -9,5 +9,4 @@ SRC_URI[sha256sum] = "3ff2a10253583b2780b6fb0ea643a2e877ae3bf719bd987fe5f16b550e
 
 GEM_NAME = "public_suffix"
 
-inherit sca-sanity
 inherit rubygemsnative

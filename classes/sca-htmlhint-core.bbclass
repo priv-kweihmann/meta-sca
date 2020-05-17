@@ -4,7 +4,7 @@
 SCA_HTMLHINT_EXTRA_SUPPRESS ?= ""
 SCA_HTMLHINT_EXTRA_FATAL ?= ""
 
-SCA_RAW_RESULT_FILE[htmlhint] = "json"
+SCA_RAW_RESULT_FILE[htmlhint] = "txt"
 
 DEPENDS += "htmlhint-native"
 
@@ -16,7 +16,7 @@ inherit sca-suppress
 
 def do_sca_conv_htmlhint(d):
     import os
-    import json
+    import re
     
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
@@ -27,37 +27,32 @@ def do_sca_conv_htmlhint(d):
     _suppress = sca_suppress_init(d)
     _findings = []
 
+    pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<col>\d+):\s*(?P<msg>.*)\s+\[(?P<rawseverity>.+)\]"
+
     if os.path.exists(sca_raw_result_file(d, "htmlhint")):
-        j = []
-        try:
-            with open(sca_raw_result_file(d, "htmlhint")) as i:
-                j = json.load(i)
-        except:
-            pass
-        for item in j:
-            try:
-                _file = item["file"]
-                if item["file"] in __excludes:
-                    continue
-                for m in item["messages"]:
+        with open(sca_raw_result_file(d, "htmlhint"), "r") as f:
+            content = f.read()
+            for m in re.finditer(pattern, content, re.MULTILINE):
+                try:
+                    _sev, _id = m.group("rawseverity").split("/")
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
                                             Tool="htmlhint",
                                             BuildPath=buildpath,
-                                            Column=str(m["col"]),
-                                            File=_file,
-                                            Line=str(m["line"]),
-                                            Message=m["message"],
-                                            ID=m["rule"]["id"],
-                                            Severity=m["type"])
+                                            File=m.group("file"),
+                                            Column=m.group("col"),
+                                            Line=m.group("line"),
+                                            Message=m.group("msg"),
+                                            ID=_id,
+                                            Severity=_sev)
                     if _suppress.Suppressed(g):
                         continue
                     if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)
-            except Exception as exp:
-                bb.warn(str(exp))
+                except Exception as e:
+                    bb.warn(str(e))
 
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
@@ -73,12 +68,12 @@ python do_sca_htmlhint_core() {
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "htmlhint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _args = ["htmlhint"]
-    _args += ["-f", "json"]
+    _args += ["-f", "unix"]
     _args += [d.getVar("SCA_SOURCES_DIR") + "/"]
 
     cmd_output = ""
     try:
-        cmd_output = subprocess.check_output(_args, universal_newlines=True)
+        cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
     except subprocess.CalledProcessError as e:
         cmd_output = e.stdout or ""
     

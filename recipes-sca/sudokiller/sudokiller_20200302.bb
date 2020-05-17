@@ -12,7 +12,6 @@ UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
 
-inherit sca-sanity
 inherit sca-description
 
 do_configure[noexec] = "1"

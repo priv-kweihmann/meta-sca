@@ -6,7 +6,6 @@ LIC_FILES_CHKSUM = "file:///${SCA_LAYERDIR}/LICENSE;md5=a4a2bbea1db029f21b3a328c
 SRC_URI = "file://jsonlint.sca.description"
 
 inherit native
-inherit sca-sanity
 inherit sca-description
 
 do_configure[noexec] = "1"
