@@ -3,11 +3,11 @@ DESCRIPTION = "This Ansible role provides numerous security-related ssh configur
 HOMEPAGE = "https://github.com/dev-sec/ansible-ssh-hardening"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://README.md;beginline=201;endline=215;md5=9ef02fc7042855790be12396a3fe645b"
+LIC_FILES_CHKSUM = "file://README.md;beginline=201;md5=48b67ef337a82bfc0c86f7cbb4c13311"
 
 SRC_URI = "git://github.com/dev-sec/ansible-ssh-hardening.git;protocol=https \
            file://${ROLE_NAME}.json"
-SRCREV = "8f44b6edd9e2abf220aee7a429f1b1182c818dd4"
+SRCREV = "8ab659243c8a8ef1c4fd1785d7597c6bbbc699a2"
 S = "${WORKDIR}/git"
 
 ROLE_NAME = "dev-sec.ssh-hardening"
