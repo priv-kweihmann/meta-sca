@@ -5,11 +5,11 @@ HOMEPAGE = "https://github.com/RyanZim/universalify#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a734c6ad6e37a515025ac5e8e90ef786"
 
-SRC_URI = "https://registry.npmjs.org/universalify/-/universalify-0.1.2.tgz"
-SRC_URI[md5sum] = "7aff073e1c11aa9cead5e029bb3b291c"
-SRC_URI[sha256sum] = "8c2ab1faef3d3e88b210515b37e56bcdd39e0d02363f8b357872ca5de75dd353"
+DEPENDS = ""
 
-S = "${WORKDIR}/package"
+SRC_URI = "https://registry.npmjs.org/universalify/-/universalify-1.0.0.tgz"
+SRC_URI[md5sum] = "bf5ede79b3b79cb0a8d4916255bc95cd"
+SRC_URI[sha256sum] = "03878b944cbdd419b51f1918fcbe561f224107f4b4a0f7a6f285afa482d03faf"
 
 NPM_PKGNAME = "universalify"
 
