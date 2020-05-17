@@ -7,6 +7,7 @@
 import argparse
 import re
 import os
+import random
 import subprocess
 
 import github3
@@ -19,12 +20,13 @@ def create_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("--blacklistfile", default=None, help="File with blacklisted packages")
     parser.add_argument("--dryrun", default=False, action="store_true", help="dry run")
+    parser.add_argument("--filter", default=".*", help="additional recipe name filter")
     parser.add_argument("username", help="GitHub username")
     parser.add_argument("token", help="GitHub token")
     return parser.parse_args()
 
 
-def get_updates(_blacklist):
+def get_updates(_blacklist, _args):
     try:
         layer_list = subprocess.check_output(["bitbake-layers", "show-recipes", "-l", "meta-sca", "-b"],
                                              universal_newlines=True, stderr=subprocess.STDOUT)
@@ -37,10 +39,11 @@ def get_updates(_blacklist):
     layer_list = [x.strip().rstrip(":")
                   for x in layer_list.split("\n") if ":" in x]
 
+    random.shuffle(layer_list)
     devtool_out = ""
     res = []
     for l in layer_list:
-        if l in _blacklist:
+        if l in _blacklist or not re.match(_args.filter, l):
             continue
         print("Checking {}...".format(l), end='', flush=True)
         try:
@@ -78,7 +81,7 @@ def get_blacklist(_file):
 if __name__ == '__main__':
     _args = create_parser()
     _blacklist = get_blacklist(_args.blacklistfile)
-    updates = get_updates(_blacklist)
+    updates = get_updates(_blacklist, _args)
     login = github3.login(_args.username, _args.token)
     repo = login.repository('priv-kweihmann', 'meta-sca')
     issue_list = [issue for issue in repo.issues(state="open")]
