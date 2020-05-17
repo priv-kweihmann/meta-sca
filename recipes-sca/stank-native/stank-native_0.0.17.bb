@@ -13,7 +13,7 @@ SRC_URI = "\
            git://${GO_IMPORT};protocol=https \
            file://stank.sca.description \
            "
-SRCREV = "fe4910a86e5c16d37636f85ecf92a69ab7fb0d3a"
+SRCREV = "fc1bc6504bbd43a63adc01598c29927bb3126f71"
 GO_IMPORT = "github.com/mcandre/stank"
 
 inherit go
