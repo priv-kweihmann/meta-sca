@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE;md5=e3fc50a88d0a364313df4b21
 DEPENDS += "github.com-go-check-check-native"
 
 SRC_URI = "git://github.com/go-yaml/yaml;protocol=https;branch=v2"
-SRCREV = "53403b58ad1b561927d19068c655246f2db79d48"
+SRCREV = "0b1645d91e851e735d3e23330303ce81f70adbe3"
 
 GO_IMPORT ?= "github.com/go-yaml/yaml"
 
