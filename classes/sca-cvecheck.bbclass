@@ -8,6 +8,9 @@ inherit sca-global
 inherit sca-helper
 inherit sca-suppress
 
+# override some variables till an upstream fix is available
+CVE_CHECK_DB_DIR = "${TOPDIR}/downloads/CVE_CHECK"
+
 SCA_RAW_RESULT_FILE[cvecheck] = "json"
 
 python sca_cvecheck_init() {
