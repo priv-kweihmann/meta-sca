@@ -9,8 +9,8 @@ DEPENDS += "python3-nose-native"
 
 PYPI_PACKAGE = "ddt"
 
-SRC_URI[md5sum] = "a1b401c8cbb76d1828f8a5b234a74e23"
-SRC_URI[sha256sum] = "8847cc4f6437f1b77997fa9fddea673a5a2183fd9620fd33466a8e2b458c706c"
+SRC_URI[md5sum] = "6f6cc1f1c97d6ff304bcd918aa6c24c1"
+SRC_URI[sha256sum] = "0595e70d074e5777771a45709e99e9d215552fb1076443a25fad6b23d8bf38da"
 
 inherit pypi
 inherit setuptools3
