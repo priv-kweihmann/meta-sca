@@ -2,6 +2,7 @@
 res=""
 mode=$1
 if [ ${mode} = "issue" ]; then
+    shift
     for number in $@; do
         x=$(git log --oneline --grep "Fixes #${number}" --grep "Closes #${number}" --grep "Relates to #${number}" --pretty=format:"%h" --reverse)
         res="${res}\n${x}"
