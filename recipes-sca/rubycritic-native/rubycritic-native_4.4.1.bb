@@ -23,7 +23,6 @@ SRC_URI[sha256sum] = "f404f5f0d4f7446d8c01f77f4b6b68614cd94999f22251d965b25055ff
 
 GEM_NAME = "rubycritic"
 
-inherit sca-sanity
 inherit sca-description
 inherit rubygemsnative
 

@@ -8,7 +8,6 @@ DEPENDS += "nodejs-native"
 SRC_URI = "file://npmaudit.sca.description"
 
 inherit native
-inherit sca-sanity
 inherit sca-description
 
 do_configure[noexec] = "1"

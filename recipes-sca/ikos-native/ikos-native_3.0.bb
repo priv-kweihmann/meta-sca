@@ -22,7 +22,6 @@ S = "${WORKDIR}/git"
 
 inherit native
 inherit cmake
-inherit sca-sanity
 inherit sca-description
 
 EXTRA_OECMAKE += "\

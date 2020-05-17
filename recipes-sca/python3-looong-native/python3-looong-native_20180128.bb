@@ -12,7 +12,6 @@ UPSTREAM_CHECK_COMMITS = "1"
 S = "${WORKDIR}/git"
 
 inherit native
-inherit sca-sanity
 inherit sca-description
 inherit setuptools3
 

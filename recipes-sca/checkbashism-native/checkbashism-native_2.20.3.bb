@@ -14,7 +14,6 @@ SRCREV = "db1879a9df0502f18269dde12dfe24c7473dec94"
 S = "${WORKDIR}/git"
 
 inherit native
-inherit sca-sanity
 inherit sca-description
 
 do_configure[noexec] = "1"

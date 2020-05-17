@@ -15,7 +15,6 @@ DEPENDS += "\
 SRC_URI_append = " file://shellcheck.sca.description"
 
 inherit native
-inherit sca-sanity
 inherit sca-description
 
 do_install() {

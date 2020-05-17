@@ -11,5 +11,4 @@ SRC_URI[sha256sum] = "205f885d36e897eb3adaea35959fa0d377b955a9c35c4a7cc8bbc5badb
 
 GEM_NAME = "parser"
 
-inherit sca-sanity
 inherit rubygemsnative

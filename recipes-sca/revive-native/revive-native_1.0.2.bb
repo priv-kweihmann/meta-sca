@@ -26,7 +26,6 @@ GO_IMPORT = "github.com/mgechev/revive"
 
 inherit go
 inherit native
-inherit sca-sanity
 inherit sca-description
 
 do_install_append() {

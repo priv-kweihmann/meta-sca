@@ -25,7 +25,6 @@ DEPENDS += "${@oe.utils.ifelse(float(d.getVar('PYTHON_BASEVERSION') or '0.0') >=
 SRC_URI_append = " file://flake8.sca.description"
 
 inherit native
-inherit sca-sanity
 inherit sca-description
 inherit python3-dir
 

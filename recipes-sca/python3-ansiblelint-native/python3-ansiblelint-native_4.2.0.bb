@@ -33,7 +33,6 @@ UPSTREAM_CHECK_REGEX = "ansible_lint-(?P<pver>\d+\.\d+\.\d+)-py2\.py3-none-any\.
 do_unpack[depends] += "unzip-native:do_populate_sysroot"
 
 inherit python3native
-inherit sca-sanity
 inherit sca-description
 inherit native
 

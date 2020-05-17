@@ -14,5 +14,4 @@ SRC_URI[sha256sum] = "d9386622c4e26aa94f159b407756a69d6f615a9e4b6a242e948bf9940c
 
 GEM_NAME = "simplecov"
 
-inherit sca-sanity
 inherit rubygemsnative

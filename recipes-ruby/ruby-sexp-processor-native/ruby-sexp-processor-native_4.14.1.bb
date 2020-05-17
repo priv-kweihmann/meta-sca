@@ -9,5 +9,4 @@ SRC_URI[sha256sum] = "0fa8731445cf4a0c01570ec29aac4b50a0451ce66b1b31ad768f5035e3
 
 GEM_NAME = "sexp_processor"
 
-inherit sca-sanity
 inherit rubygemsnative

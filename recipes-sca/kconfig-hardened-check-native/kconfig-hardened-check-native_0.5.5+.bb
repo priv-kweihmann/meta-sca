@@ -13,7 +13,6 @@ S = "${WORKDIR}/git"
 
 inherit native
 inherit setuptools3
-inherit sca-sanity
 inherit sca-description
 
 do_configure[noexec] = "1"

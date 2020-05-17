@@ -16,7 +16,6 @@ S = "${WORKDIR}/git"
 
 inherit native
 inherit phpcomposer
-inherit sca-sanity
 inherit sca-description
 
 do_compile_prepend() {

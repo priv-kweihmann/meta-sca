@@ -12,7 +12,6 @@ SRCREV = "dde57ce8707fef0babbffa86f6900815b6db18a0"
 S = "${WORKDIR}/git"
 
 inherit autotools-brokensep
-inherit sca-sanity
 inherit sca-description
 
 do_configure[noexec] = "1"
