@@ -5,9 +5,11 @@ HOMEPAGE = "https://github.com/duereg/no-cliches"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ad1ea741b5c8f9d521103277c196d2dd"
 
-SRC_URI = "https://registry.npmjs.org/no-cliches/-/no-cliches-0.1.1.tgz"
-SRC_URI[md5sum] = "3da7989ba090b3e482e0f70302b69024"
-SRC_URI[sha256sum] = "4eefbd6790b2917431d2ceda460e74f321e736f4018da9053d252ef8f8a05bbd"
+DEPENDS = ""
+
+SRC_URI = "https://registry.npmjs.org/no-cliches/-/no-cliches-0.2.2.tgz"
+SRC_URI[md5sum] = "87c10260fad81e9a1a6591d49ab1ba96"
+SRC_URI[sha256sum] = "8c8ccb4ca3156165bfb8c1f7cc0664fb1db97cb66fdd5f03bdef174a742c835e"
 
 NPM_PKGNAME = "no-cliches"
 
