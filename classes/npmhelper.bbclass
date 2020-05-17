@@ -22,7 +22,7 @@ def clean_npm_pkgname_regex(name):
     return re.escape(name)
 
 UPSTREAM_CHECK_URI ?= "https://www.npmjs.com/package/${NPM_PKGNAME}?activeTab=versions"
-UPSTREAM_CHECK_REGEX ?= "${@clean_npm_pkgname_regex(d.getVar('NPM_PKGNAME'))}/v/(?P<pver>(\d+\.\d+\.\d+))"
+UPSTREAM_CHECK_REGEX ?= "${@clean_npm_pkgname_regex(d.getVar('NPM_PKGNAME'))}/v/(?P<pver>(\d+\.\d+\.\d+))$"
 
 # This function is originated from poky's npm.bbclass
 def npm_oe_arch_map(target_arch, d):
