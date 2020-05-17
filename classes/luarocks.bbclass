@@ -1,6 +1,8 @@
 ## SPDX-License-Identifier: BSD-2-Clause
 ## Copyright (c) 2019, Konrad Weihmann
 
+inherit sca-nonet-sanity
+
 ## This class provides an interface for using luarocks
 ## in bitbake
 DEPENDS += "lua-native luarocks-native"

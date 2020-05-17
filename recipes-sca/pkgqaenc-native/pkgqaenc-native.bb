@@ -11,7 +11,6 @@ SRC_URI = "file://pkgqaenc.py \
 S = "${WORKDIR}"
 
 inherit native
-inherit sca-sanity
 inherit sca-description
 
 do_configure[noexec] = "1"

@@ -15,7 +15,6 @@ SRC_URI = "file://licensecheck \
 S = "${WORKDIR}"
 
 inherit native
-inherit sca-sanity
 inherit sca-description
 
 do_configure[noexec] = "1"

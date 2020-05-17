@@ -9,5 +9,4 @@ SRC_URI[sha256sum] = "fb81a1f665f17579f8b450412e79009809584e25dab154cb5c88a59222
 
 GEM_NAME = "path_expander"
 
-inherit sca-sanity
 inherit rubygemsnative

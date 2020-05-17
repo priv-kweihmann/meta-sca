@@ -21,7 +21,6 @@ SRC_URI[sha256sum] = "b95e31850f3af163c2283ed40432f053acbc8fc6eba6a069cb518d9dbf
 PYPI_PACKAGE = "pylint"
 
 inherit pypi
-inherit sca-sanity
 inherit sca-description
 inherit setuptools3
 inherit native

@@ -14,7 +14,6 @@ S = "${WORKDIR}/git/trunk"
 
 inherit autotools-brokensep
 inherit native
-inherit sca-sanity
 inherit sca-description
 
 BUILD_CXXFLAGS += "-std=c++11"

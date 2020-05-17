@@ -15,7 +15,6 @@ UPSTREAM_CHECK_COMMITS = "1"
 S = "${WORKDIR}/git"
 
 inherit autotools-brokensep
-inherit sca-sanity
 inherit sca-description
 
 EXTRA_OECONF += "--with-tigerhome=${datadir}/tiger \

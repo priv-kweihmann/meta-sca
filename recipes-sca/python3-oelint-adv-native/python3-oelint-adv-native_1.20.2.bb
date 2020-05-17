@@ -18,7 +18,6 @@ SRCREV = "5d03063283b7109b029dec88247306a1c72479df"
 S = "${WORKDIR}/git"
 
 inherit native
-inherit sca-sanity
 inherit sca-description
 inherit setuptools3
 
