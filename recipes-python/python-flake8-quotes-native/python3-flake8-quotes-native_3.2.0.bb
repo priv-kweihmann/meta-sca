@@ -8,8 +8,8 @@ DEPENDS += "${PYTHON_PN}-flake8-native"
 
 PYPI_PACKAGE = "flake8-quotes"
 
-SRC_URI[md5sum] = "6d1c77b5d6c85bb2bf375b35e9327dcf"
-SRC_URI[sha256sum] = "39762e16a1ea6b7f0e998a04be14d71b55e74de09b5026bd41907c996a8c82cf"
+SRC_URI[md5sum] = "5da3a231ce799d00e7af98058dceac06"
+SRC_URI[sha256sum] = "3f1116e985ef437c130431ac92f9b3155f8f652fda7405ac22ffdfd7a9d1055e"
 
 inherit pypi
 inherit native
