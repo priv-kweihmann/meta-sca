@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 DEPENDS = "npm-unist-util-visit-native \
            npm-vfile-location-native"
 
-SRC_URI = "https://registry.npmjs.org/unified-message-control/-/unified-message-control-2.0.0.tgz"
-SRC_URI[md5sum] = "bb76a58f80b1978ca9e986eb208d3217"
-SRC_URI[sha256sum] = "8994d335505b293be24afe8bcb482257083eccb815b84f6f1330ee8f49f37903"
+SRC_URI = "https://registry.npmjs.org/unified-message-control/-/unified-message-control-3.0.1.tgz"
+SRC_URI[md5sum] = "e61c6bc6616e5d1d99ff4d37bd268cbb"
+SRC_URI[sha256sum] = "4fd9ffed85d801b8e642e897ac0a9bbe933716eb8bb3620c067715b6a5c10c9b"
 
 NPM_PKGNAME = "unified-message-control"
 
