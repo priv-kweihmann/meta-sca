@@ -5,11 +5,11 @@ HOMEPAGE = "https://github.com/Jason3S/GenSequence#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a3165774f004774b003233e87ff7950c"
 
-SRC_URI = "https://registry.npmjs.org/gensequence/-/gensequence-2.3.0.tgz"
-SRC_URI[md5sum] = "e9abea6fefa301ded703a23b8a464480"
-SRC_URI[sha256sum] = "b1e9f0ffefb1a9ff7a6c34d6e099132da11502998fbb5ef91c5af58070536424"
+DEPENDS = ""
 
-S = "${WORKDIR}/package"
+SRC_URI = "https://registry.npmjs.org/gensequence/-/gensequence-3.1.1.tgz"
+SRC_URI[md5sum] = "e428cf423434cbfbb7a1a31e113eb872"
+SRC_URI[sha256sum] = "d87b8667e3a481947d5933c6e3a260b11c1d424f1c65625a09e536a813b3db9b"
 
 NPM_PKGNAME = "gensequence"
 
