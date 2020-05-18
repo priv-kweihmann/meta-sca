@@ -9,6 +9,11 @@ DEPENDS += "\
             libffi-native \
            "
 
+RDEPENDS_${PN}_class-target += "\
+                                ${PYTHON_PN}-pycparser \
+                                libffi \
+                               "
+
 PYPI_PACKAGE = "cffi"
 
 SRC_URI[md5sum] = "74845f8d2b7b583dd9a3574f402edf39"
@@ -16,4 +21,5 @@ SRC_URI[sha256sum] = "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f
 
 inherit pypi
 inherit setuptools3
-inherit native
+
+BBCLASSEXTEND = "native"

@@ -6,10 +6,18 @@ SECTION = "devel/python"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=8f0e2cd40e05189ec81232da84bd6e1a"
 
-DEPENDS += "\
-            ${PYTHON_PN}-jinja2 \
-            ${PYTHON_PN}-pyyaml \
-           "
+DEPENDS_class-native += "\
+                         ${PYTHON_PN}-cryptography-native \
+                         ${PYTHON_PN}-jinja2-native \
+                         ${PYTHON_PN}-pyyaml-native \
+                        "
+
+RDEPENDS_${PN}_class-target += "\
+                                ${PYTHON_PN}-cryptography \
+                                ${PYTHON_PN}-jinja2 \
+                                ${PYTHON_PN}-modules \
+                                ${PYTHON_PN}-pyyaml \
+                               "
 
 SRC_URI = "http://releases.ansible.com/ansible/ansible-${PV}.tar.gz"
 SRC_URI[md5sum] = "4d6b8beb8fa88e3f2697f822352b471e"
@@ -36,11 +44,5 @@ do_install_append() {
 }
 
 CLEANBROKEN = "1"
-
-RDEPENDS_${PN} += "\
-                   ${PYTHON_PN}-jinja2 \
-                   ${PYTHON_PN}-modules \
-                   ${PYTHON_PN}-pyyaml \
-                  "
 
 BBCLASSEXTEND = "native"

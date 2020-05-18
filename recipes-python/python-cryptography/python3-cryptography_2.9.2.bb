@@ -11,6 +11,12 @@ DEPENDS += "\
             ${PYTHON_PN}-six-native \
            "
 
+RDEPENDS_${PN}_class-target += "\
+                                ${PYTHON_PN}-asn1crypto \
+                                ${PYTHON_PN}-cffi \
+                                ${PYTHON_PN}-six \
+                               "
+
 PYPI_PACKAGE = "cryptography"
 
 SRC_URI[md5sum] = "89f355fd2500f7b7ce13999afc7cd092"
@@ -18,4 +24,5 @@ SRC_URI[sha256sum] = "a0c30272fb4ddda5f5ffc1089d7405b7a71b0b0f51993cb4e5dbb4590b
 
 inherit pypi
 inherit setuptools3
-inherit native
+
+BBCLASSEXTEND = "native"
