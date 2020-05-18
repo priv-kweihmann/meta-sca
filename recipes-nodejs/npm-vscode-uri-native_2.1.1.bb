@@ -5,11 +5,11 @@ HOMEPAGE = "https://github.com/Microsoft/vscode-uri#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=3f8a83a05bc59c7a6122980df91bdd1c"
 
-SRC_URI = "https://registry.npmjs.org/vscode-uri/-/vscode-uri-1.0.8.tgz"
-SRC_URI[md5sum] = "ada2e5a07a97e435279fa127219257ac"
-SRC_URI[sha256sum] = "51ddb52af3dbf6d0996206025ba8b935cd8bf09bee3ec2cdf375338ec270ec32"
+DEPENDS = ""
 
-S = "${WORKDIR}/package"
+SRC_URI = "https://registry.npmjs.org/vscode-uri/-/vscode-uri-2.1.1.tgz"
+SRC_URI[md5sum] = "ae035ef68601cb0229250aabdbb5da48"
+SRC_URI[sha256sum] = "7b0a94fb84ce4d905c105203612a47191f6a90a55de9016eb247227309c20b4e"
 
 NPM_PKGNAME = "vscode-uri"
 
