@@ -2,14 +2,15 @@ SUMMARY = "NPM: eslint-plugin-es"
 DESCRIPTION = "ESLint plugin about ECMAScript syntactic features."
 HOMEPAGE = "https://github.com/mysticatea/eslint-plugin-es#readme"
 
-DEPENDS = "npm-eslint-utils-native npm-regexpp-native"
-
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a8f21789009221b0b37faaa24544da54"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-es/-/eslint-plugin-es-3.0.0.tgz"
-SRC_URI[md5sum] = "917e12825cad2e81301265185fb50df0"
-SRC_URI[sha256sum] = "67056665737a8f5a1d30f871d987d443cce81181562a5d181aecb969be797de4"
+DEPENDS = "npm-eslint-utils-native \
+           npm-regexpp-native"
+
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-es/-/eslint-plugin-es-3.0.1.tgz"
+SRC_URI[md5sum] = "40a1f24e265081a0051f1c06880c763f"
+SRC_URI[sha256sum] = "ac7440d86a323cf38a6ff35169f19790aff27d0b226e3e4bb31146fd08548d12"
 
 NPM_PKGNAME = "eslint-plugin-es"
 
