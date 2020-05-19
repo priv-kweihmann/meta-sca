@@ -13,9 +13,9 @@ DEPENDS = "npm-clone-response-native \
            npm-normalize-url-native \
            npm-responselike-native"
 
-SRC_URI = "https://registry.npmjs.org/cacheable-request/-/cacheable-request-6.1.0.tgz"
-SRC_URI[md5sum] = "ca8604ff27ad3b1d6d92f79af798cfa4"
-SRC_URI[sha256sum] = "0c1ae333caa412715ca477afdf1ec1980a7561fd11c4eb8901819f5919f55fcb"
+SRC_URI = "https://registry.npmjs.org/cacheable-request/-/cacheable-request-7.0.1.tgz"
+SRC_URI[md5sum] = "eb85caae4556bd6b14a638902f25f802"
+SRC_URI[sha256sum] = "db53d317585ef22917822650e78e0c53ca3bb4f88a8210019d4c0229ac9b72f6"
 
 NPM_PKGNAME = "cacheable-request"
 
