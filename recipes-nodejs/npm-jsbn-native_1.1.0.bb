@@ -3,13 +3,13 @@ DESCRIPTION = "The jsbn library is a fast, portable implementation of large-numb
 HOMEPAGE = "https://github.com/andyperlitch/jsbn#readme"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=c6ea389b6b52325149beeec27075c5ac"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=32052d48bacabd1c02e56c6889082a27"
 
-SRC_URI = "https://registry.npmjs.org/jsbn/-/jsbn-0.1.1.tgz"
-SRC_URI[md5sum] = "5d011f0d46641e263915879febada330"
-SRC_URI[sha256sum] = "5ac44bc9490a2d7da45ebb7028ff9b86bf17944741e7c449573d7a147ae72323"
+DEPENDS = ""
 
-S = "${WORKDIR}/package"
+SRC_URI = "https://registry.npmjs.org/jsbn/-/jsbn-1.1.0.tgz"
+SRC_URI[md5sum] = "fda9d9bfb60ce335fdeb2def419fd5a6"
+SRC_URI[sha256sum] = "47cafa971709bb193242ef857fb25936ecd9522a1d44a01ce4858723a006ac45"
 
 NPM_PKGNAME = "jsbn"
 
