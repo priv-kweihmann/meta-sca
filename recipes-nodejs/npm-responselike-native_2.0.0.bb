@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=ebe53e6698981352da17c09ed915f13f"
 
 DEPENDS = "npm-lowercase-keys-native"
 
-SRC_URI = "https://registry.npmjs.org/responselike/-/responselike-1.0.2.tgz"
-SRC_URI[md5sum] = "c2d481fb92af68b51731eadf2e338a63"
-SRC_URI[sha256sum] = "12d820689a4f7517711958dcd07dca9580d27c37da1fb400f51939e8e59f3554"
+SRC_URI = "https://registry.npmjs.org/responselike/-/responselike-2.0.0.tgz"
+SRC_URI[md5sum] = "9bdbcf02e8e5c2600a2255c47ab27f81"
+SRC_URI[sha256sum] = "37561d658ac22580fea291abba8977e8850eff5d45ae3d6d7729944a2dec190b"
 
 NPM_PKGNAME = "responselike"
 
