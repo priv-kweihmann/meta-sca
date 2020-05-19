@@ -14,9 +14,9 @@ DEPENDS = "npm-cuss-native \
            npm-pluralize-native \
            npm-quotation-native"
 
-SRC_URI = "https://registry.npmjs.org/retext-profanities/-/retext-profanities-5.0.0.tgz"
-SRC_URI[md5sum] = "47092f8737357e0e054d0c99f0da7071"
-SRC_URI[sha256sum] = "7d8fe50ce895712901376cf8f0b9921e8b1e7ac62ad4158dd4adca8f2d1ba81f"
+SRC_URI = "https://registry.npmjs.org/retext-profanities/-/retext-profanities-6.0.0.tgz"
+SRC_URI[md5sum] = "683962f6cbfd7e14bc774de811bf1d9c"
+SRC_URI[sha256sum] = "698fd95acaff355472487aa4d5778ced889c71af0c9fdf2d0f26e31a2823c498"
 
 NPM_PKGNAME = "retext-profanities"
 
