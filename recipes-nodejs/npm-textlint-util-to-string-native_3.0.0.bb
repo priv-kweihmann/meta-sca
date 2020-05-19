@@ -1,0 +1,21 @@
+SUMMARY = "NPM: textlint-util-to-string"
+DESCRIPTION = "textlint util convert Paragraph Node to text with SourceMap."
+HOMEPAGE = "https://github.com/textlint/textlint-util-to-string"
+
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=b858910af2bca39133b1536464b54f49"
+
+DEPENDS = "npm-rehype-parse-native \
+           npm-structured-source-native \
+           npm-textlint-ast-node-types-native \
+           npm-types-structured-source-native \
+           npm-unified-native"
+
+SRC_URI = "https://registry.npmjs.org/textlint-util-to-string/-/textlint-util-to-string-3.0.0.tgz"
+SRC_URI[md5sum] = "97f93664b903cef1c415df1d3bf7f5e7"
+SRC_URI[sha256sum] = "2f8c400cc8b9ca9162f5a309abd82109cb0038b202d2ca2f9214a90f1d626e6e"
+
+NPM_PKGNAME = "textlint-util-to-string"
+
+inherit npmhelper
+inherit native
