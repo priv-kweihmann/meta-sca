@@ -11,10 +11,19 @@ import sys
 
 
 def get_tool_description(tool):
-    for f in glob.glob(os.path.join(os.path.dirname(__file__), "..", "recipes-sca", "*", "*", "{}.sca.description".format(tool))):
-        name = pathlib.Path(f).parts[-3]
+    res = []
+    for f in glob.glob(os.path.join(os.path.dirname(__file__), "..", "recipes-sca", "*", "*", "*.sca.description")):
+        _json = { "languages": [] }
         with open(f) as i:
-            return (name, json.load(i))
+            _json = json.load(i)
+        name = pathlib.Path(f).parts[-3]
+        if os.path.basename(f) == "{}.sca.description".format(tool):
+            res.append((name, _json, tool))
+        elif tool in _json["languages"]:
+            toolname = os.path.basename(f).replace(".sca.description", "")
+            res.append((name, _json, toolname))
+    if res:
+        return res
     raise Exception("[ERROR] No description found for {}".format(tool))
 
 def test_integration(tmppath, recipe, tool, name):
@@ -63,9 +72,9 @@ else:
 ret = 0
 for mod in _mods:
     try:
-        recipe, desc = get_tool_description(mod)
-        test_integration(sys.argv[1], recipe, desc, mod)
-        test_results(sys.argv[1], recipe, desc, mod)
+        for recipe, desc, name in get_tool_description(mod):
+            test_integration(sys.argv[1], recipe, desc, name)
+            test_results(sys.argv[1], recipe, desc, name)
     except Exception as e:
         sys.stderr.write(str(e) + "\n")
         ret = -1
