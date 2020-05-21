@@ -5,11 +5,11 @@ HOMEPAGE = "https://tweetnacl.js.org"
 LICENSE = "Unlicense"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=911690f51af322440237a253d695d19f"
 
-SRC_URI = "https://registry.npmjs.org/tweetnacl/-/tweetnacl-0.14.5.tgz"
-SRC_URI[md5sum] = "147626dfa61ae7175b1fe170ea986b42"
-SRC_URI[sha256sum] = "6cea33d67a9bd83f8bd250655c78a2c89ea912bcc6be91c8e65807ce69cfdfd6"
+DEPENDS = ""
 
-S = "${WORKDIR}/package"
+SRC_URI = "https://registry.npmjs.org/tweetnacl/-/tweetnacl-1.0.3.tgz"
+SRC_URI[md5sum] = "e280296537e0554e228a652d4a07266e"
+SRC_URI[sha256sum] = "5f8dc49cb4483e206ba3ebb22abbccfc0218c59b60fc78cce24197ced5b9e102"
 
 NPM_PKGNAME = "tweetnacl"
 
