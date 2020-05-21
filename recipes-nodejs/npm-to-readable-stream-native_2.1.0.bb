@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/to-readable-stream/-/to-readable-stream-1.0.0.tgz"
-SRC_URI[md5sum] = "b9cb0fe9731dc701d1a44a7a173cb434"
-SRC_URI[sha256sum] = "601885533285aea8adb4d20bc165e7f7373e6281a540759e898e009cafc5e2db"
+SRC_URI = "https://registry.npmjs.org/to-readable-stream/-/to-readable-stream-2.1.0.tgz"
+SRC_URI[md5sum] = "b9f257c4f09d1c40fa3f243601ba2e4d"
+SRC_URI[sha256sum] = "cbec74df97e479fe6ab43d2ed3256d2dda58ca7a7a90e48b740b95ff8996f4cd"
 
 NPM_PKGNAME = "to-readable-stream"
 
