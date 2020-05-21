@@ -4,6 +4,7 @@ LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=a4a2bbea1db029f21b3a328c7
 
 SRC_URI = "file://requirements.txt;subdir=source \
            file://setup.py;subdir=source \
+           file://foo.py;subdir=source \
            "
 
 S = "${WORKDIR}/source"
