@@ -18,13 +18,13 @@ Each of these rule-recipe consists of two files
 ### suppress file
 
 In this file you can insert any error ID which should suppressed in output for the given tool and SCA-mode.
-Per line one error-id could be inserted
+Per line one error-id could be inserted, which could be a regular expression as well.
 
 ### fatal file
 
 In this file you can insert any error ID which terminates the build immediately.
 Use this for e.g. regression.
-Per line one error-id could be inserted.
+Per line one error-id could be inserted, which could be a regular expression as well.
 
 ## Local suppression and fatal-error
 
@@ -46,6 +46,18 @@ if you want furthermore suppress the pylint error 'someobscureinfo' for just the
 
 ```bitbake
 SCA_PYLINT_EXTRA_SUPPRESS += "pylint.pylint.someobscureinfo"
+```
+
+if you'd like to suppress a whole range of issue use regular expressions like
+
+```bitbake
+pylint.pylint.notofinterest.*
+```
+
+or
+
+```bitbake
+SCA_PYLINT_EXTRA_SUPPRESS += "pylint.pylint.notofinterest.*"
 ```
 
 ## Suppression of single items
