@@ -25,6 +25,7 @@ def do_sca_conv_flake8(d):
         "CFQ": "warning",
         "DAR": "warning",
         "DUO": "warning",
+        "ECE": "warning",
         "EXE": "error",
         "RST": "warning",
         "TAE": "warning",
