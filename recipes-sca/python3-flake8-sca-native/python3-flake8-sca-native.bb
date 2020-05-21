@@ -9,6 +9,7 @@ DEPENDS += "\
             ${PYTHON_PN}-flake8-dlint-native \
             ${PYTHON_PN}-flake8-eradicate-native \
             ${PYTHON_PN}-flake8-executable-native \
+            ${PYTHON_PN}-flake8-expression-complexity-native \
             ${PYTHON_PN}-flake8-fixme-native \
             ${PYTHON_PN}-flake8-functions-native \
             ${PYTHON_PN}-flake8-import-order-native \
