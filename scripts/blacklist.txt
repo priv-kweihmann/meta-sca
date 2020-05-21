@@ -28,6 +28,7 @@ cspell
 cspell-user-dict-native
 cvecheck-sca-native
 gcc-sca-native
+github.com-golang-protobuf-native
 npmaudit-sca-native
 packagegroup-ansible-roles
 packagegroup-sca-test
