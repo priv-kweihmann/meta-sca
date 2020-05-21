@@ -2,14 +2,14 @@ SUMMARY = "NPM: widest-line"
 DESCRIPTION = "Get the visual width of the widest line in a string - the number of columns required to display it"
 HOMEPAGE = "https://github.com/sindresorhus/widest-line#readme"
 
-DEPENDS = "npm-string-width-native"
-
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
 
-SRC_URI = "https://registry.npmjs.org/widest-line/-/widest-line-2.0.1.tgz"
-SRC_URI[md5sum] = "0c2e6f65a35e1125653f2f6e0e10ce93"
-SRC_URI[sha256sum] = "104b8ae3c42acbadd5759de06f2b7d4fdf6a36261d8d188d4aca65aca1a7dc63"
+DEPENDS = "npm-string-width-native"
+
+SRC_URI = "https://registry.npmjs.org/widest-line/-/widest-line-3.1.0.tgz"
+SRC_URI[md5sum] = "c959f5655ef91ef90579bc8f3307f12a"
+SRC_URI[sha256sum] = "e910564f223c97a0e6273ff2bfceaad9f53ea2e26d96927cd2dede48173dc95b"
 
 NPM_PKGNAME = "widest-line"
 

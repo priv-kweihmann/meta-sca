@@ -14,9 +14,9 @@ DEPENDS = "npm-ansi-align-native \
            npm-type-fest-native \
            npm-widest-line-native"
 
-SRC_URI = "https://registry.npmjs.org/boxen/-/boxen-3.2.0.tgz"
-SRC_URI[md5sum] = "9852b4e5da04803d95efc1141bff2c8d"
-SRC_URI[sha256sum] = "6b3e987ee7ccd5c8a3044709a9e391f86edf06708579a04aea274e106cbc9b30"
+SRC_URI = "https://registry.npmjs.org/boxen/-/boxen-4.2.0.tgz"
+SRC_URI[md5sum] = "fdfa1ef3d4970422a2c3396f0aaa3a4b"
+SRC_URI[sha256sum] = "808642c1076dded37f522d02e54f15bb9414a55fc92891618e3509e692d0e9dc"
 
 NPM_PKGNAME = "boxen"
 
