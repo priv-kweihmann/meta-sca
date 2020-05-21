@@ -5,10 +5,11 @@
 # and creates GitHub issues from that info
 
 import argparse
-import re
 import os
 import random
+import re
 import subprocess
+import time
 
 import github3
 
@@ -21,6 +22,7 @@ def create_parser():
     parser.add_argument("--blacklistfile", default=None, help="File with blacklisted packages")
     parser.add_argument("--dryrun", default=False, action="store_true", help="dry run")
     parser.add_argument("--filter", default=".*", help="additional recipe name filter")
+    parser.add_argument("--backoff", default=180, type=int, help="backoff time after UNKNOWN_BROKEN finding. 0=disabled")
     parser.add_argument("username", help="GitHub username")
     parser.add_argument("token", help="GitHub token")
     return parser.parse_args()
@@ -63,6 +65,8 @@ def get_updates(_blacklist, _args):
                 res.append((m.group("recipe"), m.group("nextversion").rstrip(".")))        
             elif m.group("nextversion") in ["UNKNOWN_BROKEN"]:
                 print("Unknown broken...", end='', flush=True)
+                if _args.backoff > 0:
+                    time.sleep(_args.backoff)
         pattern = r"^INFO:\s+(?P<recipe>[A-Za-z0-9\+\.\-_]+)\s+(?P<curversion>[A-Za-z0-9\.\-_]+)\s+new\scommits\s+.*\s+(?P<rev>[a-f0-9]{2,})"
         for m in re.finditer(pattern, devtool_out, re.MULTILINE):
             if m.group("recipe") not in layer_list:
