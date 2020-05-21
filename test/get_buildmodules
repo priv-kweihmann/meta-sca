@@ -11,10 +11,16 @@ import sys
 
 
 def get_tool_description(tool):
-    for f in glob.glob(os.path.join(os.path.dirname(__file__), "..", "recipes-sca", "*", "*", "{}.sca.description".format(tool))):
-        name = pathlib.Path(f).parts[-3]
+    res = []
+    for f in glob.glob(os.path.join(os.path.dirname(__file__), "..", "recipes-sca", "*", "*", "*.sca.description")):
+        _json = { "languages": [] }
         with open(f) as i:
-            return (name, json.load(i))
+            _json = json.load(i)
+        name = pathlib.Path(f).parts[-3]
+        if os.path.basename(f) == "{}.sca.description".format(tool) or tool in _json["languages"]:
+            res.append((name, _json))
+    if res:
+        return res
     raise Exception("[ERROR] No description found for {}".format(tool))
 
 if os.path.isabs(sys.argv[1]):
@@ -27,10 +33,11 @@ else:
 ret = set()
 for mod in _mods:
     try:
-        recipe, desc = get_tool_description(mod)
-        if "findings" in desc["test"]:
-            ret.update(desc["test"]["findings"])
-    except:
+        for recipe, desc in get_tool_description(mod):
+            if "findings" in desc["test"]:
+                ret.update(desc["test"]["findings"])
+    except Exception as e:
+        print(e)
         pass
 if not ret:
     sys.exit(-1)
