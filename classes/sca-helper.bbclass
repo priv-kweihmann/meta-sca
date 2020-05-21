@@ -195,7 +195,7 @@ def _get_x_from_result(d, lookup_key = "Severity", match_key = ""):
     if lookup_key == "Severity":
         res = [x for x in _dm if x.Severity == match_key]
     elif lookup_key == "ID":
-        res = [x for x in _dm if x.GetFormattedID() == match_key]
+        res = [x for x in _dm if x.GetFormattedID() == match_key or not match_key]
     return res
 
 def get_warnings_from_result(d):
@@ -205,10 +205,12 @@ def get_errors_from_result(d):
     return _get_x_from_result(d, match_key = "error")
 
 def get_fatal_from_result(d, fatal_ids):
-    res = []
-    for i in fatal_ids:
-        res += _get_x_from_result(d, lookup_key = "ID", match_key = i)
-    return list(set(res))
+    import re
+    res = set()
+    for i in _get_x_from_result(d, lookup_key = "ID"):
+        if any(x for x in fatal_ids if re.match(x, i.GetFormattedID())):
+            res.add(i)
+    return list(res)
 
 def clean_split(d, _var):
     return [x for x in (d.getVar(_var) or "").split(" ") if x]
