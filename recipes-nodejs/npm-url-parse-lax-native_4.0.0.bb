@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
 
 DEPENDS = "npm-prepend-http-native"
 
-SRC_URI = "https://registry.npmjs.org/url-parse-lax/-/url-parse-lax-3.0.0.tgz"
-SRC_URI[md5sum] = "692226d7abdad5d7aa32d742681b6130"
-SRC_URI[sha256sum] = "e59b313947ab1b454ad179543f1eac83ebc9b7bc91c386e5e705bc7a00428135"
+SRC_URI = "https://registry.npmjs.org/url-parse-lax/-/url-parse-lax-4.0.0.tgz"
+SRC_URI[md5sum] = "f5934c61cd1752105c8b018ab7d9abf5"
+SRC_URI[sha256sum] = "5c8fa98772886e87a1c86830c8e922fb75f512be6c8701af02bd1165d2689f4c"
 
 NPM_PKGNAME = "url-parse-lax"
 
