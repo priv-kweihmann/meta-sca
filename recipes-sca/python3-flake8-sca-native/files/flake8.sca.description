@@ -23,6 +23,7 @@
         ],
         "findings": [
             "bad-python-types",
+            "bad-python-reqs",
             "python3-git"
         ]
     }
