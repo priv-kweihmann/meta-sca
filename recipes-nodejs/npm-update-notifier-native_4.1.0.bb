@@ -15,12 +15,13 @@ DEPENDS = "npm-boxen-native \
            npm-is-npm-native \
            npm-is-yarn-global-native \
            npm-latest-version-native \
+           npm-pupa-native \
            npm-semver-diff-native \
            npm-xdg-basedir-native"
 
-SRC_URI = "https://registry.npmjs.org/update-notifier/-/update-notifier-3.0.1.tgz"
-SRC_URI[md5sum] = "f6202fc11afd38c80cc36de5220cbe51"
-SRC_URI[sha256sum] = "d5d6ef5955ac6a57fa0f3a093038d8984f67258cb304b5eefdd750294ac22b8d"
+SRC_URI = "https://registry.npmjs.org/update-notifier/-/update-notifier-4.1.0.tgz"
+SRC_URI[md5sum] = "da39e37916477e7d112849007165808a"
+SRC_URI[sha256sum] = "0284e0d0a13297f949a445da7c5774887f8e7a7e7602b7c818ae2fc7ac4598d6"
 
 NPM_PKGNAME = "update-notifier"
 
