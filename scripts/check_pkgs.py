@@ -88,7 +88,8 @@ if __name__ == '__main__':
     updates = get_updates(_blacklist, _args)
     login = github3.login(_args.username, _args.token)
     repo = login.repository('priv-kweihmann', 'meta-sca')
-    issue_list = [issue for issue in repo.issues(state="open")]
+    issue_list = repo.issues(state="open")
+    issue_list_closed = repo.issues(state="closed")
     for up in updates:
         if up[0] in _blacklist:
             continue
@@ -97,6 +98,8 @@ if __name__ == '__main__':
         matches = [x for x in issue_list if re.match(UPDATE_REGEX.format(up[0]), x.title)]
         # if exact issue text found -> continue
         if any([x for x in issue_list if x.title == UPDATE_FORMAT.format(up[0], up[1])]):
+            continue
+        if any([x for x in issue_list_closed if x.title == UPDATE_FORMAT.format(up[0], up[1])]):
             continue
         if any(matches):
             print("Alter issue from {}:{} -> {}:{}".format(matches[0].title,
