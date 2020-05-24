@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=516e9dc27e78d3e350ca7869c976b0cd"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/human-signals/-/human-signals-1.1.1.tgz"
-SRC_URI[md5sum] = "ab2b5e94b4d0f208812cb8440b38c277"
-SRC_URI[sha256sum] = "fb95db0ca44a750f41d929641104c7d4a0ea484446c2be554f764d1e3263e279"
+SRC_URI = "https://registry.npmjs.org/human-signals/-/human-signals-2.1.0.tgz"
+SRC_URI[md5sum] = "04294cb833bb9fe1c1fd1123294826b9"
+SRC_URI[sha256sum] = "bef9e69fde224e067907418f9e01218fda00bdea4101c33b05b56046f42936b8"
 
 NPM_PKGNAME = "human-signals"
 
