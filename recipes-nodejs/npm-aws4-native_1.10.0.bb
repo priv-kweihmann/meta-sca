@@ -5,11 +5,11 @@ HOMEPAGE = "https://github.com/mhart/aws4#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ff6f181928a91d8631d565516b4db3cb"
 
-SRC_URI = "https://registry.npmjs.org/aws4/-/aws4-1.9.1.tgz"
-SRC_URI[md5sum] = "24a1d383f4b15489f03a8534c82d37b2"
-SRC_URI[sha256sum] = "756ab13d29ff64184aaf21ae0d1d393fa6f85a3500f27d98dd2892507e71eb18"
+DEPENDS = ""
 
-S = "${WORKDIR}/package"
+SRC_URI = "https://registry.npmjs.org/aws4/-/aws4-1.10.0.tgz"
+SRC_URI[md5sum] = "b2449337ea0cd04f695f88f2323365d8"
+SRC_URI[sha256sum] = "c68d781e6c40ef0c21fa3dd3a392e6ce6bebeb2d0b9124e0ac13558fd7999996"
 
 NPM_PKGNAME = "aws4"
 
