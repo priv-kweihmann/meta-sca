@@ -111,6 +111,16 @@ jobs:
           [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/* 2>&1
           find ${TMPDIR} -type d -name "temp" -exec rm -rf {} \; 2>&1 || true
         shell: bash
+      - name: build kernel
+        run: |
+          cd ${WORKSPACE}
+          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          eval $(bitbake busybox -e | grep "^TMPDIR") && rm -f bitbake.sock && rm -f bitbake.lock
+          eval $(bitbake busybox -e | grep "^DL_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
+          bitbake linux-yocto 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/* 2>&1
+          find ${TMPDIR} -type d -name "temp" -exec rm -rf {} \; 2>&1 || true
+        shell: bash
       - name: build
         run: |
           cd ${WORKSPACE}
