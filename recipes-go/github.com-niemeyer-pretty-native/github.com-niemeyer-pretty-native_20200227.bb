@@ -10,5 +10,7 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "a10e7caefd8e0d600cea437f5c3613aeb1553d56"
 GO_IMPORT = "github.com/niemeyer/pretty"
 
+UPSTREAM_CHECK_COMMITS = "1"
+
 inherit go
 inherit native
