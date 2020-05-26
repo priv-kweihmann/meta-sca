@@ -5,8 +5,8 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=236223e5e3d78373999d226cfb563000"
 
 SRC_URI_append = " file://vulture.sca.description"
-SRC_URI[md5sum] = "49770e0d56e9f570e55d2b23f8d5fa8e"
-SRC_URI[sha256sum] = "7ed28f87e6b08e62675946c96788f30f44da6882ad07f4af50485b65a0fac77a"
+SRC_URI[md5sum] = "c0576c3291e295b52bae909e42bec617"
+SRC_URI[sha256sum] = "07dfab84a32867ae2636bb3998ce50a4e059556dacb0cca4dbe51a1f3cc9d6d7"
 
 PYPI_PACKAGE = "vulture"
 
