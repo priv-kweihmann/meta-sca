@@ -15,6 +15,8 @@ PYPI_PACKAGE = "flake8_expression_complexity"
 SRC_URI[md5sum] = "9316a9ba67859856ca3a1cc700f4c1c8"
 SRC_URI[sha256sum] = "2378e0235a87c00b4ad7a9759dde1f9c71aebf344f53c9ffa0c2e2c4ee8cd142"
 
+UPSTREAM_CHECK_REGEX = "project/flake8-expression-complexity/(?P<pver>(\d+[\.]*)+)"
+
 inherit pypi
 inherit native
 inherit setuptools3
