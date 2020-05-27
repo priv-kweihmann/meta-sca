@@ -10,7 +10,7 @@ inherit sca
 S = "${WORKDIR}/sources"
 
 do_compile() {
-    ${CC} -Werror simple-hello-world.c ${CFLAGS} ${LDFLAGS} -o simple-hello-world
+    ${CC} -w simple-hello-world.c ${CFLAGS} ${LDFLAGS} -o simple-hello-world
 }
 
 do_install() {
