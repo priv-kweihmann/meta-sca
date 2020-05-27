@@ -13,8 +13,8 @@ DEPENDS += "\
             "
 
 SRC_URI_append = " file://reek.sca.description"
-SRC_URI[md5sum] = "fbcd55cfc102a0b035f4a53f005574f9"
-SRC_URI[sha256sum] = "dfc580d8ac122fbd302aae3d7f959d2a1dccf33a316767b415f99360a7fd165b"
+SRC_URI[md5sum] = "946feccca2b445b50d1b35e2b338162a"
+SRC_URI[sha256sum] = "befaea6ad58167e20d2e329d79b527b8017de103e1e81c1bca351ce375313bdb"
 
 GEM_NAME = "reek"
 
