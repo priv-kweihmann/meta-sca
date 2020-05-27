@@ -12,15 +12,16 @@ DEPENDS = "npm-ci-info-native \
            npm-eslint-utils-native \
            npm-import-modules-native \
            npm-lodash-native \
+           npm-pluralize-native \
            npm-read-pkg-up-native \
            npm-regexp-tree-native \
            npm-reserved-words-native \
            npm-safe-regex-native \
            npm-semver-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-unicorn/-/eslint-plugin-unicorn-20.0.0.tgz"
-SRC_URI[md5sum] = "9c07d6f539bbaa95fc63a23265794a64"
-SRC_URI[sha256sum] = "f3af6b3726022aeb6f9a1a0dbf130bc5871c113497207e43f0d33b3382362045"
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-unicorn/-/eslint-plugin-unicorn-20.1.0.tgz"
+SRC_URI[md5sum] = "99f53574ef75a52e36a7bf7c10ed1c24"
+SRC_URI[sha256sum] = "4b332e67ba5e5f6b3e498b148ead05013aa5a00f4b9d07712acc1b0b79816fd1"
 
 NPM_PKGNAME = "eslint-plugin-unicorn"
 
