@@ -4,6 +4,9 @@
     "languages": [
         "i18n"
     ],
+    "uses": [
+        "@python"
+    ],
     "quality": 8,
     "scope": [
         "style"

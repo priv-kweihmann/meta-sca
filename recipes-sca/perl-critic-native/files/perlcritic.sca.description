@@ -4,6 +4,9 @@
     "languages": [
         "perl"
     ],
+    "uses": [
+        "@perl"
+    ],
     "quality": 10,
     "scope": [
         "functional"

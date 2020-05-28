@@ -4,6 +4,8 @@
     "languages": [
         "shell"
     ],
+    "uses": [
+    ],
     "quality": 8,
     "scope": [
         "functional",

@@ -4,6 +4,9 @@
     "languages": [
         "systemd"
     ],
+    "uses": [
+        "@python"
+    ],
     "quality": 8,
     "scope": [
         "security",

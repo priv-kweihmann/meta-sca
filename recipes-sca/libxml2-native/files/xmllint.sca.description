@@ -4,6 +4,8 @@
     "languages": [
         "xml"
     ],
+    "uses": [
+    ],
     "quality": 7,
     "scope": [
         "functional"

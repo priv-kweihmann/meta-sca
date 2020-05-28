@@ -4,6 +4,9 @@
     "languages": [
         "php"
     ],
+    "uses": [
+        "@php"
+    ],
     "quality": 8,
     "scope": [
         "security",

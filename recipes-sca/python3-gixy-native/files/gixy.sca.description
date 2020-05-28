@@ -4,6 +4,9 @@
     "languages": [
         "nginx"
     ],
+    "uses": [
+        "@python"
+    ],
     "quality": 6,
     "scope": [
         "security"
