@@ -4,6 +4,8 @@
     "languages": [
         "bitbake"
     ],
+    "uses": [
+    ],
     "quality": 9,
     "scope": [
         "functional"

@@ -4,6 +4,8 @@
     "languages": [
         "json"
     ],
+    "uses": [
+    ],
     "quality": 5,
     "scope": [
         "functional"

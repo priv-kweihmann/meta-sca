@@ -4,6 +4,8 @@
     "languages": [
         "cve"
     ],
+    "uses": [
+    ],
     "online": true,
     "quality": 9,
     "scope": [
