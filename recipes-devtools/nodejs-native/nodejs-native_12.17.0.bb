@@ -24,7 +24,7 @@
 DESCRIPTION = "nodeJS Evented I/O for V8 JavaScript"
 HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT & BSD & Artistic-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=126890df35936bbffe9fa00c90ad4870"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=66c0e33ee51ac51b336ab444705b259e"
 
 DEPENDS += "\
             bash-native \
@@ -37,11 +37,10 @@ SRC_URI = "http://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz \
            file://0005-Install-both-binaries-and-use-libdir.patch \
            file://0003-v8-don-t-override-ARM-CFLAGS.patch \
            file://0004-Bind-python-to-nativepython3.patch \
-           file://0001-Remove-soon-to-be-removed-getAllFieldPositions.patch \
            "
 
-SRC_URI[md5sum] = "3f23ba05c01f6f03170059057a7bd727"
-SRC_URI[sha256sum] = "f0559b0829c7f2ac10bf5b3e157e498227e95e26cdb6af814969c49f367359a3"
+SRC_URI[md5sum] = "337bec5ba5d31cc65f9bc5f5d4f9a565"
+SRC_URI[sha256sum] = "ca6d9e86a7fffc95f0ac6424ae242ed03026ed1f15a96ed5ac5ae3603f6f4e33"
 
 S = "${WORKDIR}/node-v${PV}"
 

@@ -1,11 +1,12 @@
-From b3bc3aa65e1d07cc86ffc35f21a6f2ce1b5d937a Mon Sep 17 00:00:00 2001
+From 40210c37faa6c6d7a6482889c0fe8f3ec37110bb Mon Sep 17 00:00:00 2001
 From: Konrad Weihmann <kweihmann@outlook.com>
-Date: Fri, 10 Apr 2020 16:15:20 +0200
+Date: Thu, 28 May 2020 20:33:08 +0200
 Subject: [PATCH] Bind python to nativepython3
 
 This should ensure that no call is done to maybe non-existing python
+
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
 ---
- deps/uv/gyp_uv.py                                               | 2 +-
  deps/v8/third_party/binutils/detect_v8_host_arch.py             | 2 +-
  deps/v8/third_party/binutils/download.py                        | 2 +-
  .../inspector_protocol/check_protocol_compatibility.py          | 2 +-
@@ -137,18 +138,8 @@ This should ensure that no call is done to maybe non-existing python
  tools/run-valgrind.py                                           | 2 +-
  tools/specialize_node_d.py                                      | 2 +-
  tools/test.py                                                   | 2 +-
- 132 files changed, 132 insertions(+), 132 deletions(-)
+ 131 files changed, 131 insertions(+), 131 deletions(-)
 
-diff --git a/deps/uv/gyp_uv.py b/deps/uv/gyp_uv.py
-index c2add5c..3f36565 100755
---- a/deps/uv/gyp_uv.py
-+++ b/deps/uv/gyp_uv.py
-@@ -1,4 +1,4 @@
--#!/usr/bin/env python
-+#!/usr/bin/env nativepython3
- 
- import os
- import platform
 diff --git a/deps/v8/third_party/binutils/detect_v8_host_arch.py b/deps/v8/third_party/binutils/detect_v8_host_arch.py
 index 3258774..599bb91 100644
 --- a/deps/v8/third_party/binutils/detect_v8_host_arch.py
@@ -1450,7 +1441,7 @@ index 825047c..ee0decd 100755
  #
  # specialize_node_d.py output_file src/node.d flavor arch
 diff --git a/tools/test.py b/tools/test.py
-index 71a7540..c0f3cc3 100755
+index 811db91..20adfd4 100755
 --- a/tools/test.py
 +++ b/tools/test.py
 @@ -1,4 +1,4 @@
