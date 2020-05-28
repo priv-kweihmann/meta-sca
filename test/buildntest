@@ -4,7 +4,11 @@ _pwd=$(pwd)
 
 trap "sed -i '$ d' ${_pwd}/conf/local.conf" EXIT
 
-echo "SCA_AVAILABLE_MODULES = \"$@\"" >> ${_pwd}/conf/local.conf
+mods=$(${_thispath}/get_matching_mods $@)
+
+echo "Check the following modules: ${mods}"
+
+echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> ${_pwd}/conf/local.conf
 
 bitbake $(${_thispath}/get_buildmodules $@) || exit 1
-${_thispath}/check_results ${_pwd}/tmp/deploy/images/*/sca $@ || exit 1
+${_thispath}/check_results ${_pwd}/tmp/deploy/images/*/sca ${mods} || exit 1
