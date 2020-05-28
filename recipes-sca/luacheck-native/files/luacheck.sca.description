@@ -4,6 +4,9 @@
     "languages": [
         "lua"
     ],
+    "uses": [
+        "@lua"
+    ],
     "quality": 8,
     "scope": [
         "security",

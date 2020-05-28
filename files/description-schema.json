@@ -25,6 +25,13 @@
       },
       "type": "array"
     },
+    "uses": {
+      "items": {
+        "pattern": "@[a-z0-9]+",
+        "type": "string"
+      },
+      "type": "array"
+    },
     "online": {
       "type": "boolean"
     },
@@ -122,6 +129,7 @@
     "scope",
     "score",
     "test",
+    "uses",
     "version"
   ],
   "type": "object"

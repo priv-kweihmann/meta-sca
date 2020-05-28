@@ -4,6 +4,9 @@
     "languages": [
         "binary"
     ],
+    "uses": [
+        "@python"
+    ],
     "quality": 5,
     "scope": [
         "security"

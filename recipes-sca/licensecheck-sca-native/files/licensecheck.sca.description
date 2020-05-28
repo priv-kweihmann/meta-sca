@@ -4,6 +4,10 @@
     "languages": [
         "package"
     ],
+    "uses": [
+        "@go",
+        "@python"
+    ],
     "quality": 8,
     "scope": [
         "compliance"

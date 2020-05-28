@@ -5,6 +5,9 @@
         "javascript",
         "typescript"
     ],
+    "uses": [
+        "@npm"
+    ],
     "online": true,
     "quality": 8,
     "scope": [
