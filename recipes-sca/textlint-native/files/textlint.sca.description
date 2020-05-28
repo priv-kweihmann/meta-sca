@@ -4,6 +4,9 @@
     "languages": [
         "spelling"
     ],
+    "uses": [
+        "@npm"
+    ],
     "online": true,
     "quality": 9,
     "scope": [

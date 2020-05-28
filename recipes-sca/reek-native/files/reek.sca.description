@@ -4,6 +4,9 @@
     "languages": [
         "ruby"
     ],
+    "uses": [
+        "@ruby"
+    ],
     "online": true,
     "quality": 7,
     "scope": [

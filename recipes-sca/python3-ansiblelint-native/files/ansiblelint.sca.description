@@ -4,6 +4,9 @@
     "languages": [
         "ansible"
     ],
+    "uses": [
+        "@python"
+    ],
     "quality": 10,
     "scope": [
         "security",

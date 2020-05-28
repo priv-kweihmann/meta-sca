@@ -4,6 +4,8 @@
     "languages": [
         "npm"
     ],
+    "uses": [
+    ],
     "online": true,
     "quality": 10,
     "scope": [

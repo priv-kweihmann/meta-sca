@@ -5,6 +5,9 @@
         "css",
         "scss"
     ],
+    "uses": [
+        "@npm"
+    ],
     "quality": 8,
     "scope": [
         "style"

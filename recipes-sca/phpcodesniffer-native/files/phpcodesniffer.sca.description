@@ -6,6 +6,9 @@
         "javascript",
         "css"
     ],
+    "uses": [
+        "@php"
+    ],
     "quality": 7,
     "scope": [
         "functional",

@@ -4,6 +4,9 @@
     "languages": [
         "tlv"
     ],
+    "uses": [
+        "@python"
+    ],
     "quality": 8,
     "scope": [
         "style"
@@ -16,9 +19,6 @@
     "test": {
         "integration": [
             {"cmd": ["tlv", "--help"], "returncode": 0}
-        ],
-        "findings": [
-            "busybox"
         ]
     }
 }

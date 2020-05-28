@@ -4,6 +4,9 @@
     "languages": [
         "python"
     ],
+    "uses": [
+        "@python"
+    ],
     "quality": 8,
     "scope": [
         "style"

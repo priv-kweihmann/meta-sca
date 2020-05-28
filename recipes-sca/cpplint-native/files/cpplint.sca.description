@@ -5,6 +5,9 @@
         "c",
         "cpp"
     ],
+    "uses": [
+        "@python"
+    ],
     "quality": 7,
     "scope": [
         "security",

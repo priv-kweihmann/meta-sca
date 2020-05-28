@@ -4,6 +4,9 @@
     "languages": [
         "python"
     ],
+    "uses": [
+        "@python"
+    ],
     "online": true,
     "quality": 9,
     "scope": [

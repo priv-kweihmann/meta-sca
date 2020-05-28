@@ -5,6 +5,8 @@
         "c",
         "lua"
     ],
+    "uses": [
+    ],
     "quality": 6,
     "scope": [
         "functional"

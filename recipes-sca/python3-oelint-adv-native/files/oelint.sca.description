@@ -4,6 +4,9 @@
     "languages": [
         "bitbake"
     ],
+    "uses": [
+        "@python"
+    ],
     "quality": 9,
     "scope": [
         "style"

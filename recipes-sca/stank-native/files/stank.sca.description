@@ -4,6 +4,9 @@
     "languages": [
         "shell"
     ],
+    "uses": [
+        "@go"
+    ],
     "quality": 4,
     "scope": [
         "functional",
