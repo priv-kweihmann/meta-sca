@@ -4,6 +4,9 @@
     "languages": [
         "go"
     ],
+    "uses": [
+        "@go"
+    ],
     "quality": 7,
     "scope": [
         "style"

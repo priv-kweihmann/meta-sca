@@ -4,6 +4,9 @@
     "languages": [
         "javascript"
     ],
+    "uses": [
+        "@npm"
+    ],
     "online": true,
     "quality": 8,
     "scope": [

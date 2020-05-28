@@ -4,6 +4,9 @@
     "languages": [
         "shell"
     ],
+    "uses": [
+        "@python"
+    ],
     "quality": 8,
     "scope": [
         "functional",

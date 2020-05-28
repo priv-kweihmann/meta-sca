@@ -4,6 +4,8 @@
     "languages": [
         "package"
     ],
+    "uses": [
+    ],
     "quality": 9,
     "scope": [
         "security"

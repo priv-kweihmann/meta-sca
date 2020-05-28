@@ -4,6 +4,8 @@
     "languages": [
         "c"
     ],
+    "uses": [
+    ],
     "online": true,
     "quality": 7,
     "scope": [

@@ -11,6 +11,9 @@
         "lua",
         "go"
     ],
+    "uses": [
+        "@python"
+    ],
     "quality": 8,
     "scope": [
         "style"

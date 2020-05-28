@@ -4,6 +4,8 @@
     "languages": [
         "c"
     ],
+    "uses": [
+    ],
     "quality": 6,
     "scope": [
         "functional"
