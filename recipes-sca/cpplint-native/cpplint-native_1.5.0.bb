@@ -9,10 +9,10 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=a58572e3501e262ddd5da01be644887d"
 
 DEPENDS += "${PYTHON_PN}-pytest-runner-native"
 
-SRC_URI = "git://github.com/cpplint/cpplint.git;protocol=https;branch=develop \
+SRC_URI = "git://github.com/cpplint/cpplint.git;protocol=https;branch=master \
            file://cpplint.sca.description \
            file://cpplint-multi"
-SRCREV = "d0465e6b7b52335d21c45b5769e9eb0d648a7ea5"
+SRCREV = "154a8478a1c21bb1401663a8742b122234c35e04"
 
 S = "${WORKDIR}/git"
 
