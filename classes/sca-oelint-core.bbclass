@@ -4,6 +4,7 @@
 SCA_OELINT_EXTRA_SUPPRESS ?= ""
 SCA_OELINT_EXTRA_FATAL ?= ""
 SCA_OELINT_IGNORE_SPARED_LAYER ?= "1"
+SCA_OELINT_EXTRA_KNOWN_MACHINES ?= ""
 SCA_OELINT_EXTRA_KNOWN_VARS ?= ""
 SCA_OELINT_EXTRA_MANDATORY_VARS ?= ""
 SCA_OELINT_EXTRA_PROTECTED_VARS ?= ""
@@ -87,6 +88,7 @@ python do_sca_oelint_core() {
 
     _constantfile = os.path.join(d.getVar("T"), "oelint-constants.json")
     _contantcontent = {
+        "known_machines": clean_split(d, "SCA_OELINT_EXTRA_KNOWN_MACHINES"),
         "known_vars": clean_split(d, "SCA_OELINT_EXTRA_KNOWN_VARS"),
         "mandatory_vars": clean_split(d, "SCA_OELINT_EXTRA_MANDATORY_VARS"),
         "protected_vars": clean_split(d, "SCA_OELINT_EXTRA_PROTECTED_VARS"),
