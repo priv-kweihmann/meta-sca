@@ -8,8 +8,8 @@ DEPENDS += "enchant2-native"
 
 PYPI_PACKAGE = "pyenchant"
 
-SRC_URI[md5sum] = "5e8b6e02a7459b040a51f000c5ac37e3"
-SRC_URI[sha256sum] = "2b4594e125c9fbc7fff2d310be141a4ace1f8af3e671c63ebd261407c82d3a92"
+SRC_URI[md5sum] = "1e894030a64792d88f2775bacd295bb1"
+SRC_URI[sha256sum] = "ce0915d7acd771fde6e8c2dce8ad0cb0e6f7c4fa8430cc96e3e7134e99aeb12f"
 
 inherit pypi
 inherit native
