@@ -81,10 +81,11 @@ python do_sca_proselint_core() {
                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     json_output = {}
-    try:
-        _ = subprocess.check_output(["proselint", "--clean"], universal_newlines=True)
-    except subprocess.CalledProcessError as e:
-        pass
+    if any(_files):
+        try:
+            _ = subprocess.check_output(["proselint", "--clean"], universal_newlines=True)
+        except subprocess.CalledProcessError as e:
+            pass
 
     os.environ["XDG_CACHE_HOME"] = os.path.join(d.getVar("T"), "proselint")
 
