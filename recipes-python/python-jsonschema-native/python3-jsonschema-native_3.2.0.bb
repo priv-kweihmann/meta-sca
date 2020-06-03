@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=7a60a81c146ec25599a3e1dabb8610a8"
 
 DEPENDS += "\
             python3-attrs-native \
-            ${@oe.utils.ifelse(float(d.getVar('PYTHON_BASEVERSION') or 0.0) < 3.8, 'python3-importlib_metadata-native', '')} \
+            ${@oe.utils.ifelse(float(d.getVar('PYTHON_BASEVERSION') or 0.0) < 3.8, 'python3-importlib-metadata-native', '')} \
             python3-pyrsistent-native \
             python3-setuptools-scm-native \
             python3-six-native \
