@@ -7,7 +7,7 @@
     "uses": [
         "@python"
     ],
-    "quality": 5,
+    "quality": 9,
     "scope": [
         "security"
     ],
@@ -18,10 +18,10 @@
     },
     "test": {
         "integration": [
-            {"cmd": ["pysymbolcheck-bin", "--help"], "returncode": 0}
+            {"cmd": ["pysymbolcheck", "--help"], "returncode": 0}
         ],
         "findings": [
-
+            "busybox"
         ]
     }
 }
