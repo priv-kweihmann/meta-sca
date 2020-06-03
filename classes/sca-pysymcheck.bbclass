@@ -6,7 +6,7 @@ SCA_PYSYMCHECK_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_PYSYMCHECK_EXTRA_FATAL ?= ""
 ## Used rule file
-SCA_PYSYMCHECK_RULE_FILE ?= "basic_rules.json"
+SCA_PYSYMCHECK_RULE_FILE ?= "${STAGING_DATADIR_NATIVE}/pysymbolcheck/basic_rules.json"
 
 SCA_RAW_RESULT_FILE[pysymcheck] = "txt"
 
@@ -15,6 +15,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit python3native
 
 def do_sca_conv_pysymcheck(d):
     import os
@@ -32,7 +33,6 @@ def do_sca_conv_pysymcheck(d):
     }
 
     _suppress = sca_suppress_init(d, file_trace=False)
-    _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
     _findings = []
 
@@ -48,11 +48,7 @@ def do_sca_conv_pysymcheck(d):
                                             Message=m.group("message"),
                                             ID=m.group("id"),
                                             Severity=severity_map[m.group("severity")])
-                    if g.File in _excludes:
-                        continue
                     if _suppress.Suppressed(g):
-                        continue
-                    if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)
@@ -70,14 +66,16 @@ python do_sca_pysymcheck() {
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pysymcheck-{}-suppress".format(d.getVar("SCA_MODE"))))
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pysymcheck-{}-fatal".format(d.getVar("SCA_MODE"))))
 
-    _args = ["python3", os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "pysymbolcheck", "pysymbolcheck.py")]
+    _args = ["pysymbolcheck"]
     _args += ["--libpath", ":".join([d.getVar("STAGING_LIBDIR_NATIVE")])]
-    _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "pysymbolcheck", d.getVar("SCA_PYSYMCHECK_RULE_FILE"))]
+    _args += [d.getVar("SCA_PYSYMCHECK_RULE_FILE")]
 
     if not os.path.exists(os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "pysymbolcheck", d.getVar("SCA_PYSYMCHECK_RULE_FILE"))):
         bb.warn("Rule-File {} does not exists - Empty results will be expected".format(d.getVar("SCA_PYSYMCHECK_RULE_FILE")))
 
-    _files = get_files_by_mimetype(d, d.getVar("B"), ["application/x-executable", 'application/x-sharedlib'],\
+    _files = get_files_by_mimetype(d, d.getVar("D"), 
+                                  ["application/x-executable", 'application/x-sharedlib',
+                                   "application/x-pie-executable", "application/x-pie-sharedlib"],
                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     ## Run
     cmd_output = ""
@@ -106,7 +104,7 @@ python do_sca_deploy_pysymcheck() {
 
 do_sca_pysymcheck[doc] = "Find forbidden function linkage"
 do_sca_deploy_pysymcheck[doc] = "Deploy results of do_sca_pysymcheck"
-addtask do_sca_pysymcheck before do_install after do_compile
+addtask do_sca_pysymcheck after do_install
 addtask do_sca_deploy_pysymcheck after do_sca_pysymcheck before do_package
 
 DEPENDS += "python3-pysymbolcheck-native sca-recipe-pysymcheck-rules-native"
