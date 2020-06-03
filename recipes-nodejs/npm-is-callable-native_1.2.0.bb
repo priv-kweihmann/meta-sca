@@ -5,9 +5,11 @@ HOMEPAGE = "https://github.com/ljharb/is-callable#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5db8fa3e421a3211e6a3dc68544da455"
 
-SRC_URI = "https://registry.npmjs.org/is-callable/-/is-callable-1.1.5.tgz"
-SRC_URI[md5sum] = "5a69abbe4f2e27a9491b9a60c479194f"
-SRC_URI[sha256sum] = "0bc4e25e92f5f1b3a22c3def638be8c7968a574a60a1c52eff564f12d4fbfbab"
+DEPENDS = ""
+
+SRC_URI = "https://registry.npmjs.org/is-callable/-/is-callable-1.2.0.tgz"
+SRC_URI[md5sum] = "bac9f7a745be8f8266a99a67e055204c"
+SRC_URI[sha256sum] = "a6c4a0594c97b75bd74b5ae1422ed631ebb2b857a473aa0bf91cd69f759facab"
 
 NPM_PKGNAME = "is-callable"
 
