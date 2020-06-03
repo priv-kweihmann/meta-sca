@@ -2,12 +2,12 @@ SUMMARY = "Python library that measures the width of unicode strings rendered to
 HOMEPAGE = "https://github.com/jquast/wcwidth"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=11fba47286258744a6bc6e43530c32a1"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=b15979c39a2543892fca8cd86b4b52cb"
 
 PYPI_PACKAGE = "wcwidth"
 
-SRC_URI[md5sum] = "b32584cd6084b4a8c81df13a2a6b4351"
-SRC_URI[sha256sum] = "ee73862862a156bf77ff92b09034fc4825dd3af9cf81bc5b360668d425f3c5f1"
+SRC_URI[md5sum] = "a1db7aef2af050a3e433373dbac45d95"
+SRC_URI[sha256sum] = "edbc2b718b4db6cdf393eefe3a420183947d6aa312505ce6754516f458ff8830"
 
 inherit pypi
 inherit native
