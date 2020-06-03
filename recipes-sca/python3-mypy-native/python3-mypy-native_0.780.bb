@@ -11,8 +11,8 @@ DEPENDS += "\
             "
 
 SRC_URI_append = " file://mypy.sca.description"
-SRC_URI[md5sum] = "54d69434af352a32b6c012d9812e37ae"
-SRC_URI[sha256sum] = "8a627507ef9b307b46a1fea9513d5c98680ba09591253082b4c48697ba05a4ae"
+SRC_URI[md5sum] = "6593d2eac38b72d1801660b7f70bab92"
+SRC_URI[sha256sum] = "4ef13b619a289aa025f2273e05e755f8049bb4eaba6d703a425de37d495d178d"
 
 PYPI_PACKAGE = "mypy"
 
