@@ -1,8 +1,10 @@
 SUMMARY = "Merge a series of JSON documents"
-HOMEPAGE = "https://github.com/eliben/pyelftools"
+HOMEPAGE = "https://github.com/avian2/jsonmerge"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f05788a9cdd8a4f317971d89ef4c6abb"
+
+DEPENDS += "python3-jsonschema-native"
 
 PYPI_PACKAGE = "jsonmerge"
 
