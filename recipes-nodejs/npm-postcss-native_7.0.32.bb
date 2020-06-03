@@ -9,9 +9,9 @@ DEPENDS = "npm-chalk-native \
            npm-source-map-native \
            npm-supports-color-native"
 
-SRC_URI = "https://registry.npmjs.org/postcss/-/postcss-7.0.31.tgz"
-SRC_URI[md5sum] = "f8d0937fcdcaad0223aa1b8d56741f00"
-SRC_URI[sha256sum] = "43f42cce767be8a9540a419e7ee5f598a6514550120a78bff897820808520a2d"
+SRC_URI = "https://registry.npmjs.org/postcss/-/postcss-7.0.32.tgz"
+SRC_URI[md5sum] = "9a3afde430af8908951cacb3402fbd89"
+SRC_URI[sha256sum] = "15c87b2d0b7643a0e58468239713f4e0926db725fdaee26e54545dbe99227925"
 
 NPM_PKGNAME = "postcss"
 
