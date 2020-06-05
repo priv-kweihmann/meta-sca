@@ -12,7 +12,7 @@ SRC_URI[sha256sum] = "ad7207422894ac1346c86280e16e78ce0d277928438971be7eca62f5ce
 SRCREV = "4d7f8d40f9788de07c7f7b8946f340bf89535453"
 
 UPSTREAM_CHECK_URI = "https://github.com/composer/composer/tags"
-UPSTREAM_CHECK_REGEX ?= "/composer/composer/releases/tag/(?P<pver>(\d+[\.]*)+)"
+UPSTREAM_CHECK_REGEX ?= "/composer/composer/releases/tag/(?P<pver>(\d+[\.]*)+)$"
 S = "${WORKDIR}/getcomposer.org-${SRCREV}"
 
 inherit native
