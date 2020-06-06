@@ -10,7 +10,7 @@ DEPENDS += "\
            "
 
 SRC_URI = "git://github.com/kubernetes/klog.git;protocol=https"
-SRCREV = "4cae117fdf5d65aeb3f638b8d8c87cd1cf8c8d41"
+SRCREV = "825bd2f59841ceacc8bce23ef4f7f353cb141242"
 
 S = "${WORKDIR}/git"
 
