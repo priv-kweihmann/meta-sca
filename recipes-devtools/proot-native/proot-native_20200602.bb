@@ -9,10 +9,10 @@ LICENSE = "GPL-2.0"
 
 LIC_FILES_CHKSUM = "file://../COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
-DEPENDS += "libtalloc-native"
+DEPENDS += "libtalloc-native libarchive-native"
 
 SRC_URI = "git://github.com/proot-me/proot.git;protocol=https"
-SRCREV = "6b9776f0fda9782142656c00ebfe2398be648da6"
+SRCREV = "39276fcb96886e2bf98274f9a1a789c2c3e4b719"
 
 S = "${WORKDIR}/git/src"
 
