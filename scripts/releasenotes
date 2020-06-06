@@ -2,6 +2,7 @@
 import argparse
 import re
 import github3
+import copy
 
 
 def create_parser():
@@ -17,9 +18,16 @@ def get_commits(_args):
     login = github3.login(_args.username, _args.token)
     repo = login.repository('priv-kweihmann', 'meta-sca')
     branch = repo.branch(_args.branch)
+    _lastsha = branch.commit.sha
+    res = []
     for tag in repo.tags():
         if tag.name == _args.tag:
-            return repo.compare_commits(tag.commit.sha, branch.latest_sha()).commits
+            _tmp = repo.compare_commits(tag.commit.sha, _lastsha).commits
+            res += [x for x in _tmp]
+            while len(_tmp) >= 250:
+                _tmp = repo.compare_commits(tag.commit.sha, _tmp[0].sha).commits
+                res += [x for x in _tmp]
+            return res
     return []
 
 
@@ -29,6 +37,12 @@ def get_issues_from_commits(_args, commits):
         if any([x for x in commits if "This reverts commit {}".format(c.sha) in x.message]):
             continue
         m = re.search(r"Closes #(?P<id>\d+)", c.message)
+        if m:
+            res.add(int(m.group("id")))
+        m = re.search(r"Fixes #(?P<id>\d+)", c.message)
+        if m:
+            res.add(int(m.group("id")))
+        m = re.search(r"Relates to #(?P<id>\d+)", c.message)
         if m:
             res.add(int(m.group("id")))
     return list(res)
