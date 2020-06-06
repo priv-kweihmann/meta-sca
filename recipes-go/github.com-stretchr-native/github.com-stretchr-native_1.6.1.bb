@@ -21,7 +21,7 @@ SRC_URI = "\
            git://github.com/stretchr/testify.git;protocol=https;name=testify;destsuffix=git/src/github.com/stretchr/testify \
            git://github.com/stretchr/objx.git;protocol=https;name=objx;destsuffix=git/src/github.com/stretchr/objx \
           "
-SRCREV_testify = "004e3cb72213e5e727e4e08f668ee6c8f27e5d32"
+SRCREV_testify = "f654a9112bbeac49ca2cd45bfbe11533c4666cf8"
 SRCREV_objx = "ea4fe68685ee0d3cee7032121851b57e7494e8ea"
 
 S = "${WORKDIR}/git"
