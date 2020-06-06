@@ -8,8 +8,8 @@ DEPENDS += "${PYTHON_PN}-setuptools-scm-native"
 
 PYPI_PACKAGE = "lazy-object-proxy"
 
-SRC_URI[md5sum] = "5c64c06affcd2a7c6ddc848af4280cca"
-SRC_URI[sha256sum] = "f3900e8a5de27447acbf900b4750b0ddfd7ec1ea7fbaf11dfa911141bc522af0"
+SRC_URI[md5sum] = "ea5c009f1995d86942d024714096624e"
+SRC_URI[sha256sum] = "a0aed261060cd0372abf08d16399b1224dbb5b400312e6b00f2b23eabe1d4e96"
 
 inherit pypi
 inherit setuptools3
