@@ -12,7 +12,7 @@ DEPENDS += "${PYTHON_PN}-pytest-runner-native"
 SRC_URI = "git://github.com/cpplint/cpplint.git;protocol=https;branch=master \
            file://cpplint.sca.description \
            file://cpplint-multi"
-SRCREV = "154a8478a1c21bb1401663a8742b122234c35e04"
+SRCREV = "93c87ce428fddcda0d2130fe0065557b6194d726"
 
 S = "${WORKDIR}/git"
 
