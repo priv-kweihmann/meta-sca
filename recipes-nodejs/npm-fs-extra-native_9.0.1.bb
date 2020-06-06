@@ -1,5 +1,5 @@
 SUMMARY = "NPM: fs-extra"
-DESCRIPTION = "fs-extra contains methods that aren't included in the vanilla Node.js fs package. Such as mkdir -p, cp -r, and rm -rf."
+DESCRIPTION = "fs-extra contains methods that aren't included in the vanilla Node.js fs package. Such as recursive mkdir, copy, and remove."
 HOMEPAGE = "https://github.com/jprichardson/node-fs-extra"
 
 LICENSE = "MIT"
@@ -10,9 +10,9 @@ DEPENDS = "npm-at-least-node-native \
            npm-jsonfile-native \
            npm-universalify-native"
 
-SRC_URI = "https://registry.npmjs.org/fs-extra/-/fs-extra-9.0.0.tgz"
-SRC_URI[md5sum] = "76722af3a7869650b1532a5d6b8e1af0"
-SRC_URI[sha256sum] = "a6d8af0b30e3df51a3d4617d5d44008217f085c47aa5b73bc498f4435f11f6d1"
+SRC_URI = "https://registry.npmjs.org/fs-extra/-/fs-extra-9.0.1.tgz"
+SRC_URI[md5sum] = "3bce3f53b9f55fa76e6295ded3d07a00"
+SRC_URI[sha256sum] = "9d486baa24afa2081212e8505c8e18e0fc37009dbe61d32c9585485bbf28eb2d"
 
 NPM_PKGNAME = "fs-extra"
 
