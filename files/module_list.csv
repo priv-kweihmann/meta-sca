@@ -27,7 +27,6 @@ golint,GO linter,https://github.com/golang/lint,,,,x,,,,,,,x,,,,,,,,,,x
 gosec,GO security linter,https://github.com/securego/gosec,,,,x,,,,,,,x,,,,,,,,x,,
 govet,GO linter,https://golang.org/cmd/vet/,,,,x,,,,,,,x,,,,,,,,,x,x
 htmlhint,HTML linter,https://github.com/htmlhint/HTMLHint,,x,x,x,,,,,,,,,,,,,,x,,x,
-ikos,C/C++ linter using LLVM,https://github.com/nasa-sw-vnv/ikos,"meta-clang, manual enable",,,,x,x,x,,,,,,,,,,,,,,x
 image-summary,Aggregate all findings for package in an image,,,,x,,,,,,,,,,,,,,x,,x,x,x
 jshint,Javascript linter,https://github.com/jshint/jshint,,x,x,x,,,,,x,,,,,,,,,,,x,x
 jsonlint,JSON file linter,,,,x,x,,,,,,,,,,,,,,x,,x,
