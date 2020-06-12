@@ -79,7 +79,7 @@ bitbake-layers add-layer "<full path to sca-layer>/meta-sca"
 
 #### meta-clang
 
-To make the integration of clang or ikos-module (clang-tidy) work you need to add the [meta-clang](https://github.com/kraj/meta-clang) layer to your bblayer-file.
+To make the integration of clang (clang-tidy) work you need to add the [meta-clang](https://github.com/kraj/meta-clang) layer to your bblayer-file.
 
 #### meta-oe
 
@@ -166,7 +166,6 @@ The layer can check on a recipe-level or on an image-level.
 | gosec           | GO security linter                                    | https://github.com/securego/gosec                                     |                           |               |              | x             |     |     |        |       |            |     | x   |        |     |          |         |          |          |               | x              |                  |             |
 | govet           | GO linter                                             | https://golang.org/cmd/vet/                                           |                           |               |              | x             |     |     |        |       |            |     | x   |        |     |          |         |          |          |               |                | x                | x           |
 | htmlhint        | HTML linter                                           | https://github.com/htmlhint/HTMLHint                                  |                           | x             | x            | x             |     |     |        |       |            |     |     |        |     |          |         |          |          | x             |                | x                |             |
-| ikos            | C/C++ linter using LLVM                               | https://github.com/nasa-sw-vnv/ikos                                   | meta-clang, manual enable |               |              |               | x   | x   | x      |       |            |     |     |        |     |          |         |          |          |               |                |                  | x           |
 | image-summary   | Aggregate all findings for package in an image        |                                                                       |                           |               | x            |               |     |     |        |       |            |     |     |        |     |          |         |          | x        |               | x              | x                | x           |
 | jshint          | Javascript linter                                     | https://github.com/jshint/jshint                                      |                           | x             | x            | x             |     |     |        |       | x          |     |     |        |     |          |         |          |          |               |                | x                | x           |
 | jsonlint        | JSON file linter                                      |                                                                       |                           |               | x            | x             |     |     |        |       |            |     |     |        |     |          |         |          |          | x             |                | x                |             |
@@ -271,7 +270,6 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
     - [gosec](docs/conf/module/gosec.md)
     - [govet](docs/conf/module/govet.md)
     - [htmlhint](docs/conf/module/htmlhint.md)
-    - [ikos](docs/conf/module/ikos.md)
     - [jshint](docs/conf/module/jshint.md)
     - [jsonlint](docs/conf/module/jsonlint.md)
     - [kconfighard](docs/conf/module/kconfighard.md)
