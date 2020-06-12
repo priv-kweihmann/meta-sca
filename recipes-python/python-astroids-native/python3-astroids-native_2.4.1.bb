@@ -12,6 +12,8 @@ DEPENDS += "\
             ${PYTHON_PN}-wrapt-native \
             "
 
+SRC_URI_append = " file://ae3a2d8cf263f39651139891916bc6f5797c9713.patch"
+
 PYPI_PACKAGE = "astroid"
 
 SRC_URI[md5sum] = "b0ab3129a634e7210f7b3647fb81c215"
