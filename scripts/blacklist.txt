@@ -92,7 +92,6 @@ sca-recipe-golint-rules-native
 sca-recipe-gosec-rules-native
 sca-recipe-govet-rules-native
 sca-recipe-htmlhint-rules-native
-sca-recipe-ikos-rules-native
 sca-recipe-jshint-rules-native
 sca-recipe-jsonlint-rules-native
 sca-recipe-kconfighard-rules-native
