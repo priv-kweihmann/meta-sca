@@ -356,7 +356,7 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
 
 ## Contributing
 
-Feel free to create pull-requests or create an issue if you think there is something wrong or missing.
+Please see the detailed [contribution guideline](CONTRIBUTING.md) for details
 
 ### Get involved
 
