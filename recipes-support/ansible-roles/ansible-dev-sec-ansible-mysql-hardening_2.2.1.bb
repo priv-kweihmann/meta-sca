@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://README.md;beginline=102;endline=116;md5=b0fb70f60608f
 
 SRC_URI = "git://github.com/dev-sec/ansible-mysql-hardening.git;protocol=https \
            file://${ROLE_NAME}.json"
-SRCREV = "c04c5bd0607be4222b386638b1d906238d37123a"
+SRCREV = "e9782fb2c15d853826a91ca5640edbf0fca6cfcc"
 S = "${WORKDIR}/git"
 
 ROLE_NAME = "dev-sec.mysql-hardening"
