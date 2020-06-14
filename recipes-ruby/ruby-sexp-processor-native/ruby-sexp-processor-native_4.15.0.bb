@@ -4,8 +4,8 @@ HOMEPAGE = "https://github.com/seattlerb/sexp_processor"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.rdoc;beginline=72;md5=b3e341281591d1a60de96a4508ad2e69"
 
-SRC_URI[md5sum] = "994c7ba7bbf45d6f1ae5b6b32edc8624"
-SRC_URI[sha256sum] = "0fa8731445cf4a0c01570ec29aac4b50a0451ce66b1b31ad768f5035e3af7b90"
+SRC_URI[md5sum] = "d58bb5a1334f34bb8e0db83b43fd59a8"
+SRC_URI[sha256sum] = "a5ec27d8055ad47444cfb7ce860bad8af2365772a82892f4a8a0d97e8e9e3b34"
 
 GEM_NAME = "sexp_processor"
 
