@@ -16,11 +16,12 @@ DEPENDS = "npm-array-includes-native \
            npm-minimatch-native \
            npm-object.values-native \
            npm-read-pkg-up-native \
-           npm-resolve-native"
+           npm-resolve-native \
+           npm-tsconfig-paths-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.20.2.tgz"
-SRC_URI[md5sum] = "718153e8481c22657fbab250154db0fd"
-SRC_URI[sha256sum] = "4a2c473c9a44180604c501ade18634fbcbdbd29f1aaf0ef7bf1ce38bb0def147"
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.21.2.tgz"
+SRC_URI[md5sum] = "e630ab1168a13cce09b42227bc27a4d7"
+SRC_URI[sha256sum] = "e4ffc0942b2081173627adcef94e1f57748bf4573b2fc3681f456f4e9d9c618e"
 
 NPM_PKGNAME = "eslint-plugin-import"
 
