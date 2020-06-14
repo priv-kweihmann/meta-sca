@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 SRC_URI = "git://github.com/danmar/cppcheck.git;protocol=https \
            file://0001-Makefile-fixes.patch \
            file://cppcheck.sca.description"
-SRCREV = "aad6dc4367b253c221f7354b342d3000ba61aabb"
+SRCREV = "0f23bde2b00f9bf195710507710abbcccd981da5"
 
 S = "${WORKDIR}/git"
 
@@ -16,7 +16,7 @@ inherit native
 inherit pkgconfig
 inherit sca-description
 
-PACKAGECONFIG ??= "rules"
+PACKAGECONFIG ??= "rules z3"
 PACKAGECONFIG[rules] = "HAVE_RULES=yes,,libpcre-native"
 PACKAGECONFIG[z3] = "USE_Z3=yes,,z3-native"
 
