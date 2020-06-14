@@ -4,8 +4,8 @@ HOMEPAGE = "https://github.com/whitequark/ast/"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.MIT;md5=b46ff44655f29020fc7542adda3ad781"
 
-SRC_URI[md5sum] = "32de813722684ea1dad7fefc676d0838"
-SRC_URI[sha256sum] = "a7270b78d8c970e90a5b932471c691e3ca74aa8be030f1a954d38ec487d79aa0"
+SRC_URI[md5sum] = "d361b241a0dcd72b7f791227b6ce4cbd"
+SRC_URI[sha256sum] = "4a54905a05a3ae848ec67d81a79625b77b92feb91090ab46a2bdcaff193264d0"
 
 GEM_NAME = "ast"
 
