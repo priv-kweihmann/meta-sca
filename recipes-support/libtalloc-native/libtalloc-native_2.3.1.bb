@@ -34,7 +34,7 @@ DEPENDS += "\
             qemu-native \
            "
 
-SRC_URI = "https://samba.org/ftp/talloc/talloc-${PV}.tar.gz \
+SRC_URI = "https://www.samba.org/ftp/talloc/talloc-${PV}.tar.gz \
            file://0001-talloc-Add-configure-options-for-packages.patch \
            file://0002-waf-add-support-of-cross_compile.patch \
 "
