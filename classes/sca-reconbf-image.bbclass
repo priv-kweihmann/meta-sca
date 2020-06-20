@@ -19,7 +19,6 @@ DEPENDS += "reconbf reconbf-native"
 
 def do_sca_conv_reconbf(d):
     import os
-    import re
     import json
     import hashlib
     

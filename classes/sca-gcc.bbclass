@@ -18,7 +18,6 @@ inherit sca-suppress
 inherit sca-tracefiles
 
 def sca_gcc_hardening(d):
-    import re
     import os
 
     if d.getVar("SCA_GCC_HARDENING") != "1":
@@ -250,7 +249,6 @@ def do_sca_conv_gcc(d):
     return sca_save_model_to_string(d)
 
 python do_sca_gcc() {
-    import re
     import bb
     import os
     import shutil
