@@ -79,7 +79,8 @@ def do_sca_conv_bitbake(d):
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
-    pattern = r"^(?P<severity>WARNING|ERROR):\s+{}-{}-{}\s+(?P<task>.*):\s+(?P<message>.*)$".format(d.getVar("PN"), d.getVar("PKGV"), d.getVar("PR"))
+    pattern = r"^(?P<severity>WARNING|ERROR):\s+{}-{}-{}\s+(?P<task>.*):\s+(?P<message>.*)$".format(
+               sca_regex_safe(d, "PN"), sca_regex_safe(d, "PKGV"), sca_regex_safe(d, "PR"))
 
     severity_map = {
         "ERROR" : "error",
