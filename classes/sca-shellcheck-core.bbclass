@@ -12,7 +12,6 @@ inherit sca-suppress
 
 def do_sca_conv_shellcheck(d):
     import os
-    import re
     from xml.etree.ElementTree import Element, SubElement, Comment, tostring
     from xml.etree import ElementTree
     

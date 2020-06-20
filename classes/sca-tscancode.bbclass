@@ -44,7 +44,6 @@ def get_config_symbols(d, config_file=".config", strip="CONFIG_"):
 
 def do_sca_conv_tscancode(d):
     import os
-    import re
     from xml.etree.ElementTree import Element, SubElement, Comment, tostring
     from xml.etree import ElementTree
     

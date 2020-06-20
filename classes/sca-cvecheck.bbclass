@@ -23,7 +23,6 @@ python sca_cvecheck_init() {
 }
 
 def sca_create_data_file(d, patched, unpatched, cve_data):
-    import re
     import os
     """
     Write CVE information in WORKDIR; and to CVE_CHECK_DIR, and

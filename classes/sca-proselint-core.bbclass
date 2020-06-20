@@ -20,14 +20,12 @@ DEPENDS += "python3-proselint-native"
 
 def do_sca_conv_proselint(d):
     import os
-    import re
     import json
 
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     items = []
-    pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<column>\d+):\s+(?P<severity>\w+):\s+(?P<message>.*)\s\[-(?P<id>.*)\]"
 
     _suppress = sca_suppress_init(d)
     _findings = []
