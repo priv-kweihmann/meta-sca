@@ -19,7 +19,6 @@ DEPENDS += "python3-detect-secrets-native"
 
 def do_sca_conv_detectsecrets(d):
     import os
-    import re
     import json
     
     package_name = d.getVar("PN")

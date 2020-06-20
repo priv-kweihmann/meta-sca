@@ -8,7 +8,6 @@ PHP_INI_FILE ?= "${STAGING_DIR_NATIVE}/${sysconfdir}/php/php.ini"
 
 python do_add_extension() {
     import os
-    import re
     inifile = d.getVar("PHP_INI_FILE")
     if os.path.exists(inifile):
         content = ""
