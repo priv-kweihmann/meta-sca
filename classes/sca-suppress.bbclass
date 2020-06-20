@@ -74,7 +74,7 @@ def sca_suppress_init(d, file_trace=True):
 
         def Match(self, dm):
             return all([
-                re.match(self.File, dm.File),
+                re.match(re.escape(self.File), dm.File),
                 int(dm.Line) >= self.LineRange[0] and int(dm.Line) <= self.LineRange[1],
                 int(dm.Column) >= self.ColumnRange[0] and int(dm.Column) <= self.ColumnRange[1],
                 re.match(self.ID, dm.GetFormattedID())
