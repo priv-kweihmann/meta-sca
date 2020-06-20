@@ -53,7 +53,6 @@ def write_config(_base, _extra_dicts, _target):
 
 def do_sca_conv_textlint(d):
     import os
-    import re
     import json
     
     package_name = d.getVar("PN")
