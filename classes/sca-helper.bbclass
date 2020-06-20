@@ -292,3 +292,10 @@ def sca_get_layer_path_for_file(d, file):
 def sca_raw_result_file(d, tool):
     _filename = "sca_raw_{}.{}".format(tool, d.getVarFlag("SCA_RAW_RESULT_FILE", tool))
     return os.path.join(d.getVar("T"), _filename)
+
+def sca_regex_safe_string(value):
+    import re
+    return re.escape(value)
+
+def sca_regex_safe(d, var):
+    return sca_regex_safe_string(d.getVar(var) or "")
