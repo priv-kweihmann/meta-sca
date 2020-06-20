@@ -106,7 +106,6 @@ def _get_finding_severity(d, pb_key, tk_node, item):
 
 def do_sca_conv_ansible(d):
     import os
-    import re
     import json
     
     package_name = d.getVar("PN")
