@@ -11,6 +11,7 @@ DEPENDS = "npm-ajv-native \
            npm-cross-spawn-native \
            npm-debug-native \
            npm-doctrine-native \
+           npm-enquirer-native \
            npm-eslint-scope-native \
            npm-eslint-utils-native \
            npm-eslint-visitor-keys-native \
@@ -24,7 +25,6 @@ DEPENDS = "npm-ajv-native \
            npm-ignore-native \
            npm-import-fresh-native \
            npm-imurmurhash-native \
-           npm-inquirer-native \
            npm-is-glob-native \
            npm-js-yaml-native \
            npm-json-stable-stringify-without-jsonify-native \
@@ -42,9 +42,9 @@ DEPENDS = "npm-ajv-native \
            npm-text-table-native \
            npm-v8-compile-cache-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint/-/eslint-7.2.0.tgz"
-SRC_URI[md5sum] = "ffd8a702eb4767c146d288b20c3b955c"
-SRC_URI[sha256sum] = "09285faecb9ae44d568c432ec6ed68fe625d0b02e2b1b3eec60d8d140ab2f4e3"
+SRC_URI = "https://registry.npmjs.org/eslint/-/eslint-7.3.0.tgz"
+SRC_URI[md5sum] = "97b33b55f52eaabffec3b98b9437dab6"
+SRC_URI[sha256sum] = "e042bdd489134e260e65a5a454cdb69fd4a0a422692f1ab188d52f3f9c494f4f"
 
 NPM_PKGNAME = "eslint"
 
