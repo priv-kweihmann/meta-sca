@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=c66fb0a7723eeead586d670198ad6a34"
 
 DEPENDS += "ruby-ast-native"
 
-SRC_URI[md5sum] = "4ef254f8294caa7a5c7091b5756e4926"
-SRC_URI[sha256sum] = "2dc7392ccdb94451d2e43542f8504e8f67b98cbf5cea975866e9cd7da0104198"
+SRC_URI[md5sum] = "cb408fc7c5b66ec83dc9843ca4d8de22"
+SRC_URI[sha256sum] = "b6629f5772e6e4d1c83ce56dfb48a20f9ad589c5462ebe751ad64db8a1fd6080"
 
 GEM_NAME = "parser"
 
