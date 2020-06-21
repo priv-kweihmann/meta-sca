@@ -13,7 +13,7 @@ DEPENDS += "\
            "
 
 SRC_URI = "git://${GO_IMPORT};protocol=https"
-SRCREV = "414693dc24c7c198bb4b545a8549d450570ef54b"
+SRCREV = "9dabf761446c365f70bce55fe5e384b8fadb9c80"
 GO_IMPORT = "github.com/tealeg/xlsx"
 
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+\.\d+)"
