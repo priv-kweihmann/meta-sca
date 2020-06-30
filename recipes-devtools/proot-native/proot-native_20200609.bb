@@ -12,7 +12,7 @@ LIC_FILES_CHKSUM = "file://../COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 DEPENDS += "libtalloc-native libarchive-native"
 
 SRC_URI = "git://github.com/proot-me/proot.git;protocol=https"
-SRCREV = "39276fcb96886e2bf98274f9a1a789c2c3e4b719"
+SRCREV = "f0e3bfc5e621838d1ae4dce85e5fb2407a72cf11"
 
 S = "${WORKDIR}/git/src"
 
