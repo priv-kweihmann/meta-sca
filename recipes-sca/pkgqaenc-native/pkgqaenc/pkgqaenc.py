@@ -114,8 +114,11 @@ def walk_dir(_args):
             _filename = os.path.join(root, f)
             if os.path.basename(os.path.dirname(_filename)) in ["CONTROL"]:
                 continue
-            _filemode = int(
-                oct(stat.S_IMODE(os.stat(_filename).st_mode)), 8) & 0x1ff
+            try:
+                _filemode = int(
+                    oct(stat.S_IMODE(os.stat(_filename).st_mode)), 8) & 0x1ff
+            except:
+                _filemode = int(oct(777))
             _, _ext = os.path.splitext(_filename)
             _basename = os.path.basename(_filename)
             _script = False
@@ -123,8 +126,9 @@ def walk_dir(_args):
                 with open(_filename) as i:
                     _cnt = i.readline(1024)
                     if _cnt:
-                        if re.match(r"^#!/.*", _cnt):
-                            _script = True
+                        m = re.match(r"^#!(?P<shebang>/.*)$", _cnt)
+                        if m:
+                            _script = m.group("shebang").strip()
             except Exception:
                 pass
 
@@ -136,14 +140,14 @@ def walk_dir(_args):
 
             if _args.debug:
                 info(rel_path(root, f, _args),
-                     "mode: {}, mime: {}, ext: {}".format(oct(_filemode), _mime, _ext))
+                     "mode: {}, mime: {}, ext: {}, script: '{}'".format(oct(_filemode), _mime, _ext, _script))
             _maxItem = None
             _minItem = None
             if _mime in _args.config["maxMask"].keys():
                 _maxItem = _args.config["maxMask"][_mime]
             elif _ext in _args.config["maxMask"].keys():
                 _maxItem = _args.config["maxMask"][_ext]
-            elif _script and "script" in _args.config["maxMask"].keys():
+            elif _script != False and "script" in _args.config["maxMask"].keys():
                 _maxItem = _args.config["maxMask"]["script"]
             elif "default" in _args.config["maxMask"].keys():
                 _maxItem = _args.config["maxMask"]["default"]
@@ -151,7 +155,7 @@ def walk_dir(_args):
                 _minItem = _args.config["minMask"][_mime]
             elif _ext in _args.config["minMask"].keys():
                 _minItem = _args.config["minMask"][_ext]
-            elif _script and "script" in _args.config["minMask"].keys():
+            elif _script != False and "script" in _args.config["minMask"].keys():
                 _minItem = _args.config["minMask"]["script"]
             elif "default" in _args.config["minMask"].keys():
                 _minItem = _args.config["minMask"]["default"]
@@ -165,6 +169,15 @@ def walk_dir(_args):
                 if _filemode < _cmode:
                     warning("too-restrictive", rel_path(root, f, _args),
                             "Too resrictive filemode {}. Allowed minimum {}".format(oct(_filemode), oct(_cmode)))
+
+            if _script != False:
+                if _script not in _args.config["acceptableShebang"]:
+                    if _script in _args.config["blacklistShebang"]:
+                        warning("blacklisted-shebang", rel_path(root, f, _args),
+                            "shebang used {} is blacklisted".format(_script))
+                    else:
+                        info(rel_path(root, f, _args),
+                            "shebang used {} isn't whitelisted".format(_script))
 
             if any([x in _args.config["whitelistFiles"] for x in [_mime, _ext, _basename]]):
                 continue

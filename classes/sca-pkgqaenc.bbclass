@@ -31,6 +31,8 @@ SCA_PKGQAENC_ACCEPTABLE_DIRS ?= "\
                                 ${systemd_user_unitdir} \
                                 bin \
                                 "
+SCA_PKGQAENC_ACCEPTABLE_SHEBANG ?= ""
+SCA_PKGQAENC_BLACKLIST_SHEBANG ?= ""
 SCA_PKGQAENC_BLACKLIST_DIRS ?= "\
                                 ${infodir} \
                                 ${mandir} \
@@ -101,6 +103,7 @@ python do_sca_pkgqaenc() {
     import os
     import subprocess
     import json
+    from urllib.parse import unquote
     d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_PKGQAENC_EXTRA_SUPPRESS"))
     d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_PKGQAENC_EXTRA_FATAL"))
     d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pkgqaenc-{}-suppress".format(d.getVar("SCA_MODE"))))
@@ -120,6 +123,8 @@ python do_sca_pkgqaenc() {
             "minMask": {},
             "maxMask": {},
             "acceptableDirs": [],
+            "acceptableShebang": [],
+            "blacklistShebang": [],
             "blacklistDirs": [],
             "blacklistFiles": []
         }
@@ -133,6 +138,8 @@ python do_sca_pkgqaenc() {
             conf["minMask"][k.replace("_", "/")] = v
         conf["acceptableDirs"] = [x for x in (d.getVar("SCA_PKGQAENC_ACCEPTABLE_DIRS{}".format(_suffix)) or "").split(" ") if x]
         conf["blacklistDirs"] = [x for x in (d.getVar("SCA_PKGQAENC_BLACKLIST_DIRS{}".format(_suffix)) or "").split(" ") if x]
+        conf["acceptableShebang"] = [unquote(x) for x in (d.getVar("SCA_PKGQAENC_ACCEPTABLE_SHEBANG{}".format(_suffix)) or "").split(" ") if x]
+        conf["blacklistShebang"] = [unquote(x) for x in (d.getVar("SCA_PKGQAENC_BLACKLIST_SHEBANG{}".format(_suffix)) or "").split(" ") if x]
         conf["blacklistFiles"] = [x for x in (d.getVar("SCA_PKGQAENC_BLACKLIST_FILES{}".format(_suffix)) or "").split(" ") if x]
         conf["whitelistFiles"] = [x for x in (d.getVar("SCA_PKGQAENC_WHITELIST_FILES{}".format(_suffix)) or "").split(" ") if x]
         with open(_config_tmp, "w") as o:
