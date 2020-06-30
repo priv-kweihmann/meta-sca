@@ -14,9 +14,9 @@ DEPENDS = "npm-async-native \
            npm-strip-json-comments-native \
            npm-xml-native"
 
-SRC_URI = "https://registry.npmjs.org/htmlhint/-/htmlhint-0.14.0.tgz"
-SRC_URI[md5sum] = "c921b4a14901e04dab10e8c9abf13388"
-SRC_URI[sha256sum] = "ada1d7be880d891de56f2d4293feb85b3da0c20ad60b8c99b931bb48dcbdfabd"
+SRC_URI = "https://registry.npmjs.org/htmlhint/-/htmlhint-0.14.1.tgz"
+SRC_URI[md5sum] = "2502ca01373b05142bd1930b91dc7e8a"
+SRC_URI[sha256sum] = "c4069928215983face971e68143f456840804d328e7602bfa2b3adc228738867"
 
 NPM_PKGNAME = "htmlhint"
 
