@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=442b5b961878bc805832d1d24572f62d"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/ansi-colors/-/ansi-colors-3.2.4.tgz"
-SRC_URI[md5sum] = "247c9c463bf2697a2fb39d327c7f412a"
-SRC_URI[sha256sum] = "583e7530e77c4633b0635a9a6117e60cdda81a86e404a397d70ebca510ecea9e"
+SRC_URI = "https://registry.npmjs.org/ansi-colors/-/ansi-colors-4.1.1.tgz"
+SRC_URI[md5sum] = "ce72bb5360d8326616cae64d8ae9bdfe"
+SRC_URI[sha256sum] = "24d803210289f2afc6448276aa9d5a9608e86e584698307d2365d93195cf1f44"
 
 NPM_PKGNAME = "ansi-colors"
 
