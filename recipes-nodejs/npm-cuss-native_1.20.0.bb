@@ -5,9 +5,11 @@ HOMEPAGE = "https://github.com/words/cuss#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 
-SRC_URI = "https://registry.npmjs.org/cuss/-/cuss-1.19.0.tgz"
-SRC_URI[md5sum] = "4f0ca577668593da55057835b4c99d73"
-SRC_URI[sha256sum] = "be0c09993aac6039be0e4f0f51968d3c99f99af434b86755d372b41f9e77fd9c"
+DEPENDS = ""
+
+SRC_URI = "https://registry.npmjs.org/cuss/-/cuss-1.20.0.tgz"
+SRC_URI[md5sum] = "fb2af75bb121498478856d1db705b127"
+SRC_URI[sha256sum] = "3aa37af58abb05951a13ea650aeb970739ee93462f8e3fce174eda7ae3eca10f"
 
 NPM_PKGNAME = "cuss"
 
