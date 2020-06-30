@@ -10,9 +10,9 @@ DEPENDS = "npm-babel-types-native \
            npm-lodash-native \
            npm-source-map-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/generator/-/generator-7.10.3.tgz"
-SRC_URI[md5sum] = "afcd30029651c93d5b75517224d288c5"
-SRC_URI[sha256sum] = "232e872cf2c0c1e585107ed5e3797ff5dd8baf9185adb1c4660e7802ada88306"
+SRC_URI = "https://registry.npmjs.org/@babel/generator/-/generator-7.10.4.tgz"
+SRC_URI[md5sum] = "1b46fd4b993e3026c43ee667e2c84341"
+SRC_URI[sha256sum] = "8a610acf66b13774d6f4fba9581ef438bcb69fd9af691f210278c8485209874a"
 
 NPM_PKGNAME = "@babel/generator"
 

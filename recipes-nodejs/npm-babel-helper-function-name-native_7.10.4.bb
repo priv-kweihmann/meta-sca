@@ -9,9 +9,9 @@ DEPENDS = "npm-babel-helper-get-function-arity-native \
            npm-babel-template-native \
            npm-babel-types-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/helper-function-name/-/helper-function-name-7.10.3.tgz"
-SRC_URI[md5sum] = "a86cadfa5e152faf44c59f216f47cce1"
-SRC_URI[sha256sum] = "41669e5f6bedf4828bb5485dfe1d765eb59d903a7d0fff34ccda14b4e6b17f11"
+SRC_URI = "https://registry.npmjs.org/@babel/helper-function-name/-/helper-function-name-7.10.4.tgz"
+SRC_URI[md5sum] = "a6e67d129e9dbe1d47f330efd4679d2c"
+SRC_URI[sha256sum] = "3d23893a1606b443a66f0e3db40d84dbd40c5ba25dde7d7e8da0fcacfcff6360"
 
 NPM_PKGNAME = "@babel/helper-function-name"
 

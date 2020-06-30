@@ -9,9 +9,9 @@ DEPENDS = "npm-babel-helper-validator-identifier-native \
            npm-lodash-native \
            npm-to-fast-properties-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/types/-/types-7.10.3.tgz"
-SRC_URI[md5sum] = "7a566c8d43d0da0ce3b49b247242b8e4"
-SRC_URI[sha256sum] = "944e446b423739f8e08926e3f6107359dab2bcfc1e819feed32260ce9ec99f7a"
+SRC_URI = "https://registry.npmjs.org/@babel/types/-/types-7.10.4.tgz"
+SRC_URI[md5sum] = "120944ed0ef7399b7f2a71cb5d334469"
+SRC_URI[sha256sum] = "f4e2f932c9d7c05c7d1a4a5ed3978d2faada14cca3c0ac21b0f9b6c1b66c1499"
 
 NPM_PKGNAME = "@babel/types"
 
