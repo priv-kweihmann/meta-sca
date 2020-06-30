@@ -18,8 +18,8 @@ DEPENDS += "\
             "
 
 SRC_URI_append = " file://rubycritic.sca.description"
-SRC_URI[md5sum] = "944a1546d8e0dd0e051de7cd342b9766"
-SRC_URI[sha256sum] = "b306b540de669967ea2bb48e2500dc9cd333b5216f2c9f66285de80aabcb4c56"
+SRC_URI[md5sum] = "e73dde2ea7243fc77ac12a7bb2631bad"
+SRC_URI[sha256sum] = "c0b2b15a8066a1221194f7bcf6e4dd564fbf565f933b5cb7e87b15038ef8bb74"
 
 GEM_NAME = "rubycritic"
 
