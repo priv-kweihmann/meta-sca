@@ -12,8 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "flake8_expression_complexity"
 
-SRC_URI[md5sum] = "9316a9ba67859856ca3a1cc700f4c1c8"
-SRC_URI[sha256sum] = "2378e0235a87c00b4ad7a9759dde1f9c71aebf344f53c9ffa0c2e2c4ee8cd142"
+SRC_URI[md5sum] = "3f4639c3e50391658ef33e30ed9ee579"
+SRC_URI[sha256sum] = "c23f8ae677eb13b073be9bafa2cf443a87d3e2594817ba82c1f3e184e2de4afa"
 
 UPSTREAM_CHECK_REGEX = "project/flake8-expression-complexity/(?P<pver>(\d+[\.]*)+)"
 
