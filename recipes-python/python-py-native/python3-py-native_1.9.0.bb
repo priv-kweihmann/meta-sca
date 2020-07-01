@@ -1,4 +1,3 @@
-
 SUMMARY = "Library with cross-python path, ini-parsing, io, code, log facilities"
 HOMEPAGE = "http://py.readthedocs.io/"
 
@@ -9,8 +8,8 @@ DEPENDS += "${PYTHON_PN}-setuptools-scm-native"
 
 PYPI_PACKAGE = "py"
 
-SRC_URI[md5sum] = "baa54e458875d68031c422abb2e47a5c"
-SRC_URI[sha256sum] = "f3b3a4c36512a4c4f024041ab51866f11761cc169670204b235f6b20523d4e6b"
+SRC_URI[md5sum] = "b80db4e61eef724f49feb4d20b649e62"
+SRC_URI[sha256sum] = "9ca6883ce56b4e8da7e79ac18787889fa5206c79dcc67fb065376cd2fe03f342"
 
 inherit native
 inherit pypi
