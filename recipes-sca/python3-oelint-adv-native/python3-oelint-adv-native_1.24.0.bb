@@ -14,7 +14,7 @@ DEPENDS += "\
 
 SRC_URI = "git://github.com/priv-kweihmann/oelint-adv.git;protocol=https;branch=master \
            file://oelint.sca.description"
-SRCREV = "ee40ed4c38756bd26389d30f2cdc8f27afd547e6"
+SRCREV = "23e3118c4e09b73f72c343bbeded3bb365257810"
 S = "${WORKDIR}/git"
 
 inherit native
