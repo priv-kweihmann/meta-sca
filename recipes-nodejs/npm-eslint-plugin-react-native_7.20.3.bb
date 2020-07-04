@@ -17,9 +17,9 @@ DEPENDS = "npm-array-includes-native \
            npm-resolve-native \
            npm-string.prototype.matchall-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.20.2.tgz"
-SRC_URI[md5sum] = "949a8eea31ecb9aa38d8543cbf5f17ab"
-SRC_URI[sha256sum] = "faa1c988ec19b1e8ed19b2bea2388bd406371c8a5ae94fd7942bcfc90e05dc69"
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.20.3.tgz"
+SRC_URI[md5sum] = "46fedab901d2ffc96f245d1b9a544cd1"
+SRC_URI[sha256sum] = "3c9592dc331a927f167cf8b15e83a9ec56495ff8eb2cbec22c9dd4abe93985f2"
 
 NPM_PKGNAME = "eslint-plugin-react"
 
