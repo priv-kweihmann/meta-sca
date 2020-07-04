@@ -11,19 +11,17 @@ python do_add_extension() {
     inifile = d.getVar("PHP_INI_FILE")
     if os.path.exists(inifile):
         content = ""
-        changed = False
         with open(inifile, "r") as i:
             content = i.read()
         if content.find("%SYSROOT%") != -1:
             content = content.replace("%SYSROOT%", d.getVar("WORKDIR"))
-            changed = True
         for ext in [x for x in d.getVar("PHP_EXTENSION").split(" ") if x]:
             if content.find("\nextension={}\n".format(ext)) == -1:
                 content += "extension={}\n".format(ext)
-                changed = True
-        if changed:
-            with open(inifile, "w") as o:
-                o.write(content)
+        # forcefully expand extension_dir to the right path
+        content += d.expand("extension_dir = ${STAGING_DIR_NATIVE}/usr/lib/php7/extensions/no-debug-non-zts-20190902") + "\n"
+        with open(inifile, "w") as o:
+            o.write(content)
 }
 
 do_devshell[prefuncs] += "do_add_extension"
