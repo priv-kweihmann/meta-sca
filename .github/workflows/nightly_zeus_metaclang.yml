@@ -92,6 +92,7 @@ jobs:
           echo 'BB_GIT_SHALLOW_DEPTH = "1"' >> conf/local.conf
           echo 'BB_GENERATE_SHALLOW_TARBALLS = "1"' >> conf/local.conf
           echo 'PACKAGE_CLASSES = "package_rpm"' >> conf/local.conf
+          echo 'BB_DANGLINGAPPENDS_WARNONLY = "1"' >> conf/local.conf
           sed -i "s/buildstats//g" conf/local.conf
         shell: bash
       - name: set modules
