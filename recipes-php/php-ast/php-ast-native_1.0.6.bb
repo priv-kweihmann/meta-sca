@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=a5c6446acfd7f3170fa312948076b516"
 DEPENDS += "php-native"
 
 SRC_URI = "git://github.com/nikic/php-ast.git;protocol=https"
-SRCREV = "3d85ce068653541c73315cf5a0b07317c01e33cd"
+SRCREV = "4a15f1494500feebd7d3936ac10004c8d268a50d"
 
 S = "${WORKDIR}/git"
 
