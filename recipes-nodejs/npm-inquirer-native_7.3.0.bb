@@ -19,9 +19,9 @@ DEPENDS = "npm-ansi-escapes-native \
            npm-strip-ansi-native \
            npm-through-native"
 
-SRC_URI = "https://registry.npmjs.org/inquirer/-/inquirer-7.2.0.tgz"
-SRC_URI[md5sum] = "87f5b22b8993515d959246e438c02062"
-SRC_URI[sha256sum] = "7d409546e9a8fe327c5a9c31d6d06d88ff71e233e1c3ccfe65a9af3d57337b7e"
+SRC_URI = "https://registry.npmjs.org/inquirer/-/inquirer-7.3.0.tgz"
+SRC_URI[md5sum] = "ff48f68f1007c6bca2fab95b69949fa2"
+SRC_URI[sha256sum] = "380492f2bc9a674562cfaca1def3899e2cbcb7e9bf8fcb1145352bfc0299fc98"
 
 NPM_PKGNAME = "inquirer"
 
