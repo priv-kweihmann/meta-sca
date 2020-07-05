@@ -192,9 +192,6 @@
     "test": {
         "integration": [
             {"cmd": ["splint", "-h"], "returncode": 0}
-        ],
-        "findings": [
-            "zlib"
         ]
     }
 }
