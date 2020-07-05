@@ -21,6 +21,7 @@ DEPENDS += "\
             perl-native \
             perl-perl-tidy-native \
             perl-pod-shell-native \
+            perl-pod-parser-native \
             perl-ppi-native \
             perl-ppix-quotelike-native \
             perl-ppix-regexp-native \
