@@ -27,6 +27,7 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -53,6 +54,22 @@ def rel_path_self(root, obj, _args):
         return ""
     return os.path.join(_tmp, obj)
 
+def load_source_checksums(_args):
+    res = {}
+    with open(_args.config["sourceChecksum"]) as i:
+        for line in i.readlines():
+            _chunks = [x.strip("\n") for x in line.split(" ") if x]
+            if len(_chunks) < 2:
+                continue
+            res[os.path.basename(_chunks[1])] = _chunks[0]
+    return res
+
+def file_md5(_file):
+    res = hashlib.md5()
+    with open(_file, "rb") as f:
+        for chunk in iter(lambda: f.read(4096), b""):
+            res.update(chunk)
+    return res.hexdigest()
 
 def create_parser():
     parser = argparse.ArgumentParser(description='Enhanced package-qa')
@@ -179,6 +196,13 @@ def walk_dir(_args):
                         info(rel_path(root, f, _args),
                             "shebang used {} isn't whitelisted".format(_script))
 
+            if _basename in _args.config["nocopyCheck"] or \
+               _ext in _args.config["nocopyCheck"] or \
+               _mime in _args.config["nocopyCheck"]:
+                if file_md5(_filename) in _args.config["__checksums"].values():
+                    warning("direct-copy", rel_path(root, f, _args),
+                            "File was directly copied from sources. That's not allowed by current configuration")
+
             if any([x in _args.config["whitelistFiles"] for x in [_mime, _ext, _basename]]):
                 continue
 
@@ -189,4 +213,5 @@ def walk_dir(_args):
 
 if __name__ == '__main__':
     _args = create_parser()
+    _args.config["__checksums"] = load_source_checksums(_args)
     walk_dir(_args)
