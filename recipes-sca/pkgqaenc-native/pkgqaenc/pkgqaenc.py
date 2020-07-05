@@ -186,7 +186,12 @@ def walk_dir(_args):
                 if _filemode < _cmode:
                     warning("too-restrictive", rel_path(root, f, _args),
                             "Too resrictive filemode {}. Allowed minimum {}".format(oct(_filemode), oct(_cmode)))
-
+            if _script != False and "script" in _args.config["execCheck"] or \
+               _mime in _args.config["execCheck"] or \
+               _basename in _args.config["execCheck"]:
+                if (stat.S_IXUSR & _filemode) == 0:
+                    warning("exec-check", rel_path(root, f, _args),
+                            "File should be at least executable for its owner")
             if _script != False:
                 if _script not in _args.config["acceptableShebang"]:
                     if _script in _args.config["blacklistShebang"]:
