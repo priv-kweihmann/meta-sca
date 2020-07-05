@@ -60,7 +60,9 @@ def create_inventory(d, target_path):
         "all": {
             "vars": {
                 "local_tmp": d.getVar("T"),
-                "ansible_remote_tmp": d.getVar("T")
+                "remote_tmp": d.getVar("T"),
+                "create_home": "no",
+                "home": d.getVar("T")
             }
         }
     }
@@ -69,6 +71,14 @@ def create_inventory(d, target_path):
     
     with open(target_path, "w") as out:
         yaml.dump(inv, out)
+
+def create_configuration(d, target_path):   
+    with open(target_path, "w") as out:
+        out.write("[defaults]\n")
+        out.write(d.expand("local_tmp = ${T}\n"))
+        out.write(d.expand("remote_tmp = ${T}\n"))
+        out.write("create_home = no\n")
+        out.write(d.expand("home = ${T}\n"))
 
 def _split_name(_in):
     import re
@@ -174,12 +184,17 @@ python do_sca_ansible() {
     d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "ansible-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _inventory = "ansible_inv.yaml"
+    _configuration = "ansible.cfg"
     create_inventory(d, _inventory)
+    create_configuration(d, _configuration)
 
     os.environ["ANSIBLE_STDOUT_CALLBACK"] = "json"
     os.environ["ANSIBLE_ACTION_WARNINGS"] = "False"
     os.environ["ANSIBLE_COMMAND_WARNINGS"] = "False"
     os.environ["ANSIBLE_LOCALHOST_WARNING"] = "False"
+    os.environ["ANSIBLE_LOCAL_TEMP"] = d.getVar("T")
+    os.environ["ANSIBLE_REMOTE_TEMP"] = d.getVar("T")
+    os.environ["HOME"] = d.getVar("T")
     _args = ["ansible-playbook"]
     _args += ["--check"]
     _args += ["--flush-cache"]
