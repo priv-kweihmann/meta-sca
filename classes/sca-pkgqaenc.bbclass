@@ -46,6 +46,11 @@ SCA_PKGQAENC_BLACKLIST_FILES ?= "\
                                 .man \
                                 text/x-c \
                                 "
+SCA_PKGQAENC_NO_COPY_CHECK ?= "\
+                                application/x-executable \
+                                application/x-sharedlib \
+                                application/x-pie-executable \
+                               "
 SCA_PKGQAENC_WHITELIST_FILES ?= ""
 SCA_PKGQAENC_BLACKLIST_FILES-dev ?= "\
                                     application/x-executable \
@@ -53,6 +58,8 @@ SCA_PKGQAENC_BLACKLIST_FILES-dev ?= "\
                                     application/x-pie-executable \
                                     "
 
+SCA_PKGQAENC_SOURCECHECKSUM ?= "${T}/sca_seen_sources.txt"
+SCA_PKGQAENC_NO_COPY_NO_CHECK_CLASSES ?= "bin_package"
 SCA_RAW_RESULT_FILE[pkgqaenc] = "txt"
 
 inherit sca-conv-to-export
@@ -99,6 +106,11 @@ def do_sca_conv_pkgqaenc(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
+do_sca_pkgqaenc_pre() {
+    echo "" > ${SCA_PKGQAENC_SOURCECHECKSUM}
+    find ${S} -type f -exec md5sum {} >> ${SCA_PKGQAENC_SOURCECHECKSUM} \;
+}
+
 python do_sca_pkgqaenc() {
     import os
     import subprocess
@@ -126,7 +138,9 @@ python do_sca_pkgqaenc() {
             "acceptableShebang": [],
             "blacklistShebang": [],
             "blacklistDirs": [],
-            "blacklistFiles": []
+            "blacklistFiles": [],
+            "nocopyCheck": [],
+            "sourceChecksum": d.expand("${SCA_PKGQAENC_SOURCECHECKSUM}")
         }
         for k, v in (d.getVarFlags("SCA_PKGQAENC_PERM_MAX_MASK{}".format(_suffix)) or {}).items():
             if "maxMask" not in conf:
@@ -142,6 +156,8 @@ python do_sca_pkgqaenc() {
         conf["blacklistShebang"] = [unquote(x) for x in (d.getVar("SCA_PKGQAENC_BLACKLIST_SHEBANG{}".format(_suffix)) or "").split(" ") if x]
         conf["blacklistFiles"] = [x for x in (d.getVar("SCA_PKGQAENC_BLACKLIST_FILES{}".format(_suffix)) or "").split(" ") if x]
         conf["whitelistFiles"] = [x for x in (d.getVar("SCA_PKGQAENC_WHITELIST_FILES{}".format(_suffix)) or "").split(" ") if x]
+        if not any(bb.data.inherits_class(x, d) for x in clean_split(d, "SCA_PKGQAENC_NO_COPY_NO_CHECK_CLASSES")):
+            conf["nocopyCheck"] = clean_split(d, "SCA_PKGQAENC_NO_COPY_CHECK{}".format(_suffix))
         with open(_config_tmp, "w") as o:
             json.dump(conf, o)
         _destDir = os.path.join(d.getVar("PKGDEST"), p)
@@ -168,8 +184,10 @@ python do_sca_deploy_pkgqaenc() {
     sca_conv_deploy(d, "pkgqaenc")
 }
 
+do_sca_pkgqaenc_pre[doc] = "Package linter pre function"
 do_sca_pkgqaenc[doc] = "Lint produced packages"
 do_sca_deploy_pkgqaenc[doc] = "Deploy results of do_sca_pkgqaenc"
+addtask do_sca_pkgqaenc_pre before do_configure after do_patch
 addtask do_sca_pkgqaenc before do_package_qa after do_package
 addtask do_sca_deploy_pkgqaenc after do_sca_pkgqaenc before do_package_qa
 
