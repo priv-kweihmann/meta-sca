@@ -14,6 +14,7 @@
 | SCA_PKGQAENC_BLACKLIST_DIRS | Directories where no files should be installed | space-separated-list | \${infodir} \${docdir} \${mandir}
 | SCA_PKGQAENC_BLACKLIST_FILES | Files that shouldn't be installed | space-separated-list | ".c .h .cpp .hpp .man" for base, "application/x-executable application/x-sharedlib application/x-pie-executable" for -dev
 | SCA_PKGQAENC_BLACKLIST_SHEBANG | Blacklisted shebangs in script files | space-separated-list | ""
+| SCA_PKGQAENC_EXEC_CHECK | Files that needs to be executable | space-separated-list | see sca-pkgqaenc.bbclass
 | SCA_PKGQAENC_NO_COPY_CHECK | Files that should NOT be directly copied from sources | space-separated-list | see sca-pkgqaenc.bbclass
 | SCA_PKGQAENC_NO_COPY_NO_CHECK_CLASSES | inherited bbclasses that automatically disable SCA_PKGQAENC_NO_COPY_CHECK | space-separated-list | "bin_package"
 | SCA_PKGQAENC_PERM_MAX_MASK | Max. permitted file mode  mask | octal representation | see below

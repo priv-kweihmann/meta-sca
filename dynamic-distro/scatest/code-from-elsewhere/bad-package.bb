@@ -25,7 +25,7 @@ do_compile() {
 
 do_install() {
     install -d ${D}${bindir}
-    install -m 0777 ${S}/test1/test-1.sh ${D}${bindir}
+    install -m 0477 ${S}/test1/test-1.sh ${D}${bindir}
 
     install -d ${D}/opt/somestrangepath
     install -m 0777 ${S}/test2/test-2.sh ${D}/opt/somestrangepath/magic.sh
@@ -33,7 +33,7 @@ do_install() {
     install -d ${D}${datadir}/myhiddensources
     install -m 0644 ${S}/simple-hello-world.c ${D}${datadir}/myhiddensources
 
-    install -m 0755 ${S}/curl-7.30.0.ermine/curl.ermine ${D}${bindir}/curl.ermine
+    install -m 0455 ${S}/curl-7.30.0.ermine/curl.ermine ${D}${bindir}/curl.ermine
 }
 
 FILES_${PN} += "${datadir}"

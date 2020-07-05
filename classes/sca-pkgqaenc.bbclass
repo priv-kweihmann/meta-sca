@@ -51,6 +51,11 @@ SCA_PKGQAENC_NO_COPY_CHECK ?= "\
                                 application/x-sharedlib \
                                 application/x-pie-executable \
                                "
+SCA_PKGQAENC_EXEC_CHECK ?= "\
+                             application/x-executable \
+                             application/x-pie-executable \
+                             script \
+                            "
 SCA_PKGQAENC_WHITELIST_FILES ?= ""
 SCA_PKGQAENC_BLACKLIST_FILES-dev ?= "\
                                     application/x-executable \
@@ -140,6 +145,7 @@ python do_sca_pkgqaenc() {
             "blacklistDirs": [],
             "blacklistFiles": [],
             "nocopyCheck": [],
+            "execCheck": [],
             "sourceChecksum": d.expand("${SCA_PKGQAENC_SOURCECHECKSUM}")
         }
         for k, v in (d.getVarFlags("SCA_PKGQAENC_PERM_MAX_MASK{}".format(_suffix)) or {}).items():
@@ -156,6 +162,7 @@ python do_sca_pkgqaenc() {
         conf["blacklistShebang"] = [unquote(x) for x in (d.getVar("SCA_PKGQAENC_BLACKLIST_SHEBANG{}".format(_suffix)) or "").split(" ") if x]
         conf["blacklistFiles"] = [x for x in (d.getVar("SCA_PKGQAENC_BLACKLIST_FILES{}".format(_suffix)) or "").split(" ") if x]
         conf["whitelistFiles"] = [x for x in (d.getVar("SCA_PKGQAENC_WHITELIST_FILES{}".format(_suffix)) or "").split(" ") if x]
+        conf["execCheck"] = [x for x in (d.getVar("SCA_PKGQAENC_EXEC_CHECK{}".format(_suffix)) or "").split(" ") if x]
         if not any(bb.data.inherits_class(x, d) for x in clean_split(d, "SCA_PKGQAENC_NO_COPY_NO_CHECK_CLASSES")):
             conf["nocopyCheck"] = clean_split(d, "SCA_PKGQAENC_NO_COPY_CHECK{}".format(_suffix))
         with open(_config_tmp, "w") as o:
