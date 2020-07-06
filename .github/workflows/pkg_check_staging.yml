@@ -75,6 +75,12 @@ jobs:
           source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
           bitbake-layers add-layer ${WORKSPACE}/meta-clang 2>&1
         shell: bash
+      - name: prepare local.conf
+        run: |
+          cd ${WORKSPACE}
+          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          echo 'BB_DANGLINGAPPENDS_WARNONLY = "1"' >> conf/local.conf
+        shell: bash
       - name: perform package check
         run: |
           cd ${WORKSPACE}
