@@ -49,7 +49,7 @@ jobs:
       - if: env.ENABLEMETACLANG == '1'
         name: Check out meta-clang
         run: |
-          git clone https://github.com/kraj/meta-clang.git -b master ${WORKSPACE}/meta-clang 2>&1
+          git clone https://github.com/kraj/meta-clang.git -b $SCABRANCH ${WORKSPACE}/meta-clang 2>&1
       - name: Setup poky
         run: |
           cd ${WORKSPACE} 
