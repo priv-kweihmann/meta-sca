@@ -12,7 +12,7 @@ DEPENDS += "\
             "
 
 SRC_URI = "git://github.com/gforcada/flake8-isort.git;protocol=https"
-SRCREV = "a23f39c6a91e19ac0e9f748e9408977d1bbcb609"
+SRCREV = "249b107f9e2a6b6ab2532476dd1846cc0a6978de"
 
 S = "${WORKDIR}/git"
 
