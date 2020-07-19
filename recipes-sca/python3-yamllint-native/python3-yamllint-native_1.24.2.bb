@@ -10,8 +10,8 @@ DEPENDS += "\
            "
 
 SRC_URI_append = " file://yamllint.sca.description"
-SRC_URI[md5sum] = "16766151cfad99676e2f221648187a29"
-SRC_URI[sha256sum] = "59f3ff77f44e7f46be6aecdb985830f73a1c51e290b7082a7d38c2ae1940f4a9"
+SRC_URI[md5sum] = "abe4707043d3f4327400dde67165e6da"
+SRC_URI[sha256sum] = "40b68de6bacdccec1585dbd54072731b10da7fc2f9cfd96517a71f066208b61f"
 
 PYPI_PACKAGE = "yamllint"
 
