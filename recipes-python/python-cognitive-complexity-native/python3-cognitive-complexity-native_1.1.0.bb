@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 PYPI_PACKAGE = "cognitive_complexity"
 
-SRC_URI[md5sum] = "abc4b7be008f16122b0cf990e0966028"
-SRC_URI[sha256sum] = "8a456bf2871a40c73f33c937ec0b42bc2daaefafa850b3158b0f7a2a91af2b64"
+SRC_URI[md5sum] = "10dff62563a6ba5b0e16cf105065d19e"
+SRC_URI[sha256sum] = "aeb9b71b48c7374a194c61ee70fb29d22977fe2b34da52a3236168ebf97d1f3a"
 
 UPSTREAM_CHECK_REGEX ?= "/cognitive-complexity/(?P<pver>(\d+[\.\-_]*)+)"
 
