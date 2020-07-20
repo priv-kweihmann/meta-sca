@@ -8,11 +8,12 @@ LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 DEPENDS = "npm-comma-separated-tokens-native \
            npm-hast-util-parse-selector-native \
            npm-property-information-native \
-           npm-space-separated-tokens-native"
+           npm-space-separated-tokens-native \
+           npm-types-hast-native"
 
-SRC_URI = "https://registry.npmjs.org/hastscript/-/hastscript-5.1.2.tgz"
-SRC_URI[md5sum] = "2d162eb3868ab11c427f318a729a345c"
-SRC_URI[sha256sum] = "9b71f2f25217422f351651b743d4b9acbeb381bcdc6edf96eea53f05864f1c2f"
+SRC_URI = "https://registry.npmjs.org/hastscript/-/hastscript-6.0.0.tgz"
+SRC_URI[md5sum] = "3dc837e4d550aa18e1f63833019022be"
+SRC_URI[sha256sum] = "81f0310d1665c0630b3d73cf97d4ed5970bbad66f6d264ad94c8310f252030b1"
 
 NPM_PKGNAME = "hastscript"
 
