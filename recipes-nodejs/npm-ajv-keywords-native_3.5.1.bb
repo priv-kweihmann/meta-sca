@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=417f4a53535e2142253a61d7829dd0ad"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-3.5.0.tgz"
-SRC_URI[md5sum] = "4e6255835ede9de2afec7c4648f46ef6"
-SRC_URI[sha256sum] = "8922e3c7542395caf7b87e518754a8fe6ed59e9d9ac3ce44fd01fc8905802e41"
+SRC_URI = "https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-3.5.1.tgz"
+SRC_URI[md5sum] = "95d0ee33d9d7f56493b31045a3672b63"
+SRC_URI[sha256sum] = "9c8cbe5114b38802d253312f9bf1c5dfbe370f23b8dff836f7533fe07be53c07"
 
 NPM_PKGNAME = "ajv-keywords"
 
