@@ -13,9 +13,9 @@ DEPENDS = "npm-browserslist-native \
            npm-postcss-native \
            npm-postcss-value-parser-native"
 
-SRC_URI = "https://registry.npmjs.org/autoprefixer/-/autoprefixer-9.8.4.tgz"
-SRC_URI[md5sum] = "12009acf906a9ca7f4b0f5be294c8cbd"
-SRC_URI[sha256sum] = "43fad76bfe4e4ec088c0292558e89b915492dad734720c22385dc99473fd8a4c"
+SRC_URI = "https://registry.npmjs.org/autoprefixer/-/autoprefixer-9.8.5.tgz"
+SRC_URI[md5sum] = "def5618b95ca3b3573bac4e02e2733fc"
+SRC_URI[sha256sum] = "76e3b844339009f6602f19e46b86f0b84b98c3725ef31c3dbb19d240137b23cb"
 
 NPM_PKGNAME = "autoprefixer"
 
