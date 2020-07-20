@@ -3,7 +3,7 @@ DESCRIPTION = "Process execution for humans"
 HOMEPAGE = "https://github.com/sindresorhus/execa#readme"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
+LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = "npm-cross-spawn-native \
            npm-get-stream-native \
@@ -15,9 +15,9 @@ DEPENDS = "npm-cross-spawn-native \
            npm-signal-exit-native \
            npm-strip-final-newline-native"
 
-SRC_URI = "https://registry.npmjs.org/execa/-/execa-4.0.2.tgz"
-SRC_URI[md5sum] = "f36a794f3afe11e6ea2cd61673f4ab64"
-SRC_URI[sha256sum] = "7a5787620d06dfcdb6e10b756c7096cd52af0be480b2f9cccc9725513c712cf2"
+SRC_URI = "https://registry.npmjs.org/execa/-/execa-4.0.3.tgz"
+SRC_URI[md5sum] = "fece440ca9513123ac8d7b37d9a0d852"
+SRC_URI[sha256sum] = "bea3be169d386eb37007c596a67a6c69dc959bb3c738d195c707af4c5b820ec0"
 
 NPM_PKGNAME = "execa"
 
