@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=82703a69f6d7411dde679954c2fd9dca"
 
 DEPENDS = "npm-yallist-native"
 
-SRC_URI = "https://registry.npmjs.org/lru-cache/-/lru-cache-5.1.1.tgz"
-SRC_URI[md5sum] = "23d45c423c7ae2a1bdd6d9f360e048ad"
-SRC_URI[sha256sum] = "b11e78819544a6606e3317647a5593c102ea38d3c5afae62cd63f9c2c369485a"
+SRC_URI = "https://registry.npmjs.org/lru-cache/-/lru-cache-6.0.0.tgz"
+SRC_URI[md5sum] = "8c9af836bdae0050110801b42ef0a0aa"
+SRC_URI[sha256sum] = "5ce40deb031cf6968f3832502a68f8d26be09764dc4f8fc07957a2fd7e8cdf5e"
 
 NPM_PKGNAME = "lru-cache"
 
