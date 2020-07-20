@@ -15,9 +15,9 @@ DEPENDS = "npm-babel-code-frame-native \
            npm-globals-native \
            npm-lodash-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/traverse/-/traverse-7.10.4.tgz"
-SRC_URI[md5sum] = "44b94539d1bff3725634c7b488589a85"
-SRC_URI[sha256sum] = "693efd6b2b8809e7a497c8b46ed692df6581bf5a4e28360ea0f2b76c5988d42c"
+SRC_URI = "https://registry.npmjs.org/@babel/traverse/-/traverse-7.10.5.tgz"
+SRC_URI[md5sum] = "a9ff7e8486c26bec3bd8e558bf19be68"
+SRC_URI[sha256sum] = "c20a466f3879aeea190ea7d729104c9c45e49f2425a16776edd3fd9ac88a6ae1"
 
 NPM_PKGNAME = "@babel/traverse"
 
