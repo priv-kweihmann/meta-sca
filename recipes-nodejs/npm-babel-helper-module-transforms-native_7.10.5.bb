@@ -13,9 +13,9 @@ DEPENDS = "npm-babel-helper-module-imports-native \
            npm-babel-types-native \
            npm-lodash-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/helper-module-transforms/-/helper-module-transforms-7.10.4.tgz"
-SRC_URI[md5sum] = "ac164f63655f71ab981eb96a19fac318"
-SRC_URI[sha256sum] = "3bd2527b44db270a9812a58298024d3de1abcc0e9c794efb9071ed7193a298ab"
+SRC_URI = "https://registry.npmjs.org/@babel/helper-module-transforms/-/helper-module-transforms-7.10.5.tgz"
+SRC_URI[md5sum] = "0706d9641949c83a96d012417485d698"
+SRC_URI[sha256sum] = "34952a834a56c7fe416358d1aba6d981b7f5b1695af213086953bf8249479cad"
 
 NPM_PKGNAME = "@babel/helper-module-transforms"
 
