@@ -3,7 +3,7 @@ DESCRIPTION = "remark plugin to compile Markdown"
 HOMEPAGE = "https://remark.js.org"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://readme.md;beginline=314;endline=315;md5=511f6768a0948d45e6ce0015231af805"
+LIC_FILES_CHKSUM = "file://readme.md;beginline=312;endline=313;md5=f7cd6e61bbbca39fe0e60b4899302d5a"
 
 DEPENDS = "npm-ccount-native \
            npm-is-alphanumeric-native \
@@ -20,9 +20,9 @@ DEPENDS = "npm-ccount-native \
            npm-unherit-native \
            npm-xtend-native"
 
-SRC_URI = "https://registry.npmjs.org/remark-stringify/-/remark-stringify-8.1.0.tgz"
-SRC_URI[md5sum] = "7880246a92336f3290c81f6f68b917e5"
-SRC_URI[sha256sum] = "28b158f40a500e78c20c56ed0d28753e477403fff18bc445a85b7bdf3522eec1"
+SRC_URI = "https://registry.npmjs.org/remark-stringify/-/remark-stringify-8.1.1.tgz"
+SRC_URI[md5sum] = "16a4d1036f0848b373ed169b51e6a502"
+SRC_URI[sha256sum] = "9255be837dd04f1bb18e23fdb37b3078d2d8db18a66a469fa6955a2acbeec952"
 
 NPM_PKGNAME = "remark-stringify"
 
