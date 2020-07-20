@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=7b1df94b672916450d194cf7a8bd0e2d"
 
 DEPENDS = "npm-rc-native"
 
-SRC_URI = "https://registry.npmjs.org/registry-auth-token/-/registry-auth-token-4.1.1.tgz"
-SRC_URI[md5sum] = "e3ee4a08e5a4278100daee5f195cefd5"
-SRC_URI[sha256sum] = "fa2a5e0fb9b8a007e3362b9b2869b0f1512f46d63fa59a9448327c53c50da627"
+SRC_URI = "https://registry.npmjs.org/registry-auth-token/-/registry-auth-token-4.2.0.tgz"
+SRC_URI[md5sum] = "530e720a5ae1b2bdc32915a600236cc0"
+SRC_URI[sha256sum] = "92e898be63cccb6a60c44348a785a0d75d3707e6d18d050364fbadad1181d993"
 
 NPM_PKGNAME = "registry-auth-token"
 
