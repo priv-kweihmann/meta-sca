@@ -35,7 +35,7 @@ This is where [autoinherit.bbclass](https://github.com/priv-kweihmann/meta-build
 So first of all include the [autoinherit.bbclass](https://github.com/priv-kweihmann/meta-buildutils/blob/master/classes/auto-inherit.bbclass), by adding
 
 ```bitbake
-INHERIT += "autoinherit.bbclass"
+INHERIT += "auto-inherit"
 ```
 
 to __conf/local.conf__.
