@@ -3,11 +3,11 @@ DESCRIPTION = "This Ansible role provides numerous security-related configuratio
 HOMEPAGE = "https://github.com/dev-sec/ansible-os-hardening"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://README.md;beginline=208;md5=e0186c0e3fe99fc91f57319ead96f270"
+LIC_FILES_CHKSUM = "file://README.md;beginline=208;md5=81a4cb58401dcef1a99c149468929e9d"
 
 SRC_URI = "git://github.com/dev-sec/ansible-os-hardening.git;protocol=https \
            file://${ROLE_NAME}.json"
-SRCREV = "fe9fad88458ae7979e7ef9d681de23d5e1dbdd6b"
+SRCREV = "a8e349913de0567a9455b70b218ca36232bfd302"
 S = "${WORKDIR}/git"
 
 ROLE_NAME = "dev-sec.os-hardening"
