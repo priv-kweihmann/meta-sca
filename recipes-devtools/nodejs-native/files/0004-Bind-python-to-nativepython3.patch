@@ -1,6 +1,6 @@
-From 40210c37faa6c6d7a6482889c0fe8f3ec37110bb Mon Sep 17 00:00:00 2001
+From 69bdba4ee94b65041c5fcb8db62f43cac63a5263 Mon Sep 17 00:00:00 2001
 From: Konrad Weihmann <kweihmann@outlook.com>
-Date: Thu, 28 May 2020 20:33:08 +0200
+Date: Sun, 26 Jul 2020 16:06:53 +0200
 Subject: [PATCH] Bind python to nativepython3
 
 This should ensure that no call is done to maybe non-existing python
@@ -104,7 +104,7 @@ Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
  .../v8/tools/wasm-compilation-hints/inject-compilation-hints.py | 2 +-
  .../wasm-compilation-hints/wasm-objdump-compilation-hints.py    | 2 +-
  deps/v8/tools/wasm-compilation-hints/wasm.py                    | 2 +-
- tools/check-imports.py                                          | 2 +-
+ tools/checkimports.py                                           | 2 +-
  tools/compress_json.py                                          | 2 +-
  tools/configure.d/nodedownload.py                               | 2 +-
  tools/genv8constants.py                                         | 2 +-
@@ -1110,10 +1110,10 @@ index ae3d084..d8d62a0 100644
  
  # Copyright 2019 the V8 project authors. All rights reserved.
  # Use of this source code is governed by a BSD-style license that can be found
-diff --git a/tools/check-imports.py b/tools/check-imports.py
-index 51b4e63..b2f7c82 100755
---- a/tools/check-imports.py
-+++ b/tools/check-imports.py
+diff --git a/tools/checkimports.py b/tools/checkimports.py
+index 609a75f..a86ec0c 100755
+--- a/tools/checkimports.py
++++ b/tools/checkimports.py
 @@ -1,4 +1,4 @@
 -#!/usr/bin/env python
 +#!/usr/bin/env nativepython3
@@ -1401,7 +1401,7 @@ index fe4723b..131ddd7 100755
  from __future__ import print_function
  
 diff --git a/tools/js2c.py b/tools/js2c.py
-index 4594694..63e3593 100755
+index 195e6a6..8ffaaec 100755
 --- a/tools/js2c.py
 +++ b/tools/js2c.py
 @@ -1,4 +1,4 @@
