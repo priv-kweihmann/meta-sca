@@ -5,9 +5,11 @@ HOMEPAGE = "https://github.com/hiddentao/fast-levenshtein#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=a3e99e82761a3c89e44fe0bc43f82b94"
 
-SRC_URI = "https://registry.npmjs.org/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz"
-SRC_URI[md5sum] = "443a739d106c51a33470c9f018d82e85"
-SRC_URI[sha256sum] = "bb4b50306b8b0f048475efddae11810e245937dca8ae85498ab4a171697bbf3c"
+DEPENDS = "npm-fastest-levenshtein-native"
+
+SRC_URI = "https://registry.npmjs.org/fast-levenshtein/-/fast-levenshtein-3.0.0.tgz"
+SRC_URI[md5sum] = "68588f531030b8b705d633521f603895"
+SRC_URI[sha256sum] = "7ea564718bf959097a5468ef02824bb87e5084d1e018dce789ee23b0af4cd5e5"
 
 NPM_PKGNAME = "fast-levenshtein"
 
