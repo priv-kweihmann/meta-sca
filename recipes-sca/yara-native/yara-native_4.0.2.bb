@@ -9,15 +9,19 @@ DEPENDS += "\
 
 SRC_URI = "git://github.com/VirusTotal/yara.git;protocol=https \
            file://yara.sca.description \
-           file://0001-remove-protobuf-requirement.patch"
+           file://0001-remove-protobuf-requirement.patch \
+           file://0001-Makefile.am-remove-hardcoded-static-lib.patch \
+           "
 
-SRCREV = "b5378bfb3d319cc20eab311c85d38ccc529baee8"
+SRCREV = "1595e53ea67f091b30fd4fd7802410058f3e1a3f"
 
 S = "${WORKDIR}/git"
 
 inherit autotools-brokensep
 inherit native
 inherit sca-description
+
+EXTRA_OECONF += "--disable-static"
 
 do_install_append () {
     install -d ${D}/${datadir}

@@ -1,0 +1,32 @@
+From 2033cf61a502a8a0fbd5bf92500b81146649b11f Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Sun, 26 Jul 2020 15:28:58 +0200
+Subject: [PATCH] Makefile.am: remove hardcoded static lib
+
+When compiling without static libraries the recently
+introduced change prevented compilation.
+As it looks like a forgotten debug settings, revert this
+pariticular line
+
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+Upstream-Status: Pending [https://github.com/VirusTotal/yara/pull/1330]
+---
+ Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index 11c59c5b..326c26ea 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -30,7 +30,7 @@ yara_SOURCES = \
+   cli/threading.h \
+   cli/yara.c
+ 
+-yara_LDADD = libyara/.libs/libyara.a #-Llibyara/.libs -lyara
++yara_LDADD = -Llibyara/.libs -lyara
+ 
+ yarac_SOURCES = \
+    cli/args.c \
+-- 
+2.20.1
+
