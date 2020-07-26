@@ -7,6 +7,7 @@ LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE.txt;md5=d3999b969cc50f575573
 DEPENDS += "\
             github.com-davecgh-go-spew-native \
             github.com-golang-protobuf-native \
+            github.com-gookit-color-native \
             github.com-kr-pretty-native \
             github.com-lib-pq-native \
             github.com-mozilla-tls-observatory-native \
@@ -26,7 +27,7 @@ SRC_URI = "\
             git://${GO_IMPORT};protocol=https \
             file://gosec.sca.description \
            "
-SRCREV = "17df5b3702448a88cab19e4452cdaf7bdb6e6d8e"
+SRCREV = "6bcd89aa6b1cc8a448f99d51886ac29703eb1804"
 
 GO_IMPORT = "github.com/securego/gosec"
 
