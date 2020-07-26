@@ -11,9 +11,9 @@ DEPENDS = "npm-rehype-parse-native \
            npm-types-structured-source-native \
            npm-unified-native"
 
-SRC_URI = "https://registry.npmjs.org/textlint-util-to-string/-/textlint-util-to-string-3.0.0.tgz"
-SRC_URI[md5sum] = "97f93664b903cef1c415df1d3bf7f5e7"
-SRC_URI[sha256sum] = "2f8c400cc8b9ca9162f5a309abd82109cb0038b202d2ca2f9214a90f1d626e6e"
+SRC_URI = "https://registry.npmjs.org/textlint-util-to-string/-/textlint-util-to-string-3.1.1.tgz"
+SRC_URI[md5sum] = "ebd539ba23bbb86aa62173e2fa8792ff"
+SRC_URI[sha256sum] = "931aba23fb139829fb51a76b10a33cc8acae21c9afddeffbb376df6344ade710"
 
 NPM_PKGNAME = "textlint-util-to-string"
 
