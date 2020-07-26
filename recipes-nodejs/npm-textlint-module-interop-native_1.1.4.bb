@@ -5,9 +5,11 @@ HOMEPAGE = "https://github.com/textlint/textlint/tree/master/packages/@textlint/
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fdf16298bf702d1ba5d61988dfe70c9f"
 
-SRC_URI = "https://registry.npmjs.org/@textlint/module-interop/-/module-interop-1.0.2.tgz"
-SRC_URI[md5sum] = "4286667b3c22a60bb3c0f72dd95eaaf8"
-SRC_URI[sha256sum] = "1b3427689de13cbd8dd31b21b683ef47027dcdb9e73ca79c46a95bb7435d9255"
+DEPENDS = ""
+
+SRC_URI = "https://registry.npmjs.org/@textlint/module-interop/-/module-interop-1.1.4.tgz"
+SRC_URI[md5sum] = "3a8c32845400888a291068a5f9468721"
+SRC_URI[sha256sum] = "b23f6e8a037fc308f4be0b3a1535e949ea82931f377e2b6e3b0b93ae9725adb1"
 
 NPM_PKGNAME = "@textlint/module-interop"
 
