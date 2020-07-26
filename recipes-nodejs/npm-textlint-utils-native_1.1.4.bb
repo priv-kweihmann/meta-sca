@@ -5,9 +5,11 @@ HOMEPAGE = "https://github.com/textlint/textlint/tree/master/packages/utils/"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fdf16298bf702d1ba5d61988dfe70c9f"
 
-SRC_URI = "https://registry.npmjs.org/@textlint/utils/-/utils-1.0.3.tgz"
-SRC_URI[md5sum] = "ccb22003b7016cb1f15da34017462c36"
-SRC_URI[sha256sum] = "62e23c2189f862501f9f38d12eac27209a94af781a1c938b7792823df787b72e"
+DEPENDS = ""
+
+SRC_URI = "https://registry.npmjs.org/@textlint/utils/-/utils-1.1.4.tgz"
+SRC_URI[md5sum] = "defac5076e506d9d60c5c3a8589c31d0"
+SRC_URI[sha256sum] = "d572ca9b1cab077acfaa590db60889d91a5ee5c53de5ab9147be617be964d0e9"
 
 NPM_PKGNAME = "@textlint/utils"
 
