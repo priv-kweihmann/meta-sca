@@ -56,9 +56,10 @@ Closes #{}
 def run_bitbake_test(_args, recipe):
     try:
         subprocess.check_call(["bitbake", recipe], universal_newlines=True)
-        return True
     except:
-        return False
+        input("Build failed - check and press enter when okay")
+        run_bitbake_test(_args, recipe)
+    return True
 
 
 def update_packages(_args, _input, number):
