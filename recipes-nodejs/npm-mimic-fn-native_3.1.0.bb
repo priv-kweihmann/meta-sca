@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/mimic-fn/-/mimic-fn-3.0.0.tgz"
-SRC_URI[md5sum] = "a0b11882bb991342ef674ccb7ab4a589"
-SRC_URI[sha256sum] = "b8a1318e21556acb8aa3a6bc4e6d0e25a9024cfd82c20f78b61f1326103c7525"
+SRC_URI = "https://registry.npmjs.org/mimic-fn/-/mimic-fn-3.1.0.tgz"
+SRC_URI[md5sum] = "515dc09e046aeb2c5a4a05a976e19bf1"
+SRC_URI[sha256sum] = "6324222cd0586846c2477c033ea14930a3b21e0e97486c43012de95ab0069da0"
 
 NPM_PKGNAME = "mimic-fn"
 
