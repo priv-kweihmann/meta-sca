@@ -36,7 +36,8 @@ def do_sca_conv_clang(d):
         "warning" : "warning",
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_CLANG_EXTRA_SUPPRESS",
+                                  d.expand("${STAGING_DATADIR_NATIVE}/clang-${SCA_MODE}-suppress"))
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     _findings = []
 
@@ -76,10 +77,6 @@ python do_sca_clang() {
     import subprocess
     import glob
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_CLANG_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_CLANG_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "clang-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "clang-{}-suppress".format(d.getVar("SCA_MODE"))))
 
     _add_include = d.getVar("SCA_CLANG_ADD_INCLUDES", True).split(" ")
 
@@ -133,7 +130,8 @@ python do_sca_clang_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "clang", get_fatal_entries(d))
+    sca_task_aftermath(d, "clang", get_fatal_entries(d, "SCA_CLANG_EXTRA_FATAL",
+                        os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "clang-{}-fatal".format(d.getVar("SCA_MODE")))))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_clang"

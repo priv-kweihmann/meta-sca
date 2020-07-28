@@ -27,7 +27,8 @@ def do_sca_conv_pylint(d):
     }
 
     _findings = []
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_PYLINT_EXTRA_SUPPRESS", 
+                                  d.expand("${STAGING_DATADIR_NATIVE}/pylint-${SCA_MODE}-suppress"))
 
     if os.path.exists(sca_raw_result_file(d, "pylint")):
         with open(sca_raw_result_file(d, "pylint"), "r") as f:
@@ -58,10 +59,6 @@ do_sca_pylint_core[vardepsexclude] += "BB_NUMBER_THREADS"
 python do_sca_pylint_core() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_PYLINT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_PYLINT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pylint-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pylint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _args = ["python3", "-m", "pylint"]
     _args += ["--output-format=parseable"]
@@ -104,7 +101,8 @@ python do_sca_pylint_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "pylint", get_fatal_entries(d))
+    sca_task_aftermath(d, "pylint", get_fatal_entries(d, "SCA_PYLINT_EXTRA_FATAL", 
+                        d.expand("${STAGING_DATADIR_NATIVE}/pylint-${SCA_MODE}-fatal")))
 }
 
 DEPENDS += "python3-pylint-native"

@@ -31,7 +31,8 @@ def do_sca_conv_pyfindinjection(d):
         "eval() is just generally evil" : ("error", "evil.eval"),
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_PYFINDINJECTION_EXTRA_SUPPRESS", 
+                                  d.expand("${STAGING_DATADIR_NATIVE}/pyfindinjection-${SCA_MODE}-suppress"))
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     _findings = []
 
@@ -66,10 +67,6 @@ def do_sca_conv_pyfindinjection(d):
 python do_sca_pyfindinjection_core() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_PYFINDINJECTION_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_PYFINDINJECTION_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pyfindinjection-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pyfindinjection-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "python3-native", "python3")]
     _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "py-find-injection")]
@@ -96,7 +93,8 @@ python do_sca_pyfindinjection_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "pyfindinjection", get_fatal_entries(d))
+    sca_task_aftermath(d, "pyfindinjection", get_fatal_entries(d, "SCA_PYFINDINJECTION_EXTRA_FATAL", 
+                        d.expand("${STAGING_DATADIR_NATIVE}/pyfindinjection-${SCA_MODE}-fatal")))
 }
 
 DEPENDS += "python3-pyfindinjection-native"

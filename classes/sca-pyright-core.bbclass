@@ -81,7 +81,8 @@ def do_sca_conv_pyright(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     _findings = []
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_PYRIGHT_EXTRA_SUPPRESS", 
+                                  d.expand("${STAGING_DATADIR_NATIVE}/pyright-${SCA_MODE}-suppress"))
 
     _severity_map = {
         "error": "error",
@@ -139,11 +140,6 @@ python do_sca_pyright_core() {
     import os
     import subprocess
     import json
-
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_PYRIGHT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_PYRIGHT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pyright-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pyright-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _config_path = os.path.join(d.getVar("T"), "pyright.config")
 
@@ -204,7 +200,8 @@ python do_sca_pyright_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "pyright", get_fatal_entries(d))
+    sca_task_aftermath(d, "pyright", get_fatal_entries(d, "SCA_PYRIGHT_EXTRA_FATAL", 
+                        d.expand("${STAGING_DATADIR_NATIVE}/pyright-${SCA_MODE}-fatal")))
 }
 
 DEPENDS += "pyright-native"

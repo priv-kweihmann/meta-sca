@@ -30,7 +30,8 @@ def do_sca_conv_ansiblelint(d):
         "W" : "warning",
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_ANSIBLELINT_EXTRA_SUPPRESS", 
+                                  d.expand("${STAGING_DATADIR_NATIVE}/ansiblelint-${SCA_MODE}-suppress"))
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
     if os.path.exists(sca_raw_result_file(d, "ansiblelint")):
@@ -66,11 +67,6 @@ python do_sca_ansiblelint_core() {
     import os
     import subprocess
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_ANSIBLELINT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_ANSIBLELINT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "ansiblelint-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "ansiblelint-{}-fatal".format(d.getVar("SCA_MODE"))))
-
     os.environ["HOME"] = d.getVar("T")
     _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "python3-native", "python3")]
     _args += ["-m", "ansiblelint"]
@@ -99,5 +95,6 @@ python do_sca_ansiblelint_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "ansiblelint", get_fatal_entries(d))
+    sca_task_aftermath(d, "ansiblelint", get_fatal_entries(d, "SCA_ANSIBLELINT_EXTRA_FATAL", 
+                       d.expand("${STAGING_DATADIR_NATIVE}/ansiblelint-${SCA_MODE}-fatal")))
 }

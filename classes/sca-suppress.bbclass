@@ -1,6 +1,6 @@
 inherit sca-helper
 
-def sca_suppress_init(d, file_trace=True):
+def sca_suppress_init(d, suppress_extra, suppress_file, file_trace=True):
     import os
     import sys
     import re
@@ -12,10 +12,14 @@ def sca_suppress_init(d, file_trace=True):
             self.__ID = ".*"
             self.__LineRange = (0, sys.maxsize)
             self.__ColumnRange = (0, sys.maxsize)
-            self.__File = ".*"
+            self.__File = None
 
             if _in:
                 self.File, self.ID, self.LineRange, self.ColumnRange = _in.strip().split(",")
+            if self.File:
+                self.File = re.escape(self.File)
+            else:
+                self.File = ".*"
     
         def __unquote(self, value):
             return urllib.parse.unquote(value)
@@ -72,17 +76,20 @@ def sca_suppress_init(d, file_trace=True):
             elif isinstance(value, tuple) and len(value) == 2:
                 self.__ColumnRange = value
 
+        def __repr__(self):
+            return "{}:{}:{}:{}".format(self.File, self.ID, self.LineRange, self.ColumnRange)
+
         def Match(self, dm):
             return all([
-                re.match(re.escape(self.File), dm.File),
+                re.match(self.File, dm.File),
                 int(dm.Line) >= self.LineRange[0] and int(dm.Line) <= self.LineRange[1],
                 int(dm.Column) >= self.ColumnRange[0] and int(dm.Column) <= self.ColumnRange[1],
                 re.match(self.ID, dm.GetFormattedID())
             ])
 
     class SCASuppress():
-        def __init__(self, d, file_trace=True):
-            self.__Items = self.__add_global_items(d) + self.__add_local_items(d)
+        def __init__(self, d, suppress_extra, suppress_file, file_trace=True):
+            self.__Items = self.__add_global_items(d, suppress_extra, suppress_file) + self.__add_local_items(d)
             # automatically set to false if running on image
             self.__filetrace = file_trace and not bb.data.inherits_class('image', d)
             self.__tracedfiles = []
@@ -90,9 +97,9 @@ def sca_suppress_init(d, file_trace=True):
                 with open(d.getVar("SCA_TRACEFILES_LIST")) as i:
                     self.__tracedfiles = [x.strip("\n") for x in i.readlines() if x]
     
-        def __add_global_items(self, d):
+        def __add_global_items(self, d, suppress_extra, suppress_file):
             res = []
-            for i in get_suppress_entries(d):
+            for i in get_suppress_entries(d, suppress_extra, suppress_file):
                 x = SCASuppressItem(None)
                 x.ID = i
                 res.append(x)
@@ -107,4 +114,4 @@ def sca_suppress_init(d, file_trace=True):
         def Suppressed(self, dm):
             return any([x.Match(dm) for x in self.__Items]) or (self.__filetrace and dm.File not in self.__tracedfiles)
 
-    return SCASuppress(d, file_trace=file_trace)
+    return SCASuppress(d, suppress_extra, suppress_file, file_trace=file_trace)

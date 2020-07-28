@@ -32,7 +32,8 @@ def do_sca_conv_rats(d):
         "Default": "info"
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_RATS_EXTRA_SUPPRESS", 
+                                  d.expand("${STAGING_DATADIR_NATIVE}/rats-${SCA_MODE}-suppress"))
 
     _findings = []
 
@@ -85,10 +86,6 @@ def do_sca_conv_rats(d):
 python do_sca_rats() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_RATS_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_RATS_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "rats-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "rats-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     xml_output = ""
     _args = ["rats"]
@@ -173,7 +170,8 @@ python do_sca_rats_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "rats", get_fatal_entries(d))
+    sca_task_aftermath(d, "rats", get_fatal_entries(d, "SCA_RATS_EXTRA_FATAL",
+                        d.expand("${STAGING_DATADIR_NATIVE}/rats-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_rats"

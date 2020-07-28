@@ -24,7 +24,9 @@ def do_sca_conv_licensecheck(d):
 
     pattern = r"^(?P<msg>Wrong.*)$"
 
-    _suppress = sca_suppress_init(d, file_trace=False)
+    _suppress = sca_suppress_init(d, "SCA_LICENSECHECK_EXTRA_SUPPRESS",
+                                  d.expand("${STAGING_DATADIR_NATIVE}/licensecheck-${SCA_MODE}-suppress"),
+                                  file_trace=False)
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "licensecheck")):
@@ -54,11 +56,6 @@ python do_sca_licensecheck() {
     import os
     import subprocess
     from multiprocessing import Pool
-
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_LICENSECHECK_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_LICENSECHECK_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "licensecheck-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "licensecheck-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     lc_result = os.path.join(d.getVar("T"), "sca_raw_licensecheck.csv")
 
@@ -97,7 +94,8 @@ python do_sca_licensecheck() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "licensecheck", get_fatal_entries(d))
+    sca_task_aftermath(d, "licensecheck", get_fatal_entries(d, "SCA_LICENSECHECK_EXTRA_FATAL",
+                       d.expand("${STAGING_DATADIR_NATIVE}/licensecheck-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_licensecheck"

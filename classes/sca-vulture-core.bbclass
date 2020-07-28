@@ -22,7 +22,7 @@ def do_sca_conv_vulture(d):
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "", None)
 
     pattern = r"^(?P<file>.*):(?P<line>\d+):\s*(?P<message>.*)"
 
@@ -63,8 +63,6 @@ do_sca_vulture_core[vardepsexclude] += "BB_NUMBER_THREADS"
 python do_sca_vulture_core() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_VULTURE_EXTRA_FATAL"))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "vulture-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _args = [os.environ.get("PYTHON", "python3"), "-m", "vulture"]
     _args += ["--min-confidence", d.getVar("SCA_VULTURE_MIN_CONFIDENCE")]
@@ -91,7 +89,8 @@ python do_sca_vulture_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "vulture", get_fatal_entries(d))
+    sca_task_aftermath(d, "vulture", get_fatal_entries(d, "SCA_VULTURE_EXTRA_FATAL",
+                       d.expand("${STAGING_DATADIR_NATIVE}/vulture-${SCA_MODE}-fatal")))
 }
 
 DEPENDS += "python3-vulture-native"

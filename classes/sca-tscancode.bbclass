@@ -58,7 +58,8 @@ def do_sca_conv_tscancode(d):
         "Information" : "info"
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_TSCANCODE_EXTRA_SUPPRESS", 
+                                  d.expand("${STAGING_DATADIR_NATIVE}/tscancode-${SCA_MODE}-suppress"))
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "tscancode")):
@@ -94,10 +95,6 @@ python do_sca_tscancode() {
     import os
     import subprocess
     import shutil
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_TSCANCODE_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_TSCANCODE_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "tscancode-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "tscancode-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     xml_output = ""
     _args = ["tscancode"]
@@ -143,7 +140,8 @@ python do_sca_tscancode_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "tscancode", get_fatal_entries(d))
+    sca_task_aftermath(d, "tscancode", get_fatal_entries(d, "SCA_TSCANCODE_EXTRA_FATAL",
+                       d.expand("${STAGING_DATADIR_NATIVE}/tscancode-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_tscancode"

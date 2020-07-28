@@ -27,7 +27,9 @@ def do_sca_conv_msgcheck(d):
     items = []
     pattern = r"^(?P<file>.*):(?P<line>\d+):(\s+(?P<severity>warning|error):\s|\s+\[(?P<id>.*)\]\s+|\s+)(?P<msg>.*)"
 
-    __suppress = sca_suppress_init(d, file_trace=False)
+    __suppress = sca_suppress_init(d, "SCA_MSGCHECK_EXTRA_SUPPRESS",
+                                   d.expand("${STAGING_DATADIR_NATIVE}/msgcheck-${SCA_MODE}-suppress"),
+                                   file_trace=False)
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "msgcheck")):
@@ -66,10 +68,6 @@ def do_sca_conv_msgcheck(d):
 python do_sca_msgcheck() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_MSGCHECK_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_MSGCHECK_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "msgcheck-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "msgcheck-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     cmd_output = ""
     _args = ["msgcheck"]
@@ -97,7 +95,8 @@ python do_sca_msgcheck() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "msgcheck", get_fatal_entries(d))
+    sca_task_aftermath(d, "msgcheck", get_fatal_entries(d, "SCA_MSGCHECK_EXTRA_FATAL",
+                        d.expand("${STAGING_DATADIR_NATIVE}/msgcheck-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_msgcheck"

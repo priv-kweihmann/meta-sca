@@ -31,7 +31,9 @@ def do_sca_conv_dennis(d):
         "W" : "warning",
     }
 
-    __suppress = sca_suppress_init(d, file_trace=False)
+    __suppress = sca_suppress_init(d, "SCA_DENNIS_EXTRA_SUPPRESS",
+                                   d.expand("${STAGING_DATADIR_NATIVE}/dennis-${SCA_MODE}-suppress"),
+                                   file_trace=False)
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "dennis")):
@@ -62,10 +64,6 @@ def do_sca_conv_dennis(d):
 python do_sca_dennis() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_DENNIS_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_DENNIS_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "dennis-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "dennis-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     allrun_output = ""
     _args = ["dennis-cmd"]
@@ -95,7 +93,8 @@ python do_sca_dennis() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "dennis", get_fatal_entries(d))
+    sca_task_aftermath(d, "dennis", get_fatal_entries(d, "SCA_DENNIS_EXTRA_FATAL",
+                       d.expand("${STAGING_DATADIR_NATIVE}/dennis-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_dennis"

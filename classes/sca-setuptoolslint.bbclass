@@ -29,7 +29,9 @@ def do_sca_conv_setuptoolslint(d, cmd_output=""):
 
     pattern = r"^(?P<file>.*):error:\s+(?P<msg>.*)"
 
-    _suppress = sca_suppress_init(d, file_trace=False)
+    _suppress = sca_suppress_init(d, "SCA_SETUPTOOLSLINT_EXTRA_SUPPRESS",
+                                  d.expand("${STAGING_DATADIR_NATIVE}/setuptoolslint-${SCA_MODE}-suppress"),
+                                  file_trace=False)
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "setuptoolslint")):
@@ -60,10 +62,6 @@ def do_sca_conv_setuptoolslint(d, cmd_output=""):
 python do_sca_setuptoolslint() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_SETUPTOOLSLINT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_SETUPTOOLSLINT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "setuptoolslint-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "setuptoolslint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     ## Run
     os.environ["STAGING_INCDIR"] = d.getVar("STAGING_INCDIR")
@@ -94,7 +92,8 @@ python do_sca_setuptoolslint() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "setuptoolslint", get_fatal_entries(d))
+    sca_task_aftermath(d, "setuptoolslint", get_fatal_entries(d, "SCA_SETUPTOOLSLINT_EXTRA_FATAL",
+                       d.expand("${STAGING_DATADIR_NATIVE}/setuptoolslint-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_setuptoolslint"

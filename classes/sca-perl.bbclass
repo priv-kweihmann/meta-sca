@@ -28,7 +28,8 @@ def do_sca_conv_perl(d):
     items = []
     pattern = r"^(?P<msg>.*)\s+at\s+(?P<file>.*)\s+line\s+(?P<line>\d+)"
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_PERL_EXTRA_SUPPRESS", 
+                                  d.expand("${STAGING_DATADIR_NATIVE}/perl-${SCA_MODE}-suppress"))
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "perl")):
@@ -62,10 +63,6 @@ def do_sca_conv_perl(d):
 python do_sca_perl() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_PERL_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_PERL_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "perl-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "perl-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _args = [ "perl", "-c", "-W"]
 
@@ -95,7 +92,8 @@ python do_sca_perl_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "perl", get_fatal_entries(d))
+    sca_task_aftermath(d, "perl", get_fatal_entries(d, "SCA_PERL_EXTRA_FATAL", 
+                        d.expand("${STAGING_DATADIR_NATIVE}/perl-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_perl"

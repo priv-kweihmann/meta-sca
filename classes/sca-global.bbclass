@@ -149,9 +149,5 @@ SCA_HASHEXCLUDE_VARS = "\
                         __SCA_DATAMODEL_STORAGE \
                         SCA_DATAMODEL_STORAGE \
                         SCA_DEPLOY_TASK \
-                        SCA_EXTRA_FATAL \
-                        SCA_EXTRA_SUPPRESS \
-                        SCA_FATAL_FILE \
                         SCA_LAYERDIR \
-                        SCA_SUPRESS_FILE \
                         "

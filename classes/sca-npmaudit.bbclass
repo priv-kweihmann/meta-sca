@@ -29,7 +29,9 @@ def do_sca_conv_npmaudit(d):
         "low" : "info"
     }
 
-    _suppress = sca_suppress_init(d, file_trace=False)
+    _suppress = sca_suppress_init(d, "SCA_NPMAUDIT_EXTRA_SUPPRESS",
+                                  d.expand("${STAGING_DATADIR_NATIVE}/npmaudit-${SCA_MODE}-suppress"),
+                                  file_trace=False)
     _findings = []
 
     ## Result file parsing
@@ -66,10 +68,6 @@ def do_sca_conv_npmaudit(d):
 python do_sca_npmaudit() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_NPMAUDIT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_NPMAUDIT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "npmaudit-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "npmaudit-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     cmd_output = "{}"
 
@@ -95,7 +93,8 @@ python do_sca_npmaudit() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "npmaudit", get_fatal_entries(d))
+    sca_task_aftermath(d, "npmaudit", get_fatal_entries(d, "SCA_NPMAUDIT_EXTRA_FATAL", 
+                       d.expand("${STAGING_DATADIR_NATIVE}/npmaudit-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_npmaudit"

@@ -26,7 +26,8 @@ def do_sca_conv_phpcodefixer(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
     
     _findings = []
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_PHPCODEFIXER_EXTRA_SUPPRESS", 
+                                  d.expand("${STAGING_DATADIR_NATIVE}/phpcodefixer-${SCA_MODE}-suppress"))
 
     if os.path.exists(sca_raw_result_file(d, "phpcodefixer")):
         content = []
@@ -61,10 +62,6 @@ def do_sca_conv_phpcodefixer(d):
 python do_sca_phpcodefixer() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_PHPCODEFIXER_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_PHPCODEFIXER_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "phpcodefixer-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "phpcodefixer-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     cmd_output = ""
 
@@ -98,7 +95,8 @@ python do_sca_phpcodefixer_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "phpcodefixer", get_fatal_entries(d))
+    sca_task_aftermath(d, "phpcodefixer", get_fatal_entries(d, "SCA_PHPCODEFIXER_EXTRA_FATAL", 
+                        d.expand("${STAGING_DATADIR_NATIVE}/phpcodefixer-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_phpcodefixer"

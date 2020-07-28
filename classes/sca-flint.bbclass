@@ -34,7 +34,8 @@ def do_sca_conv_flint(d):
         "Advice" : "info"
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_FLINT_EXTRA_SUPPRESS", 
+                                  d.expand("${STAGING_DATADIR_NATIVE}/flint-${SCA_MODE}-suppress"))
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "flint")):
@@ -64,10 +65,6 @@ def do_sca_conv_flint(d):
 python do_sca_flint() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_FLINT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_FLINT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "flint-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "flint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _args = ["flint++"]
     _args += ["-r"]
@@ -99,7 +96,8 @@ python do_sca_flint_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "flint", get_fatal_entries(d))
+    sca_task_aftermath(d, "flint", get_fatal_entries(d, "SCA_FLINT_EXTRA_FATAL",
+                        d.expand("${STAGING_DATADIR_NATIVE}/flint-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_flint"

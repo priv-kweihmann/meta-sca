@@ -27,7 +27,8 @@ def do_sca_conv_proselint(d):
 
     items = []
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_PROSELINT_EXTRA_SUPPRESS", 
+                                    d.expand("${STAGING_DATADIR_NATIVE}/proselint-${SCA_MODE}-suppress"))
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "proselint")):
@@ -67,11 +68,6 @@ python do_sca_proselint_core() {
     import os
     import subprocess
     import json
-
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_PROSELINT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_PROSELINT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "proselint-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "proselint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "proselint")]
     _args += ["-j"]
@@ -118,5 +114,6 @@ python do_sca_proselint_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "proselint", get_fatal_entries(d))
+    sca_task_aftermath(d, "proselint", get_fatal_entries(d, "SCA_PROSELINT_EXTRA_FATAL", 
+                        d.expand("${STAGING_DATADIR_NATIVE}/proselint-${SCA_MODE}-fatal")))
 }
