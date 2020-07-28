@@ -44,7 +44,7 @@ def do_sca_conv_cspell(d):
 
     items = []
     pattern = r"^(?P<file>.*)\:(?P<line>\d+):(?P<column>\d+)\s+-\s+(?P<id>.*)\s+\((?P<msg>.*)\)"
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "", None)
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "cspell")):

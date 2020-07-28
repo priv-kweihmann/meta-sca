@@ -34,7 +34,8 @@ def do_sca_conv_splint(d):
         "3" : "info"
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_SPLINT_EXTRA_SUPPRESS",
+                                  d.expand("${STAGING_DATADIR_NATIVE}/splint-${SCA_MODE}-suppress"))
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "splint")):
@@ -70,11 +71,6 @@ python do_sca_splint() {
     import os
     import subprocess
     from multiprocessing import Pool
-
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_SPLINT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_SPLINT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "splint-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "splint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _args = ["splint"]
     _args += ["-tmpdir", d.getVar("T")]
@@ -129,7 +125,8 @@ python do_sca_splint_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "splint", get_fatal_entries(d))
+    sca_task_aftermath(d, "splint", get_fatal_entries(d, "SCA_SPLINT_EXTRA_FATAL",
+                       d.expand("${STAGING_DATADIR_NATIVE}/splint-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_splint"

@@ -67,18 +67,14 @@ fakeroot python do_sca_configcheck() {
     import os
     import subprocess
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_TIGER_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_TIGER_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "configcheck-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "configcheck-{}-fatal".format(d.getVar("SCA_MODE"))))
-
     cmd_output = ""
 
     ## Create rootfs first
     sca_crossemu(d, None, ["bash"], "configcheck", "sca_configcheck_prepare;")
 
     _raw_findings = []
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_TIGER_EXTRA_SUPPRESS", 
+                                  d.expand("${STAGING_DATADIR_NATIVE}/configcheck-${SCA_MODE}-suppress"))
 
     for mod in clean_split(d, "SCA_CONFIGCHECK_MODULES"):
         _run_args_name = "do_sca_configcheck_run_{}".format(mod)
@@ -106,7 +102,8 @@ fakeroot python do_sca_configcheck() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "configcheck", get_fatal_entries(d))
+    sca_task_aftermath(d, "configcheck", get_fatal_entries(d, "SCA_TIGER_EXTRA_FATAL", 
+                        d.expand("${STAGING_DATADIR_NATIVE}/configcheck-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_configcheck_image"

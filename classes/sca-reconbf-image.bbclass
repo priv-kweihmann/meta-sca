@@ -28,7 +28,8 @@ def do_sca_conv_reconbf(d):
     items = []
 
     __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_RECONBF_EXTRA_SUPPRESS", 
+                                  d.expand("${STAGING_DATADIR_NATIVE}/reconbf-${SCA_MODE}-suppress"))
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "reconbf")):
@@ -74,11 +75,6 @@ fakeroot python do_sca_reconbf() {
     import os
     import subprocess
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_RECONBF_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_RECONBF_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "reconbf-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "reconbf-{}-fatal".format(d.getVar("SCA_MODE"))))
-
     _args = ["/bin/sh", "-c", "mkdir -p /tmp;python3 -m reconbf -c {} -rt json -dm all -rf /tmp/reconbf.result >/dev/null 2>&1;cat /tmp/reconbf.result".format(d.getVar("SCA_RECONBF_CONFIG"))]
 
     cmd_output, _ = sca_crossemu(d, _args, ["reconbf"], "reconbf", ";")
@@ -96,7 +92,8 @@ fakeroot python do_sca_reconbf() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "reconbf", get_fatal_entries(d))
+    sca_task_aftermath(d, "reconbf", get_fatal_entries(d, "SCA_RECONBF_EXTRA_FATAL",
+                        d.expand("${STAGING_DATADIR_NATIVE}/reconbf-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_reconbf_image"

@@ -39,7 +39,7 @@ def do_sca_conv_ansibleroles(d):
 
     pattern = r"^localhost\s+\|\s+CHANGED\s+=>\s+(?P<msg>.*)"
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "", None)
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "ansibleroles")):
@@ -111,8 +111,6 @@ fakeroot python do_sca_ansibleroles() {
     if not os.path.exists("/dev/shm"):
         bb.warn("SCA: ansibleroles module requires /dev/shm on the host.\nThis is a known issue of python/ansible.\nThis module won't produce any output till that is fixed")
     else:
-        d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_ANSIBLEROLES_EXTRA_FATAL"))
-
         os.environ["ANSIBLE_STDOUT_CALLBACK"] = "oneline"
         os.environ["ANSIBLE_ACTION_WARNINGS"] = "False"
         os.environ["ANSIBLE_COMMAND_WARNINGS"] = "False"
@@ -145,7 +143,7 @@ fakeroot python do_sca_ansibleroles() {
         with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
             o.write(dm_output)
 
-        sca_task_aftermath(d, "ansibleroles", get_fatal_entries(d))
+        sca_task_aftermath(d, "ansibleroles", get_fatal_entries(d, "SCA_ANSIBLEROLES_EXTRA_FATAL", None))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_ansibleroles_image"

@@ -26,7 +26,8 @@ def do_sca_conv_standard(d):
     pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<col>\d+):\s+(?P<msg>.*)\s+\((?P<id>.*)\)"
     pattern_parser = r"^(?P<file>.*?):(?P<line>\d+):(?P<col>\d+):\s+Parsing error:\s+(?P<msg>.*)\s+\(.*"
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_STANDARD_EXTRA_SUPPRESS",
+                                  d.expand("${STAGING_DATADIR_NATIVE}/standard-${SCA_MODE}-suppress"))
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "standard")):
@@ -84,11 +85,6 @@ python do_sca_standard_core() {
     import os
     import subprocess
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_STANDARD_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_STANDARD_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "standard-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "standard-{}-fatal".format(d.getVar("SCA_MODE"))))
-
     os.environ["HOME"] = d.getVar("T")
     _args = ["standard"]
     _args += ["--verbose"]
@@ -115,5 +111,6 @@ python do_sca_standard_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "standard", get_fatal_entries(d))
+    sca_task_aftermath(d, "standard", get_fatal_entries(d, "SCA_STANDARD_EXTRA_FATAL",
+                       d.expand("${STAGING_DATADIR_NATIVE}/standard-${SCA_MODE}-fatal")))
 }

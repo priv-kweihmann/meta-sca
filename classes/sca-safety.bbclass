@@ -24,7 +24,9 @@ def do_sca_conv_safety(d, cmd_output=""):
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     items = []
-    _suppress = sca_suppress_init(d, file_trace=False)
+    _suppress = sca_suppress_init(d, "SCA_SAFETY_EXTRA_SUPPRESS",
+                                  d.expand("${STAGING_DATADIR_NATIVE}/safety-${SCA_MODE}-suppress"),
+                                  file_trace=False)
     _findings = []
 
     ## Result file parsing
@@ -95,10 +97,6 @@ def import_and_extract(d, parent_dir):
 python do_sca_safety() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_SAFETY_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_SAFETY_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "safety-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "safety-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     ## Build tmp requirements.txt file
     tmp_req = os.path.join(d.getVar("T"), "_safety_tmp.txt")
@@ -131,7 +129,8 @@ python do_sca_safety() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "safety", get_fatal_entries(d))
+    sca_task_aftermath(d, "safety", get_fatal_entries(d, "SCA_SAFETY_EXTRA_FATAL", 
+                       d.expand("${STAGING_DATADIR_NATIVE}/safety-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_safety"

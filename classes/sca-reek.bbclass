@@ -24,7 +24,8 @@ def do_sca_conv_reek(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
     
     _findings = []
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_REEK_EXTRA_SUPPRESS", 
+                                  d.expand("${STAGING_DATADIR_NATIVE}/reek-${SCA_MODE}-suppress"))
 
     if os.path.exists(sca_raw_result_file(d, "reek")):
         content = []
@@ -59,10 +60,6 @@ def do_sca_conv_reek(d):
 python do_sca_reek() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_REEK_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_REEK_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "reek-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "reek-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     cmd_output = ""
 
@@ -96,7 +93,8 @@ python do_sca_reek_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "reek", get_fatal_entries(d))
+    sca_task_aftermath(d, "reek", get_fatal_entries(d, "SCA_REEK_EXTRA_FATAL", 
+                       d.expand("${STAGING_DATADIR_NATIVE}/reek-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_reek"
