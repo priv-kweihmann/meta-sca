@@ -34,7 +34,8 @@ def do_sca_conv_stylelint(d):
         "info": "info"
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_STYLELINT_EXTRA_SUPPRESS",
+                                  d.expand("${STAGING_DATADIR_NATIVE}/stylelint-${SCA_MODE}-suppress"))
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "stylelint")):
@@ -67,11 +68,6 @@ python do_sca_stylelint_core() {
     import os
     import subprocess
     import json
-
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_STYLELINT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_STYLELINT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "stylelint-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "stylelint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _config = {
         "extends": os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "node_modules", d.getVar("SCA_STYLELINT_CONFIG"))
@@ -108,5 +104,6 @@ python do_sca_stylelint_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "stylelint", get_fatal_entries(d))
+    sca_task_aftermath(d, "stylelint", get_fatal_entries(d, "SCA_STYLELINT_EXTRA_FATAL",
+                       d.expand("${STAGING_DATADIR_NATIVE}/stylelint-${SCA_MODE}-fatal")))
 }

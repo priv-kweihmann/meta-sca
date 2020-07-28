@@ -34,7 +34,8 @@ def do_sca_conv_gixy(d, cmd_output=""):
         "ERROR" : "error",
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_GIXY_EXTRA_SUPPRESS",
+                                    d.expand("${STAGING_DATADIR_NATIVE}/gixy-${SCA_MODE}-suppress"))
     _findings = []
 
     ## Result file parsing
@@ -93,10 +94,6 @@ def do_sca_conv_gixy(d, cmd_output=""):
 python do_sca_gixy() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_GIXY_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_GIXY_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gixy-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gixy-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     cmd_output = ""
 
@@ -129,7 +126,8 @@ python do_sca_gixy() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "gixy", get_fatal_entries(d))
+    sca_task_aftermath(d, "gixy", get_fatal_entries(d, "SCA_GIXY_EXTRA_FATAL",
+                        d.expand("${STAGING_DATADIR_NATIVE}/gixy-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_gixy"

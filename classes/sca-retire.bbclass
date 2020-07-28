@@ -1,8 +1,6 @@
 ## SPDX-License-Identifier: BSD-2-Clause
 ## Copyright (c) 2019, Konrad Weihmann
 
-## Add ids to suppress on a recipe level
-SCA_RETIRE_EXTRA_SUPPRESS ?= ""
 ## Add ids to lead to a fatal on a recipe level
 SCA_RETIRE_EXTRA_FATAL ?= ""
 ## File extension filter list (whitespace separated)
@@ -35,7 +33,7 @@ def do_sca_conv_retire(d):
         "low": "info"
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "", None)
 
     if os.path.exists(sca_raw_result_file(d, "retire")):
         content = []
@@ -72,8 +70,6 @@ def do_sca_conv_retire(d):
 python do_sca_retire() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_RETIRE_EXTRA_FATAL"))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "retire-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _args = ["retire", "-c", "--outputformat", "jsonsimple", "--path", d.getVar("SCA_SOURCES_DIR")]
 
@@ -104,7 +100,8 @@ python do_sca_retire_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "retire", get_fatal_entries(d))
+    sca_task_aftermath(d, "retire", get_fatal_entries(d, "SCA_RETIRE_EXTRA_FATAL", 
+                       d.expand("${STAGING_DATADIR_NATIVE}/retire-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_retire"

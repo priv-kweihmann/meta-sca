@@ -25,7 +25,8 @@ def do_sca_conv_checkbashism(d):
 
     pattern = r"^possible\sbashism\sin\s(?P<file>.*)\sline\s(?P<line>\d+)\s\((?P<id>.*)\)"
     
-    __suppress = sca_suppress_init(d)
+    __suppress = sca_suppress_init(d, "SCA_CHECKBASHISM_EXTRA_SUPPRESS",
+                                   d.expand("${STAGING_DATADIR_NATIVE}/checkbashism-${SCA_MODE}-suppress"))
     _findings = []
     if os.path.exists(sca_raw_result_file(d, "checkbashism")):
         with open(sca_raw_result_file(d, "checkbashism"), "r") as f:
@@ -57,10 +58,6 @@ def do_sca_conv_checkbashism(d):
 python do_sca_checkbashism_core() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_CHECKBASHISM_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_CHECKBASHISM_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "checkbashism-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "checkbashism-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _args = ["checkbashisms.pl"]
     _args += ["-n", "-p"]
@@ -88,7 +85,8 @@ python do_sca_checkbashism_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "checkbashism", get_fatal_entries(d))
+    sca_task_aftermath(d, "checkbashism", get_fatal_entries(d, "SCA_CHECKBASHISM_EXTRA_FATAL",
+                        d.expand("${STAGING_DATADIR_NATIVE}/checkbashism-${SCA_MODE}-fatal")))
 }
 
 DEPENDS += "checkbashism-native"

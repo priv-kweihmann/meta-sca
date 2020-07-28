@@ -51,7 +51,8 @@ def do_sca_conv_flake8(d):
         "W": "warning",
     }
     _findings = []
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_FLAKE8_EXTRA_SUPPRESS",
+                                  d.expand("${STAGING_DATADIR_NATIVE}/flake8-${SCA_MODE}-suppress"))
 
     if os.path.exists(sca_raw_result_file(d, "flake8")):
         with open(sca_raw_result_file(d, "flake8"), "r") as f:
@@ -83,10 +84,6 @@ do_sca_flake8_core[vardepsexclude] += "BB_NUMBER_THREADS"
 python do_sca_flake8_core() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_FLAKE8_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_FLAKE8_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "flake8-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "flake8-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _args = [os.environ.get("PYTHON", "python3"), "-m", "flake8"]
     _args += ["--isolated"]
@@ -115,7 +112,8 @@ python do_sca_flake8_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "flake8", get_fatal_entries(d))
+    sca_task_aftermath(d, "flake8", get_fatal_entries(d, "SCA_FLAKE8_EXTRA_FATAL",
+                       d.expand("${STAGING_DATADIR_NATIVE}/flake8-${SCA_MODE}-fatal")))
 }
 
 DEPENDS += "python3-flake8-sca-native"

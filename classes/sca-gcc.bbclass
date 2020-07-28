@@ -30,7 +30,8 @@ def sca_gcc_hardening(d):
     _cflags = [x for x in d.getVar("CFLAGS").split(" ") if x] + [x for x in d.getVar("CXXFLAGS").split(" ") if x]
     _cxxflags = [x for x in d.getVar("CXXFLAGS").split(" ") if x] + [x for x in d.getVar("CPPFLAGS").split(" ") if x]
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_GCC_EXTRA_SUPPRESS", 
+                                    d.expand("${STAGING_DATADIR_NATIVE}/gcc-${SCA_MODE}-suppress"))
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
     _findings = []
@@ -217,7 +218,8 @@ def do_sca_conv_gcc(d):
         "note": "info"
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_GCC_EXTRA_SUPPRESS",
+                                    d.expand("${STAGING_DATADIR_NATIVE}/gcc-${SCA_MODE}-suppress"))
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     _findings = []
 
@@ -252,12 +254,7 @@ python do_sca_gcc() {
     import bb
     import os
     import shutil
-
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_GCC_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_GCC_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gcc-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gcc-{}-fatal".format(d.getVar("SCA_MODE"))))
-   
+  
     if not os.path.exists(os.path.join(d.getVar("T"), "log.do_compile")):
         with open(sca_raw_result_file(d, "gcc"), "w") as f:
             f.write("")
@@ -274,7 +271,8 @@ python do_sca_gcc_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "gcc", get_fatal_entries(d))
+    sca_task_aftermath(d, "gcc", get_fatal_entries(d, "SCA_GCC_EXTRA_FATAL",
+                         d.expand("${STAGING_DATADIR_NATIVE}/gcc-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_gcc"

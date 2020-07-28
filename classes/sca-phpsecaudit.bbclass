@@ -24,7 +24,8 @@ def do_sca_conv_phpsecaudit(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
     
     _findings = []
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_PHPSECAUDIT_EXTRA_SUPPRESS", 
+                                  d.expand("${STAGING_DATADIR_NATIVE}/phpsecaudit-${SCA_MODE}-suppress"))
 
     _severity_map = {
         "ERROR": "error",
@@ -67,10 +68,6 @@ def do_sca_conv_phpsecaudit(d):
 python do_sca_phpsecaudit() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_PHPSECAUDIT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_PHPSECAUDIT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "phpsecaudit-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "phpsecaudit-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     cmd_output = ""
 
@@ -103,7 +100,8 @@ python do_sca_phpsecaudit_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "phpsecaudit", get_fatal_entries(d))
+    sca_task_aftermath(d, "phpsecaudit", get_fatal_entries(d, "SCA_PHPSECAUDIT_EXTRA_FATAL",
+                        d.expand("${STAGING_DATADIR_NATIVE}/phpsecaudit-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_phpsecaudit"

@@ -27,7 +27,8 @@ def do_sca_conv_mypy(d):
     }
 
     _findings = []
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_MYPY_EXTRA_SUPPRESS",
+                                  d.expand("${STAGING_DATADIR_NATIVE}/mypy-${SCA_MODE}-suppress"))
 
     if os.path.exists(sca_raw_result_file(d, "mypy")):
         with open(sca_raw_result_file(d, "mypy"), "r") as f:
@@ -57,10 +58,6 @@ def do_sca_conv_mypy(d):
 python do_sca_mypy_core() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_MYPY_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_MYPY_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "mypy-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "mypy-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     os.environ["MYPY_CACHE_DIR"] = os.path.join(d.getVar("T"), "mypy_cache")
     _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "python3-native/python3"), "-m", "mypy"]
@@ -92,7 +89,8 @@ python do_sca_mypy_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "mypy", get_fatal_entries(d))
+    sca_task_aftermath(d, "mypy", get_fatal_entries(d, "SCA_MYPY_EXTRA_FATAL", 
+                       d.expand("${STAGING_DATADIR_NATIVE}/mypy-${SCA_MODE}-fatal")))
 }
 
 DEPENDS += "python3-mypy-native"
