@@ -84,7 +84,9 @@ def do_sca_conv_pkgqaenc(d):
     items = []
     pattern = r"^WARNING:\s+\[(?P<id>.*?)\]:\s+(?P<path>.*?):\s+(?P<msg>.*)"
 
-    _suppress = sca_suppress_init(d, file_trace=False)
+    _suppress = sca_suppress_init(d, "SCA_PKGQAENC_EXTRA_SUPPRESS",
+                                  d.expand("${STAGING_DATADIR_NATIVE}/pkgqaenc-${SCA_MODE}-suppress"),
+                                  file_trace=False)
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "pkgqaenc")):
@@ -121,10 +123,6 @@ python do_sca_pkgqaenc() {
     import subprocess
     import json
     from urllib.parse import unquote
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_PKGQAENC_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_PKGQAENC_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pkgqaenc-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pkgqaenc-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _config_tmp = os.path.join(d.getVar("T"), "pkgqaenc.conf")
     os.environ["MAGIC"] = os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "misc/magic.mgc")
@@ -182,7 +180,8 @@ python do_sca_pkgqaenc() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "pkgqaenc", get_fatal_entries(d))
+    sca_task_aftermath(d, "pkgqaenc", get_fatal_entries(d, "SCA_PKGQAENC_EXTRA_FATAL", 
+                        d.expand("${STAGING_DATADIR_NATIVE}/pkgqaenc-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_pkgqaenc"

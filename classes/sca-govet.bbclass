@@ -30,7 +30,8 @@ def do_sca_conv_govet(d):
     pattern_warn = r"^(vet:\s+)*(?P<file>.*):(?P<line>\d+):\s*(?P<msg>.*)"
     pattern_err = r"^(vet:\s+)*(?P<file>.*):(?P<line>\d+):(?P<col>\d+):\s*(?P<msg>.*)"
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_GOVET_EXTRA_SUPPRESS", 
+                                    d.expand("${STAGING_DATADIR_NATIVE}/govet-${SCA_MODE}-suppress"))
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "govet")):
@@ -81,10 +82,6 @@ def do_sca_conv_govet(d):
 python do_sca_govet() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_GOVET_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_GOVET_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "govet-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "govet-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     os.environ["GOCACHE"] = d.expand("${T}/.gocache")
     _args = ["go", "vet", "-v", "-all"]
@@ -114,7 +111,8 @@ python do_sca_govet_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "govet", get_fatal_entries(d))
+    sca_task_aftermath(d, "govet", get_fatal_entries(d, "SCA_GOVET_EXTRA_FATAL",
+                       d.expand("${STAGING_DATADIR_NATIVE}/govet-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_govet"

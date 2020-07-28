@@ -35,7 +35,8 @@ def do_sca_conv_cpplint(d):
     }
     pattern = r"^(?P<file>.*):(?P<line>\d+):\s+(?P<message>.*)\s+\[(?P<id>.*)\]\s+\[(?P<severity>\d)\]"
     _findings = []
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_CPPLINT_EXTRA_SUPPRESS",
+                                  d.expand("${STAGING_DATADIR_NATIVE}/cpplint-${SCA_MODE}-suppress"))
 
     if os.path.exists(sca_raw_result_file(d, "cpplint")):
         with open(sca_raw_result_file(d, "cpplint"), "r") as f:
@@ -65,11 +66,7 @@ do_sca_cpplint[vardepsexclude] += "BB_NUMBER_THREADS"
 python do_sca_cpplint() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_CPPLINT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_CPPLINT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cpplint-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cpplint-{}-fatal".format(d.getVar("SCA_MODE"))))
-
+    
     os.environ["OTMP"] = d.getVar("T")
     _args = ["cpplint-multi"]
     _args += ["--jobs={}".format(d.getVar("BB_NUMBER_THREADS"))]
@@ -102,7 +99,8 @@ python do_sca_cpplint_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "cpplint", get_fatal_entries(d))
+    sca_task_aftermath(d, "cpplint", get_fatal_entries(d, "SCA_CPPLINT_EXTRA_FATAL",
+                        d.expand("${STAGING_DATADIR_NATIVE}/cpplint-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_cpplint"

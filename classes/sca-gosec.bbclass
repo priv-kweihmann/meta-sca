@@ -26,7 +26,8 @@ def do_sca_conv_gosec(d):
 
     items = []
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_GOSEC_EXTRA_SUPPRESS",
+                                   d.expand("${STAGING_DATADIR_NATIVE}/gosec-${SCA_MODE}-suppress"))
     _findings = []
 
     _severity_map = {
@@ -69,10 +70,6 @@ python do_sca_gosec() {
     import os
     import subprocess
     import json
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_GOSEC_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_GOSEC_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gosec-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "gosec-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _args = ["gosec", "-fmt=json"]
     _args += ["-out={}".format(sca_raw_result_file(d, "gosec"))]
@@ -98,7 +95,8 @@ python do_sca_gosec_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "gosec", get_fatal_entries(d))
+    sca_task_aftermath(d, "gosec", get_fatal_entries(d, "SCA_GOSEC_EXTRA_FATAL",
+                       d.expand("${STAGING_DATADIR_NATIVE}/gosec-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_gosec"

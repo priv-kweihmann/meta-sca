@@ -127,7 +127,8 @@ def do_sca_conv_ansible(d):
         "info": "info"
     }
 
-    __suppress = sca_suppress_init(d)
+    __suppress = sca_suppress_init(d, "SCA_ANSIBLE_EXTRA_SUPPRESS", 
+                                   d.expand("${STAGING_DATADIR_NATIVE}/ansible-${SCA_MODE}-suppress"))
     __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
     _findings = []
@@ -178,11 +179,7 @@ python do_sca_ansible() {
     import json
     import glob
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_CPPCHECK_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_CPPCHECK_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "ansible-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "ansible-{}-fatal".format(d.getVar("SCA_MODE"))))
-
+    
     _inventory = "ansible_inv.yaml"
     _configuration = "ansible.cfg"
     create_inventory(d, _inventory)
@@ -228,7 +225,8 @@ python do_sca_ansible() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "ansible", get_fatal_entries(d))
+    sca_task_aftermath(d, "ansible", get_fatal_entries(d, "SCA_CPPCHECK_EXTRA_FATAL", 
+                       d.expand("${STAGING_DATADIR_NATIVE}/ansible-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_ansible"

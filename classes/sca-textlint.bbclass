@@ -29,7 +29,8 @@ SCA_TEXTLINT_RULES ?= "\
                         textlint-rule-unexpanded-acronym \
                         textlint-rule-write-good \
                     "
-
+SCA_TEXTLINT_EXTRA_FATAL ?= ""
+SCA_TEXTLINT_EXTRA_SUPPRESS ?= ""
 SCA_RAW_RESULT_FILE[textlint] = "json"
 
 inherit sca-conv-to-export
@@ -64,7 +65,8 @@ def do_sca_conv_textlint(d):
         "2": "warning" ## Originally this is error
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_TEXTLINT_EXTRA_SUPPRESS",
+                                  d.expand("${STAGING_DATADIR_NATIVE}/textlint-${SCA_MODE}-suppress"))
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     _findings = []
 
@@ -108,11 +110,6 @@ python do_sca_textlint() {
     import subprocess
     import json
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_SHELLCHECK_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_SHELLCHECK_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "textlint-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "textlint-{}-fatal".format(d.getVar("SCA_MODE"))))
-
     _config = {
         "filters": { "textlint-filter-rule-comments": True },
         "plugins": [
@@ -154,7 +151,8 @@ python do_sca_textlint_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "textlint", get_fatal_entries(d))
+    sca_task_aftermath(d, "textlint", get_fatal_entries(d, "SCA_TEXTLINT_EXTRA_FATAL",
+                       d.expand("${STAGING_DATADIR_NATIVE}/textlint-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_textlint"

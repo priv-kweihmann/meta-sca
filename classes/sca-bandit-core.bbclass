@@ -29,7 +29,8 @@ def do_sca_conv_bandit(d):
     }
 
     _findings = []
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_BANDIT_EXTRA_FATAL", 
+                    d.expand("${STAGING_DATADIR_NATIVE}/bandit-${SCA_MODE}-suppress"))
 
     if os.path.exists(sca_raw_result_file(d, "bandit")):
         with open(sca_raw_result_file(d, "bandit")) as f:
@@ -70,11 +71,6 @@ python do_sca_bandit_core() {
     import subprocess
     import json
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_BANDIT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_BANDIT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "bandit-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "bandit-{}-fatal".format(d.getVar("SCA_MODE"))))
-
     _args = ["bandit"]
     _args += ["-f", "json"]
     _args += ["-o", sca_raw_result_file(d, "bandit")]
@@ -101,5 +97,6 @@ python do_sca_bandit_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "bandit", get_fatal_entries(d))
+    sca_task_aftermath(d, "bandit", get_fatal_entries(d, "SCA_BANDIT_EXTRA_SUPPRESS", 
+                        d.expand("${STAGING_DATADIR_NATIVE}/bandit-${SCA_MODE}-fatal")))
 }

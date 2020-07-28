@@ -1137,7 +1137,8 @@ def do_sca_conv_yara(d):
 
     pattern = r"^(?P<id>[a-zA-z_0-9]+)\s\[(?P<attr>.*?)\]\s(?P<file>.*)$"
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_UPC_EXTRA_SUPPRESS", 
+                                  d.expand("${STAGING_DATADIR_NATIVE}/yara-${SCA_MODE}-suppress"))
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "yara")):
@@ -1171,11 +1172,6 @@ python do_sca_yara() {
     import os
     import subprocess
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_UPC_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_UPC_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "yara-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "yara-{}-fatal".format(d.getVar("SCA_MODE"))))
-
     cmd_output = ""
     _args = ["yara", "-r", "--no-warnings", "--print-meta"]
     _rules = [os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), x) for x in clean_split(d, "SCA_YARA_MODULES")]
@@ -1194,7 +1190,8 @@ python do_sca_yara() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "yara", get_fatal_entries(d))
+    sca_task_aftermath(d, "yara", get_fatal_entries(d, "SCA_UPC_EXTRA_FATAL",
+                       d.expand("${STAGING_DATADIR_NATIVE}/yara-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_yara_image"

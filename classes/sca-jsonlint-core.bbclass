@@ -30,7 +30,7 @@ def do_sca_conv_jsonlint(d):
         "warning" : "warning",
         "info": "info"
     }
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "", None)
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "jsonlint")):
@@ -63,9 +63,6 @@ python do_sca_jsonlint_core() {
     import os
     import json
 
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_JSONLINT_EXTRA_FATAL"))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "jsonlint-{}-fatal".format(d.getVar("SCA_MODE"))))
-
     with open(sca_raw_result_file(d, "jsonlint"), "w") as o:
         for _f in get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_JSONLINT_FILE_FILTER").split(" "),    
                                             sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))):
@@ -84,7 +81,8 @@ python do_sca_jsonlint_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "jsonlint", get_fatal_entries(d))
+    sca_task_aftermath(d, "jsonlint", get_fatal_entries(d, "SCA_JSONLINT_EXTRA_FATAL",
+                        d.expand("${STAGING_DATADIR_NATIVE}/jsonlint-${SCA_MODE}-fatal")))
 }
 
 DEPENDS += "jsonlint-sca-native"

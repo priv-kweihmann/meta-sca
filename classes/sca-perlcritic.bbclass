@@ -36,7 +36,8 @@ def do_sca_conv_perlcritic(d):
         "1": "info"
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_PERLCRITIC_EXTRA_SUPPRESS", 
+                                   d.expand("${STAGING_DATADIR_NATIVE}/perlcritic-${SCA_MODE}-suppress"))
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "perlcritic")):
@@ -68,10 +69,6 @@ def do_sca_conv_perlcritic(d):
 python do_sca_perlcritic() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_PERLCRITIC_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_PERLCRITIC_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "perlcritic-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "perlcritic-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     #../recipe-sysroot-native/usr/bin/perl-native/perl $(which perlcritic) --nocolor --verbose 8 --brutal *.pl
     _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "perl-native", "perl")]
@@ -105,7 +102,8 @@ python do_sca_perlcritic_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "perlcritic", get_fatal_entries(d))
+    sca_task_aftermath(d, "perlcritic", get_fatal_entries(d, "SCA_PERLCRITIC_EXTRA_FATAL", 
+                        d.expand("${STAGING_DATADIR_NATIVE}/perlcritic-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_perlcritic"

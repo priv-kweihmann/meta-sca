@@ -36,7 +36,7 @@ def sca_create_data_file(d, patched, unpatched, cve_data):
     bb.utils.mkdirhier(os.path.dirname(cve_file))
 
     package_name = d.getVar("PN")
-    _suppress = sca_suppress_init(d, file_trace=False)
+    _suppress = sca_suppress_init(d, "", None, file_trace=False)
     items = []
     _findings = []
 

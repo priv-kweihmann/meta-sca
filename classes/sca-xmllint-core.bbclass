@@ -26,7 +26,8 @@ def do_sca_conv_xmllint(d):
 
     pattern = r"^(?P<file>.*):(?P<line>\d+):\s+(?P<id>.*)\s+error\s+:\s+(?P<msg>.*)"
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_XMLLINT_EXTRA_SUPPRESS",
+                                  d.expand("${STAGING_DATADIR_NATIVE}/xmllint-${SCA_MODE}-suppress"))
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "xmllint")):
@@ -58,11 +59,6 @@ python do_sca_xmllint_core() {
     import os
     import subprocess
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_XMLLINT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_XMLLINT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "xmllint-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "xmllint-{}-fatal".format(d.getVar("SCA_MODE"))))
-
     _args = ["xmllint"]
     _args += ["--noout"]
     _args += ["--valid"]
@@ -89,5 +85,6 @@ python do_sca_xmllint_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "xmllint", get_fatal_entries(d))
+    sca_task_aftermath(d, "xmllint", get_fatal_entries(d, "SCA_XMLLINT_EXTRA_FATAL",
+                       d.expand("${STAGING_DATADIR_NATIVE}/xmllint-${SCA_MODE}-fatal")))
 }
