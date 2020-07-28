@@ -62,7 +62,8 @@ def do_sca_conv_cppcheck(d):
     }
 
     _findings = []
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_CPPCHECK_EXTRA_SUPPRESS", 
+                                  d.expand("${STAGING_DATADIR_NATIVE}/cppcheck-${SCA_MODE}-suppress"))
 
     if os.path.exists(sca_raw_result_file(d, "cppcheck")):
         data = ElementTree.parse(sca_raw_result_file(d, "cppcheck")).getroot()
@@ -93,10 +94,6 @@ do_sca_cppcheck[vardepsexclude] += "BB_NUMBER_THREADS"
 python do_sca_cppcheck() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_CPPCHECK_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_CPPCHECK_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cppcheck-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cppcheck-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _user_rules = os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cppcheck-user-rules.xml")
     _add_include = d.getVar("SCA_CPPCHECK_ADD_INCLUDES", True).split(" ")
@@ -157,7 +154,8 @@ python do_sca_cppcheck_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "cppcheck", get_fatal_entries(d))
+    sca_task_aftermath(d, "cppcheck", get_fatal_entries(d, d.getVar("SCA_CPPCHECK_EXTRA_FATAL"),
+                      d.expand("${STAGING_DATADIR_NATIVE}/cppcheck-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_cppcheck"

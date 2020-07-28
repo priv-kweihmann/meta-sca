@@ -124,5 +124,5 @@ python do_sca_bestof_core() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(sca_save_model_to_string(d))
     sca_add_model_class_list(d, _findingsres)
-    sca_task_aftermath(d, "bestof", get_fatal_entries(d))
+    sca_task_aftermath(d, "bestof")
 }

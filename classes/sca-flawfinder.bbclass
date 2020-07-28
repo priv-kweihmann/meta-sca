@@ -36,7 +36,8 @@ def do_sca_conv_flawfinder(d):
         "1" : "info"
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_FLAWFINDER_EXTRA_SUPPRESS", 
+                                  d.expand("${STAGING_DATADIR_NATIVE}/flawfinder-${SCA_MODE}-suppress"))
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "flawfinder")):
@@ -66,11 +67,7 @@ def do_sca_conv_flawfinder(d):
 python do_sca_flawfinder() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_FLAWFINDER_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_FLAWFINDER_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "flawfinder-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "flawfinder-{}-fatal".format(d.getVar("SCA_MODE"))))
-
+    
     _args = ["flawfinder"]
     _args += ["--dataonly"]
     _args += ["--quiet"]
@@ -100,7 +97,8 @@ python do_sca_flawfinder_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "flawfinder", get_fatal_entries(d))
+    sca_task_aftermath(d, "flawfinder", get_fatal_entries(d, "SCA_FLAWFINDER_EXTRA_FATAL", 
+                        d.expand("${STAGING_DATADIR_NATIVE}/flawfinder-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_flawfinder"

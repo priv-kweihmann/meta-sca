@@ -37,7 +37,8 @@ def do_sca_conv_eslint(d):
     }
 
     __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
-    __suppress = sca_suppress_init(d)
+    __suppress = sca_suppress_init(d, "SCA_ESLINT_EXTRA_SUPPRESS",
+                                   d.expand("${STAGING_DATADIR_NATIVE}/eslint-${SCA_MODE}-suppress"))
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "eslint")):
@@ -76,11 +77,6 @@ python do_sca_eslint_core() {
     import subprocess
     import json
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_ESLINT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_ESLINT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "eslint-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "eslint-{}-fatal".format(d.getVar("SCA_MODE"))))
-
     if not os.path.exists("node_modules"):
         os.symlink(os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "node_modules"), "node_modules", target_is_directory=True)
 
@@ -114,5 +110,6 @@ python do_sca_eslint_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "eslint", get_fatal_entries(d))
+    sca_task_aftermath(d, "eslint", get_fatal_entries(d, "SCA_ESLINT_EXTRA_FATAL",
+                        d.expand("${STAGING_DATADIR_NATIVE}/eslint-${SCA_MODE}-fatal")))
 }

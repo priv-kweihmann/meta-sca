@@ -53,7 +53,7 @@ def do_sca_conv_ropgadget(d):
     pattern = r"^(?P<bin>.*)\s+-\s+(?P<file>.*):(?P<line>\d+)\s+-\s+(?P<msg>.*)"
 
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
-    _suppress = sca_suppress_init(d, file_trace=False)
+    _suppress = sca_suppress_init(d, "", None, file_trace=False)
     _findings = {}
     _findingsres = []
 
@@ -144,7 +144,7 @@ python do_sca_ropgadget() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "ropgadget", get_fatal_entries(d))
+    sca_task_aftermath(d, "ropgadget", get_fatal_entries(d, "", None))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_ropgadget"

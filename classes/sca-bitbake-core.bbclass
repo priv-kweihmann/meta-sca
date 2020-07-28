@@ -23,7 +23,7 @@ def do_sca_bitbake_hardening(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
     _modules = clean_split(d, "SCA_BITBAKE_HARDENING")
     _findings = []
-    _suppress = sca_suppress_init(d, file_trace=False)
+    _suppress = sca_suppress_init(d, "", None, file_trace=False)
 
     if "debug_tweaks" in _modules:
         ## debug_tweaks in IMAGE_FEATURES isn't used in release build
@@ -87,7 +87,7 @@ def do_sca_conv_bitbake(d):
         "WARNING" : "warning",
     }
 
-    _suppress = sca_suppress_init(d, file_trace=False)
+    _suppress = sca_suppress_init(d, "", None, file_trace=False)
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
     _findings = []
@@ -132,7 +132,7 @@ python do_sca_bitbake () {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "bitbake", get_fatal_entries(d))
+    sca_task_aftermath(d, "bitbake", get_fatal_entries(d, "", None))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_gcc"

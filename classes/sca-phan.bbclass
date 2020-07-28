@@ -27,7 +27,8 @@ def do_sca_conv_phan(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
     
     _findings = []
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_PHAN_EXTRA_SUPPRESS", 
+                                  d.expand("${STAGING_DATADIR_NATIVE}/phan-${SCA_MODE}-suppress"))
 
     _severity_map = {
         "10": "error",
@@ -77,10 +78,6 @@ do_sca_phan[vardepsexclude] += "BB_NUMBER_THREADS"
 python do_sca_phan() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_PHAN_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_PHAN_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "phan-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "phan-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     cmd_output = ""
 
@@ -122,7 +119,8 @@ python do_sca_phan_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "phan", get_fatal_entries(d))
+    sca_task_aftermath(d, "phan", get_fatal_entries(d, "SCA_PHAN_EXTRA_FATAL", 
+                        d.expand("${STAGING_DATADIR_NATIVE}/phan-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_phan"

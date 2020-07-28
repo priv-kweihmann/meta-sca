@@ -28,7 +28,8 @@ def do_sca_conv_sudokiller(d):
     pattern = r"^\[\-]\s+(?P<msg>.*)(\:+|\s+)"
     cve_pattern = r"^\[\+\]\s+Please\s+find the following exploit for (?P<msg>[A-Z\-0-9]+) in the exploits' directory"
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_SUDOKILLER_EXTRA_SUPPRESS", 
+                                  d.expand("${STAGING_DATADIR_NATIVE}/sudokiller-${SCA_MODE}-suppress"))
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "sudokiller")):
@@ -80,11 +81,6 @@ fakeroot python do_sca_sudokiller() {
     import os
     import subprocess
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_SUDOKILLER_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_SUDOKILLER_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "sudokiller-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "sudokiller-{}-fatal".format(d.getVar("SCA_MODE"))))
-
     _password = ""
     if d.getVar("SCA_SUDOKILLER_PASSWORD"):
         _password = "-s \"{}\"".format(d.getVar("SCA_SUDOKILLER_PASSWORD"))
@@ -101,7 +97,8 @@ fakeroot python do_sca_sudokiller() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "sudokiller", get_fatal_entries(d))
+    sca_task_aftermath(d, "sudokiller", get_fatal_entries(d, "SCA_SUDOKILLER_EXTRA_FATAL",
+                       d.expand("${STAGING_DATADIR_NATIVE}/sudokiller-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_sudokiller_image"

@@ -41,7 +41,9 @@ def do_sca_conv_oelint(d, _files):
         "info": "info"
     }
     _findings = []
-    _suppress = sca_suppress_init(d, file_trace=False)
+    _suppress = sca_suppress_init(d, "SCA_OELINT_EXTRA_SUPPRESS",
+                                  d.expand("${STAGING_DATADIR_NATIVE}/oelint-${SCA_MODE}-suppress"),
+                                  file_trace=False)
     _spared_layer_files = _files
     if d.getVar("SCA_OELINT_IGNORE_SPARED_LAYER") == "1":
         _spared_layer_files = sca_files_part_of_unspared_layer(d, _files)
@@ -80,11 +82,6 @@ python do_sca_oelint_core() {
     import subprocess
     import glob
     import json
-
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_OELINT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_OELINT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "oelint-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "oelint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _constantfile = os.path.join(d.getVar("T"), "oelint-constants.json")
     _contantcontent = {
@@ -132,5 +129,6 @@ python do_sca_oelint_core() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "oelint", get_fatal_entries(d))
+    sca_task_aftermath(d, "oelint", get_fatal_entries(d, "SCA_OELINT_EXTRA_FATAL", 
+                        d.expand("${STAGING_DATADIR_NATIVE}/oelint-${SCA_MODE}-fatal")))
 }

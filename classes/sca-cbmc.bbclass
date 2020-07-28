@@ -51,7 +51,8 @@ def do_sca_conv_cbmc(d):
         "INFO" : "info"
     }
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_CBMC_EXTRA_SUPPRESS", 
+                                  d.expand("${STAGING_DATADIR_NATIVE}/cbmc-${SCA_MODE}-suppress"))
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "cbmc")):
@@ -120,11 +121,6 @@ python do_sca_cbmc() {
     import subprocess
     from multiprocessing import Pool
 
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_CBMC_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_CBMC_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cbmc-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cbmc-{}-fatal".format(d.getVar("SCA_MODE"))))
-
     _args = ["cbmc"]
     _args += clean_split(d, "SCA_CBMC_MODULES")
     _args += clean_split(d, "SCA_CBMC_EXTRA_OPTIONS")
@@ -156,7 +152,8 @@ python do_sca_cbmc_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "cbmc", get_fatal_entries(d))
+    sca_task_aftermath(d, "cbmc", get_fatal_entries(d, "SCA_CBMC_EXTRA_FATAL", 
+                        d.expand("${STAGING_DATADIR_NATIVE}/cbmc-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_cbmc"

@@ -32,7 +32,9 @@ def do_sca_conv_pysymcheck(d):
         "info": "info"
     }
 
-    _suppress = sca_suppress_init(d, file_trace=False)
+    _suppress = sca_suppress_init(d, "SCA_PYSYMCHECK_EXTRA_SUPPRESS",
+                                  d.expand("${STAGING_DATADIR_NATIVE}/pysymcheck-${SCA_MODE}-suppress"),
+                                  file_trace=False)
 
     _findings = []
 
@@ -61,10 +63,6 @@ def do_sca_conv_pysymcheck(d):
 python do_sca_pysymcheck() {
     import os
     import subprocess
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_PYSYMCHECK_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_PYSYMCHECK_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pysymcheck-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "pysymcheck-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _args = ["pysymbolcheck"]
     _args += ["--libpath", ":".join([d.getVar("STAGING_LIBDIR_NATIVE")])]
@@ -93,7 +91,8 @@ python do_sca_pysymcheck() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "pysymcheck", get_fatal_entries(d))
+    sca_task_aftermath(d, "pysymcheck", get_fatal_entries(d, "SCA_PYSYMCHECK_EXTRA_FATAL",
+                        d.expand("${STAGING_DATADIR_NATIVE}/pysymcheck-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_pysymcheck"

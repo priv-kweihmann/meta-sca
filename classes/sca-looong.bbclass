@@ -26,7 +26,7 @@ def do_sca_conv_looong(d):
 
     pattern = r"^(?P<func>.*?)\s+\[(?P<file>.*)\]\s+\[.*\]\s+(?P<level>\d+)"
 
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "", None)
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
     _findings = []
@@ -66,8 +66,6 @@ python do_sca_looong() {
     import os
     import subprocess
     import re
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_LOOONG_EXTRA_FATAL"))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "looong-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     _args = ["python3", os.path.join(d.getVar("STAGING_DIR_NATIVE"), d.getVar("PYTHON_SITEPACKAGES_DIR")[1:], "looong", "main.py")]
     _args += ["-d", d.getVar("SCA_SOURCES_DIR")]
@@ -94,7 +92,8 @@ python do_sca_looong_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "looong", get_fatal_entries(d))
+    sca_task_aftermath(d, "looong", get_fatal_entries(d, "SCA_LOOONG_EXTRA_FATAL", 
+                        d.expand("${STAGING_DATADIR_NATIVE}/looong-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_looong"

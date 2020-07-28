@@ -238,10 +238,6 @@ python do_sca_myfoolint() {
     import subprocess
     # First of all the local assigned suppress and fatal entries are merged
     # with the global ones, defined by the sca-recipe-myfoolint-rules-native recipe
-    d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_MYFOOLINT_EXTRA_SUPPRESS"))
-    d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_MYFOOLINT_EXTRA_FATAL"))
-    d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "myfoolint-{}-suppress".format(d.getVar("SCA_MODE"))))
-    d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "myfoolint-{}-fatal".format(d.getVar("SCA_MODE"))))
 
     # Create a argument list, like the tool needs to be run
     # in this very example it is just the tool with all to be checked files as arguments.
@@ -335,7 +331,8 @@ python do_sca_myfoolint_report() {
     # this means check for fatal findings, which would terminate the build here
     # convert data model into the selected global export format (mostly checkstyle)
     # and deploy all the needed files to the dir defined by SCA_EXPORT_DIR-var
-    sca_task_aftermath(d, "myfoolint", get_fatal_entries(d))
+    sca_task_aftermath(d, "myfoolint", get_fatal_entries(d, "SCA_MYFOOLINT_EXTRA_SUPPRESS", 
+                       d.expand("${STAGING_DATADIR_NATIVE}/myfoolint-${SCA_MODE}-suppress")))
 }
 ```
 
@@ -396,7 +393,8 @@ def do_sca_conv_myfoolint(d):
     }
 
     # Initialize the internal model - this line is mandatory
-    _suppress = sca_suppress_init(d)
+    _suppress = sca_suppress_init(d, "SCA_MYFOOLINT_EXTRA_FATAL",
+                                  d.expand("${STAGING_DATADIR_NATIVE}/myfoolint-${SCA_MODE}-fatal"))
     # local scope list of findings, so we don't need to de-/serialize the whole model
     # on every finding - this improves the overall performance a lot
     _findings = []

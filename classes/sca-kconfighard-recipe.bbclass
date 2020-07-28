@@ -36,7 +36,9 @@ def do_sca_conv_kconfighard(d):
         "lockdown" : "warning"
     }
 
-    _suppress = sca_suppress_init(d, file_trace=False)
+    _suppress = sca_suppress_init(d, "SCA_KCONFIGHARD_EXTRA_SUPPRESS",
+                                  d.expand("${STAGING_DATADIR_NATIVE}/kconfighard-${SCA_MODE}-suppress"),
+                                  file_trace=False)
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "kconfighard")):
@@ -77,11 +79,6 @@ python do_sca_kconfighard() {
     import subprocess
 
     if d.getVar("PN") == "linux-yocto":
-        d.setVar("SCA_EXTRA_SUPPRESS", d.getVar("SCA_KCONFIGHARD_EXTRA_SUPPRESS"))
-        d.setVar("SCA_EXTRA_FATAL", d.getVar("SCA_KCONFIGHARD_EXTRA_FATAL"))
-        d.setVar("SCA_SUPRESS_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "kconfighard-{}-suppress".format(d.getVar("SCA_MODE"))))
-        d.setVar("SCA_FATAL_FILE", os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "kconfighard-{}-fatal".format(d.getVar("SCA_MODE"))))
-
         if not os.path.exists(os.path.join(d.getVar("B"), "config")):
             os.symlink(os.path.join(d.getVar("B"), ".config"), os.path.join(d.getVar("B"), "config"))
 
@@ -108,7 +105,8 @@ python do_sca_kconfighard() {
         with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
             o.write(dm_output)
 
-        sca_task_aftermath(d, "kconfighard", get_fatal_entries(d))
+        sca_task_aftermath(d, "kconfighard", get_fatal_entries(d, "SCA_KCONFIGHARD_EXTRA_FATAL",
+                            d.expand("${STAGING_DATADIR_NATIVE}/kconfighard-${SCA_MODE}-fatal")))
 }
 
 SCA_DEPLOY_TASK = "do_sca_deploy_kconfighard"
