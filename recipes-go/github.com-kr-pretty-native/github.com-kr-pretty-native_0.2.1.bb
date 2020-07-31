@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/License;md5=449bfedd81a372635934cf9c
 DEPENDS += "github.com-kr-text-native"
 
 SRC_URI = "git://${GO_IMPORT};protocol=https;branch=main"
-SRCREV = "4e0886370c3a67530192c6a238cff68f56c141b0"
+SRCREV = "ead452280cd055b2ae8a7f0db5eb37a878d902f7"
 GO_IMPORT = "github.com/kr/pretty"
 
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+\.\d+)"
