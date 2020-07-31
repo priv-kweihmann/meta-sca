@@ -100,6 +100,8 @@ def sca_suppress_init(d, suppress_extra, suppress_file, file_trace=True):
         def __add_global_items(self, d, suppress_extra, suppress_file):
             res = []
             for i in get_suppress_entries(d, suppress_extra, suppress_file):
+                if not i:
+                    continue
                 x = SCASuppressItem(None)
                 x.ID = i
                 res.append(x)
