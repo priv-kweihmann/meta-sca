@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=bc9a2bae21f2f74984d4a43e24285986"
 DEPENDS = "npm-alex-native \
            npm-textlint-rule-helper-native"
 
-SRC_URI = "https://registry.npmjs.org/textlint-rule-alex/-/textlint-rule-alex-2.0.0.tgz"
-SRC_URI[md5sum] = "dececf121ba6c445ce054d4523d3b0d7"
-SRC_URI[sha256sum] = "f07d0bb943626229e1430808cb7cc8ad419101b95c5f8bc228c9b3f93607475b"
+SRC_URI = "https://registry.npmjs.org/textlint-rule-alex/-/textlint-rule-alex-2.1.0.tgz"
+SRC_URI[md5sum] = "8705f0b2775051336d6804a0b5560bcf"
+SRC_URI[sha256sum] = "8d05a2d570d068a5e18bdfb8bc05eef11c2e49b731367a080f4d1f59479d7d85"
 
 NPM_PKGNAME = "textlint-rule-alex"
 
