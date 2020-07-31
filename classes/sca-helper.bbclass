@@ -60,14 +60,12 @@ def xml_combine(d, *args):
 def _combine_x_entries(d, input_file, extra_key):
     import os
     _filename = input_file
-    _extra = d.getVar(extra_key) or ""
     res = []
     if _filename and os.path.isfile(_filename):
         _rules_file = _filename
         with open(_rules_file) as f:
-            res = f.readlines()
-    res += _extra.split(" ")
-    res = [x.strip() for x in res if x]
+            res = [x.strip(" \n") for x in f.readlines() if x.strip(" \n")]
+    res += clean_split(d, extra_key)
     return res
 
 
