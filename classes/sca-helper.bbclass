@@ -210,8 +210,8 @@ def get_fatal_from_result(d, fatal_ids):
             res.add(i)
     return list(res)
 
-def clean_split(d, _var):
-    return [x for x in (d.getVar(_var) or "").split(" ") if x]
+def clean_split(d, _var, ignores=["\\"]):
+    return [x for x in (d.getVar(_var) or "").split(" ") if x and x not in ignores]
 
 def get_local_includes(path):
     import glob
