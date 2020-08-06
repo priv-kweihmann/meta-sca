@@ -2,7 +2,7 @@ SUMMARY = "NPM: jshint"
 DESCRIPTION = "Static analysis tool for JavaScript"
 HOMEPAGE = "http://jshint.com/"
 
-LICENSE = "MIT & JSON"
+LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4e19041df56fbb7a49fb87c4322d5849"
 
 DEPENDS = "npm-cli-native \
@@ -14,9 +14,9 @@ DEPENDS = "npm-cli-native \
            npm-shelljs-native \
            npm-strip-json-comments-native"
 
-SRC_URI = "https://registry.npmjs.org/jshint/-/jshint-2.11.2.tgz"
-SRC_URI[md5sum] = "957accb39c0c7cddac1887825a46d2d8"
-SRC_URI[sha256sum] = "c5307216f6be483b329b6192021dda6282f1a17e1013c5a578b41f8530f6b884"
+SRC_URI = "https://registry.npmjs.org/jshint/-/jshint-2.12.0.tgz"
+SRC_URI[md5sum] = "f7f2dba5e4197a66e6a28f9ce629d540"
+SRC_URI[sha256sum] = "82a255d6580c17682f35da20bfa424299b3f9d7c734f02e97a0a32e8e1242f69"
 
 NPM_PKGNAME = "jshint"
 
