@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=8e0bb9fdc6803a6d8b47b24d0673c684"
 
 DEPENDS = "npm-dayjs-native"
 
-SRC_URI = "https://registry.npmjs.org/chrono-node/-/chrono-node-2.1.6.tgz"
-SRC_URI[md5sum] = "2b2f7201f229477f6728b8f30dd4fe39"
-SRC_URI[sha256sum] = "2d9307063fae2ea3412f91e9d8f9a9cb57b73ca7383e522275c6a90a3345665c"
+SRC_URI = "https://registry.npmjs.org/chrono-node/-/chrono-node-2.1.7.tgz"
+SRC_URI[md5sum] = "01674f2f255918a789a74624c8d01fb0"
+SRC_URI[sha256sum] = "4213a53ba5ca96e25c660e9c946a6bc73a8512d2a14935d7731536dea299c432"
 
 NPM_PKGNAME = "chrono-node"
 
