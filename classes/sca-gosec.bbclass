@@ -66,6 +66,21 @@ def do_sca_conv_gosec(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
+def exec_wrap_combine_json_gosec(a, b, **kwargs):
+    import json
+    try:
+        with open(kwargs["sourcefile"]) as i:
+            b = json.load(i)
+    except:
+        b = {"Issues": []}
+    
+    try:
+        a = json.loads(a)
+        a["Issues"] += b["Issues"]
+    except:
+        a = b
+    return json.dumps(a)
+
 python do_sca_gosec() {
     import os
     import subprocess
@@ -80,11 +95,11 @@ python do_sca_gosec() {
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run
-    if any(_files):
-        try:
-            subprocess.check_output(_args + [d.getVar("SCA_SOURCES_DIR")], universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError:
-            pass
+    cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json_gosec,
+                                        default_val={"Issues": []},
+                                        sourcefile=sca_raw_result_file(d, "gosec"))
+    with open(sca_raw_result_file(d, "gosec"), "w") as o:
+        o.write(cmd_output)
 }
 
 python do_sca_gosec_report() {

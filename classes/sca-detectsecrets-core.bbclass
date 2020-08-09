@@ -77,12 +77,7 @@ python do_sca_detectsecrets_core() {
     _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), "",
                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
-    cmd_output = ""
-    if any(_files):
-        try:
-            cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+    cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json_subdict, key="results", default_val={"results": {}})
 
     with open(sca_raw_result_file(d, "detectsecrets"), "w") as o:
         o.write(cmd_output)

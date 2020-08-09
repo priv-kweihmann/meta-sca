@@ -108,12 +108,8 @@ python do_sca_clang() {
     with open(os.path.join(d.getVar("B"), "compile_commands.json"), "w") as o:
         json.dump(compile_json, o)
 
-    cmd_output = ""
-    for _f in get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_CLANG_FILE_FILTER").split(" "), []):
-        try:
-            cmd_output += subprocess.check_output(_args + [_f], universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            cmd_output += e.stdout or ""
+    _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_CLANG_FILE_FILTER").split(" "), [])
+    cmd_output = exec_wrap_check_output(_args, _files, chunk_size=1)
 
     if os.path.exists(os.path.join(d.getVar("B"), "compile_commands.json")):
         os.remove(os.path.join(d.getVar("B"), "compile_commands.json"))

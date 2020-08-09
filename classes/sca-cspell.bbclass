@@ -130,13 +130,8 @@ python do_sca_cspell() {
         _check_files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), _shebang, _files,
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
         if any(_check_files):
-            bb.note("Running cspell for {}".format(k))
             write_config(_config, {k:v for k,v in _lang_configs.items() if k in _dicts.split(" ")}, _config_file)
-            _t_args = _args + _check_files
-            try:
-                cmd_output += subprocess.check_output(_t_args, universal_newlines=True, stderr=subprocess.STDOUT)
-            except subprocess.CalledProcessError as e:
-                cmd_output += e.stdout or ""
+            cmd_output += exec_wrap_check_output(_args, _check_files)
 
     with open(sca_raw_result_file(d, "cspell"), "w") as o:
         o.write(cmd_output)

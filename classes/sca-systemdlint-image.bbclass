@@ -72,7 +72,6 @@ python do_sca_systemdlint() {
 
     _args = ['systemdlint']
     _args += ["--rootpath={}".format(d.getVar("SCA_SOURCES_DIR"))]
-    _args += ["--output={}".format(sca_raw_result_file(d, "systemdlint"))]
     if d.getVar("SCA_SYSTEMDLINT_SYSTEMD_VERSION"):
         _args += ["--sversion={}".format(d.getVar("SCA_SYSTEMDLINT_SYSTEMD_VERSION"))]
     _files = []
@@ -80,15 +79,10 @@ python do_sca_systemdlint() {
         _files += get_files_by_extention(d, path,  d.getVar("SCA_SYSTEMDLINT_FILES"), \
                                             sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
-    with open(sca_raw_result_file(d, "systemdlint"), "w") as o:
-        o.write("")
+    cmd_output = exec_wrap_check_output(_args, _files)
 
-    if any(_files):
-        _args += _files
-        try:
-            subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            bb.warn(str(e))
+    with open(sca_raw_result_file(d, "systemdlint"), "w") as o:
+        o.write(cmd_output)
 
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/systemdlint.dm".format(d.getVar("T")))

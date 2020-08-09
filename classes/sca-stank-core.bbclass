@@ -87,10 +87,7 @@ python do_sca_stank_core() {
     cmd_output = ""
     if any(_files):
         for a in _args:
-            try:
-                cmd_output += subprocess.check_output(a + _files, universal_newlines=True, stderr=subprocess.STDOUT)
-            except subprocess.CalledProcessError as e:
-                cmd_output += e.stdout or ""
+            cmd_output += exec_wrap_check_output(a, _files)
     
     with open(sca_raw_result_file(d, "stank"), "w") as o:
         o.write(cmd_output)
