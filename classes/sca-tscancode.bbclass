@@ -90,13 +90,20 @@ def do_sca_conv_tscancode(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
+def exec_wrap_tool_exec_tscancode(args, files, stdout=None, stderr=None, **kwargs):
+    import subprocess
+    try:
+        x = subprocess.run(args + files, universal_newlines=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+        return x.stderr
+    except subprocess.CalledProcessError as e:
+        return e.stderr or ""
+
 do_sca_tscancode[vardepsexclude] += "BB_NUMBER_THREADS"
 python do_sca_tscancode() {
     import os
     import subprocess
     import shutil
 
-    xml_output = ""
     _args = ["tscancode"]
     _args += ["--xml"]
     _args += ["--enable=all"]
@@ -106,7 +113,7 @@ python do_sca_tscancode() {
         _args += ["-D{}{}".format(d.getVar("SCA_TSCANCODE_SYMBOL_PREFIX"), sym)]
     for x in [x for x in d.getVar("SCA_TSCANCODE_INCLUDE_PATHS") if x]:
         _args += ["-I", x]
-    _args += get_files_by_extention(d,    
+    _files = get_files_by_extention(d,    
                                     d.getVar("SCA_SOURCES_DIR"),    
                                     clean_split(d, "SCA_TSCANCODE_FILE_FILTER"),    
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
@@ -121,15 +128,14 @@ python do_sca_tscancode() {
     _curdir = os.getcwd()
     os.chdir(os.path.join(d.getVar("T"), "tscancode"))
 
-    try:
-        x = subprocess.run(_args, universal_newlines=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
-        cmd_output = x.stderr
-    except subprocess.CalledProcessError as e:
-        cmd_output = e.stderr or ""
-    os.chdir(_curdir)
+    xml_output = exec_wrap_check_output(_args, _files, 
+                                        combine=exec_wrap_combine_xml,
+                                        toolexec=exec_wrap_tool_exec_tscancode)
 
     with open(sca_raw_result_file(d, "tscancode"), "w") as o:
-        o.write(cmd_output)
+        o.write(xml_output)
+    
+    os.chdir(_curdir)
 }
 
 python do_sca_tscancode_report() {

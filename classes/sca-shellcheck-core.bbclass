@@ -64,15 +64,12 @@ python do_sca_shellcheck_core() {
     
     xml_output = ""
     for k,v in { "bash": "*./bash", "sh": "*./sh", "ksh": "*./ksh"}.items():
-        for item in get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), v, ".sh",
-                                                      sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))):
-            _t_args = _args + ["-s", k, item]
-            cmd_output = ""
-            try:
-                cmd_output = subprocess.check_output(_t_args, universal_newlines=True)
-            except subprocess.CalledProcessError as e:
-                cmd_output = e.stdout or ""
-            xml_output = xml_combine(d, xml_output, cmd_output)
+        _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), v, ".sh",
+                                                   sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), 
+                                                   clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+        _targs = _args + ["-s", k]
+        xml_output = xml_combine(d, xml_output, exec_wrap_check_output(_targs, _files, combine=exec_wrap_combine_xml))
+    
     with open(sca_raw_result_file(d, "shellcheck"), "w") as o:
         o.write(xml_output)
 }

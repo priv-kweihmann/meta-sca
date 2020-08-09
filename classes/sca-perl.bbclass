@@ -76,10 +76,7 @@ python do_sca_perl() {
 
     ## Run
     for f in _files:
-        try:
-            cmd_output += subprocess.check_output(_args + [f], universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            cmd_output += e.stdout or ""
+        cmd_output += exec_wrap_check_output(_args, [f])
     with open(sca_raw_result_file(d, "perl"), "w") as o:
         o.write(cmd_output)
 }

@@ -4,6 +4,7 @@
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-blacklist
+inherit sca-helper-exec
 
 DEPENDS += "${@oe.utils.ifelse(sca_is_module_blacklisted(d, 'foo'), '', 'python3-python-magic-native')}"
 

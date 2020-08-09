@@ -91,13 +91,8 @@ python do_sca_standard_core() {
 
     _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_STANDARD_FILE_FILTER"), \
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
-    cmd_output = ""
-    if any(_files):
-        _args += _files
-        try:
-            cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+
+    cmd_output = exec_wrap_check_output(_args, _files)
 
     with open(sca_raw_result_file(d, "standard"), "w") as o:
         o.write(cmd_output)

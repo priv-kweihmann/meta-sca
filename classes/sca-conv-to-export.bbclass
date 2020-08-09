@@ -34,7 +34,7 @@ def sca_conv_export_get_deployname(d, tool):
 def sca_conv_deploy(d, tool):
     import os
     import shutil
-    import os
+    import subprocess
 
     _dmsuffix = "dm"
     _rawsuffix = d.getVarFlag("SCA_RAW_RESULT_FILE", tool)
@@ -63,12 +63,10 @@ def sca_conv_deploy(d, tool):
                                 _exportformat,    
                                 "{}-*.{}".format(d.getVar("PN"), _exportsuffix))
         for item in [raw_target, dm_target, cs_target]:
-            for f in glob.glob(item):
-                try:
-                    os.remove(f)
-                except:
-                    ## Ignore any error here
-                    pass
+            try:
+                subprocess.check_call(["/bin/sh", "-c", "rm -f {}".format(item)])
+            except:
+                pass
 
     raw_target = os.path.join(d.getVar("SCA_EXPORT_DIR"),    
                               tool,    

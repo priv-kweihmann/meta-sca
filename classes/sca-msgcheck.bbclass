@@ -75,16 +75,8 @@ python do_sca_msgcheck() {
     _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), ".po", \
         sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     for f in _files:
-        try:
-            _targs = _args + [f]
-            cmd_output += subprocess.check_output(_targs, universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            cmd_output += e.stdout or ""
-        try:
-            _targs = _args + ["-c", f]
-            cmd_output += subprocess.check_output(_targs, universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            cmd_output += e.stdout or ""
+        cmd_output += exec_wrap_check_output(_args, [f])
+        cmd_output += exec_wrap_check_output(_args, ["-c", f])
     
     with open(sca_raw_result_file(d, "msgcheck"), "w") as o:
         o.write(cmd_output)
