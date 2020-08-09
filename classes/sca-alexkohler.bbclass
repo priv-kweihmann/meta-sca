@@ -58,6 +58,12 @@ def do_sca_conv_alexkohler(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
+def exec_wrap_combine_txt_alexkohler(a, b, **kwargs):
+    b = b.replace("[", "\n[")
+    lines = [x.strip() for x in b.split("\n") if x and not x.startswith("running on package")]
+    lines = ["[{}] {}".format(kwargs["mod"], x) for x in lines]
+    return a + "\n".join(lines) + "\n"
+
 python do_sca_alexkohler() {
     import os
     import subprocess
@@ -70,17 +76,10 @@ python do_sca_alexkohler() {
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run
+    cmd_output = ""
     if any(_files):
         for mod in clean_split(d, "SCA_ALEXKOHLER_MODULES"):
-            try:
-                tmp_output = subprocess.check_output([mod] + _files, universal_newlines=True, stderr=subprocess.STDOUT)
-            except subprocess.CalledProcessError as e:
-                tmp_output = e.stdout or ""
-            tmp_output = tmp_output.replace("[", "\n[")
-            lines = [x.strip() for x in tmp_output.split("\n") if x and not x.startswith("running on package")]
-            lines = ["[{}] {}".format(mod, x) for x in lines]
-            cmd_output += "\n".join(lines)
-            cmd_output += "\n"
+            cmd_output += exec_wrap_check_output([mod], _files, combine=exec_wrap_combine_txt_alexkohler, mod=mod)
     with open(sca_raw_result_file(d, "alexkohler"), "w") as o:
         o.write(cmd_output)
 }

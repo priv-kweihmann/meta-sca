@@ -60,16 +60,11 @@ python do_sca_slick_core() {
 
     _args = ["slick", "-n"]
 
-    ## Run
-    cmd_output = ""
-    
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*/(ba|k|mk)*sh", ".sh",
                                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
-    if any(_files):
-        try:
-            cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+    
+    ## Run
+    cmd_output = exec_wrap_check_output(_args, _files)
     with open(sca_raw_result_file(d, "slick"), "w") as o:
         o.write(cmd_output)
 }

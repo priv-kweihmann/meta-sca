@@ -64,19 +64,14 @@ python do_sca_golint() {
 
     _args = ["golint"]
 
-    cmd_output = ""
-
     _files = get_files_by_extention(d,    
                                     d.getVar("SCA_SOURCES_DIR"),    
                                     clean_split(d, "SCA_GOLINT_FILE_FILTER"),    
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run
-    if any(_files):
-        try:
-            cmd_output = subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+    cmd_output = exec_wrap_check_output(_args, _files)
+
     with open(sca_raw_result_file(d, "golint"), "w") as o:
         o.write(cmd_output)
 }

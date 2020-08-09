@@ -60,13 +60,29 @@ def do_sca_conv_rubycritic(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
+def exec_wrap_combine_json_rubycritic(a, b, **kwargs):
+    import json
+    try:
+        with open(kwargs["sourcefile"]) as i:
+            b = json.load(i)
+    except:
+        b = {"analysed_modules": {}}
+    
+    try:
+        a = json.loads(a)
+        for item in b["analysed_modules"]:
+            if not item in a["analysed_modules"]:
+                a["analysed_modules"][item] = {"smells": []}
+            a["analysed_modules"][item]["smells"] += b["analysed_modules"][item]["smells"]
+    except:
+        a = b
+    return json.dumps(a)
+
 python do_sca_rubycritic() {
     import os
     import json
     import shutil
     import subprocess
-
-    cmd_output = ""
 
     ## Run
     os.environ["RUBYLIB"] = os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "ruby/")
@@ -80,18 +96,12 @@ python do_sca_rubycritic() {
     
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*ruby", d.getVar("SCA_RUBYCRITIC_FILE_FILTER"), \
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
-    
-    if any(_files):    
-        try:
-            subprocess.check_call(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            pass
+     
+    cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json_rubycritic, default={"analyzed_modules": []}, 
+                                        sourcefile=d.expand("${T}/rubycritic/report.json"))
 
-    if os.path.exists(d.expand("${T}/rubycritic/report.json")):
-        try:
-            shutil.copy(d.expand("${T}/rubycritic/report.json"), sca_raw_result_file(d, "rubycritic"))
-        except:
-            pass
+    with open(sca_raw_result_file(d, "wotan"), "w") as o:
+        o.write(cmd_output)
 }
 
 python do_sca_rubycritic_report() {

@@ -301,17 +301,8 @@ python do_sca_myfoolint() {
                                     ".example",
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
-    # Create a reference where to store the raw result of the tool
-    cmd_output = ""
-
-    # If any files found run the tool
-    if any(_files):
-        # Most of the tools return a non-zero exit code in case of a finding
-        # so we need to handle this by the following try/except block
-        try:
-            cmd_output += subprocess.check_output(_args + _files_, universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            cmd_output += e.stdout or ""
+    # Run the command wrapper, this will automatically execute the tool
+    cmd_output = exec_wrap_check_output(_args, _files)
 
     # Write raw result to referenced file
     with open(sca_raw_result_file(d, "myfoolint"), "w") as o:

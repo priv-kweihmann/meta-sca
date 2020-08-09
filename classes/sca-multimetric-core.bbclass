@@ -217,12 +217,7 @@ python do_sca_multimetric_core() {
                                     d.getVar("SCA_SOURCES_DIR"),    
                                     clean_split(d, "SCA_MULTIMETRIC_FILE_FILTER"),    
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
-    cmd_output = "{}"
-    if any(_files):
-        try:
-            cmd_output = subprocess.check_output(_args + _files, universal_newlines=True)
-        except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+    cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json_subarray, key="files", default_val={"files":[]})
     
     with open(sca_raw_result_file(d, "multimetric"), "w") as o:
         if not cmd_output:

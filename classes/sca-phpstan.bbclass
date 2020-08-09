@@ -68,8 +68,6 @@ python do_sca_phpstan() {
     import os
     import subprocess
 
-    cmd_output = ""
-
     ## Run
     _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "phpstan/vendor/bin/phpstan")]
     _args += ["analyse"]
@@ -81,11 +79,8 @@ python do_sca_phpstan() {
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*php", [".php"], \
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     
-    if any(_files):    
-        try:
-            cmd_output += subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            cmd_output += e.stdout or ""
+    cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json_subdict, key="files",
+                                        default_val={"files": {}})
 
     with open(sca_raw_result_file(d, "phpstan"), "w") as o:
         o.write(cmd_output)
