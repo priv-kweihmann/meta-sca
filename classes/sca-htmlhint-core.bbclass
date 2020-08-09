@@ -65,13 +65,8 @@ python do_sca_htmlhint_core() {
 
     _args = ["htmlhint"]
     _args += ["-f", "unix"]
-    _args += [d.getVar("SCA_SOURCES_DIR") + "/"]
 
-    cmd_output = ""
-    try:
-        cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
-    except subprocess.CalledProcessError as e:
-        cmd_output = e.stdout or ""
+    cmd_output = exec_wrap_check_output(_args, [d.getVar("SCA_SOURCES_DIR") + "/"])
     
     with open(sca_raw_result_file(d, "htmlhint"), "w") as o:
         o.write(cmd_output)

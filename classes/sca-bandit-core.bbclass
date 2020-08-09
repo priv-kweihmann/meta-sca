@@ -66,6 +66,21 @@ def do_sca_conv_bandit(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
+def exec_wrap_combine_json_bandit(a, b, **kwargs):
+    import json
+    try:
+        with open(kwargs["sourcefile"]) as i:
+            b = json.load(i)
+    except:
+        b = {"results": []}
+    
+    try:
+        a = json.loads(a)
+        a["results"] += b["results"]
+    except:
+        a = b
+    return json.dumps(a)
+
 python do_sca_bandit_core() {
     import os
     import subprocess
@@ -77,16 +92,13 @@ python do_sca_bandit_core() {
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_PYTHON_SHEBANG"), ".py",
                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
-    with open(sca_raw_result_file(d, "bandit"), "w") as o:
-        json.dump([], o)
 
-    if any(_files):
-        _args += _files
-        cmd_output = ""
-        try:
-            cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+    cmd_output = exec_wrap_check_output(_args, _files, 
+                                        combine=exec_wrap_combine_json_bandit, default_val={"results": []},
+                                        sourcefile=sca_raw_result_file(d, "bandit"))
+
+    with open(sca_raw_result_file(d, "bandit"), "w") as o:
+        o.write(cmd_output)
 }
 
 python do_sca_bandit_core_report() {

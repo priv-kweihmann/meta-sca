@@ -61,9 +61,6 @@ python do_sca_reek() {
     import os
     import subprocess
 
-    cmd_output = ""
-
-    ## Run
     os.environ["RUBYLIB"] = os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "ruby/")
     os.environ["GEM_DIR"] = os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "ruby/gems/")
     os.environ["GEM_HOME"] = os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "ruby/gems/")
@@ -74,12 +71,8 @@ python do_sca_reek() {
     
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*ruby", d.getVar("SCA_REEK_FILE_FILTER"), \
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
-    
-    if any(_files):    
-        try:
-            cmd_output += subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            cmd_output += e.stdout or ""
+    ## Run
+    cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json, default_val={})
 
     with open(sca_raw_result_file(d, "reek"), "w") as o:
         o.write(cmd_output)

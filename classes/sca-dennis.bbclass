@@ -71,6 +71,7 @@ python do_sca_dennis() {
 
     _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), ".po .pot", \
         sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+    
     for f in _files:
         try:
             _targs = _args + [f]

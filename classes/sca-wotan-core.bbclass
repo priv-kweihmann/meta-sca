@@ -59,6 +59,21 @@ def do_sca_conv_wotan(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
+def exec_wrap_combine_json_wotan(a, b, **kwargs):
+    import json
+    try:
+        b = "\n".join([x for x in b.split("\n") if not x.startswith("Rule") and not x.endswith("requires type information.")])
+        b = json.loads(b)
+    except:
+        b = []
+    
+    try:
+        a = json.loads(a)
+        a += b
+    except:
+        a = b
+    return json.dumps(a)
+
 python do_sca_wotan_core() {
     import os
     import subprocess
@@ -70,15 +85,8 @@ python do_sca_wotan_core() {
 
     _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_WOTAN_FILE_FILTER"), \
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
-    cmd_output = ""
-    if any(_files):
-        _args += _files
-        try:
-            cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
-    
-    cmd_output = "\n".join([x for x in cmd_output.split("\n") if not x.startswith("Rule") and not x.endswith("requires type information.")])
+
+    cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json_wotan, default_val=[])
 
     with open(sca_raw_result_file(d, "wotan"), "w") as o:
         o.write(cmd_output)

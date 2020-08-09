@@ -102,7 +102,7 @@ python do_sca_oelint_core() {
         json.dump(_contantcontent, o)
 
     _args = ['nativepython3', '-m', 'oelint_adv']
-    _args += ["--output={}".format(sca_raw_result_file(d, "oelint"))]
+    _args += ["--quiet"]
     _args += ["--constantfile={}".format(_constantfile)]
     if bb.data.inherits_class('image', d):
         # On images we don't need certain rules
@@ -113,15 +113,10 @@ python do_sca_oelint_core() {
         _args += ["--customrules={}".format(x)]
     _files = [x.strip() for x in d.getVar("BBINCLUDED").split(" ") if x.strip().endswith(".bb") or x.strip().endswith(".bbappend")]
 
-    with open(sca_raw_result_file(d, "oelint"), "w") as o:
-        o.write("")
+    cmd_output = exec_wrap_check_output(_args, _files)
 
-    if any(_files):
-        _args += _files
-        try:
-            subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            pass
+    with open(sca_raw_result_file(d, "oelint"), "w") as o:
+        o.write(cmd_output)
 
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/oelint.dm".format(d.getVar("T")))

@@ -76,12 +76,7 @@ python do_sca_pysymcheck() {
                                    "application/x-pie-executable", "application/x-pie-sharedlib"],
                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     ## Run
-    cmd_output = ""
-    for _f in _files:
-        try:
-            cmd_output += subprocess.check_output(_args + [_f], universal_newlines=True)
-        except subprocess.CalledProcessError as e:
-            cmd_output += e.stdout or ""
+    cmd_output = exec_wrap_check_output(_args, _files, chunk_size=1)
     with open(sca_raw_result_file(d, "pysymcheck"), "w") as o:
         o.write(cmd_output)
     
