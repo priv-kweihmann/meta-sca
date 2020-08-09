@@ -79,8 +79,6 @@ python do_sca_phan() {
     import os
     import subprocess
 
-    cmd_output = ""
-
     os.makedirs(os.path.join(d.getVar("T"), "phanout"), exist_ok=True)
     ## Run
     os.environ["PHP_INI_SCAN_DIR"] = os.path.dirname(d.getVar("PHP_INI_FILE"))
@@ -97,17 +95,9 @@ python do_sca_phan() {
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*php", [".php"], \
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     
-    if any(_files):    
-        try:
-            cmd_output += subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            cmd_output += e.stdout or ""
+    cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json, default_val=[])
 
     with open(sca_raw_result_file(d, "phan"), "w") as o:
-        if not cmd_output.startswith("[") and "[" in cmd_output:
-            cmd_output = cmd_output[cmd_output.find("["):]
-        elif not cmd_output.startswith("["):
-            cmd_output = "[]"
         o.write(cmd_output)
 }
 

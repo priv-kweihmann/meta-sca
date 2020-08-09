@@ -74,18 +74,12 @@ python do_sca_cpplint() {
     _args += ["--quiet"]
     _args += ["--root={}".format(d.getVar("B", True))]
 
-    ## Run
-    cmd_output = ""
     _files = get_files_by_extention(d,    
                                     d.getVar("SCA_SOURCES_DIR"),    
                                     clean_split(d, "SCA_CPPLINT_FILE_FILTER"),    
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
-    if any(_files):
-        _args += _files
-        try:
-            cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            cmd_output = e.stdout or ""
+    ## Run
+    cmd_output = exec_wrap_check_output(_args, _files)
 
     with open(sca_raw_result_file(d, "cpplint"), "w") as o:
         o.write(cmd_output)

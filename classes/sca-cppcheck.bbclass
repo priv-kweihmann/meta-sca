@@ -90,6 +90,14 @@ def do_sca_conv_cppcheck(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
+def exec_wrap_combine_xml_cppcheck(a, b, **kwargs):
+    try:
+        with open(kwargs["sourcefile"]) as i:
+            b = i.read()
+    except:
+        b = ""
+    return xml_combine(None, a, b)
+
 do_sca_cppcheck[vardepsexclude] += "BB_NUMBER_THREADS"
 python do_sca_cppcheck() {
     import os
@@ -136,13 +144,14 @@ python do_sca_cppcheck() {
     old_cwd = os.getcwd()
     os.chdir(d.getVar("T"))
 
-    cmd_output = ""
-    try:
-        cmd_output = subprocess.check_output(_args, universal_newlines=True)
-    except subprocess.CalledProcessError as e:
-        cmd_output = e.stdout or ""
+    _def = '<results version="2"><cppcheck version="2.1" /><errors/></results>'
+    cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_xml_cppcheck, 
+                                        default_val=_def, sourcefile=sca_raw_result_file(d, "cppcheck"))
 
     os.chdir(old_cwd)
+
+    with open(sca_raw_result_file(d, "cppcheck"), "w") as o:
+        o.write(cmd_output)
 }
 
 python do_sca_cppcheck_report() {

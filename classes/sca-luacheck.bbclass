@@ -71,12 +71,8 @@ python do_sca_luacheck() {
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*/lua", ".lua",
                                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     ## Run
-    cmd_output = ""
-    if any(_files):
-        try:
-            cmd_output += subprocess.check_output(_args + _files, universal_newlines=True)
-        except subprocess.CalledProcessError as e:
-            cmd_output += e.stdout or ""
+    cmd_output = exec_wrap_check_output(_args, _files)
+    
     with open(sca_raw_result_file(d, "luacheck"), "w") as o:
         o.write(cmd_output)
 }

@@ -76,8 +76,6 @@ python do_sca_perlcritic() {
     _args += ["--nocolor", "--brutal"]
     _args += ["--verbose", '%f: [%p] %m at line %l, column %c.  (Severity: %s)\n']
 
-    cmd_output = ""
-
     _files = get_files_by_extention_or_shebang(d,    
                                                 d.getVar("SCA_SOURCES_DIR"),
                                                 ".*/perlcritic",
@@ -85,11 +83,8 @@ python do_sca_perlcritic() {
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run
-    if any(_files):
-        try:
-            cmd_output += subprocess.check_output(_args + _files, universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            cmd_output += e.stdout or ""
+    cmd_output = exec_wrap_check_output(_args, _files)
+
     with open(sca_raw_result_file(d, "perlcritic"), "w") as o:
         o.write(cmd_output)
 }
