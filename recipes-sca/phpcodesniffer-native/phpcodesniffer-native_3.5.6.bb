@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://licence.txt;md5=562f463f305c4d32b4fad9a4b03ad678"
 
 SRC_URI = "git://github.com/squizlabs/PHP_CodeSniffer.git;protocol=https \
            file://phpcodesniffer.sca.description"
-SRCREV = "73e2e7f57d958e7228fce50dc0c61f58f017f9f6"
+SRCREV = "e97627871a7eab2f70e59166072a6b767d5834e0"
 PHPCOMPOSER_PKGS_NAME = "squizlabs/php_codesniffer=${PV}"
 
 S = "${WORKDIR}/git"
