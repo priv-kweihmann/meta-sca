@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=60f8103054954b2c75f1faa295ea3590"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001112.tgz"
-SRC_URI[md5sum] = "ac7b2c371da0fa1518e3e43b3af5977e"
-SRC_URI[sha256sum] = "ac1e51f723ecaee845693f494265dd500ad5a14502c74259013a3394aa5f4e0c"
+SRC_URI = "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001113.tgz"
+SRC_URI[md5sum] = "76555c5eab61a6c804f5fa317eb832ba"
+SRC_URI[sha256sum] = "276cc26707e37f8187b3486ec61bdd03787cefa76bd507becf03af7017ca29bf"
 
 NPM_PKGNAME = "caniuse-lite"
 
