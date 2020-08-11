@@ -58,7 +58,7 @@ python sca_invoke_handler() {
         sca_mask_vars(d)
         return
     if bb.data.inherits_class('externalsrc', d):
-        bb.warn(2, "Skip {} because of being under control of devtool".format(d.getVar("PN")))
+        bb.debug(2, "Skip {} because of being under control of devtool".format(d.getVar("PN")))
         sca_mask_vars(d)
         return
     # Check if the file should be spared
