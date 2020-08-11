@@ -5,9 +5,7 @@ HOMEPAGE = "https://github.com/sindresorhus/meow#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
-DEPENDS = "npm-arrify-native \
-           npm-camelcase-keys-native \
-           npm-camelcase-native \
+DEPENDS = "npm-camelcase-keys-native \
            npm-decamelize-keys-native \
            npm-hard-rejection-native \
            npm-minimist-options-native \
@@ -19,9 +17,9 @@ DEPENDS = "npm-arrify-native \
            npm-types-minimist-native \
            npm-yargs-parser-native"
 
-SRC_URI = "https://registry.npmjs.org/meow/-/meow-7.0.1.tgz"
-SRC_URI[md5sum] = "0bcd763545abdd58f130c652851e0346"
-SRC_URI[sha256sum] = "77b3589d7c16d101ae5ed7a9d0d34246f383c102a058d715f1cd96be9af4c5aa"
+SRC_URI = "https://registry.npmjs.org/meow/-/meow-7.1.0.tgz"
+SRC_URI[md5sum] = "64f61430a6025dbcd1a041479baf0d1a"
+SRC_URI[sha256sum] = "e6aff605afa86b97d77c7f189df1a065d590eaf9a6da3f986cf5ed72a95ad5ab"
 
 NPM_PKGNAME = "meow"
 
