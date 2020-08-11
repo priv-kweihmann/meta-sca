@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=3b324af8e79986f4a5621efa85dd1292"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/@babel/parser/-/parser-7.11.2.tgz"
-SRC_URI[md5sum] = "b4ad229c6efdb8b969e5bea999d31b4e"
-SRC_URI[sha256sum] = "f48de2e26e231b89b3178fa702bb41c1155a03656d004025fe623d9b32dc350c"
+SRC_URI = "https://registry.npmjs.org/@babel/parser/-/parser-7.11.3.tgz"
+SRC_URI[md5sum] = "f264bce5dbef5e1c4bc5ce64498128f0"
+SRC_URI[sha256sum] = "435b3d78c267a0cda53ee731239bc298c465ff71a0b855061abf941628ca4081"
 
 NPM_PKGNAME = "@babel/parser"
 
