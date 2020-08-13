@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=ff6f181928a91d8631d565516b4db3cb"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/aws4/-/aws4-1.10.0.tgz"
-SRC_URI[md5sum] = "b2449337ea0cd04f695f88f2323365d8"
-SRC_URI[sha256sum] = "c68d781e6c40ef0c21fa3dd3a392e6ce6bebeb2d0b9124e0ac13558fd7999996"
+SRC_URI = "https://registry.npmjs.org/aws4/-/aws4-1.10.1.tgz"
+SRC_URI[md5sum] = "f080e0add75ed2571726233bad469d6b"
+SRC_URI[sha256sum] = "0bc2224ea933ba1552a75c6e7bc0c4f51e447881608af6af65255900901cd749"
 
 NPM_PKGNAME = "aws4"
 
