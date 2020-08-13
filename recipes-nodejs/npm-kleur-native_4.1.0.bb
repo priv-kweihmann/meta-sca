@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=75a8a6449fca39883a2bcfd1d6ddac5a"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/kleur/-/kleur-4.0.3.tgz"
-SRC_URI[md5sum] = "cce6806a829a8274096638eb870a36ad"
-SRC_URI[sha256sum] = "92d2bcfb57fab73fef767fdc6be5f5b35bf5b89c505fadd5da7230fc48cf4433"
+SRC_URI = "https://registry.npmjs.org/kleur/-/kleur-4.1.0.tgz"
+SRC_URI[md5sum] = "3478a1d92c0cc7df25e7d88ec7f10d1c"
+SRC_URI[sha256sum] = "3b326b1e8c3e5a33582e1299565673909ee799d411a535ee723b438f3a86bca7"
 
 NPM_PKGNAME = "kleur"
 
