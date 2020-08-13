@@ -12,9 +12,9 @@ DEPENDS = "npm-colors-native \
            npm-read-installed-native \
            npm-walkdir-native"
 
-SRC_URI = "https://registry.npmjs.org/retire/-/retire-2.2.1.tgz"
-SRC_URI[md5sum] = "4be814239b2f7eccb4224e8e08767b89"
-SRC_URI[sha256sum] = "364b566e78054952e5af06a71e081f54233683edc4b9c42330981067ab513c58"
+SRC_URI = "https://registry.npmjs.org/retire/-/retire-2.2.2.tgz"
+SRC_URI[md5sum] = "4beb6acb47b4147a515a7b1f2b047ce2"
+SRC_URI[sha256sum] = "7d6d6c5fbd8b7aec2d1673180a4e1c64c0ebb6200d1b9e0212d801581c5832db"
 
 NPM_PKGNAME = "retire"
 
