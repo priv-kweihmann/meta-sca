@@ -42,9 +42,9 @@ DEPENDS = "npm-comment-json-native \
            npm-minimatch-native \
            npm-vscode-uri-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-lib/-/cspell-lib-4.1.29.tgz"
-SRC_URI[md5sum] = "93d6411be6787b09180105f793d223fe"
-SRC_URI[sha256sum] = "0b21842de11ec9e324f462b9d358865c013df2038eb46c37d8555ea7c1017705"
+SRC_URI = "https://registry.npmjs.org/cspell-lib/-/cspell-lib-4.2.0.tgz"
+SRC_URI[md5sum] = "0716449d5eae499b416785f581dc6612"
+SRC_URI[sha256sum] = "b6a115970df63df80f7f8bf45b98c6ea98d78e6f4e2fbb34ad4b20615d82c369"
 
 NPM_PKGNAME = "cspell-lib"
 
