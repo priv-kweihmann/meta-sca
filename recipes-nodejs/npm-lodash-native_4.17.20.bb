@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=8e2fca844c70b3833d7228885447c026"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/lodash/-/lodash-4.17.19.tgz"
-SRC_URI[md5sum] = "22620eb26b71c4204b4179443d216285"
-SRC_URI[sha256sum] = "d36e4d3da7ef0b9d6a60d1a9ca49d0acfe2213041b0ad56373176922255e415f"
+SRC_URI = "https://registry.npmjs.org/lodash/-/lodash-4.17.20.tgz"
+SRC_URI[md5sum] = "60078ec6d9e76b89fb55c860832742b2"
+SRC_URI[sha256sum] = "d2aa8c6afc3c8591765785a37d1c5acae482a8eb3ab9729ed28922692454f2e2"
 
 NPM_PKGNAME = "lodash"
 
