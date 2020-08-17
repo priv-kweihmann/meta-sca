@@ -68,11 +68,11 @@ def create_inventory(d, target_path):
     }
     for item in clean_split(d, "_SCA_ANSIBLE_GLOBAL_VARS"):
         inv["all"]["vars"][item] = d.getVar("SCA_ANSIBLE_PATH_{}".format(item))
-    
+
     with open(target_path, "w") as out:
         yaml.dump(inv, out)
 
-def create_configuration(d, target_path):   
+def create_configuration(d, target_path):
     with open(target_path, "w") as out:
         out.write("[defaults]\n")
         out.write(d.expand("local_tmp = ${T}\n"))
@@ -117,7 +117,7 @@ def _get_finding_severity(d, pb_key, tk_node, item):
 def do_sca_conv_ansible(d):
     import os
     import json
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -127,7 +127,7 @@ def do_sca_conv_ansible(d):
         "info": "info"
     }
 
-    __suppress = sca_suppress_init(d, "SCA_ANSIBLE_EXTRA_SUPPRESS", 
+    __suppress = sca_suppress_init(d, "SCA_ANSIBLE_EXTRA_SUPPRESS",
                                    d.expand("${STAGING_DATADIR_NATIVE}/ansible-${SCA_MODE}-suppress"))
     __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
@@ -179,7 +179,7 @@ python do_sca_ansible() {
     import json
     import glob
     import subprocess
-    
+
     _inventory = "ansible_inv.yaml"
     _configuration = "ansible.cfg"
     create_inventory(d, _inventory)
@@ -216,7 +216,7 @@ python do_sca_ansible() {
 
     with open(sca_raw_result_file(d, "ansible"), "w") as o:
         json.dump(json_output, o)
-    
+
     os.remove(_inventory)
 
     ## Create data model
@@ -225,7 +225,7 @@ python do_sca_ansible() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "ansible", get_fatal_entries(d, "SCA_CPPCHECK_EXTRA_FATAL", 
+    sca_task_aftermath(d, "ansible", get_fatal_entries(d, "SCA_CPPCHECK_EXTRA_FATAL",
                        d.expand("${STAGING_DATADIR_NATIVE}/ansible-${SCA_MODE}-fatal")))
 }
 

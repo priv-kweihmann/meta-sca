@@ -65,7 +65,7 @@ def sca_conv_dm_sarif(d, tool):
                     bb.note("SCA_EXPORT_FINDING_SRC-error: {}".format(e))
         else:
             _fname = _srcname
-        
+
         # Add tool info
         res["runs"][0]["results"].append({
             "ruleId": i.GetFormattedID(),

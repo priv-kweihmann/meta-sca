@@ -20,7 +20,7 @@ inherit python3native
 def do_sca_conv_pysymcheck(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -71,7 +71,7 @@ python do_sca_pysymcheck() {
     if not os.path.exists(os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "pysymbolcheck", d.getVar("SCA_PYSYMCHECK_RULE_FILE"))):
         bb.warn("Rule-File {} does not exists - Empty results will be expected".format(d.getVar("SCA_PYSYMCHECK_RULE_FILE")))
 
-    _files = get_files_by_mimetype(d, d.getVar("D"), 
+    _files = get_files_by_mimetype(d, d.getVar("D"),
                                   ["application/x-executable", 'application/x-sharedlib',
                                    "application/x-pie-executable", "application/x-pie-sharedlib"],
                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
@@ -79,7 +79,7 @@ python do_sca_pysymcheck() {
     cmd_output = exec_wrap_check_output(_args, _files, chunk_size=1)
     with open(sca_raw_result_file(d, "pysymcheck"), "w") as o:
         o.write(cmd_output)
-    
+
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/pysymcheck.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_pysymcheck(d)

@@ -33,5 +33,5 @@ def sca_conv_dm_console(d, tool):
     for i in _items:
         res.append("[{}] {} :{}:{} - {} - [{}]".format(i.Severity, i.GetPath(), i.Line, i.Column, i.Message, i.GetFormattedID()))
         bb.warn(res[-1])
-    
+
     return "\n".join(res)

@@ -21,7 +21,7 @@ def do_sca_conv_golint(d):
     import os
     import re
     import hashlib
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -64,9 +64,9 @@ python do_sca_golint() {
 
     _args = ["golint"]
 
-    _files = get_files_by_extention(d,    
-                                    d.getVar("SCA_SOURCES_DIR"),    
-                                    clean_split(d, "SCA_GOLINT_FILE_FILTER"),    
+    _files = get_files_by_extention(d,
+                                    d.getVar("SCA_SOURCES_DIR"),
+                                    clean_split(d, "SCA_GOLINT_FILE_FILTER"),
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run
@@ -97,7 +97,7 @@ python do_sca_deploy_golint() {
 do_sca_golint[doc] = "Lint go files with golint"
 do_sca_golint_report[doc] = "Report findings of do_sca_golint"
 do_sca_deploy_golint[doc] = "Deploy results of do_sca_golint"
-addtask do_sca_golint after do_configure before do_sca_tracefiles 
+addtask do_sca_golint after do_configure before do_sca_tracefiles
 addtask do_sca_golint_report after do_sca_tracefiles
 addtask do_sca_deploy_golint after do_sca_golint_report before do_package
 

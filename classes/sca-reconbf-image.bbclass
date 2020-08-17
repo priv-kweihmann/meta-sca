@@ -21,14 +21,14 @@ def do_sca_conv_reconbf(d):
     import os
     import json
     import hashlib
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     items = []
 
     __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
-    _suppress = sca_suppress_init(d, "SCA_RECONBF_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_RECONBF_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/reconbf-${SCA_MODE}-suppress"))
     _findings = []
 

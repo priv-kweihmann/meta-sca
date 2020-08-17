@@ -22,12 +22,12 @@ inherit php-ext
 def do_sca_conv_phan(d):
     import os
     import json
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
-    
+
     _findings = []
-    _suppress = sca_suppress_init(d, "SCA_PHAN_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_PHAN_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/phan-${SCA_MODE}-suppress"))
 
     _severity_map = {
@@ -91,10 +91,10 @@ python do_sca_phan() {
     _args += ["-t"]
     _args += ["-u"]
     _args += ["-z"]
-    
+
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*php", [".php"], \
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
-    
+
     cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json, default_val=[])
 
     with open(sca_raw_result_file(d, "phan"), "w") as o:
@@ -109,7 +109,7 @@ python do_sca_phan_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "phan", get_fatal_entries(d, "SCA_PHAN_EXTRA_FATAL", 
+    sca_task_aftermath(d, "phan", get_fatal_entries(d, "SCA_PHAN_EXTRA_FATAL",
                         d.expand("${STAGING_DATADIR_NATIVE}/phan-${SCA_MODE}-fatal")))
 }
 

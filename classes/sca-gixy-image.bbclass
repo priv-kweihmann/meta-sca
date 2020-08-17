@@ -20,7 +20,7 @@ def do_sca_conv_gixy(d, cmd_output=""):
     import os
     import re
     import json
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -101,7 +101,7 @@ python do_sca_gixy() {
     _file = d.getVar("SCA_GIXY_NGINX_CONF")
     if os.path.isabs(_file):
         _file = _file.lstrip("/")
-    
+
     if os.path.exists(os.path.join(d.getVar("SCA_SOURCES_DIR"), _file)):
         _args = ["gixy"]
         _args += ["--root-dir={}".format(d.getVar("SCA_SOURCES_DIR"))]
@@ -109,17 +109,17 @@ python do_sca_gixy() {
         _args += ["-l"]
         _args += ["-o", sca_raw_result_file(d, "gixy")]
         _args += [d.getVar("SCA_GIXY_NGINX_CONF")]
-    
+
         try:
             cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or ""
-    
+
     if not os.path.exists(sca_raw_result_file(d, "gixy")):
         import json
         with open(sca_raw_result_file(d, "gixy"), "w") as o:
             json.dump([], o)
-    
+
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/gixy.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_gixy(d, cmd_output)

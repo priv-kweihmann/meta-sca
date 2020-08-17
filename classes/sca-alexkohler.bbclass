@@ -22,7 +22,7 @@ def do_sca_conv_alexkohler(d):
     import os
     import re
     import hashlib
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -67,12 +67,12 @@ def exec_wrap_combine_txt_alexkohler(a, b, **kwargs):
 python do_sca_alexkohler() {
     import os
     import subprocess
-    
+
     cmd_output = ""
 
-    _files = get_files_by_extention(d,    
-                                    d.getVar("SCA_SOURCES_DIR"),    
-                                    clean_split(d, "SCA_ALEXKOHLER_FILE_FILTER"),    
+    _files = get_files_by_extention(d,
+                                    d.getVar("SCA_SOURCES_DIR"),
+                                    clean_split(d, "SCA_ALEXKOHLER_FILE_FILTER"),
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run

@@ -57,7 +57,7 @@ def sca_get_trace_files(d):
 
             if not isinstance(cmd_out, str):
                 cmd_out = cmd_out.decode('utf-8')
-        
+
             _res.update([x for x in cmd_out.split("\n") if x])
         if _mode == "loose":
             # in loose mode include all files that are specified by include filter

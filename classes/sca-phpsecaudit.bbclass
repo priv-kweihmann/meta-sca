@@ -19,12 +19,12 @@ inherit sca-tracefiles
 def do_sca_conv_phpsecaudit(d):
     import os
     import json
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
-    
+
     _findings = []
-    _suppress = sca_suppress_init(d, "SCA_PHPSECAUDIT_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_PHPSECAUDIT_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/phpsecaudit-${SCA_MODE}-suppress"))
 
     _severity_map = {
@@ -78,10 +78,10 @@ python do_sca_phpsecaudit() {
     _args += ["-s"]
     _args += ["--report=json"]
     _args += ["--standard=Security"]
-    
+
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*php", d.getVar("SCA_PHPSECAUDIT_FILE_FILTER"), \
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
-    
+
     cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json_subdict, key="files", default_val={"files": {}})
 
     with open(sca_raw_result_file(d, "phpsecaudit"), "w") as o:

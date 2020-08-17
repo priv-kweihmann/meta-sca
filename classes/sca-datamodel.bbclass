@@ -39,7 +39,7 @@ def sca_get_model_class(d, **kwargs):
         @property
         def File(self):
             return self.__File
-    
+
         @File.setter
         def File(self, value):
             self.__File = value
@@ -48,7 +48,7 @@ def sca_get_model_class(d, **kwargs):
         @property
         def Scope(self):
             return self.__Scope
-    
+
         @Scope.setter
         def Scope(self, value):
             self.__Scope = value
@@ -56,7 +56,7 @@ def sca_get_model_class(d, **kwargs):
         @property
         def BuildPath(self):
             return self.__BuildPath
-    
+
         @BuildPath.setter
         def BuildPath(self, value):
             self.__BuildPath = value
@@ -65,7 +65,7 @@ def sca_get_model_class(d, **kwargs):
         @property
         def Line(self):
             return self.__Line
-    
+
         @Line.setter
         def Line(self, value):
             self.__Line = value
@@ -73,15 +73,15 @@ def sca_get_model_class(d, **kwargs):
         @property
         def Column(self):
             return self.__Column
-    
+
         @Column.setter
         def Column(self, value):
             self.__Column = value
-    
+
         @property
         def Severity(self):
             return self.__Severity
-    
+
         @Severity.setter
         def Severity(self, value):
             self.__Severity = value
@@ -90,7 +90,7 @@ def sca_get_model_class(d, **kwargs):
         @property
         def Message(self):
             return self.__Message
-    
+
         @Message.setter
         def Message(self, value):
             self.__Message = value
@@ -98,7 +98,7 @@ def sca_get_model_class(d, **kwargs):
         @property
         def ID(self):
             return self.__ID
-    
+
         @ID.setter
         def ID(self, value):
             self.__ID = value
@@ -107,7 +107,7 @@ def sca_get_model_class(d, **kwargs):
         @property
         def PackageName(self):
             return self.__PackageName
-    
+
         @PackageName.setter
         def PackageName(self, value):
             self.__PackageName = value
@@ -115,15 +115,15 @@ def sca_get_model_class(d, **kwargs):
         @property
         def Tool(self):
             return self.__Tool
-    
+
         @Tool.setter
         def Tool(self, value):
             self.__Tool = value
-    
+
         @property
         def SevTrans(self):
             return self.__SevTrans
-    
+
         @SevTrans.setter
         def SevTrans(self, value):
             self.__SevTrans = value
@@ -142,7 +142,7 @@ def sca_get_model_class(d, **kwargs):
                 return
             if not self.__ID or not self.__description:
                 return
-    
+
             import re
             _id = self.GetFormattedID()
             for s in ["security", "functional", "compliance", "style"]:
@@ -154,7 +154,7 @@ def sca_get_model_class(d, **kwargs):
                         break
                 if self.__Scope:
                     break
-    
+
         def __fixupPaths(self):
             if self.__File:
                 if self.__BuildPath:
@@ -167,7 +167,7 @@ def sca_get_model_class(d, **kwargs):
                         self.__File = self.__File.lstrip(".")
                 if self.__File.startswith("/"):
                     self.__File = self.__File.lstrip("/")
-    
+
         def __sev_transform(self):
             import re
             if self.__SevTrans and self.__ID and self.__Severity:
@@ -188,7 +188,7 @@ def sca_get_model_class(d, **kwargs):
 
         def GetFormattedMessage(self):
             return "[Package:{} Tool:{}] {}".format(self.__PackageName, self.__Tool, self.__Message)
-    
+
         def GetFormattedID(self):
             res = self.GetPlainID()
             if res.startswith("{}.{}".format(self.__Tool, self.__Tool)):
@@ -218,11 +218,11 @@ def sca_get_model_class(d, **kwargs):
         @staticmethod
         def FromDict(_in):
             return SCADataModel(**_in)
-    
+
         @staticmethod
         def FromList(_in):
             return [SCADataModel.FromDict(x) for x in _in]
-    
+
         def ToDict(self):
             return {k:getattr(self,k) for k in ["File", "BuildPath", "Line", "Column", "Severity", "Message", "ID", "PackageName", "Tool", "Scope"] if getattr(self,k)}
 

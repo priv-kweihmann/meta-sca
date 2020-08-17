@@ -19,7 +19,7 @@ inherit python3native
 def do_sca_conv_dennis(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -71,7 +71,7 @@ python do_sca_dennis() {
 
     _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), ".po .pot", \
         sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
-    
+
     for f in _files:
         try:
             _targs = _args + [f]
@@ -84,7 +84,7 @@ python do_sca_dennis() {
             prefix = "{}: ".format(f)
             cmd_output = prefix + prefix.join(cmd_output.splitlines(True))
         allrun_output += cmd_output
-    
+
     with open(sca_raw_result_file(d, "dennis"), "w") as o:
         o.write(allrun_output)
 

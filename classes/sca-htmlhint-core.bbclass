@@ -17,7 +17,7 @@ inherit sca-suppress
 def do_sca_conv_htmlhint(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -67,7 +67,7 @@ python do_sca_htmlhint_core() {
     _args += ["-f", "unix"]
 
     cmd_output = exec_wrap_check_output(_args, [d.getVar("SCA_SOURCES_DIR") + "/"])
-    
+
     with open(sca_raw_result_file(d, "htmlhint"), "w") as o:
         o.write(cmd_output)
 }

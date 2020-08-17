@@ -20,7 +20,7 @@ inherit sca-tracefiles
 def do_sca_conv_gosec(d):
     import os
     import json
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -73,7 +73,7 @@ def exec_wrap_combine_json_gosec(a, b, **kwargs):
             b = json.load(i)
     except:
         b = {"Issues": []}
-    
+
     try:
         a = json.loads(a)
         a["Issues"] += b["Issues"]
@@ -89,9 +89,9 @@ python do_sca_gosec() {
     _args = ["gosec", "-fmt=json"]
     _args += ["-out={}".format(sca_raw_result_file(d, "gosec"))]
 
-    _files = get_files_by_extention(d,    
-                                    d.getVar("SCA_SOURCES_DIR"),    
-                                    clean_split(d, "SCA_GOSEC_FILE_FILTER"),    
+    _files = get_files_by_extention(d,
+                                    d.getVar("SCA_SOURCES_DIR"),
+                                    clean_split(d, "SCA_GOSEC_FILE_FILTER"),
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run

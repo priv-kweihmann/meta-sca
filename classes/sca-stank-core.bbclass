@@ -18,10 +18,10 @@ inherit sca-suppress
 def do_sca_conv_stank(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
-    _suppress = sca_suppress_init(d, "SCA_STANK_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_STANK_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/stank-${SCA_MODE}-suppress"))
     _findings = []
 
@@ -80,7 +80,7 @@ python do_sca_stank_core() {
         ["rosy", "-usagi"],
         ["funk", "-modulino"],
     ]
-    
+
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_STANK_SHEBANG"), d.getVar("SCA_STANK_FILE_FILTER"),
                                                       sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
@@ -88,7 +88,7 @@ python do_sca_stank_core() {
     if any(_files):
         for a in _args:
             cmd_output += exec_wrap_check_output(a, _files)
-    
+
     with open(sca_raw_result_file(d, "stank"), "w") as o:
         o.write(cmd_output)
 }

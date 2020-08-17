@@ -19,10 +19,10 @@ inherit sca-tracefiles
 def do_sca_conv_rubycritic(d):
     import os
     import json
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
-    
+
     _findings = []
     _suppress = sca_suppress_init(d, "SCA_RUBYCRITIC_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/rubycritic-${SCA_MODE}-suppress"))
@@ -67,7 +67,7 @@ def exec_wrap_combine_json_rubycritic(a, b, **kwargs):
             b = json.load(i)
     except:
         b = {"analysed_modules": {}}
-    
+
     try:
         a = json.loads(a)
         for item in b["analysed_modules"]:
@@ -93,11 +93,11 @@ python do_sca_rubycritic() {
     _args = ["rubycritic"]
     _args += ["--format=json"]
     _args += ["--path={}".format(d.expand("${T}/rubycritic"))]
-    
+
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*ruby", d.getVar("SCA_RUBYCRITIC_FILE_FILTER"), \
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
-     
-    cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json_rubycritic, default={"analyzed_modules": []}, 
+
+    cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json_rubycritic, default={"analyzed_modules": []},
                                         sourcefile=d.expand("${T}/rubycritic/report.json"))
 
     with open(sca_raw_result_file(d, "wotan"), "w") as o:
