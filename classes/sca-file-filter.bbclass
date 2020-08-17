@@ -35,7 +35,7 @@ def sca_filter_files(d, path, addfilter=[]):
 
         if not isinstance(cmd_out, str):
             cmd_out = cmd_out.decode('utf-8')
-    
+
         res += [x for x in cmd_out.split("\n") if x]
 
     res += sca_filter_by_license(d)

@@ -22,7 +22,7 @@ inherit sca-tracefiles
 def do_sca_conv_splint(d):
     import os
     import csv
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -92,13 +92,13 @@ python do_sca_splint() {
         _args += ["-I{}".format(i)]
     _args += ["-I{}".format(d.getVar("SCA_SOURCES_DIR"))]
 
-    _files = get_files_by_extention(d,    
-                                    d.getVar("SCA_SOURCES_DIR"),    
-                                    clean_split(d, "SCA_SPLINT_FILE_FILTER"),    
+    _files = get_files_by_extention(d,
+                                    d.getVar("SCA_SOURCES_DIR"),
+                                    clean_split(d, "SCA_SPLINT_FILE_FILTER"),
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     cmd_output = ["Warning,Flag Code,Flag Name,Priority,File,Line,Column,Warning Text,Additional Text"]
-    
+
     ## Run
     for f in _files:
         _targs = _args + ["+csv", os.path.join(d.getVar("T"), "sca_raw_splint_tmp.csv")]

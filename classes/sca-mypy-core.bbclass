@@ -14,7 +14,7 @@ def do_sca_conv_mypy(d):
     import os
     import re
     import hashlib
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -70,7 +70,7 @@ python do_sca_mypy_core() {
 
     ## Run
     cmd_output = exec_wrap_check_output(_args, _files)
-    
+
     with open(sca_raw_result_file(d, "mypy"), "w") as o:
         o.write(cmd_output)
 }
@@ -84,7 +84,7 @@ python do_sca_mypy_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "mypy", get_fatal_entries(d, "SCA_MYPY_EXTRA_FATAL", 
+    sca_task_aftermath(d, "mypy", get_fatal_entries(d, "SCA_MYPY_EXTRA_FATAL",
                        d.expand("${STAGING_DATADIR_NATIVE}/mypy-${SCA_MODE}-fatal")))
 }
 

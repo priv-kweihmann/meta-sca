@@ -20,7 +20,7 @@ DEPENDS += "libxml2-native"
 def do_sca_conv_xmllint(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 

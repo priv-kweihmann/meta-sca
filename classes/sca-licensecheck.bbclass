@@ -17,7 +17,7 @@ inherit sca-suppress
 def do_sca_conv_licensecheck(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
 
     items = []
@@ -75,7 +75,7 @@ python do_sca_licensecheck() {
     except subprocess.CalledProcessError as e:
         pass
     os.chdir(_cwd)
-    
+
     cmd_output = ""
     try:
         cmd_output = subprocess.check_output(["nativepython3",
@@ -84,10 +84,10 @@ python do_sca_licensecheck() {
                                              universal_newlines=True, stderr=subprocess.STDOUT)
     except subprocess.CalledProcessError as e:
         pass
-    
+
     with open(sca_raw_result_file(d, "licensecheck"), "w") as o:
         o.write(cmd_output)
-    
+
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/licensecheck.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_licensecheck(d)

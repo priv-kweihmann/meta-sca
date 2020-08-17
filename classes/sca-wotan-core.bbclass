@@ -20,7 +20,7 @@ SCA_RAW_RESULT_FILE[wotan] = "json"
 def do_sca_conv_wotan(d):
     import os
     import json
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -66,7 +66,7 @@ def exec_wrap_combine_json_wotan(a, b, **kwargs):
         b = json.loads(b)
     except:
         b = []
-    
+
     try:
         a = json.loads(a)
         a += b

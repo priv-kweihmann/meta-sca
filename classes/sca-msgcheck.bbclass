@@ -20,7 +20,7 @@ inherit python3native
 def do_sca_conv_msgcheck(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -77,7 +77,7 @@ python do_sca_msgcheck() {
     for f in _files:
         cmd_output += exec_wrap_check_output(_args, [f])
         cmd_output += exec_wrap_check_output(_args, ["-c", f])
-    
+
     with open(sca_raw_result_file(d, "msgcheck"), "w") as o:
         o.write(cmd_output)
 

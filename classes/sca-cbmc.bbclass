@@ -39,7 +39,7 @@ def do_sca_conv_cbmc(d):
     import os
     import json
     import hashlib
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -51,7 +51,7 @@ def do_sca_conv_cbmc(d):
         "INFO" : "info"
     }
 
-    _suppress = sca_suppress_init(d, "SCA_CBMC_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_CBMC_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/cbmc-${SCA_MODE}-suppress"))
     _findings = []
 
@@ -126,14 +126,14 @@ python do_sca_cbmc() {
     _args += clean_split(d, "SCA_CBMC_EXTRA_OPTIONS")
     _args += ["--json-ui"]
 
-    _files = get_files_by_extention(d,    
-                                    d.getVar("SCA_SOURCES_DIR"),    
-                                    clean_split(d, "SCA_CBMC_FILE_FILTER"),    
+    _files = get_files_by_extention(d,
+                                    d.getVar("SCA_SOURCES_DIR"),
+                                    clean_split(d, "SCA_CBMC_FILE_FILTER"),
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run
     cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json, default_val=[])
-    
+
     with open(sca_raw_result_file(d, "cbmc"), "w") as o:
         o.write(cmd_output)
 }
@@ -147,7 +147,7 @@ python do_sca_cbmc_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "cbmc", get_fatal_entries(d, "SCA_CBMC_EXTRA_FATAL", 
+    sca_task_aftermath(d, "cbmc", get_fatal_entries(d, "SCA_CBMC_EXTRA_FATAL",
                         d.expand("${STAGING_DATADIR_NATIVE}/cbmc-${SCA_MODE}-fatal")))
 }
 

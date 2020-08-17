@@ -19,7 +19,7 @@ DEPENDS += "tiger tiger-native"
 def do_sca_conv_tiger(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -78,7 +78,7 @@ fakeroot python do_sca_tiger() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "tiger", get_fatal_entries(d, "SCA_TIGER_EXTRA_FATAL", 
+    sca_task_aftermath(d, "tiger", get_fatal_entries(d, "SCA_TIGER_EXTRA_FATAL",
                        d.expand("${STAGING_DATADIR_NATIVE}/tiger-${SCA_MODE}-fatal")))
 }
 

@@ -77,7 +77,7 @@ def do_sca_conv_pkgqaenc(d):
     import os
     import re
     import hashlib
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("PKGDEST")
 
@@ -173,14 +173,14 @@ python do_sca_pkgqaenc() {
 
     with open(sca_raw_result_file(d, "pkgqaenc"), "w") as o:
         o.write(cmd_output)
-    
+
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/pkgqaenc.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_pkgqaenc(d)
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "pkgqaenc", get_fatal_entries(d, "SCA_PKGQAENC_EXTRA_FATAL", 
+    sca_task_aftermath(d, "pkgqaenc", get_fatal_entries(d, "SCA_PKGQAENC_EXTRA_FATAL",
                         d.expand("${STAGING_DATADIR_NATIVE}/pkgqaenc-${SCA_MODE}-fatal")))
 }
 

@@ -20,12 +20,12 @@ def do_sca_conv_phpstan(d):
     import os
     import json
     import hashlib
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
-    
+
     _findings = []
-    _suppress = sca_suppress_init(d, "SCA_PHPSTAN_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_PHPSTAN_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/phpstan-${SCA_MODE}-suppress"))
 
     _severity_map = {
@@ -75,10 +75,10 @@ python do_sca_phpstan() {
     _args += ["-n"]
     _args += ["--error-format=json"]
     _args += ["--no-progress"]
-    
+
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*php", [".php"], \
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
-    
+
     cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json_subdict, key="files",
                                         default_val={"files": {}})
 
@@ -94,7 +94,7 @@ python do_sca_phpstan_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "phpstan", get_fatal_entries(d, "SCA_PHPSTAN_EXTRA_FATAL", 
+    sca_task_aftermath(d, "phpstan", get_fatal_entries(d, "SCA_PHPSTAN_EXTRA_FATAL",
                         d.expand("${STAGING_DATADIR_NATIVE}/phpstan-${SCA_MODE}-fatal")))
 }
 

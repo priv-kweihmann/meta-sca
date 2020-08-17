@@ -19,12 +19,12 @@ inherit sca-tracefiles
 def do_sca_conv_phpcodesniffer(d):
     import os
     import json
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
-    
+
     _findings = []
-    _suppress = sca_suppress_init(d, "SCA_PHPCODESNIFFER_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_PHPCODESNIFFER_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/phpcodesniffer-${SCA_MODE}-suppress"))
 
     _severity_map = {
@@ -74,11 +74,11 @@ python do_sca_phpcodesniffer() {
     _args += ["--no-cache"]
     _args += ["-s"]
     _args += ["--report=json"]
-    
+
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*php", d.getVar("SCA_PHPCODESNIFFER_FILE_FILTER"), \
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
-    
-    cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json_subdict, key="files", 
+
+    cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json_subdict, key="files",
                                         default_val={"files": {}})
 
     with open(sca_raw_result_file(d, "phpcodesniffer"), "w") as o:
@@ -93,7 +93,7 @@ python do_sca_phpcodesniffer_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "phpcodesniffer", get_fatal_entries(d, "SCA_PHPCODESNIFFER_EXTRA_FATAL", 
+    sca_task_aftermath(d, "phpcodesniffer", get_fatal_entries(d, "SCA_PHPCODESNIFFER_EXTRA_FATAL",
                         d.expand("${STAGING_DATADIR_NATIVE}/phpcodesniffer-${SCA_MODE}-fatal")))
 }
 

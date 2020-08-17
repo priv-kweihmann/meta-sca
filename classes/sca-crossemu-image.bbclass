@@ -44,7 +44,7 @@ def do_sca_create_crossemu_img(d, tool, addpkgs, postcmd=""):
     dc.setVar("T", "{}_{}".format(d.getVar("T"), tool))
 
     ## As we need to override WORKDIR
-    ## to apply a conflict free version of    
+    ## to apply a conflict free version of
     ## the package install cache
     ## we have to perform a backup of certain vars
     ## which depend on WORKDIR, but shouldn't get overriden
@@ -63,7 +63,7 @@ def do_sca_create_crossemu_img(d, tool, addpkgs, postcmd=""):
     ## Create dirs
     os.makedirs(dc.getVar("T"), exist_ok=True)
     os.makedirs(dc.getVar("WORKDIR"), exist_ok=True)
-    
+
     ## Create log-file (seems to be needed by logger)
     with open(os.path.join(dc.getVar("T"), "log.do_rootfs"), "w") as o:
         o.write("")

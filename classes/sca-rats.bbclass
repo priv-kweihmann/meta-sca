@@ -21,7 +21,7 @@ def do_sca_conv_rats(d):
     import hashlib
     from xml.etree.ElementTree import Element, SubElement, Comment, tostring
     from xml.etree import ElementTree
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -32,7 +32,7 @@ def do_sca_conv_rats(d):
         "Default": "info"
     }
 
-    _suppress = sca_suppress_init(d, "SCA_RATS_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_RATS_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/rats-${SCA_MODE}-suppress"))
 
     _findings = []
@@ -54,7 +54,7 @@ def do_sca_conv_rats(d):
                         _id = _i.text.replace(" ", "_")
                     if not _severity in sca_allowed_warning_level(d):
                         continue
-                    # address the bug that rats sometimes doesn't report    
+                    # address the bug that rats sometimes doesn't report
                     # a proper ID for the findings
                     if not _id:
                         _id = hashlib.md5(str.encode(_msg)).hexdigest()
@@ -122,7 +122,7 @@ python do_sca_rats() {
     if any(_files):
         _targs = _args + ["-d", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "rats-ruby.xml")]
         xml_output = xml_combine(d, xml_output, exec_wrap_check_output(_targs, _files, combine=exec_wrap_combine_xml))
-    
+
     with open(sca_raw_result_file(d, "rats"), "w") as o:
         o.write(xml_output)
 }

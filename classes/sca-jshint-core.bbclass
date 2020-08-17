@@ -21,7 +21,7 @@ DEPENDS += "jshint-native"
 def do_sca_conv_jshint(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -32,7 +32,7 @@ def do_sca_conv_jshint(d):
         "W": "warning"
     }
     _findings = []
-    _suppress = sca_suppress_init(d, "SCA_JSHINT_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_JSHINT_EXTRA_SUPPRESS",
                                     d.expand("${STAGING_DATADIR_NATIVE}/jshint-${SCA_MODE}-suppress"))
 
     if os.path.exists(sca_raw_result_file(d, "jshint")):
@@ -57,7 +57,7 @@ def do_sca_conv_jshint(d):
                         _findings.append(g)
                 except Exception as exp:
                     bb.warn(str(exp))
-    
+
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 

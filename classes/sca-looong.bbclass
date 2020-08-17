@@ -20,7 +20,7 @@ inherit python3-dir
 def do_sca_conv_looong(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -92,7 +92,7 @@ python do_sca_looong_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "looong", get_fatal_entries(d, "SCA_LOOONG_EXTRA_FATAL", 
+    sca_task_aftermath(d, "looong", get_fatal_entries(d, "SCA_LOOONG_EXTRA_FATAL",
                         d.expand("${STAGING_DATADIR_NATIVE}/looong-${SCA_MODE}-fatal")))
 }
 

@@ -19,12 +19,12 @@ inherit sca-tracefiles
 def do_sca_conv_reek(d):
     import os
     import json
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
-    
+
     _findings = []
-    _suppress = sca_suppress_init(d, "SCA_REEK_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_REEK_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/reek-${SCA_MODE}-suppress"))
 
     if os.path.exists(sca_raw_result_file(d, "reek")):
@@ -68,7 +68,7 @@ python do_sca_reek() {
 
     _args = ["reek"]
     _args += ["-f", "json"]
-    
+
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*ruby", d.getVar("SCA_REEK_FILE_FILTER"), \
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     ## Run
@@ -86,7 +86,7 @@ python do_sca_reek_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "reek", get_fatal_entries(d, "SCA_REEK_EXTRA_FATAL", 
+    sca_task_aftermath(d, "reek", get_fatal_entries(d, "SCA_REEK_EXTRA_FATAL",
                        d.expand("${STAGING_DATADIR_NATIVE}/reek-${SCA_MODE}-fatal")))
 }
 

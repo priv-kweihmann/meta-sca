@@ -11,7 +11,7 @@ SCA_MULTIMETRIC_FILE_FILTER ?= ".c .C .c++ .cc .cp .cpp .CPP \
 SCA_MULTIMETRIC_EXTRA_SUPPRESS ?= ""
 SCA_MULTIMETRIC_EXTRA_FATAL ?= ""
 
-# possible entries for variables are    
+# possible entries for variables are
 # comment_ratio
 # cyclomatic_complexity
 # fanout_external
@@ -32,7 +32,7 @@ SCA_MULTIMETRIC_EXTRA_FATAL ?= ""
 # tiobe_complexity
 # tiobe_coverage
 # tiobe_duplication
-# tiobe_fanout    
+# tiobe_fanout
 # tiobe_functional
 # tiobe_security
 # tiobe_standard
@@ -56,7 +56,7 @@ def do_sca_conv_multimetric(d):
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
-    _suppress = sca_suppress_init(d, "SCA_MULTIMETRIC_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_MULTIMETRIC_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/multimetric-${SCA_MODE}-suppress"))
     _findings = []
     if os.path.exists(sca_raw_result_file(d, "multimetric")):
@@ -213,12 +213,12 @@ python do_sca_multimetric_core() {
 
     ## Run
     json_output = {}
-    _files = get_files_by_extention(d,    
-                                    d.getVar("SCA_SOURCES_DIR"),    
-                                    clean_split(d, "SCA_MULTIMETRIC_FILE_FILTER"),    
+    _files = get_files_by_extention(d,
+                                    d.getVar("SCA_SOURCES_DIR"),
+                                    clean_split(d, "SCA_MULTIMETRIC_FILE_FILTER"),
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json_subarray, key="files", default_val={"files":[]})
-    
+
     with open(sca_raw_result_file(d, "multimetric"), "w") as o:
         if not cmd_output:
             cmd_output = "{}"
