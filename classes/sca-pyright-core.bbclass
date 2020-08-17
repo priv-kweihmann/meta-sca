@@ -161,6 +161,7 @@ python do_sca_pyright_core() {
 
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_PYTHON_SHEBANG"), ".py", _excludes)
 
+    cmd_output = ""
     if any(_files):
         with open(_config_path, "w") as o:
             json.dump(sca_create_pyright_config(d, _excludes, _includes), o)
