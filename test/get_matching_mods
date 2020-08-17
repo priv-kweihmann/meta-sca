@@ -17,7 +17,7 @@ def get_tool_description(tool):
         with open(f) as i:
             _json = json.load(i)
         name = pathlib.Path(f).parts[-3]
-        if os.path.basename(f) == "{}.sca.description".format(tool) or tool in _json["languages"] or tool in _json["uses"]:
+        if os.path.basename(f) == "{}.sca.description".format(tool) or tool in _json["languages"] or tool in _json["uses"] or tool == "all":
             res.append((os.path.basename(f).replace(".sca.description", ""), _json))
     if res:
         return res
