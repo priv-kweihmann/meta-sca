@@ -1,7 +1,7 @@
 ## SPDX-License-Identifier: BSD-2-Clause
 ## Copyright (c) 2019, Konrad Weihmann
 
-## This class contains helper methods    
+## This class contains helper methods
 ## when dealing with licenses and images
 
 ROOTFS_POSTPROCESS_COMMAND =+ " do_sca_image_pkg_list; "

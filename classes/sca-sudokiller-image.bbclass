@@ -21,14 +21,14 @@ def do_sca_conv_sudokiller(d):
     import os
     import re
     import hashlib
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     pattern = r"^\[\-]\s+(?P<msg>.*)(\:+|\s+)"
     cve_pattern = r"^\[\+\]\s+Please\s+find the following exploit for (?P<msg>[A-Z\-0-9]+) in the exploits' directory"
 
-    _suppress = sca_suppress_init(d, "SCA_SUDOKILLER_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_SUDOKILLER_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/sudokiller-${SCA_MODE}-suppress"))
     _findings = []
 

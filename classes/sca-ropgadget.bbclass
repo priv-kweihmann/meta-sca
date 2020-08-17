@@ -26,9 +26,9 @@ def convert_veryraw(d, bin, content):
     _addr2line = os.environ.get("AS", "-as").replace("-as", "-addr2line").strip()
     _args = [_addr2line]
     ## Find debug symbol file
-    _relpath = os.path.relpath(bin,    
+    _relpath = os.path.relpath(bin,
                                os.path.join(d.getVar("WORKDIR"), "packages-split", d.getVar("PN")))
-    _dbg = os.path.join(os.path.join(d.getVar("WORKDIR"), "packages-split",    
+    _dbg = os.path.join(os.path.join(d.getVar("WORKDIR"), "packages-split",
             "{}-dbg".format(d.getVar("PN")), os.path.dirname(_relpath), ".debug", os.path.basename(bin)))
     output = ""
     if os.path.isfile(_dbg):
@@ -46,7 +46,7 @@ def convert_veryraw(d, bin, content):
 def do_sca_conv_ropgadget(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -83,7 +83,7 @@ def do_sca_conv_ropgadget(d):
                         _findingsres.append(g)
                 except Exception as exp:
                     bb.warn(str(exp))
-    
+
     _threshold = 99999999999
     try:
         _threshold = int(d.getVar("SCA_ROPGADGET_WARNING_THRESHOLD"))
@@ -120,7 +120,7 @@ python do_sca_ropgadget() {
     _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "ROPgadget")]
     _args += ["--binary"]
 
-    _files = get_files_by_mimetype(d, os.path.join(d.getVar("WORKDIR"), "packages-split"),    
+    _files = get_files_by_mimetype(d, os.path.join(d.getVar("WORKDIR"), "packages-split"),
              ["application/x-executable", 'application/x-sharedlib', 'application/x-pie-executable'],[])
     ## Run
     cmd_output = ""
@@ -137,7 +137,7 @@ python do_sca_ropgadget() {
         cmd_output += convert_veryraw(d, _f, raw_output)
     with open(sca_raw_result_file(d, "ropgadget"), "w") as o:
         o.write(cmd_output)
-    
+
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/ropgadget.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_ropgadget(d)

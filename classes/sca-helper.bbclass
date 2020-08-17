@@ -249,7 +249,7 @@ def sca_task_aftermath(d, tool, fatals=None):
         warn_log.append("{} error(s)".format(len(_errors)))
     if warn_log and should_emit_to_console(d):
         bb.warn("SCA has found {}".format(",".join(warn_log)))
-    
+
     if any(_fatals):
         bb.build.exec_func(d.getVar("SCA_DEPLOY_TASK"), d)
         _str_fatals = ["{} :{}:{} - {} - [{}]".format(i.GetPath(), i.Line, i.Column, i.Message, i.GetFormattedID()) for i in _fatals]
@@ -258,7 +258,7 @@ def sca_task_aftermath(d, tool, fatals=None):
 
 def get_bb_exec_ext_parameter_support(d):
     ## Since commit https://github.com/openembedded/bitbake/commit/cfeffb602dd5319f071cd6bcf84139ec77f2d170
-    ## The support for pythonexception=True was removed from bb.build.exec_func    
+    ## The support for pythonexception=True was removed from bb.build.exec_func
     ## which this layer uses heavily
     ## so we need to probe here for it
     ## if we are able to pass it or not

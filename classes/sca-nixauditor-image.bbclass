@@ -19,7 +19,7 @@ DEPENDS += "nixauditor nixauditor-native"
 def do_sca_conv_nixauditor(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -70,7 +70,7 @@ fakeroot python do_sca_nixauditor() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "nixauditor", get_fatal_entries(d, "SCA_NIXAUDITOR_EXTRA_FATAL", 
+    sca_task_aftermath(d, "nixauditor", get_fatal_entries(d, "SCA_NIXAUDITOR_EXTRA_FATAL",
                        d.expand("${STAGING_DATADIR_NATIVE}/nixauditor-${SCA_MODE}-fatal")))
 }
 

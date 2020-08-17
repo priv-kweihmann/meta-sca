@@ -53,7 +53,7 @@ def sca_conv_dm_checkstyle(d, tool):
                 "severity": _fileE.Severity,
                 "source": _fileE.GetFormattedID()
             })
-    
+
     try:
         return checkstyle_prettify(d, top).decode("utf-8")
     except:

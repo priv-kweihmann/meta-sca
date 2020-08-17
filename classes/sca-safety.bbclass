@@ -19,7 +19,7 @@ inherit python3native
 def do_sca_conv_safety(d, cmd_output=""):
     import os
     import json
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -61,7 +61,7 @@ def do_sca_conv_safety(d, cmd_output=""):
 
 ## happily taken from https://stackoverflow.com/a/37078593
 def import_and_extract(d, parent_dir):
-    import sys    
+    import sys
     import unittest.mock as mock
     import tempfile
     import os
@@ -78,7 +78,7 @@ def import_and_extract(d, parent_dir):
     sys.path.insert(0, parent_dir)
     with tempfile.NamedTemporaryFile(prefix="setup_temp_", mode='w', dir=parent_dir, suffix='.py') as temp_fh:
         with open(os.path.join(parent_dir, "setup.py"), 'r') as setup_fh:
-            temp_fh.write(setup_fh.read())    
+            temp_fh.write(setup_fh.read())
             temp_fh.flush()
         try:
             with mock.patch.object(setuptools, 'setup') as mock_setup:
@@ -107,7 +107,7 @@ python do_sca_safety() {
     if os.path.exists(os.path.join(d.getVar("SCA_SOURCES_DIR"), "setup.py")):
         for x in import_and_extract(d, d.getVar("SCA_SOURCES_DIR")):
             tmp_req_lines.append(x)
-    
+
     with open(tmp_req, "w") as o:
         o.write("\n".join(list(set(tmp_req_lines))))
 
@@ -117,19 +117,19 @@ python do_sca_safety() {
         _args += ["-m", "safety", "check"]
         _args += ["--output", sca_raw_result_file(d, "safety"), "--json"]
         _args += ["-r", tmp_req]
-    
+
         try:
             subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError:
             pass
-    
+
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/safety.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_safety(d)
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "safety", get_fatal_entries(d, "SCA_SAFETY_EXTRA_FATAL", 
+    sca_task_aftermath(d, "safety", get_fatal_entries(d, "SCA_SAFETY_EXTRA_FATAL",
                        d.expand("${STAGING_DATADIR_NATIVE}/safety-${SCA_MODE}-fatal")))
 }
 

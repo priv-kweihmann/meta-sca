@@ -18,7 +18,7 @@ SCA_RAW_RESULT_FILE[bandit] = "json"
 def do_sca_conv_bandit(d):
     import os
     import json
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -29,7 +29,7 @@ def do_sca_conv_bandit(d):
     }
 
     _findings = []
-    _suppress = sca_suppress_init(d, "SCA_BANDIT_EXTRA_FATAL", 
+    _suppress = sca_suppress_init(d, "SCA_BANDIT_EXTRA_FATAL",
                     d.expand("${STAGING_DATADIR_NATIVE}/bandit-${SCA_MODE}-suppress"))
 
     if os.path.exists(sca_raw_result_file(d, "bandit")):
@@ -73,7 +73,7 @@ def exec_wrap_combine_json_bandit(a, b, **kwargs):
             b = json.load(i)
     except:
         b = {"results": []}
-    
+
     try:
         a = json.loads(a)
         a["results"] += b["results"]
@@ -93,7 +93,7 @@ python do_sca_bandit_core() {
                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
 
-    cmd_output = exec_wrap_check_output(_args, _files, 
+    cmd_output = exec_wrap_check_output(_args, _files,
                                         combine=exec_wrap_combine_json_bandit, default_val={"results": []},
                                         sourcefile=sca_raw_result_file(d, "bandit"))
 
@@ -109,6 +109,6 @@ python do_sca_bandit_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "bandit", get_fatal_entries(d, "SCA_BANDIT_EXTRA_SUPPRESS", 
+    sca_task_aftermath(d, "bandit", get_fatal_entries(d, "SCA_BANDIT_EXTRA_SUPPRESS",
                         d.expand("${STAGING_DATADIR_NATIVE}/bandit-${SCA_MODE}-fatal")))
 }

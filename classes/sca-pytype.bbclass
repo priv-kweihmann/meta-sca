@@ -20,14 +20,14 @@ inherit python3native
 def do_sca_conv_pytype(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     pattern = r"^File\s+\"(?P<file>.*)\",\s+line\s+(?P<line>\d+),\s+in\s+(?P<name>[\w\<\>]+):\s+(?P<msg>.*)\s+\[(?P<id>.*)\]"
-    
+
     _findings = []
-    _suppress = sca_suppress_init(d, "SCA_PYTYPE_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_PYTYPE_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/pytype-${SCA_MODE}-suppress"))
 
     if os.path.exists(sca_raw_result_file(d, "pytype")):
@@ -63,17 +63,17 @@ python do_sca_pytype() {
 
     _paths = [os.path.join(d.getVar("STAGING_DIR"), d.getVar("PYTHON_SITEPACKAGES_DIR").lstrip("/")),
               d.getVar("SCA_SOURCES_DIR"),
-              os.environ.get("PYTHONPATH", "")    
+              os.environ.get("PYTHONPATH", "")
               ]
     _args = ["pytype"]
     _args += ["--keep-going"]
     _args += ["-V", d.getVar("PYTHON_BASEVERSION")]
     _args += ["-P", ":".join(_paths)]
     _args += ["-o", os.path.join(d.getVar("T"), "pytypeout")]
-    
+
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_PYTHON_SHEBANG"), [".py"], \
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
-    
+
         ## Run
     cmd_output = exec_wrap_check_output(_args, _files)
 

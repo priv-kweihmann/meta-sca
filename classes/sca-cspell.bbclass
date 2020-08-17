@@ -38,7 +38,7 @@ def write_config(_base, _extra_dicts, _target):
 def do_sca_conv_cspell(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
