@@ -124,6 +124,6 @@ python do_sca_oelint_core() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "oelint", get_fatal_entries(d, "SCA_OELINT_EXTRA_FATAL", 
+    sca_task_aftermath(d, "oelint", get_fatal_entries(d, "SCA_OELINT_EXTRA_FATAL",
                         d.expand("${STAGING_DATADIR_NATIVE}/oelint-${SCA_MODE}-fatal")))
 }

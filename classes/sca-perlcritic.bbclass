@@ -21,7 +21,7 @@ def do_sca_conv_perlcritic(d):
     import os
     import re
     import hashlib
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -36,7 +36,7 @@ def do_sca_conv_perlcritic(d):
         "1": "info"
     }
 
-    _suppress = sca_suppress_init(d, "SCA_PERLCRITIC_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_PERLCRITIC_EXTRA_SUPPRESS",
                                    d.expand("${STAGING_DATADIR_NATIVE}/perlcritic-${SCA_MODE}-suppress"))
     _findings = []
 
@@ -76,10 +76,10 @@ python do_sca_perlcritic() {
     _args += ["--nocolor", "--brutal"]
     _args += ["--verbose", '%f: [%p] %m at line %l, column %c.  (Severity: %s)\n']
 
-    _files = get_files_by_extention_or_shebang(d,    
+    _files = get_files_by_extention_or_shebang(d,
                                                 d.getVar("SCA_SOURCES_DIR"),
                                                 ".*/perlcritic",
-                                                clean_split(d, "SCA_PERLCRITIC_FILE_FILTER"),    
+                                                clean_split(d, "SCA_PERLCRITIC_FILE_FILTER"),
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run
@@ -97,7 +97,7 @@ python do_sca_perlcritic_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "perlcritic", get_fatal_entries(d, "SCA_PERLCRITIC_EXTRA_FATAL", 
+    sca_task_aftermath(d, "perlcritic", get_fatal_entries(d, "SCA_PERLCRITIC_EXTRA_FATAL",
                         d.expand("${STAGING_DATADIR_NATIVE}/perlcritic-${SCA_MODE}-fatal")))
 }
 

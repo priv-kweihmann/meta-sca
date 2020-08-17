@@ -19,7 +19,7 @@ def do_sca_conv_slick(d):
     import os
     import re
     import hashlib
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -62,7 +62,7 @@ python do_sca_slick_core() {
 
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*/(ba|k|mk)*sh", ".sh",
                                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
-    
+
     ## Run
     cmd_output = exec_wrap_check_output(_args, _files)
     with open(sca_raw_result_file(d, "slick"), "w") as o:

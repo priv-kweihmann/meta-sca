@@ -17,7 +17,7 @@ inherit sca-suppress
 def do_sca_conv_npmaudit(d):
     import os
     import json
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -72,28 +72,28 @@ python do_sca_npmaudit() {
     cmd_output = "{}"
 
     ## Run
-    
+
     if os.path.exists(os.path.join(d.getVar("SCA_SOURCES_DIR"), "package-lock.json")):
         cur_dir = os.getcwd()
         os.chdir(d.getVar("SCA_SOURCES_DIR"))
         _args = ["npm", "audit", "--json"]
-    
+
         try:
             cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or "{}"
         os.chdir(cur_dir)
-    
+
     with open(sca_raw_result_file(d, "npmaudit"), "w") as o:
         o.write(cmd_output)
-    
+
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/npmaudit.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_npmaudit(d)
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "npmaudit", get_fatal_entries(d, "SCA_NPMAUDIT_EXTRA_FATAL", 
+    sca_task_aftermath(d, "npmaudit", get_fatal_entries(d, "SCA_NPMAUDIT_EXTRA_FATAL",
                        d.expand("${STAGING_DATADIR_NATIVE}/npmaudit-${SCA_MODE}-fatal")))
 }
 

@@ -14,7 +14,7 @@ def do_sca_conv_shellcheck(d):
     import os
     from xml.etree.ElementTree import Element, SubElement, Comment, tostring
     from xml.etree import ElementTree
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
     _suppress = sca_suppress_init(d, "SCA_SHELLCHECK_EXTRA_SUPPRESS",
@@ -61,15 +61,15 @@ python do_sca_shellcheck_core() {
     _args = ["shellcheck-wrapper"]
     _args += ["-f", "checkstyle"]
     _args += ["-a"]
-    
+
     xml_output = ""
     for k,v in { "bash": "*./bash", "sh": "*./sh", "ksh": "*./ksh"}.items():
         _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), v, ".sh",
-                                                   sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), 
+                                                   sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"),
                                                    clean_split(d, "SCA_FILE_FILTER_EXTRA")))
         _targs = _args + ["-s", k]
         xml_output = xml_combine(d, xml_output, exec_wrap_check_output(_targs, _files, combine=exec_wrap_combine_xml))
-    
+
     with open(sca_raw_result_file(d, "shellcheck"), "w") as o:
         o.write(xml_output)
 }

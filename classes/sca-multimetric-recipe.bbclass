@@ -16,7 +16,7 @@ python do_sca_deploy_multimetric_recipe() {
     sca_conv_deploy(d, "multimetric")
 }
 
-python sca_multimetric_init() {    
+python sca_multimetric_init() {
     for item in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")):
         if item in ["bitbake", "multimetric", "bestof", "imagesummary"]:
             continue

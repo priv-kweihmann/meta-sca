@@ -25,7 +25,7 @@ def exec_wrap_combine_json(a, b, **kwargs):
         b = json.loads(b)
     except:
         b = []
-    
+
     try:
         a = json.loads(a)
         a += b
@@ -44,7 +44,7 @@ def exec_wrap_combine_json_dict(a, b, **kwargs):
         b = json.loads(b)
     except:
         b = {}
-    
+
     try:
         a = json.loads(a)
         a = {**a, **b}
@@ -58,7 +58,7 @@ def exec_wrap_combine_json_subarray(a, b, **kwargs):
         b = json.loads(b)
     except:
         b = {kwargs["key"]: []}
-    
+
     try:
         a = json.loads(a)
         a[kwargs["key"]] += b[kwargs["key"]]
@@ -72,7 +72,7 @@ def exec_wrap_combine_json_subdict(a, b, **kwargs):
         b = json.loads(b)
     except:
         b = {kwargs["key"]: {}}
-    
+
     try:
         a = json.loads(a)
         a[kwargs["key"]] = {**a[kwargs["key"]], **b[kwargs["key"]]}
@@ -83,7 +83,7 @@ def exec_wrap_combine_json_subdict(a, b, **kwargs):
 def exec_wrap_tool_exec(args, files, stdout=None, stderr=None, **kwargs):
     import subprocess
     try:
-        return subprocess.check_output(args + files, 
+        return subprocess.check_output(args + files,
                                        universal_newlines=True,
                                        stderr=stderr or subprocess.STDOUT)
     except subprocess.CalledProcessError as e:
@@ -106,7 +106,7 @@ def exec_wrap_check_output(base_cmd, filelist, combine=exec_wrap_combine_txt, to
         if not chunk:
             continue
         cmd_output = toolexec(base_cmd, chunk, stderr, **kwargs)
-        
+
         _result_out = combine(_result_out, cmd_output, **kwargs)
-    
+
     return _result_out

@@ -33,7 +33,7 @@ inherit sca-suppress
 inherit sca-tracefiles
 
 def get_platform_type(d):
-    ## Let's assume that 64bit platforms    
+    ## Let's assume that 64bit platforms
     ## end with a 64 in their platform name
     tmp = d.getVar("TARGET_ARCH")
     if tmp.endswith("64"):
@@ -45,7 +45,7 @@ def do_sca_conv_cppcheck(d):
     import os
     from xml.etree.ElementTree import Element, SubElement, Comment, tostring
     from xml.etree import ElementTree
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -62,7 +62,7 @@ def do_sca_conv_cppcheck(d):
     }
 
     _findings = []
-    _suppress = sca_suppress_init(d, "SCA_CPPCHECK_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_CPPCHECK_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/cppcheck-${SCA_MODE}-suppress"))
 
     if os.path.exists(sca_raw_result_file(d, "cppcheck")):
@@ -130,11 +130,11 @@ python do_sca_cppcheck() {
     _args += ["--max-ctu-depth={}".format(d.getVar("SCA_CPPCHECK_CHECK_DEPTH"))]
     for item in d.getVar("SCA_CPPCHECK_LANG_STD").split(" "):
         _args += ["--std={}".format(item)]
-    _args += [get_platform_type(d)]    
+    _args += [get_platform_type(d)]
     _args += ["--output-file={}".format(sca_raw_result_file(d, "cppcheck"))]
-    _files = get_files_by_extention(d,    
-                                    d.getVar("SCA_SOURCES_DIR"),    
-                                    clean_split(d, "SCA_CPPCHECK_FILE_FILTER"),    
+    _files = get_files_by_extention(d,
+                                    d.getVar("SCA_SOURCES_DIR"),
+                                    clean_split(d, "SCA_CPPCHECK_FILE_FILTER"),
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     _file_list = os.path.join(d.getVar("T"), ".cppcheck_filelist")
     with open(_file_list, "w") as o:
@@ -145,7 +145,7 @@ python do_sca_cppcheck() {
     os.chdir(d.getVar("T"))
 
     _def = '<results version="2"><cppcheck version="2.1" /><errors/></results>'
-    cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_xml_cppcheck, 
+    cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_xml_cppcheck,
                                         default_val=_def, sourcefile=sca_raw_result_file(d, "cppcheck"))
 
     os.chdir(old_cwd)
@@ -156,7 +156,7 @@ python do_sca_cppcheck() {
 
 python do_sca_cppcheck_report() {
     import os
-    
+
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/cppcheck.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_cppcheck(d)

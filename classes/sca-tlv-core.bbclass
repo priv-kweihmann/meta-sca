@@ -16,7 +16,7 @@ SCA_TLV_MINTOKEN ?= "50"
 def do_sca_conv_tlv(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -67,7 +67,7 @@ python do_sca_tlv_core() {
     _args += ["--jobs={}".format(d.getVar("BB_NUMBER_THREADS"))]
 
     ## Run
-    _files = get_files_by_glob(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_TLV_FILES"),    
+    _files = get_files_by_glob(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_TLV_FILES"),
                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     cmd_output = exec_wrap_check_output(_args, _files)

@@ -20,7 +20,7 @@ inherit sca-tracefiles
 def do_sca_conv_cpplint(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -66,7 +66,7 @@ do_sca_cpplint[vardepsexclude] += "BB_NUMBER_THREADS"
 python do_sca_cpplint() {
     import os
     import subprocess
-    
+
     os.environ["OTMP"] = d.getVar("T")
     _args = ["cpplint-multi"]
     _args += ["--jobs={}".format(d.getVar("BB_NUMBER_THREADS"))]
@@ -74,9 +74,9 @@ python do_sca_cpplint() {
     _args += ["--quiet"]
     _args += ["--root={}".format(d.getVar("B", True))]
 
-    _files = get_files_by_extention(d,    
-                                    d.getVar("SCA_SOURCES_DIR"),    
-                                    clean_split(d, "SCA_CPPLINT_FILE_FILTER"),    
+    _files = get_files_by_extention(d,
+                                    d.getVar("SCA_SOURCES_DIR"),
+                                    clean_split(d, "SCA_CPPLINT_FILE_FILTER"),
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     ## Run
     cmd_output = exec_wrap_check_output(_args, _files)

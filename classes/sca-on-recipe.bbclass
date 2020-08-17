@@ -105,7 +105,7 @@ def sca_on_recipe_init(d):
             okay = True
         except bb.parse.ParseError:
             pass
-        try:    
+        try:
             ## In case there is a split between image/recipe modules
             BBHandler.inherit("sca-{}-recipe".format(item), "sca-on-recipe", 1, d)
             func = "sca-{}-init".format(item).replace("-", "_")

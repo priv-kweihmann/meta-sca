@@ -25,7 +25,7 @@ def do_sca_conv_sparse(d):
     import os
     import re
     import hashlib
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -79,9 +79,9 @@ python do_sca_sparse() {
     _args += ["-gcc-base-dir", os.path.join(d.getVar("STAGING_DIR"), d.getVar("prefix"))]
     _args += ["-fmax-warnings=1000000"]
     _args += clean_split(d, "SCA_SPARSE_WARNINGS")
-    _files = get_files_by_extention(d,    
-                                    d.getVar("SCA_SOURCES_DIR"),    
-                                    clean_split(d, "SCA_SPARSE_FILE_FILTER"),    
+    _files = get_files_by_extention(d,
+                                    d.getVar("SCA_SOURCES_DIR"),
+                                    clean_split(d, "SCA_SPARSE_FILE_FILTER"),
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run

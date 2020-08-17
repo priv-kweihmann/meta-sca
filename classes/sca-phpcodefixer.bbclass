@@ -21,12 +21,12 @@ inherit sca-tracefiles
 def do_sca_conv_phpcodefixer(d):
     import os
     import json
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
-    
+
     _findings = []
-    _suppress = sca_suppress_init(d, "SCA_PHPCODEFIXER_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_PHPCODEFIXER_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/phpcodefixer-${SCA_MODE}-suppress"))
 
     if os.path.exists(sca_raw_result_file(d, "phpcodefixer")):
@@ -71,10 +71,10 @@ python do_sca_phpcodefixer() {
     if d.getVar("SCA_PHPCODEFIXER_PHP_VERSION"):
         _args += ["--target={}".format(d.getVar("SCA_PHPCODEFIXER_PHP_VERSION"))]
     _args += ["-n"]
-    
+
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*php", [".php"], \
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
-    
+
     cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json_subarray, key="problems",
                                         default_val={"problems": []})
 
@@ -90,7 +90,7 @@ python do_sca_phpcodefixer_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "phpcodefixer", get_fatal_entries(d, "SCA_PHPCODEFIXER_EXTRA_FATAL", 
+    sca_task_aftermath(d, "phpcodefixer", get_fatal_entries(d, "SCA_PHPCODEFIXER_EXTRA_FATAL",
                         d.expand("${STAGING_DATADIR_NATIVE}/phpcodefixer-${SCA_MODE}-fatal")))
 }
 

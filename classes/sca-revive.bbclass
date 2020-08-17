@@ -20,7 +20,7 @@ inherit sca-tracefiles
 def do_sca_conv_revive(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -63,9 +63,9 @@ python do_sca_revive() {
 
     _args = ["revive", "-formatter", "unix"]
 
-    _files = get_files_by_extention(d,    
-                                    d.getVar("SCA_SOURCES_DIR"),    
-                                    clean_split(d, "SCA_REVIVE_FILE_FILTER"),    
+    _files = get_files_by_extention(d,
+                                    d.getVar("SCA_SOURCES_DIR"),
+                                    clean_split(d, "SCA_REVIVE_FILE_FILTER"),
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run

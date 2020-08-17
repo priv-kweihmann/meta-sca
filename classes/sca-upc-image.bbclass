@@ -63,7 +63,7 @@ DEPENDS += "upc upc-native"
 def do_sca_conv_upc(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -74,7 +74,7 @@ def do_sca_conv_upc(d):
         "W" : "warning"
     }
 
-    _suppress = sca_suppress_init(d, "SCA_UPC_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_UPC_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/upc-${SCA_MODE}-suppress"))
     _findings = []
 
