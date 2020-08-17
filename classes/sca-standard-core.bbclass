@@ -19,7 +19,7 @@ DEPENDS += "standard-native"
 def do_sca_conv_standard(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 

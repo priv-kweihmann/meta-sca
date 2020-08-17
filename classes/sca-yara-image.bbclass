@@ -1131,13 +1131,13 @@ def sca_yara_get_description(d, raw):
 def do_sca_conv_yara(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     pattern = r"^(?P<id>[a-zA-z_0-9]+)\s\[(?P<attr>.*?)\]\s(?P<file>.*)$"
 
-    _suppress = sca_suppress_init(d, "SCA_UPC_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_UPC_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/yara-${SCA_MODE}-suppress"))
     _findings = []
 

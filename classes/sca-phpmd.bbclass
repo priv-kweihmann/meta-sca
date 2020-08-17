@@ -21,12 +21,12 @@ def do_sca_conv_phpmd(d):
     import os
     import json
     import hashlib
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
-    
+
     _findings = []
-    _suppress = sca_suppress_init(d, "SCA_PHPMD_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_PHPMD_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/phpmd-${SCA_MODE}-suppress"))
 
     if os.path.exists(sca_raw_result_file(d, "phpmd")):
@@ -66,15 +66,15 @@ python do_sca_phpmd() {
 
     ## Run
     _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "phpmd/vendor/bin/phpmd")]
-    
+
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*php", d.getVar("SCA_PHPMD_FILE_FILTER"), \
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
-    
+
     _args += [",".join(_files)]
     _args += ["json"]
     _args += [",".join(clean_split(d, "SCA_PHPMD_CHECKS"))]
     _args += ["--suffixes", ",".join([x.lstrip(".") for x in clean_split(d, "SCA_PHPMD_FILE_FILTER")])]
-    
+
     cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json_subarray, key="files",
                                         default_val={"files": []})
 
@@ -90,7 +90,7 @@ python do_sca_phpmd_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "phpmd", get_fatal_entries(d, "SCA_PHPMD_EXTRA_FATAL", 
+    sca_task_aftermath(d, "phpmd", get_fatal_entries(d, "SCA_PHPMD_EXTRA_FATAL",
                         d.expand("${STAGING_DATADIR_NATIVE}/phpmd-${SCA_MODE}-fatal")))
 }
 

@@ -46,7 +46,7 @@ def do_sca_conv_tscancode(d):
     import os
     from xml.etree.ElementTree import Element, SubElement, Comment, tostring
     from xml.etree import ElementTree
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -58,7 +58,7 @@ def do_sca_conv_tscancode(d):
         "Information" : "info"
     }
 
-    _suppress = sca_suppress_init(d, "SCA_TSCANCODE_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_TSCANCODE_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/tscancode-${SCA_MODE}-suppress"))
     _findings = []
 
@@ -113,9 +113,9 @@ python do_sca_tscancode() {
         _args += ["-D{}{}".format(d.getVar("SCA_TSCANCODE_SYMBOL_PREFIX"), sym)]
     for x in [x for x in d.getVar("SCA_TSCANCODE_INCLUDE_PATHS") if x]:
         _args += ["-I", x]
-    _files = get_files_by_extention(d,    
-                                    d.getVar("SCA_SOURCES_DIR"),    
-                                    clean_split(d, "SCA_TSCANCODE_FILE_FILTER"),    
+    _files = get_files_by_extention(d,
+                                    d.getVar("SCA_SOURCES_DIR"),
+                                    clean_split(d, "SCA_TSCANCODE_FILE_FILTER"),
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## create tmpdir
@@ -128,13 +128,13 @@ python do_sca_tscancode() {
     _curdir = os.getcwd()
     os.chdir(os.path.join(d.getVar("T"), "tscancode"))
 
-    xml_output = exec_wrap_check_output(_args, _files, 
+    xml_output = exec_wrap_check_output(_args, _files,
                                         combine=exec_wrap_combine_xml,
                                         toolexec=exec_wrap_tool_exec_tscancode)
 
     with open(sca_raw_result_file(d, "tscancode"), "w") as o:
         o.write(xml_output)
-    
+
     os.chdir(_curdir)
 }
 

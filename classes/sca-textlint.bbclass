@@ -55,7 +55,7 @@ def write_config(_base, _extra_dicts, _target):
 def do_sca_conv_textlint(d):
     import os
     import json
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -101,7 +101,7 @@ def do_sca_conv_textlint(d):
                         _findings.append(g)
                 except Exception as exp:
                     bb.warn(str(exp))
-    
+
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 

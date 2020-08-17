@@ -22,15 +22,15 @@ def sca_gcc_hardening(d):
 
     if d.getVar("SCA_GCC_HARDENING") != "1":
         return sca_save_model_to_string(d)
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
-    
+
     _linker_flags = d.getVar("LDFLAGS")
     _cflags = [x for x in d.getVar("CFLAGS").split(" ") if x] + [x for x in d.getVar("CXXFLAGS").split(" ") if x]
     _cxxflags = [x for x in d.getVar("CXXFLAGS").split(" ") if x] + [x for x in d.getVar("CPPFLAGS").split(" ") if x]
 
-    _suppress = sca_suppress_init(d, "SCA_GCC_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_GCC_EXTRA_SUPPRESS",
                                     d.expand("${STAGING_DATADIR_NATIVE}/gcc-${SCA_MODE}-suppress"))
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
@@ -98,8 +98,8 @@ def sca_gcc_hardening(d):
                 _findings.append(g)
 
     for item in ["-Wall", "-Wcast-align", "-Wconversion", "-Wextra", "-Wformat-security",
-                 "-Wformat=2", "-Wsign-conversion", "-Wstrict-overflow", "-Wstrict-prototypes",    
-                 "-Wtrampolines", "-fno-common", "-fno-omit-frame-pointer", "-fsanitize=address",    
+                 "-Wformat=2", "-Wsign-conversion", "-Wstrict-overflow", "-Wstrict-prototypes",
+                 "-Wtrampolines", "-fno-common", "-fno-omit-frame-pointer", "-fsanitize=address",
                  "-fsanitize=thread", "-fstack-check"]:
         if not item in _cflags and not item in logcontent:
             g = sca_get_model_class(d,
@@ -128,7 +128,7 @@ def sca_gcc_hardening(d):
             if (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                 continue
             if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)    
+                _findings.append(g)
 
     if d.getVar("DEBUG_BUILD") != "1" and ("-DDEBUG=1" in _cflags or "-DDEBUG=1" in logcontent):
         g = sca_get_model_class(d,
@@ -142,7 +142,7 @@ def sca_gcc_hardening(d):
         if not (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
-    
+
     if d.getVar("DEBUG_BUILD") != "1" and not ("-D_FORTIFY_SOURCE=2" in _cflags) and not ("-D_FORTIFY_SOURCE=2" in logcontent):
         g = sca_get_model_class(d,
                                 PackageName=package_name,
@@ -155,7 +155,7 @@ def sca_gcc_hardening(d):
         if not (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
-    
+
     if not ("-fstack-protector-strong" in _cflags or "-fstack-protector" in _cflags or "-fstack-protector-all" in _cflags) and \
        not ("-fstack-protector-strong" in logcontent or "-fstack-protector" in logcontent or "-fstack-protector-all" in logcontent):
         g = sca_get_model_class(d,
@@ -183,7 +183,7 @@ def sca_gcc_hardening(d):
         if not (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
-    
+
     if not ("-mfunction-return=thunk" in _cflags and "-mindirect-branch=thunk" in _cflags) and \
        not ("-mfunction-return=thunk" in logcontent and "-mindirect-branch=thunk" in logcontent):
         g = sca_get_model_class(d,
@@ -201,11 +201,11 @@ def sca_gcc_hardening(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
-    
+
 def do_sca_conv_gcc(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -254,7 +254,7 @@ python do_sca_gcc() {
     import bb
     import os
     import shutil
-  
+
     if not os.path.exists(os.path.join(d.getVar("T"), "log.do_compile")):
         with open(sca_raw_result_file(d, "gcc"), "w") as f:
             f.write("")
@@ -284,7 +284,7 @@ python do_sca_deploy_gcc() {
 do_sca_gcc[doc] = "Get compiler warnings and hardening potentials"
 do_sca_gcc_report[doc] = "Report findings of do_sca_gcc"
 do_sca_deploy_gcc[doc] = "Deploy results of do_sca_gcc"
-addtask do_sca_gcc after do_compile before do_sca_tracefiles 
+addtask do_sca_gcc after do_compile before do_sca_tracefiles
 addtask do_sca_gcc_report after do_sca_tracefiles
 addtask do_sca_deploy_gcc after do_sca_gcc_report before do_package
 

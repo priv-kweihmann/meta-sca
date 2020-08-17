@@ -18,7 +18,7 @@ def sca_license_filter_match(d, pkglic=[]):
             if re.match(item, lic, 0):
                 return True
     return False
-    
+
 
 def sca_filter_by_license_image(d):
     import oe.packagedata
@@ -67,4 +67,4 @@ def sca_filter_by_license(d):
         return sca_filter_by_license_image(d)
     else:
         return sca_filter_by_license_recipe(d)
-    
+

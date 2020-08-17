@@ -25,7 +25,7 @@ DEPENDS += "python3-systemdlint-native"
 def do_sca_conv_systemdlint(d):
     import os
     import re
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
@@ -37,7 +37,7 @@ def do_sca_conv_systemdlint(d):
         "info": "info"
     }
 
-    _suppress = sca_suppress_init(d, "SCA_SYSTEMDLINT_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_SYSTEMDLINT_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/systemdlint-${SCA_MODE}-suppress"))
     _findings = []
 

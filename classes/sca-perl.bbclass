@@ -21,14 +21,14 @@ def do_sca_conv_perl(d):
     import os
     import re
     import hashlib
-    
+
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     items = []
     pattern = r"^(?P<msg>.*)\s+at\s+(?P<file>.*)\s+line\s+(?P<line>\d+)"
 
-    _suppress = sca_suppress_init(d, "SCA_PERL_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_PERL_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/perl-${SCA_MODE}-suppress"))
     _findings = []
 
@@ -68,10 +68,10 @@ python do_sca_perl() {
 
     cmd_output = ""
 
-    _files = get_files_by_extention_or_shebang(d,    
+    _files = get_files_by_extention_or_shebang(d,
                                                 d.getVar("SCA_SOURCES_DIR"),
                                                 ".*/perl",
-                                                clean_split(d, "SCA_PERL_FILE_FILTER"),    
+                                                clean_split(d, "SCA_PERL_FILE_FILTER"),
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run
@@ -89,7 +89,7 @@ python do_sca_perl_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "perl", get_fatal_entries(d, "SCA_PERL_EXTRA_FATAL", 
+    sca_task_aftermath(d, "perl", get_fatal_entries(d, "SCA_PERL_EXTRA_FATAL",
                         d.expand("${STAGING_DATADIR_NATIVE}/perl-${SCA_MODE}-fatal")))
 }
 

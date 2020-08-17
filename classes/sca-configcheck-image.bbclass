@@ -73,7 +73,7 @@ fakeroot python do_sca_configcheck() {
     sca_crossemu(d, None, ["bash"], "configcheck", "sca_configcheck_prepare;")
 
     _raw_findings = []
-    _suppress = sca_suppress_init(d, "SCA_TIGER_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, "SCA_TIGER_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/configcheck-${SCA_MODE}-suppress"))
 
     for mod in clean_split(d, "SCA_CONFIGCHECK_MODULES"):
@@ -102,7 +102,7 @@ fakeroot python do_sca_configcheck() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "configcheck", get_fatal_entries(d, "SCA_TIGER_EXTRA_FATAL", 
+    sca_task_aftermath(d, "configcheck", get_fatal_entries(d, "SCA_TIGER_EXTRA_FATAL",
                         d.expand("${STAGING_DATADIR_NATIVE}/configcheck-${SCA_MODE}-fatal")))
 }
 

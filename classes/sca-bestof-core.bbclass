@@ -76,7 +76,7 @@ python do_sca_bestof_core() {
             _data = sca_get_datamodel(d, fp)
             for f in _data:
                 _findings = insert_finding(d, mod, f, _tools, _findings)
-    
+
 
     with open(os.path.join(d.getVar("T"), "bestof.json"), "w") as o:
         json.dump(_findings, o)
@@ -105,7 +105,7 @@ python do_sca_bestof_core() {
 
                 _nMsg = sorted(item["occ"], key=lambda x: x["tool"], reverse=False)[0]["msg"]
                 _nMsg = _nMsg[_nMsg.find("]") + 1:].strip()
-                _nMsg = "[Package:{} Tools:{}] {}".format(d.getVar("PN"), ",".join(list(set([x["tool"] for x in item["occ"]]))), _nMsg)    
+                _nMsg = "[Package:{} Tools:{}] {}".format(d.getVar("PN"), ",".join(list(set([x["tool"] for x in item["occ"]]))), _nMsg)
 
                 g = sca_get_model_class(d,
                                         PackageName=package_name,
