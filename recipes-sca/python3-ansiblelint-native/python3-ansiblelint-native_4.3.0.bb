@@ -21,11 +21,11 @@ DEPENDS += "\
             "
 
 # wheel-files are just zip-files, so we can threat them like that
-SRC_URI = "https://files.pythonhosted.org/packages/13/26/3dbb5aee479c3e60b97ebbadeeec2eb0fa610985e3c94c3c472b02991dbf/ansible_lint-${PV}-py2.py3-none-any.whl;downloadfilename=ansible_lint-${PV}-py2.py3-none-any.zip;subdir=${BP} \
+SRC_URI = "https://files.pythonhosted.org/packages/8c/16/a3aa1549785fd3f820a620ecbdc018105f4791b5f83bd08c03fe6e88f0e6/ansible_lint-4.3.0-py2.py3-none-any.whl;downloadfilename=ansible_lint-${PV}-py2.py3-none-any.zip;subdir=${BP} \
            file://ansiblelint.sca.description"
 
-SRC_URI[md5sum] = "fb1931a3222d1d534cb10cbd97b54f5f"
-SRC_URI[sha256sum] = "b9fc9a6564f5d60a4284497f966f38ef78f0e2505edbe2bd1225f1ade31c2d8a"
+SRC_URI[md5sum] = "bbd0b6efd3b0a53a53826329f8a382d9"
+SRC_URI[sha256sum] = "eebfceb961e3c1c0c7a1ae41147f0858cfb744771421fc8f404d4f6cfb5a5d3a"
 
 UPSTREAM_CHECK_URI ?= "https://pypi.python.org/pypi/ansible_lint/"
 UPSTREAM_CHECK_REGEX = "ansible_lint-(?P<pver>\d+\.\d+\.\d+)-py2\.py3-none-any\.whl"
