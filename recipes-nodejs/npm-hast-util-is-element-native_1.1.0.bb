@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/hast-util-is-element/-/hast-util-is-element-1.0.4.tgz"
-SRC_URI[md5sum] = "ee72277c674952288611ce5791e721ac"
-SRC_URI[sha256sum] = "da66f0caf654981d96825e9f1cf7fa4fc6d7802306249ab55980b72c3bb7c0d3"
+SRC_URI = "https://registry.npmjs.org/hast-util-is-element/-/hast-util-is-element-1.1.0.tgz"
+SRC_URI[md5sum] = "410748a9dff5b5e31969f42063b9542a"
+SRC_URI[sha256sum] = "3ed9d860fe66f77176d8819e0e292334a7860b9da472042f84aac90ad645e369"
 
 NPM_PKGNAME = "hast-util-is-element"
 
