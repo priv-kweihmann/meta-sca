@@ -19,8 +19,8 @@ DEPENDS += "glib-2.0-native zlib-native"
 
 SRC_URI = "https://download.qemu.org/qemu-${PV}.tar.xz"
 
-SRC_URI[md5sum] = "ede6005d7143fe994dd089d31dc2cf6c"
-SRC_URI[sha256sum] = "2f13a92a0fa5c8b69ff0796b59b86b080bbb92ebad5d301a7724dd06b5e78cb6"
+SRC_URI[md5sum] = "f3eb729786591f05a9ac5d8ab03b9269"
+SRC_URI[sha256sum] = "c9174eb5933d9eb5e61f541cd6d1184cd3118dfe4c5c4955bc1bdc4d390fa4e5"
 
 S = "${WORKDIR}/qemu-${PV}"
 B = "${WORKDIR}/build"
