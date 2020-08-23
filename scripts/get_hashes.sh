@@ -1,16 +1,23 @@
 #!/bin/sh
 res=""
 mode=$1
-if [ ${mode} = "issue" ]; then
-    shift
-    for number in $@; do
-        x=$(git log --oneline --grep "Fixes #${number}" --grep "Closes #${number}" --grep "Relates to #${number}" --pretty=format:"%h" --reverse)
-        res="${res}\n${x}"
-    done
-else 
-    shift
-    res=$@
-fi
+case ${mode} in
+    issue)
+        shift
+        for number in $@; do
+            x=$(git log --oneline --grep "Fixes #${number}" --grep "Closes #${number}" --grep "Relates to #${number}" --pretty=format:"%h" --reverse)
+            res="${res}\n${x}"
+        done
+        ;;
+    hash)
+        shift
+        res=$@
+        ;;
+    unpushed)
+        shift
+        res=$(git log origin/staging..staging --oneline | cut -d' ' -f1 | tac | tr '\n' ' ')
+        ;;
+esac
 _BRANCHES="master dunfell zeus warrior"
 if [ ! -z "${BRANCHES}" ]; then
     _BRANCHES=${BRANCHES}
