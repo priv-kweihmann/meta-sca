@@ -112,4 +112,4 @@ do_sca_deploy_sudokiller_image[doc] = "Deploy results of do_sca_sudokiller"
 addtask do_sca_sudokiller before do_image_complete after do_image
 addtask do_sca_deploy_sudokiller_image before do_image_complete after do_sca_sudokiller
 
-# FIXME: DEPENDS += "sca-image-sudokiller-rules-native"
+DEPENDS += "sca-image-sudokiller-rules-native"
