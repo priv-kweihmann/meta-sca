@@ -25,6 +25,7 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             htmlhint \
                             jshint \
                             jsonlint \
+                            lse \
                             lynis \
                             multimetric \
                             mypy \
