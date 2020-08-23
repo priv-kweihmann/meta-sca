@@ -33,6 +33,7 @@ jsonlint,JSON file linter,,,,x,x,,,,,,,,,,,,,,x,,x,
 kconfighard,Kernel config hardening checker,https://github.com/a13xp0p0v/kconfig-hardened-check,,,,x,,,,,,,,,,,,,,x,x,,
 licensecheck,Scan code for license information,https://github.com/boyter/lc,,,,x,,,,,,,,,,,,,,x,x,,,
 looong,Find functions with too long arglists,https://github.com/anapaulagomes/looong,,,,x,,,x,,,,,,,,,,,,,,x
+lse,check on security issues,https://github.com/diego-treitos/linux-smart-enumeration,,,x,,,,,,,,,x,,,,,,,x,,
 luacheck,LUA linter,https://github.com/mpeterv/luacheck,"meta-oe, manual enable",x,,x,,,,,,,,,x,,,,,,,x,
 lynis,Auditing tool for images,https://github.com/CISOfy/lynis,,,x,,,,,,,,,x,,,,,,,x,,
 msgcheck,I18n linter,https://github.com/codingjoe/msgcheck,,,,x,,,,,,,,,,,,,,x,,,x
