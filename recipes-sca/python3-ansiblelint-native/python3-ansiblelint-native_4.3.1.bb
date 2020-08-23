@@ -18,14 +18,15 @@ DEPENDS += "\
             ${PYTHON_PN}-setuptools-scm-git-archive-native \
             ${PYTHON_PN}-setuptools-scm-native \
             ${PYTHON_PN}-six-native \
+            ${PYTHON_PN}-rich-native \
             "
 
 # wheel-files are just zip-files, so we can threat them like that
-SRC_URI = "https://files.pythonhosted.org/packages/8c/16/a3aa1549785fd3f820a620ecbdc018105f4791b5f83bd08c03fe6e88f0e6/ansible_lint-4.3.0-py2.py3-none-any.whl;downloadfilename=ansible_lint-${PV}-py2.py3-none-any.zip;subdir=${BP} \
+SRC_URI = "https://files.pythonhosted.org/packages/a3/ef/53786af7d6e5cca54093f8e83db9c6b9b733be0adda55162a1b49630ae33/ansible_lint-4.3.1-py2.py3-none-any.whl;downloadfilename=ansible_lint-${PV}-py2.py3-none-any.zip;subdir=${BP} \
            file://ansiblelint.sca.description"
 
-SRC_URI[md5sum] = "bbd0b6efd3b0a53a53826329f8a382d9"
-SRC_URI[sha256sum] = "eebfceb961e3c1c0c7a1ae41147f0858cfb744771421fc8f404d4f6cfb5a5d3a"
+SRC_URI[md5sum] = "a2601d6f76111b66a9f317724c37597a"
+SRC_URI[sha256sum] = "7e8b71d35c9820e70bade55a72cd3dd2e7b663ba1e9827d5a654fa59c7658f37"
 
 UPSTREAM_CHECK_URI ?= "https://pypi.python.org/pypi/ansible_lint/"
 UPSTREAM_CHECK_REGEX = "ansible_lint-(?P<pver>\d+\.\d+\.\d+)-py2\.py3-none-any\.whl"
