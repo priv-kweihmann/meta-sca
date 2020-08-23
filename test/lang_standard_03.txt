@@ -2,6 +2,7 @@ ansible
 ansibleroles
 configcheck
 gixy
+lse
 lynis
 nixauditor
 ropgadget
