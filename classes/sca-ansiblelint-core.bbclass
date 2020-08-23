@@ -71,6 +71,7 @@ python do_sca_ansiblelint_core() {
     _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "python3-native", "python3")]
     _args += ["-m", "ansiblelint"]
     _args += ["-p"]
+    _args += ["--nocolor"]
     _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_ANSIBLELINT_FILE_FILTER"),
                         sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
