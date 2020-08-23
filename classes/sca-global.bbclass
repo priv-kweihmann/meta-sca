@@ -99,6 +99,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           jsonlint \
                           kconfighard \
                           looong \
+                          lse \
                           lynis \
                           msgcheck \
                           mypy \
