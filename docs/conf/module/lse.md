@@ -1,4 +1,4 @@
-# Configuration for sudokiller
+# Configuration for lse
 
 ## Supported environments/languages
 
@@ -8,10 +8,10 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLACKLIST_sudokiller | Blacklist filter for this tool | space-separated-list | ""
-| SCA_SUDOKILLER_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
-| SCA_SUDOKILLER_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
-| SCA_SUDOKILLER_PASSWORD | If a password for sudo is required, set it here | space-separated-list | "usr sud fst sys sec ret"
+| SCA_BLACKLIST_lse | Blacklist filter for this tool | space-separated-list | ""
+| SCA_LSE_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
+| SCA_LSE_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
+| SCA_LSE_MODULES | Modules to check | space-separated-list | "usr sud fst sys sec ret"
 
 ## Supports
 
