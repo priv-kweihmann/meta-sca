@@ -9,6 +9,7 @@ DEPENDS = "npm-meow-native \
            npm-rehype-parse-native \
            npm-rehype-retext-native \
            npm-remark-frontmatter-native \
+           npm-remark-mdx-native \
            npm-remark-message-control-native \
            npm-remark-parse-native \
            npm-remark-retext-native \
@@ -23,9 +24,9 @@ DEPENDS = "npm-meow-native \
            npm-vfile-reporter-native \
            npm-vfile-sort-native"
 
-SRC_URI = "https://registry.npmjs.org/alex/-/alex-8.2.0.tgz"
-SRC_URI[md5sum] = "23bdb85d58d288dbc56cce6438c2db65"
-SRC_URI[sha256sum] = "85770cebc0158406b446065f7832ddd7fb9304bf03def4efc657ebc85d130716"
+SRC_URI = "https://registry.npmjs.org/alex/-/alex-9.0.1.tgz"
+SRC_URI[md5sum] = "b43c5247e0556742f7f8815314221292"
+SRC_URI[sha256sum] = "fdc022406dd69ded7efec38ec193d1c4d3fcf325b8b9586d65dfcb3da73efde1"
 
 NPM_PKGNAME = "alex"
 
