@@ -144,9 +144,6 @@ python do_sca_textlint() {
         except subprocess.CalledProcessError as e:
             cmd_output += e.stdout or ""
     
-    with open(sca_raw_result_file(d, "textlint"), "w") as o:
-        o.write(cmd_output)
-
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/textlint.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_textlint(d)
