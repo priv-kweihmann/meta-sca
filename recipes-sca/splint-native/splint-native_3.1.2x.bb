@@ -8,6 +8,7 @@ DEPENDS += "bison-native"
 
 SRC_URI = "git://github.com/splintchecker/splint.git;protocol=https \
            file://0001-Strip-usr-include.patch \
+           file://0001-bison-fix-deprecation-warnings.patch \
            file://splint.sca.description"
 
 ## This version is 3.12 plus some commit which addresses
