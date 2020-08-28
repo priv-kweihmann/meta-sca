@@ -1,0 +1,40 @@
+From d066f4350090609d367d3afebf5ad144f51895a9 Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Fri, 28 Aug 2020 15:17:27 +0200
+Subject: [PATCH] bison: fix deprecation warnings
+
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+---
+ src/mtgrammar.y | 2 +-
+ src/signature.y | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/mtgrammar.y b/src/mtgrammar.y
+index e58067b..4e5d126 100644
+--- a/src/mtgrammar.y
++++ b/src/mtgrammar.y
+@@ -57,7 +57,7 @@ static void yyprint (/*FILE *p_file, int p_type, YYSTYPE p_value */);
+ 
+ %}
+ 
+-%pure-parser 
++%define api.pure 
+ 
+ %union {
+   mttok tok; 
+diff --git a/src/signature.y b/src/signature.y
+index 74a7a30..9fd205f 100644
+--- a/src/signature.y
++++ b/src/signature.y
+@@ -56,7 +56,7 @@ static void yyprint (/*FILE *p_file, int p_type, YYSTYPE p_value */);
+ 
+ %}
+ 
+-%pure-parser 
++%define api.pure 
+ 
+ /* CONVENTIONS:  Reserved words are in ALL CAPS (plus markerSym)
+ 		Characters appearing in the grammar are reserved:
+-- 
+2.25.1
+
