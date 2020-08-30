@@ -15,7 +15,7 @@ def _get_pkgs_list(d, pkg):
             for _dep in pkgdata["deps"]:
                 res += _get_pkgs_list(d, _dep)
     except Exception as e:
-        bb.warn(str(e))
+        bb.note(str(e))
     return list(set(res))
 
 def do_sca_create_crossemu_img(d, tool, addpkgs, postcmd=""):

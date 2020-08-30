@@ -33,6 +33,6 @@ def do_sca_configcheck_conv_proftpd(d, toolout, suppress):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings.append(g)
         except Exception as exp:
-            bb.warn(str(exp))
+            bb.note(str(exp))
 
     return _findings
