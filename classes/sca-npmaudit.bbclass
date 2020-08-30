@@ -71,6 +71,8 @@ python do_sca_npmaudit() {
 
     cmd_output = "{}"
 
+    os.environ["HOME"] = d.getVar("T")
+
     ## Run
 
     if os.path.exists(os.path.join(d.getVar("SCA_SOURCES_DIR"), "package-lock.json")):
