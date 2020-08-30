@@ -55,7 +55,7 @@ def do_sca_conv_rubycritic(d):
                         if g.Severity in sca_allowed_warning_level(d):
                             _findings.append(g)
                     except Exception as exp:
-                        bb.note(str(exp))
+                        bb.warn(str(exp))
 
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
@@ -66,6 +66,7 @@ def exec_wrap_combine_json_rubycritic(a, b, **kwargs):
         with open(kwargs["sourcefile"]) as i:
             b = json.load(i)
     except:
+        bb.warn(str(e))
         b = {"analysed_modules": {}}
 
     try:
@@ -85,6 +86,7 @@ python do_sca_rubycritic() {
     import subprocess
 
     ## Run
+    os.environ["HOME"] = d.getVar("T")
     os.environ["RUBYLIB"] = os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "ruby/")
     os.environ["GEM_DIR"] = os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "ruby/gems/")
     os.environ["GEM_HOME"] = os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "ruby/gems/")
@@ -100,7 +102,7 @@ python do_sca_rubycritic() {
     cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json_rubycritic, default={"analyzed_modules": []},
                                         sourcefile=d.expand("${T}/rubycritic/report.json"))
 
-    with open(sca_raw_result_file(d, "wotan"), "w") as o:
+    with open(sca_raw_result_file(d, "rubycritic"), "w") as o:
         o.write(cmd_output)
 }
 
