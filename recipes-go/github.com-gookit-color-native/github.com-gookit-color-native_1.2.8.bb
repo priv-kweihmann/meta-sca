@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE;md5=e3aad5860068665df2e421af
 DEPENDS += "github.com-stretchr-native"
 
 SRC_URI = "git://${GO_IMPORT};protocol=https"
-SRCREV = "dedbfedb6650e743179e81a3a4cafddbd57da08e"
+SRCREV = "41d6512019aad91ad870846b8405fbf71be0c0f2"
 GO_IMPORT = "github.com/gookit/color"
 
 inherit go
