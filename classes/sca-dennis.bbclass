@@ -98,15 +98,7 @@ python do_sca_dennis() {
                        d.expand("${STAGING_DATADIR_NATIVE}/dennis-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_dennis"
-
-python do_sca_deploy_dennis() {
-    sca_conv_deploy(d, "dennis")
-}
-
 do_sca_dennis[doc] = "Lint i18n files"
-do_sca_deploy_dennis[doc] = "Deploy results of do_sca_dennis"
-addtask do_sca_dennis after do_configure before do_install
-addtask do_sca_deploy_dennis after do_sca_dennis before do_package
+addtask do_sca_dennis after do_configure before do_sca_deploy
 
 DEPENDS += "python3-dennis-native sca-recipe-dennis-rules-native"

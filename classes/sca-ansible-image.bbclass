@@ -229,15 +229,7 @@ python do_sca_ansible() {
                        d.expand("${STAGING_DATADIR_NATIVE}/ansible-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_ansible"
-
-python do_sca_deploy_ansible() {
-    sca_conv_deploy(d, "ansible")
-}
-
 do_sca_ansible[doc] = "Audit image with ansible playbooks"
-addtask do_sca_ansible before do_image_complete after do_image
-do_sca_deploy_ansible[doc] = "Deploy results of do_sca_ansible"
-addtask do_sca_deploy_ansible before do_image_complete after do_sca_ansible
+addtask do_sca_ansible before do_sca_deploy after do_image
 
 DEPENDS += "python3-ansible-native ansible-sca-native sca-image-ansible-rules-native"

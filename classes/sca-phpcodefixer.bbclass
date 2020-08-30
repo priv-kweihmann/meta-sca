@@ -94,17 +94,9 @@ python do_sca_phpcodefixer_report() {
                         d.expand("${STAGING_DATADIR_NATIVE}/phpcodefixer-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_phpcodefixer"
-
-python do_sca_deploy_phpcodefixer() {
-    sca_conv_deploy(d, "phpcodefixer")
-}
-
 do_sca_phpcodefixer[doc] = "Lint php scripts with phpcodefixer in workspace"
 do_sca_phpcodefixer_report[doc] = "Report findings of do_sca_phpcodefixer"
-do_sca_deploy_phpcodefixer[doc] = "Deploy results of do_sca_phpcodefixer"
 addtask do_sca_phpcodefixer after do_configure before do_sca_tracefiles
-addtask do_sca_phpcodefixer_report after do_sca_tracefiles
-addtask do_sca_deploy_phpcodefixer after do_sca_phpcodefixer_report before do_package
+addtask do_sca_phpcodefixer_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "phpcodefixer-native sca-recipe-phpcodefixer-rules-native"

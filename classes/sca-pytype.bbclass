@@ -93,17 +93,9 @@ python do_sca_pytype_report() {
                         d.expand("${STAGING_DATADIR_NATIVE}/pytype-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_pytype"
-
-python do_sca_deploy_pytype() {
-    sca_conv_deploy(d, "pytype")
-}
-
 do_sca_pytype[doc] = "Lint python scripts with pytype"
 do_sca_pytype_report[doc] = "Report findings of do_sca_pytype"
-do_sca_deploy_pytype[doc] = "Deploy results of do_sca_pytype"
 addtask do_sca_pytype after do_configure before do_sca_tracefiles
-addtask do_sca_pytype_report after do_sca_tracefiles
-addtask do_sca_deploy_pytype after do_sca_pytype_report before do_package
+addtask do_sca_pytype_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "python3-pytype-native sca-recipe-pytype-rules-native"

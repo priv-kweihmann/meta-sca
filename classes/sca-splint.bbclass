@@ -129,17 +129,9 @@ python do_sca_splint_report() {
                        d.expand("${STAGING_DATADIR_NATIVE}/splint-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_splint"
-
-python do_sca_deploy_splint() {
-    sca_conv_deploy(d, "splint")
-}
-
 do_sca_splint[doc] = "Lint C files with splint"
 do_sca_splint_report[doc] = "Report findings of do_sca_splint"
-do_sca_deploy_splint[doc] = "Deploy results of do_sca_splint"
 addtask do_sca_splint after do_compile before do_sca_tracefiles
-addtask do_sca_splint_report after do_sca_tracefiles
-addtask do_sca_deploy_splint after do_sca_splint_report before do_package
+addtask do_sca_splint_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "splint-native sca-recipe-splint-rules-native"

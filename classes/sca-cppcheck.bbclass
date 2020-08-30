@@ -167,17 +167,10 @@ python do_sca_cppcheck_report() {
                       d.expand("${STAGING_DATADIR_NATIVE}/cppcheck-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_cppcheck"
-
-python do_sca_deploy_cppcheck() {
-    sca_conv_deploy(d, "cppcheck")
-}
-
 do_sca_cppcheck[doc] = "Lint C/C++ files with cppcheck"
 do_sca_cppcheck_report[doc] = "Create cppcheck result report"
 do_sca_deploy_cppcheck[doc] = "Deploy results of do_sca_cppcheck"
 addtask do_sca_cppcheck after do_compile before do_sca_tracefiles
-addtask do_sca_cppcheck_report after do_sca_tracefiles
-addtask do_sca_deploy_cppcheck after do_sca_cppcheck_report before do_package
+addtask do_sca_cppcheck_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "cppcheck-native sca-recipe-cppcheck-rules-native"

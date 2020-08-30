@@ -104,23 +104,9 @@ python do_sca_<TOOL>_report() {
     ...
 }
 
-# Reference the task, which exports the resulting files
-SCA_DEPLOY_TASK = "do_sca_deploy_<TOOL>"
-
-# export task
-python do_sca_deploy_<TOOL>() {
-    # internal exporter function
-    sca_conv_deploy(d, "<TOOL>")
-}
-
 # Announce the bitbake tasks
 addtask do_sca_<TOOL> after do_configure before do_sca_tracefiles
-addtask do_sca_<TOOL>_report after do_sca_tracefiles
-addtask do_sca_deploy_<TOOL> after do_sca_<TOOL>_report before do_package
-
-# Controls the behavior of the bitbake tasks regarding SCA_FORCE_RUN settings
-do_sca_<TOOL>[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
-do_sca_deploy_<TOOL>[depends] += "${@oe.utils.conditional('SCA_FORCE_RUN', '1', '${PN}:do_sca_do_force_meta_task', '', d)}"
+addtask do_sca_<TOOL>_report after do_sca_tracefiles before do_sca_deploy
 
 # add the dependencies for the tool and rules
 # more on that later
@@ -157,15 +143,8 @@ python do_sca_myfoolint_report() {
     ...
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_myfoolint"
-
-python do_sca_deploy_myfoolint() {
-    sca_conv_deploy(d, "myfoolint")
-}
-
 addtask do_sca_myfoolint after do_configure before do_sca_tracefiles
-addtask do_sca_myfoolint_report after do_sca_tracefiles
-addtask do_sca_deploy_myfoolint after do_sca_myfoolint_report before do_package
+addtask do_sca_myfoolint_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "\
             myfoolint-native \

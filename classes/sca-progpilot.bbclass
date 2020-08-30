@@ -88,17 +88,9 @@ python do_sca_progpilot_report() {
                         d.expand("${STAGING_DATADIR_NATIVE}/progpilot-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_progpilot"
-
-python do_sca_deploy_progpilot() {
-    sca_conv_deploy(d, "progpilot")
-}
-
 do_sca_progpilot[doc] = "Lint php scripts with progpilot"
 do_sca_progpilot_report[doc] = "Report findings of do_sca_progpilot"
-do_sca_deploy_progpilot[doc] = "Deploy results of do_sca_progpilot"
 addtask do_sca_progpilot after do_configure before do_sca_tracefiles
-addtask do_sca_progpilot_report after do_sca_tracefiles
-addtask do_sca_deploy_progpilot after do_sca_progpilot_report before do_package
+addtask do_sca_progpilot_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "progpilot-native sca-recipe-progpilot-rules-native"

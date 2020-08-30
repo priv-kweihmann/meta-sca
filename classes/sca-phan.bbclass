@@ -113,17 +113,9 @@ python do_sca_phan_report() {
                         d.expand("${STAGING_DATADIR_NATIVE}/phan-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_phan"
-
-python do_sca_deploy_phan() {
-    sca_conv_deploy(d, "phan")
-}
-
 do_sca_phan[doc] = "Lint php scripts with phan in workspace"
 do_sca_phan_report[doc] = "Report findings of do_sca_phan"
-do_sca_deploy_phan[doc] = "Deploy results of do_sca_phan"
 addtask do_sca_phan after do_configure before do_sca_tracefiles
-addtask do_sca_phan_report after do_sca_tracefiles
-addtask do_sca_deploy_phan after do_sca_phan_report before do_package
+addtask do_sca_phan_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "phan-native sca-recipe-phan-rules-native"

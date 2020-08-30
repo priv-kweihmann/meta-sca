@@ -184,17 +184,9 @@ python do_sca_pkgqaenc() {
                         d.expand("${STAGING_DATADIR_NATIVE}/pkgqaenc-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_pkgqaenc"
-
-python do_sca_deploy_pkgqaenc() {
-    sca_conv_deploy(d, "pkgqaenc")
-}
-
 do_sca_pkgqaenc_pre[doc] = "Package linter pre function"
 do_sca_pkgqaenc[doc] = "Lint produced packages"
-do_sca_deploy_pkgqaenc[doc] = "Deploy results of do_sca_pkgqaenc"
 addtask do_sca_pkgqaenc_pre before do_configure after do_patch
-addtask do_sca_pkgqaenc before do_package_qa after do_package
-addtask do_sca_deploy_pkgqaenc after do_sca_pkgqaenc before do_package_qa
+addtask do_sca_pkgqaenc before do_sca_deploy after do_package
 
 DEPENDS += "pkgqaenc-native sca-recipe-pkgqaenc-rules-native"

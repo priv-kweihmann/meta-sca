@@ -135,10 +135,4 @@ python do_sca_bitbake () {
     sca_task_aftermath(d, "bitbake", get_fatal_entries(d, "", None))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_gcc"
-
-python do_sca_deploy_bitbake() {
-    sca_conv_deploy(d, "bitbake")
-}
-
 DEPENDS += "bitbake-sca-native"

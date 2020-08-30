@@ -148,17 +148,9 @@ python do_sca_cspell_report() {
     sca_task_aftermath(d, "cspell")
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_cspell"
-
-python do_sca_deploy_cspell() {
-    sca_conv_deploy(d, "cspell")
-}
-
 do_sca_cspell[doc] = "Lint test files with cspell"
 do_sca_cspell_report[doc] = "Report findings of do_sca_cspell"
-do_sca_deploy_cspell[doc] = "Deploy results of do_sca_cspell"
 addtask do_sca_cspell after do_compile before do_sca_tracefiles
-addtask do_sca_cspell_report after do_sca_tracefiles
-addtask do_sca_deploy_cspell after do_sca_cspell_report before do_package
+addtask do_sca_cspell_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "cspell-native sca-recipe-cspell-rules-native cspell-user-dict-native"

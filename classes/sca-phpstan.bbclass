@@ -98,17 +98,9 @@ python do_sca_phpstan_report() {
                         d.expand("${STAGING_DATADIR_NATIVE}/phpstan-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_phpstan"
-
-python do_sca_deploy_phpstan() {
-    sca_conv_deploy(d, "phpstan")
-}
-
 do_sca_phpstan[doc] = "Lint php scripts with phpstan in workspace"
 do_sca_phpstan_report[doc] = "Report findings of do_sca_phpstan"
-do_sca_deploy_phpstan[doc] = "Deploy results of do_sca_phpstan"
 addtask do_sca_phpstan after do_configure before do_sca_tracefiles
-addtask do_sca_phpstan_report after do_sca_tracefiles
-addtask do_sca_deploy_phpstan after do_sca_phpstan_report before do_package
+addtask do_sca_phpstan_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "phpstan-native sca-recipe-phpstan-rules-native"
