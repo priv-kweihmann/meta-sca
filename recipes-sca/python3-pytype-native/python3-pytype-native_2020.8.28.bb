@@ -17,8 +17,8 @@ DEPENDS += "\
             "
 
 SRC_URI_append = " file://pytype.sca.description"
-SRC_URI[md5sum] = "241545a5477299a379d00632f3581ab6"
-SRC_URI[sha256sum] = "8c6f91da370194f48844ef1e7c9427e95150879fce2017407f8c415bc333f139"
+SRC_URI[md5sum] = "1f4b943929735a73e8b7e4a17ac7e9ca"
+SRC_URI[sha256sum] = "8ac53aef4453631dfb81980a7b7313d2835f602953f4a92aec1f97b5be6b7e10"
 
 PYPI_PACKAGE = "pytype"
 
