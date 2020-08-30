@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://README.md;beginline=208;md5=81a4cb58401dcef1a99c14946
 
 SRC_URI = "git://github.com/dev-sec/ansible-os-hardening.git;protocol=https \
            file://${ROLE_NAME}.json"
-SRCREV = "a8e349913de0567a9455b70b218ca36232bfd302"
+SRCREV = "7077187a672b738fed05409dc64157a45a60bdf7"
 S = "${WORKDIR}/git"
 
 ROLE_NAME = "dev-sec.os-hardening"
