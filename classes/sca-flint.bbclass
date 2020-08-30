@@ -98,17 +98,9 @@ python do_sca_flint_report() {
                         d.expand("${STAGING_DATADIR_NATIVE}/flint-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_flint"
-
-python do_sca_deploy_flint() {
-    sca_conv_deploy(d, "flint")
-}
-
 do_sca_flint[doc] = "Lint C/C++ files with flint++"
 do_sca_flint_report[doc] = "Report findings of do_sca_flint"
-do_sca_deploy_flint[doc] = "Deploy results of do_sca_flint"
 addtask do_sca_flint after do_compile before do_sca_tracefiles
-addtask do_sca_flint_report after do_sca_tracefiles
-addtask do_sca_deploy_flint after do_sca_flint_report before do_package
+addtask do_sca_flint_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "flint++-native sca-recipe-flint-rules-native"

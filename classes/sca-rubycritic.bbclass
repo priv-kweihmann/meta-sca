@@ -116,17 +116,9 @@ python do_sca_rubycritic_report() {
                        d.expand("${STAGING_DATADIR_NATIVE}/rubycritic-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_rubycritic"
-
-python do_sca_deploy_rubycritic() {
-    sca_conv_deploy(d, "rubycritic")
-}
-
 do_sca_rubycritic[doc] = "Lint ruby scripts with rubycritic"
 do_sca_rubycritic_report[doc] = "Report findings of do_sca_rubycritic"
-do_sca_deploy_rubycritic[doc] = "Deploy results of do_sca_rubycritic"
 addtask do_sca_rubycritic after do_configure before do_sca_tracefiles
-addtask do_sca_rubycritic_report after do_sca_tracefiles
-addtask do_sca_deploy_rubycritic after do_sca_rubycritic_report before do_package
+addtask do_sca_rubycritic_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "rubycritic-native sca-recipe-rubycritic-rules-native"

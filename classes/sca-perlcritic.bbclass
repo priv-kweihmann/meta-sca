@@ -101,17 +101,9 @@ python do_sca_perlcritic_report() {
                         d.expand("${STAGING_DATADIR_NATIVE}/perlcritic-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_perlcritic"
-
-python do_sca_deploy_perlcritic() {
-    sca_conv_deploy(d, "perlcritic")
-}
-
 do_sca_perlcritic[doc] = "Lint perl scripts with perlcritic in workspace"
 do_sca_perlcritic_report[doc] = "Report findings from do_sca_perlcritic"
-do_sca_deploy_perlcritic[doc] = "Deploy results of do_sca_perlcritic"
 addtask do_sca_perlcritic after do_configure before do_sca_tracefiles
-addtask do_sca_perlcritic_report after do_sca_tracefiles
-addtask do_sca_deploy_perlcritic after do_sca_perlcritic_report before do_package
+addtask do_sca_perlcritic_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "perl-critic-native sca-recipe-perlcritic-rules-native"

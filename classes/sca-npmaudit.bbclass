@@ -97,15 +97,7 @@ python do_sca_npmaudit() {
                        d.expand("${STAGING_DATADIR_NATIVE}/npmaudit-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_npmaudit"
-
-python do_sca_deploy_npmaudit() {
-    sca_conv_deploy(d, "npmaudit")
-}
-
 do_sca_npmaudit[doc] = "Audit of used NPM packages"
-do_sca_deploy_npmaudit[doc] = "Deploy results of do_sca_npmaudit"
-addtask do_sca_npmaudit before do_install after do_compile
-addtask do_sca_deploy_npmaudit after do_sca_npmaudit before do_package
+addtask do_sca_npmaudit before do_sca_deploy after do_compile
 
 DEPENDS += "npmaudit-sca-native sca-recipe-npmaudit-rules-native"

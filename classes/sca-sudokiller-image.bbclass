@@ -101,15 +101,7 @@ fakeroot python do_sca_sudokiller() {
                        d.expand("${STAGING_DATADIR_NATIVE}/sudokiller-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_sudokiller_image"
-
-python do_sca_deploy_sudokiller_image() {
-    sca_conv_deploy(d, "sudokiller")
-}
-
 do_sca_sudokiller[doc] = "Find exploitable CVEs of sudo in image"
-do_sca_deploy_sudokiller_image[doc] = "Deploy results of do_sca_sudokiller"
-addtask do_sca_sudokiller before do_image_complete after do_image
-addtask do_sca_deploy_sudokiller_image before do_image_complete after do_sca_sudokiller
+addtask do_sca_sudokiller before do_sca_deploy after do_image
 
 DEPENDS += "sca-image-sudokiller-rules-native"

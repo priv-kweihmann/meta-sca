@@ -275,17 +275,9 @@ python do_sca_gcc_report() {
                          d.expand("${STAGING_DATADIR_NATIVE}/gcc-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_gcc"
-
-python do_sca_deploy_gcc() {
-    sca_conv_deploy(d, "gcc")
-}
-
 do_sca_gcc[doc] = "Get compiler warnings and hardening potentials"
 do_sca_gcc_report[doc] = "Report findings of do_sca_gcc"
-do_sca_deploy_gcc[doc] = "Deploy results of do_sca_gcc"
 addtask do_sca_gcc after do_compile before do_sca_tracefiles
-addtask do_sca_gcc_report after do_sca_tracefiles
-addtask do_sca_deploy_gcc after do_sca_gcc_report before do_package
+addtask do_sca_gcc_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "sca-recipe-gcc-rules-native gcc-sca-native"

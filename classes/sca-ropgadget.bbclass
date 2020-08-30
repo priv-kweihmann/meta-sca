@@ -147,13 +147,5 @@ python do_sca_ropgadget() {
     sca_task_aftermath(d, "ropgadget", get_fatal_entries(d, "", None))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_ropgadget"
-
-python do_sca_deploy_ropgadget() {
-    sca_conv_deploy(d, "ropgadget")
-}
-
 do_sca_ropgadget[doc] = "Find ROP exploitable pattern in binaries"
-do_sca_deploy_ropgadget[doc] = "Deploy results of do_sca_ropgadget"
-addtask do_sca_ropgadget before do_package_qa after do_package
-addtask do_sca_deploy_ropgadget after do_sca_ropgadget before do_package_qa
+addtask do_sca_ropgadget before do_sca_deploy after do_package

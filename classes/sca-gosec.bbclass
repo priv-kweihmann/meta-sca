@@ -114,17 +114,9 @@ python do_sca_gosec_report() {
                        d.expand("${STAGING_DATADIR_NATIVE}/gosec-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_gosec"
-
-python do_sca_deploy_gosec() {
-    sca_conv_deploy(d, "gosec")
-}
-
 do_sca_gosec[doc] = "Lint go files with gosec for security issues"
 do_sca_gosec_report[doc] = "Report findings of do_sca_gosec"
-do_sca_deploy_gosec[doc] = "Deploy results of do_sca_gosec"
 addtask do_sca_gosec after do_configure before do_sca_tracefiles
-addtask do_sca_gosec_report after do_sca_tracefiles
-addtask do_sca_deploy_gosec after do_sca_gosec_report before do_package
+addtask do_sca_gosec_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "gosec-native sca-recipe-gosec-rules-native"

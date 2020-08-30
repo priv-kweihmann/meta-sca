@@ -89,17 +89,9 @@ python do_sca_luacheck_report() {
                        d.expand("${STAGING_DATADIR_NATIVE}/luacheck-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_luacheck"
-
-python do_sca_deploy_luacheck() {
-    sca_conv_deploy(d, "luacheck")
-}
-
 do_sca_luacheck[doc] = "Lint lua files"
 do_sca_luacheck_report[doc] = "Report findings of do_sca_luacheck"
-do_sca_deploy_luacheck[doc] = "Deploy results of do_sca_luacheck"
 addtask do_sca_luacheck after do_compile before do_sca_tracefiles
-addtask do_sca_luacheck_report after do_sca_tracefiles
-addtask do_sca_deploy_luacheck after do_sca_luacheck_report before do_package
+addtask do_sca_luacheck_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "luacheck-native sca-recipe-luacheck-rules-native"
