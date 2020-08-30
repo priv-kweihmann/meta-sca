@@ -66,7 +66,7 @@ def do_sca_conv_eslint(d):
                         if g.Severity in sca_allowed_warning_level(d):
                             _findings.append(g)
                 except Exception as exp:
-                    bb.warn(str(exp))
+                    bb.note(str(exp))
         except Exception as e:
             bb.note(str(e))
     sca_add_model_class_list(d, _findings)

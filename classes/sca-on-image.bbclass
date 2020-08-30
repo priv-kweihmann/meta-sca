@@ -73,7 +73,7 @@ def sca_on_image_init(d):
             enabledModules.append(item)
         except bb.parse.ParseError as exp:
             if d.getVar("SCA_VERBOSE_OUTPUT") != "0":
-                bb.warn(str(exp))
+                bb.note(str(exp))
     if any(enabledModules):
         if d.getVar("SCA_VERBOSE_OUTPUT") == "1":
             bb.note("Using SCA Module(s) {}".format(",".join(sorted(enabledModules))))
