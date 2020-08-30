@@ -31,6 +31,9 @@ def test_integration(tmppath, recipe, tool, name):
         return
     subprocess.check_call(["bitbake", recipe, "-caddto_recipe_sysroot"], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
     for item in tool["test"]["integration"]:
+        if "env" in item:
+            for env in item["env"]:
+                os.environ[env["key"]] = env["value"] 
         try:
             subprocess.check_output(["oe-run-native", recipe, *item["cmd"]], stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
