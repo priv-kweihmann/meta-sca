@@ -55,7 +55,7 @@ def do_sca_conv_govet(d):
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)
                 except Exception as e:
-                    bb.warn(str(e))
+                    bb.note(str(e))
             for m in re.finditer(pattern_err, content, re.MULTILINE):
                 try:
                     g = sca_get_model_class(d,
@@ -75,7 +75,7 @@ def do_sca_conv_govet(d):
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings.append(g)
                 except Exception as e:
-                    bb.warn(str(e))
+                    bb.note(str(e))
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
