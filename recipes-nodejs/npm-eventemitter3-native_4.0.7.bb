@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=4089df5313a98fce4a7ff1738a3e4f1a"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/eventemitter3/-/eventemitter3-4.0.6.tgz"
-SRC_URI[md5sum] = "5150a476aa0ca389cbfa3793eb83d6d8"
-SRC_URI[sha256sum] = "0b2bae5947e73a677ec2922ee7ca6ef385dccc28ab8a7bcfb59d6f3e71393b47"
+SRC_URI = "https://registry.npmjs.org/eventemitter3/-/eventemitter3-4.0.7.tgz"
+SRC_URI[md5sum] = "465d21deadc2d5ac9ac2101221a6857d"
+SRC_URI[sha256sum] = "703cdecfa6951d9ad258f615ab96895750add3cb2d95e3727837b78709975de8"
 
 NPM_PKGNAME = "eventemitter3"
 
