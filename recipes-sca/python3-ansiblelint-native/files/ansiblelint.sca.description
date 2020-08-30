@@ -41,7 +41,10 @@
     },
     "test": {
         "integration": [
-            {"cmd": ["nativepython3", "-m", "ansiblelint", "--help"], "returncode": 0}
+            { "cmd": ["nativepython3", "-m", "ansiblelint", "--help"], 
+              "returncode": 0,
+              "env": [{"key": "HOME", "value": "/tmp"} ]
+            }
         ],
         "findings": [
             "bad-ansible"
