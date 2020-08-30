@@ -74,15 +74,7 @@ fakeroot python do_sca_nixauditor() {
                        d.expand("${STAGING_DATADIR_NATIVE}/nixauditor-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_nixauditor_image"
-
-python do_sca_deploy_nixauditor_image() {
-    sca_conv_deploy(d, "nixauditor")
-}
-
 do_sca_nixauditor[doc] = "Audit image with nixautidor"
-do_sca_deploy_nixauditor_image[doc] = "Deploy results of do_sca_nixauditor"
-addtask do_sca_nixauditor before do_image_complete after do_image
-addtask do_sca_deploy_nixauditor_image before do_image_complete after do_sca_nixauditor
+addtask do_sca_nixauditor before do_sca_deploy after do_image
 
 DEPENDS += "sca-image-nixauditor-rules-native"

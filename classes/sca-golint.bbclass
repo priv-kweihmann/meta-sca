@@ -88,17 +88,9 @@ python do_sca_golint_report() {
                         d.expand("${STAGING_DATADIR_NATIVE}/golint-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_golint"
-
-python do_sca_deploy_golint() {
-    sca_conv_deploy(d, "golint")
-}
-
 do_sca_golint[doc] = "Lint go files with golint"
 do_sca_golint_report[doc] = "Report findings of do_sca_golint"
-do_sca_deploy_golint[doc] = "Deploy results of do_sca_golint"
 addtask do_sca_golint after do_configure before do_sca_tracefiles
-addtask do_sca_golint_report after do_sca_tracefiles
-addtask do_sca_deploy_golint after do_sca_golint_report before do_package
+addtask do_sca_golint_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "golint-sca-native sca-recipe-golint-rules-native"

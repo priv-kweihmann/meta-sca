@@ -90,15 +90,7 @@ python do_sca_pysymcheck() {
                         d.expand("${STAGING_DATADIR_NATIVE}/pysymcheck-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_pysymcheck"
-
-python do_sca_deploy_pysymcheck() {
-    sca_conv_deploy(d, "pysymcheck")
-}
-
 do_sca_pysymcheck[doc] = "Find forbidden function linkage"
-do_sca_deploy_pysymcheck[doc] = "Deploy results of do_sca_pysymcheck"
-addtask do_sca_pysymcheck after do_install
-addtask do_sca_deploy_pysymcheck after do_sca_pysymcheck before do_package
+addtask do_sca_pysymcheck after do_install before do_sca_deploy
 
 DEPENDS += "python3-pysymbolcheck-native sca-recipe-pysymcheck-rules-native"

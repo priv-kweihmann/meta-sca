@@ -96,15 +96,7 @@ fakeroot python do_sca_reconbf() {
                         d.expand("${STAGING_DATADIR_NATIVE}/reconbf-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_reconbf_image"
-
-python do_sca_deploy_reconbf_image() {
-    sca_conv_deploy(d, "reconbf")
-}
-
 do_sca_reconbf[doc] = "Run reconbf audit on image"
-do_sca_deploy_reconbf_image[doc] = "Deploy results of do_sca_reconbf"
-addtask do_sca_reconbf before do_image_complete after do_image
-addtask do_sca_deploy_reconbf_image before do_image_complete after do_sca_reconbf
+addtask do_sca_reconbf before do_sca_deploy after do_image
 
 DEPENDS += "sca-image-reconbf-rules-native"

@@ -98,15 +98,7 @@ python do_sca_licensecheck() {
                        d.expand("${STAGING_DATADIR_NATIVE}/licensecheck-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_licensecheck"
-
-python do_sca_deploy_licensecheck() {
-    sca_conv_deploy(d, "licensecheck")
-}
-
 do_sca_licensecheck[doc] = "Scan license information in workspace"
-do_sca_deploy_licensecheck[doc] = "Deploy results of do_sca_licensecheck"
-addtask do_sca_licensecheck before do_install after do_compile
-addtask do_sca_deploy_licensecheck after do_sca_licensecheck before do_package
+addtask do_sca_licensecheck before do_sca_deploy after do_compile
 
 DEPENDS += "licensecheck-sca-native sca-recipe-licensecheck-rules-native"

@@ -18,17 +18,9 @@ SCA_PYLINT_HOMEPATH ?= "${STAGING_LIBDIR}/python${PYTHON_BASEVERSION}"
 ## The Librarypath to use
 SCA_PYLINT_LIBATH ?= "${STAGING_LIBDIR}/python${PYTHON_BASEVERSION}/:${STAGING_LIBDIR}/python${PYTHON_BASEVERSION}/site-packages/"
 
-SCA_DEPLOY_TASK = "do_sca_deploy_pylint_recipe"
-
-python do_sca_deploy_pylint_recipe() {
-   sca_conv_deploy(d, "pylint")
-}
-
 do_sca_pylint_core[doc] = "Lint python code with pylint"
 do_sca_pylint_core_report[doc] = "Report findings from do_sca_pylint_core"
-do_sca_deploy_pylint_recipe[doc] = "Deploy results of do_sca_pylint_core"
 addtask do_sca_pylint_core after do_compile before do_sca_tracefiles
-addtask do_sca_pylint_core_report after do_sca_tracefiles
-addtask do_sca_deploy_pylint_recipe after do_sca_pylint_core_report before do_package
+addtask do_sca_pylint_core_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "sca-recipe-pylint-rules-native"

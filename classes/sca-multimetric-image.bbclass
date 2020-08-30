@@ -38,12 +38,6 @@ SCA_MULTIMETRIC_WARN_tiobe_lt ?= "80.0"
 
 inherit sca-multimetric-core
 
-SCA_DEPLOY_TASK = "do_sca_deploy_multimetric_image"
-
-python do_sca_deploy_multimetric_image() {
-    sca_conv_deploy(d, "multimetric")
-}
-
 python do_sca_multimetric_image() {
     import statistics
     import glob
@@ -77,9 +71,7 @@ python do_sca_multimetric_image() {
 
 do_sca_multimetric_image[doc] = "Get code metrics for image"
 do_sca_deploy_multimetric_image[doc] = "Deploy results of do_sca_multimetric_core"
-do_sca_multimetric_core_report[doc] = "Report findings from do_sca_multimetric_core"
 addtask do_sca_multimetric_core before do_image_complete after do_image
-addtask do_sca_multimetric_core_report after do_sca_multimetric_core
-addtask do_sca_deploy_multimetric_image before do_image_complete after do_sca_multimetric_core_report
+addtask do_sca_multimetric_core_report after do_sca_multimetric_core before do_sca_deploy
 
 DEPENDS += "sca-image-multimetric-rules-native"

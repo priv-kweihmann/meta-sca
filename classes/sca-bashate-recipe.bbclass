@@ -7,17 +7,9 @@ inherit sca-tracefiles
 
 inherit python3-dir
 
-SCA_DEPLOY_TASK = "do_sca_deploy_bashate_recipe"
-
-python do_sca_deploy_bashate_recipe() {
-   sca_conv_deploy(d, "bashate")
-}
-
 do_sca_bashate_core[doc] = "Lint shell scripts with bashate"
 do_sca_bashate_core_report[doc] = "Report findings from do_sca_bashate_core"
-do_sca_deploy_bashate_recipe[doc] = "Deploy results of do_sca_bashate_core"
 addtask do_sca_bashate_core after do_compile before do_sca_tracefiles
-addtask do_sca_bashate_core_report after do_sca_tracefiles
-addtask do_sca_deploy_bashate_recipe after do_sca_bashate_core_report before do_package
+addtask do_sca_bashate_core_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "sca-recipe-bashate-rules-native"

@@ -83,13 +83,5 @@ fakeroot python do_sca_lse() {
                        d.expand("${STAGING_DATADIR_NATIVE}/lse-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_lse_image"
-
-python do_sca_deploy_lse_image() {
-    sca_conv_deploy(d, "lse")
-}
-
 do_sca_lse[doc] = "Find security weaknesses in a image"
-do_sca_deploy_lse_image[doc] = "Deploy results of do_sca_lse"
-addtask do_sca_lse before do_image_complete after do_image
-addtask do_sca_deploy_lse_image before do_image_complete after do_sca_lse
+addtask do_sca_lse before do_sca_deploy after do_image

@@ -150,17 +150,9 @@ python do_sca_tscancode_report() {
                        d.expand("${STAGING_DATADIR_NATIVE}/tscancode-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_tscancode"
-
-python do_sca_deploy_tscancode() {
-    sca_conv_deploy(d, "tscancode")
-}
-
 do_sca_tscancode[doc] = "Lint C/C++ files with tscancode"
 do_sca_tscancode_report[doc] = "Report findings of do_sca_tscancode"
-do_sca_deploy_tscancode[doc] = "Deploy results of do_sca_tscancode"
 addtask do_sca_tscancode after do_configure before do_sca_tracefiles
-addtask do_sca_tscancode_report after do_sca_tracefiles
-addtask do_sca_deploy_tscancode after do_sca_tscancode_report before do_package
+addtask do_sca_tscancode_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "tscancode-native sca-recipe-tscancode-rules-native"
