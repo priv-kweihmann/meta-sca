@@ -97,17 +97,9 @@ python do_sca_cpplint_report() {
                         d.expand("${STAGING_DATADIR_NATIVE}/cpplint-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_cpplint"
-
-python do_sca_deploy_cpplint() {
-    sca_conv_deploy(d, "cpplint")
-}
-
 do_sca_cpplint[doc] = "Lint C/C++ files with cpplint"
 do_sca_cpplint_report[doc] = "Report findings of do_sca_cpplint"
-do_sca_deploy_cpplint[doc] = "Deploy results of do_sca_cpplint"
 addtask do_sca_cpplint after do_compile before do_sca_tracefiles
-addtask do_sca_cpplint_report after do_sca_tracefiles
-addtask do_sca_deploy_cpplint after do_sca_cpplint_report before do_package
+addtask do_sca_cpplint_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "cpplint-native sca-recipe-cpplint-rules-native"

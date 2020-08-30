@@ -7,6 +7,7 @@ inherit sca-global
 inherit sca-helper
 inherit sca-file-filter
 inherit sca-blacklist
+inherit sca-deploy-recipe
 
 SCA_ENABLED_MODULES_RECIPE ?= "\
                             alexkohler \
@@ -119,8 +120,10 @@ def sca_on_recipe_init(d):
     if d.getVar("SCA_ENABLE_BESTOF") == "1":
         BBHandler.inherit("sca-{}-recipe".format("bestof"), "sca-on-recipe", 1, d)
         func = "sca-{}-init".format("bestof").replace("-", "_")
+        enabledModules.append("bestof")
         if d.getVar(func, False) is not None:
             bb.build.exec_func(func, d, **get_bb_exec_ext_parameter_support(d))
     if any(enabledModules):
         if d.getVar("SCA_VERBOSE_OUTPUT") == "1":
             bb.note("Using SCA Module(s) {}".format(",".join(sorted(enabledModules))))
+    d.setVar("SCA_ACTIVE_MODULES", " ".join(sorted(enabledModules)))

@@ -109,13 +109,5 @@ python do_sca_kconfighard() {
                             d.expand("${STAGING_DATADIR_NATIVE}/kconfighard-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_kconfighard"
-
-python do_sca_deploy_kconfighard() {
-    sca_conv_deploy(d, "kconfighard")
-}
-
 do_sca_kconfighard[doc] = "Scan for kernel config hardening options"
-do_sca_deploy_kconfighard[doc] = "Deploy results of do_sca_kconfighard"
-addtask do_sca_kconfighard before do_compile after do_configure
-addtask do_sca_deploy_kconfighard after do_sca_kconfighard before do_compile
+addtask do_sca_kconfighard before do_sca_deploy after do_configure

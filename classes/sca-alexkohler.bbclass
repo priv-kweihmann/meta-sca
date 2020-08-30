@@ -96,17 +96,9 @@ python do_sca_alexkohler_report() {
                        d.expand("${STAGING_DATADIR_NATIVE}/alexkohler-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_alexkohler"
-
-python do_sca_deploy_alexkohler() {
-    sca_conv_deploy(d, "alexkohler")
-}
-
 do_sca_alexkohler[doc] = "Lint go files with alex kohler tools"
 do_sca_alexkohler_report[doc] = "Report findings from do_sca_alexkohler"
-do_sca_deploy_alexkohler[doc] = "Deploy results of do_sca_alexkohler"
 addtask do_sca_alexkohler after do_configure before do_sca_tracefiles
-addtask do_sca_alexkohler_report after do_sca_tracefiles
-addtask do_sca_deploy_alexkohler after do_sca_alexkohler_report before do_package
+addtask do_sca_alexkohler_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "alexkohler-native sca-recipe-alexkohler-rules-native"

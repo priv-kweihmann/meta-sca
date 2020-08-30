@@ -133,16 +133,8 @@ python do_sca_safety() {
                        d.expand("${STAGING_DATADIR_NATIVE}/safety-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_safety"
-
-python do_sca_deploy_safety() {
-    sca_conv_deploy(d, "safety")
-}
-
 do_sca_safety[doc] = "Find known vulnarabilities in used python libraries"
-do_sca_deploy_safety[doc] = "Deploy results of do_sca_safety"
-addtask do_sca_safety before do_install after do_compile
-addtask do_sca_deploy_safety after do_sca_safety before do_package
+addtask do_sca_safety before do_sca_deploy after do_compile
 
 DEPENDS += "\
             python3-safety-native \

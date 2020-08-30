@@ -89,17 +89,9 @@ python do_sca_darglint_report() {
                         d.expand("${STAGING_DATADIR_NATIVE}/darglint-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_darglint"
-
-python do_sca_deploy_darglint() {
-    sca_conv_deploy(d, "darglint")
-}
-
 do_sca_darglint[doc] = "Lint python docstrings"
 do_sca_darglint_report[doc] = "Report findings of do_sca_darglint"
-do_sca_deploy_darglint[doc] = "Deploy results of do_sca_darglint"
 addtask do_sca_darglint after do_configure before do_sca_tracefiles
-addtask do_sca_darglint_report after do_sca_tracefiles
-addtask do_sca_deploy_darglint after do_sca_darglint_report before do_package
+addtask do_sca_darglint_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "python3-darglint-native sca-recipe-darglint-rules-native"

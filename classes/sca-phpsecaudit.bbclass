@@ -100,17 +100,9 @@ python do_sca_phpsecaudit_report() {
                         d.expand("${STAGING_DATADIR_NATIVE}/phpsecaudit-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_phpsecaudit"
-
-python do_sca_deploy_phpsecaudit() {
-    sca_conv_deploy(d, "phpsecaudit")
-}
-
 do_sca_phpsecaudit[doc] = "Lint php scripts with phpsecaudit in workspace"
 do_sca_phpsecaudit_report[doc] = "Report findings of do_sca_phpsecaudit"
-do_sca_deploy_phpsecaudit[doc] = "Deploy results of do_sca_phpsecaudit"
 addtask do_sca_phpsecaudit after do_configure before do_sca_tracefiles
-addtask do_sca_phpsecaudit_report after do_sca_tracefiles
-addtask do_sca_deploy_phpsecaudit after do_sca_phpsecaudit_report before do_package
+addtask do_sca_phpsecaudit_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "phpcs-security-audit-native sca-recipe-phpsecaudit-rules-native"

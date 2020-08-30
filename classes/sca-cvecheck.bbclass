@@ -90,13 +90,6 @@ python do_cve_check() {
     sca_task_aftermath(d, "cvecheck")
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_cvecheck"
-
-python do_sca_deploy_cvecheck() {
-    sca_conv_deploy(d, "cvecheck")
-}
-
-do_sca_deploy_cvecheck[doc] = "Deploy results of do_cve_check"
-addtask do_sca_deploy_cvecheck after do_cve_check before do_package
+do_sca_deploy[depends] += "${PN}:do_cve_check"
 
 DEPENDS += "cvecheck-sca-native"

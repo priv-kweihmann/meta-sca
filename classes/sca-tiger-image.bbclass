@@ -82,15 +82,7 @@ fakeroot python do_sca_tiger() {
                        d.expand("${STAGING_DATADIR_NATIVE}/tiger-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_tiger_image"
-
-python do_sca_deploy_tiger_image() {
-    sca_conv_deploy(d, "tiger")
-}
-
 do_sca_tiger[doc] = "Run audit with tiger on image"
-do_sca_deploy_tiger_image[doc] = "Deploy results of do_sca_tiger"
-addtask do_sca_tiger before do_image_complete after do_image
-addtask do_sca_deploy_tiger_image before do_image_complete after do_sca_tiger
+addtask do_sca_tiger before do_sca_deploy after do_image
 
 DEPENDS += "sca-image-tiger-rules-native"

@@ -96,17 +96,9 @@ python do_sca_flawfinder_report() {
                         d.expand("${STAGING_DATADIR_NATIVE}/flawfinder-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_flawfinder"
-
-python do_sca_deploy_flawfinder() {
-    sca_conv_deploy(d, "flawfinder")
-}
-
 do_sca_flawfinder[doc] = "Find insecure C/C++ code"
 do_sca_flawfinder_report[doc] = "Report findings of do_sca_flawfinder"
-do_sca_deploy_flawfinder[doc] = "Deploy results of do_sca_flawfinder"
 addtask do_sca_flawfinder after do_compile before do_sca_tracefiles
-addtask do_sca_flawfinder_report after do_sca_tracefiles
-addtask do_sca_deploy_flawfinder after do_sca_flawfinder_report before do_package
+addtask do_sca_flawfinder_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "python3-flawfinder-native sca-recipe-flawfinder-rules-native"

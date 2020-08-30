@@ -130,17 +130,9 @@ python do_sca_clang_report() {
                         os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "clang-{}-fatal".format(d.getVar("SCA_MODE")))))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_clang"
-
-python do_sca_deploy_clang() {
-    sca_conv_deploy(d, "clang")
-}
-
 do_sca_clang[doc] = "Run scan of clang-tidy on recipe"
 do_sca_clang_report[doc] = "Report findings of do_sca_clang"
-do_sca_deploy_clang[doc] = "Deploy results of do_sca_clang"
 addtask do_sca_clang after do_compile before do_sca_tracefiles
-addtask do_sca_clang_report after do_sca_tracefiles
-addtask do_sca_deploy_clang after do_sca_clang_report before do_package
+addtask do_sca_clang_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "clang-native sca-recipe-clang-rules-native clang-sca-native"

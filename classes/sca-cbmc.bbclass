@@ -151,17 +151,9 @@ python do_sca_cbmc_report() {
                         d.expand("${STAGING_DATADIR_NATIVE}/cbmc-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_cbmc"
-
-python do_sca_deploy_cbmc() {
-    sca_conv_deploy(d, "cbmc")
-}
-
 do_sca_cbmc[doc] = "Lint c files with cmbc"
 do_sca_cbmc_report[doc] = "Report findings of do_sca_cbmc"
-do_sca_deploy_cbmc[doc] = "Deploy results of do_sca_cbmc"
 addtask do_sca_cbmc after do_compile before do_sca_tracefiles
-addtask do_sca_cbmc_report after do_sca_tracefiles
-addtask do_sca_deploy_cbmc after do_sca_cbmc_report before do_package
+addtask do_sca_cbmc_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "cbmc-native sca-recipe-cbmc-rules-native"

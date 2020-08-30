@@ -150,17 +150,9 @@ python do_sca_textlint_report() {
                        d.expand("${STAGING_DATADIR_NATIVE}/textlint-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_textlint"
-
-python do_sca_deploy_textlint() {
-    sca_conv_deploy(d, "textlint")
-}
-
 do_sca_textlint[doc] = "Lint text files with textlint"
 do_sca_textlint_report[doc] = "Report findings of do_sca_textlint"
-do_sca_deploy_textlint[doc] = "Deploy results of do_sca_textlint"
 addtask do_sca_textlint after do_compile before do_sca_tracefiles
-addtask do_sca_textlint_report after do_sca_tracefiles
-addtask do_sca_deploy_textlint after do_sca_textlint_report before do_package
+addtask do_sca_textlint_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "textlint-native sca-recipe-textlint-rules-native"
