@@ -103,6 +103,21 @@
               },
               "returncode": {
                 "type": "integer"
+              },
+              "env": {
+                "type":"array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "value":
+                    {
+                      "type": "string"
+                    }
+                  }
+                }
               }
             },
             "required": [
