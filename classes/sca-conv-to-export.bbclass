@@ -24,7 +24,7 @@ def sca_conv_to_export(d, tool):
         else:
             raise NotImplementedError()
     except bb.parse.ParseError as e:
-        bb.warn(str(e))
+        bb.note(str(e))
 
 def sca_conv_export_get_deployname(d, tool):
     _exportformat = d.getVar("SCA_EXPORT_FORMAT")

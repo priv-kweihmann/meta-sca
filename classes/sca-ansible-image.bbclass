@@ -211,8 +211,8 @@ python do_sca_ansible() {
             try:
                 json_output[os.path.basename(playbook)] = json.loads(cmd_output)
             except json.JSONDecodeError as e:
-                bb.warn(str(e))
-                bb.warn(str(cmd_output))
+                bb.note(str(e))
+                bb.note(str(cmd_output))
 
     with open(sca_raw_result_file(d, "ansible"), "w") as o:
         json.dump(json_output, o)
