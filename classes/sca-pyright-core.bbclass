@@ -111,7 +111,7 @@ def do_sca_conv_pyright(d):
                         if g.Severity in sca_allowed_warning_level(d):
                             _findings.append(g)
                     except Exception as exp:
-                        bb.warn(str(exp))
+                        bb.note(str(exp))
         except Exception as e:
             bb.warn(str(e))
             pass

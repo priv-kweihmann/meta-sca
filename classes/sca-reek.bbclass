@@ -90,17 +90,9 @@ python do_sca_reek_report() {
                        d.expand("${STAGING_DATADIR_NATIVE}/reek-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_reek"
-
-python do_sca_deploy_reek() {
-    sca_conv_deploy(d, "reek")
-}
-
 do_sca_reek[doc] = "Lint ruby scripts with reek"
 do_sca_reek_report[doc] = "Report findings of do_sca_reek"
-do_sca_deploy_reek[doc] = "Deploy results of do_sca_reek"
 addtask do_sca_reek after do_configure before do_sca_tracefiles
-addtask do_sca_reek_report after do_sca_tracefiles
-addtask do_sca_deploy_reek after do_sca_reek_report before do_package
+addtask do_sca_reek_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "reek-native sca-recipe-reek-rules-native"

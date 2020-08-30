@@ -111,17 +111,9 @@ python do_sca_govet_report() {
                        d.expand("${STAGING_DATADIR_NATIVE}/govet-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_govet"
-
-python do_sca_deploy_govet() {
-    sca_conv_deploy(d, "govet")
-}
-
 do_sca_govet[doc] = "Lint go files with go vet"
 do_sca_govet_report[doc] = "Report findings of do_sca_govet"
-do_sca_deploy_govet[doc] = "Deploy results of do_sca_govet"
 addtask do_sca_govet after do_configure before do_sca_tracefiles
-addtask do_sca_govet_report after do_sca_tracefiles
-addtask do_sca_deploy_govet after do_sca_govet_report before do_package
+addtask do_sca_govet_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "govet-sca-native sca-recipe-govet-rules-native"

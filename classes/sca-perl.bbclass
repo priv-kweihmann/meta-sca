@@ -93,17 +93,9 @@ python do_sca_perl_report() {
                         d.expand("${STAGING_DATADIR_NATIVE}/perl-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_perl"
-
-python do_sca_deploy_perl() {
-    sca_conv_deploy(d, "perl")
-}
-
 do_sca_perl[doc] = "Lint perl scripts in workspace"
 do_sca_perl_report[doc] = "Report findings of do_sca_perl"
-do_sca_deploy_perl[doc] = "Deploy results of do_sca_perl"
 addtask do_sca_perl after do_configure before do_sca_tracefiles
-addtask do_sca_perl_report after do_sca_tracefiles
-addtask do_sca_deploy_perl after do_sca_perl_report before do_package
+addtask do_sca_perl_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "perl-sca-native sca-recipe-perl-rules-native"

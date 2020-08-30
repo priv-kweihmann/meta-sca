@@ -10,12 +10,6 @@ SCA_MULTIMETRIC_WARN_tiobe_lt ?= "80.0"
 inherit sca-multimetric-core
 inherit sca-tracefiles
 
-SCA_DEPLOY_TASK = "do_sca_deploy_multimetric_recipe"
-
-python do_sca_deploy_multimetric_recipe() {
-    sca_conv_deploy(d, "multimetric")
-}
-
 python sca_multimetric_init() {
     for item in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")):
         if item in ["bitbake", "multimetric", "bestof", "imagesummary"]:
@@ -28,9 +22,7 @@ python sca_multimetric_init() {
 
 do_sca_multimetric_core[doc] = "Get code metrics"
 do_sca_multimetric_core_report[doc] = "Report findings from do_sca_multimetric_core"
-do_sca_deploy_multimetric_recipe[doc] = "Deploy results of do_sca_multimetric_core"
 addtask do_sca_multimetric_core after do_compile
-addtask do_sca_multimetric_core_report after do_sca_tracefiles
-addtask do_sca_deploy_multimetric_recipe after do_sca_multimetric_core_report before do_package
+addtask do_sca_multimetric_core_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "sca-recipe-multimetric-rules-native"

@@ -99,17 +99,9 @@ python do_sca_retire_report() {
                        d.expand("${STAGING_DATADIR_NATIVE}/retire-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_retire"
-
-python do_sca_deploy_retire() {
-    sca_conv_deploy(d, "retire")
-}
-
 do_sca_retire[doc] = "Find vulnerable js code"
 do_sca_retire_report[doc] = "Report finding of do_sca_retire"
-do_sca_deploy_retire[doc] = "Deploy results of do_sca_retire"
 addtask do_sca_retire after do_install before do_sca_tracefiles
-addtask do_sca_retire_report after do_sca_tracefiles
-addtask do_sca_deploy_retire after do_sca_retire_report before do_package
+addtask do_sca_retire_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "retire-native sca-recipe-retire-rules-native"

@@ -7,17 +7,9 @@ inherit sca-htmlhint-core
 inherit sca-conv-to-export
 inherit sca-tracefiles
 
-SCA_DEPLOY_TASK = "do_sca_deploy_htmlhint_recipe"
-
-python do_sca_deploy_htmlhint_recipe() {
-    sca_conv_deploy(d, "htmlhint")
-}
-
 do_sca_htmlhint_core[doc] = "Lint html files with htmlhint"
 do_sca_htmlhint_core_report[doc] = "Report findings from do_sca_htmlhint_core"
-do_sca_deploy_htmlhint_recipe[doc] = "Deploy results of do_sca_htmlhint_core"
 addtask do_sca_htmlhint_core after do_compile before do_sca_tracefiles
-addtask do_sca_htmlhint_core_report after do_sca_tracefiles
-addtask do_sca_deploy_htmlhint_recipe after do_sca_htmlhint_core_report before do_package
+addtask do_sca_htmlhint_core_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "sca-recipe-htmlhint-rules-native"

@@ -139,17 +139,9 @@ python do_sca_rats_report() {
                         d.expand("${STAGING_DATADIR_NATIVE}/rats-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_rats"
-
-python do_sca_deploy_rats() {
-    sca_conv_deploy(d, "rats")
-}
-
 do_sca_rats[doc] = "Find risky functions in multiple languages"
 do_sca_rats_report[doc] = "Report findings of do_sca_rats"
-do_sca_deploy_rats[doc] = "Deploy results of do_sca_rats"
 addtask do_sca_rats after do_configure before do_sca_tracefiles
-addtask do_sca_rats_report after do_sca_tracefiles
-addtask do_sca_deploy_rats after do_sca_rats_report before do_package
+addtask do_sca_rats_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "rats-native sca-recipe-rats-rules-native"

@@ -93,17 +93,9 @@ python do_sca_pscan_report() {
                         d.expand("${STAGING_DATADIR_NATIVE}/pscan-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_pscan"
-
-python do_sca_deploy_pscan() {
-    sca_conv_deploy(d, "pscan")
-}
-
 do_sca_pscan[doc] = "Lint (s|v|f)print usage in c files"
 do_sca_pscan_report[doc] = "Report findings of do_sca_pscan"
-do_sca_deploy_pscan[doc] = "Deploy results of do_sca_pscan"
 addtask do_sca_pscan after do_compile before do_sca_tracefiles
-addtask do_sca_pscan_report after do_sca_tracefiles
-addtask do_sca_deploy_pscan after do_sca_pscan_report before do_package
+addtask do_sca_pscan_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "pscan-native sca-recipe-pscan-rules-native"

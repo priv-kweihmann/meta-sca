@@ -86,17 +86,9 @@ python do_sca_revive_report() {
                        d.expand("${STAGING_DATADIR_NATIVE}/revive-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_revive"
-
-python do_sca_deploy_revive() {
-    sca_conv_deploy(d, "revive")
-}
-
 do_sca_revive[doc] = "Lint go code with revive"
 do_sca_revive_report[doc] = "Report findings of do_sca_revive"
-do_sca_deploy_revive[doc] = "Deploy results of do_sca_revive"
 addtask do_sca_revive after do_configure before do_sca_tracefiles
-addtask do_sca_revive_report after do_sca_tracefiles
-addtask do_sca_deploy_revive after do_sca_revive_report before do_package
+addtask do_sca_revive_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "revive-native sca-recipe-revive-rules-native"

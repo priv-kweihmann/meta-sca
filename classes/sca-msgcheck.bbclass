@@ -91,15 +91,7 @@ python do_sca_msgcheck() {
                         d.expand("${STAGING_DATADIR_NATIVE}/msgcheck-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_msgcheck"
-
-python do_sca_deploy_msgcheck() {
-    sca_conv_deploy(d, "msgcheck")
-}
-
 do_sca_msgcheck[doc] = "Lint i18n files"
-do_sca_deploy_msgcheck[doc] = "Deploy results of do_sca_msgcheck"
-addtask do_sca_msgcheck after do_configure before do_install
-addtask do_sca_deploy_msgcheck after do_sca_msgcheck before do_package
+addtask do_sca_msgcheck after do_configure before do_sca_deploy
 
 DEPENDS += "python3-msgcheck-native sca-recipe-msgcheck-rules-native"

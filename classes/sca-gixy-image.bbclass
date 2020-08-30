@@ -130,15 +130,7 @@ python do_sca_gixy() {
                         d.expand("${STAGING_DATADIR_NATIVE}/gixy-${SCA_MODE}-fatal")))
 }
 
-SCA_DEPLOY_TASK = "do_sca_deploy_gixy"
-
-python do_sca_deploy_gixy() {
-    sca_conv_deploy(d, "gixy")
-}
-
 do_sca_gixy[doc] = "Scan for nxginx misconfigurations in image"
-do_sca_deploy_gixy[doc] = "Deploy results of do_sca_gixy"
-addtask do_sca_gixy before do_image_complete after do_image
-addtask do_sca_deploy_gixy before do_image_complete after do_sca_gixy
+addtask do_sca_gixy before do_sca_deploy after do_image
 
 DEPENDS += "python3-gixy-native sca-image-gixy-rules-native"
