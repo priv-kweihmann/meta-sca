@@ -66,7 +66,7 @@ def exec_wrap_combine_json_rubycritic(a, b, **kwargs):
         with open(kwargs["sourcefile"]) as i:
             b = json.load(i)
     except:
-        b = {"analysed_modules": {}}
+        b = {"analysed_modules": []}
 
     try:
         a = json.loads(a)
@@ -98,7 +98,7 @@ python do_sca_rubycritic() {
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*ruby", d.getVar("SCA_RUBYCRITIC_FILE_FILTER"), \
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
-    cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json_rubycritic, default={"analyzed_modules": []},
+    cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json_rubycritic, default_val={"analysed_modules": []},
                                         sourcefile=d.expand("${T}/rubycritic/report.json"))
 
     with open(sca_raw_result_file(d, "rubycritic"), "w") as o:
