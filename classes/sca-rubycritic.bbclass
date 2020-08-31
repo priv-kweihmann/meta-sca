@@ -66,7 +66,6 @@ def exec_wrap_combine_json_rubycritic(a, b, **kwargs):
         with open(kwargs["sourcefile"]) as i:
             b = json.load(i)
     except:
-        bb.warn(str(e))
         b = {"analysed_modules": {}}
 
     try:
