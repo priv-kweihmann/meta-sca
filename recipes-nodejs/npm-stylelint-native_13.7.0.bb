@@ -11,6 +11,8 @@ DEPENDS = "npm-autoprefixer-native \
            npm-cosmiconfig-native \
            npm-debug-native \
            npm-execall-native \
+           npm-fast-glob-native \
+           npm-fastest-levenshtein-native \
            npm-file-entry-cache-native \
            npm-get-stdin-native \
            npm-global-modules-native \
@@ -21,7 +23,6 @@ DEPENDS = "npm-autoprefixer-native \
            npm-import-lazy-native \
            npm-imurmurhash-native \
            npm-known-css-properties-native \
-           npm-leven-native \
            npm-lodash-native \
            npm-log-symbols-native \
            npm-mathml-tag-names-native \
@@ -32,7 +33,6 @@ DEPENDS = "npm-autoprefixer-native \
            npm-postcss-less-native \
            npm-postcss-media-query-parser-native \
            npm-postcss-native \
-           npm-postcss-reporter-native \
            npm-postcss-resolve-nested-selector-native \
            npm-postcss-safe-parser-native \
            npm-postcss-sass-native \
@@ -54,9 +54,9 @@ DEPENDS = "npm-autoprefixer-native \
            npm-v8-compile-cache-native \
            npm-write-file-atomic-native"
 
-SRC_URI = "https://registry.npmjs.org/stylelint/-/stylelint-13.6.1.tgz"
-SRC_URI[md5sum] = "00d3000c6f113839cd7526d775047c20"
-SRC_URI[sha256sum] = "0e6bcad190cdc4d955f2926c02b996cc19e2ab33e8d4480c454d7cee37d897ff"
+SRC_URI = "https://registry.npmjs.org/stylelint/-/stylelint-13.7.0.tgz"
+SRC_URI[md5sum] = "6595d21579e0116733c4f97543acaece"
+SRC_URI[sha256sum] = "30223880c8826de8c2c2d0e3f17aad551dc5dce2f0d8a3a581ddf63b44cad123"
 
 NPM_PKGNAME = "stylelint"
 
