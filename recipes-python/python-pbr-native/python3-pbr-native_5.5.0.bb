@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=1dece7821bf3fd70fe1309eaa37d52a2"
 
 PYPI_PACKAGE = "pbr"
 
-SRC_URI[md5sum] = "7babe93c1a0e7f33ed6ee3b8a3f317f5"
-SRC_URI[sha256sum] = "07f558fece33b05caf857474a366dfcc00562bca13dd8b47b2b3e22d9f9bf55c"
+SRC_URI[md5sum] = "743160fbfe66d1f38a063bf29a0e1da2"
+SRC_URI[sha256sum] = "14bfd98f51c78a3dd22a1ef45cf194ad79eee4a19e8e1a0d5c7f8e81ffe182ea"
 
 inherit pypi
 inherit native
