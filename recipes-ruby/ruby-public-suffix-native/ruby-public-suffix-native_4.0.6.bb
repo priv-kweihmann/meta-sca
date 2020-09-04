@@ -4,8 +4,8 @@ HOMEPAGE = "https://simonecarletti.com/code/publicsuffix-ruby"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=4c89161c761aa8e9188cee9f19125f9c"
 
-SRC_URI[md5sum] = "fe7579f10c7817f06699f6a0b68e8767"
-SRC_URI[sha256sum] = "efbc976b8f8cd7e2f9387b41ad4dc5447bcc7e862cf3afd909f13b0048a3dc6f"
+SRC_URI[md5sum] = "a8709e7242bf05183a56e10fca4d0e9d"
+SRC_URI[sha256sum] = "a99967c7b2d1d2eb00e1142e60de06a1a6471e82af574b330e9af375e87c0cf7"
 
 GEM_NAME = "public_suffix"
 
