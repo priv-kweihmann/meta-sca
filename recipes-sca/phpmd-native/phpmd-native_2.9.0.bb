@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=102189a3104d17e4cdd01198fef36372"
 
 SRC_URI = "git://github.com/phpmd/phpmd.git;protocol=https \
            file://phpmd.sca.description"
-SRCREV = "714629ed782537f638fe23c4346637659b779a77"
+SRCREV = "2a346575a45a6f00e631f4d7f3f71b6a05e0d46d"
 PHPCOMPOSER_PKGS_NAME = "phpmd/phpmd:${PV}"
 
 S = "${WORKDIR}/git"
