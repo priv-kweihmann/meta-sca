@@ -2,14 +2,14 @@ SUMMARY = "NPM: esrecurse"
 DESCRIPTION = "ECMAScript AST recursive visitor"
 HOMEPAGE = "https://github.com/estools/esrecurse"
 
-DEPENDS = "npm-estraverse-native"
-
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://README.md;beginline=149;md5=38eeb2ba26f714e95547013f8d87242c"
 
-SRC_URI = "https://registry.npmjs.org/esrecurse/-/esrecurse-4.2.1.tgz"
-SRC_URI[md5sum] = "91367c43c8b8b1441078bf2c0652bd3d"
-SRC_URI[sha256sum] = "d757a917a617f6adcb6994bd9d0341a22bd12cfd5fa49880417425a2487b4d19"
+DEPENDS = "npm-estraverse-native"
+
+SRC_URI = "https://registry.npmjs.org/esrecurse/-/esrecurse-4.3.0.tgz"
+SRC_URI[md5sum] = "a39f104614e3543dd4522ac4afdace00"
+SRC_URI[sha256sum] = "3ecf9370d7296b47b570c88a11f70b35bb965af8d536536b259eb55f9b793b61"
 
 NPM_PKGNAME = "esrecurse"
 
