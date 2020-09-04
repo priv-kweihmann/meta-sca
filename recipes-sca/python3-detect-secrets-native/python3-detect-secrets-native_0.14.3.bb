@@ -12,7 +12,7 @@ DEPENDS += "\
 
 SRC_URI = "git://github.com/Yelp/detect-secrets.git;protocol=https"
 SRC_URI += "file://detectsecrets.sca.description"
-SRCREV = "e0fd07ad53dd7350cdb68e4f26cc016a801963fc"
+SRCREV = "c09b466f7600e35e093c5da0437eca74a7c7a459"
 S = "${WORKDIR}/git"
 
 inherit native
