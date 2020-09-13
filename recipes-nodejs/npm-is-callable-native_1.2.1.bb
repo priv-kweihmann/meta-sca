@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=5db8fa3e421a3211e6a3dc68544da455"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/is-callable/-/is-callable-1.2.0.tgz"
-SRC_URI[md5sum] = "bac9f7a745be8f8266a99a67e055204c"
-SRC_URI[sha256sum] = "a6c4a0594c97b75bd74b5ae1422ed631ebb2b857a473aa0bf91cd69f759facab"
+SRC_URI = "https://registry.npmjs.org/is-callable/-/is-callable-1.2.1.tgz"
+SRC_URI[md5sum] = "45e65fcf0c295ba142ff96b1c7c2c736"
+SRC_URI[sha256sum] = "e4373cd541e41271fcf06ec2ea4a1fb65bc46b1d28a2b8b8dd07abe35388a942"
 
 NPM_PKGNAME = "is-callable"
 
