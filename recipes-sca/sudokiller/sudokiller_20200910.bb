@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=f45999e825d6792e32a1cbadd968b1b7"
 
 SRC_URI = "git://github.com/TH3xACE/SUDO_KILLER.git;protocol=https \
            file://sudokiller.sca.description"
-SRCREV = "1cde3fc85115bc5227e6a611b105ef260fda2b55"
+SRCREV = "8a04ed07cd2a588ec1f74a82b076d0f1efe4d2e6"
 UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
