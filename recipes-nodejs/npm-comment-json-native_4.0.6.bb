@@ -10,9 +10,9 @@ DEPENDS = "npm-core-util-is-native \
            npm-has-own-prop-native \
            npm-repeat-string-native"
 
-SRC_URI = "https://registry.npmjs.org/comment-json/-/comment-json-4.0.4.tgz"
-SRC_URI[md5sum] = "1c1d10d21b4fe0cca4962bb7787616c1"
-SRC_URI[sha256sum] = "ea770bfb71f564949036e07a228218399b113773ca33b9d894252e32d6059dd3"
+SRC_URI = "https://registry.npmjs.org/comment-json/-/comment-json-4.0.6.tgz"
+SRC_URI[md5sum] = "1bb497361acdc4e9534a373f3edc2cc7"
+SRC_URI[sha256sum] = "52801cadd78c8da78656eabea51682edf09c12c9197f01acac1fbfb8330c852f"
 
 NPM_PKGNAME = "comment-json"
 
