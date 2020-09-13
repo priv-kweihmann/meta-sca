@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=3d83ea4c8ec9b31d9ff2c82fa29beabb"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/is-plain-object/-/is-plain-object-4.1.1.tgz"
-SRC_URI[md5sum] = "294c38887d2904b8965fee66eb809d47"
-SRC_URI[sha256sum] = "a41ac8bd95b76bfe863d7917cc7ee355c682e9e66f94d4418f61521089350d6f"
+SRC_URI = "https://registry.npmjs.org/is-plain-object/-/is-plain-object-5.0.0.tgz"
+SRC_URI[md5sum] = "048600ce79f188cbf513a2c10811c336"
+SRC_URI[sha256sum] = "405ffdac90b988722906f2c25e627331c8ac952201c5e2eefab1c61f22d25bd3"
 
 NPM_PKGNAME = "is-plain-object"
 
