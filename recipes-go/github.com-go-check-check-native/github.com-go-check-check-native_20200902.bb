@@ -10,7 +10,7 @@ DEPENDS += "\
             "
 
 SRC_URI = "git://github.com/go-check/check;protocol=https;branch=v1"
-SRCREV = "8fa46927fb4f5b54d48bde78c6c08db205b2298c"
+SRCREV = "038fdea0a05bc030b0bfda479dc2e08d2220ec74"
 UPSTREAM_CHECK_COMMITS = "1"
 
 GO_IMPORT ?= "github.com/go-check/check"
