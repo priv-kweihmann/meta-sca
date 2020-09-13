@@ -8,8 +8,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=c4021af699354173a4f2c1e1039eeffc"
 
 PYPI_PACKAGE = "testfixtures"
 
-SRC_URI[md5sum] = "d988e611192cb633d6a4dfe94af55dd7"
-SRC_URI[sha256sum] = "58d2b3146d93bc5ddb0cd24e0ccacb13e29bdb61e5c81235c58f7b8ee4470366"
+SRC_URI[md5sum] = "66f16906c9de2f3a130754ed4d755cfa"
+SRC_URI[sha256sum] = "14d9907390f5f9c7189b3d511b64f34f1072d07cc13b604a57e1bb79029376e3"
 
 inherit pypi
 inherit native
