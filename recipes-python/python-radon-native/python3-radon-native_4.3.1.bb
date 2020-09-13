@@ -13,8 +13,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "radon"
 
-SRC_URI[md5sum] = "ed03b181be37789f54714b001ce3de89"
-SRC_URI[sha256sum] = "b73f6f469c15c9616e0f7ce12080a9ecdee9f2335bdbb5ccea1f2bae26e8d20d"
+SRC_URI[md5sum] = "19b6fda39e93d5734fcf9fc4c8bd5830"
+SRC_URI[sha256sum] = "63a7876101a64d5418fa9acebff11f9bb48367ac79f22bf3b73c7bf430a8abc0"
 
 inherit pypi
 inherit native
