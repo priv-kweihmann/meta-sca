@@ -5,7 +5,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e"
 
 SRC_URI = "git://${GO_IMPORT};protocol=https"
-SRCREV = "d18fcbf02861580d05a1f23601145b272c4e7b4b"
+SRCREV = "ff9374eda70c55592ad54d87839c59db58257d2f"
 
 GO_IMPORT = "github.com/go-logr/logr"
 
