@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=1cb46128f91146188c0ded3a1c6144f3"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/escalade/-/escalade-3.0.2.tgz"
-SRC_URI[md5sum] = "b3591cc57b0ad4fac4b62aee53113635"
-SRC_URI[sha256sum] = "ea30b3995ee3d761fbff0e8348e7f23e208e0e6ec22ac9cc622938dd0a049d90"
+SRC_URI = "https://registry.npmjs.org/escalade/-/escalade-3.1.0.tgz"
+SRC_URI[md5sum] = "6eb7b0919936f729f8c781f3a338c7a5"
+SRC_URI[sha256sum] = "a652b7b304c88f211508e4f5d482fbfdac5da8d5390f8116307e2bce10aaf085"
 
 NPM_PKGNAME = "escalade"
 
