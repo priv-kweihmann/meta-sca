@@ -10,9 +10,9 @@ DEPENDS = "npm-fast-deep-equal-native \
            npm-json-schema-traverse-native \
            npm-uri-js-native"
 
-SRC_URI = "https://registry.npmjs.org/ajv/-/ajv-6.12.4.tgz"
-SRC_URI[md5sum] = "ad669f06fcd541ab1ceae4dfba93770a"
-SRC_URI[sha256sum] = "028946dddc6808b8eddb02e3cf42275f9997697e3b8e62e4a7fab6d2dedd6fce"
+SRC_URI = "https://registry.npmjs.org/ajv/-/ajv-6.12.5.tgz"
+SRC_URI[md5sum] = "3b90ad7eae98bfc08693d2a6afc544ca"
+SRC_URI[sha256sum] = "cbf766533b98b6e0d8c40049046628d7fd6154ba9edb19e4fb5a8f3f0ef95bfd"
 
 NPM_PKGNAME = "ajv"
 
