@@ -5,11 +5,11 @@ HOMEPAGE = "https://github.com/fb55/domelementtype#readme"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d5b9cb3bc7f6ffd7bea8661f30447c11"
 
-SRC_URI = "https://registry.npmjs.org/domelementtype/-/domelementtype-2.0.1.tgz"
-SRC_URI[md5sum] = "e19a21d0536b4dc8db2db27cbdc32208"
-SRC_URI[sha256sum] = "188467bd84271e64a3f6c5648cf300ae79ca60488cd484e151bb53778130612f"
+DEPENDS = ""
 
-S = "${WORKDIR}/package"
+SRC_URI = "https://registry.npmjs.org/domelementtype/-/domelementtype-2.0.2.tgz"
+SRC_URI[md5sum] = "be74fcb57545dea11a65aaf3d94128ac"
+SRC_URI[sha256sum] = "e1fd324c0e29c0f4de5b85be684190f22be35715603e4e97fe1093506fb2c0f9"
 
 NPM_PKGNAME = "domelementtype"
 
