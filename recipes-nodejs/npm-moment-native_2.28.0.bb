@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=397bb5fedab22612d8d69f1458a9321e"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/moment/-/moment-2.27.0.tgz"
-SRC_URI[md5sum] = "3860ef005b342bc0ee9a816e5a4e8943"
-SRC_URI[sha256sum] = "df72ec9445f517cdd8556149cfc873d9954f3df201ee71e404859a2df77a10db"
+SRC_URI = "https://registry.npmjs.org/moment/-/moment-2.28.0.tgz"
+SRC_URI[md5sum] = "2dcb2d3ad0ccbaafe51db674a462b95a"
+SRC_URI[sha256sum] = "d2e6ae08c3cedc5a7c11cd98f60194fa58d65b40a0d0f34106ecfdb8385ed737"
 
 NPM_PKGNAME = "moment"
 
