@@ -14,8 +14,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "rich"
 
-SRC_URI[md5sum] = "572b45eb9ace33cbd16aecff450958e6"
-SRC_URI[sha256sum] = "b316b5e8b167cd562d4315cf6c80399c253df444143e2053f593372bb2056ea4"
+SRC_URI[md5sum] = "cc8b0224715cac9421d17ba5fc6c2857"
+SRC_URI[sha256sum] = "f99c877277906e1ff83b135c564920590ba31188f424dcdb5d1cae652a519b4b"
 
 inherit pypi
 inherit native
