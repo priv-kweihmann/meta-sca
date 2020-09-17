@@ -10,12 +10,11 @@ DEPENDS = "npm-browserslist-native \
            npm-colorette-native \
            npm-normalize-range-native \
            npm-num2fraction-native \
-           npm-postcss-native \
            npm-postcss-value-parser-native"
 
-SRC_URI = "https://registry.npmjs.org/autoprefixer/-/autoprefixer-9.8.6.tgz"
-SRC_URI[md5sum] = "2801705d121c608d59f13f4a1967ecea"
-SRC_URI[sha256sum] = "285f01d1836951cf6ccbdedaef62879f96d9144f67b0b09a40b6e82d4ad648b8"
+SRC_URI = "https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.0.0.tgz"
+SRC_URI[md5sum] = "d8fe014c179963b0c68b0b202ecf77f1"
+SRC_URI[sha256sum] = "566686caede670c12139d3c8ef9bd7ddb0bcc35a6211982358fbb5a2a98f59dd"
 
 NPM_PKGNAME = "autoprefixer"
 
