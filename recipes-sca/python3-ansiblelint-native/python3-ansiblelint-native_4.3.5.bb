@@ -22,11 +22,11 @@ DEPENDS += "\
             "
 
 # wheel-files are just zip-files, so we can threat them like that
-SRC_URI = "https://files.pythonhosted.org/packages/58/59/fd110e80511d388718a0131129b643fb53a6a41abc5b288beb289006fecc/ansible_lint-4.3.4-py2.py3-none-any.whl;downloadfilename=ansible_lint-${PV}-py2.py3-none-any.zip;subdir=${BP} \
+SRC_URI = "https://files.pythonhosted.org/packages/88/bf/12e507b1d5b3a6317c515c27cfef869168dbe7dd879f9e272f683fb460b1/ansible_lint-4.3.5-py2.py3-none-any.whl;downloadfilename=ansible_lint-${PV}-py2.py3-none-any.zip;subdir=${BP} \
            file://ansiblelint.sca.description"
 
-SRC_URI[md5sum] = "3dce161996161c8743dcb851ff908ad6"
-SRC_URI[sha256sum] = "bbe81074615ba80e0eb65ffea1ce3c9adb143574b38f3520371e4df63b4300bd"
+SRC_URI[md5sum] = "f8569cc488bdc63cdaf3fafc7d696924"
+SRC_URI[sha256sum] = "4eabcea3572a9a3d85c6abefe04ca80ec8b306f50116ee6a9d118b4f2fd5e192"
 
 UPSTREAM_CHECK_URI ?= "https://pypi.python.org/pypi/ansible_lint/"
 UPSTREAM_CHECK_REGEX = "ansible_lint-(?P<pver>\d+\.\d+\.\d+)-py2\.py3-none-any\.whl"
