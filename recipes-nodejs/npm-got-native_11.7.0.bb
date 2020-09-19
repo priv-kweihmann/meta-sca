@@ -17,9 +17,9 @@ DEPENDS = "npm-cacheable-lookup-native \
            npm-types-cacheable-request-native \
            npm-types-responselike-native"
 
-SRC_URI = "https://registry.npmjs.org/got/-/got-11.6.2.tgz"
-SRC_URI[md5sum] = "378bf095d2faef2494fcd5711be5d0da"
-SRC_URI[sha256sum] = "23a254c5d1f03d6c22aabff45e6b9b780c428893837c59596ca959a93de79ce5"
+SRC_URI = "https://registry.npmjs.org/got/-/got-11.7.0.tgz"
+SRC_URI[md5sum] = "a0f4d210a65149d473c130471ad04163"
+SRC_URI[sha256sum] = "bc7b8dc1ec6c3c8bf7ed9f9a76c194f0ba0d86a3ccb16a8b2bcca1e0a553e944"
 
 NPM_PKGNAME = "got"
 
