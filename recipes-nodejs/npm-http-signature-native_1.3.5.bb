@@ -9,9 +9,9 @@ DEPENDS = "npm-assert-plus-native \
            npm-jsprim-native \
            npm-sshpk-native"
 
-SRC_URI = "https://registry.npmjs.org/http-signature/-/http-signature-1.3.4.tgz"
-SRC_URI[md5sum] = "953999940c6cd65380658a08b0cba014"
-SRC_URI[sha256sum] = "e04b72a789d6861d612e44909f48885845afd0b0700df79baa240f0fb2b67d4a"
+SRC_URI = "https://registry.npmjs.org/http-signature/-/http-signature-1.3.5.tgz"
+SRC_URI[md5sum] = "3ec360fb44d22ad0153c1bcf02c02a44"
+SRC_URI[sha256sum] = "ddb60396916dafa1b3b942ac814d2ea4cbfd3a120f95875d43cfb9defef7236b"
 
 NPM_PKGNAME = "http-signature"
 
