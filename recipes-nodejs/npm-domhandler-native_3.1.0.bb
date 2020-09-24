@@ -1,15 +1,15 @@
 SUMMARY = "NPM: domhandler"
 DESCRIPTION = "Handler for htmlparser2 that turns pages into a dom"
-HOMEPAGE = "https://github.com/fb55/DomHandler#readme"
+HOMEPAGE = "https://github.com/fb55/domhandler#readme"
 
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d5b9cb3bc7f6ffd7bea8661f30447c11"
 
 DEPENDS = "npm-domelementtype-native"
 
-SRC_URI = "https://registry.npmjs.org/domhandler/-/domhandler-3.0.0.tgz"
-SRC_URI[md5sum] = "b2bebe8602fa3e6762a63a2f5dea4c0b"
-SRC_URI[sha256sum] = "c059da1a898cfd244f946d2d4601812d3ae4ff0357d32cceb2f7c7fa07d28d77"
+SRC_URI = "https://registry.npmjs.org/domhandler/-/domhandler-3.1.0.tgz"
+SRC_URI[md5sum] = "1902042eca2642e0ad55cf6a62094353"
+SRC_URI[sha256sum] = "6387876b34201cded541f84cf13f0cccc5fa28855ad6aaac12996f9fb1d7837c"
 
 NPM_PKGNAME = "domhandler"
 
