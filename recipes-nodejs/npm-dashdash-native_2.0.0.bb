@@ -2,16 +2,14 @@ SUMMARY = "NPM: dashdash"
 DESCRIPTION = "A light, featureful and explicit option parsing library."
 HOMEPAGE = "https://github.com/trentm/node-dashdash#readme"
 
-DEPENDS = "npm-assert-plus-native"
-
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=ebce61c1a0900d798daaf5853c69ce72"
 
-SRC_URI = "https://registry.npmjs.org/dashdash/-/dashdash-1.14.1.tgz"
-SRC_URI[md5sum] = "10e52530e0086914a59d498cb1637c7e"
-SRC_URI[sha256sum] = "8b79ebde18aa8f10aba37e32dcecbe376023c79776510e06e9a53f5e68555340"
+DEPENDS = "npm-assert-plus-native"
 
-S = "${WORKDIR}/package"
+SRC_URI = "https://registry.npmjs.org/dashdash/-/dashdash-2.0.0.tgz"
+SRC_URI[md5sum] = "7a2d0c99fb81dac02c8633e294885b29"
+SRC_URI[sha256sum] = "e187abf4a88ffe570d631c24e5b08bf2119fa9f9cd34697f923d12c71dd6cacc"
 
 NPM_PKGNAME = "dashdash"
 
