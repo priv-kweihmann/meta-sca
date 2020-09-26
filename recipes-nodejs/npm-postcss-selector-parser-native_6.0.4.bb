@@ -10,9 +10,9 @@ DEPENDS = "npm-cssesc-native \
            npm-uniq-native \
            npm-util-deprecate-native"
 
-SRC_URI = "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.0.3.tgz"
-SRC_URI[md5sum] = "f5d2caf268b1312e9d526a7edb810e48"
-SRC_URI[sha256sum] = "b54b35927740d0b7fcee99d298da0092890f5e0055743a9bbf82808705b9c46f"
+SRC_URI = "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.0.4.tgz"
+SRC_URI[md5sum] = "d4116226ae954fcef829f04373477a2b"
+SRC_URI[sha256sum] = "9c26a47a587c6daeb04e21783b1fe4ecbc6c4bfcc321edbc96fd8c3514635fef"
 
 NPM_PKGNAME = "postcss-selector-parser"
 
