@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e0ef868fdaaba6859dcbab082c20439b"
 
 DEPENDS = "npm-postcss-native"
 
-SRC_URI = "https://registry.npmjs.org/postcss-safe-parser/-/postcss-safe-parser-5.0.1.tgz"
-SRC_URI[md5sum] = "02d99d8c3727aea7d5879f064f05ab91"
-SRC_URI[sha256sum] = "9c056bc15454230e22ee9eed212cd05f25c2fbb5a21a0e6753096f593b76e253"
+SRC_URI = "https://registry.npmjs.org/postcss-safe-parser/-/postcss-safe-parser-5.0.2.tgz"
+SRC_URI[md5sum] = "1d8177080618755d8e653381e0845055"
+SRC_URI[sha256sum] = "0744d1e932840b4db5e2af9c6ba9dccc10399592de1405d44da36ddcbd63829f"
 
 NPM_PKGNAME = "postcss-safe-parser"
 
