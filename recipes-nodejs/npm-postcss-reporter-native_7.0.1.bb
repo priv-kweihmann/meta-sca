@@ -13,9 +13,9 @@ DEPENDS = "npm-colorette-native \
            npm-lodash.sortby-native \
            npm-log-symbols-native"
 
-SRC_URI = "https://registry.npmjs.org/postcss-reporter/-/postcss-reporter-7.0.0.tgz"
-SRC_URI[md5sum] = "c1278c2b034fed1a9888f15ef8f9a915"
-SRC_URI[sha256sum] = "a890d7ec80f609019eea5d5696f5c8f62a76318b9c6e3c0d61a971bdf0964b66"
+SRC_URI = "https://registry.npmjs.org/postcss-reporter/-/postcss-reporter-7.0.1.tgz"
+SRC_URI[md5sum] = "72c92ab3e504486ec9c07c87c6fda160"
+SRC_URI[sha256sum] = "c22a5ff27489fbeb8a614b4f0715541c30d8da9654f3bba3d28183ddfd25cb2e"
 
 NPM_PKGNAME = "postcss-reporter"
 
