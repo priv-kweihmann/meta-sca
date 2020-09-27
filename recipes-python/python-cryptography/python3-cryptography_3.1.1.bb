@@ -19,8 +19,8 @@ RDEPENDS_${PN}_class-target += "\
 
 PYPI_PACKAGE = "cryptography"
 
-SRC_URI[md5sum] = "aa91e4974981b29e99b863c54034c361"
-SRC_URI[sha256sum] = "26409a473cc6278e4c90f782cd5968ebad04d3911ed1c402fc86908c17633e08"
+SRC_URI[md5sum] = "c3807891d36aa9de8187e9db8b2bb457"
+SRC_URI[sha256sum] = "9d9fc6a16357965d282dd4ab6531013935425d0dc4950df2e0cf2a1b1ac1017d"
 
 inherit pypi
 inherit setuptools3
