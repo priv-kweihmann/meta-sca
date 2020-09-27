@@ -4,8 +4,8 @@ HOMEPAGE = "https://github.com/colszowka/simplecov-html"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=23973b4bd84f8a5e081dd23bb739394d"
 
-SRC_URI[md5sum] = "329df0d4bf56660b714cf6f2c9534a91"
-SRC_URI[sha256sum] = "c9ae10b01a765452c9a50bedd3e8a20ee0f1793d9850f8c89e884b7b5c25ebec"
+SRC_URI[md5sum] = "2f0241c3a12f5af62bd84c1f1914a722"
+SRC_URI[sha256sum] = "4b1aad33259ffba8b29c6876c12db70e5750cb9df829486e4c6e5da4fa0aa07b"
 
 GEM_NAME = "simplecov-html"
 
