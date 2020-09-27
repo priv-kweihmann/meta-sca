@@ -12,7 +12,7 @@ DEPENDS += "\
             "
 
 SRC_URI = "git://github.com/luarocks/luarocks;protocol=https"
-SRCREV = "e28df4a24f9a3b5c0019117a878d515801df4733"
+SRCREV = "cef7218b1e25ad2bb5982c89ec01e349d6b2f3a0"
 
 S = "${WORKDIR}/git"
 
