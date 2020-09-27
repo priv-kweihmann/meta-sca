@@ -11,8 +11,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "flake8-rst-docstrings"
 
-SRC_URI[md5sum] = "c0417cb35286defd3a0531b1bab703f2"
-SRC_URI[sha256sum] = "b1b619d81d879b874533973ac04ee5d823fdbe8c9f3701bfe802bb41813997b4"
+SRC_URI[md5sum] = "991a10ef4f32fb58bd879936d108cb33"
+SRC_URI[sha256sum] = "8f8bcb18f1408b506dd8ba2c99af3eac6128f6911d4bf6ff874b94caa70182a2"
 
 inherit pypi
 inherit native
