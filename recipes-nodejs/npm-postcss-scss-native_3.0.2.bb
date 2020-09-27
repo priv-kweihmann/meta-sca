@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e0ef868fdaaba6859dcbab082c20439b"
 
 DEPENDS = "npm-postcss-native"
 
-SRC_URI = "https://registry.npmjs.org/postcss-scss/-/postcss-scss-3.0.1.tgz"
-SRC_URI[md5sum] = "6d0f33f5f7ac7aa58854a103ed2f2cdd"
-SRC_URI[sha256sum] = "5773a02f7c649db339cb6ab1223ed9b1fe94ce2da365361992b9366667008f31"
+SRC_URI = "https://registry.npmjs.org/postcss-scss/-/postcss-scss-3.0.2.tgz"
+SRC_URI[md5sum] = "10e11b26f9fbebd1dff6042e4670362e"
+SRC_URI[sha256sum] = "eaa4f9f76fd14ce1e7173b2505aee39b9ae3bf3e5b133f2b84e2328fa0c6b124"
 
 NPM_PKGNAME = "postcss-scss"
 
