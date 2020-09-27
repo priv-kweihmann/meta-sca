@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=4134d402e7331fd1e7d9f294aa26def4"
 
 DEPENDS = "npm-postcss-native"
 
-SRC_URI = "https://registry.npmjs.org/sugarss/-/sugarss-3.0.0.tgz"
-SRC_URI[md5sum] = "427c5f23f60ff6563a3b8f63535ed80b"
-SRC_URI[sha256sum] = "76c8707a281c072430951035c067d996eb2738afbab62d41de0d057c2db2cc64"
+SRC_URI = "https://registry.npmjs.org/sugarss/-/sugarss-3.0.1.tgz"
+SRC_URI[md5sum] = "a22546d34454b3ea04d45a143f3b1e2e"
+SRC_URI[sha256sum] = "976f2580fcc353c8b90250e2a3e6ff73ccd9c76a628615429c196788a717188f"
 
 NPM_PKGNAME = "sugarss"
 
