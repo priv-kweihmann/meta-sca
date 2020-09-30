@@ -9,9 +9,9 @@ DEPENDS = "npm-dom-serializer-native \
            npm-domelementtype-native \
            npm-domhandler-native"
 
-SRC_URI = "https://registry.npmjs.org/domutils/-/domutils-2.4.0.tgz"
-SRC_URI[md5sum] = "f64a2cfb9a4f7c9c7309121e4ba54c62"
-SRC_URI[sha256sum] = "6e2f571fbd0cc5652d19b592cc85a5954149d63673307d0f3209a6b4f1439bf7"
+SRC_URI = "https://registry.npmjs.org/domutils/-/domutils-2.4.1.tgz"
+SRC_URI[md5sum] = "b0b7b722939f61c34e068c10bccac7de"
+SRC_URI[sha256sum] = "d97b712bde524f2e4c4e32d1039e031b511801f3f8d099fe1057c3837b8b0c6c"
 
 NPM_PKGNAME = "domutils"
 
