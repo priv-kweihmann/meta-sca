@@ -9,9 +9,9 @@ DEPENDS = "npm-lodash-native \
            npm-split-lines-native \
            npm-textlint-rule-helper-native"
 
-SRC_URI = "https://registry.npmjs.org/textlint-rule-stop-words/-/textlint-rule-stop-words-2.0.6.tgz"
-SRC_URI[md5sum] = "5174e2b8d1fde8b923f854c6451a2ec3"
-SRC_URI[sha256sum] = "7f37fdd9375025cb9522dbc81058b128e410654656d758bbf257f65719d64ea7"
+SRC_URI = "https://registry.npmjs.org/textlint-rule-stop-words/-/textlint-rule-stop-words-2.0.7.tgz"
+SRC_URI[md5sum] = "55282b8a566f03edd0050b323f9b8e12"
+SRC_URI[sha256sum] = "fe11bc9a62675a9ef7e275cfe860376df12ab2db915ab77f26cb079e4eaa9871"
 
 NPM_PKGNAME = "textlint-rule-stop-words"
 
