@@ -18,9 +18,9 @@ DEPENDS = "npm-es-to-primitive-native \
            npm-string.prototype.trimend-native \
            npm-string.prototype.trimstart-native"
 
-SRC_URI = "https://registry.npmjs.org/es-abstract/-/es-abstract-1.18.0-next.0.tgz"
-SRC_URI[md5sum] = "347644490c2ae8ab469e812ff247db26"
-SRC_URI[sha256sum] = "ca1bde39498b4d3958f25bb467c79e70907c21443708302f42db0f4b6b41e08d"
+SRC_URI = "https://registry.npmjs.org/es-abstract/-/es-abstract-1.18.0-next.1.tgz"
+SRC_URI[md5sum] = "3b3b3985328ecd5d05717d50e8a3c7d1"
+SRC_URI[sha256sum] = "73f9c545905fd911a921c5eba4858ceac5810be5666b5277981f8d5ae631fc7e"
 
 NPM_PKGNAME = "es-abstract"
 
