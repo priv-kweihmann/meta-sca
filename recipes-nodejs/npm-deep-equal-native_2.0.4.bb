@@ -20,9 +20,9 @@ DEPENDS = "npm-es-abstract-native \
            npm-which-collection-native \
            npm-which-typed-array-native"
 
-SRC_URI = "https://registry.npmjs.org/deep-equal/-/deep-equal-2.0.3.tgz"
-SRC_URI[md5sum] = "b4ae496b64820ff94ab192ad5267213c"
-SRC_URI[sha256sum] = "57cd25ea938da1b734b0ebf3f6bcd4d29a85e6cc4fffe52a4301445e5898dd27"
+SRC_URI = "https://registry.npmjs.org/deep-equal/-/deep-equal-2.0.4.tgz"
+SRC_URI[md5sum] = "e1d7bc5943ec36dd57b0755907a985bf"
+SRC_URI[sha256sum] = "4b8c5d7dfbe58f97ecee58f0c4451e9a66da58621efe98dfe1f7d7b0819c7a34"
 
 NPM_PKGNAME = "deep-equal"
 
