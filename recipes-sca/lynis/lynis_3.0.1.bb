@@ -8,7 +8,7 @@ DEPENDS_class_native += "${BPN}"
 
 SRC_URI = "git://github.com/CISOfy/lynis.git;protocol=https \
            file://lynis.sca.description"
-SRCREV = "05ef9547ae42c9885c84058c575b01ef9ec903cf"
+SRCREV = "21b5493a1cb679d68e3da15ffdfc4f0a46a76776"
 S = "${WORKDIR}/git"
 
 inherit autotools-brokensep
