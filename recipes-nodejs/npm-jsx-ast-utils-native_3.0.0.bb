@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=8a54d70af8daeb4ac38a9b28b2f24dee"
 DEPENDS = "npm-array-includes-native \
            npm-object.assign-native"
 
-SRC_URI = "https://registry.npmjs.org/jsx-ast-utils/-/jsx-ast-utils-2.4.1.tgz"
-SRC_URI[md5sum] = "f9d4f86ec0b52a2fb2c9c19a44fba400"
-SRC_URI[sha256sum] = "3adb2fcc87f55ee5f7edd3ac251470f7528fda97a3a9ac831e95f2c19244fd0c"
+SRC_URI = "https://registry.npmjs.org/jsx-ast-utils/-/jsx-ast-utils-3.0.0.tgz"
+SRC_URI[md5sum] = "8d0e5996d9859641f121ca4d9cc98ef3"
+SRC_URI[sha256sum] = "ae23511ce531894ea1eaa6dcadb952f6132dde17b7a63d182cc8a0b6bf43008b"
 
 NPM_PKGNAME = "jsx-ast-utils"
 
