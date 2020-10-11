@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=f938d99cba29007eeae26d80a9a4cfa6"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/tslib/-/tslib-2.0.1.tgz"
-SRC_URI[md5sum] = "d7ad9d00b3de3d046980b85b4538483c"
-SRC_URI[sha256sum] = "a0cec74336b11da82af2f4a5b0dae48354c7ac0d7839e6cc18f910a1035fd631"
+SRC_URI = "https://registry.npmjs.org/tslib/-/tslib-2.0.3.tgz"
+SRC_URI[md5sum] = "d3fcdfb98fc8098b42118ad1dffa4818"
+SRC_URI[sha256sum] = "93a3ed7d097ced0bd2f9ac66f8909263632e28c3c48c845c9e1d7ce20d3ac3d6"
 
 NPM_PKGNAME = "tslib"
 
