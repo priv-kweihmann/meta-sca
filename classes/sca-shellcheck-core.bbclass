@@ -63,7 +63,7 @@ python do_sca_shellcheck_core() {
     _args += ["-a"]
 
     xml_output = ""
-    for k,v in { "bash": "*./bash", "sh": "*./sh", "ksh": "*./ksh"}.items():
+    for k,v in { "bash": ".*/bash", "sh": ".*/sh", "ksh": ".*/ksh"}.items():
         _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), v, ".sh",
                                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"),
                                                    clean_split(d, "SCA_FILE_FILTER_EXTRA")))
