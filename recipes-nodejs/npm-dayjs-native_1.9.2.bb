@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=928913777077eb4559660390651e482e"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/dayjs/-/dayjs-1.9.1.tgz"
-SRC_URI[md5sum] = "6675bee37ea563b470b6498a29a9f0ba"
-SRC_URI[sha256sum] = "c1a8f5dc3c8aa1b2818b99deaf307556fd0bba6ea71a09754a8866ba59ebd8c1"
+SRC_URI = "https://registry.npmjs.org/dayjs/-/dayjs-1.9.2.tgz"
+SRC_URI[md5sum] = "c10b7b6f2b6bd5c14d82b4e1b77c021e"
+SRC_URI[sha256sum] = "cd745c7ed4acf4d387c2354fb8b3bdf1f8d282ab5656d7960e9b6b9ad3c61076"
 
 NPM_PKGNAME = "dayjs"
 
