@@ -54,6 +54,12 @@ def do_sca_conv_shellcheck(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
+def exec_wrap_combine_shellcheck(a, b, **kwargs):
+    b = b or ""
+    if not b.startswith("<?xml") and "<?xml" in b:
+        b = b[b.find("<?xml"):]
+    return xml_combine(None, a, b)
+
 python do_sca_shellcheck_core() {
     import os
     import subprocess
@@ -68,7 +74,7 @@ python do_sca_shellcheck_core() {
                                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"),
                                                    clean_split(d, "SCA_FILE_FILTER_EXTRA")))
         _targs = _args + ["-s", k]
-        xml_output = xml_combine(d, xml_output, exec_wrap_check_output(_targs, _files, combine=exec_wrap_combine_xml))
+        xml_output = xml_combine(d, xml_output, exec_wrap_check_output(_targs, _files, combine=exec_wrap_combine_shellcheck))
 
     with open(sca_raw_result_file(d, "shellcheck"), "w") as o:
         o.write(xml_output)
