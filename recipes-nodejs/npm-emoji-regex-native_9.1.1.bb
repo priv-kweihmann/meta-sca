@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE-MIT.txt;md5=ee9bd8b835cfcd512dd644540dd96987"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/emoji-regex/-/emoji-regex-9.0.0.tgz"
-SRC_URI[md5sum] = "dc8414ef32851dd4260f195444f20187"
-SRC_URI[sha256sum] = "1d52f03552701131efa58f34d3333e9cfb8227069e3fb6cc035c1e4c24736eac"
+SRC_URI = "https://registry.npmjs.org/emoji-regex/-/emoji-regex-9.1.1.tgz"
+SRC_URI[md5sum] = "51d641582df6d123111d5c4a10178da4"
+SRC_URI[sha256sum] = "6cf8c6a7b3af7aca324d75ea02cd446d28da4f19919e629d19e0eebd4fd8c7bd"
 
 NPM_PKGNAME = "emoji-regex"
 
