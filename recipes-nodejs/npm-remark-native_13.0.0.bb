@@ -3,15 +3,15 @@ DESCRIPTION = "Markdown processor powered by plugins part of the unified collect
 HOMEPAGE = "https://remark.js.org"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://readme.md;beginline=189;endline=190;md5=f7cd6e61bbbca39fe0e60b4899302d5a"
+LIC_FILES_CHKSUM = "file://readme.md;beginline=189;endline=190;md5=511f6768a0948d45e6ce0015231af805"
 
 DEPENDS = "npm-remark-parse-native \
            npm-remark-stringify-native \
            npm-unified-native"
 
-SRC_URI = "https://registry.npmjs.org/remark/-/remark-12.0.1.tgz"
-SRC_URI[md5sum] = "ced1904bc4b2cb93b8917ca32ed4574c"
-SRC_URI[sha256sum] = "4f1ecce60d7576861f9d5d709ad2a67278aa2146cda108320bc1e49cf15194b0"
+SRC_URI = "https://registry.npmjs.org/remark/-/remark-13.0.0.tgz"
+SRC_URI[md5sum] = "65544a1c3f0b9720f27393ed5a2320b0"
+SRC_URI[sha256sum] = "95c9f387585e253606312ef7eb9de13c6dff22ca8723f045a96e766717dc3356"
 
 NPM_PKGNAME = "remark"
 
