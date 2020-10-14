@@ -28,6 +28,11 @@ do_install() {
     # Add a wrapper script to fix the linking issues
     cat << EOF > ${D}${bindir}/shellcheck-wrapper
 #!/bin/sh
+
+if [ ! -e "${STAGING_LIBDIR_NATIVE}/libffi.so.7" -a -e "${STAGING_LIBDIR_NATIVE}/libffi.so.6" ]; then
+   ln -s ${STAGING_LIBDIR_NATIVE}/libffi.so.6 ${STAGING_LIBDIR_NATIVE}/libffi.so.7
+fi
+
 LD_LIBRARY_PATH=${STAGING_LIBDIR_NATIVE} shellcheck \$@
 EOF
     chmod 0755 ${D}${bindir}/shellcheck-wrapper
