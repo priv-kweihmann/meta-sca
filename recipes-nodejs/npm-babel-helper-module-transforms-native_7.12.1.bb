@@ -9,13 +9,15 @@ DEPENDS = "npm-babel-helper-module-imports-native \
            npm-babel-helper-replace-supers-native \
            npm-babel-helper-simple-access-native \
            npm-babel-helper-split-export-declaration-native \
+           npm-babel-helper-validator-identifier-native \
            npm-babel-template-native \
+           npm-babel-traverse-native \
            npm-babel-types-native \
            npm-lodash-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/helper-module-transforms/-/helper-module-transforms-7.11.0.tgz"
-SRC_URI[md5sum] = "7d176835e7b6d7b9086c5cd2316b6fc8"
-SRC_URI[sha256sum] = "f37919be9db307690bb9c48510458b6a02b2168fc517df1260a0290c9c132832"
+SRC_URI = "https://registry.npmjs.org/@babel/helper-module-transforms/-/helper-module-transforms-7.12.1.tgz"
+SRC_URI[md5sum] = "b07dec5094859a8d7ab6e86767269f95"
+SRC_URI[sha256sum] = "d2eca1b8320c82e1c2e6c21b08bfb507edba7759480cc775fa47459a920418d7"
 
 NPM_PKGNAME = "@babel/helper-module-transforms"
 
