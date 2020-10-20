@@ -10,7 +10,7 @@ DEPENDS += "\
            "
 
 SRC_URI = "git://${GO_IMPORT};protocol=https"
-SRCREV = "577841610793d24f99e31cc2c0ef3a541fefd7c7"
+SRCREV = "12da6a6f595be62be8aee51d5ca3597da0ef5a8b"
 GO_IMPORT = "github.com/frankban/quicktest"
 
 inherit go
