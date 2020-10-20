@@ -22,7 +22,7 @@ def create_parser():
     parser.add_argument("--blacklistfile", default=None, help="File with blacklisted packages")
     parser.add_argument("--dryrun", default=False, action="store_true", help="dry run")
     parser.add_argument("--filter", default=".*", help="additional recipe name filter")
-    parser.add_argument("--backoff", default=180, type=int, help="backoff time after UNKNOWN_BROKEN finding. 0=disabled")
+    parser.add_argument("--backoff", default=60, type=int, help="backoff time after UNKNOWN_BROKEN finding. 0=disabled")
     parser.add_argument("username", help="GitHub username")
     parser.add_argument("token", help="GitHub token")
     return parser.parse_args()
