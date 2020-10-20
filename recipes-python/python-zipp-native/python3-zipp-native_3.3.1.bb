@@ -11,8 +11,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "zipp"
 
-SRC_URI[md5sum] = "87a53f0bf48671f6bf6d3e9938218509"
-SRC_URI[sha256sum] = "64ad89efee774d1897a58607895d80789c59778ea02185dd846ac38394a8642b"
+SRC_URI[md5sum] = "8bc697a6f65b8e2f75bcadfb90e98e58"
+SRC_URI[sha256sum] = "c1532a8030c32fd52ff6a288d855fe7adef5823ba1d26a29a68fd6314aa72baa"
 
 inherit pypi
 inherit native
