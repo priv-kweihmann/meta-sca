@@ -12,8 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "flake8-eradicate"
 
-SRC_URI[md5sum] = "7ef2bbf300155e5002b45c5eb0da5542"
-SRC_URI[sha256sum] = "be5ea4521dfd4cb76837635f9ace57e12a7336c4b82054c99fd0394c00eef8ce"
+SRC_URI[md5sum] = "b48ebfd77707032d2439eadeaa165ce8"
+SRC_URI[sha256sum] = "fe7167226676823d50cf540532302a6f576c5a398c5260692571a05ef72c5f5b"
 
 inherit pypi
 inherit native
