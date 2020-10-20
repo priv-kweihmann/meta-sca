@@ -16,9 +16,9 @@ DEPENDS = "npm-chalk-native \
            npm-glob-native \
            npm-minimatch-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell/-/cspell-4.1.0.tgz"
-SRC_URI[md5sum] = "31b854a7e368899ee1741341e270ea10"
-SRC_URI[sha256sum] = "bb5484eb61fa62f1ce9ac4f83dd694b07525ed72a5141c1ebdcef6e13c606ec7"
+SRC_URI = "https://registry.npmjs.org/cspell/-/cspell-4.1.2.tgz"
+SRC_URI[md5sum] = "459aba0e898cf80c91376e4c35f05836"
+SRC_URI[sha256sum] = "da6f8602e04c53b0fac685016bf1bb75d5a638f2a9d07ea97432abbe4407e50a"
 
 NPM_PKGNAME = "cspell"
 
