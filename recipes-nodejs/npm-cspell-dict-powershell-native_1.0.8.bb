@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=fd6ca8d8865d18c1a5a6696c0f841ff0"
 
 DEPENDS = "npm-configstore-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-dict-powershell/-/cspell-dict-powershell-1.0.7.tgz"
-SRC_URI[md5sum] = "4968c5571bbe79e6efe85ad2f084ab60"
-SRC_URI[sha256sum] = "39d0c1d74bd6efc7b0c0159eb7a289697e18bd8a42f4a8fd68debb608397ff7a"
+SRC_URI = "https://registry.npmjs.org/cspell-dict-powershell/-/cspell-dict-powershell-1.0.8.tgz"
+SRC_URI[md5sum] = "37686e76fa598d6f55b49e5fab6183f8"
+SRC_URI[sha256sum] = "621730749753fd0e085255b24f494d3143bada9bf96277b5ba15fe1d3d10b540"
 
 NPM_PKGNAME = "cspell-dict-powershell"
 
