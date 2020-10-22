@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=fd6ca8d8865d18c1a5a6696c0f841ff0"
 
 DEPENDS = "npm-configstore-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-dict-lua/-/cspell-dict-lua-1.0.9.tgz"
-SRC_URI[md5sum] = "f25dfafbeced1df600cca9eea69d594c"
-SRC_URI[sha256sum] = "4617dc19a419ce72830da150d29d0b44982fea8fe1a4b4305b9a0a98d855a013"
+SRC_URI = "https://registry.npmjs.org/cspell-dict-lua/-/cspell-dict-lua-1.0.10.tgz"
+SRC_URI[md5sum] = "5dca528cc968b07c1e5ae8da7e9e2b3d"
+SRC_URI[sha256sum] = "49d588f7e2b077221716d3f90ba59866333f5136e2eabf66fe59e3c787b99340"
 
 NPM_PKGNAME = "cspell-dict-lua"
 
