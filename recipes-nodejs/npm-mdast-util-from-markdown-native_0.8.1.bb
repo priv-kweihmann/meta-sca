@@ -10,9 +10,9 @@ DEPENDS = "npm-mdast-util-to-string-native \
            npm-parse-entities-native \
            npm-types-mdast-native"
 
-SRC_URI = "https://registry.npmjs.org/mdast-util-from-markdown/-/mdast-util-from-markdown-0.8.0.tgz"
-SRC_URI[md5sum] = "b9b0f033bf950bbbbea059ef6f543fdc"
-SRC_URI[sha256sum] = "3f08be10900f425f39b3d32629ce93a8b42897acc2e30cc61844ebe3c01e5f62"
+SRC_URI = "https://registry.npmjs.org/mdast-util-from-markdown/-/mdast-util-from-markdown-0.8.1.tgz"
+SRC_URI[md5sum] = "53b4c4cb8dec52d1baef597f11581302"
+SRC_URI[sha256sum] = "02e83e1ce6e99002aef928cd1561dde7ad3392781822d15d51a396e02e3a0a89"
 
 NPM_PKGNAME = "mdast-util-from-markdown"
 
