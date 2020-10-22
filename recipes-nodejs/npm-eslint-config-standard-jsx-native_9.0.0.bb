@@ -5,9 +5,11 @@ HOMEPAGE = "https://github.com/standard/eslint-config-standard-jsx"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fb42e5aa12bb9e365d38b4b5691d6984"
 
-SRC_URI = "https://registry.npmjs.org/eslint-config-standard-jsx/-/eslint-config-standard-jsx-8.1.0.tgz"
-SRC_URI[md5sum] = "ddecda383b64896ad5f38ff50a57e47f"
-SRC_URI[sha256sum] = "9c8016da434c3c03a2611df33530ed53ab91968109089257c1961114aea0c400"
+DEPENDS = ""
+
+SRC_URI = "https://registry.npmjs.org/eslint-config-standard-jsx/-/eslint-config-standard-jsx-9.0.0.tgz"
+SRC_URI[md5sum] = "75d095fd758e479a8a0f5bda7e808456"
+SRC_URI[sha256sum] = "925088c603e3aed2c257f73ddbf83f550f15069c8ae580194ff86c899b2dc928"
 
 NPM_PKGNAME = "eslint-config-standard-jsx"
 
