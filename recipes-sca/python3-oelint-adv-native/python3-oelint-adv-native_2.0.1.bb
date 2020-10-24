@@ -9,12 +9,13 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e926c89aceef6c1a4247d5df08f94533"
 DEPENDS += "\
             python3-anytree-native \
             python3-colorama-native \
+            python3-oelint-parser-native \
             python3-urllib3-native \
             "
 
 SRC_URI = "git://github.com/priv-kweihmann/oelint-adv.git;protocol=https;branch=master \
            file://oelint.sca.description"
-SRCREV = "e4ce26f03586e7d063f5738133129ea0f101d420"
+SRCREV = "7112e5120fa9ef827089f8bffafb9e7ab040c64f"
 S = "${WORKDIR}/git"
 
 inherit native
