@@ -8,7 +8,7 @@ DEPENDS += "${PYTHON_PN}-pygments-native"
 
 SRC_URI = "git://github.com/priv-kweihmann/tlv.git;protocol=https;branch=master \
            file://tlv.sca.description"
-SRCREV = "62c6b37841ca3263a09d3e1c949e8e524877a084"
+SRCREV = "b6d1aed264c62e404809ef90dbeef880531c48fd"
 S = "${WORKDIR}/git"
 
 inherit native
