@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://README.md;beginline=120;md5=b0b8c014cd7a5f51ad9564f75
 
 DEPENDS = "npm-debug-native"
 
-SRC_URI = "https://registry.npmjs.org/agent-base/-/agent-base-6.0.1.tgz"
-SRC_URI[md5sum] = "cbd5ca99acf405c88dbb813a8368aabc"
-SRC_URI[sha256sum] = "20b13b9ea109729bbd889514b61b392c7e608b5feb3d4016c503ed5df0a1f747"
+SRC_URI = "https://registry.npmjs.org/agent-base/-/agent-base-6.0.2.tgz"
+SRC_URI[md5sum] = "da819cf638db0095018d6ad1c448a035"
+SRC_URI[sha256sum] = "bc6da06f2a2e6bc80fa5878bd7227bd0318812976d45f47f17e1aafcec2be831"
 
 NPM_PKGNAME = "agent-base"
 
