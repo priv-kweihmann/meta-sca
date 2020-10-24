@@ -11,8 +11,8 @@ DEPENDS += "\
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/File-ShareDir-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "f2a0eee9f04c93753dd56437175e5bda"
-SRC_URI[sha256sum] = "59d90bfdf98c4656ff4173e62954ea8cf0de66565e35d108ecd7050596cb8328"
+SRC_URI[md5sum] = "0084f730f4e3d4d89703d92b3ea82f54"
+SRC_URI[sha256sum] = "3bb2a20ba35df958dc0a4f2306fc05d903d8b8c4de3c8beefce17739d281c958"
 
 S = "${WORKDIR}/File-ShareDir-${PV}"
 
