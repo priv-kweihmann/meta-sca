@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=55a8748c7d5c7253f3e4bb7402ff04db"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/typescript/-/typescript-4.0.3.tgz"
-SRC_URI[md5sum] = "03ba763c28c9b013a5f340b102cb7dc7"
-SRC_URI[sha256sum] = "84457b86a8bc4be5421e4d8212367aa1a6afa744af2324ba9c33f76b46bdeac4"
+SRC_URI = "https://registry.npmjs.org/typescript/-/typescript-4.0.5.tgz"
+SRC_URI[md5sum] = "0f2d693052d1af3e00f6a703186aae85"
+SRC_URI[sha256sum] = "52bbbcc4f16cd5ea797d30b9daaf0650ee6d7b024189d00b2e193142cd79d00e"
 
 NPM_PKGNAME = "typescript"
 
