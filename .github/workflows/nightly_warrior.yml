@@ -15,7 +15,7 @@ jobs:
       ENABLEMETAOE: 0
       ENABLEMETACLANG: 0
       PARAMFILE: standard_01
-      MAXRUNTIME: 21000s
+      MAXRUNTIME: 12900s
       PYTHONIOENCODING: utf8
       LC_ALL: en_US.UTF-8
       LANG: en_US.UTF-8
@@ -39,70 +39,106 @@ jobs:
           sudo chown yoctouser:yoctouser ${WORKSPACE} 2>&1
       - name: Check out poky
         run: |
-          git clone git://git.yoctoproject.org/poky.git/ -b $SCABRANCH ${WORKSPACE}/poky
+          git clone git://git.yoctoproject.org/poky.git/ -b $SCABRANCH ${WORKSPACE}/poky 2>&1
+          rm -rf ${WORKSPACE}/poky/.git 2>&1
         shell: bash
       - name: Check out meta-sca
         run: |
-          git clone https://github.com/priv-kweihmann/meta-sca.git -b $SCABRANCH ${WORKSPACE}/meta-sca
+          git clone https://github.com/priv-kweihmann/meta-sca.git -b $SCABRANCH ${WORKSPACE}/meta-sca 2>&1
+          rm -rf ${WORKSPACE}/meta-sca/.git 2>&1
       - if: env.ENABLEMETAOE == '1'
         name: Check out meta-oe
         run: |
-          git clone git://git.openembedded.org/meta-openembedded -b $SCABRANCH ${WORKSPACE}/meta-oe
+          git clone git://git.openembedded.org/meta-openembedded -b $SCABRANCH ${WORKSPACE}/meta-oe 2>&1
+          rm -rf ${WORKSPACE}/meta-oe/.git 2>&1
         shell: bash
       - if: env.ENABLEMETACLANG == '1'
         name: Check out meta-clang
         run: |
-          git clone https://github.com/kraj/meta-clang.git -b $SCABRANCH ${WORKSPACE}/meta-clang
+          git clone https://github.com/kraj/meta-clang.git -b $SCABRANCH ${WORKSPACE}/meta-clang 2>&1
+          rm -rf ${WORKSPACE}/meta-clang/.git 2>&1
       - name: Setup poky
         run: |
           cd ${WORKSPACE} 
-          source poky/oe-init-build-env
+          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
         shell: bash
       - name: add meta-sca
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
-          bitbake-layers add-layer ${WORKSPACE}/meta-sca
+          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          bitbake-layers add-layer ${WORKSPACE}/meta-sca 2>&1
         shell: bash
       - if: env.ENABLEMETAOE == '1'
         name: add meta-oe
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
-          bitbake-layers add-layer ${WORKSPACE}/meta-oe/meta-oe
+          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          bitbake-layers add-layer ${WORKSPACE}/meta-oe/meta-oe 2>&1
         shell: bash
       - if: env.ENABLEMETACLANG == '1'
         name: add meta-clang
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
-          bitbake-layers add-layer ${WORKSPACE}/meta-clang
+          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          bitbake-layers add-layer ${WORKSPACE}/meta-clang 2>&1
         shell: bash
       - name: prepare local.conf
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
-          echo 'INHERIT +="rm_work"' >> conf/local.conf
+          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          echo 'INHERIT += "rm_work"' >> conf/local.conf
           echo 'SCA_VERBOSE_OUTPUT = "1"' >> conf/local.conf
           echo 'BB_DISKMON_DIRS = ""' >> conf/local.conf
+          echo 'BB_GIT_SHALLOW = "1"' >> conf/local.conf
+          echo 'BB_GIT_SHALLOW_DEPTH = "1"' >> conf/local.conf
+          echo 'BB_GENERATE_SHALLOW_TARBALLS = "1"' >> conf/local.conf
+          echo 'PACKAGE_CLASSES = "package_rpm"' >> conf/local.conf
+          sed -i "s/buildstats//g" conf/local.conf
         shell: bash
       - name: set modules
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
-          mods=$(cat ${WORKSPACE}/meta-sca/recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ')
+          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          mods=$(cat ${WORKSPACE}/meta-sca/test/lang_$PARAMFILE.txt | tr '\n' ' ')
           echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> conf/local.conf
+        shell: bash
+      - name: build glibc
+        run: |
+          cd ${WORKSPACE}
+          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          eval $(bitbake busybox -e | grep "^TMPDIR") && rm -f bitbake.sock && rm -f bitbake.lock
+          eval $(bitbake busybox -e | grep "^DL_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
+          bitbake glibc 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/* 2>&1
+          find ${TMPDIR} -type d -name "temp" -exec rm -rf {} \; 2>&1 || true
+        shell: bash
+      - name: build kernel
+        run: |
+          cd ${WORKSPACE}
+          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          eval $(bitbake busybox -e | grep "^TMPDIR") && rm -f bitbake.sock && rm -f bitbake.lock
+          eval $(bitbake busybox -e | grep "^DL_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
+          bitbake linux-yocto 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/* 2>&1
+          find ${TMPDIR} -type d -name "temp" -exec rm -rf {} \; 2>&1 || true
         shell: bash
       - name: build
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
-          timeout --foreground --kill-after=60s $MAXRUNTIME ${WORKSPACE}/meta-sca/recipes-sca-test/test_$PARAMFILE.sh || if [ $? == 124 ]; then echo "Timeout"; else exit 1; fi;
+          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          eval $(bitbake busybox -e | grep "^DL_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
+          eval $(bitbake busybox -e | grep "^SSTATE_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
+          eval $(bitbake busybox -e | grep "^TMPDIR") && rm -f bitbake.sock && rm -f bitbake.lock
+          timeout --foreground --kill-after=60s $MAXRUNTIME ${WORKSPACE}/meta-sca/test/test_$PARAMFILE.sh 2>&1 || if [ $? == 124 ]; then echo "Timeout"; else exit 1; fi;
+          rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR} 2>&1
+          [ -n "${SSTATE_DIR}" ] && rm -rf ${SSTATE_DIR} 2>&1
+          find ${TMPDIR} -type d -maxdepth 1 -mindepth 1 -not -name "deploy" -exec rm -rf {} \; 2>&1
         shell: bash
       - name: test results
         run: |
           cd ${WORKSPACE}
-          source poky/oe-init-build-env
-          eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR")
-          ${WORKSPACE}/meta-sca/scripts/check_results $SCA_EXPORT_DIR $(cat ${WORKSPACE}/meta-sca/recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ') || true
+          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
+          ${WORKSPACE}/meta-sca/test/check_results $SCA_EXPORT_DIR $(cat ${WORKSPACE}/meta-sca/test/lang_$PARAMFILE.txt | tr '\n' ' ') 2>&1 || true
         shell: bash
