@@ -17,9 +17,9 @@ DEPENDS = "npm-aria-query-native \
            npm-jsx-ast-utils-native \
            npm-language-tags-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-6.3.1.tgz"
-SRC_URI[md5sum] = "bdc544c16969b9d425eb1c65bec17e8b"
-SRC_URI[sha256sum] = "67bf1436be19c540c4d110a91622da1c176646e03f33a5737fcf472fb67c38a1"
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-6.4.1.tgz"
+SRC_URI[md5sum] = "4e97edfaa3cb1d0cb2052bfcbecc0efc"
+SRC_URI[sha256sum] = "d26a9a8e243798a2399aa19549417260be3c95d012c0082c4428d2c565df7faa"
 
 NPM_PKGNAME = "eslint-plugin-jsx-a11y"
 
