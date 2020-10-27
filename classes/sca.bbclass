@@ -57,7 +57,7 @@ python sca_invoke_handler() {
         bb.debug(2, "Skip {} because of being a packagegroup, can't run SCA here".format(d.getVar("PN")))
         sca_mask_vars(d)
         return
-    if bb.data.inherits_class('externalsrc', d):
+    if d.getVar("SCA_SKIP_DEVTOOL") == "1":
         bb.debug(2, "Skip {} because of being under control of devtool".format(d.getVar("PN")))
         sca_mask_vars(d)
         return
