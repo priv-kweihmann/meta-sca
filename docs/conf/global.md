@@ -24,6 +24,7 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_FORCE_RUN | Force running SCA every time, no matter if recipe code was changed  | string: "0" or "1" | "0"
 | SCA_LOCAL_FILE_FILTER | List of glob-expression of additional files to skip for testing. This is applied when S dir is the same as WORKDIR | space separated list | "$RECIPE_SYSROOT $RECIPE_SYSROOT_NATIVE $T"
 | SCA_SCOPE_FILTER | Filter for scope of findings | space separted list of 'security', 'functional', 'compliance' and 'style' | "security functional compliance style"
+| SCA_SKIP_DEVTOOL | Skip SCA tasks when running under devtool | string: 0 or 1 | autodetect
 | SCA_SOURCES_DIR | Path where to find the source-files to be checked | path | "\${B}" for recipes, "\${IMAGE_ROOTFS}" for images
 | SCA_SPARE_DIRS | Additional regular expressions for paths that shouldn't run SCA | space seperated list | ""
 | SCA_SPARE_IGNORE_BBAPPEND | Ignore bbappend files for making the decision if the recipe should be spared or not | string: 1 = yes, other no | "0"
