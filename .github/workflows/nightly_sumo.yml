@@ -30,8 +30,13 @@ jobs:
         WEB_REPOSITORY: priv-kweihmann/priv-kweihmann.github.io
       volumes:
         - ${{ github.workspace }}:/opt/build
+      options: --privileged
 
     steps:
+      - name: Prep container
+        run: |
+          sudo sysctl fs.inotify.max_user_watches=524288 2>&1
+          sudo chown yoctouser:yoctouser ${WORKSPACE} 2>&1
       - name: Check out poky
         run: |
           git clone git://git.yoctoproject.org/poky.git/ -b $SCABRANCH ${WORKSPACE}/poky
