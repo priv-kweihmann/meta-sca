@@ -9,8 +9,8 @@ DEPENDS += "\
             ruby-simplecov-html-native \
            "
 
-SRC_URI[md5sum] = "e642ceefc9a842d1e52f2f40121739c1"
-SRC_URI[sha256sum] = "b9228393465c2b69468d30f949331aa36cd99cbd3f0fc64a39d3603a731708ac"
+SRC_URI[md5sum] = "29a4d3403dbd51835d5e29a0492e3e6d"
+SRC_URI[sha256sum] = "98c1f875df4bcaeb0de64a753e96eced7e6139f3051a45804e75ed1f2b58bc03"
 
 GEM_NAME = "simplecov"
 
