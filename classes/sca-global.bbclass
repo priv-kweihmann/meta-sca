@@ -55,6 +55,9 @@ SCA_FORCE_RUN ??= "0"
 ## Verbose output of SCA invocation
 SCA_VERBOSE_OUTPUT ??= "0"
 
+## Skip SCA when running under devtool (default = autodetect)
+SCA_SKIP_DEVTOOL ??= "${@oe.utils.ifelse(bb.data.inherits_class('externalsrc', d), '1', '0')}"
+
 ## Filter by scope
 SCA_SCOPE_FILTER ?= "security functional compliance style"
 
