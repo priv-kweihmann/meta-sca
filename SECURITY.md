@@ -11,12 +11,12 @@ size of the changeset, as package updates can occur very frequently.
 
 Following branches are actively maintained.
 
-| Branch  | Integration with poky | Integration with meta-oe | Integration with meta-clang | Support ends | Release tag        |
-| ------- | --------------------- | ------------------------ | --------------------------- | ------------ | ------------------ |
-| master  | daily                 | daily                    | daily                       | never        | v[VERSION]         |
-| dunfell | daily                 | daily                    | daily                       | Q2 2022      | vdunfell_[VERSION] |
-| zeus    | daily                 | daily                    | daily                       | Q2 2021      | vzeus_[VERSION]    |
-| warrior | daily                 | daily                    | daily                       | Q4 2020      | vwarrior_[VERSION] |
+| Branch     | Integration with poky | Integration with meta-oe | Integration with meta-clang | Support ends | Release tag           |
+| ---------- | --------------------- | ------------------------ | --------------------------- | ------------ | --------------------- |
+| master     | daily                 | daily                    | daily                       | never        | v[VERSION]            |
+| gatesgarth | daily                 | daily                    | daily                       | Q4 2021      | vgatesgarth_[VERSION] |
+| dunfell    | daily                 | daily                    | daily                       | Q2 2022      | vdunfell_[VERSION]    |
+| zeus       | daily                 | daily                    | daily                       | Q2 2021      | vzeus_[VERSION]       |
 
 ## Other branches
 
@@ -24,6 +24,7 @@ Following branches get package updates from time to time, but no feature updates
 
 | Branch  | Integration with poky | Integration with meta-oe | Integration with meta-clang | Support ends  | Release tag        |
 | ------- | --------------------- | ------------------------ | --------------------------- | ------------- | ------------------ |
+| warrior | on push               | n.a.                     | n.a.                        | already ended | vwarrior_[VERSION] |
 | thud    | on push               | n.a.                     | n.a.                        | already ended | vthud_[VERSION]    |
 | sumo    | on push               | n.a.                     | n.a.                        | already ended | vsumo_[VERSION]    |
 | rocko   | on push               | n.a.                     | n.a.                        | already ended | vrocko_[VERSION]   |
