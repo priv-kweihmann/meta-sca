@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: privkweihmann/yocto-sca-minimal:krogoth
+      image: privkweihmann/yocto-sca-minimal:latest
       env:
         WORKSPACE: /opt/build
         WEB_REPOSITORY: priv-kweihmann/priv-kweihmann.github.io
