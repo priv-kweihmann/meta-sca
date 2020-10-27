@@ -32,10 +32,7 @@ DEPENDS += "\
             npm-getify-eslint-plugin-proper-arrows-native \
             "
 
-SRC_URI = "file://configs/eslint-airbnb.json \
-           file://configs/eslint-google.json \
-           file://configs/eslint-plain.json \
-           file://configs/eslint-standard.json \
+SRC_URI = "file://configs/eslint-plain.json \
            file://eslint.sca.description"
 
 inherit native
