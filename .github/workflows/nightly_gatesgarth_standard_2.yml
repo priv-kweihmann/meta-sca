@@ -1,4 +1,4 @@
-name: "[warrior]-classic"
+name: "[gatesgarth]-scripts"
 
 on:
   schedule:
@@ -10,10 +10,10 @@ jobs:
     env:
       DISTRO: scatest
       MACHINE: qemux86
-      SCABRANCH: warrior
+      SCABRANCH: gatesgarth
       ENABLEMETAOE: 0
       ENABLEMETACLANG: 0
-      PARAMFILE: standard_01
+      PARAMFILE: standard_02
       MAXRUNTIME: 12900s
       PYTHONIOENCODING: utf8
       LC_ALL: en_US.UTF-8
@@ -48,13 +48,13 @@ jobs:
       - if: env.ENABLEMETAOE == '1'
         name: Check out meta-oe
         run: |
-          git clone git://git.openembedded.org/meta-openembedded -b $SCABRANCH ${WORKSPACE}/meta-oe 2>&1
+          git clone git://git.openembedded.org/meta-openembedded -b master ${WORKSPACE}/meta-oe 2>&1
           rm -rf ${WORKSPACE}/meta-oe/.git 2>&1
         shell: bash
       - if: env.ENABLEMETACLANG == '1'
         name: Check out meta-clang
         run: |
-          git clone https://github.com/kraj/meta-clang.git -b $SCABRANCH ${WORKSPACE}/meta-clang 2>&1
+          git clone https://github.com/kraj/meta-clang.git -b master ${WORKSPACE}/meta-clang 2>&1
           rm -rf ${WORKSPACE}/meta-clang/.git 2>&1
       - name: Setup poky
         run: |

@@ -1,4 +1,4 @@
-name: "[warrior]-meta-clang"
+name: "[gatesgarth]-system"
 
 on:
   schedule:
@@ -10,10 +10,10 @@ jobs:
     env:
       DISTRO: scatest
       MACHINE: qemux86
-      SCABRANCH: warrior
+      SCABRANCH: gatesgarth
       ENABLEMETAOE: 0
-      ENABLEMETACLANG: 1
-      PARAMFILE: metaclang
+      ENABLEMETACLANG: 0
+      PARAMFILE: standard_03
       MAXRUNTIME: 12900s
       PYTHONIOENCODING: utf8
       LC_ALL: en_US.UTF-8
@@ -48,13 +48,13 @@ jobs:
       - if: env.ENABLEMETAOE == '1'
         name: Check out meta-oe
         run: |
-          git clone git://git.openembedded.org/meta-openembedded -b $SCABRANCH ${WORKSPACE}/meta-oe 2>&1
+          git clone git://git.openembedded.org/meta-openembedded -b master ${WORKSPACE}/meta-oe 2>&1
           rm -rf ${WORKSPACE}/meta-oe/.git 2>&1
         shell: bash
       - if: env.ENABLEMETACLANG == '1'
         name: Check out meta-clang
         run: |
-          git clone https://github.com/kraj/meta-clang.git -b $SCABRANCH ${WORKSPACE}/meta-clang 2>&1
+          git clone https://github.com/kraj/meta-clang.git -b master ${WORKSPACE}/meta-clang 2>&1
           rm -rf ${WORKSPACE}/meta-clang/.git 2>&1
       - name: Setup poky
         run: |
@@ -92,7 +92,6 @@ jobs:
           echo 'BB_GIT_SHALLOW_DEPTH = "1"' >> conf/local.conf
           echo 'BB_GENERATE_SHALLOW_TARBALLS = "1"' >> conf/local.conf
           echo 'PACKAGE_CLASSES = "package_rpm"' >> conf/local.conf
-          echo 'BB_DANGLINGAPPENDS_WARNONLY = "1"' >> conf/local.conf
           sed -i "s/buildstats//g" conf/local.conf
         shell: bash
       - name: set modules
@@ -112,13 +111,23 @@ jobs:
           [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/* 2>&1
           find ${TMPDIR} -type d -name "temp" -exec rm -rf {} \; 2>&1 || true
         shell: bash
-      - name: build clang
+      - name: build kernel
         run: |
           cd ${WORKSPACE}
           source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
           eval $(bitbake busybox -e | grep "^TMPDIR") && rm -f bitbake.sock && rm -f bitbake.lock
           eval $(bitbake busybox -e | grep "^DL_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
-          bitbake clang-native 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          bitbake linux-yocto 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/* 2>&1
+          find ${TMPDIR} -type d -name "temp" -exec rm -rf {} \; 2>&1 || true
+        shell: bash
+      - name: build qemu-system-native
+        run: |
+          cd ${WORKSPACE}
+          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
+          eval $(bitbake busybox -e | grep "^TMPDIR") && rm -f bitbake.sock && rm -f bitbake.lock
+          eval $(bitbake busybox -e | grep "^DL_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
+          bitbake qemu-system-native 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
           [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/* 2>&1
           find ${TMPDIR} -type d -name "temp" -exec rm -rf {} \; 2>&1 || true
         shell: bash
