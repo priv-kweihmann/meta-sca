@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=25851d4d10d6611a12d5571dab945a00"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/commander/-/commander-6.1.0.tgz"
-SRC_URI[md5sum] = "43e42575fcad1ae7406aedf15a36ff82"
-SRC_URI[sha256sum] = "98c620c33d5043e2f1dac03dd215c298bc082a3d5c98adac1e4d397cff101dad"
+SRC_URI = "https://registry.npmjs.org/commander/-/commander-6.2.0.tgz"
+SRC_URI[md5sum] = "646961e5c251c37c4c294ebe319b26bd"
+SRC_URI[sha256sum] = "f57dde3beb1bf6e926d83f35688a55374731ad5af60dcc5da2c9daea09d3e4b3"
 
 NPM_PKGNAME = "commander"
 
