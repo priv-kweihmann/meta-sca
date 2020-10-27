@@ -1,0 +1,103 @@
+name: "[warrior]-classic"
+
+on:
+  push:
+  schedule:
+    - cron: "30 2 26 */3 *"
+
+jobs:
+  qemux86:
+    name: "build"
+    env:
+      DISTRO: scatest
+      MACHINE: qemux86
+      SCABRANCH: warrior
+      ENABLEMETAOE: 0
+      ENABLEMETACLANG: 0
+      PARAMFILE: standard_01
+      MAXRUNTIME: 21000s
+      PYTHONIOENCODING: utf8
+      LC_ALL: en_US.UTF-8
+      LANG: en_US.UTF-8
+      LANGUAGE: en_US.UTF-8
+
+    runs-on: ubuntu-latest
+
+    container:
+      image: privkweihmann/yocto-sca-minimal:krogoth
+      env:
+        WORKSPACE: /opt/build
+        WEB_REPOSITORY: priv-kweihmann/priv-kweihmann.github.io
+      volumes:
+        - ${{ github.workspace }}:/opt/build
+
+    steps:
+      - name: Check out poky
+        run: |
+          git clone git://git.yoctoproject.org/poky.git/ -b $SCABRANCH ${WORKSPACE}/poky
+        shell: bash
+      - name: Check out meta-sca
+        run: |
+          git clone https://github.com/priv-kweihmann/meta-sca.git -b $SCABRANCH ${WORKSPACE}/meta-sca
+      - if: env.ENABLEMETAOE == '1'
+        name: Check out meta-oe
+        run: |
+          git clone git://git.openembedded.org/meta-openembedded -b $SCABRANCH ${WORKSPACE}/meta-oe
+        shell: bash
+      - if: env.ENABLEMETACLANG == '1'
+        name: Check out meta-clang
+        run: |
+          git clone https://github.com/kraj/meta-clang.git -b $SCABRANCH ${WORKSPACE}/meta-clang
+      - name: Setup poky
+        run: |
+          cd ${WORKSPACE} 
+          source poky/oe-init-build-env
+        shell: bash
+      - name: add meta-sca
+        run: |
+          cd ${WORKSPACE}
+          source poky/oe-init-build-env
+          bitbake-layers add-layer ${WORKSPACE}/meta-sca
+        shell: bash
+      - if: env.ENABLEMETAOE == '1'
+        name: add meta-oe
+        run: |
+          cd ${WORKSPACE}
+          source poky/oe-init-build-env
+          bitbake-layers add-layer ${WORKSPACE}/meta-oe/meta-oe
+        shell: bash
+      - if: env.ENABLEMETACLANG == '1'
+        name: add meta-clang
+        run: |
+          cd ${WORKSPACE}
+          source poky/oe-init-build-env
+          bitbake-layers add-layer ${WORKSPACE}/meta-clang
+        shell: bash
+      - name: prepare local.conf
+        run: |
+          cd ${WORKSPACE}
+          source poky/oe-init-build-env
+          echo 'INHERIT +="rm_work"' >> conf/local.conf
+          echo 'SCA_VERBOSE_OUTPUT = "1"' >> conf/local.conf
+          echo 'BB_DISKMON_DIRS = ""' >> conf/local.conf
+        shell: bash
+      - name: set modules
+        run: |
+          cd ${WORKSPACE}
+          source poky/oe-init-build-env
+          mods=$(cat ${WORKSPACE}/meta-sca/recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ')
+          echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> conf/local.conf
+        shell: bash
+      - name: build
+        run: |
+          cd ${WORKSPACE}
+          source poky/oe-init-build-env
+          timeout --foreground --kill-after=60s $MAXRUNTIME ${WORKSPACE}/meta-sca/recipes-sca-test/test_$PARAMFILE.sh || if [ $? == 124 ]; then echo "Timeout"; else exit 1; fi;
+        shell: bash
+      - name: test results
+        run: |
+          cd ${WORKSPACE}
+          source poky/oe-init-build-env
+          eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR")
+          ${WORKSPACE}/meta-sca/scripts/check_results $SCA_EXPORT_DIR $(cat ${WORKSPACE}/meta-sca/recipes-sca-test/lang_$PARAMFILE.txt | tr '\n' ' ') || true
+        shell: bash
