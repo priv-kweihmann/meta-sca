@@ -27,7 +27,7 @@ SRC_URI = "\
             git://${GO_IMPORT};protocol=https \
             file://gosec.sca.description \
            "
-SRCREV = "6bcd89aa6b1cc8a448f99d51886ac29703eb1804"
+SRCREV = "a4746e18e3df52bfb21f59420d2c57cb12ef40ec"
 
 GO_IMPORT = "github.com/securego/gosec"
 
