@@ -10,10 +10,14 @@
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_BLACKLIST_eslint | Blacklist filter for this tool | space-separated-list | "linux-*"
-| SCA_ESLINT_CONFIG_FILE | Configuration-file to be used. See recipe eslint-native for details | string: eslint-standard.json, eslint-plain.json, eslint-airbnb.json, eslint-google.json | eslint-plain.json
+| SCA_ESLINT_CONFIG_FILE | Configuration-file to be used. See recipe eslint-native for details | string: eslint-plain.json or file name | eslint-plain.json
 | SCA_ESLINT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_ESLINT_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_ESLINT_FILE_FILTER | File extensions to check for | space-separated-list | ".js .vue .html .htm"
+
+### Notes
+
+You can supply your own configuration by installing a premade json file into `${STAGING_DATADIR_NATIVE}/eslint/configs/` and reference the file name via `SCA_ESLINT_CONFIG_FILE` option
 
 ## Supports
 
