@@ -154,6 +154,7 @@ jobs:
           eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
           eval $(bitbake busybox -e | grep "^SCA_EXPORT_FINDING_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
           cd ${WORKSPACE}/website
+          mkdir -p data/${SCABRANCH}/
           ./tools/report ${SCA_EXPORT_DIR} ${SCA_EXPORT_FINDING_DIR} data/${SCABRANCH}/${PARAMFILE}.json 2>&1
           ./tools/jsonmerge data/${SCABRANCH}/result.json data/${SCABRANCH}/*.json 2>&1
           git add . 2>&1
