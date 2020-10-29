@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=fb42e5aa12bb9e365d38b4b5691d6984"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/eslint-config-standard/-/eslint-config-standard-15.0.0.tgz"
-SRC_URI[md5sum] = "ce6edf44d52ab3934e9e8f96706abb47"
-SRC_URI[sha256sum] = "7872cf6050a40b443e93dbc85c62c9b4967e76c7488535b71c3819d5c67f0359"
+SRC_URI = "https://registry.npmjs.org/eslint-config-standard/-/eslint-config-standard-16.0.0.tgz"
+SRC_URI[md5sum] = "908618eaccd30ff385bbd783a7446f26"
+SRC_URI[sha256sum] = "a6fbbdeb15e54a3d4897b2d607d5b7e5854caedb25e4360028af9e6f507bf43d"
 
 NPM_PKGNAME = "eslint-config-standard"
 
