@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/camelcase/-/camelcase-6.1.0.tgz"
-SRC_URI[md5sum] = "2f002280d5307df876554efb7f5a052c"
-SRC_URI[sha256sum] = "9bbdc17c1bada0694473d0b0335d0f5b0e18647d7efdc3d196bfdbf192b0ec8a"
+SRC_URI = "https://registry.npmjs.org/camelcase/-/camelcase-6.2.0.tgz"
+SRC_URI[md5sum] = "7a205868a94339bc8a3fd9030a34c483"
+SRC_URI[sha256sum] = "9dfc3c357fa433155ae8ba795e98ac6fa6ae63acd929403e1a0ecf8c5aa8a844"
 
 NPM_PKGNAME = "camelcase"
 
