@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE-MIT.txt;md5=ee9bd8b835cfcd512dd644540dd96987"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/jsesc/-/jsesc-3.0.1.tgz"
-SRC_URI[md5sum] = "1e8a9bb08bb749bf60d02e9be0027846"
-SRC_URI[sha256sum] = "47859be0cba13c9c9a9fe451ef109bc95633d69f72211a7923a528272671ecc3"
+SRC_URI = "https://registry.npmjs.org/jsesc/-/jsesc-3.0.2.tgz"
+SRC_URI[md5sum] = "d239880e291f8f2f2a4e470a294b6ef3"
+SRC_URI[sha256sum] = "17be8ba196d533040e9ab9cc11da3dff60a2e7a7cf98ae5c3a45b20ca7efefcc"
 
 NPM_PKGNAME = "jsesc"
 
