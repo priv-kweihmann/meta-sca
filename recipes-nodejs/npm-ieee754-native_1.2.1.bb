@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=56c3be003027d64d24ca6b69a2612f2f"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/ieee754/-/ieee754-1.1.13.tgz"
-SRC_URI[md5sum] = "f5eac08883a5be859e119400e2b407f1"
-SRC_URI[sha256sum] = "603e6b4c40da1551bbaabe8aa8a4b35f62f132b0b60e99906a59f0ad04d47ae2"
+SRC_URI = "https://registry.npmjs.org/ieee754/-/ieee754-1.2.1.tgz"
+SRC_URI[md5sum] = "b8ee26cd9b7c7b20ea3f629b2cd8fdb5"
+SRC_URI[sha256sum] = "8ef14b9b397e339db89db97881fb714f49319d8f0eb1275901f45567b28f9dac"
 
 NPM_PKGNAME = "ieee754"
 
