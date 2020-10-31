@@ -5,14 +5,14 @@ HOMEPAGE = "https://github.com/standard/standard-engine#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4a91a0b113362abf408bfcb6ad188645"
 
-DEPENDS = "npm-deglob-native \
-           npm-get-stdin-native \
+DEPENDS = "npm-get-stdin-native \
            npm-minimist-native \
-           npm-pkg-conf-native"
+           npm-pkg-conf-native \
+           npm-xdg-basedir-native"
 
-SRC_URI = "https://registry.npmjs.org/standard-engine/-/standard-engine-12.1.0.tgz"
-SRC_URI[md5sum] = "3dba8350707748591ec07f49fd40a271"
-SRC_URI[sha256sum] = "296f1d7419d9b0b1858d8d572dcfce910aa6bfd438f9db59061b9da5ad4d9c1c"
+SRC_URI = "https://registry.npmjs.org/standard-engine/-/standard-engine-14.0.1.tgz"
+SRC_URI[md5sum] = "6257d5d98de443fe5858304aa45e4601"
+SRC_URI[sha256sum] = "3e5c3f115f45de4f56acc7807e5caf3fde39b76124ca007f33e868613057b9f4"
 
 NPM_PKGNAME = "standard-engine"
 
