@@ -5,13 +5,14 @@ HOMEPAGE = "https://github.com/ljharb/object.assign#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2b439ca9e99134dee172a7cc6d989174"
 
-DEPENDS = "npm-define-properties-native \
+DEPENDS = "npm-call-bind-native \
+           npm-define-properties-native \
            npm-has-symbols-native \
            npm-object-keys-native"
 
-SRC_URI = "https://registry.npmjs.org/object.assign/-/object.assign-4.1.1.tgz"
-SRC_URI[md5sum] = "2a506b8df49711ff3fa2618ee1f695e4"
-SRC_URI[sha256sum] = "14e97b9ca76bbf53c8642139a6ba8ed0b93b113e01ca388592ad5933e94d9782"
+SRC_URI = "https://registry.npmjs.org/object.assign/-/object.assign-4.1.2.tgz"
+SRC_URI[md5sum] = "87b8da296ced17d6e062b791d48ed38b"
+SRC_URI[sha256sum] = "acd6e7522988d9d32b68efbce6da0abaac28dd9cab50a2e7c9ead1d53fa8214f"
 
 NPM_PKGNAME = "object.assign"
 
