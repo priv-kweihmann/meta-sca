@@ -96,7 +96,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           gixy \
                           golint \
                           gosec \
-                          govet \
                           htmlhint \
                           jshint \
                           jsonlint \
