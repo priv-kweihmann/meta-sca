@@ -32,7 +32,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             gcc \
                             golint \
                             gosec \
-                            govet \
                             htmlhint \
                             jshint \
                             jsonlint \
