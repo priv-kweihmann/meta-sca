@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b1befbdcbeb73a7fd9b944d31f0fee64"
 
 DEPENDS = "npm-gensequence-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-trie-lib/-/cspell-trie-lib-4.2.1.tgz"
-SRC_URI[md5sum] = "ded82ee141aee1cd94089c0e06aadc84"
-SRC_URI[sha256sum] = "1070344806a6e13caf67c2be3d7a22e7500b4036c9bd03050ecfe7bf6d2fdd8f"
+SRC_URI = "https://registry.npmjs.org/cspell-trie-lib/-/cspell-trie-lib-4.2.2.tgz"
+SRC_URI[md5sum] = "c250e8b37490fb1732595487ffb993ae"
+SRC_URI[sha256sum] = "666ff9d41956a35f177628e2fcba0c757a8c48d14711b2950b2e9a2db59375b8"
 
 NPM_PKGNAME = "cspell-trie-lib"
 
