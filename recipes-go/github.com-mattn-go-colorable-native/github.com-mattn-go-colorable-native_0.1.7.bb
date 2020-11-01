@@ -10,5 +10,5 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "f6c00982823144337e56cdb71c712eaac151d29c"
 GO_IMPORT = "github.com/mattn/go-colorable"
 
-inherit go
+inherit gonative
 inherit native

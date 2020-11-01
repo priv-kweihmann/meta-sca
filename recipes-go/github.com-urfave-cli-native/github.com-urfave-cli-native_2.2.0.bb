@@ -14,5 +14,5 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "d648edd48d89ef3a841b1ec75c2ebbd4de5f748f"
 GO_IMPORT = "github.com/urfave/cli"
 
-inherit go
+inherit gonative
 inherit native

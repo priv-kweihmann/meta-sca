@@ -10,5 +10,5 @@ UPSTREAM_CHECK_COMMITS = "1"
 
 GO_IMPORT = "github.com/mgechev/dots"
 
-inherit go
+inherit gonative
 inherit native

@@ -11,5 +11,5 @@ SRCREV = "0b1645d91e851e735d3e23330303ce81f70adbe3"
 
 GO_IMPORT ?= "github.com/go-yaml/yaml"
 
-inherit go
+inherit gonative
 inherit native
