@@ -12,5 +12,5 @@ GO_IMPORT = "github.com/kr/pretty"
 
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+\.\d+)"
 
-inherit go
+inherit gonative
 inherit native

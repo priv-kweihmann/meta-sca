@@ -10,5 +10,5 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "d2fcc899bdc2d134b7c00e36137260db963e193c"
 GO_IMPORT = "github.com/google/go-cmp"
 
-inherit go
+inherit gonative
 inherit native

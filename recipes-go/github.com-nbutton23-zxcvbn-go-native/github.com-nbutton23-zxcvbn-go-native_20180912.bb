@@ -10,5 +10,5 @@ UPSTREAM_CHECK_COMMITS = "1"
 
 GO_IMPORT = "github.com/nbutton23/zxcvbn-go"
 
-inherit go
+inherit gonative
 inherit native
