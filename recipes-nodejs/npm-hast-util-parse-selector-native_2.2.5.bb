@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/hast-util-parse-selector/-/hast-util-parse-selector-2.2.4.tgz"
-SRC_URI[md5sum] = "27ab530b7bd45c884860f4eb21193d50"
-SRC_URI[sha256sum] = "67332a9954fe0172e3d90bec22ecf4dc6734a1b1814b411ed7ad3230e071605a"
+SRC_URI = "https://registry.npmjs.org/hast-util-parse-selector/-/hast-util-parse-selector-2.2.5.tgz"
+SRC_URI[md5sum] = "b04a4dc8a16fac34945d32c498f656c4"
+SRC_URI[sha256sum] = "b7d9a6e070b8c5be0b128c8cd824643955b055da8a7136cea503f7df541a8bc6"
 
 NPM_PKGNAME = "hast-util-parse-selector"
 
