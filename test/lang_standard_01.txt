@@ -9,7 +9,6 @@ flint
 gcc
 golint
 gosec
-govet
 kconfighard
 licensecheck
 perl
