@@ -10,7 +10,7 @@ UPSTREAM_CHECK_COMMITS = "1"
 
 GO_IMPORT = "github.com/mozilla/tls-observatory"
 
-inherit go
+inherit gonative
 inherit native
 
 do_compile() {

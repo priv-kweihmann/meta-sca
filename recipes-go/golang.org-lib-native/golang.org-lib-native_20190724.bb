@@ -55,7 +55,7 @@ S = "${WORKDIR}/git"
 
 GO_IMPORT = "golang.org/x"
 
-inherit go
+inherit gonative
 inherit native
 
 do_install_append() {

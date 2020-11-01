@@ -12,5 +12,5 @@ GO_IMPORT = "github.com/niemeyer/pretty"
 
 UPSTREAM_CHECK_COMMITS = "1"
 
-inherit go
+inherit gonative
 inherit native

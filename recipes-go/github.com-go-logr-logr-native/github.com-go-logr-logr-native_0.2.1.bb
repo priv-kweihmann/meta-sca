@@ -9,7 +9,7 @@ SRCREV = "ff9374eda70c55592ad54d87839c59db58257d2f"
 
 GO_IMPORT = "github.com/go-logr/logr"
 
-inherit go
+inherit gonative
 inherit native
 
 do_install_append() {

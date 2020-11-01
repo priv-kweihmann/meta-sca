@@ -17,5 +17,5 @@ S = "${WORKDIR}/git"
 
 GO_IMPORT = "github.com/alexkohler"
 
-inherit go
+inherit gonative
 inherit native
