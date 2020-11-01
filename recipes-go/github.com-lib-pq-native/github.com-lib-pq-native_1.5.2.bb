@@ -8,5 +8,5 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "f3b22b2cad9e4567803b7ffd9853b8acda021438"
 GO_IMPORT = "github.com/lib/pq"
 
-inherit go
+inherit gonative
 inherit native
