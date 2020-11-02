@@ -1195,6 +1195,6 @@ python do_sca_yara() {
 }
 
 do_sca_yara[doc] = "Find suspious/malware vectors in image"
-addtask do_sca_yara before do_sca_deploy after do_image
+addtask do_sca_yara before do_sca_deploy do_image after do_rootfs
 
 DEPENDS += "sca-image-yara-rules-native"
