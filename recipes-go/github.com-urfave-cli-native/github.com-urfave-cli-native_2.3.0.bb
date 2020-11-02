@@ -11,7 +11,7 @@ DEPENDS += "\
            "
 
 SRC_URI = "git://${GO_IMPORT};protocol=https"
-SRCREV = "d648edd48d89ef3a841b1ec75c2ebbd4de5f748f"
+SRCREV = "09ac54c2f97f4249282baf266c54a09fab1bef58"
 GO_IMPORT = "github.com/urfave/cli"
 
 inherit gonative
