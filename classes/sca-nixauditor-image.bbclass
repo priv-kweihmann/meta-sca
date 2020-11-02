@@ -75,6 +75,6 @@ fakeroot python do_sca_nixauditor() {
 }
 
 do_sca_nixauditor[doc] = "Audit image with nixautidor"
-addtask do_sca_nixauditor before do_sca_deploy after do_image
+addtask do_sca_nixauditor before do_sca_deploy do_image after do_rootfs
 
 DEPENDS += "sca-image-nixauditor-rules-native"

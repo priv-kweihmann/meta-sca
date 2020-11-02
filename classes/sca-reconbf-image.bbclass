@@ -97,6 +97,6 @@ fakeroot python do_sca_reconbf() {
 }
 
 do_sca_reconbf[doc] = "Run reconbf audit on image"
-addtask do_sca_reconbf before do_sca_deploy after do_image
+addtask do_sca_reconbf before do_sca_deploy do_image after do_rootfs
 
 DEPENDS += "sca-image-reconbf-rules-native"
