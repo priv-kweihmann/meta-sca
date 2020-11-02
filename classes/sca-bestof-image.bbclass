@@ -13,4 +13,4 @@ python sca_bestof_init() {
 }
 
 do_sca_bestof_core[doc] = "Gather result for BestOf mode on image"
-addtask do_sca_bestof_core before do_sca_deploy after do_image
+addtask do_sca_bestof_core before do_sca_deploy do_image after do_rootfs
