@@ -86,6 +86,6 @@ fakeroot python do_sca_lynis() {
 }
 
 do_sca_lynis[doc] = "Audit image with lynis"
-addtask do_sca_lynis before do_sca_deploy after do_image
+addtask do_sca_lynis before do_sca_deploy do_image after do_rootfs
 
 DEPENDS += "sca-image-lynis-rules-native"
