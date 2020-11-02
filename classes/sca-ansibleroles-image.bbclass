@@ -147,4 +147,4 @@ fakeroot python do_sca_ansibleroles() {
 }
 
 do_sca_ansibleroles[doc] = "Audit image with ansible roles"
-addtask do_sca_ansibleroles before do_sca_deploy after do_image
+addtask do_sca_ansibleroles before do_sca_deploy do_image after do_rootfs

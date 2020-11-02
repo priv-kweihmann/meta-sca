@@ -102,6 +102,6 @@ fakeroot python do_sca_sudokiller() {
 }
 
 do_sca_sudokiller[doc] = "Find exploitable CVEs of sudo in image"
-addtask do_sca_sudokiller before do_sca_deploy after do_image
+addtask do_sca_sudokiller before do_sca_deploy do_image after do_rootfs
 
 DEPENDS += "sca-image-sudokiller-rules-native"
