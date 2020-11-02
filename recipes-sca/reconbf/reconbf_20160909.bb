@@ -25,6 +25,7 @@ do_install_append_class-native () {
 FILES_${PN} += "${datadir}"
 
 RDEPENDS_${PN}_class-target += "\
+                                ${PYTHON_PN}-compression \
                                 ${PYTHON_PN}-core \
                                 ${PYTHON_PN}-json \
                                 ${PYTHON_PN}-logging \
