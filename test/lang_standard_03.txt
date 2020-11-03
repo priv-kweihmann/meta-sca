@@ -5,7 +5,7 @@ lse
 lynis
 nixauditor
 ropgadget
-reconfbf
+reconbf
 sudokiller
 systemdlint
 tiger
