@@ -84,6 +84,6 @@ fakeroot python do_sca_tiger() {
 
 do_sca_tiger[lockfiles] += "${WORKDIR}/crossemu.lock"
 do_sca_tiger[doc] = "Run audit with tiger on image"
-addtask do_sca_tiger before do_sca_deploy do_image after do_rootfs
+addtask do_sca_tiger before do_sca_deploy after do_image
 
 DEPENDS += "sca-image-tiger-rules-native"

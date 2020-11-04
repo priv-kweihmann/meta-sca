@@ -7,6 +7,6 @@ inherit sca-oelint-core
 inherit sca-conv-to-export
 
 do_sca_oelint_core[doc] = "Lint bitbake recipes"
-addtask do_sca_oelint_core before do_sca_deploy do_image after do_rootfs
+addtask do_sca_oelint_core before do_sca_deploy after do_image
 
 DEPENDS += "sca-image-oelint-rules-native"
