@@ -95,6 +95,6 @@ python do_sca_systemdlint() {
 }
 
 do_sca_systemdlint[doc] = "Lint systemd unit files in image"
-addtask do_sca_systemdlint before do_sca_deploy do_image after do_rootfs
+addtask do_sca_systemdlint before do_sca_deploy after do_image
 
 DEPENDS += "sca-image-systemdlint-rules-native"
