@@ -230,6 +230,6 @@ python do_sca_ansible() {
 }
 
 do_sca_ansible[doc] = "Audit image with ansible playbooks"
-addtask do_sca_ansible before do_sca_deploy do_image after do_rootfs
+addtask do_sca_ansible before do_sca_deploy after do_image
 
 DEPENDS += "python3-ansible-native ansible-sca-native sca-image-ansible-rules-native"
