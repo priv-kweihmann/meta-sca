@@ -2,14 +2,16 @@ SUMMARY = "NPM: textlint-rule-en-capitalization"
 DESCRIPTION = "textlint rule that check capitalization in english text."
 HOMEPAGE = "https://github.com/textlint-rule/textlint-rule-en-capitalization"
 
-DEPENDS = "npm-en-pos-native npm-sentence-splitter-native npm-textlint-rule-helper-native"
-
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e13f89c6c99507a95c450fa5e043b0cb"
 
-SRC_URI = "https://registry.npmjs.org/textlint-rule-en-capitalization/-/textlint-rule-en-capitalization-2.0.2.tgz"
-SRC_URI[md5sum] = "46fdcc8a46ae49b8a524d68a4a929ec4"
-SRC_URI[sha256sum] = "a10ef53fb39a6fbe03dc10023f0d51c6c06cfd40d251938af1ec475a14b5e83f"
+DEPENDS = "npm-en-pos-native \
+           npm-sentence-splitter-native \
+           npm-textlint-rule-helper-native"
+
+SRC_URI = "https://registry.npmjs.org/textlint-rule-en-capitalization/-/textlint-rule-en-capitalization-2.0.3.tgz"
+SRC_URI[md5sum] = "adaf2b9b9c067466b9793ceb5ec17fd4"
+SRC_URI[sha256sum] = "f88d6268dffa2f53590541018abfc9f2f6f62a3fd8a11af36d752fa7f8778c04"
 
 NPM_PKGNAME = "textlint-rule-en-capitalization"
 
