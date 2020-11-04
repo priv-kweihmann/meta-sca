@@ -74,6 +74,7 @@ fakeroot python do_sca_nixauditor() {
                        d.expand("${STAGING_DATADIR_NATIVE}/nixauditor-${SCA_MODE}-fatal")))
 }
 
+do_sca_nixauditor[lockfiles] += "${WORKDIR}/crossemu.lock"
 do_sca_nixauditor[doc] = "Audit image with nixautidor"
 addtask do_sca_nixauditor before do_sca_deploy do_image after do_rootfs
 
