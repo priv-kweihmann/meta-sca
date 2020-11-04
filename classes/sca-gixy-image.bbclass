@@ -131,6 +131,6 @@ python do_sca_gixy() {
 }
 
 do_sca_gixy[doc] = "Scan for nxginx misconfigurations in image"
-addtask do_sca_gixy before do_sca_deploy do_image after do_rootfs
+addtask do_sca_gixy before do_sca_deploy after do_image
 
 DEPENDS += "python3-gixy-native sca-image-gixy-rules-native"

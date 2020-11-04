@@ -125,6 +125,6 @@ fakeroot python do_sca_upc() {
 
 do_sca_upc[lockfiles] += "${WORKDIR}/crossemu.lock"
 do_sca_upc[doc] = "Find priviledge esacalation vectors in image"
-addtask do_sca_upc before do_sca_deploy do_image after do_rootfs
+addtask do_sca_upc before do_sca_deploy after do_image
 
 DEPENDS += "sca-image-upc-rules-native"
