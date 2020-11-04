@@ -101,6 +101,7 @@ fakeroot python do_sca_sudokiller() {
                        d.expand("${STAGING_DATADIR_NATIVE}/sudokiller-${SCA_MODE}-fatal")))
 }
 
+do_sca_sudokiller[lockfiles] += "${WORKDIR}/crossemu.lock"
 do_sca_sudokiller[doc] = "Find exploitable CVEs of sudo in image"
 addtask do_sca_sudokiller before do_sca_deploy do_image after do_rootfs
 

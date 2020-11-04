@@ -106,6 +106,7 @@ fakeroot python do_sca_configcheck() {
                         d.expand("${STAGING_DATADIR_NATIVE}/configcheck-${SCA_MODE}-fatal")))
 }
 
+do_sca_configcheck[lockfiles] += "${WORKDIR}/crossemu.lock"
 do_sca_configcheck[doc] = "Check configuration of tools for validity in image"
 addtask do_sca_configcheck before do_sca_deploy do_image after do_rootfs
 

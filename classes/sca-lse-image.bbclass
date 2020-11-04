@@ -83,5 +83,6 @@ fakeroot python do_sca_lse() {
                        d.expand("${STAGING_DATADIR_NATIVE}/lse-${SCA_MODE}-fatal")))
 }
 
+do_sca_lse[lockfiles] += "${WORKDIR}/crossemu.lock"
 do_sca_lse[doc] = "Find security weaknesses in a image"
 addtask do_sca_lse before do_sca_deploy do_image after do_rootfs
