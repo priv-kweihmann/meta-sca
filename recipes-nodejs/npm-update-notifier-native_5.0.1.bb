@@ -20,9 +20,9 @@ DEPENDS = "npm-boxen-native \
            npm-semver-native \
            npm-xdg-basedir-native"
 
-SRC_URI = "https://registry.npmjs.org/update-notifier/-/update-notifier-5.0.0.tgz"
-SRC_URI[md5sum] = "685134b19b0d4dbf156d289971b34877"
-SRC_URI[sha256sum] = "ba4f1ae3d67475eed2ce10036829b669e6cf803870c50aba666308ddbc98270c"
+SRC_URI = "https://registry.npmjs.org/update-notifier/-/update-notifier-5.0.1.tgz"
+SRC_URI[md5sum] = "cd654ba2b2b4c0e345bb5b609e075b5d"
+SRC_URI[sha256sum] = "ec1b5922b9678ce70dfd88fe95120c628e7156b0831bfd6b91ca0c2c341166c9"
 
 NPM_PKGNAME = "update-notifier"
 
