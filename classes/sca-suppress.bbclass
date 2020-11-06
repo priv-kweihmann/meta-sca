@@ -110,7 +110,10 @@ def sca_suppress_init(d, suppress_extra, suppress_file, file_trace=True):
         def __add_local_items(self, d):
             res = []
             for i in clean_split(d, "SCA_SUPPRESS_LOCALS"):
-                res.append(SCASuppressItem(i))
+                try:
+                    res.append(SCASuppressItem(i))
+                except:
+                    bb.warn("'{pattern}' is malformed. Ignore for processing".format(pattern=i))
             return res
 
         def Suppressed(self, dm):
