@@ -1,4 +1,5 @@
 inherit sca-helper
+inherit sca-conv-to-export
 
 python do_sca_deploy() {
     for x in clean_split(d, "SCA_ACTIVE_MODULES"):
