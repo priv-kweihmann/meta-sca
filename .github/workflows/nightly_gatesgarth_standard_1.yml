@@ -48,7 +48,7 @@ jobs:
       - if: env.ENABLEMETAOE == '1'
         name: Check out meta-oe
         run: |
-          git clone git://git.openembedded.org/meta-openembedded -b master ${WORKSPACE}/meta-oe 2>&1
+          git clone git://git.openembedded.org/meta-openembedded -b $SCABRANCH ${WORKSPACE}/meta-oe 2>&1
           rm -rf ${WORKSPACE}/meta-oe/.git 2>&1
         shell: bash
       - if: env.ENABLEMETACLANG == '1'
