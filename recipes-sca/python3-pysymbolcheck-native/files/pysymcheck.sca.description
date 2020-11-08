@@ -19,9 +19,6 @@
     "test": {
         "integration": [
             {"cmd": ["pysymbolcheck", "--help"], "returncode": 0}
-        ],
-        "findings": [
-            "busybox"
         ]
     }
 }
