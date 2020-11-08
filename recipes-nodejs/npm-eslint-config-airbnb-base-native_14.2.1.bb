@@ -9,9 +9,9 @@ DEPENDS = "npm-confusing-browser-globals-native \
            npm-object.assign-native \
            npm-object.entries-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-config-airbnb-base/-/eslint-config-airbnb-base-14.2.0.tgz"
-SRC_URI[md5sum] = "e3b57cc0d70c21a9b7fb71cce2d53cff"
-SRC_URI[sha256sum] = "279b6b59a487079a4ed2c1aebbef43f7313e7e79f4b71ad6ec2f2ff5c0b31d74"
+SRC_URI = "https://registry.npmjs.org/eslint-config-airbnb-base/-/eslint-config-airbnb-base-14.2.1.tgz"
+SRC_URI[md5sum] = "4aeb61f3538f05be3e17b55fce33ebdc"
+SRC_URI[sha256sum] = "99f3896b9ae5dc966a77c125eeb971f9ab5f77a76de6a44bbaaea0efa4d0744a"
 
 NPM_PKGNAME = "eslint-config-airbnb-base"
 
