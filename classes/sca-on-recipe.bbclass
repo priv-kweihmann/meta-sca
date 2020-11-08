@@ -76,6 +76,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             standard \
                             stank \
                             stylelint \
+                            systemdlint \
                             textlint \
                             tlv \
                             tscancode \
