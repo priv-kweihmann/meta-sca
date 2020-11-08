@@ -11,7 +11,7 @@ DEPENDS += "\
 
 SRC_URI = "git://github.com/priv-kweihmann/systemdlint.git;protocol=https;branch=master \
            file://systemdlint.sca.description"
-SRCREV = "6d4fe67fecb9c1317c51f33b5a8ffc8c75cab8d0"
+SRCREV = "75381b384b8a3cf041f4389bb7832979057553d7"
 S = "${WORKDIR}/git/systemdlint"
 
 inherit native
