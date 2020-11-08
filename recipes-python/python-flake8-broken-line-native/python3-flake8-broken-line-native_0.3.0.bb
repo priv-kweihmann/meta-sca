@@ -13,8 +13,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "flake8-broken-line"
 
-SRC_URI[md5sum] = "f1c89d3e0697cbdef01eeb57e2598242"
-SRC_URI[sha256sum] = "414477070231a5aa05468d48db2742a594b53fbc1ecba28044646706a11fb861"
+SRC_URI[md5sum] = "075939d2756ca63cbb2af541ac1d01ec"
+SRC_URI[sha256sum] = "f74e052833324a9e5f0055032f7ccc54b23faabafe5a26241c2f977e70b10b50"
 
 inherit pypi
 inherit native
