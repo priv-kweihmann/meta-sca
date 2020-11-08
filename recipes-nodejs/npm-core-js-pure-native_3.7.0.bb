@@ -5,11 +5,11 @@ HOMEPAGE = "https://github.com/zloirock/core-js#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=04ddc8a943888569f9012c4a420f4b09"
 
-SRC_URI = "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.6.5.tgz"
-SRC_URI[md5sum] = "31445c32bbe80971280f38e487fb5411"
-SRC_URI[sha256sum] = "fb3452dfe524005326d301c864943d77ea6400d9e67dc15e531c11af5328f4c1"
+DEPENDS = ""
 
-S = "${WORKDIR}/package"
+SRC_URI = "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.7.0.tgz"
+SRC_URI[md5sum] = "cff9d08a74b72e7d2e3c1bb7435a052e"
+SRC_URI[sha256sum] = "431f2fa35ccda536a0578571d98956ee7ad210f3506b94b34916993c0c758903"
 
 NPM_PKGNAME = "core-js-pure"
 
