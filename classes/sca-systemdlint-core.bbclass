@@ -5,9 +5,9 @@ SCA_SYSTEMDLINT_EXTRA_SUPPRESS ?= ""
 SCA_SYSTEMDLINT_EXTRA_FATAL ?= ""
 SCA_SYSTEMDLINT_SYSTEMD_VERSION ?= ""
 SCA_SYSTEMDLINT_FILES ?= ".automount .conf .link .mount .network .path .service .slice .socket .swap .target .timer"
-SCA_SYSTEMDLINT_PATHS ?= "${SCA_SOURCES_DIR}/${sysconfdir}/systemd \
-                          ${SCA_SOURCES_DIR}/${libdir}/systemd \
-                          ${SCA_SOURCES_DIR}/run/systemd"
+SCA_SYSTEMDLINT_PATHS ?= "${SCA_SYSTEMDLINT_SOURCES_DIR}/${sysconfdir}/systemd \
+                          ${SCA_SYSTEMDLINT_SOURCES_DIR}/${libdir}/systemd \
+                          ${SCA_SYSTEMDLINT_SOURCES_DIR}/run/systemd"
 
 SCA_RAW_RESULT_FILE[systemdlint] = "txt"
 
@@ -27,7 +27,7 @@ def do_sca_conv_systemdlint(d):
     import re
 
     package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
+    buildpath = d.getVar("SCA_SYSTEMDLINT_SOURCES_DIR")
 
     pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<severity>\w+)\s\[(?P<id>.*)\]\s+-\s+(?P<msg>.*)"
 
@@ -72,7 +72,7 @@ python do_sca_systemdlint() {
     import subprocess
 
     _args = ['systemdlint']
-    _args += ["--rootpath={}".format(d.getVar("SCA_SOURCES_DIR"))]
+    _args += ["--rootpath={}".format(d.getVar("SCA_SYSTEMDLINT_SOURCES_DIR"))]
     if d.getVar("SCA_SYSTEMDLINT_SYSTEMD_VERSION"):
         _args += ["--sversion={}".format(d.getVar("SCA_SYSTEMDLINT_SYSTEMD_VERSION"))]
     if d.getVar("SCA_SYSTEMDLINT_EXTRA_ARGS"):
@@ -80,7 +80,7 @@ python do_sca_systemdlint() {
     _files = []
     for path in clean_split(d, "SCA_SYSTEMDLINT_PATHS"):
         _files += get_files_by_extention(d, path,  d.getVar("SCA_SYSTEMDLINT_FILES"), \
-                                            sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+                                            sca_filter_files(d, d.getVar("SCA_SYSTEMDLINT_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     cmd_output = exec_wrap_check_output(_args, _files)
 
