@@ -75,7 +75,7 @@ standard,Javascript linter,https://github.com/standard/standard,,x,x,x,,,,,x,,,,
 stank,Shell script linter,https://github.com/mcandre/stank,,,x,x,,,,x,,,,,,,,,,,,x,x
 stylelint,CSS/SCSS linter,https://github.com/stylelint/stylelint,,,x,x,,,,,,,,,,,,,,x,,,x
 sudokiller,check on sudo,https://github.com/TH3xACE/SUDO_KILLER,,,x,,,,,,,,,x,,,,,,,x,,
-systemdlint,Systemd unit linter,https://github.com/priv-kweihmann/systemdlint,,,x,,,,,,,,,,,,,,,x,x,x,x
+systemdlint,Systemd unit linter,https://github.com/priv-kweihmann/systemdlint,,,x,x,,,,,,,,,,,,,,x,x,x,x
 textlint,Spelling and text linter,https://github.com/textlint/textlint,,x,,x,,,,,,,,,,x,,,,,,,x
 tiger,security audit and intrusion detection tool,http://www.nongnu.org/tiger/,,,x,,,,,,,,,x,,,,,,,x,,
 tlv,Find duplicate code,https://github.com/priv-kweihmann/tlv,manual enable,,x,x,x,x,x,,x,x,x,,,,,,,,x,,x
