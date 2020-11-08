@@ -9,6 +9,8 @@ B = "${WORKDIR}/source"
 
 FILES_${PN} += "${sysconfdir}"
 
+inherit sca
+
 do_install() {
     mkdir -p ${D}${sysconfdir}/systemd/system
     install -m 0644 ${WORKDIR}/source/bad.service ${D}${sysconfdir}/systemd/system

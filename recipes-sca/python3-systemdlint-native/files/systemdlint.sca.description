@@ -44,6 +44,7 @@
             {"cmd": ["systemdlint", "--help"], "returncode": 0}
         ],
         "findings": [
+            "bad-systemd",
             "core-image-minimal-scatest"
         ]
     }
