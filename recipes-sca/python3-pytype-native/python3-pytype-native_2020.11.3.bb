@@ -6,6 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=23a2cfaba162d74b289e2cac209dfa88"
 
 DEPENDS += "\
             ${PYTHON_PN}-attrs-native \
+            ${PYTHON_PN}-pybind11-native \
             ${PYTHON_PN}-importlab-native \
             ${PYTHON_PN}-pylint-native \
             ${PYTHON_PN}-pyyaml-native \
@@ -17,8 +18,8 @@ DEPENDS += "\
             "
 
 SRC_URI_append = " file://pytype.sca.description"
-SRC_URI[md5sum] = "0fccee1eeea02de29ab3666212a005af"
-SRC_URI[sha256sum] = "c5e7803dcafcc1c99d6d798ae5b534195f324487115ec2c54f21e0b5e0479430"
+SRC_URI[md5sum] = "99ea812ee698c46cdc9cfa16c1c2da37"
+SRC_URI[sha256sum] = "01c2dc3664b550e5c571c432035eda85c5b1ba0bc2675f50bd24f226fda25fc2"
 
 PYPI_PACKAGE = "pytype"
 
