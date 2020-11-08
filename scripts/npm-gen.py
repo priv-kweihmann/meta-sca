@@ -171,7 +171,7 @@ def create_tpl(args, pkgname, version):
 
 def create_parser():
     parser = argparse.ArgumentParser(
-        description='Advanced OELint - Check bitbake recipes against OECore styleguide')
+        description='NPM recipe generator')
     parser.add_argument("basepath", help="base path to the recipes")
     parser.add_argument("npmname", help="name of the npm package")
     parser.add_argument("npmversion", help="version of the npm package")

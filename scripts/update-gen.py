@@ -26,11 +26,19 @@ def get_real_package_name(_args, recipe):
     return out
 
 
-def run_package_update(_args, packagename, version):
+def run_package_update_npm(_args, packagename, version):
     try:
         subprocess.check_call(["python3", os.path.join(_args.repo, "scripts", "npm-gen.py"),
                                os.path.join(_args.repo, "recipes-nodejs"),
                                packagename, version], universal_newlines=True)
+        return True
+    except:
+        return False
+
+def run_package_update_pypi(_args, packagename, version):
+    try:
+        subprocess.check_call(["python3", os.path.join(_args.repo, "scripts", "pypi-update.py"),
+                               _args.repo, packagename, version], universal_newlines=True)
         return True
     except:
         return False
@@ -65,18 +73,25 @@ def run_bitbake_test(_args, recipe):
 def update_packages(_args, _input, number):
     m = re.match(r"Update (?P<recipe>.*) to (?P<version>.*)", _input)
     if m:
-        _pkgname = get_real_package_name(_args, m.group("recipe"))
-        if _pkgname:
-            if run_package_update(_args, _pkgname, m.group("version")) and \
-               run_bitbake_test(_args, m.group("recipe")):
-                git_commit(_args, m.group("recipe"),
-                           m.group("version"), number)
+        _recipe = m.group("recipe")
+        if _recipe.startswith("npm-"):
+            _pkgname = get_real_package_name(_args, _recipe)
+            if _pkgname:
+                _update = run_package_update_npm(_args, _pkgname, m.group("version"))
+        elif _recipe.startswith("python3-"):
+            _update = run_package_update_pypi(_args, _recipe, m.group("version"))
+        if _update:
+            if run_bitbake_test(_args, _recipe):
+                git_commit(_args, _recipe,
+                            m.group("version"), number)
+        else:
+            print("Failed to update {recipe} - skipping".format(recipe=_recipe))
 
 
 _args = create_parser()
 with urllib.request.urlopen("https://api.github.com/repos/priv-kweihmann/meta-sca/issues") as url:
     data = json.loads(url.read().decode())
     for item in data:
-        if item["state"] == "open" and "npm-" in item["title"]:
+        if item["state"] == "open" and ("npm-" in item["title"] or "python3-" in item["title"]):
             print("Attempting {}".format(item["title"]))
             update_packages(_args, item["title"], item["number"])
