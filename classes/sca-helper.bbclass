@@ -104,7 +104,7 @@ def get_files_by_shebang(d, path, pattern, excludes=[]):
 def get_files_by_mimetype(d, path, mime, excludes=[]):
     import os
     import sys
-    sys.path.append(os.path.join(d.getVar("STAGING_DIR_NATIVE"), d.getVar("PYTHON_SITEPACKAGES_DIR")[1:]))
+    sys.path.insert(0, os.path.join(d.getVar("STAGING_DIR_NATIVE"), d.getVar("PYTHON_SITEPACKAGES_DIR")[1:]))
     try:
         import magic
         local_dirs = clean_split(d, "SCA_LOCAL_FILE_FILTER")
