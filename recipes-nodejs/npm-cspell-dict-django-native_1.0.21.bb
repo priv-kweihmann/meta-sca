@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=9f0d19b8001b71df7bfa66b3e4df3454"
 
 DEPENDS = "npm-configstore-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-dict-django/-/cspell-dict-django-1.0.17.tgz"
-SRC_URI[md5sum] = "4fc2b9226970cde23b0ae17fbe0fcda2"
-SRC_URI[sha256sum] = "2793b78479c89862beedcf82ec78d8faa547f75e2a6c846be4143537c0fef495"
+SRC_URI = "https://registry.npmjs.org/cspell-dict-django/-/cspell-dict-django-1.0.21.tgz"
+SRC_URI[md5sum] = "e62531e1020c7b6ed8dd773fb06745ed"
+SRC_URI[sha256sum] = "c1e25a0e747dfc2557ef8d350c13e29ef9c1fef0d738fdf98e719cbcaedb6f8f"
 
 NPM_PKGNAME = "cspell-dict-django"
 
