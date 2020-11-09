@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=f45999e825d6792e32a1cbadd968b1b7"
 
 SRC_URI = "git://github.com/TH3xACE/SUDO_KILLER.git;protocol=https \
            file://sudokiller.sca.description"
-SRCREV = "f502f88330353a2bab173088dc41802f86dc7354"
+SRCREV = "71cb51973f635c84cfa443cb0fa0fd08652e2854"
 UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
@@ -44,6 +44,6 @@ INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 # Package contains exploit sample from (maybe) not matching arch
 # plus all the dependencies from that arch
 # Ignore that while packaging
-INSANE_SKIP_${PN} += "file-rdeps arch"
+INSANE_SKIP_${PN} += "file-rdeps arch already-stripped"
 
 BBCLASSEXTEND = "native"
