@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=91fb5297439b32d9cd49df8a2484d3eb"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/mdast-util-to-string/-/mdast-util-to-string-1.1.0.tgz"
-SRC_URI[md5sum] = "bf01b0521475c584261e3c29ff395437"
-SRC_URI[sha256sum] = "43856f1734503aaa28a410183a1a544f5b709370d46d920873c26867eccc82ab"
+SRC_URI = "https://registry.npmjs.org/mdast-util-to-string/-/mdast-util-to-string-2.0.0.tgz"
+SRC_URI[md5sum] = "d010f571c381db7ceca9b313454b83cf"
+SRC_URI[sha256sum] = "2980ab3668659cfd12bbbaf8175c64e553962c2d91ce30cfd523077d64c5680b"
 
 NPM_PKGNAME = "mdast-util-to-string"
 
