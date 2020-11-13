@@ -24,9 +24,9 @@ DEPENDS = "npm-meow-native \
            npm-vfile-reporter-native \
            npm-vfile-sort-native"
 
-SRC_URI = "https://registry.npmjs.org/alex/-/alex-9.0.1.tgz"
-SRC_URI[md5sum] = "b43c5247e0556742f7f8815314221292"
-SRC_URI[sha256sum] = "fdc022406dd69ded7efec38ec193d1c4d3fcf325b8b9586d65dfcb3da73efde1"
+SRC_URI = "https://registry.npmjs.org/alex/-/alex-9.1.0.tgz"
+SRC_URI[md5sum] = "cf09b9fa48fa8dc915c52aaed4a80250"
+SRC_URI[sha256sum] = "99748d3262823a59b1e157c45f8d427c69a09d671c1f8606178b42a8baf5e8af"
 
 NPM_PKGNAME = "alex"
 
