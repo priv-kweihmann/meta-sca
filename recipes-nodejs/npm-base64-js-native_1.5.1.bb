@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=ea9187ca93cdc4f71219d1675712e908"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/base64-js/-/base64-js-1.3.1.tgz"
-SRC_URI[md5sum] = "f93eaa7561717e2d27f678cade758053"
-SRC_URI[sha256sum] = "e07a87b3d76297252f6284c37fc2c16929a80c17886740ba2093251b82e40368"
+SRC_URI = "https://registry.npmjs.org/base64-js/-/base64-js-1.5.1.tgz"
+SRC_URI[md5sum] = "09899ae5593806b4b1ec8ba9e8cc6499"
+SRC_URI[sha256sum] = "b1b7a945b52685269083425216d6597e33d97bf21699d656e92fdb3eb5210a85"
 
 NPM_PKGNAME = "base64-js"
 
