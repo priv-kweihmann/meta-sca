@@ -2,14 +2,14 @@ SUMMARY = "NPM: trim"
 DESCRIPTION = "Trim string whitespace"
 HOMEPAGE = "https://github.com/component/trim#readme"
 
-LICENSE = "Unlicense"
+LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://Readme.md;beginline=56;md5=b45d61f441ee044a3ad2d6cdac00aa86"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/trim/-/trim-0.0.3.tgz"
-SRC_URI[md5sum] = "fe58e00eadcc03c88dfa13b87018dee6"
-SRC_URI[sha256sum] = "0aa19275ed3cb5650b888262ed08aa45e27865f7eeb65b7ca7d004bd34c7e277"
+SRC_URI = "https://registry.npmjs.org/trim/-/trim-1.0.0.tgz"
+SRC_URI[md5sum] = "7a7dd482448d1a95f97ed05cabd81a15"
+SRC_URI[sha256sum] = "3ab37fd6ad7499171f6cf9466c65d8ad9a521e07f5adb21888e71c0cd832bc22"
 
 NPM_PKGNAME = "trim"
 
