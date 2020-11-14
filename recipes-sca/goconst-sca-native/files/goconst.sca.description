@@ -1,0 +1,27 @@
+{
+    "buildspeed": 7,
+    "execspeed": 10,
+    "languages": [
+        "go"
+    ],
+    "uses": [
+        "@go"
+    ],
+    "quality": 9,
+    "scope": [
+        "style"
+    ],
+    "score": {
+        "style": [
+            "goconst.goconst..*"
+        ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["goconst", "--help"], "returncode": 2}
+        ],
+        "findings": [
+            "bad-go"
+        ]
+    }
+}
