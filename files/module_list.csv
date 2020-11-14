@@ -23,6 +23,7 @@ flawfinder,C/C++ security linter,https://github.com/david-a-wheeler/flawfinder,,
 flint,C/C++ linter,https://github.com/JossWhittle/FlintPlusPlus,,,,x,x,x,,,,,,,,,,,,,,x,
 gcc,GCC compiler issues and hardening,,,,,x,x,x,,,,,,,,,,,,,x,x,
 gixy,NGINX config security linter,https://github.com/yandex/gixy,,,x,,,,,,,,,,,,,,,x,x,,
+goconst,Find variables that could be constants in GO files,https://github.com/jgautheron/goconst,,,,x,,,,,,,x,,,,,,,,,,x
 golint,GO linter,https://github.com/golang/lint,,,,x,,,,,,,x,,,,,,,,,,x
 gosec,GO security linter,https://github.com/securego/gosec,,,,x,,,,,,,x,,,,,,,,x,,
 htmlhint,HTML linter,https://github.com/htmlhint/HTMLHint,,x,x,x,,,,,,,,,,,,,,x,,x,
