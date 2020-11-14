@@ -94,6 +94,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           flint \
                           gcc \
                           gixy \
+                          goconst \
                           golint \
                           gosec \
                           htmlhint \
