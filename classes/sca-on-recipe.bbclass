@@ -73,7 +73,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             shellcheck \
                             slick \
                             sparse \
-                            splint \
                             standard \
                             stank \
                             stylelint \
