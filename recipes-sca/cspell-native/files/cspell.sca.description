@@ -19,7 +19,7 @@
     },
     "test": {
         "integration": [
-            {"cmd": ["cspell", "--help"], "returncode": 0}
+            {"cmd": ["cspell", "--help"], "returncode": 1}
         ]
     }
 }
