@@ -1,0 +1,36 @@
+{
+    "buildspeed": 2,
+    "execspeed": 7,
+    "languages": [
+        "c",
+        "c++",
+        "go",
+        "html",
+        "javascript",
+        "json",
+        "php",
+        "python",
+        "ruby",
+        "yaml"
+    ],
+    "uses": [
+        "@python"
+    ],
+    "quality": 8,
+    "scope": [
+        "functional"
+    ],
+    "score": {
+        "functional": [
+            "semgrep.semgrep..*"
+        ]
+    },
+    "test": {
+        "findings": [
+            "bad-go",
+            "bad-php",
+            "python3-git",
+            "rubycritic-test"
+        ]
+    }
+}
