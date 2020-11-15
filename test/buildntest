@@ -10,5 +10,6 @@ echo "Check the following modules: ${mods}"
 
 echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> ${_pwd}/conf/local.conf
 
+bitbake $(${_thispath}/get_buildmodules $@) -c cleansstate || exit 1
 bitbake $(${_thispath}/get_buildmodules $@) || exit 1
 ${_thispath}/check_results ${_pwd}/tmp/deploy/images/*/sca ${mods} || exit 1
