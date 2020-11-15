@@ -67,7 +67,6 @@ SCA_ENABLED_MODULES_RECIPE = "\
                             gcc \
                             golint \
                             gosec \
-                            govet \
                             htmlhint \
                             jsonlint \
                             kconfighard \
