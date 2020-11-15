@@ -71,7 +71,6 @@ setuptoolslint,Lint python-setup.py,https://github.com/johnnoone/setuptools-pyli
 shellcheck,Shell script linter,https://github.com/koalaman/shellcheck,,,x,x,,,,x,,,,,,,,,,,,x,x
 slick,Shell script linter,https://github.com/mcandre/slick,,,x,x,,,,x,,,,,,,,,,,,x,
 sparse,C linter,https://sparse.wiki.kernel.org/index.php/Main_Page,,,,x,x,,,,,,,,,,,,,,,x,
-splint,C linter,https://github.com/splintchecker/splint,,,,x,x,,,,,,,,,,,,,,x,x,x
 standard,Javascript linter,https://github.com/standard/standard,,x,x,x,,,,,x,,,,,,,,,,,x,x
 stank,Shell script linter,https://github.com/mcandre/stank,,,x,x,,,,x,,,,,,,,,,,,x,x
 stylelint,CSS/SCSS linter,https://github.com/stylelint/stylelint,,,x,x,,,,,,,,,,,,,,x,,,x
