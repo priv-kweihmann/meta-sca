@@ -131,7 +131,6 @@ sca-recipe-setuptoolslint-rules-native
 sca-recipe-shellcheck-rules-native
 sca-recipe-slick-rules-native
 sca-recipe-sparse-rules-native
-sca-recipe-splint-rules-native
 sca-recipe-standard-rules-native
 sca-recipe-stank-rules-native
 sca-recipe-stylelint-rules-native
