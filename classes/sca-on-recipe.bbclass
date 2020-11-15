@@ -73,6 +73,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             rubycritic \
                             safety \
                             scancode \
+                            semgrep \
                             setuptoolslint \
                             shellcheck \
                             slick \

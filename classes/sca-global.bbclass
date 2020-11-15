@@ -134,6 +134,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           revive \
                           rubycritic \
                           safety \
+                          semgrep \
                           setuptoolslint \
                           shellcheck \
                           slick \
