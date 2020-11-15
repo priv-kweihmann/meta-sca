@@ -80,7 +80,6 @@ SCA_ENABLED_MODULES_RECIPE = "\
                             safety \
                             shellcheck \
                             sparse \
-                            splint \
                             standard \
                             stylelint \
                             tscancode \

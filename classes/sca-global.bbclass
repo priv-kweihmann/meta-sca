@@ -130,7 +130,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           shellcheck \
                           slick \
                           sparse \
-                          splint \
                           standard \
                           stank \
                           stylelint \
