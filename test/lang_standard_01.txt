@@ -21,6 +21,5 @@ revive
 shellcheck
 slick
 sparse
-splint
 stank
 tscancode
