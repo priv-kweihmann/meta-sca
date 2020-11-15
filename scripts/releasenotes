@@ -58,7 +58,8 @@ section_map = {
     "new": ["FEATURE REQUEST"],
     "fixes": ["BUG"],
     "misc": ["ENHANCEMENT"],
-    "updates": ["PACKAGE UPDATE"]
+    "updates": ["PACKAGE UPDATE"],
+    "deprecation": ["DEPRECATION"]
 }
 
 template = """
@@ -67,6 +68,10 @@ template = """
 # New
 
 %%new%%
+
+# Deprecations
+
+%%deprecation%%
 
 # Updates
 
@@ -79,7 +84,6 @@ template = """
 # Misc
 
 %%misc%%
-
 """
 
 if __name__ == '__main__':
