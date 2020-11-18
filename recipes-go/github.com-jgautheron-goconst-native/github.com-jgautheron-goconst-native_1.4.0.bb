@@ -5,7 +5,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE;md5=33b2be59a3a3c31e4b98ba1acce08fcb"
 
 SRC_URI = "git://${GO_IMPORT};protocol=https"
-SRCREV = "f8e4fe8351cdb4121bd4ccd216f31b8e2ef19a7b"
+SRCREV = "ccae5bf973f32a5eea387c584efb0d526fcbcfe0"
 GO_IMPORT = "github.com/jgautheron/goconst"
 
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+\.\d+)"
