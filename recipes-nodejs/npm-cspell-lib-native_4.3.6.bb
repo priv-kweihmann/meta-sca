@@ -49,9 +49,9 @@ DEPENDS = "npm-comment-json-native \
            npm-resolve-from-native \
            npm-vscode-uri-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-lib/-/cspell-lib-4.3.4.tgz"
-SRC_URI[md5sum] = "4412bc4539a6a0bde2a1c702044d5d2b"
-SRC_URI[sha256sum] = "f42524e892cedf66b776ce3bd03b9f6fd349fc578d8045f5827f0c6fc69f8b98"
+SRC_URI = "https://registry.npmjs.org/cspell-lib/-/cspell-lib-4.3.6.tgz"
+SRC_URI[md5sum] = "70629b5478d7f3a5ffad1a0657029cf2"
+SRC_URI[sha256sum] = "7a1ee86f4ea917259f8ae53688be82d6e23dd10632caed3c398fc9dca40cebc1"
 
 NPM_PKGNAME = "cspell-lib"
 
