@@ -11,14 +11,13 @@ DEPENDS = "npm-chalk-native \
            npm-cspell-glob-native \
            npm-cspell-lib-native \
            npm-fs-extra-native \
-           npm-gensequence-native \
            npm-get-stdin-native \
            npm-glob-native \
            npm-minimatch-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell/-/cspell-4.2.2.tgz"
-SRC_URI[md5sum] = "17f05d94abaf31b590e5021848d0a768"
-SRC_URI[sha256sum] = "59ecd4ea2b5160b70c8a06ea0817513e49ad67da143dcf043d39f9ff86aa13eb"
+SRC_URI = "https://registry.npmjs.org/cspell/-/cspell-5.0.1.tgz"
+SRC_URI[md5sum] = "7b909da8f4bbf60f8fa12ea89a0e740f"
+SRC_URI[sha256sum] = "2d35af9b17613b6d3d6cc973846c163a44226b6816fcc01f49b94e79caad616e"
 
 NPM_PKGNAME = "cspell"
 
