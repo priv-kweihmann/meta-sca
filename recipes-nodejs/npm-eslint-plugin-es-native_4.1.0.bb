@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=a8f21789009221b0b37faaa24544da54"
 DEPENDS = "npm-eslint-utils-native \
            npm-regexpp-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-es/-/eslint-plugin-es-3.0.1.tgz"
-SRC_URI[md5sum] = "40a1f24e265081a0051f1c06880c763f"
-SRC_URI[sha256sum] = "ac7440d86a323cf38a6ff35169f19790aff27d0b226e3e4bb31146fd08548d12"
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-es/-/eslint-plugin-es-4.1.0.tgz"
+SRC_URI[md5sum] = "9963859305a15e428342afbf392ca916"
+SRC_URI[sha256sum] = "9a8577d185e2ed82f0093348144b1188840369518fe30e4d531c0130abeb7c21"
 
 NPM_PKGNAME = "eslint-plugin-es"
 
