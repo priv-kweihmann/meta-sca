@@ -11,9 +11,9 @@ DEPENDS = "npm-commander-native \
            npm-gensequence-native \
            npm-iterable-to-stream-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-trie/-/cspell-trie-4.2.7.tgz"
-SRC_URI[md5sum] = "969ef2d5aa4ff8ba54b57e8c70a95b75"
-SRC_URI[sha256sum] = "3bd52c5fa706201a4ba4f4f8a7b1306704a726c87ab170e47a9ed7bff11798f8"
+SRC_URI = "https://registry.npmjs.org/cspell-trie/-/cspell-trie-5.0.1.tgz"
+SRC_URI[md5sum] = "3332f76f897fa350c15f6923477fb0d0"
+SRC_URI[sha256sum] = "e9db5ee0933ed5d7b131d87a40a0ccf6879daf215d9a739c92eac049057908ab"
 
 NPM_PKGNAME = "cspell-trie"
 
