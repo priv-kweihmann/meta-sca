@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=237c21016e56a1ee4475a39fc00d1504"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/nanoid/-/nanoid-3.1.16.tgz"
-SRC_URI[md5sum] = "8400990a0d1b07a659d81b4834e058d4"
-SRC_URI[sha256sum] = "def57ef8ab79bb36d44cb0f84d6abe77feacbb0641f1858c60b6ca45887558de"
+SRC_URI = "https://registry.npmjs.org/nanoid/-/nanoid-3.1.17.tgz"
+SRC_URI[md5sum] = "353fc84c2c4491d60df70ebf5477fefb"
+SRC_URI[sha256sum] = "55761dc375b473c7730a8229a66b73509ae8b8b707570581f5ce8bda87627ec6"
 
 NPM_PKGNAME = "nanoid"
 
