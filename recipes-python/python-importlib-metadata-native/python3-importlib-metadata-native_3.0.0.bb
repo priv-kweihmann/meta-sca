@@ -10,8 +10,8 @@ PYPI_PACKAGE = "importlib_metadata"
 
 UPSTREAM_CHECK_REGEX ?= "/importlib-metadata/(?P<pver>(\d+[\.\-_]*)+)"
 
-SRC_URI[md5sum] = "3dd91821c930a3c3633e99a7025aa9c2"
-SRC_URI[sha256sum] = "77a540690e24b0305878c37ffd421785a6f7e53c8b5720d211b211de8d0e95da"
+SRC_URI[md5sum] = "5b6eee40b81fef9ae01a667b28950e01"
+SRC_URI[sha256sum] = "d582eb5c35b2f16c78e365e0f89e369f36af38fdaad0146208aa973c693ba247"
 
 inherit pypi
 inherit native
