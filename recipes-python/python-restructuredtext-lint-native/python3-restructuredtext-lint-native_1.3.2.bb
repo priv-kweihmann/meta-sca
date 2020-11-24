@@ -10,8 +10,8 @@ PYPI_PACKAGE = "restructuredtext_lint"
 
 UPSTREAM_CHECK_REGEX ?= "/restructuredtext-lint/(?P<pver>(\d+[\.\-_]*)+)"
 
-SRC_URI[md5sum] = "3951511bc9f553a693e967ac5f12b75c"
-SRC_URI[sha256sum] = "470e53b64817211a42805c3a104d2216f6f5834b22fe7adb637d1de4d6501fb8"
+SRC_URI[md5sum] = "f329e3fb722f4d58b72af9e96f088df4"
+SRC_URI[sha256sum] = "d3b10a1fe2ecac537e51ae6d151b223b78de9fafdd50e5eb6b08c243df173c80"
 
 inherit pypi
 inherit native
