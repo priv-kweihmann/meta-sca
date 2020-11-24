@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=909f5d1d9b02b61f9a881c944b0ec36a"
 
 SRC_URI += "git://github.com/terrencepreilly/darglint.git;protocol=https \
             file://darglint.sca.description"
-SRCREV = "5f247d23978fc0cccf582543a8c48fadeb3ca046"
+SRCREV = "4b5bc3342e2537101233b5f7a9ecb99c8b46d1e9"
 S = "${WORKDIR}/git"
 
 inherit native
