@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=d4a904ca135bb7bc912156fee12726f0"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/@types/node/-/node-14.14.9.tgz"
-SRC_URI[md5sum] = "7fc8a3655d7c6f894506f1bb1de39666"
-SRC_URI[sha256sum] = "a1046d340fbfa4902e141e3829190749fee3e7fe2d0d3fd9bf6908823ed5aa51"
+SRC_URI = "https://registry.npmjs.org/@types/node/-/node-14.14.10.tgz"
+SRC_URI[md5sum] = "087226c3aa942bf1afc4e8bd3602df43"
+SRC_URI[sha256sum] = "fb2638be855f0b48e360180fb9f0eb3b05f91f28eba1537f6536a50c4974d47a"
 
 NPM_PKGNAME = "@types/node"
 
