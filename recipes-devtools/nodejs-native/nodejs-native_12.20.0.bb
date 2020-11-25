@@ -24,7 +24,7 @@
 DESCRIPTION = "nodeJS Evented I/O for V8 JavaScript"
 HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT & BSD & Artistic-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=30e27bd6830002d9415e4a5da7901f03"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=8c66ff8861d9f96076a7cb61e3d75f54"
 
 DEPENDS += "\
             bash-native \
@@ -39,8 +39,8 @@ SRC_URI = "http://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz \
            file://0004-Bind-python-to-nativepython3.patch \
            "
 
-SRC_URI[md5sum] = "82ef57adbd4aab85258c767f0bdbf9a3"
-SRC_URI[sha256sum] = "74077e0cc3db000a6f3cc685b220e609807b61adc8e7d8243e8511d478d1b17d"
+SRC_URI[md5sum] = "5c652adf8f66c250a8a894cd795e1f92"
+SRC_URI[sha256sum] = "61e3fd5c9af565e8d25403ce56b2c0097e2e3270381f2d4216573d48b3dc428b"
 
 S = "${WORKDIR}/node-v${PV}"
 
