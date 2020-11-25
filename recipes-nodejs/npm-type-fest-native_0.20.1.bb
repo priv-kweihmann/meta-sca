@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=4131c9cb751198c626a526bc9ef613c6"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/type-fest/-/type-fest-0.19.0.tgz"
-SRC_URI[md5sum] = "285fa478655141833a695f22dc4e617d"
-SRC_URI[sha256sum] = "e7819f2e9b5a1b4030e5f6fabb562827986945a3e56d49f9d83e280019834d8f"
+SRC_URI = "https://registry.npmjs.org/type-fest/-/type-fest-0.20.1.tgz"
+SRC_URI[md5sum] = "051497cfa440eb0dbda3d66c5db61e97"
+SRC_URI[sha256sum] = "675cc855d18c906daaea74b7f0ba9c5a17358c41e2f7099aa8fb904d7edc90b3"
 
 NPM_PKGNAME = "type-fest"
 
