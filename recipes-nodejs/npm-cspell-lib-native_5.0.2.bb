@@ -47,11 +47,12 @@ DEPENDS = "npm-comment-json-native \
            npm-gensequence-native \
            npm-minimatch-native \
            npm-resolve-from-native \
+           npm-resolve-global-native \
            npm-vscode-uri-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-lib/-/cspell-lib-5.0.1.tgz"
-SRC_URI[md5sum] = "2f37e11d2b6ce055eb9374950149f47e"
-SRC_URI[sha256sum] = "1bf89fe614eaf8f82703033ad576f110b7cc37e3ea48d9dd2ed59a2867385e15"
+SRC_URI = "https://registry.npmjs.org/cspell-lib/-/cspell-lib-5.0.2.tgz"
+SRC_URI[md5sum] = "545c1cfe27c12e2aeb02ebcda9c98ec0"
+SRC_URI[sha256sum] = "bde1cb9e30ca2458c21f9fccd611e1d3f9283ad8496b254f7a532bc9030a068d"
 
 NPM_PKGNAME = "cspell-lib"
 
