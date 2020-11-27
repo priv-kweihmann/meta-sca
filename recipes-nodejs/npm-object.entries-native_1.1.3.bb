@@ -5,13 +5,14 @@ HOMEPAGE = "https://github.com/es-shims/Object.entries#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5db8fa3e421a3211e6a3dc68544da455"
 
-DEPENDS = "npm-define-properties-native \
+DEPENDS = "npm-call-bind-native \
+           npm-define-properties-native \
            npm-es-abstract-native \
            npm-has-native"
 
-SRC_URI = "https://registry.npmjs.org/object.entries/-/object.entries-1.1.2.tgz"
-SRC_URI[md5sum] = "7e14555d4af0c23798ff86593001c45f"
-SRC_URI[sha256sum] = "2f282dce2dc430c868a67a81e06e71d9b701a01884d94442a45f66e8887c20c1"
+SRC_URI = "https://registry.npmjs.org/object.entries/-/object.entries-1.1.3.tgz"
+SRC_URI[md5sum] = "29924cecf20bcafb4660568b0dc011ab"
+SRC_URI[sha256sum] = "0b1688e86d69f5008e8055df3c8c8ae9128050961456dde2d4292114cb758a99"
 
 NPM_PKGNAME = "object.entries"
 
