@@ -67,7 +67,12 @@ python do_sca_pytype() {
               ]
     _args = ["pytype"]
     _args += ["--keep-going"]
-    _args += ["-V", d.getVar("PYTHON_BASEVERSION")]
+    _pyversion = d.getVar("PYTHON_BASEVERSION")
+    # TODO: if tool officially supports python 3.9
+    # remove this override - officially suggested workaround
+    if _pyversion == "3.9":
+        _pyversion = "3.8"
+    _args += ["-V", _pyversion]
     _args += ["-P", ":".join(_paths)]
     _args += ["-o", os.path.join(d.getVar("T"), "pytypeout")]
 
