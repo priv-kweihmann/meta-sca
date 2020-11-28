@@ -5,12 +5,12 @@ HOMEPAGE = "https://github.com/es-shims/object-is"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d22b3eb619d81197fd4f3ca47c2c1ea5"
 
-DEPENDS = "npm-define-properties-native \
-           npm-es-abstract-native"
+DEPENDS = "npm-call-bind-native \
+           npm-define-properties-native"
 
-SRC_URI = "https://registry.npmjs.org/object-is/-/object-is-1.1.3.tgz"
-SRC_URI[md5sum] = "84dd59c869dbfdd6ba2f2970024621a5"
-SRC_URI[sha256sum] = "1a41e26f21fbe32880e93cd35741b08a13301530c9c61834991e3ce4ca84b022"
+SRC_URI = "https://registry.npmjs.org/object-is/-/object-is-1.1.4.tgz"
+SRC_URI[md5sum] = "4cdcee8324587738e5762c541b81a60d"
+SRC_URI[sha256sum] = "7eab830f225e1490634c6f5d82450595599d66effa63254e15223f513c410fa8"
 
 NPM_PKGNAME = "object-is"
 
