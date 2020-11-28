@@ -8,8 +8,8 @@ DEPENDS += "${PYTHON_PN}-flake8-native"
 
 PYPI_PACKAGE = "flake8-executable"
 
-SRC_URI[md5sum] = "35f2cef4c37090b428f0e450cefa7908"
-SRC_URI[sha256sum] = "0b987166ccaf8655e26e30d10e1e12de6877471cb91fa4cc7c1ce28cc692bd61"
+SRC_URI[md5sum] = "3b1c83a733eae6e1b19a9ce1739dd191"
+SRC_URI[sha256sum] = "6219f1264a7701233ed00957bd4a345a41d62f22749d5202d2c2f74abf55fa44"
 
 inherit pypi
 inherit native
