@@ -3,13 +3,13 @@ DESCRIPTION = "British English dictionary for cspell."
 HOMEPAGE = "https://github.com/streetsidesoftware/cspell-dicts/blob/master/packages/en_GB#readme"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=fd6ca8d8865d18c1a5a6696c0f841ff0"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=62f84db3eea2ff0da5510fedd081ea0c"
 
 DEPENDS = "npm-configstore-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-dict-en-gb/-/cspell-dict-en-gb-1.1.24.tgz"
-SRC_URI[md5sum] = "f6c1165b52463c9ede08db99b7b56322"
-SRC_URI[sha256sum] = "02a08432b2953893e097b652fce6b9bec477e351734e4f825847b1b835a33fcf"
+SRC_URI = "https://registry.npmjs.org/cspell-dict-en-gb/-/cspell-dict-en-gb-1.1.27.tgz"
+SRC_URI[md5sum] = "c3c972f2b0909ce2993b98669b848a6e"
+SRC_URI[sha256sum] = "08e12310a3d7ce9ac31a2174a231360fc42edb256be88fea04cf3f084effb809"
 
 NPM_PKGNAME = "cspell-dict-en-gb"
 
