@@ -9,6 +9,7 @@ LICENSE = "MIT"
 IMAGE_INSTALL += "\
                     bad-nginx \
                     bad-systemd \
+                    openssh \
                     sudo \
                 "
 
