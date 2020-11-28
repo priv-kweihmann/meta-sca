@@ -73,6 +73,7 @@ def run_bitbake_test(_args, recipe):
 def update_packages(_args, _input, number):
     m = re.match(r"Update (?P<recipe>.*) to (?P<version>.*)", _input)
     if m:
+        _update = None
         _recipe = m.group("recipe")
         if _recipe.startswith("npm-"):
             _pkgname = get_real_package_name(_args, _recipe)
