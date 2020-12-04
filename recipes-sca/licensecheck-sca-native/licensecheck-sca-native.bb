@@ -1,16 +1,14 @@
 SUMMARY = "Check license settings"
 
 LICENSE = "BSD-2-Clause"
-LIC_FILES_CHKSUM = "file://licensecheck;beginline=3;endline=27;md5=0f52bba3b062bd6fa2e0dd24594f028e"
+LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=a4a2bbea1db029f21b3a328c7a059172"
 
 DEPENDS += "\
             github.com-boyter-lc-native \
-            python3-license-expression-native \
-            python3-native \
+            licensecheck-helper-native \
             "
 
-SRC_URI = "file://licensecheck \
-           file://licensecheck.sca.description"
+SRC_URI = "file://licensecheck.sca.description"
 
 S = "${WORKDIR}"
 
@@ -23,8 +21,6 @@ do_compile[noexec] = "1"
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/licensecheck.sca.description ${D}${datadir}/
-    install -d ${D}${bindir}
-    install -m 0755 ${WORKDIR}/licensecheck ${D}${bindir}/licensecheck
 }
 
-FILES_${PN} = "${bindir} ${datadir}"
+FILES_${PN} = "${datadir}"

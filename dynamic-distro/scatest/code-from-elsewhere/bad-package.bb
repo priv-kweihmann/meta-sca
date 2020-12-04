@@ -27,8 +27,8 @@ do_install() {
     install -d ${D}${bindir}
     install -m 0477 ${S}/test1/test-1.sh ${D}${bindir}
 
-    install -d ${D}/opt/somestrangepath
-    install -m 0777 ${S}/test2/test-2.sh ${D}/opt/somestrangepath/magic.sh
+    install -d ${D}/opt/bin
+    install -m 0777 ${S}/test2/test-2.sh ${D}/opt/bin/
 
     install -d ${D}${datadir}/myhiddensources
     install -m 0644 ${S}/simple-hello-world.c ${D}${datadir}/myhiddensources
@@ -36,11 +36,15 @@ do_install() {
     install -m 0455 ${S}/curl-7.30.0.ermine/curl.ermine ${D}${bindir}/curl.ermine
 }
 
-FILES_${PN} += "${datadir}"
-FILES_${PN}-dev += "/opt/somestrangepath"
+PACKAGES =. "${PN}-strangepath ${PN}-hidden ${PN}-script "
+
+FILES_${PN} = "${bindir}/curl.ermine"
+FILES_${PN}-hidden = "${datadir}"
+FILES_${PN}-script = "${bindir}/test-1.sh"
+FILES_${PN}-strangepath = "/opt/bin/"
 
 INSANE_SKIP_${PN} += "already-stripped arch"
 
 inherit sca
 
-SCA_ENABLED_MODULES = "pkgqaenc licensecheck"
+SCA_ENABLED_MODULES = "pkgqaenc licensecheck scancode"
