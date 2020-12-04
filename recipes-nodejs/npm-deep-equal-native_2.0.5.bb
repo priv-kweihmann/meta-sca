@@ -5,8 +5,9 @@ HOMEPAGE = "https://github.com/inspect-js/node-deep-equal#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ec4e94fe7abda03e2e44a713b0908a07"
 
-DEPENDS = "npm-es-abstract-native \
+DEPENDS = "npm-call-bind-native \
            npm-es-get-iterator-native \
+           npm-get-intrinsic-native \
            npm-is-arguments-native \
            npm-is-date-object-native \
            npm-is-regex-native \
@@ -20,9 +21,9 @@ DEPENDS = "npm-es-abstract-native \
            npm-which-collection-native \
            npm-which-typed-array-native"
 
-SRC_URI = "https://registry.npmjs.org/deep-equal/-/deep-equal-2.0.4.tgz"
-SRC_URI[md5sum] = "e1d7bc5943ec36dd57b0755907a985bf"
-SRC_URI[sha256sum] = "4b8c5d7dfbe58f97ecee58f0c4451e9a66da58621efe98dfe1f7d7b0819c7a34"
+SRC_URI = "https://registry.npmjs.org/deep-equal/-/deep-equal-2.0.5.tgz"
+SRC_URI[md5sum] = "77a7384a24078f3cb18857c540f18fa4"
+SRC_URI[sha256sum] = "97e1530e5c37a5b1681b3b3d779cb074095abe215e3a67694ac00d61f1ccb265"
 
 NPM_PKGNAME = "deep-equal"
 
