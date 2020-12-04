@@ -24,5 +24,3 @@ do_install_append() {
 }
 
 FILES_${PN} = "${bindir} ${datadir}"
-
-RDEPENDS_${PN} += "python3-native python3-python-magic-native"
