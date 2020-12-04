@@ -1,12 +1,12 @@
 SUMMARY = "Linux enumeration tool for pentesting and CTFs with verbosity levels"
 HOMEPAGE = "https://github.com/diego-treitos/linux-smart-enumeration"
 
-LICENSE = "GPL-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=b234ee4d69f5fce4486a80fdaf4a4263"
+LICENSE = "GPL-3.0"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 SRC_URI = "git://github.com/diego-treitos/linux-smart-enumeration.git;protocol=https \
            file://lse.sca.description"
-SRCREV = "9a9b983df135a998e7f4805c6de7b89d418eda7c"
+SRCREV = "ad642efe0aded8f54157ca546c29f9f7f1dd629f"
 
 S = "${WORKDIR}/git"
 
