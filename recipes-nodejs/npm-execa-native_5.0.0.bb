@@ -15,9 +15,9 @@ DEPENDS = "npm-cross-spawn-native \
            npm-signal-exit-native \
            npm-strip-final-newline-native"
 
-SRC_URI = "https://registry.npmjs.org/execa/-/execa-4.1.0.tgz"
-SRC_URI[md5sum] = "b809c987fa66a6f51dc9d0f792e9d7f6"
-SRC_URI[sha256sum] = "139f2f9a6d32991cd677b42f75e889ffe09ff3cf866068245a05a891abd768cd"
+SRC_URI = "https://registry.npmjs.org/execa/-/execa-5.0.0.tgz"
+SRC_URI[md5sum] = "dfb3ffad74b31c29cf1ee29f2bcda9c9"
+SRC_URI[sha256sum] = "db174fc2b6eb1a0187a25326bdd07e4a6328e102fb7911e2d24418ac99ac6102"
 
 NPM_PKGNAME = "execa"
 
