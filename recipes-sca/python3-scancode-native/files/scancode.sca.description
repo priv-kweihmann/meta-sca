@@ -1,0 +1,24 @@
+{
+    "buildspeed": 2,
+    "execspeed": 2,
+    "languages": [
+        "python"
+    ],
+    "uses": [
+        "@python"
+    ],
+    "quality": 9,
+    "scope": [
+        "compliance"
+    ],
+    "score": {
+        "compliance": [
+            "scancode.scancode..*"
+        ]
+    },
+    "test": {
+        "findings": [
+            "bad-package"
+        ]
+    }
+}

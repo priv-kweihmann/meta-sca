@@ -1,0 +1,192 @@
+#!/usr/bin/env python3
+
+# BSD 2-Clause License
+#
+# Copyright (c) 2020, Konrad Weihmann
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+# * Redistributions of source code must retain the above copyright notice, this
+#   list of conditions and the following disclaimer.
+#
+# * Redistributions in binary form must reproduce the above copyright notice,
+#   this list of conditions and the following disclaimer in the documentation
+#   and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+import argparse
+import json
+import os
+import re
+
+from license_expression import Licensing, LicenseSymbol
+from boolean import AND, OR
+from csv import DictReader
+
+
+def clean_expression(literal):
+    res = set()
+    if not literal:
+        return []
+    for i in re.split(r"\(|\)|\s+", literal):
+        if not i:
+            continue
+        if i in ["AND", "OR"]:
+            continue
+        res.add(i)
+    return sorted(list(res))
+
+
+def explode_plus_modifier(prefix, version):
+    res = []
+    valid_mods = ["1.0", "1.1", "2.0", "2.1", "3.0"]
+    valid_mods = valid_mods[valid_mods.index(version):]
+    for i in valid_mods:
+        res.append("{}{}".format(prefix, i))
+    return "( {} )".format(" OR ".join(res))
+
+
+def create_parser():
+    parser = argparse.ArgumentParser(description='License check')
+    parser.add_argument("--noassertdefault", default="CLOSED",
+                        help="In case no assertation can be made on a file, take this license as the basis")
+    parser.add_argument("--badcrholders", default="",
+                        help="comma separate list of bad copyright holders - works only with scancode")
+    parser.add_argument("license", help="Currently set license")
+    parser.add_argument("resulttype", choices=[
+                        "lc", "scancode"], help="type of result")
+    parser.add_argument("result", help="Result file")
+    parser.add_argument("files", nargs="+", help="Files to consider checking")
+    return parser.parse_args()
+
+
+def _sanitize_license(args, _lic):
+    # -only suffix will applied automatically
+    _lic = _lic.rstrip("-only")
+    # replace -or-later with +, which is exploded afterwards
+    _lic = _lic.replace("-or-later", "+")
+    # replace NOASSERTION with the default from argparse
+    _lic = _lic.replace("NOASSERTION", args.noassertdefault)
+    for m in re.finditer(r"(^|\s)(?P<prefix>[A-Za-z\-]+)(?P<version>\d\.\d)\+", _lic):
+        _lic = _lic.replace(m.group(0), explode_plus_modifier(
+            m.group("prefix"), m.group("version")))
+    return _lic
+
+# LC specific part
+
+
+def version_from_lc(args):
+    res = []
+    with open(args.result) as i:
+        reader = DictReader(i)
+        for row in reader:
+            _filepath = os.path.join(row["directory"].lstrip("."), row["filename"])
+            if _filepath in args.files:
+                res.append(_sanitize_license(args, row["license"]))
+    return " AND ".join(res)
+
+
+def crholders_from_lc(args):
+    return []
+
+# scancode specific part
+def version_from_scancode(args):
+    res = []
+    with open(args.result) as i:
+        reader = json.load(i)
+        for f in reader["files"]:
+            if f["type"] != "file":
+                continue
+            if f["path"] in args.files:
+                found = False
+                for l in f["licenses"]:
+                    if not l["spdx_license_key"]:
+                        continue
+                    found = True
+                    res.append(_sanitize_license(args, l["spdx_license_key"]))
+                if not found:
+                    print("[noinfo] path '{}' doesn't provide a license info".format(f["path"]))
+    return " AND ".join(res)
+
+
+def crholders_from_scancode(args):
+    res = set()
+    with open(args.result) as i:
+        reader = json.load(i)
+        for f in reader["files"]:
+            if f["type"] != "file":
+                continue
+            if f["path"] in args.files:
+                for h in f["holders"]:
+                    res.add(h["value"])
+    return res
+
+
+def bitbake_comp_expression(_in):
+    for k, v in {" AND ": " & ", " OR ": " | "}.items():
+        _in = _in.replace(k, v)
+    return _in
+
+
+def interal_comp_expression(_in):
+    for k, v in {" & ": " AND ", " | ": " OR "}.items():
+        _in = _in.replace(k, v)
+    return _in
+
+
+def evaluate(args, _raw_license, _raw_crholders):
+    # License part
+    _set = Licensing().parse(interal_comp_expression(args.license))
+    try:
+        _det = Licensing().parse(_raw_license)
+    except Exception as e:
+        print("Can't find any license info -> {}:{}".format(_raw_license, e))
+        # if no license info can be gathered assume the set one is correct
+        _det = _set
+    # simplify the the license string
+    _det = _det.simplify()
+
+    _det = clean_expression(str(_det))
+    _set = clean_expression(str(_set))
+
+    print("Using set licenses {}".format(_set))
+    print("Using detected licenses {}".format(_det))
+
+    # We only check if all identified SPDX identifier are present
+    # as we are unable to get all the possible combinations correctly
+    if _set != _det:
+        print("[license] Detected license(s) {}, but set is '{}'".format(
+            bitbake_comp_expression(" ".join(_det)), args.license))
+
+    # Copyright holders
+    _cr_bad_list = _args.badcrholders.split(",")
+    for _cr in _raw_cr_holders:
+        for _bad in _cr_bad_list:
+            if not _bad:
+                continue
+            if re.match(_bad, _cr):
+                print(
+                    "[copyright] Detected discouraged copyright holder '{}'".format(_cr))
+
+
+if __name__ == '__main__':
+    _args = create_parser()
+    if _args.resulttype == "lc":
+        _raw_license = version_from_lc(_args)
+        _raw_cr_holders = crholders_from_lc(_args)
+    elif _args.resulttype == "scancode":
+        _raw_license = version_from_scancode(_args)
+        _raw_cr_holders = crholders_from_scancode(_args)
+    evaluate(_args, _raw_license, _raw_cr_holders)
