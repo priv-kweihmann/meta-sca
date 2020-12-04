@@ -2,7 +2,8 @@ SUMMARY = "print statement checker plugin for flake8"
 HOMEPAGE = "https://github.com/jbkahn/flake8-print"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENCE;md5=5062d59f7c370e1fae388e102ca06095"
+# does not provide a license file
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
 DEPENDS += "\
             ${PYTHON_PN}-flake8-native \
@@ -10,10 +11,11 @@ DEPENDS += "\
             ${PYTHON_PN}-six-native \
             "
 
-SRC_URI += "git://github.com/JBKahn/flake8-print.git;protocol=https"
-SRCREV = "f8ebe0dce3ce3ea097a58690a5a6a88afef99307"
+PYPI_PACKAGE = "flake8-print"
 
-S = "${WORKDIR}/git"
+SRC_URI[md5sum] = "424516fa984b8432cda5faf01b53cc6a"
+SRC_URI[sha256sum] = "5afac374b7dc49aac2c36d04b5eb1d746d72e6f5df75a6ecaecd99e9f79c6516"
 
+inherit pypi
 inherit native
 inherit setuptools3
