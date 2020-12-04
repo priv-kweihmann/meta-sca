@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=0a69df9dc95cd69be37c3c6b9a06cfa0"
 
 SRC_URI = "git://github.com/konstruktoid/ansible-role-hardening.git;protocol=https \
            file://${ROLE_NAME}.json"
-SRCREV = "7b3ee908ed02c26c0907b278e859a989c3d0ea53"
+SRCREV = "a02faec8e5ecf8ff13349dcb129d8e293bc4b669"
 
 S = "${WORKDIR}/git"
 
