@@ -106,7 +106,7 @@ def get_files_by_mimetype(d, path, mime, excludes=[]):
     import sys
     sys.path.insert(0, os.path.join(d.getVar("STAGING_DIR_NATIVE"), d.getVar("PYTHON_SITEPACKAGES_DIR")[1:]))
     try:
-        import magic
+        import python_magic
         local_dirs = clean_split(d, "SCA_LOCAL_FILE_FILTER")
         res = []
         for root, dirs, files in os.walk(path, topdown=True):
@@ -117,7 +117,7 @@ def get_files_by_mimetype(d, path, mime, excludes=[]):
                 if _filename in excludes:
                     continue
                 try:
-                    if magic.from_file(_filename, mime=True) in mime:
+                    if python_magic.from_file(_filename, mime=True) in mime:
                         res.append(_filename)
                 except:
                     pass
@@ -127,19 +127,13 @@ def get_files_by_mimetype(d, path, mime, excludes=[]):
 
 def get_files_by_glob(d, basedir, pattern, excludes=[]):
     import os
-    import subprocess
+    import glob
     res = []
     if isinstance(pattern, str):
         pattern = pattern.split(" ")
     res = []
     for p in pattern:
-        try:
-            cmd_out = subprocess.check_output(["find", basedir, "-type", "f", "-wholename", p])
-        except subprocess.CalledProcessError as e:
-            cmd_out = e.output or ""
-        if not isinstance(cmd_out, str):
-            cmd_out = cmd_out.decode('utf-8')
-        res += [x.strip() for x in cmd_out.split("\n") if x.strip() and x not in excludes]
+        res += [x for x in glob.glob(os.path.join(basedir, p.lstrip("/"))) if os.path.isfile(x) and x not in excludes]
     return res
 
 def get_files_by_extention(d, path, pattern, excludes=[]):
