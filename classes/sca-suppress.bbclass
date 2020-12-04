@@ -6,6 +6,7 @@ def sca_suppress_init(d, suppress_extra, suppress_file, file_trace=True):
     import re
     import urllib
     import bb
+    import json
 
     class SCASuppressItem():
         def __init__(self, _in):
@@ -92,10 +93,15 @@ def sca_suppress_init(d, suppress_extra, suppress_file, file_trace=True):
             self.__Items = self.__add_global_items(d, suppress_extra, suppress_file) + self.__add_local_items(d)
             # automatically set to false if running on image
             self.__filetrace = file_trace and not bb.data.inherits_class('image', d)
-            self.__tracedfiles = []
+            self.__tracedfiles = set()
             if os.path.exists(d.getVar("SCA_TRACEFILES_LIST") or "/does/not/exist"):
+                _valid_package = d.expand("${SCA_TRACEFILES_PKGS}").split(" ")
                 with open(d.getVar("SCA_TRACEFILES_LIST")) as i:
-                    self.__tracedfiles = [x.strip("\n") for x in i.readlines() if x]
+                    _jobj = json.load(i)
+                    for ḱey, val in _jobj.items():
+                        if ḱey not in _valid_package:
+                            continue
+                        self.__tracedfiles.update(val)
 
         def __add_global_items(self, d, suppress_extra, suppress_file):
             res = []

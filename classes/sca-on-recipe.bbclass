@@ -69,6 +69,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             ropgadget \
                             rubycritic \
                             safety \
+                            scancode \
                             setuptoolslint \
                             shellcheck \
                             slick \

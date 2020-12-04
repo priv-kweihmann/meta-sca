@@ -18,6 +18,7 @@ pkgqaenc
 pscan
 rats
 revive
+scancode
 shellcheck
 slick
 sparse
