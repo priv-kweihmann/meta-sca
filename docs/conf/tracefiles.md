@@ -8,11 +8,11 @@ This is especially useful for highly configurable binaries.
 
 ## Configuration
 
-| var                      |                       purpose                       |                          type |                        default |
-| ------------------------ | :-------------------------------------------------: | ----------------------------: | -----------------------------: |
-| SCA_TRACEFILES_LOOSE_INC | Files extensions to add in loose mode of tracefiles |          space seperated list |                      ".h .hpp" |
-| SCA_TRACEFILES_MODE      |  Mode to trace source files from compiled binaries  | string: full, loose or strict |                         "full" |
-| SCA_TRACEFILES_PKGS      |        Packages to inspect for tracing files        |          space seperated list | "\${PN}-lib \${PN}-bin \${PN}" |
+| var                      |                       purpose                       |                          type |        default |
+| ------------------------ | :-------------------------------------------------: | ----------------------------: | -------------: |
+| SCA_TRACEFILES_LOOSE_INC | Files extensions to add in loose mode of tracefiles |          space seperated list |      ".h .hpp" |
+| SCA_TRACEFILES_MODE      |  Mode to trace source files from compiled binaries  | string: full, loose or strict |         "full" |
+| SCA_TRACEFILES_PKGS      |        Packages to inspect for tracing files        |          space seperated list | "\${PACKAGES}" |
 
 ## Modes
 
