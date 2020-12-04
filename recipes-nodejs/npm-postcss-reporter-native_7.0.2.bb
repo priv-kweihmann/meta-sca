@@ -10,12 +10,11 @@ DEPENDS = "npm-colorette-native \
            npm-lodash.forown-native \
            npm-lodash.get-native \
            npm-lodash.groupby-native \
-           npm-lodash.sortby-native \
-           npm-log-symbols-native"
+           npm-lodash.sortby-native"
 
-SRC_URI = "https://registry.npmjs.org/postcss-reporter/-/postcss-reporter-7.0.1.tgz"
-SRC_URI[md5sum] = "72c92ab3e504486ec9c07c87c6fda160"
-SRC_URI[sha256sum] = "c22a5ff27489fbeb8a614b4f0715541c30d8da9654f3bba3d28183ddfd25cb2e"
+SRC_URI = "https://registry.npmjs.org/postcss-reporter/-/postcss-reporter-7.0.2.tgz"
+SRC_URI[md5sum] = "8de2ea1ae7aa4b5e4a9efb9ef093799c"
+SRC_URI[sha256sum] = "f7b224e135fea5b56e6f71a7f2ea09f428011408a2d03cb617226af5b5afcc60"
 
 NPM_PKGNAME = "postcss-reporter"
 
