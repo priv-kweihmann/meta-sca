@@ -14,3 +14,9 @@ SRC_URI[sha256sum] = "b757db2a5289ea3f1ced9e60f072965243ea43a2221430048fd8cacab1
 inherit pypi
 inherit native
 inherit setuptools3
+
+do_install_append() {
+    # Rename magic.py to python_magic.py to avoid clashes with other python modules
+    [ -e ${D}${PYTHON_SITEPACKAGES_DIR}/magic.py ] && \
+        mv ${D}${PYTHON_SITEPACKAGES_DIR}/magic.py ${D}${PYTHON_SITEPACKAGES_DIR}/python_magic.py
+}
