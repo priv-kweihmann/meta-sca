@@ -9,9 +9,9 @@ DEPENDS = "npm-no-case-native \
            npm-tslib-native \
            npm-upper-case-first-native"
 
-SRC_URI = "https://registry.npmjs.org/sentence-case/-/sentence-case-3.0.3.tgz"
-SRC_URI[md5sum] = "a203a2fe74db89d81a2c33c14496c924"
-SRC_URI[sha256sum] = "d0090a9b1e01660dd4d898e4df023b33a7af6188d0ab7c5ae593755ea84fb6c3"
+SRC_URI = "https://registry.npmjs.org/sentence-case/-/sentence-case-3.0.4.tgz"
+SRC_URI[md5sum] = "335b77570ac3e8eb305ad6564b987230"
+SRC_URI[sha256sum] = "50b89d888bcbc00e1340d6f175e940eb6dc9a47920055ed782096fc90d2216fb"
 
 NPM_PKGNAME = "sentence-case"
 
