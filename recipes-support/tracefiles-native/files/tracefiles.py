@@ -77,14 +77,15 @@ def process_file(filename, root, pkgroot):
     return res
 
 def find_in_source_root(filename, root, pkgroot):
-    _clean = filename.replace(pkgroot, "", 1).lstrip("/").split("/")
-    while _clean:
-        _tmp = glob.glob(os.path.join(root, *_clean))
-        _tmp += glob.glob(os.path.join(root, "*", *_clean))
-        _tmp += glob.glob(os.path.join(root, "**", *_clean))
-        if _tmp:
-            return _tmp
-        _clean = _clean[1:]
+    for x in [filename.replace(pkgroot, "", 1), filename.replace(pkgroot, "", 1) + ".in"]:
+        _clean = x.lstrip("/").split("/")
+        while _clean:
+            _tmp = glob.glob(os.path.join(root, *_clean))
+            _tmp += glob.glob(os.path.join(root, "*", *_clean))
+            _tmp += glob.glob(os.path.join(root, "**", *_clean))
+            if _tmp:
+                return _tmp
+            _clean = _clean[1:]
     return []
 
 def line_entry_mapping(line_program):
