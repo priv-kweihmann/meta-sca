@@ -12,7 +12,7 @@ DEPENDS += "\
 
 SRC_URI = "git://github.com/JonathanSalwan/ROPgadget.git;protocol=https \
            file://ropgadget.sca.description"
-SRCREV = "c29c50773ec7fb3df56396ce27fb71c3898c53ae"
+SRCREV = "a97d5be623708c96006cf717e0e44d3d6f292b8c"
 S = "${WORKDIR}/git"
 
 inherit native
