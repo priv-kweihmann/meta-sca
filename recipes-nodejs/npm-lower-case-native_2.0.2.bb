@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=44088ba57cb871a58add36ce51b8de08"
 
 DEPENDS = "npm-tslib-native"
 
-SRC_URI = "https://registry.npmjs.org/lower-case/-/lower-case-2.0.1.tgz"
-SRC_URI[md5sum] = "da56f34e725a6f00dfde8b807f5d7417"
-SRC_URI[sha256sum] = "e6ba7a95a8c47d3aa63422d7ceb881dbe73f55122ac59846c0f0bac05d08bd1f"
+SRC_URI = "https://registry.npmjs.org/lower-case/-/lower-case-2.0.2.tgz"
+SRC_URI[md5sum] = "6a8abf7f1de0ef6a2adb109ddd76e2d5"
+SRC_URI[sha256sum] = "5e45966cdfff196b6411301b24fdaae16429164be5f47a634462ee0b949ef031"
 
 NPM_PKGNAME = "lower-case"
 
