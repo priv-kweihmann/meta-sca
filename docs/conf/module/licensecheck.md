@@ -26,7 +26,7 @@
 
 ## Known error-IDs
 
-* licensecheck.lisencecheck.invalid-license - An non matching LICENSE setting was detected
+* licensecheck.licensecheck.license - A non matching LICENSE setting was detected
 
 ## Checking scope
 
@@ -51,7 +51,7 @@
 
 * n.a.
 
-### Error consired as compliance issue
+### Error considered as compliance issue
 
 * licensecheck.licensecheck.*
 
