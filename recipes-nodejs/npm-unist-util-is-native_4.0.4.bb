@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=129a18b8487c2727a4ae7d7e2ad7b231"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/unist-util-is/-/unist-util-is-4.0.3.tgz"
-SRC_URI[md5sum] = "f885988e3a1be5720282079146ee516b"
-SRC_URI[sha256sum] = "fa51ea12c30b2f760750090c53e4799cbfa39bbcde7787ab52377a4290c40fa9"
+SRC_URI = "https://registry.npmjs.org/unist-util-is/-/unist-util-is-4.0.4.tgz"
+SRC_URI[md5sum] = "7c9dca3a53048030a867c312e7d8d6ea"
+SRC_URI[sha256sum] = "499d513aed36d137456aea6ba9f41de4d269bb7072ba7cfe97765f193bb1002b"
 
 NPM_PKGNAME = "unist-util-is"
 
