@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=44088ba57cb871a58add36ce51b8de08"
 DEPENDS = "npm-dot-case-native \
            npm-tslib-native"
 
-SRC_URI = "https://registry.npmjs.org/param-case/-/param-case-3.0.3.tgz"
-SRC_URI[md5sum] = "5f5d8b7e72659b6e6ae397f7b2b63573"
-SRC_URI[sha256sum] = "c2d4ab471d0ab83c0549fb93d2e3fdf6b3658b529d0529583985d15fe95929b4"
+SRC_URI = "https://registry.npmjs.org/param-case/-/param-case-3.0.4.tgz"
+SRC_URI[md5sum] = "f3a3f89a9ebbe0c1893c4f4f50838ee6"
+SRC_URI[sha256sum] = "1a99e84c81daccbd46ac81096b7ecc1fc16177031320f0158f156e08e0453b7c"
 
 NPM_PKGNAME = "param-case"
 
