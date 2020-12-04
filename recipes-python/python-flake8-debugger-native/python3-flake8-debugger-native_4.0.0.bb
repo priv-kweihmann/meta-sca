@@ -9,8 +9,8 @@ PYPI_PACKAGE = "flake8-debugger"
 
 DEPENDS += "${PYTHON_PN}-flake8-native"
 
-SRC_URI[md5sum] = "05a669ccd439cd9f80ddbc79ef4a51ec"
-SRC_URI[sha256sum] = "712d7c1ff69ddf3f0130e94cc88c2519e720760bce45e8c330bfdcb61ab4090d"
+SRC_URI[md5sum] = "2a47fb0d32d67e3a379208dce9f72765"
+SRC_URI[sha256sum] = "e43dc777f7db1481db473210101ec2df2bd39a45b149d7218a618e954177eda6"
 
 inherit pypi
 inherit native
