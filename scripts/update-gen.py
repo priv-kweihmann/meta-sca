@@ -94,5 +94,7 @@ with urllib.request.urlopen("https://api.github.com/repos/priv-kweihmann/meta-sc
     data = json.loads(url.read().decode())
     for item in data:
         if item["state"] == "open" and ("npm-" in item["title"] or "python3-" in item["title"]):
+            if any(x["name"] == "Postponed" for x in item["labels"]):
+                continue
             print("Attempting {}".format(item["title"]))
             update_packages(_args, item["title"], item["number"])
