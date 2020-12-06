@@ -5,11 +5,11 @@ HOMEPAGE = "https://github.com/ljharb/is-boolean-object#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5db8fa3e421a3211e6a3dc68544da455"
 
-DEPENDS = ""
+DEPENDS = "npm-call-bind-native"
 
-SRC_URI = "https://registry.npmjs.org/is-boolean-object/-/is-boolean-object-1.0.1.tgz"
-SRC_URI[md5sum] = "10e83d55f0e9de11919b626225bdd3d6"
-SRC_URI[sha256sum] = "2d608d7e7c6dac5a5f398a553075dcb1c73a8990ca7a95eb16cb8b563d1a3ba0"
+SRC_URI = "https://registry.npmjs.org/is-boolean-object/-/is-boolean-object-1.1.0.tgz"
+SRC_URI[md5sum] = "437cd924c1b81c6cd17b3561f8983345"
+SRC_URI[sha256sum] = "9a50e05b60c9d813f1b784a2027453fcf88c6bf14285c9ccfc29c918ea66cfa8"
 
 NPM_PKGNAME = "is-boolean-object"
 
