@@ -43,9 +43,9 @@ DEPENDS = "npm-ajv-native \
            npm-text-table-native \
            npm-v8-compile-cache-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint/-/eslint-7.14.0.tgz"
-SRC_URI[md5sum] = "247fe3968799402570f003c7e631071c"
-SRC_URI[sha256sum] = "cfdc51dffc6077ee0d19056cdcc6e9fcccab926bd13afc4ce0381308b2d30765"
+SRC_URI = "https://registry.npmjs.org/eslint/-/eslint-7.15.0.tgz"
+SRC_URI[md5sum] = "7ba9f094156728115ff893c8289e9d17"
+SRC_URI[sha256sum] = "8a8e220eaafbdc23f0e91baad1b492f736c17e731502a1eda9a2f5a8026d4c7b"
 
 NPM_PKGNAME = "eslint"
 
