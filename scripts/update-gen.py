@@ -43,6 +43,14 @@ def run_package_update_pypi(_args, packagename, version):
     except:
         return False
 
+def run_package_update_perl(_args, packagename, version):
+    try:
+        subprocess.check_call(["python3", os.path.join(_args.repo, "scripts", "perl-update.py"),
+                               _args.repo, packagename, version], universal_newlines=True)
+        return True
+    except:
+        return False
+
 
 def git_commit(_args, recipe, version, issue):
     __git = git.Repo(path=_args.repo)
@@ -81,6 +89,8 @@ def update_packages(_args, _input, number):
                 _update = run_package_update_npm(_args, _pkgname, m.group("version"))
         elif _recipe.startswith("python3-"):
             _update = run_package_update_pypi(_args, _recipe, m.group("version"))
+        elif _recipe.startswith("perl-"):
+            _update = run_package_update_perl(_args, _recipe, m.group("version"))
         if _update:
             if run_bitbake_test(_args, _recipe):
                 git_commit(_args, _recipe,
@@ -93,7 +103,7 @@ _args = create_parser()
 with urllib.request.urlopen("https://api.github.com/repos/priv-kweihmann/meta-sca/issues") as url:
     data = json.loads(url.read().decode())
     for item in data:
-        if item["state"] == "open" and ("npm-" in item["title"] or "python3-" in item["title"]):
+        if item["state"] == "open" and any(x in item["title"] for x in ["npm-", "python3-", "perl-"]):
             if any(x["name"] == "Postponed" for x in item["labels"]):
                 continue
             print("Attempting {}".format(item["title"]))
