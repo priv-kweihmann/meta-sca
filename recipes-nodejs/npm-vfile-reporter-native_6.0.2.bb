@@ -12,9 +12,9 @@ DEPENDS = "npm-repeat-string-native \
            npm-vfile-sort-native \
            npm-vfile-statistics-native"
 
-SRC_URI = "https://registry.npmjs.org/vfile-reporter/-/vfile-reporter-6.0.1.tgz"
-SRC_URI[md5sum] = "bc89e0451f6b8479fa6d1835b35644a5"
-SRC_URI[sha256sum] = "adb1c0a98387bd90e12997d399a6a0f5bd83cafc544795ec34c7d519cbf0b8fb"
+SRC_URI = "https://registry.npmjs.org/vfile-reporter/-/vfile-reporter-6.0.2.tgz"
+SRC_URI[md5sum] = "09f287f8b0787a6ebec55564df3fef88"
+SRC_URI[sha256sum] = "8be0981935b2d03c7834b1b60e73ef93e6f0e926e26d5a779877329641ba5fc2"
 
 NPM_PKGNAME = "vfile-reporter"
 
