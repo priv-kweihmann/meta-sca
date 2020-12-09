@@ -1,5 +1,5 @@
 SUMMARY = "NPM: htmlparser2"
-DESCRIPTION = "Fast & forgiving HTML/XML/RSS parser"
+DESCRIPTION = "Fast & forgiving HTML/XML parser"
 HOMEPAGE = "https://github.com/fb55/htmlparser2#readme"
 
 LICENSE = "MIT"
@@ -10,9 +10,9 @@ DEPENDS = "npm-domelementtype-native \
            npm-domutils-native \
            npm-entities-native"
 
-SRC_URI = "https://registry.npmjs.org/htmlparser2/-/htmlparser2-5.0.1.tgz"
-SRC_URI[md5sum] = "cc0e4fdf8accb4bb47255c0540b8a63c"
-SRC_URI[sha256sum] = "f7671d475acd17c9e452dfeda18edc16bcc0a693c48d8f77f367d5699b83b389"
+SRC_URI = "https://registry.npmjs.org/htmlparser2/-/htmlparser2-6.0.0.tgz"
+SRC_URI[md5sum] = "20d5b164a656f9cb72dc43f4028c1f3f"
+SRC_URI[sha256sum] = "5ca00ac4d9f45fae7159fcc27f26fac3b40720f82f373f65e11b1f26310b14e9"
 
 NPM_PKGNAME = "htmlparser2"
 
