@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = "npm-type-fest-native"
 
-SRC_URI = "https://registry.npmjs.org/globals/-/globals-13.3.0.tgz"
-SRC_URI[md5sum] = "346252351ce1b89fe403f29a3684d9ec"
-SRC_URI[sha256sum] = "c8d85e81c5c6557e1f4b48f1dc4b245beb81a4db32f38a77a8ce3f5eec3f243a"
+SRC_URI = "https://registry.npmjs.org/globals/-/globals-13.4.0.tgz"
+SRC_URI[md5sum] = "36ea4d8e16f8a7bde4d1ef806cabff72"
+SRC_URI[sha256sum] = "e457e194b739b6a5539d032459151465ebb380ad9285e35c2210296bcec3249e"
 
 NPM_PKGNAME = "globals"
 
