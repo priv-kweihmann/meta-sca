@@ -5,6 +5,10 @@ SCA_ENABLE ?= "1"
 SCA_EXPORT_DIR ?= "${DEPLOY_DIR_IMAGE}/sca"
 SCA_EXPORT_FINDING_SRC = "1"
 SCA_EXPORT_FINDING_DIR ?= "${DEPLOY_DIR_IMAGE}/sca/sources/${PN}/"
+
+# local workspace dir to export findings
+SCA_FINDINGS_DIR ?= "${WORKDIR}/sca"
+
 # Add layer names, like 'core' or 'openembedded-layer' to suppress
 # SCA on all recipes of that layer
 SCA_SPARE_LAYER ?= ""
