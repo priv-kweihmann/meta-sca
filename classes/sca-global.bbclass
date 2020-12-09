@@ -3,7 +3,7 @@
 
 SCA_ENABLE ?= "1"
 SCA_EXPORT_DIR ?= "${DEPLOY_DIR_IMAGE}/sca"
-SCA_EXPORT_FINDING_SRC = "1"
+SCA_EXPORT_FINDING_SRC ?= "1"
 SCA_EXPORT_FINDING_DIR ?= "${DEPLOY_DIR_IMAGE}/sca/sources/${PN}/"
 
 # local workspace dir to export findings
