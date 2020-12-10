@@ -5,11 +5,12 @@ HOMEPAGE = "https://github.com/Microsoft/pyright#readme"
 LICENSE = "MIT"
 # does not provide a license file
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
+
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/pyright/-/pyright-1.1.93.tgz"
-SRC_URI[md5sum] = "a0c614078f669119a25d8606f6a136f6"
-SRC_URI[sha256sum] = "87ab008336d256340b22987fc34ac3ce26c13479426b36e2f8efb05c2b59ccca"
+SRC_URI = "https://registry.npmjs.org/pyright/-/pyright-1.1.94.tgz"
+SRC_URI[md5sum] = "50812d1a711514cdee4d5dc5c9dd32fc"
+SRC_URI[sha256sum] = "82c7352498399bb6529a3a64b2e6e57cf3cc7185defb4e8555ffc0c63f8b0502"
 
 NPM_PKGNAME = "pyright"
 
