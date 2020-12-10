@@ -5,9 +5,11 @@ HOMEPAGE = "http://inversify.io"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=305aec93062e1c124bb52446f4f2eaa1"
 
-SRC_URI = "https://registry.npmjs.org/inversify/-/inversify-5.0.1.tgz"
-SRC_URI[md5sum] = "f734c28dc231c95177552fb7fb013c86"
-SRC_URI[sha256sum] = "21ba7117b6c6eb3ccb77da06edc0ec096bb29d5e75f460d4a37991024e4c1115"
+DEPENDS = ""
+
+SRC_URI = "https://registry.npmjs.org/inversify/-/inversify-5.0.5.tgz"
+SRC_URI[md5sum] = "68c34c5259cfb6f75d740c1318d9a786"
+SRC_URI[sha256sum] = "a9c8ac7a3211ea46e60d2dd89020827e43870208b97fd20529ce4e620a25af12"
 
 NPM_PKGNAME = "inversify"
 
