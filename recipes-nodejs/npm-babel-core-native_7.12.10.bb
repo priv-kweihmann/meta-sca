@@ -18,13 +18,12 @@ DEPENDS = "npm-babel-code-frame-native \
            npm-gensync-native \
            npm-json5-native \
            npm-lodash-native \
-           npm-resolve-native \
            npm-semver-native \
            npm-source-map-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/core/-/core-7.12.9.tgz"
-SRC_URI[md5sum] = "0f7f85bac7c6e68d3cd7a138fa34dd2b"
-SRC_URI[sha256sum] = "5735f6d4256f0e81b5c3ba1c0a0df1f9364c9955987829a4c84d5f5a20074381"
+SRC_URI = "https://registry.npmjs.org/@babel/core/-/core-7.12.10.tgz"
+SRC_URI[md5sum] = "7b6fca5a460f09729fd2b5aa05e75c62"
+SRC_URI[sha256sum] = "77478bc9855682349a40ecc3ff4f00329f47989dcca3f6379a7585201fecb6dd"
 
 NPM_PKGNAME = "@babel/core"
 
