@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=ddd815a475e7338b0be7a14d8ee35a99"
 
 DEPENDS = "npm-ms-native"
 
-SRC_URI = "https://registry.npmjs.org/debug/-/debug-4.3.1.tgz"
-SRC_URI[md5sum] = "690937c36f84e02c3d67193c2b867b76"
-SRC_URI[sha256sum] = "34ccfe056d27979867bc08e7449f3a2b1170e9d16591532d4202fb08eb39a38c"
+SRC_URI = "https://registry.npmjs.org/debug/-/debug-4.3.2.tgz"
+SRC_URI[md5sum] = "e6cb523b95d83bb1d087255046eb4d0b"
+SRC_URI[sha256sum] = "06b5b98471dc02410003e8bf34cf9e96afbadc30a83b19f5c9376faa817fa7bb"
 
 NPM_PKGNAME = "debug"
 
