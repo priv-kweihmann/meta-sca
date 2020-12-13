@@ -8,8 +8,8 @@ DEPENDS += "${PYTHON_PN}-setuptools-scm-native"
 
 PYPI_PACKAGE = "py"
 
-SRC_URI[md5sum] = "b80db4e61eef724f49feb4d20b649e62"
-SRC_URI[sha256sum] = "9ca6883ce56b4e8da7e79ac18787889fa5206c79dcc67fb065376cd2fe03f342"
+SRC_URI[md5sum] = "5f108bfe00d5468cbdb8071051f86a55"
+SRC_URI[sha256sum] = "21b81bda15b66ef5e1a777a21c4dcd9c20ad3efd0b3f817e7a809035269e1bd3"
 
 inherit native
 inherit pypi
