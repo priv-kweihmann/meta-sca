@@ -9,8 +9,8 @@ SRC_URI[license.sha256sum] = "cca9e20c6af1fcfbf69408f377769286cbeebcded336100c9b
 
 PYPI_PACKAGE = "wheel"
 
-SRC_URI[md5sum] = "155170d46d4de0794b7aac020c44260d"
-SRC_URI[sha256sum] = "aaef9b8c36db72f8bf7f1e54f85f875c4d466819940863ca0b3f3f77f0a1646f"
+SRC_URI[md5sum] = "800401c0549ea01449dc47305858c833"
+SRC_URI[sha256sum] = "e11eefd162658ea59a60a0f6c7d493a7190ea4b9a85e335b33489d9f17e0245e"
 
 inherit pypi
 inherit setuptools3
