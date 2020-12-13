@@ -7,10 +7,11 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=0372eac36f921e2a3d78dcb0bb6c4f76"
 DEPENDS += "\
             ruby-docile-native \
             ruby-simplecov-html-native \
+            ruby-simplecov-json-formatter-native \
            "
 
-SRC_URI[md5sum] = "29a4d3403dbd51835d5e29a0492e3e6d"
-SRC_URI[sha256sum] = "98c1f875df4bcaeb0de64a753e96eced7e6139f3051a45804e75ed1f2b58bc03"
+SRC_URI[md5sum] = "402ee33cadf7cc7d3a42d4cf4f0776fe"
+SRC_URI[sha256sum] = "8b8d390017743fcbe83387563b17b8b73da9cb4f3486300b358413d37603a2d6"
 
 GEM_NAME = "simplecov"
 
