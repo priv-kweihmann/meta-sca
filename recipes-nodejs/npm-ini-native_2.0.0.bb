@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=82703a69f6d7411dde679954c2fd9dca"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/ini/-/ini-1.3.7.tgz"
-SRC_URI[md5sum] = "3134da00258123b1aab96ea196747d6d"
-SRC_URI[sha256sum] = "fd42d994f27d46f4b1dd2312946a4dd66cafa53c760c98545696ee62780f61fa"
+SRC_URI = "https://registry.npmjs.org/ini/-/ini-2.0.0.tgz"
+SRC_URI[md5sum] = "380b01c56e0c2ddabe5b16c17f94e2df"
+SRC_URI[sha256sum] = "9f724381c23bf8cf5401cbbbc1752d4604f482112f06aef56a4be1861f515990"
 
 NPM_PKGNAME = "ini"
 
