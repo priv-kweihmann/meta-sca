@@ -7,6 +7,7 @@ import subprocess
 import hashlib
 import tarfile
 import glob
+from license_util import get_license_info
 from semantic_version import Version
 
 TPL = """SUMMARY = "RubyGem: {name}"
@@ -16,14 +17,15 @@ HOMEPAGE = "{homepage_uri}"
 LICENSE = "{__license}"
 LIC_FILES_CHKSUM = "file://{__licfile};md5={__lichash}"
 
-DEPENDS = "{__deps}"
+DEPENDS += "{__deps}"
+RDEPENDS_${PN} += " {__rdeps}"
 
 SRC_URI[md5sum] = "{__md5sum}"
 SRC_URI[sha256sum] = "{__sha256sum}"
 
 GEM_NAME = "{name}"
 
-inherit rubygemsnative
+inherit {__class}
 """
 
 __seen_pkgs = []
@@ -52,7 +54,16 @@ def create_depends(desc):
         return ""
     _tpl = "ruby-{}-native"
     res = [sanitize_pkgname(_tpl.format(k["name"])) for k in desc["dependencies"]["runtime"]]
-    return " \\\n           ".join(sorted(res))
+    return " \\\n                  ".join(sorted(res))
+
+def create_rdepends(desc):
+    if not "dependencies" in desc:
+        return ""
+    if not "runtime" in desc["dependencies"]:
+        return ""
+    _tpl = "ruby-{}"
+    res = [sanitize_pkgname(_tpl.format(k["name"])) for k in desc["dependencies"]["runtime"]]
+    return " \\\n                  ".join(sorted(res))
 
 def get_best_version(desc, pkgname, version):
     return desc["version"]
@@ -61,14 +72,24 @@ def get_hashes(args, description, url):
     try:
         subprocess.check_call(["curl", "-k", url, "--output", "/tmp/rubygen.tmp"],
                               stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
-        subprocess.check_call(["tar", "xf", "/tmp/rubygen.tmp", "-C", "/tmp"],
-                              stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL) 
     except subprocess.CalledProcessError as e:
         print("Can't generate hashes for URL:{}".format(url))
-        return ("", "", "TODO", "")
+        return ("", "", "TODO", "abcdef")
 
     _lic_hash = ""
     _lic_path = "TODO"
+
+    tar = tarfile.open("/tmp/rubygen.tmp", 'r')
+    os.makedirs("/tmp/rubygen/", exist_ok=True)
+    tar.extract("data.tar.gz", "/tmp/rubygen/")
+
+    tar = tarfile.open("/tmp/rubygen/data.tar.gz", 'r')
+    _lic_path, _lic_hash = get_license_info(tar, [r".*gemspec"])
+    if not _lic_hash:
+        print("Can't extract license for {}".format(description["name"]))
+        _lic_hash = "abcdef"
+
+    os.remove("/tmp/rubygen/data.tar.gz")
     
     hash_md5 = hashlib.md5()
     hash_sha256 = hashlib.sha256()
@@ -77,7 +98,7 @@ def get_hashes(args, description, url):
             hash_md5.update(chunk)
             hash_sha256.update(chunk)
     
-    return (hash_md5.hexdigest(), hash_sha256.hexdigest(), os.path.basename(_lic_path), _lic_hash)
+    return (hash_md5.hexdigest(), hash_sha256.hexdigest(), _lic_path, _lic_hash)
 
 def get_license(desc):
     if "licenses" not in desc:
@@ -101,6 +122,8 @@ def check_existing(args, pkgname, version, _naming_pattern):
 def create_tpl(args, pkgname, version):
     global __seen_pkgs
     _naming_pattern = "ruby-{}-native_{}.bb"
+    if args.target:
+        _naming_pattern = "ruby-{}_{}.bb"
     if pkgname in __seen_pkgs:
         return
     _all_description = get_description(args, pkgname)
@@ -116,12 +139,14 @@ def create_tpl(args, pkgname, version):
     if _description:
         # compute a few things first
         __calculated = {
-            "__deps": create_depends(_description),
+            "__class": "rubygemsnative" if not args.target else "rubygems",
+            "__deps": create_depends(_description) if not args.target else "",
+            "__rdeps": create_rdepends(_description) if args.target else "",
             "__cleanname": sanitize_pkgname(pkgname),
             "__version": _bestversion,
             "__license": get_license(_description),
             "__disttarball": _description["gem_uri"],
-            "__info": (_description["info"].split(". ")[0]).replace("\n", " ")
+            "__info": re.sub(r'\n|"', "", _description["info"].split(". ")[0]).strip()
         }
         __calculated["__md5sum"], __calculated["__sha256sum"], __calculated["__licfile"], __calculated["__lichash"] = get_hashes(args, _description, __calculated["__disttarball"])
         __tpl = copy.deepcopy(TPL)
@@ -147,6 +172,7 @@ def create_parser():
     parser.add_argument("basepath", help="base path to the recipes")
     parser.add_argument("gemname", help="name of the gem package")
     parser.add_argument("gemversion", help="version of the gem package")
+    parser.add_argument("--target", default=False, action="store_true", help="Generate for target")
     return parser.parse_args()
 
 def main():
