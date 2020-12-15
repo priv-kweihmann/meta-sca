@@ -9,4 +9,5 @@ SRC_URI[sha256sum] = "5d506a7d2723d5592dc121b9928e4931742730131f22a1a37649df1c1e
 
 GEM_NAME = "ice_nine"
 
-inherit rubygemsnative
+inherit rubygems
+inherit native

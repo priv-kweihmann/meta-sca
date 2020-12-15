@@ -9,4 +9,5 @@ SRC_URI[sha256sum] = "a99967c7b2d1d2eb00e1142e60de06a1a6471e82af574b330e9af375e8
 
 GEM_NAME = "public_suffix"
 
-inherit rubygemsnative
+inherit rubygems
+inherit native

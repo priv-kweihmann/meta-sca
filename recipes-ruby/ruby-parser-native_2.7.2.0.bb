@@ -12,4 +12,5 @@ SRC_URI[sha256sum] = "dfd0e872fe3ca330cdbb9222ab14f0a2e254749f78344b791143510f4c
 
 GEM_NAME = "parser"
 
-inherit rubygemsnative
+inherit rubygems
+inherit native
