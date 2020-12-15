@@ -12,9 +12,9 @@ DEPENDS = "npm-debug-native \
            npm-esquery-native \
            npm-lodash-native"
 
-SRC_URI = "https://registry.npmjs.org/vue-eslint-parser/-/vue-eslint-parser-7.2.0.tgz"
-SRC_URI[md5sum] = "dcd0c3958bba7571e37a1bc88c32f912"
-SRC_URI[sha256sum] = "a6d434a61f408bf1c6686031c433a64d2654ceb4e61f66d6a4281c257bbf1f0d"
+SRC_URI = "https://registry.npmjs.org/vue-eslint-parser/-/vue-eslint-parser-7.3.0.tgz"
+SRC_URI[md5sum] = "01c31be3b1e4ee534941a60e72957584"
+SRC_URI[sha256sum] = "86b9f71beaee1679131fdd5f685c8dae4522175b2e26804beb427fb70981b428"
 
 NPM_PKGNAME = "vue-eslint-parser"
 
