@@ -19,7 +19,8 @@ SRC_URI[sha256sum] = "b4b26ba047d8fbe94d213786f05527502784ed765440f99762886031e8
 GEM_NAME = "reek"
 
 inherit sca-description
-inherit rubygemsnative
+inherit rubygems
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}
