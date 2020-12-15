@@ -11,4 +11,5 @@ SRC_URI[sha256sum] = "ae72b9dfe246d3cd3592cec0f98a9dab06ba655adbb66a51559ca0f3ce
 
 GEM_NAME = "codeclimate-engine-rb"
 
-inherit rubygemsnative
+inherit rubygems
+inherit native

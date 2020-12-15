@@ -9,4 +9,5 @@ SRC_URI[sha256sum] = "2e3eb481209795084eaf3a8b55e35991048abc02cba9363afd88fefe94
 
 GEM_NAME = "docile"
 
-inherit rubygemsnative
+inherit rubygems
+inherit native

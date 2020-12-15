@@ -16,4 +16,5 @@ SRC_URI[sha256sum] = "d3053b9ff62d3f8b7b233f7e1aa9530b73ed7e541bee2c62f2c7113622
 
 GEM_NAME = "virtus"
 
-inherit rubygemsnative
+inherit rubygems
+inherit native

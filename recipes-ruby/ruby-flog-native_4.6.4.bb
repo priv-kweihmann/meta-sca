@@ -15,4 +15,5 @@ SRC_URI[sha256sum] = "b5aa03696c075a7d672cd5e24cee36e4b76c23e200a2add0618b834270
 
 GEM_NAME = "flog"
 
-inherit rubygemsnative
+inherit rubygems
+inherit native
