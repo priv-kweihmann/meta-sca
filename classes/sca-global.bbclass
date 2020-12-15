@@ -102,6 +102,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           golint \
                           gosec \
                           htmlhint \
+                          inspec \
                           jshint \
                           jsonlint \
                           kconfighard \
