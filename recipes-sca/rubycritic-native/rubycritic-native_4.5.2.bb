@@ -24,7 +24,8 @@ SRC_URI[sha256sum] = "82be91ca9cbc5990055db450bc79296ded8201d984a69541078046c2f5
 GEM_NAME = "rubycritic"
 
 inherit sca-description
-inherit rubygemsnative
+inherit rubygems
+inherit native
 
 do_compile_prepend() {
     sed -i 's/<launchy>.freeze, \["= 2.4.3"\]/<launchy>.freeze, \[">= 2.4.3"\]/g' ${S}/rubycritic-${PV}.gemspec
