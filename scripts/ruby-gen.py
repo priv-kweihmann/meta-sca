@@ -18,7 +18,7 @@ LICENSE = "{__license}"
 LIC_FILES_CHKSUM = "file://{__licfile};md5={__lichash}"
 
 DEPENDS += "{__deps}"
-RDEPENDS_${PN} += " {__rdeps}"
+RDEPENDS_${PN} += "{__rdeps}"
 
 SRC_URI[md5sum] = "{__md5sum}"
 SRC_URI[sha256sum] = "{__sha256sum}"
