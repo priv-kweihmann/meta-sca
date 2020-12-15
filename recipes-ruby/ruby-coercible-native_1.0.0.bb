@@ -9,4 +9,5 @@ SRC_URI[sha256sum] = "5081ad24352cc8435ce5472bc2faa30260c7ea7f2102cc6a9f167c4d9b
 
 GEM_NAME = "coercible"
 
-inherit rubygemsnative
+inherit rubygems
+inherit native

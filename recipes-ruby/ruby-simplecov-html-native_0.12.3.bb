@@ -9,4 +9,5 @@ SRC_URI[sha256sum] = "4b1aad33259ffba8b29c6876c12db70e5750cb9df829486e4c6e5da4fa
 
 GEM_NAME = "simplecov-html"
 
-inherit rubygemsnative
+inherit rubygems
+inherit native

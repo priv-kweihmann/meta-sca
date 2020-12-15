@@ -15,4 +15,5 @@ SRC_URI[sha256sum] = "c1ff113f3de516fa195b2db7e0a9a95fd1b08475a502ff660d04507a09
 
 GEM_NAME = "axiom-types"
 
-inherit rubygemsnative
+inherit rubygems
+inherit native
