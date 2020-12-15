@@ -1,0 +1,25 @@
+{
+    "buildspeed": 2,
+    "execspeed": 2,
+    "languages": [
+        "system"
+    ],
+    "uses": [
+        "@ruby"
+    ],
+    "quality": 9,
+    "scope": [
+        "compliance",
+        "security"
+    ],
+    "score": {
+        "compliance": [
+            "inspec.inspec..*"
+        ]
+    },
+    "test": {
+        "findings": [
+            "core-image-minimal-scatest"
+        ]
+    }
+}
