@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b1befbdcbeb73a7fd9b944d31f0fee64"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/cspell-util-bundle/-/cspell-util-bundle-5.0.3.tgz"
-SRC_URI[md5sum] = "17f4f77c23f6356dccd0683e1b102db0"
-SRC_URI[sha256sum] = "b7c1eddafd3349aa13e844f5e3e83eda4ddc188e2af3f2414189f4d8c65bf9a3"
+SRC_URI = "https://registry.npmjs.org/cspell-util-bundle/-/cspell-util-bundle-5.0.5.tgz"
+SRC_URI[md5sum] = "7329661c218ff108631d23b276f3fda1"
+SRC_URI[sha256sum] = "c34f1a16917b9af449a4d19e80b3acb48bcc945913bb1998903985d0f70e64b3"
 
 NPM_PKGNAME = "cspell-util-bundle"
 
