@@ -10,4 +10,5 @@ SRC_URI[sha256sum] = "d23cd340bc10d78c11f874a99ed233bdb01a111b46edd075d7079735ee
 
 GEM_NAME = "simplecov_json_formatter"
 
-inherit rubygemsnative
+inherit rubygems
+inherit native
