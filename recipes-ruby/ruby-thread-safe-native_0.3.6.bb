@@ -10,4 +10,5 @@ SRC_URI[sha256sum] = "9ed7072821b51c57e8d6b7011a8e282e25aeea3a4065eab326e43f66f0
 
 GEM_NAME = "thread_safe"
 
-inherit rubygemsnative
+inherit rubygems
+inherit native

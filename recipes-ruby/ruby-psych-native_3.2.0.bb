@@ -9,4 +9,5 @@ SRC_URI[sha256sum] = "b896027249300cbc15e03c64a28fef6983458c572306bb86326d27394f
 
 GEM_NAME = "psych"
 
-inherit rubygemsnative
+inherit rubygems
+inherit native
