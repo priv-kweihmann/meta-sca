@@ -9,4 +9,5 @@ SRC_URI[sha256sum] = "0ac45f416555041882c632602aeb733379fec08b08a3123d92e7828374
 
 GEM_NAME = "tty-which"
 
-inherit rubygemsnative
+inherit rubygems
+inherit native
