@@ -25,7 +25,7 @@ SRC_URI[sha256sum] = "{__sha256sum}"
 
 GEM_NAME = "{name}"
 
-inherit {__class}
+{__class}
 """
 
 __seen_pkgs = []
@@ -113,6 +113,7 @@ def check_existing(args, pkgname, version, _naming_pattern):
         mversion = Version(os.path.basename(m).replace(".bb", "").split("_")[1])
         cversion = Version(version)
         if mversion >= cversion:
+            print("{} <= {} @{}".format(mversion, cversion, os.path.basename(m)))
             return False
         if mversion < cversion:
             print("Deleting old version {}".format(os.path.basename(m)))
@@ -133,13 +134,14 @@ def create_tpl(args, pkgname, version):
         print("Can't get useful version for {} with '{}'".format(pkgname, version))
         return
     if not check_existing(args, pkgname, _bestversion, _naming_pattern):
+        print("Higher version already existing")
         return
     _description = _all_description
     _respath = os.path.join(args.basepath, _naming_pattern.format(sanitize_pkgname(pkgname), _bestversion))
     if _description:
         # compute a few things first
         __calculated = {
-            "__class": "rubygemsnative" if not args.target else "rubygems",
+            "__class": ["rubygems"],
             "__deps": create_depends(_description) if not args.target else "",
             "__rdeps": create_rdepends(_description) if args.target else "",
             "__cleanname": sanitize_pkgname(pkgname),
@@ -148,6 +150,9 @@ def create_tpl(args, pkgname, version):
             "__disttarball": _description["gem_uri"],
             "__info": re.sub(r'\n|"', "", _description["info"].split(". ")[0]).strip()
         }
+        if not args.target:
+            __calculated["__class"] += ["native"]
+        __calculated["__class"] = "\n".join(["inherit {}".format(x) for x in __calculated["__class"]])
         __calculated["__md5sum"], __calculated["__sha256sum"], __calculated["__licfile"], __calculated["__lichash"] = get_hashes(args, _description, __calculated["__disttarball"])
         __tpl = copy.deepcopy(TPL)
         for k, v in _description.items():

@@ -25,6 +25,7 @@ def get_real_package_name_npm(_args, recipe):
         out = ""
     return out
 
+
 def get_real_package_name_ruby(_args, recipe):
     try:
         out = subprocess.check_output(
@@ -45,6 +46,7 @@ def run_package_update_npm(_args, packagename, version):
     except:
         return False
 
+
 def run_package_update_pypi(_args, packagename, version):
     try:
         subprocess.check_call(["python3", os.path.join(_args.repo, "scripts", "pypi-update.py"),
@@ -52,6 +54,7 @@ def run_package_update_pypi(_args, packagename, version):
         return True
     except:
         return False
+
 
 def run_package_update_perl(_args, packagename, version):
     try:
@@ -61,16 +64,20 @@ def run_package_update_perl(_args, packagename, version):
     except:
         return False
 
+
 def run_package_update_ruby(_args, packagename, version, target=False):
     try:
-        _pargs = ["python3", os.path.join(_args.repo, "scripts", "ruby-gen.py")]
+        _pargs = ["python3", os.path.join(
+            _args.repo, "scripts", "ruby-gen.py")]
         if target:
             _pargs += ["--target"]
-        _pargs += [os.path.join(_args.repo, "recipes-ruby"), packagename, version]          
+        _pargs += [os.path.join(_args.repo, "recipes-ruby"),
+                   packagename, version]
         subprocess.check_call(_pargs, universal_newlines=True)
         return True
     except:
         return False
+
 
 def git_commit(_args, recipe, version, issue):
     __git = git.Repo(path=_args.repo)
@@ -106,25 +113,30 @@ def update_packages(_args, _input, number):
         if _recipe.startswith("npm-"):
             _pkgname = get_real_package_name_npm(_args, _recipe)
             if _pkgname:
-                _update = run_package_update_npm(_args, _pkgname, m.group("version"))
+                _update = run_package_update_npm(
+                    _args, _pkgname, m.group("version"))
         elif _recipe.startswith("python3-"):
-            _update = run_package_update_pypi(_args, _recipe, m.group("version"))
+            _update = run_package_update_pypi(
+                _args, _recipe, m.group("version"))
         elif _recipe.startswith("perl-"):
-            _update = run_package_update_perl(_args, _recipe, m.group("version"))
+            _update = run_package_update_perl(
+                _args, _recipe, m.group("version"))
         elif _recipe.startswith("ruby-"):
             _pkgname = get_real_package_name_ruby(_args, _recipe)
             if _pkgname:
-                _update = run_package_update_ruby(_args, _pkgname, m.group("version"), target=False if _recipe.endswith("-native") else True)
+                _update = run_package_update_ruby(_args, _pkgname, m.group(
+                    "version"), target=False if _recipe.endswith("-native") else True)
         if _update:
             if run_bitbake_test(_args, _recipe):
                 git_commit(_args, _recipe,
-                            m.group("version"), number)
+                           m.group("version"), number)
         else:
-            print("Failed to update {recipe} - skipping".format(recipe=_recipe))
+            print(
+                "Failed to update {recipe} - skipping".format(recipe=_recipe))
 
 
 _args = create_parser()
-with urllib.request.urlopen("https://api.github.com/repos/priv-kweihmann/meta-sca/issues") as url:
+with urllib.request.urlopen("https://api.github.com/repos/priv-kweihmann/meta-sca/issues?state=open") as url:
     data = json.loads(url.read().decode())
     for item in data:
         if item["state"] == "open" and any(x in item["title"] for x in ["npm-", "python3-", "perl-", "ruby-"]):
