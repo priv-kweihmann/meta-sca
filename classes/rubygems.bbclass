@@ -62,8 +62,8 @@ do_unpack_gem() {
     gem unpack -V ${GEM_FILE}
 }
 
-DEPENDS_class-native += "${@d.getVar('RDEPENDS_' + '${PN}', True) or ''}"
-DEPENDS_class-target += "ruby-cross-${TARGET_ARCH}"
+DEPENDS_append_class-native = " ${@d.getVar('RDEPENDS_' + '${PN}', True) or ''}"
+DEPENDS_append_class-target = " ruby-cross-${TARGET_ARCH}"
 
 python () {
     # unpack_gem need ruby to be installed in sysroot to succeed
