@@ -1,0 +1,59 @@
+From 505bc69aeac0065184a0fc95b843a8dbed6f36a9 Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Wed, 16 Dec 2020 21:14:51 +0100
+Subject: [PATCH] Makefile: cross compile fixes
+
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+---
+ template/Makefile.in | 29 ++++++++++++++++++++++-------
+ 1 file changed, 22 insertions(+), 7 deletions(-)
+
+diff --git a/template/Makefile.in b/template/Makefile.in
+index 940ee07..882af9d 100644
+--- a/template/Makefile.in
++++ b/template/Makefile.in
+@@ -320,19 +320,34 @@ rbconfig.rb: $(RBCONFIG)
+ install-cross: $(arch)-fake.rb $(RBCONFIG) rbconfig.rb $(arch_hdrdir)/ruby/config.h \
+ 	$(LIBRUBY_A) $(LIBRUBY_SO) $(ARCHFILE)
+ 	$(ECHO) installing cross-compiling stuff
+-	$(Q) $(MAKEDIRS) $(XRUBY_RUBYLIBDIR)/$(arch) $(XRUBY_RUBYHDRDIR)/$(arch)/ruby
++	$(Q) $(MAKEDIRS) $(DESTDIR)$(XRUBY_RUBYLIBDIR)/$(arch)-cross $(DESTDIR)$(XRUBY_RUBYHDRDIR)/$(arch)-cross/ruby
+ 	$(Q) sed '/^\$$:\.unshift/q' $(arch)-fake.rb > fake.rb
+ 	$(Q) $(BASERUBY) -p \
+ 	-e '~/^\s*CONFIG\["LDFLAGS"\]/ and' \
+ 	-e '$$_[/(?=\s*"$$)/] = %q[ #{(CONFIG["LIBPATHFLAG"]%File.dirname(__FILE__)).strip}]' \
+ 	rbconfig.rb > fake-rbconfig.rb
+-	$(INSTALL_SCRIPT) fake.rb $(XRUBY_RUBYLIBDIR)/$(arch)/fake.rb
+-	$(INSTALL_SCRIPT) fake-rbconfig.rb $(XRUBY_RUBYLIBDIR)/$(arch)/rbconfig.rb
++	sed -i "\#CONFIG\[\"cppflags\"\]#s#${CPPFLAGS_FROM_CROSS}#${CPPFLAGS_FOR_TARGET}#" fake-rbconfig.rb
++	sed -i "\#CONFIG\[\"STRIP\"\]#s#${STRIP}#${STRIP_FOR_TARGET}#" fake-rbconfig.rb
++	sed -i "\#CONFIG\[\"NM\"\]#s#${NM}#${NM_FOR_TARGET}#" fake-rbconfig.rb
++	sed -i "\#CONFIG\[\"OBJDUMP\"\]#s#${OBJDUMP}#${OBJDUMP_FOR_TARGET}#" fake-rbconfig.rb
++	sed -i "\#CONFIG\[\"AS\"\]#s#${AS}#${AS_FOR_TARGET}#" fake-rbconfig.rb
++	sed -i "\#CONFIG\[\"AR\"\]#s#${AR}#${AR_FOR_TARGET}#" fake-rbconfig.rb
++	sed -i "\#CONFIG\[\"RANLIB\"\]#s#${RANLIB}#${RANLIB_FOR_TARGET}#" fake-rbconfig.rb
++	sed -i "\#CONFIG\[\"CPP\"\]#s#${CPP}#${CPP_FOR_TARGET}#" fake-rbconfig.rb
++	sed -i "\#CONFIG\[\"CXXFLAGS\"\]#s#${CXXFLAGS_FROM_CROSS}#${CXXFLAGS_FOR_TARGET}#" fake-rbconfig.rb
++	sed -i "\#CONFIG\[\"CXX\"\]#s#${CXX}#${CXX_FOR_TARGET}#" fake-rbconfig.rb
++	sed -i "\#CONFIG\[\"CPPFLAGS\"\]#s#${CPPFLAGS_FROM_CROSS}##" fake-rbconfig.rb
++	sed -i "\#CONFIG\[\"LDFLAGS\"\]#s#${LDFLAGS_FROM_CROSS}#${LDFLAGS_FOR_TARGET}#" fake-rbconfig.rb
++	sed -i "\#CONFIG\[\"CFLAGS\"\]#s#${CFLAGS_FROM_CROSS}#${CFLAGS_FOR_TARGET}#" fake-rbconfig.rb
++	sed -i "\#CONFIG\[\"CC\"\]#s#${CC}#${CC_FOR_TARGET}#" fake-rbconfig.rb
++
++	$(INSTALL_SCRIPT) fake.rb $(DESTDIR)$(XRUBY_RUBYLIBDIR)/$(arch)-cross/fake.rb
++	$(INSTALL_SCRIPT) fake-rbconfig.rb $(DESTDIR)$(XRUBY_RUBYLIBDIR)/$(arch)-cross/rbconfig.rb
+ 	@$(RM) fake.rb fake-rbconfig.rb
+-	$(INSTALL_DATA) $(arch_hdrdir)/ruby/config.h $(XRUBY_RUBYHDRDIR)/$(arch)/ruby
+-	$(INSTALL_DATA) $(top_srcdir)/include/ruby/win32.h $(XRUBY_RUBYHDRDIR)/ruby
+-	$(INSTALL_DATA) $(LIBRUBY) $(LIBRUBY_A) $(XRUBY_RUBYLIBDIR)/$(arch)
+-	$(INSTALL_PROGRAM) $(LIBRUBY_SO) $(XRUBY_RUBYLIBDIR)/$(arch)
++	$(INSTALL_DATA) $(arch_hdrdir)/ruby/config.h $(DESTDIR)$(XRUBY_RUBYHDRDIR)/$(arch)-cross/ruby
++	$(INSTALL_DATA) $(LIBRUBY) $(DESTDIR)$(XRUBY_RUBYLIBDIR)/$(arch)-cross
++	$(INSTALL_DATA) $(LIBRUBY_A) $(DESTDIR)$(XRUBY_RUBYLIBDIR)/$(arch)-cross
++	$(INSTALL_PROGRAM) $(LIBRUBY_SO) $(DESTDIR)$(XRUBY_RUBYLIBDIR)/$(arch)-cross
+ 
+ Makefile:	$(srcdir)/template/Makefile.in $(srcdir)/enc/Makefile.in
+ 
+-- 
+2.25.1
+
