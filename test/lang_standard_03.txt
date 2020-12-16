@@ -1,7 +1,6 @@
 ansible
 ansibleroles
 gixy
-inspec
 lse
 lynis
 nixauditor
