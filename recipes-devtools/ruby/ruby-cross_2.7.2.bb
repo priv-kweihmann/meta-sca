@@ -41,6 +41,7 @@ SRC_URI_append = " \
                   file://remove_has_include_macros.patch \
                   file://0001-Modify-shebang-of-libexec-y2racc-and-libexec-racc2y.patch \
                   file://0001-template-Makefile.in-do-not-write-host-cross-cc-item.patch \
+                  file://0001-Makefile-cross-compile-fixes.patch \
                  "
 
 SRC_URI[md5sum] = "2d4a28dcfa38352a627a597f6057c465"
@@ -53,6 +54,20 @@ PACKAGECONFIG ??= "${@bb.utils.filter('DISTRO_FEATURES', 'ipv6', d)}"
 PACKAGECONFIG[valgrind] = "--with-valgrind=yes, --with-valgrind=no, valgrind"
 PACKAGECONFIG[gmp] = "--with-gmp=yes, --with-gmp=no, gmp"
 PACKAGECONFIG[ipv6] = "--enable-ipv6, --disable-ipv6,"
+
+def getcoroutine(d):
+    _sys = d.getVar("TARGET_ARCH")
+    if _sys in ["arm"]:
+        return "arm32"
+    elif _sys in ["i486", "i586", "i686"]:
+        return "x86"
+    elif _sys in ["x86_64"]:
+        return "amd64"
+    elif _sys in ["powerpc64le"]:
+        return "ppc64le"
+    elif _sys in ["aarch64"]:
+        return "arm64"
+    return "unknown"
 
 inherit autotools cross
 
@@ -67,6 +82,7 @@ EXTRA_OECONF = "\
     --bindir='$''{exec_prefix}/bin' \
     --sbindir='$''{exec_prefix}/sbin' \
     --libexecdir='$''{exec_prefix}/libexec' \
+    --with-coroutine=${@getcoroutine(d)} \
 "
 
 # This snippet lets compiled extensions which rely on external libraries,
