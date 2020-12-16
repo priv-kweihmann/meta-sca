@@ -5,7 +5,7 @@ HOMEPAGE = "https://github.com/inspec/train"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=8f7bb094c7232b058c7e9f2e431f389c"
 
-DEPENDS = ""
+DEPENDS += ""
 RDEPENDS_${PN} += "ruby-addressable \
                   ruby-ffi \
                   ruby-json \
@@ -13,8 +13,8 @@ RDEPENDS_${PN} += "ruby-addressable \
                   ruby-net-scp \
                   ruby-net-ssh"
 
-SRC_URI[md5sum] = "5428c57bc89963d185645c0494d16a89"
-SRC_URI[sha256sum] = "00d066de8e5d1b7fa82a95017dddff571b2984ccc38df76ea2be3d5cc8781252"
+SRC_URI[md5sum] = "49ef42e351850f1acbcded05c8de9ce3"
+SRC_URI[sha256sum] = "47f26171e1a193093236a0dd123366569fdb687dd35f1e8647e29ab16a61a6dd"
 
 GEM_NAME = "train-core"
 
