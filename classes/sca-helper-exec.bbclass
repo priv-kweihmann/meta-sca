@@ -106,7 +106,8 @@ def exec_wrap_check_output(base_cmd, filelist, combine=exec_wrap_combine_txt, to
         if not chunk:
             continue
         cmd_output = toolexec(base_cmd, chunk, stderr, **kwargs)
-
+        __debug_chunk = min(150, len(str(cmd_output))) - 1
+        bb.note(str(cmd_output)[0:__debug_chunk])
         _result_out = combine(_result_out, cmd_output, **kwargs)
 
     return _result_out
