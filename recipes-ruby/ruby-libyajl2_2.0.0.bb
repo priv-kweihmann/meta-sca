@@ -5,7 +5,7 @@ HOMEPAGE = "https://github.com/chef/libyajl2-gem"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=6c4db32a2fa8717faffa1d4f10136f47"
 
-DEPENDS = ""
+DEPENDS = "gmp"
 RDEPENDS_${PN} += ""
 
 SRC_URI[md5sum] = "b9dd6929beac27cfcaa23d1277c59b02"
