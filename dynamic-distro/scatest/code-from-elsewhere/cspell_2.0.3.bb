@@ -18,4 +18,4 @@ do_install() {
 
 SCA_BLACKLIST_proselint += "${PN}"
 
-SCA_ENABLED_MODULES = "retire npmaudit"
+SCA_ENABLED_MODULES = "bitbake retire npmaudit"
