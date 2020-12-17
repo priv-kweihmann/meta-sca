@@ -55,20 +55,6 @@ PACKAGECONFIG[valgrind] = "--with-valgrind=yes, --with-valgrind=no, valgrind"
 PACKAGECONFIG[gmp] = "--with-gmp=yes, --with-gmp=no, gmp"
 PACKAGECONFIG[ipv6] = "--enable-ipv6, --disable-ipv6,"
 
-def getcoroutine(d):
-    _sys = d.getVar("TARGET_ARCH")
-    if _sys in ["arm"]:
-        return "arm32"
-    elif _sys in ["i486", "i586", "i686"]:
-        return "x86"
-    elif _sys in ["x86_64"]:
-        return "amd64"
-    elif _sys in ["powerpc64le"]:
-        return "ppc64le"
-    elif _sys in ["aarch64"]:
-        return "arm64"
-    return "unknown"
-
 inherit autotools cross
 
 EXTRA_OECONF = "\
@@ -82,7 +68,7 @@ EXTRA_OECONF = "\
     --bindir='$''{exec_prefix}/bin' \
     --sbindir='$''{exec_prefix}/sbin' \
     --libexecdir='$''{exec_prefix}/libexec' \
-    --with-coroutine=${@getcoroutine(d)} \
+    --with-coroutine=copy \
 "
 
 # This snippet lets compiled extensions which rely on external libraries,
