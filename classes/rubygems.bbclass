@@ -104,7 +104,9 @@ rubygems_do_compile() {
     export LANGUAGE="en_US.UTF-8"
     export LC_ALL="en_US.UTF-8"
 
-    gem build -V ${GEM_SPEC_FILE} -o ${GEM_BUILT_FILE}
+    # Older versions of gem build don't understand -o flag, so try it once more without 
+    # it, if the command is failing
+    gem build -V ${GEM_SPEC_FILE} -o ${GEM_BUILT_FILE} || gem build -V ${GEM_SPEC_FILE}
 }
 
 rubygems_do_install() {
