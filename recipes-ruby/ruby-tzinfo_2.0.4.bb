@@ -5,11 +5,11 @@ HOMEPAGE = "https://tzinfo.github.io"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b7a23b7bc3769392321d91780fe51a4e"
 
-DEPENDS = ""
+DEPENDS += ""
 RDEPENDS_${PN} += "ruby-concurrent-ruby"
 
-SRC_URI[md5sum] = "f32937d3d96a941552a0d1e8a1fdcdad"
-SRC_URI[sha256sum] = "6f1705dd3ca4cf21fbdd1abdea8338334ef115df2e33e42a8f791b19db9765ab"
+SRC_URI[md5sum] = "64689a72ca22a4ed855a32ce97f313e0"
+SRC_URI[sha256sum] = "9fd0906c2409f729e90c78695e1001fa28f2fa72faa5ad2f6074c3e44e2f1783"
 
 GEM_NAME = "tzinfo"
 
