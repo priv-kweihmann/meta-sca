@@ -9,7 +9,7 @@ jobs:
     name: "build"
     env:
       DISTRO: scatest
-      MACHINE: qemux86
+      MACHINE: qemux86-64
       SCABRANCH: master
       ENABLEMETAOE: 1
       ENABLEMETACLANG: 0
