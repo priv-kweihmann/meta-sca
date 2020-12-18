@@ -7,6 +7,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-image-backtrack
 
 # override some variables till an upstream fix is available
 CVE_CHECK_DB_DIR = "${TOPDIR}/downloads/CVE_CHECK"
@@ -56,7 +57,7 @@ def sca_create_data_file(d, patched, unpatched, cve_data):
         if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             continue
         if g.Severity in sca_allowed_warning_level(d):
-            _findings.append(g)
+            _findings += sca_backtrack_findings(d, g)
 
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)

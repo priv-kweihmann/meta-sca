@@ -13,6 +13,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-image-backtrack
 inherit sca-tracefiles
 
 def do_sca_conv_rats(d):
@@ -74,7 +75,7 @@ def do_sca_conv_rats(d):
                                                     Severity=_severity)
                             if _suppress.Suppressed(g):
                                 continue
-                            _findings.append(g)
+                            _findings += sca_backtrack_findings(d, g)
                 except Exception as exp:
                     bb.note(str(exp))
         except:
