@@ -180,8 +180,8 @@ python do_sca_ansible() {
     import glob
     import subprocess
 
-    _inventory = "ansible_inv.yaml"
-    _configuration = "ansible.cfg"
+    _inventory = os.path.join(d.getVar("T"), "ansible_inv.yaml")
+    _configuration = os.path.join(d.getVar("T"), "ansible.cfg")
     create_inventory(d, _inventory)
     create_configuration(d, _configuration)
 
@@ -191,6 +191,7 @@ python do_sca_ansible() {
     os.environ["ANSIBLE_LOCALHOST_WARNING"] = "False"
     os.environ["ANSIBLE_LOCAL_TEMP"] = d.getVar("T")
     os.environ["ANSIBLE_REMOTE_TEMP"] = d.getVar("T")
+    os.environ["ANSIBLE_CONFIG"] = _configuration
     os.environ["HOME"] = d.getVar("T")
     _args = ["ansible-playbook"]
     _args += ["--check"]
