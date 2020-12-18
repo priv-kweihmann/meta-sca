@@ -9,6 +9,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-image-backtrack
 
 SCA_BITBAKE_HARDENING ?= "\
                           debug_tweaks \
@@ -38,7 +39,7 @@ def do_sca_bitbake_hardening(d):
                                     Severity="warning")
             if not _suppress.Suppressed(g) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                 if g.Severity in sca_allowed_warning_level(d):
-                    _findings.append(g)
+                    _findings += sca_backtrack_findings(d, g)
     if "insane_skip" in _modules:
         ## INSANE_SKIP isn't used anywhere
         if clean_split(d, "INSANE_SKIP_{}".format(d.getVar("PN"))):
@@ -52,7 +53,7 @@ def do_sca_bitbake_hardening(d):
                                     Severity="warning")
             if not _suppress.Suppressed(g) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                 if g.Severity in sca_allowed_warning_level(d):
-                    _findings.append(g)
+                    _findings += sca_backtrack_findings(d, g)
     if "security_flags" in _modules:
         _files = clean_split(d, "BBINCLUDED")
         ## Check that security_flags from poky are somehow included
@@ -67,7 +68,7 @@ def do_sca_bitbake_hardening(d):
                                     Severity="warning")
             if not _suppress.Suppressed(g) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                 if g.Severity in sca_allowed_warning_level(d):
-                    _findings.append(g)
+                    _findings += sca_backtrack_findings(d, g)
 
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
@@ -110,7 +111,7 @@ def do_sca_conv_bitbake(d):
                     if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
-                        _findings.append(g)
+                        _findings += sca_backtrack_findings(d, g)
                 except Exception as exp:
                     bb.note(str(exp))
 
