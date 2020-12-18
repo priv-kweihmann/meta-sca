@@ -67,7 +67,7 @@ python do_sca_scancode() {
              "--strip-root", "-n", d.getVar("BB_NUMBER_THREADS"), "--quiet"]
 
     ## Run
-    exec_wrap_check_output(_args, [d.getVar("SCA_SOURCES_DIR")])
+    bb.warn(str(exec_wrap_check_output(_args, [d.getVar("SCA_SOURCES_DIR")])))
 }
 
 def scancode_get_license(d, _in):
