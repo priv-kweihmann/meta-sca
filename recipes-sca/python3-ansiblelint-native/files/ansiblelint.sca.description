@@ -2,7 +2,7 @@
     "buildspeed": 2,
     "execspeed": 10,
     "languages": [
-        "ansible"
+        "python"
     ],
     "uses": [
         "@python"
