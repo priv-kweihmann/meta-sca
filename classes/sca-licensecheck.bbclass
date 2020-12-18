@@ -14,6 +14,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-image-backtrack
 
 def do_sca_conv_licensecheck(d):
     import os
@@ -49,7 +50,7 @@ def do_sca_conv_licensecheck(d):
                     if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
-                        _findings.append(g)
+                        _findings += sca_backtrack_findings(d, g)
                 except Exception as e:
                     bb.note(str(e))
     sca_add_model_class_list(d, _findings)

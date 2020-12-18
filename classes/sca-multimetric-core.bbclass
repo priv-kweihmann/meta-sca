@@ -47,6 +47,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-image-backtrack
 inherit python3native
 
 def do_sca_conv_multimetric(d):
@@ -87,7 +88,7 @@ def do_sca_conv_multimetric(d):
                             if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                                 continue
                             if g.Severity in sca_allowed_warning_level(d):
-                                _findings.append(g)
+                                _findings += sca_backtrack_findings(d, g)
                     elif d.getVar("SCA_MULTIMETRIC_ERROR_{}_gt".format(_item)):
                         threshold = float(d.getVar("SCA_MULTIMETRIC_ERROR_{}_gt".format(_item)))
                         val = float(str(v[_item]))
@@ -105,7 +106,7 @@ def do_sca_conv_multimetric(d):
                             if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                                 continue
                             if g.Severity in sca_allowed_warning_level(d):
-                                _findings.append(g)
+                                _findings += sca_backtrack_findings(d, g)
                     elif d.getVar("SCA_MULTIMETRIC_WARN_{}_lt".format(_item)):
                         threshold = float(d.getVar("SCA_MULTIMETRIC_WARN_{}_lt".format(_item)))
                         val = float(str(v[_item]))
@@ -123,7 +124,7 @@ def do_sca_conv_multimetric(d):
                             if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                                 continue
                             if g.Severity in sca_allowed_warning_level(d):
-                                _findings.append(g)
+                                _findings += sca_backtrack_findings(d, g)
                     elif d.getVar("SCA_MULTIMETRIC_WARN_{}_gt".format(_item)):
                         threshold = float(d.getVar("SCA_MULTIMETRIC_WARN_{}_gt".format(_item)))
                         val = float(str(v[_item]))
@@ -141,7 +142,7 @@ def do_sca_conv_multimetric(d):
                             if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                                 continue
                             if g.Severity in sca_allowed_warning_level(d):
-                                _findings.append(g)
+                                _findings += sca_backtrack_findings(d, g)
         except Exception as e:
             bb.note(str(e))
 

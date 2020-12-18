@@ -12,6 +12,7 @@ inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
 inherit sca-suppress
+inherit sca-image-backtrack
 
 SCA_RAW_RESULT_FILE[bashate] = "txt"
 
@@ -65,7 +66,7 @@ def do_sca_conv_bashate(d):
                     if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
-                        _findings.append(g)
+                        _findings += sca_backtrack_findings(d, g)
                 except Exception as exp:
                     bb.note(str(exp))
     sca_add_model_class_list(d, _findings)
