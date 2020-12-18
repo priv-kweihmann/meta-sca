@@ -15,6 +15,7 @@ inherit sca-datamodel
 inherit sca-global
 inherit sca-helper
 inherit sca-suppress
+inherit sca-image-backtrack
 inherit sca-tracefiles
 
 def sca_gcc_hardening(d):
@@ -56,7 +57,7 @@ def sca_gcc_hardening(d):
             if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                 continue
             if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)
+                _findings += sca_backtrack_findings(d, g)
     if not ("-z,nodlopen" in _linker_flags and "-z,nodump" in _linker_flags) and \
        not ("-z,nodlopen" in logcontent and "-z,nodump" in logcontent):
         g = sca_get_model_class(d,
@@ -69,7 +70,7 @@ def sca_gcc_hardening(d):
                                 Severity="warning")
         if not (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)
+                _findings += sca_backtrack_findings(d, g)
     if not ("-z,noexecstack" in _linker_flags and "-z,noexecheap" in _linker_flags) and \
        not ("-z,noexecstack" in logcontent and "-z,noexecheap" in logcontent):
         g = sca_get_model_class(d,
@@ -82,7 +83,7 @@ def sca_gcc_hardening(d):
                                 Severity="warning")
         if not (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)
+                _findings += sca_backtrack_findings(d, g)
     if not ("-O2" in _linker_flags or "-O3" in _linker_flags or "-Os" in _linker_flags) and \
        not ("-O2 " in logcontent or "-O3 " in logcontent or "-Os " in logcontent):
         g = sca_get_model_class(d,
@@ -95,7 +96,7 @@ def sca_gcc_hardening(d):
                                 Severity="warning")
         if not (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)
+                _findings += sca_backtrack_findings(d, g)
 
     for item in ["-Wall", "-Wcast-align", "-Wconversion", "-Wextra", "-Wformat-security",
                  "-Wformat=2", "-Wsign-conversion", "-Wstrict-overflow", "-Wstrict-prototypes",
@@ -113,7 +114,7 @@ def sca_gcc_hardening(d):
             if (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                 continue
             if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)
+                _findings += sca_backtrack_findings(d, g)
 
     for item in ["-Woverloaded-virtual", "-Wreorder", "-Wsign-promo", "-Weffc++", "-Wnon-virtual-dtor"]:
         if not item in _cxxflags and not item in logcontent:
@@ -128,7 +129,7 @@ def sca_gcc_hardening(d):
             if (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                 continue
             if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)
+                _findings += sca_backtrack_findings(d, g)
 
     if d.getVar("DEBUG_BUILD") != "1" and ("-DDEBUG=1" in _cflags or "-DDEBUG=1" in logcontent):
         g = sca_get_model_class(d,
@@ -141,7 +142,7 @@ def sca_gcc_hardening(d):
                                 Severity="warning")
         if not (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)
+                _findings += sca_backtrack_findings(d, g)
 
     if d.getVar("DEBUG_BUILD") != "1" and not ("-D_FORTIFY_SOURCE=2" in _cflags) and not ("-D_FORTIFY_SOURCE=2" in logcontent):
         g = sca_get_model_class(d,
@@ -154,7 +155,7 @@ def sca_gcc_hardening(d):
                                 Severity="warning")
         if not (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)
+                _findings += sca_backtrack_findings(d, g)
 
     if not ("-fstack-protector-strong" in _cflags or "-fstack-protector" in _cflags or "-fstack-protector-all" in _cflags) and \
        not ("-fstack-protector-strong" in logcontent or "-fstack-protector" in logcontent or "-fstack-protector-all" in logcontent):
@@ -168,7 +169,7 @@ def sca_gcc_hardening(d):
                                 Severity="warning")
         if not (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)
+                _findings += sca_backtrack_findings(d, g)
 
     if not ("-Wmissing-prototypes" in _cflags and "-Wmissing-declarations" in _cflags) and \
        not ("-Wmissing-prototypes" in logcontent and "-Wmissing-declarations" in logcontent):
@@ -182,7 +183,7 @@ def sca_gcc_hardening(d):
                                 Severity="warning")
         if not (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)
+                _findings += sca_backtrack_findings(d, g)
 
     if not ("-mfunction-return=thunk" in _cflags and "-mindirect-branch=thunk" in _cflags) and \
        not ("-mfunction-return=thunk" in logcontent and "-mindirect-branch=thunk" in logcontent):
@@ -196,7 +197,7 @@ def sca_gcc_hardening(d):
                                 Severity="warning")
         if not (g.File in _excludes or _suppress.Suppressed(g)) and g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
             if g.Severity in sca_allowed_warning_level(d):
-                _findings.append(g)
+                _findings += sca_backtrack_findings(d, g)
 
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
@@ -243,7 +244,7 @@ def do_sca_conv_gcc(d):
                     if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
-                        _findings.append(g)
+                        _findings += sca_backtrack_findings(d, g)
                 except Exception as exp:
                     bb.note(str(exp))
 

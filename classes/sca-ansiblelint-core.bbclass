@@ -11,6 +11,7 @@ inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
 inherit sca-suppress
+inherit sca-image-backtrack
 
 DEPENDS += "python3-ansiblelint-native"
 
@@ -34,6 +35,7 @@ def do_sca_conv_ansiblelint(d):
                                   d.expand("${STAGING_DATADIR_NATIVE}/ansiblelint-${SCA_MODE}-suppress"))
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
+    _findings = []
     if os.path.exists(sca_raw_result_file(d, "ansiblelint")):
         with open(sca_raw_result_file(d, "ansiblelint"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
@@ -57,10 +59,10 @@ def do_sca_conv_ansiblelint(d):
                     if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
-                        sca_add_model_class(d, g)
+                        _findings += sca_backtrack_findings(d, g)
                 except Exception as exp:
                     bb.note(str(exp))
-
+    sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
 python do_sca_ansiblelint_core() {

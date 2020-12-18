@@ -53,6 +53,9 @@ SCA_PYTHON_SHEBANG = ".*python3"
 ## Cleanup old files before exporting
 SCA_CLEAN_BEFORE_EXPORT ?= "1"
 
+## Backtrack findings in images to their original recipes
+SCA_BACKTRACK ?= "0"
+
 ## Force run of SCA
 SCA_FORCE_RUN ??= "0"
 
