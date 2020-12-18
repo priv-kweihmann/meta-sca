@@ -28,6 +28,7 @@ inherit sca-helper
 inherit sca-license-filter
 inherit sca-crossemu
 inherit sca-suppress
+inherit sca-image-backtrack
 
 inherit sca-configcheck-mod-apache2
 inherit sca-configcheck-mod-cups

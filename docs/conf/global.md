@@ -10,6 +10,7 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_AUTO_INH_ON_RECIPE | Do automatically enable analysis on other recipes | string | "1"
 | SCA_AUTO_LICENSE_FILTER | Filter according to recipe license if sca should invoked | space separated regular expression | ".*"
 | SCA_AVAILABLE_MODULES | List of all available modules, use to globally enable/disable modules | space-separated-string | all available modules
+| SCA_BACKTRACK | Backtrack findings in images to their original recipes | string: 0 or 1 | "0"
 | SCA_CLEAN_BEFORE_EXPORT | Remove old files from export dir | string: 0 or 1 | "1"
 | SCA_ENABLE | Does globally enable the analysis | string | "1"
 | SCA_ENABLE_BESTOF | Enables/disables the BestOf mode (see chapter BestOf Mode) | string | "0"

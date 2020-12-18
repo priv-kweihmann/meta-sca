@@ -14,6 +14,7 @@ inherit sca-global
 inherit sca-helper
 inherit sca-license-filter
 inherit sca-suppress
+inherit sca-image-backtrack
 
 DEPENDS += "libxml2-native"
 
@@ -48,7 +49,7 @@ def do_sca_conv_xmllint(d):
                     if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                         continue
                     if g.Severity in sca_allowed_warning_level(d):
-                        _findings.append(g)
+                        _findings += sca_backtrack_findings(d, g)
                 except Exception as exp:
                     bb.note(str(exp))
 
