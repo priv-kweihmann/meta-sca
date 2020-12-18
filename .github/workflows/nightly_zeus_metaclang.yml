@@ -139,7 +139,7 @@ jobs:
           source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
           eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
           eval $(bitbake busybox -e | grep "^TMPDIR") && rm -f bitbake.sock && rm -f bitbake.lock
-          ${WORKSPACE}/meta-sca/test/check_results $SCA_EXPORT_DIR ${WORKSPACE}/meta-sca/test/lang_$PARAMFILE.txt 2>&1 || true
+          ${WORKSPACE}/meta-sca/test/check_results $SCA_EXPORT_DIR ${WORKSPACE}/meta-sca/test/lang_$PARAMFILE.txt 2>&1
           df -h
           find ${TMPDIR} -type d -maxdepth 1 -mindepth 1 -not -name "deploy" -exec rm -rf {} \; 2>&1
         shell: bash
