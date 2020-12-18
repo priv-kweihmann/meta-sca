@@ -136,6 +136,7 @@ FILES_${PN}-dbg += "/usr/src/debug/* \
                     ${libdir}/ruby/*/*/*/*/*/*/*/.debug \
                     ${libdir}/ruby/*/*/*/*/*/*/*/*/.debug \
 "
+FILES_${PN}-staticdev += "${libdir}/ruby/gems/gems/*/ext/*/*/.libs/*.a"
 FILES_${PN}-dev += "${GEM_DIR}/gems/*/debian.template \
                     ${GEM_DIR}/cache \
                     ${GEM_DIR}/build_info \
@@ -161,3 +162,6 @@ UPSTREAM_CHECK_URI ?= "https://rubygems.org/gems/${GEM_NAME}/versions"
 UPSTREAM_CHECK_REGEX ?= "/gems/${GEM_NAME}/versions/(?P<pver>(\d+\.*)*\d+)$"
 
 BBCLASSEXTEND += "native"
+
+# Skip automatically, as this is an intended side effect
+INSANE_SKIP_${PN} += "dev-so"
