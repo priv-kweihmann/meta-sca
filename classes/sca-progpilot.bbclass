@@ -54,7 +54,7 @@ def do_sca_conv_progpilot(d):
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings += sca_backtrack_findings(d, g)
                 except Exception as exp:
-                    bb.verbnote(str(exp))
+                    sca_log_note(d, str(exp))
 
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
@@ -71,7 +71,7 @@ python do_sca_progpilot() {
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*php", [".php"], \
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
-    cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json, default_val={})
+    cmd_output = exec_wrap_check_output(d, _args, _files, combine=exec_wrap_combine_json, default_val={})
 
     with open(sca_raw_result_file(d, "progpilot"), "w") as o:
         o.write(cmd_output)

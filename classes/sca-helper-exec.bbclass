@@ -89,7 +89,7 @@ def exec_wrap_tool_exec(args, files, stdout=None, stderr=None, **kwargs):
     except subprocess.CalledProcessError as e:
         return e.stdout or ""
 
-def exec_wrap_check_output(base_cmd, filelist, combine=exec_wrap_combine_txt, toolexec=exec_wrap_tool_exec, default_val="", chunk_size=None, stderr=None, **kwargs):
+def exec_wrap_check_output(d, base_cmd, filelist, combine=exec_wrap_combine_txt, toolexec=exec_wrap_tool_exec, default_val="", chunk_size=None, stderr=None, **kwargs):
     import subprocess
     import json
 
@@ -107,7 +107,7 @@ def exec_wrap_check_output(base_cmd, filelist, combine=exec_wrap_combine_txt, to
             continue
         cmd_output = toolexec(base_cmd, chunk, stderr, **kwargs)
         __debug_chunk = min(250, len(str(cmd_output))) - 1
-        bb.verbnote(str(cmd_output)[0:__debug_chunk])
+        sca_log_note(d, str(cmd_output)[0:__debug_chunk])
         _result_out = combine(_result_out, cmd_output, **kwargs)
 
     return _result_out

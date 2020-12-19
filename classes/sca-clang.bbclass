@@ -69,7 +69,7 @@ def do_sca_conv_clang(d):
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings += sca_backtrack_findings(d, g)
                 except Exception as exp:
-                    bb.verbnote(str(exp))
+                    sca_log_note(d, str(exp))
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
@@ -110,7 +110,7 @@ python do_sca_clang() {
         json.dump(compile_json, o)
 
     _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_CLANG_FILE_FILTER").split(" "), [])
-    cmd_output = exec_wrap_check_output(_args, _files, chunk_size=1)
+    cmd_output = exec_wrap_check_output(d, _args, _files, chunk_size=1)
 
     if os.path.exists(os.path.join(d.getVar("B"), "compile_commands.json")):
         os.remove(os.path.join(d.getVar("B"), "compile_commands.json"))

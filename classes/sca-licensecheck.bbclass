@@ -52,7 +52,7 @@ def do_sca_conv_licensecheck(d):
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings += sca_backtrack_findings(d, g)
                 except Exception as e:
-                    bb.verbnote(str(e))
+                    sca_log_note(d, str(e))
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
@@ -70,7 +70,7 @@ python do_sca_licensecheck() {
     ## Run
     _cwd = os.getcwd()
     os.chdir(d.getVar("SCA_SOURCES_DIR"))
-    exec_wrap_check_output(_args, ["."])
+    exec_wrap_check_output(d, _args, ["."])
     os.chdir(_cwd)
 }
 
@@ -99,7 +99,7 @@ python do_sca_licensecheck_report() {
                          licensecheck_get_license(d, key),
                          "lc",
                          sca_raw_result_file(d, "licensecheck_raw")]
-                _tmp = exec_wrap_check_output(_args, val)
+                _tmp = exec_wrap_check_output(d, _args, val)
                 cmd_output += "\n".join(["{}:{}".format(key, x) for x in _tmp.split("\n") if x]) + "\n"
     with open(sca_raw_result_file(d, "licensecheck"), "w") as o:
         o.write(cmd_output)

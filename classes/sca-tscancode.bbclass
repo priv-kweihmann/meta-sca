@@ -84,7 +84,7 @@ def do_sca_conv_tscancode(d):
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings += sca_backtrack_findings(d, g)
                 except Exception as exp:
-                    bb.verbnote(str(exp))
+                    sca_log_note(d, str(exp))
         except:
             pass
 
@@ -129,7 +129,7 @@ python do_sca_tscancode() {
     _curdir = os.getcwd()
     os.chdir(os.path.join(d.getVar("T"), "tscancode"))
 
-    xml_output = exec_wrap_check_output(_args, _files,
+    xml_output = exec_wrap_check_output(d, _args, _files,
                                         combine=exec_wrap_combine_xml,
                                         toolexec=exec_wrap_tool_exec_tscancode)
 
