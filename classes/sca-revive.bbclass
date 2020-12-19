@@ -54,7 +54,7 @@ def do_sca_conv_revive(d):
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings += sca_backtrack_findings(d, g)
                 except Exception as e:
-                    bb.verbnote(str(e))
+                    sca_log_note(d, str(e))
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
@@ -70,7 +70,7 @@ python do_sca_revive() {
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run
-    cmd_output = exec_wrap_check_output(_args, _files)
+    cmd_output = exec_wrap_check_output(d, _args, _files)
     with open(sca_raw_result_file(d, "revive"), "w") as o:
         o.write(cmd_output)
 }
