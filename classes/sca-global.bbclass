@@ -72,11 +72,6 @@ SCA_SCOPE_FILTER ?= "security functional compliance style"
 ## example: pylint.pylint.C0103=error
 SCA_SEVERITY_TRANSFORM ?= ""
 
-## NOTE: To due an issue in setuptools, it's impossible to install
-## ansiblelint at the moment.
-## An official release from the project is not yet released to pypi
-## so ansiblelint can't be installed to master or zeus branch
-
 ## List of overall available modules
 SCA_AVAILABLE_MODULES ?= "\
                           alexkohler \
