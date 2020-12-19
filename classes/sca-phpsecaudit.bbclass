@@ -39,7 +39,7 @@ def do_sca_conv_phpsecaudit(d):
             try:
                 content = json.load(f)
             except json.JSONDecodeError as e:
-                bb.note(str(e))
+                bb.verbnote(str(e))
                 content = {"files": {}}
             for k,v in content["files"].items():
                 for m in v["messages"]:
@@ -61,7 +61,7 @@ def do_sca_conv_phpsecaudit(d):
                         if g.Severity in sca_allowed_warning_level(d):
                             _findings += sca_backtrack_findings(d, g)
                     except Exception as exp:
-                        bb.note(str(exp))
+                        bb.verbnote(str(exp))
 
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
