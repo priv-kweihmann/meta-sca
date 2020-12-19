@@ -68,7 +68,7 @@ def do_sca_conv_sparse(d):
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings += sca_backtrack_findings(d, g)
                 except Exception as e:
-                    bb.verbnote(str(e))
+                    sca_log_note(d, str(e))
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
@@ -88,7 +88,7 @@ python do_sca_sparse() {
     ## Run
     cmd_output = ""
     for _f in _files:
-        cmd_output += exec_wrap_check_output(_args, [_f])
+        cmd_output += exec_wrap_check_output(d, _args, [_f])
 
     with open(sca_raw_result_file(d, "sparse"), "w") as o:
         o.write(cmd_output)

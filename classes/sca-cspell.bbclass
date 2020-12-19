@@ -69,7 +69,7 @@ def do_sca_conv_cspell(d):
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings += sca_backtrack_findings(d, g)
                 except Exception as e:
-                    bb.verbnote(str(e))
+                    sca_log_note(d, str(e))
 
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
@@ -132,7 +132,7 @@ python do_sca_cspell() {
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
         if any(_check_files):
             write_config(_config, {k:v for k,v in _lang_configs.items() if k in _dicts.split(" ")}, _config_file)
-            cmd_output += exec_wrap_check_output(_args, _check_files)
+            cmd_output += exec_wrap_check_output(d, _args, _check_files)
 
     with open(sca_raw_result_file(d, "cspell"), "w") as o:
         o.write(cmd_output)

@@ -56,7 +56,7 @@ def do_sca_conv_pysymcheck(d):
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings += sca_backtrack_findings(d, g)
                 except Exception as exp:
-                    bb.verbnote(str(exp))
+                    sca_log_note(d, str(exp))
 
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
@@ -77,7 +77,7 @@ python do_sca_pysymcheck() {
                                    "application/x-pie-executable", "application/x-pie-sharedlib"],
                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
     ## Run
-    cmd_output = exec_wrap_check_output(_args, _files, chunk_size=1)
+    cmd_output = exec_wrap_check_output(d, _args, _files, chunk_size=1)
     with open(sca_raw_result_file(d, "pysymcheck"), "w") as o:
         o.write(cmd_output)
 

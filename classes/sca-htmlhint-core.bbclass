@@ -54,7 +54,7 @@ def do_sca_conv_htmlhint(d):
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings += sca_backtrack_findings(d, g)
                 except Exception as e:
-                    bb.verbnote(str(e))
+                    sca_log_note(d, str(e))
 
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
@@ -67,7 +67,7 @@ python do_sca_htmlhint_core() {
     _args = ["htmlhint"]
     _args += ["-f", "unix"]
 
-    cmd_output = exec_wrap_check_output(_args, [d.getVar("SCA_SOURCES_DIR") + "/"])
+    cmd_output = exec_wrap_check_output(d, _args, [d.getVar("SCA_SOURCES_DIR") + "/"])
 
     with open(sca_raw_result_file(d, "htmlhint"), "w") as o:
         o.write(cmd_output)

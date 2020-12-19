@@ -55,7 +55,7 @@ def do_sca_conv_scancode(d):
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings += sca_backtrack_findings(d, g)
                 except Exception as e:
-                    bb.verbnote(str(e))
+                    sca_log_note(d, str(e))
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
@@ -68,7 +68,7 @@ python do_sca_scancode() {
              "--strip-root", "-n", d.getVar("BB_NUMBER_THREADS"), "--quiet"]
 
     ## Run
-    bb.warn(str(exec_wrap_check_output(_args, [d.getVar("SCA_SOURCES_DIR")])))
+    bb.warn(str(exec_wrap_check_output(d, _args, [d.getVar("SCA_SOURCES_DIR")])))
 }
 
 def scancode_get_license(d, _in):
@@ -97,7 +97,7 @@ python do_sca_scancode_report() {
                          scancode_get_license(d, key),
                          "scancode",
                          sca_raw_result_file(d, "scancode_raw")]
-                _tmp = exec_wrap_check_output(_args, val)
+                _tmp = exec_wrap_check_output(d, _args, val)
                 cmd_output += "\n".join(["{}:{}".format(key, x) for x in _tmp.split("\n") if x]) + "\n"
     with open(sca_raw_result_file(d, "scancode"), "w") as o:
         o.write(cmd_output)

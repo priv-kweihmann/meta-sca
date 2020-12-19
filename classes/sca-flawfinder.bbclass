@@ -79,7 +79,7 @@ python do_sca_flawfinder() {
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run
-    cmd_output = exec_wrap_check_output(_args, _files)
+    cmd_output = exec_wrap_check_output(d, _args, _files)
 
     with open(sca_raw_result_file(d, "flawfinder"), "w") as o:
         o.write(cmd_output)

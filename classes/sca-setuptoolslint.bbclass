@@ -55,7 +55,7 @@ def do_sca_conv_setuptoolslint(d, cmd_output=""):
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings += sca_backtrack_findings(d, g)
                 except Exception as e:
-                    bb.verbnote(str(e))
+                    sca_log_note(d, str(e))
 
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)

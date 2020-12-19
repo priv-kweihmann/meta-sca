@@ -129,7 +129,7 @@ fakeroot python do_sca_ansibleroles() {
             # Check if the package that is checked is installed
             if pb in _role_flags.keys():
                 if not any(intersect_lists(d, _installed_pkgs, _role_flags[pb].split(","))):
-                    bb.verbnote("Skipping {}, as none of {} is installed".format(pb, _role_flags[pb]))
+                    sca_log_note(d, "Skipping {}, as none of {} is installed".format(pb, _role_flags[pb]))
                     continue
             sca_ansibleroles_create_config(d, rootfs_path, os.path.join(rootfs_path, "rolebook.yaml"), [pb])
             _tmp, _ = sca_crossemu(d, _args, [], "ansibleroles", "", nocreateroot=True, addargs=["-b", "/dev/shm:/dev/shm"])

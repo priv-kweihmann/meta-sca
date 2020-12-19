@@ -56,7 +56,7 @@ def do_sca_conv_phpmd(d):
                         if g.Severity in sca_allowed_warning_level(d):
                             _findings += sca_backtrack_findings(d, g)
                     except Exception as exp:
-                        bb.verbnote(str(exp))
+                        sca_log_note(d, str(exp))
 
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
@@ -76,7 +76,7 @@ python do_sca_phpmd() {
     _args += [",".join(clean_split(d, "SCA_PHPMD_CHECKS"))]
     _args += ["--suffixes", ",".join([x.lstrip(".") for x in clean_split(d, "SCA_PHPMD_FILE_FILTER")])]
 
-    cmd_output = exec_wrap_check_output(_args, _files, combine=exec_wrap_combine_json_subarray, key="files",
+    cmd_output = exec_wrap_check_output(d, _args, _files, combine=exec_wrap_combine_json_subarray, key="files",
                                         default_val={"files": []})
 
     with open(sca_raw_result_file(d, "phpmd"), "w") as o:

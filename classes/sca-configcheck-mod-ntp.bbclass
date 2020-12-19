@@ -34,6 +34,6 @@ def do_sca_configcheck_conv_ntp(d, toolout, suppress):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings += sca_backtrack_findings(d, g)
         except Exception as exp:
-            bb.verbnote(str(exp))
+            sca_log_note(d, str(exp))
 
     return _findings
