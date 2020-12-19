@@ -77,7 +77,7 @@ def do_sca_conv_rats(d):
                                 continue
                             _findings += sca_backtrack_findings(d, g)
                 except Exception as exp:
-                    bb.note(str(exp))
+                    bb.verbnote(str(exp))
         except:
             pass
 

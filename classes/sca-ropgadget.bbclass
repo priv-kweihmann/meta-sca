@@ -41,7 +41,7 @@ def convert_veryraw(d, bin, content):
                     _file = os.path.abspath(im.group("file"))
                     output += "{} - {}:{} - {}\n".format(bin, _file, im.group("line"), m.group("msg"))
             except Exception as e:
-                bb.note(str(e))
+                bb.verbnote(str(e))
     return output
 
 def do_sca_conv_ropgadget(d):
@@ -83,7 +83,7 @@ def do_sca_conv_ropgadget(d):
                     if g.Severity in sca_allowed_warning_level(d):
                         _findingsres += sca_backtrack_findings(d, g)
                 except Exception as exp:
-                    bb.note(str(exp))
+                    bb.verbnote(str(exp))
 
     _threshold = 99999999999
     try:
