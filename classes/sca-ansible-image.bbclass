@@ -139,7 +139,7 @@ def do_sca_conv_ansible(d):
             try:
                 jobj = json.load(f)
             except Exception as e:
-                bb.note(str(e))
+                bb.verbnote(str(e))
         for k, v in jobj.items():
             for _play in v["plays"]:
                 _pb_key = _play["play"]
@@ -171,7 +171,7 @@ def do_sca_conv_ansible(d):
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings += sca_backtrack_findings(d, g)
                     except Exception as e:
-                        bb.note(str(e))
+                        bb.verbnote(str(e))
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
@@ -213,8 +213,8 @@ python do_sca_ansible() {
             try:
                 json_output[os.path.basename(playbook)] = json.loads(cmd_output)
             except json.JSONDecodeError as e:
-                bb.note(str(e))
-                bb.note(str(cmd_output))
+                bb.verbnote(str(e))
+                bb.verbnote(str(cmd_output))
 
     with open(sca_raw_result_file(d, "ansible"), "w") as o:
         json.dump(json_output, o)

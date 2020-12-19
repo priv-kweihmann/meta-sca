@@ -33,6 +33,6 @@ def do_sca_configcheck_conv_sshd(d, toolout, suppress):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings += sca_backtrack_findings(d, g)
         except Exception as exp:
-            bb.note(str(exp))
+            bb.verbnote(str(exp))
 
     return _findings

@@ -60,7 +60,7 @@ def do_sca_conv_proselint(d):
                         if g.Severity in sca_allowed_warning_level(d):
                             _findings += sca_backtrack_findings(d, g)
                     except Exception as exp:
-                        bb.note(str(exp))
+                        bb.verbnote(str(exp))
 
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
@@ -96,7 +96,7 @@ python do_sca_proselint_core() {
             json_output[_f] = x
         except Exception as e:
             bb.note(cmd_output)
-            bb.note(str(e))
+            bb.verbnote(str(e))
 
     try:
         _ = subprocess.check_output(["proselint", "--clean"], universal_newlines=True)
