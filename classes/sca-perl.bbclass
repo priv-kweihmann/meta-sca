@@ -57,7 +57,7 @@ def do_sca_conv_perl(d):
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings += sca_backtrack_findings(d, g)
                 except Exception as e:
-                    bb.verbnote(str(e))
+                    sca_log_note(d, str(e))
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
@@ -77,7 +77,7 @@ python do_sca_perl() {
 
     ## Run
     for f in _files:
-        cmd_output += exec_wrap_check_output(_args, [f])
+        cmd_output += exec_wrap_check_output(d, _args, [f])
     with open(sca_raw_result_file(d, "perl"), "w") as o:
         o.write(cmd_output)
 }
