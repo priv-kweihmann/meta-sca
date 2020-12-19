@@ -106,7 +106,7 @@ def exec_wrap_check_output(d, base_cmd, filelist, combine=exec_wrap_combine_txt,
         if not chunk:
             continue
         cmd_output = toolexec(base_cmd, chunk, stderr, **kwargs)
-        __debug_chunk = min(250, len(str(cmd_output))) - 1
+        __debug_chunk = min(1024, len(str(cmd_output))) - 1
         sca_log_note(d, str(cmd_output)[0:__debug_chunk])
         _result_out = combine(_result_out, cmd_output, **kwargs)
 
