@@ -54,7 +54,7 @@ python do_sca_multimetric_image() {
                 try:
                     tmp.append(json.load(i)["stats"][d.getVar("SCA_MULTIMETRIC_IMAGE_KEY")])
                 except Exception as e:
-                    bb.verbnote(str(e))
+                    sca_log_note(d, str(e))
 
     # Create final object
     res = {"files": {d.getVar("FILE"): {}}}
@@ -62,7 +62,7 @@ python do_sca_multimetric_image() {
         try:
             res["files"][d.getVar("FILE")][key] = statistics.mean([x[key] for x in tmp])
         except statistics.StatisticsError as e:
-            bb.verbnote(str(e))
+            sca_log_note(d, str(e))
 
     # from now on business as usual
     with open(sca_raw_result_file(d, "multimetric"), "w") as o:

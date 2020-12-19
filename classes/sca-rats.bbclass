@@ -77,7 +77,7 @@ def do_sca_conv_rats(d):
                                 continue
                             _findings += sca_backtrack_findings(d, g)
                 except Exception as exp:
-                    bb.verbnote(str(exp))
+                    sca_log_note(d, str(exp))
         except:
             pass
 
@@ -98,31 +98,31 @@ python do_sca_rats() {
     ## C
     if any(_files):
         _targs = _args + ["-d", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "rats-c.xml")]
-        xml_output = xml_combine(d, xml_output, exec_wrap_check_output(_targs, _files, combine=exec_wrap_combine_xml))
+        xml_output = xml_combine(d, xml_output, exec_wrap_check_output(d, _targs, _files, combine=exec_wrap_combine_xml))
 
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*perl", ".perl .pl", _excludes)
     ## Perl
     if any(_files):
         _targs = _args + ["-d", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "rats-perl.xml")]
-        xml_output = xml_combine(d, xml_output, exec_wrap_check_output(_targs, _files, combine=exec_wrap_combine_xml))
+        xml_output = xml_combine(d, xml_output, exec_wrap_check_output(d, _targs, _files, combine=exec_wrap_combine_xml))
 
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_PYTHON_SHEBANG"), ".py", _excludes)
     ## Python
     if any(_files):
         _targs = _args + ["-d", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "rats-python.xml")]
-        xml_output = xml_combine(d, xml_output, exec_wrap_check_output(_targs, _files, combine=exec_wrap_combine_xml))
+        xml_output = xml_combine(d, xml_output, exec_wrap_check_output(d, _targs, _files, combine=exec_wrap_combine_xml))
 
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*php", ".php", _excludes)
     ## Php
     if any(_files):
         _targs = _args + ["-d", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "rats-php.xml")]
-        xml_output = xml_combine(d, xml_output, exec_wrap_check_output(_targs, _files, combine=exec_wrap_combine_xml))
+        xml_output = xml_combine(d, xml_output, exec_wrap_check_output(d, _targs, _files, combine=exec_wrap_combine_xml))
 
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*ruby", ".ruby .rb", _excludes)
     ## Ruby
     if any(_files):
         _targs = _args + ["-d", os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "rats-ruby.xml")]
-        xml_output = xml_combine(d, xml_output, exec_wrap_check_output(_targs, _files, combine=exec_wrap_combine_xml))
+        xml_output = xml_combine(d, xml_output, exec_wrap_check_output(d, _targs, _files, combine=exec_wrap_combine_xml))
 
     with open(sca_raw_result_file(d, "rats"), "w") as o:
         o.write(xml_output)

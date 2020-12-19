@@ -88,11 +88,11 @@ fakeroot python do_sca_configcheck() {
                 cmd_output += _cmd_output + "\n###########\n"
                 _raw_findings += sca_get_func_by_name(d, _conv_args_name)(d, _cmd_output, _suppress)
             else:
-                bb.verbnote("configcheck -> {} no output".format(mod))
+                sca_log_note(d, "configcheck -> {} no output".format(mod))
         except NotImplementedError:
             pass
         except Exception as e:
-            bb.verbnote(str(e))
+            sca_log_note(d, str(e))
 
     with open(sca_raw_result_file(d, "configcheck"), "w") as o:
         o.write(cmd_output)

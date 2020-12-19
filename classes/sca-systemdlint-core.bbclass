@@ -83,7 +83,7 @@ python do_sca_systemdlint() {
         _files += get_files_by_extention(d, path,  d.getVar("SCA_SYSTEMDLINT_FILES"), \
                                             sca_filter_files(d, d.getVar("SCA_SYSTEMDLINT_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
-    cmd_output = exec_wrap_check_output(_args, _files)
+    cmd_output = exec_wrap_check_output(d, _args, _files)
 
     with open(sca_raw_result_file(d, "systemdlint"), "w") as o:
         o.write(cmd_output)

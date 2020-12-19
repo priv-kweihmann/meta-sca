@@ -80,7 +80,7 @@ python do_sca_flint() {
     cur_dir = os.getcwd()
     os.chdir(d.getVar("B", True))
 
-    cmd_output = exec_wrap_check_output(_args, _files)
+    cmd_output = exec_wrap_check_output(d, _args, _files)
 
     with open(sca_raw_result_file(d, "flint"), "w") as o:
         o.write(cmd_output)

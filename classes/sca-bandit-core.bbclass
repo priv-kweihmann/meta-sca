@@ -38,7 +38,7 @@ def do_sca_conv_bandit(d):
             try:
                 jobj = json.load(f)
             except Exception as e:
-                bb.verbnote(str(e))
+                sca_log_note(d, str(e))
                 pass
             if isinstance(jobj, dict):
                 if "results" in jobj.keys():
@@ -63,7 +63,7 @@ def do_sca_conv_bandit(d):
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings += sca_backtrack_findings(d, g)
                         except Exception as exp:
-                            bb.verbnote(str(exp))
+                            sca_log_note(d, str(exp))
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
@@ -94,7 +94,7 @@ python do_sca_bandit_core() {
                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
 
-    cmd_output = exec_wrap_check_output(_args, _files,
+    cmd_output = exec_wrap_check_output(d, _args, _files,
                                         combine=exec_wrap_combine_json_bandit, default_val={"results": []},
                                         sourcefile=sca_raw_result_file(d, "bandit"))
 

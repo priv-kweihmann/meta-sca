@@ -55,7 +55,7 @@ def do_sca_conv_alexkohler(d):
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings += sca_backtrack_findings(d, g)
                 except Exception as e:
-                    bb.verbnote(str(e))
+                    sca_log_note(d, str(e))
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
@@ -80,7 +80,7 @@ python do_sca_alexkohler() {
     cmd_output = ""
     if any(_files):
         for mod in clean_split(d, "SCA_ALEXKOHLER_MODULES"):
-            cmd_output += exec_wrap_check_output([mod], _files, combine=exec_wrap_combine_txt_alexkohler, mod=mod)
+            cmd_output += exec_wrap_check_output(d, [mod], _files, combine=exec_wrap_combine_txt_alexkohler, mod=mod)
     with open(sca_raw_result_file(d, "alexkohler"), "w") as o:
         o.write(cmd_output)
 }
