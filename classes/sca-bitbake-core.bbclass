@@ -113,7 +113,7 @@ def do_sca_conv_bitbake(d):
                     if g.Severity in sca_allowed_warning_level(d):
                         _findings += sca_backtrack_findings(d, g)
                 except Exception as exp:
-                    bb.note(str(exp))
+                    bb.verbnote(str(exp))
 
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)

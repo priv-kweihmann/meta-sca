@@ -42,7 +42,7 @@ def do_sca_conv_retire(d):
             try:
                 content = json.load(f)
             except json.JSONDecodeError as e:
-                bb.note(str(e))
+                bb.verbnote(str(e))
             for item in content:
                 try:
                     _file = item["file"]
@@ -64,7 +64,7 @@ def do_sca_conv_retire(d):
                             if g.Severity in sca_allowed_warning_level(d):
                                 _findings += sca_backtrack_findings(d, g)
                 except Exception as e:
-                    bb.note(str(e))
+                    bb.verbnote(str(e))
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 

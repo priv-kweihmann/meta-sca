@@ -64,7 +64,7 @@ def do_sca_conv_gixy(d, cmd_output=""):
                 if g.Severity in sca_allowed_warning_level(d):
                     _findings += sca_backtrack_findings(d, g)
             except Exception as e:
-                bb.note(str(e))
+                bb.verbnote(str(e))
 
     ## Run log parsing
     pattern = r'^.*\[nginx_parser\]\s+(?P<severity>[A-Z]+)\s+Failed to parse config\s.(?P<file>.*)":\s+(?P<msg>.*)\s+\(line:(?P<line>\d+),\s+col:(?P<col>\d+)'
@@ -87,7 +87,7 @@ def do_sca_conv_gixy(d, cmd_output=""):
             if g.Severity in sca_allowed_warning_level(d):
                 _findings += sca_backtrack_findings(d, g)
         except Exception as e:
-            bb.note(str(e))
+            bb.verbnote(str(e))
 
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
