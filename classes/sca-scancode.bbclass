@@ -64,6 +64,7 @@ python do_sca_scancode() {
     import os
     import subprocess
 
+    os.environ["HOME"] = d.getVar("T")
     _args = ["scancode", "-l", "-c", "--json", sca_raw_result_file(d, "scancode_raw"),
              "--strip-root", "-n", d.getVar("BB_NUMBER_THREADS"), "--quiet"]
 
