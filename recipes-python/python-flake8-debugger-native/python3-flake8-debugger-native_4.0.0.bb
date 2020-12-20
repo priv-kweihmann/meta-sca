@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 PYPI_PACKAGE = "flake8-debugger"
 
-DEPENDS += "${PYTHON_PN}-flake8-native"
+DEPENDS += "python3-flake8-native"
 
 SRC_URI[md5sum] = "2a47fb0d32d67e3a379208dce9f72765"
 SRC_URI[sha256sum] = "e43dc777f7db1481db473210101ec2df2bd39a45b149d7218a618e954177eda6"

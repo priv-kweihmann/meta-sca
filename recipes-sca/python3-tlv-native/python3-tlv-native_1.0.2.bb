@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/priv-kweihmann/tlv"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=1e0b805e34c99594e846fa46c20d8b9b"
 
-DEPENDS += "${PYTHON_PN}-pygments-native"
+DEPENDS += "python3-pygments-native"
 
 SRC_URI = "git://github.com/priv-kweihmann/tlv.git;protocol=https;branch=master \
            file://tlv.sca.description"

@@ -5,10 +5,10 @@ LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=64a578e1ca1f25248a8d50f32fdf14e7"
 
 DEPENDS += "\
-            ${PYTHON_PN}-click-native \
-            ${PYTHON_PN}-future-native \
-            ${PYTHON_PN}-native \
-            ${PYTHON_PN}-six-native \
+            python3-click-native \
+            python3-future-native \
+            python3-native \
+            python3-six-native \
            "
 
 SRC_URI_append = " file://proselint.sca.description"

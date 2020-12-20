@@ -5,9 +5,9 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a6ceb86d5d9e2cc99e949bd8ec58dba3"
 
 DEPENDS += "\
-            ${PYTHON_PN}-black-native \
-            ${PYTHON_PN}-enum-compat-native \
-            ${PYTHON_PN}-flake8-native \
+            python3-black-native \
+            python3-enum-compat-native \
+            python3-flake8-native \
            "
 
 SRC_URI = "git://github.com/smarkets/flake8-strict.git;protocol=https"

@@ -4,8 +4,8 @@ HOMEPAGE = "http://babel.pocoo.org/en/latest/"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=22a580b27e4ebf9689e466b63aedeb7f"
 
-DEPENDS += "${PYTHON_PN}-native \
-            ${PYTHON_PN}-pytz-native"
+DEPENDS += "python3-native \
+            python3-pytz-native"
 
 PYPI_PACKAGE = "Babel"
 

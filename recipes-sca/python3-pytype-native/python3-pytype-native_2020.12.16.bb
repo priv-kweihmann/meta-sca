@@ -5,15 +5,15 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=23a2cfaba162d74b289e2cac209dfa88"
 
 DEPENDS += "\
-            ${PYTHON_PN}-attrs-native \
-            ${PYTHON_PN}-importlab-native \
-            ${PYTHON_PN}-ninja-native \
-            ${PYTHON_PN}-pybind11-native \
-            ${PYTHON_PN}-pylint-native \
-            ${PYTHON_PN}-pyyaml-native \
-            ${PYTHON_PN}-scikit-build-native \
-            ${PYTHON_PN}-six-native \
-            ${PYTHON_PN}-typed-ast-native \
+            python3-attrs-native \
+            python3-importlab-native \
+            python3-ninja-native \
+            python3-pybind11-native \
+            python3-pylint-native \
+            python3-pyyaml-native \
+            python3-scikit-build-native \
+            python3-six-native \
+            python3-typed-ast-native \
             cmake-native \
             "
 

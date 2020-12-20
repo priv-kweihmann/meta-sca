@@ -5,9 +5,9 @@ LICENSE = "BSD-2-Clause & PD"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=39f57e3d40a441f0656539ac3aa225a5"
 
 DEPENDS += "\
-            ${PYTHON_PN}-jsonmerge-native \
-            ${PYTHON_PN}-native \
-            ${PYTHON_PN}-pyelftools-native \
+            python3-jsonmerge-native \
+            python3-native \
+            python3-pyelftools-native \
             "
 
 SRC_URI = "git://github.com/priv-kweihmann/pysymbolcheck.git;protocol=https;branch=master \

@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/pycqa/mccabe"
 LICENSE = "EXPAT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a489dc62bacbdad3335c0f160a974f0f"
 
-DEPENDS += "${PYTHON_PN}-pytest-runner-native"
+DEPENDS += "python3-pytest-runner-native"
 
 PYPI_PACKAGE = "mccabe"
 

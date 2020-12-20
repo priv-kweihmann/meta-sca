@@ -5,11 +5,11 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1dece7821bf3fd70fe1309eaa37d52a2"
 
 DEPENDS += "\
-            ${PYTHON_PN}-gitpython-native \
-            ${PYTHON_PN}-native \
-            ${PYTHON_PN}-pyyaml-native \
-            ${PYTHON_PN}-six-native \
-            ${PYTHON_PN}-stevedore-native \
+            python3-gitpython-native \
+            python3-native \
+            python3-pyyaml-native \
+            python3-six-native \
+            python3-stevedore-native \
            "
 
 SRC_URI_append = " file://bandit.sca.description"

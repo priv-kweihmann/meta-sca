@@ -4,9 +4,9 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a33f38bbf47d48c70fe0d40e5f77498e"
 
 DEPENDS += "\
-            ${PYTHON_PN}-py-native \
-            ${PYTHON_PN}-setuptools-native \
-            ${PYTHON_PN}-setuptools-scm-native \
+            python3-py-native \
+            python3-setuptools-native \
+            python3-setuptools-scm-native \
            "
 
 SRC_URI[md5sum] = "e5f66b8e8e87f62c59631c35c919d321"

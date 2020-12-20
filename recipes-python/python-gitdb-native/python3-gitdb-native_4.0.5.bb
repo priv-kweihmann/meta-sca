@@ -5,8 +5,8 @@ LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=59e5ecb13339a936eedf83282eaf4528"
 
 DEPENDS += "\
-            ${PYTHON_PN}-native \
-            ${PYTHON_PN}-smmap-native \
+            python3-native \
+            python3-smmap-native \
            "
 
 PYPI_PACKAGE = "gitdb"
