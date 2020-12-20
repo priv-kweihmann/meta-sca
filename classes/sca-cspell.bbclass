@@ -4,14 +4,10 @@
 SCA_CSPELL_CHECK_LANG ?= "CPP HTML PYTHON TXT"
 
 ## Lang spec implementation
-SCA_CSPELL_LANG_CPP_dicts ?= "cpp"
 SCA_CSPELL_LANG_CPP_files ?= ".c .cpp .h .hpp"
-SCA_CSPELL_LANG_HTML_dicts ?= "html css typescript"
 SCA_CSPELL_LANG_HTML_files ?= ".html .htm .js"
-SCA_CSPELL_LANG_PYTHON_dicts ?= "python"
 SCA_CSPELL_LANG_PYTHON_files ?= ".py"
 SCA_CSPELL_LANG_PYTHON_shebang ?= "${SCA_PYTHON_SHEBANG}"
-SCA_CSPELL_LANG_TXT_dicts ?= ""
 SCA_CSPELL_LANG_TXT_files ?= ".txt .md .rst"
 
 SCA_RAW_RESULT_FILE[cspell] = "txt"
@@ -60,7 +56,7 @@ def do_sca_conv_cspell(d):
                                             Column=m.group("column"),
                                             Line=m.group("line"),
                                             Message=m.group("msg"),
-                                            ID=m.group("id"),
+                                            ID=m.group("id").replace(" ", "-"),
                                             Severity="info")
                     if _suppress.Suppressed(g):
                         continue
@@ -74,6 +70,16 @@ def do_sca_conv_cspell(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
+def sca_get_cspell_available_dicts(d):
+    import glob
+    _res = {}
+    for item in glob.glob(d.expand("${STAGING_LIBDIR_NATIVE}/node_modules/**/*.gz"), recursive=True):
+        if not "cspell" in item:
+            continue
+        _name = os.path.basename(item).split(".")[0]
+        _res[_name] = { "name": _name, "path": item}
+    return _res
+
 python do_sca_cspell() {
     import os
     import subprocess
@@ -84,37 +90,13 @@ python do_sca_cspell() {
         "language": "en",
         "ignorePaths": [],
         "maxNumberOfProblems": 1000000,
-        "dictionaries": ["en_US", "softwareTerms", "misc", "filetypes", "fonts", "fullstack", "user"],
+        "dictionaries": ["user"],
         "dictionaryDefinitions": [
-            { "name": "en_US", "path": "{}/node_modules/cspell/node_modules/cspell-dict-en_us/en_US.trie.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-            { "name": "fullstack", "path": "{}/node_modules/cspell/node_modules/cspell-dict-fullstack/fullstack.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-            { "name": "softwareTerms", "path": "{}/node_modules/cspell/dist/dictionaries/softwareTerms.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-            { "name": "misc", "path": "{}/node_modules/cspell/dist/dictionaries/miscTerms.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-            { "name": "filetypes", "path": "{}/node_modules/cspell/dist/dictionaries/filetypes.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-            { "name": "fonts", "path": "{}/node_modules/cspell/dist/dictionaries/fonts.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
             { "name": "user", "path": "{}/cspell-user/cspell_user.txt".format(d.getVar("STAGING_DATADIR_NATIVE"))}
         ]
     }
 
-    _lang_configs = {
-        "cpp": { "name": "cpp", "path": "{}/node_modules/cspell/node_modules/cspell-dict-cpp/cpp.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "csharp": { "csharp": "cpp", "path": "{}/node_modules/cspell/dist/dictionaries/csharp.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "css": { "css": "cpp", "path": "{}/node_modules/cspell/dist/dictionaries/css.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "django": { "django": "cpp", "path": "{}/node_modules/cspell/node_modules/cspell-dict-django/django.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "dotnet": { "dotnet": "cpp", "path": "{}/node_modules/cspell/dist/dictionaries/dotnet.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "elixir": { "elixir": "cpp", "path": "{}/node_modules/cspell/node_modules/cspell-dict-elixir/elixir.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "go": { "name": "go", "path": "{}/node_modules/cspell/node_modules/cspell-dict-golang/go.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "html": { "name": "html", "path": "{}/node_modules/cspell/dist/dictionaries/html.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "java": { "name": "java", "path": "{}/node_modules/cspell/node_modules/cspell-dict-java/java.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "node": { "name": "node", "path": "{}/node_modules/cspell/dist/dictionaries/node.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "npm": { "name": "npm", "path": "{}/node_modules/cspell/dist/dictionaries/npm.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "php": { "name": "php", "path": "{}/node_modules/cspell/node_modules/cspell-dict-php/php.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "powershell": { "name": "powershell", "path": "{}/node_modules/cspell/dist/dictionaries/powershell.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "python": { "name": "python", "path": "{}/node_modules/cspell/node_modules/cspell-dict-python/python.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "rust": { "name": "rust", "path": "{}/node_modules/cspell/node_modules/cspell-dict-rust/rust.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "scala": { "name": "scala", "path": "{}/node_modules/cspell/node_modules/cspell-dict-scala/scala.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-        "typescript": { "name": "typescript", "path": "{}/node_modules/cspell/dist/dictionaries/typescript.txt.gz".format(d.getVar("STAGING_LIBDIR_NATIVE"))},
-    }
+    _lang_configs = sca_get_cspell_available_dicts(d)
 
     _config_file = os.path.join(d.getVar("T"), "cspell.json")
 
@@ -126,12 +108,11 @@ python do_sca_cspell() {
     ## Get all vars
     for k in clean_split(d, "SCA_CSPELL_CHECK_LANG"):
         _files = d.getVar("{}{}_files".format("SCA_CSPELL_LANG_", k)) or ""
-        _dicts = d.getVar("{}{}_dicts".format("SCA_CSPELL_LANG_", k)) or ""
         _shebang = d.getVar("{}{}_shebang".format("SCA_CSPELL_LANG_", k)) or ".*"
         _check_files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), _shebang, _files,
                                     sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
         if any(_check_files):
-            write_config(_config, {k:v for k,v in _lang_configs.items() if k in _dicts.split(" ")}, _config_file)
+            write_config(_config, _lang_configs, _config_file)
             cmd_output += exec_wrap_check_output(d, _args, _check_files)
 
     with open(sca_raw_result_file(d, "cspell"), "w") as o:
