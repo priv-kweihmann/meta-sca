@@ -5,8 +5,8 @@ LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=1e0b805e34c99594e846fa46c20d8b9b"
 
 DEPENDS += "\
-            ${PYTHON_PN}-anytree-native \
-            ${PYTHON_PN}-systemdunitparser-native \
+            python3-anytree-native \
+            python3-systemdunitparser-native \
            "
 
 SRC_URI = "git://github.com/priv-kweihmann/systemdlint.git;protocol=https;branch=master \

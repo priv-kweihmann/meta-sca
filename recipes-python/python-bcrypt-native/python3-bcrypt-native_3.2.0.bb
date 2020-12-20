@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/pyca/bcrypt/"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=8f7bb094c7232b058c7e9f2e431f389c"
 
-DEPENDS += "${PYTHON_PN}-cffi-native"
+DEPENDS += "python3-cffi-native"
 
 PYPI_PACKAGE = "bcrypt"
 

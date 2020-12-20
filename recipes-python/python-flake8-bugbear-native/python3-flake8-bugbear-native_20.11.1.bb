@@ -5,8 +5,8 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d511f8e447826b7e5b61da03a3f5e82b"
 
 DEPENDS += "\
-            ${PYTHON_PN}-attrs-native \
-            ${PYTHON_PN}-flake8-native \
+            python3-attrs-native \
+            python3-flake8-native \
             "
 
 PYPI_PACKAGE = "flake8-bugbear"

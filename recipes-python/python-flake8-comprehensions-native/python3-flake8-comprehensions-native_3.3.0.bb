@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/adamchainz/flake8-comprehensions"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e92a537b134e72e9a5eec07b9b122236"
 
-DEPENDS += "${PYTHON_PN}-flake8-native"
+DEPENDS += "python3-flake8-native"
 
 PYPI_PACKAGE = "flake8-comprehensions"
 

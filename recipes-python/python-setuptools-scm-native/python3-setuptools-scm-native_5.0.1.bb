@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/pypa/setuptools_scm"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=8227180126797a0148f94f483f3e1489"
 
-DEPENDS += "${PYTHON_PN}-setuptools-native"
+DEPENDS += "python3-setuptools-native"
 
 PYPI_PACKAGE = "setuptools_scm"
 

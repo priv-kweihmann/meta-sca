@@ -5,12 +5,12 @@ LICENSE = "MPL-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b3085af66f9d2f2bd50055c8d52ddb55"
 
 DEPENDS += "\
-            ${PYTHON_PN}-cached-property-native \
-            ${PYTHON_PN}-configargparse-native \
-            ${PYTHON_PN}-jinja2-native \
-            ${PYTHON_PN}-native \
-            ${PYTHON_PN}-pyparsing-native \
-            ${PYTHON_PN}-six-native \
+            python3-cached-property-native \
+            python3-configargparse-native \
+            python3-jinja2-native \
+            python3-native \
+            python3-pyparsing-native \
+            python3-six-native \
            "
 
 SRC_URI = "git://github.com/yandex/gixy.git;protocol=https"

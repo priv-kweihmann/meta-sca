@@ -5,9 +5,9 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=352fd8fef192c98968c70971a80f959c"
 
 DEPENDS += "\
-            ${PYTHON_PN}-flake8-native \
-            ${PYTHON_PN}-pytest-native \
-            ${PYTHON_PN}-setuptools-native \
+            python3-flake8-native \
+            python3-pytest-native \
+            python3-setuptools-native \
             "
 SRC_URI += "git://github.com/best-doctor/flake8-functions.git;protocol=https"
 SRCREV = "567b922d4fecf92fb6680669c08b861e178ba689"

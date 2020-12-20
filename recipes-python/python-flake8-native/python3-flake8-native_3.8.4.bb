@@ -5,11 +5,11 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=75b26781f1adf1aa310bda6098937878"
 
 DEPENDS += "\
-            ${PYTHON_PN}-entrypoints-native \
-            ${PYTHON_PN}-importlib-metadata-native \
-            ${PYTHON_PN}-mccabe-native \
-            ${PYTHON_PN}-pycodestyle-native \
-            ${PYTHON_PN}-pyflakes-native \
+            python3-entrypoints-native \
+            python3-importlib-metadata-native \
+            python3-mccabe-native \
+            python3-pycodestyle-native \
+            python3-pyflakes-native \
             "
 
 PYPI_PACKAGE = "flake8"

@@ -5,7 +5,7 @@ HOMEPAGE = "https://github.com/google/importlab"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 
-DEPENDS += "${PYTHON_PN}-networkx-native ${PYTHON_PN}-six-native"
+DEPENDS += "python3-networkx-native python3-six-native"
 
 PYPI_PACKAGE = "importlab"
 

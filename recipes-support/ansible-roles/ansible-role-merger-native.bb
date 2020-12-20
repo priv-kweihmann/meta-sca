@@ -3,7 +3,7 @@ SUMMARY = "Merge ansible roles"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=a4a2bbea1db029f21b3a328c7a059172"
 
-DEPENDS += "${PYTHON_PN}-pyyaml-native"
+DEPENDS += "python3-pyyaml-native"
 
 SRC_URI = "file://ansible-role-merger"
 

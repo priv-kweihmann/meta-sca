@@ -5,7 +5,7 @@ HOMEPAGE = "https://github.com/scikit-build/scikit-build"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7c96d2b08b3cec6d3c67fb864d1fd8cc"
 
-DEPENDS += "${PYTHON_PN}-packaging-native ${PYTHON_PN}-pyparsing-native"
+DEPENDS += "python3-packaging-native python3-pyparsing-native"
 
 PYPI_PACKAGE = "scikit-build"
 
