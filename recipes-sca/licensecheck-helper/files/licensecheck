@@ -155,6 +155,10 @@ def evaluate(args, _raw_license, _raw_crholders):
         print("Can't find any license info -> {}:{}".format(_raw_license, e))
         # if no license info can be gathered assume the set one is correct
         _det = _set
+    
+    # if still nothing is detected, silently override it
+    if _det is None:
+        _det = _set
     # simplify the the license string
     _det = _det.simplify()
 
