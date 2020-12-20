@@ -5,10 +5,10 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=268c5fd9e64a788932af10a988ab35c4"
 
 DEPENDS += "\
-            ${PYTHON_PN}-bandit-native \
-            ${PYTHON_PN}-flake8-native \
-            ${PYTHON_PN}-flake8-polyfill-native \
-            ${PYTHON_PN}-pycodestyle-native \
+            python3-bandit-native \
+            python3-flake8-native \
+            python3-flake8-polyfill-native \
+            python3-pycodestyle-native \
             "
 
 PYPI_PACKAGE = "flake8-broken-line"

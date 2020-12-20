@@ -5,7 +5,7 @@ LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=8b8d26c37c1d5a04f9b0186edbebc183"
 
 DEPENDS += "\
-            ${PYTHON_PN}-gitdb-native \
+            python3-gitdb-native \
            "
 
 PYPI_PACKAGE = "GitPython"

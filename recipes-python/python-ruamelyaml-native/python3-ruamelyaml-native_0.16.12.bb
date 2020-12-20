@@ -4,7 +4,7 @@ HOMEPAGE = "https://sourceforge.net/p/ruamel-yaml/"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=60afc0a1bb0501c0c555cabe78bba022"
 
-DEPENDS += "${PYTHON_PN}-cryptography-native"
+DEPENDS += "python3-cryptography-native"
 
 PYPI_PACKAGE = "ruamel.yaml"
 

@@ -6,15 +6,15 @@ LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.BSD;md5=5ae30ba4123bc4f2fa49aa0b0dce887b"
 
 DEPENDS += "\
-            ${PYTHON_PN}-asn1crypto-native \
-            ${PYTHON_PN}-cffi-native \
-            ${PYTHON_PN}-six-native \
+            python3-asn1crypto-native \
+            python3-cffi-native \
+            python3-six-native \
            "
 
 RDEPENDS_${PN}_class-target += "\
-                                ${PYTHON_PN}-asn1crypto \
-                                ${PYTHON_PN}-cffi \
-                                ${PYTHON_PN}-six \
+                                python3-asn1crypto \
+                                python3-cffi \
+                                python3-six \
                                "
 
 PYPI_PACKAGE = "cryptography"

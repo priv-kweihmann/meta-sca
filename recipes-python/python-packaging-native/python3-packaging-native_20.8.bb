@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/pypa/packaging"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.BSD;md5=7bef9bf4a8e4263634d0597e7ba100b8"
 
-DEPENDS += "${PYTHON_PN}-six-native"
+DEPENDS += "python3-six-native"
 
 PYPI_PACKAGE = "packaging"
 

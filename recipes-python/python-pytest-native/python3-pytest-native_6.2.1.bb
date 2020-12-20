@@ -5,16 +5,16 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=81eb9f71d006c6b268cf4388e3c98f7b"
 
 DEPENDS += "\
-            ${PYTHON_PN}-atomicwrites-native \
-            ${PYTHON_PN}-attrs-native \
-            ${PYTHON_PN}-colorama-native \
-            ${PYTHON_PN}-importlib-metadata-native \
-            ${PYTHON_PN}-more-itertools-native \
-            ${PYTHON_PN}-packaging-native \
-            ${PYTHON_PN}-pathlib2-native \
-            ${PYTHON_PN}-pluggy-native \
-            ${PYTHON_PN}-py-native \
-            ${PYTHON_PN}-wcwidth-native \
+            python3-atomicwrites-native \
+            python3-attrs-native \
+            python3-colorama-native \
+            python3-importlib-metadata-native \
+            python3-more-itertools-native \
+            python3-packaging-native \
+            python3-pathlib2-native \
+            python3-pluggy-native \
+            python3-py-native \
+            python3-wcwidth-native \
            "
 
 PYPI_PACKAGE = "pytest"

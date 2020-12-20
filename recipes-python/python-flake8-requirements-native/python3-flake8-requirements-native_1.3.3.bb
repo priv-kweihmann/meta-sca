@@ -5,8 +5,8 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=f6a7ebcbe234d94509bad74d466632ee"
 
 DEPENDS += "\
-            ${PYTHON_PN}-flake8-native \
-            ${PYTHON_PN}-toml-native \
+            python3-flake8-native \
+            python3-toml-native \
             "
 
 SRC_URI = "git://github.com/Arkq/flake8-requirements.git;protocol=https"

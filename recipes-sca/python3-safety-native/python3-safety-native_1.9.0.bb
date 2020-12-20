@@ -5,12 +5,12 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=558baaefeb02113f2331ea2fd536fa86"
 
 DEPENDS += "\
-            ${PYTHON_PN}-click-native \
-            ${PYTHON_PN}-dparse2-native \
-            ${PYTHON_PN}-packaging-native \
-            ${PYTHON_PN}-pyparsing-native \
-            ${PYTHON_PN}-requests-native \
-            ${PYTHON_PN}-toml-native \
+            python3-click-native \
+            python3-dparse2-native \
+            python3-packaging-native \
+            python3-pyparsing-native \
+            python3-requests-native \
+            python3-toml-native \
             "
 
 SRC_URI_append = " file://safety.sca.description"

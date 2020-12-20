@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/tk0miya/flake8-coding"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
-DEPENDS += "${PYTHON_PN}-flake8-native"
+DEPENDS += "python3-flake8-native"
 
 PYPI_PACKAGE = "flake8-coding"
 

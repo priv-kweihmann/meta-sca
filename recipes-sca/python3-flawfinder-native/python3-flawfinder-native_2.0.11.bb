@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/david-a-wheeler/flawfinder"
 LICENSE = "GPL-2.0"
 LIC_FILES_CHKSUM = "file://COPYING;md5=0636e73ff0215e8d672dc4c32c317bb3"
 
-DEPENDS += "${PYTHON_PN}-native"
+DEPENDS += "python3-native"
 
 SRC_URI += "git://github.com/david-a-wheeler/flawfinder.git;protocol=https \
             file://flawfinder.sca.description"

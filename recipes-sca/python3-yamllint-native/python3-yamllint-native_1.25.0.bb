@@ -5,8 +5,8 @@ LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d32239bcb673463ab874e80d47fae504"
 
 DEPENDS += "\
-            ${PYTHON_PN}-pathspec-native \
-            ${PYTHON_PN}-pyyaml-native \
+            python3-pathspec-native \
+            python3-pyyaml-native \
            "
 
 SRC_URI_append = " file://yamllint.sca.description"

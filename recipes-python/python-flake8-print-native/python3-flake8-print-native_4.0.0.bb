@@ -6,9 +6,9 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
 DEPENDS += "\
-            ${PYTHON_PN}-flake8-native \
-            ${PYTHON_PN}-pycodestyle-native \
-            ${PYTHON_PN}-six-native \
+            python3-flake8-native \
+            python3-pycodestyle-native \
+            python3-six-native \
             "
 
 PYPI_PACKAGE = "flake8-print"

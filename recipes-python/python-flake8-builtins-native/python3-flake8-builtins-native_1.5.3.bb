@@ -5,10 +5,10 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 DEPENDS += "\
-            ${PYTHON_PN}-flake8-native \
-            ${PYTHON_PN}-mccabe-native \
-            ${PYTHON_PN}-pycodestyle-native \
-            ${PYTHON_PN}-pyflakes-native \
+            python3-flake8-native \
+            python3-mccabe-native \
+            python3-pycodestyle-native \
+            python3-pyflakes-native \
             "
 
 PYPI_PACKAGE = "flake8-builtins"

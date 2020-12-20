@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/uber/py-find-injection"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=1d25d70fea8b21087517ef9490406cb9"
 
-DEPENDS += "${PYTHON_PN}-native"
+DEPENDS += "python3-native"
 
 SRC_URI = "git://github.com/priv-kweihmann/py-find-injection.git;protocol=https"
 SRC_URI += "file://pyfindinjection.sca.description"

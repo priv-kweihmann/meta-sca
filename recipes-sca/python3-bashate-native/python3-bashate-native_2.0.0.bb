@@ -5,9 +5,9 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=34400b68072d710fecd0a2940a0d1658"
 
 DEPENDS += "\
-            ${PYTHON_PN}-babel-native \
-            ${PYTHON_PN}-native \
-            ${PYTHON_PN}-pbr-native \
+            python3-babel-native \
+            python3-native \
+            python3-pbr-native \
            "
 
 SRC_URI_append = " file://bashate.sca.description"

@@ -6,9 +6,9 @@ LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5a174f6c1c019edada0f5a18bed0ff0f"
 
 DEPENDS += "\
-            ${PYTHON_PN}-click-native \
-            ${PYTHON_PN}-native \
-            ${PYTHON_PN}-polib-native \
+            python3-click-native \
+            python3-native \
+            python3-polib-native \
            "
 
 SRC_URI_append = " file://dennis.sca.description"
