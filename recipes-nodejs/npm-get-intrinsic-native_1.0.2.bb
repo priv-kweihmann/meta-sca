@@ -9,9 +9,9 @@ DEPENDS = "npm-function-bind-native \
            npm-has-native \
            npm-has-symbols-native"
 
-SRC_URI = "https://registry.npmjs.org/get-intrinsic/-/get-intrinsic-1.0.1.tgz"
-SRC_URI[md5sum] = "d1ba8c28ed389ffb5bfbe9af6b0dd31d"
-SRC_URI[sha256sum] = "90a65b8ecec8e16a23f87af8a2033af97c09f5a9164ebd53184e3aff53e4fd5d"
+SRC_URI = "https://registry.npmjs.org/get-intrinsic/-/get-intrinsic-1.0.2.tgz"
+SRC_URI[md5sum] = "4aad83647cbbd2ac00525f19435d7ce4"
+SRC_URI[sha256sum] = "7f662876a4292726529df8acd9fc95d062df7031e73b7d1f302b95e0395504f0"
 
 NPM_PKGNAME = "get-intrinsic"
 
