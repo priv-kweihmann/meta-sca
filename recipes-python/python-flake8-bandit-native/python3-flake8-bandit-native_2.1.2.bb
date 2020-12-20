@@ -5,10 +5,10 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c3f9dda449e4d01bf0045d5476dcfefd"
 
 DEPENDS += "\
-            ${PYTHON_PN}-bandit-native \
-            ${PYTHON_PN}-flake8-native \
-            ${PYTHON_PN}-flake8-polyfill-native \
-            ${PYTHON_PN}-pycodestyle-native \
+            python3-bandit-native \
+            python3-flake8-native \
+            python3-flake8-polyfill-native \
+            python3-pycodestyle-native \
             "
 
 SRC_URI[md5sum] = "30b3113b388cbf6d1ca588e4fc4ca0c6"

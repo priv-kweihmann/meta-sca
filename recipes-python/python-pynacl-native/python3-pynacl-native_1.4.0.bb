@@ -5,9 +5,9 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=8cc789b082b3d97e1ccc5261f8594d3f"
 
 DEPENDS += "\
-            ${PYTHON_PN}-cffi-native \
-            ${PYTHON_PN}-six-native \
-            ${PYTHON_PN}-wheel-native \
+            python3-cffi-native \
+            python3-six-native \
+            python3-wheel-native \
            "
 
 PYPI_PACKAGE = "PyNaCl"

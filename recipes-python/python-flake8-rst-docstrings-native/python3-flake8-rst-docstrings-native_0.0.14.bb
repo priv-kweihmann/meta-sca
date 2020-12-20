@@ -5,8 +5,8 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.rst;md5=3220ac937dae1dd25fe76c6c613288f5"
 
 DEPENDS += "\
-            ${PYTHON_PN}-flake8-native \
-            ${PYTHON_PN}-restructuredtext-lint-native \
+            python3-flake8-native \
+            python3-restructuredtext-lint-native \
             "
 
 PYPI_PACKAGE = "flake8-rst-docstrings"

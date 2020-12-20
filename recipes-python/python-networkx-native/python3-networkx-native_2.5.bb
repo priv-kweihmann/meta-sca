@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/networkx/networkx"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=a24ea029adac8935699bf69b2e38c728"
 
-DEPENDS += "${PYTHON_PN}-decorator-native"
+DEPENDS += "python3-decorator-native"
 
 PYPI_PACKAGE = "networkx"
 

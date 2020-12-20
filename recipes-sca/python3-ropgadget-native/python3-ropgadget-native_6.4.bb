@@ -6,8 +6,8 @@ LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE_BSD.txt;md5=e8b383a8cb935c894fbf61ff6c5d5121"
 
 DEPENDS += "\
-            ${PYTHON_PN}-capstone-native \
-            ${PYTHON_PN}-native \
+            python3-capstone-native \
+            python3-native \
            "
 
 SRC_URI = "git://github.com/JonathanSalwan/ROPgadget.git;protocol=https \

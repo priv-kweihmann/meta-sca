@@ -5,10 +5,10 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d4540bac589ba237d0f9238a399607ca"
 
 DEPENDS += "\
-            ${PYTHON_PN}-colorama-native \
-            ${PYTHON_PN}-flake8-polyfill-native \
-            ${PYTHON_PN}-future-native \
-            ${PYTHON_PN}-mando-native \
+            python3-colorama-native \
+            python3-flake8-polyfill-native \
+            python3-future-native \
+            python3-mando-native \
            "
 
 PYPI_PACKAGE = "radon"

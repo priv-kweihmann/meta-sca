@@ -5,10 +5,10 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=34400b68072d710fecd0a2940a0d1658"
 
 DEPENDS += "\
-            ${PYTHON_PN}-certifi-native \
-            ${PYTHON_PN}-chardet-native \
-            ${PYTHON_PN}-idna-native \
-            ${PYTHON_PN}-urllib3-native \
+            python3-certifi-native \
+            python3-chardet-native \
+            python3-idna-native \
+            python3-urllib3-native \
            "
 
 PYPI_PACKAGE = "requests"

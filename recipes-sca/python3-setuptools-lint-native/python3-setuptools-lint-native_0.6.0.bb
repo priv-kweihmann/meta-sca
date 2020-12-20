@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/johnnoone/setuptools-pylint"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=2;endline=9;md5=c1563877848d2f74bcf0fbcc4330748b"
 
-DEPENDS += "${PYTHON_PN}-pylint-native"
+DEPENDS += "python3-pylint-native"
 
 SRC_URI_append = " file://setuptoolslint.sca.description"
 SRC_URI[md5sum] = "1d0bedb4c35ee87ad8382f12de121974"

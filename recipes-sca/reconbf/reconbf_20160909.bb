@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/HewlettPackard/reconbf"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
-DEPENDS += "${PYTHON_PN}-pbr-native"
+DEPENDS += "python3-pbr-native"
 
 SRC_URI = "git://github.com/HewlettPackard/reconbf.git;protocol=https \
            file://reconbf.sca.description"
@@ -25,14 +25,14 @@ do_install_append_class-native () {
 FILES_${PN} += "${datadir}"
 
 RDEPENDS_${PN}_class-target += "\
-                                ${PYTHON_PN}-compression \
-                                ${PYTHON_PN}-core \
-                                ${PYTHON_PN}-json \
-                                ${PYTHON_PN}-logging \
-                                ${PYTHON_PN}-multiprocessing \
-                                ${PYTHON_PN}-netserver \
-                                ${PYTHON_PN}-pkgutil \
-                                ${PYTHON_PN}-threading \
+                                python3-compression \
+                                python3-core \
+                                python3-json \
+                                python3-logging \
+                                python3-multiprocessing \
+                                python3-netserver \
+                                python3-pkgutil \
+                                python3-threading \
                                 "
 
 BBCLASSEXTEND = "native"
