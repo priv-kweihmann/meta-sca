@@ -5,8 +5,8 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7a7126e068206290f3fe9f8d6c713ea6"
 
 DEPENDS += "\
-            ${PYTHON_PN}-setuptools-scm-native \
-            ${PYTHON_PN}-toml-native \
+            python3-setuptools-scm-native \
+            python3-toml-native \
             "
 
 PYPI_PACKAGE = "zipp"

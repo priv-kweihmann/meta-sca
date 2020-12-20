@@ -7,16 +7,16 @@ LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=8f0e2cd40e05189ec81232da84bd6e1a"
 
 DEPENDS_class-native += "\
-                         ${PYTHON_PN}-cryptography-native \
-                         ${PYTHON_PN}-jinja2-native \
-                         ${PYTHON_PN}-pyyaml-native \
+                         python3-cryptography-native \
+                         python3-jinja2-native \
+                         python3-pyyaml-native \
                         "
 
 RDEPENDS_${PN}_class-target += "\
-                                ${PYTHON_PN}-cryptography \
-                                ${PYTHON_PN}-jinja2 \
-                                ${PYTHON_PN}-modules \
-                                ${PYTHON_PN}-pyyaml \
+                                python3-cryptography \
+                                python3-jinja2 \
+                                python3-modules \
+                                python3-pyyaml \
                                "
 
 SRC_URI = "http://releases.ansible.com/ansible/ansible-${PV}.tar.gz"

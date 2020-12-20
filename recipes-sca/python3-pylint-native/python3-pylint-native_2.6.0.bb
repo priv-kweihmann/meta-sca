@@ -5,13 +5,13 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=c107cf754550e65755c42985a5d4e9c9"
 
 DEPENDS += "\
-            ${PYTHON_PN}-astroids-native \
-            ${PYTHON_PN}-isort-native \
-            ${PYTHON_PN}-mccabe-native \
-            ${PYTHON_PN}-native \
-            ${PYTHON_PN}-pytest-runner-native \
-            ${PYTHON_PN}-six-native \
-            ${PYTHON_PN}-toml-native \
+            python3-astroids-native \
+            python3-isort-native \
+            python3-mccabe-native \
+            python3-native \
+            python3-pytest-runner-native \
+            python3-six-native \
+            python3-toml-native \
             "
 
 SRC_URI_append = " file://pylint.sca.description"

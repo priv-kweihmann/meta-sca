@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/pytest-dev/pluggy"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1c8206d16fd5cc02fa9b0bb98955e5c2"
 
-DEPENDS += "${PYTHON_PN}-importlib-metadata-native"
+DEPENDS += "python3-importlib-metadata-native"
 
 PYPI_PACKAGE = "pluggy"
 

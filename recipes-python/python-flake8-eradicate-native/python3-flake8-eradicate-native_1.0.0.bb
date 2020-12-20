@@ -5,9 +5,9 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=268c5fd9e64a788932af10a988ab35c4"
 
 DEPENDS += "\
-            ${PYTHON_PN}-attrs-native \
-            ${PYTHON_PN}-eradicate-native \
-            ${PYTHON_PN}-flake8-native \
+            python3-attrs-native \
+            python3-eradicate-native \
+            python3-flake8-native \
             "
 
 PYPI_PACKAGE = "flake8-eradicate"

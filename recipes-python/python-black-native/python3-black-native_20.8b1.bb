@@ -5,12 +5,12 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d3465a2a183908c9cb95bf490bd1e7ab"
 
 DEPENDS += "\
-            ${PYTHON_PN}-appdirs-native \
-            ${PYTHON_PN}-attrs-native \
-            ${PYTHON_PN}-click-native \
-            ${PYTHON_PN}-setuptools-scm-native \
-            ${PYTHON_PN}-toml-native \
-            ${PYTHON_PN}-typed-ast-native \
+            python3-appdirs-native \
+            python3-attrs-native \
+            python3-click-native \
+            python3-setuptools-scm-native \
+            python3-toml-native \
+            python3-typed-ast-native \
             "
 
 PYPI_PACKAGE = "black"

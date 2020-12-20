@@ -5,9 +5,9 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7c3c8615794b2f159ecd80b4c32f2f8f"
 
 DEPENDS += "\
-            ${PYTHON_PN}-native \
-            ${PYTHON_PN}-pyyaml-native \
-            ${PYTHON_PN}-requests-native \
+            python3-native \
+            python3-pyyaml-native \
+            python3-requests-native \
            "
 
 SRC_URI = "git://github.com/Yelp/detect-secrets.git;protocol=https"

@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/mcmtroffaes/pathlib2"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.rst;md5=042856c23a3e903b33bf361ea1cbe29a"
 
-DEPENDS += "${PYTHON_PN}-six-native"
+DEPENDS += "python3-six-native"
 
 PYPI_PACKAGE = "pathlib2"
 

@@ -5,20 +5,20 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=27006a41205763794866943ed14d2493"
 
 DEPENDS += "\
-            ${PYTHON_PN}-ansible-native \
-            ${PYTHON_PN}-bcrypt-native \
-            ${PYTHON_PN}-cryptography-native \
-            ${PYTHON_PN}-paramiko-native \
-            ${PYTHON_PN}-pathlib2-native \
-            ${PYTHON_PN}-pyasn1-native \
-            ${PYTHON_PN}-pynacl-native \
-            ${PYTHON_PN}-pyyaml-native \
-            ${PYTHON_PN}-rich-native \
-            ${PYTHON_PN}-ruamelyaml-native \
-            ${PYTHON_PN}-scandir-native \
-            ${PYTHON_PN}-setuptools-scm-git-archive-native \
-            ${PYTHON_PN}-setuptools-scm-native \
-            ${PYTHON_PN}-six-native \
+            python3-ansible-native \
+            python3-bcrypt-native \
+            python3-cryptography-native \
+            python3-paramiko-native \
+            python3-pathlib2-native \
+            python3-pyasn1-native \
+            python3-pynacl-native \
+            python3-pyyaml-native \
+            python3-rich-native \
+            python3-ruamelyaml-native \
+            python3-scandir-native \
+            python3-setuptools-scm-git-archive-native \
+            python3-setuptools-scm-native \
+            python3-six-native \
             "
 
 # wheel-files are just zip-files, so we can threat them like that

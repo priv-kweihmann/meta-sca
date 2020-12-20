@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/flashcode/msgcheck"
 LICENSE = "GPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=c678957b0c8e964aa6c70fd77641a71e"
 
-DEPENDS += "${PYTHON_PN}-pyenchant-native"
+DEPENDS += "python3-pyenchant-native"
 
 SRC_URI = "git://github.com/flashcode/msgcheck.git;protocol=https \
            file://msgcheck.sca.description"
