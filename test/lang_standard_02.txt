@@ -18,7 +18,6 @@ pyfindinjection
 pylint
 pyright
 pysymcheck
-pytype
 safety
 setuptoolslint
 stylelint
