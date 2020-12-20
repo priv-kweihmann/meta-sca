@@ -20,6 +20,9 @@
     "test": {
         "integration": [
             {"cmd": ["cspell", "--help"], "returncode": 1}
+        ],
+        "findings": [
+            "bad-spelling"
         ]
     }
 }

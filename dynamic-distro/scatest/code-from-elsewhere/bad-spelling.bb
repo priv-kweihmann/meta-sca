@@ -12,4 +12,6 @@ SCA_SCORE_FUNCTIONAL_ERROR = "0"
 SCA_SCORE_STYLE_ERROR = "0"
 inherit sca
 
-SCA_AVAILABLE_MODULES = "cspell"
+SCA_SEVERITY_TRANSFORM_EXTRA += "cspell.*=warning"
+
+SCA_ENABLED_MODULES = "bitbake cspell"
