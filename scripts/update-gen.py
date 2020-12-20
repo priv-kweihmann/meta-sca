@@ -130,17 +130,26 @@ def update_packages(_args, _input, number):
             if run_bitbake_test(_args, _recipe):
                 git_commit(_args, _recipe,
                            m.group("version"), number)
+                return 1
         else:
             print(
                 "Failed to update {recipe} - skipping".format(recipe=_recipe))
-
+    return 0
 
 _args = create_parser()
 with urllib.request.urlopen("https://api.github.com/repos/priv-kweihmann/meta-sca/issues?state=open") as url:
     data = json.loads(url.read().decode())
+    _updated_items = 0
     for item in data:
         if item["state"] == "open" and any(x in item["title"] for x in ["npm-", "python3-", "perl-", "ruby-"]):
             if any(x["name"] == "Postponed" for x in item["labels"]):
                 continue
             print("Attempting {}".format(item["title"]))
-            update_packages(_args, item["title"], item["number"])
+            _updated_items += update_packages(_args, item["title"], item["number"])
+    if _updated_items > 0:
+        try:
+            _pargs = [os.path.join(_args.repo, "..", "meta-buildutils", "scripts", "unused"),
+                      "--remove", _args.repo]
+            subprocess.check_call(_pargs, universal_newlines=True)
+        except:
+            pass
