@@ -8,6 +8,7 @@ import hashlib
 import tarfile
 import glob
 from license_util import get_license_info
+from recipe_util import check_depends
 from semantic_version import Version
 
 TPL = """SUMMARY = "RubyGem: {name}"
@@ -47,22 +48,30 @@ def get_description(args, pkgname):
 def sanitize_pkgname(raw):
     return raw.replace("@", "").replace("/", "-").replace("_", "-")
 
-def create_depends(desc):
-    if not "dependencies" in desc:
-        return ""
-    if not "runtime" in desc["dependencies"]:
-        return ""
-    _tpl = "ruby-{}-native"
-    res = [sanitize_pkgname(_tpl.format(k["name"])) for k in desc["dependencies"]["runtime"]]
+def create_depends(desc, old, generate):
+    if generate:
+        if not "dependencies" in desc:
+            return ""
+        if not "runtime" in desc["dependencies"]:
+            return ""
+        _tpl = "ruby-{}-native"
+        res = [sanitize_pkgname(_tpl.format(k["name"])) for k in desc["dependencies"]["runtime"]]
+    else:
+        res = []
+    res, _ = check_depends(res, [], old)
     return " \\\n                  ".join(sorted(res))
 
-def create_rdepends(desc):
-    if not "dependencies" in desc:
-        return ""
-    if not "runtime" in desc["dependencies"]:
-        return ""
-    _tpl = "ruby-{}"
-    res = [sanitize_pkgname(_tpl.format(k["name"])) for k in desc["dependencies"]["runtime"]]
+def create_rdepends(desc, old, generate):
+    if generate:
+        if not "dependencies" in desc:
+            return ""
+        if not "runtime" in desc["dependencies"]:
+            return ""
+        _tpl = "ruby-{}"
+        res = [sanitize_pkgname(_tpl.format(k["name"])) for k in desc["dependencies"]["runtime"]]
+    else:
+        res = []
+    _, res = check_depends([], res, old)
     return " \\\n                  ".join(sorted(res))
 
 def get_best_version(desc, pkgname, version):
@@ -109,6 +118,7 @@ def get_license(desc):
 
 def check_existing(args, pkgname, version, _naming_pattern):
     _matches = glob.glob(os.path.join(args.basepath, _naming_pattern.format(sanitize_pkgname(pkgname), "*")))
+    res = []
     for m in _matches:
         mversion = Version(os.path.basename(m).replace(".bb", "").split("_")[1])
         cversion = Version(version)
@@ -116,9 +126,8 @@ def check_existing(args, pkgname, version, _naming_pattern):
             print("{} <= {} @{}".format(mversion, cversion, os.path.basename(m)))
             return False
         if mversion < cversion:
-            print("Deleting old version {}".format(os.path.basename(m)))
-            os.remove(m)
-    return True
+            res.append(m)
+    return res
 
 def create_tpl(args, pkgname, version):
     global __seen_pkgs
@@ -133,7 +142,8 @@ def create_tpl(args, pkgname, version):
     except ValueError:
         print("Can't get useful version for {} with '{}'".format(pkgname, version))
         return
-    if not check_existing(args, pkgname, _bestversion, _naming_pattern):
+    _oldrecipes = check_existing(args, pkgname, _bestversion, _naming_pattern)
+    if not _oldrecipes:
         print("Higher version already existing")
         return
     _description = _all_description
@@ -142,14 +152,17 @@ def create_tpl(args, pkgname, version):
         # compute a few things first
         __calculated = {
             "__class": ["rubygems"],
-            "__deps": create_depends(_description) if not args.target else "",
-            "__rdeps": create_rdepends(_description) if args.target else "",
+            "__deps": create_depends(_description, _oldrecipes, not args.target),
+            "__rdeps": create_rdepends(_description, _oldrecipes, args.target),
             "__cleanname": sanitize_pkgname(pkgname),
             "__version": _bestversion,
             "__license": get_license(_description),
             "__disttarball": _description["gem_uri"],
             "__info": re.sub(r'\n|"', "", _description["info"].split(". ")[0]).strip()
         }
+        for m in _oldrecipes:
+            print("Deleting old version {}".format(os.path.basename(m)))
+            os.remove(m)
         if not args.target:
             __calculated["__class"] += ["native"]
         __calculated["__class"] = "\n".join(["inherit {}".format(x) for x in __calculated["__class"]])
