@@ -1,0 +1,5 @@
+[
+    "dynamic-distro/",
+    "recipes-support/inspec-profiles/",
+    "recipes-devtools/ruby/"
+]
