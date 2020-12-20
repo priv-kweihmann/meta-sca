@@ -53,6 +53,8 @@ inherit sca-image-backtrack
 
 inherit python3-dir
 
+DEPENDS += "python3-ansible-native ansible-sca-native sca-image-ansible-rules-native"
+
 def create_inventory(d, target_path):
     import sys
     sys.path.append(os.path.join(d.getVar("STAGING_DIR_NATIVE"), d.getVar("PYTHON_SITEPACKAGES_DIR")[1:]))
@@ -233,5 +235,3 @@ python do_sca_ansible() {
 
 do_sca_ansible[doc] = "Audit image with ansible playbooks"
 addtask do_sca_ansible before do_sca_deploy after do_image
-
-DEPENDS += "python3-ansible-native ansible-sca-native sca-image-ansible-rules-native"
