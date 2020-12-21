@@ -1,0 +1,22 @@
+#!/bin/sh
+_thispath=$(dirname $0)
+_pwd=$(pwd)
+
+trap "sed -i '$ d' ${_pwd}/conf/local.conf" EXIT
+
+mods=$(${_thispath}/get_matching_mods $@)
+
+echo "Check the following modules: ${mods}"
+
+echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> ${_pwd}/conf/local.conf
+
+_targets=$(${_thispath}/get_buildmodules $@)
+if [ ! -z "${_targets}" ]; then
+    if [ -z "BUILDNTEST_PRESERVECACHE" ]; then
+        bitbake ${_targets} -c cleansstate || exit 1
+    fi
+    bitbake ${_targets}|| exit 1
+fi
+if [ -z "BUILDNTEST_NOTEST" ]; then
+    ${_thispath}/check_results ${_pwd}/tmp/deploy/images/*/sca ${mods} || exit 1
+fi
