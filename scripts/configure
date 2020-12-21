@@ -193,6 +193,9 @@ if __name__ == '__main__':
                                                 "Only things deployed to the image": "strict", 
                                                 "Deployed and a few support files": "loose"}
                                            ),
+        "SCA_SPARE_LAYER": RawInputElement("Name the layers which should NOT be checked (e.g. core). Use spaces for seperating multiple items", dataobj=""),
+        "SCA_BACKTRACK": InputElement("Do you want findings from image being tracked back to their original recipes?", dataobj={"yes": "1", "no": "0"}),
+        "SCA_VERBOSE_OUTPUT": InputElement("Enable verbose console output?", dataobj={"yes": "1", "no": "0"}),
     }
     _data = {
 
