@@ -118,8 +118,10 @@ jobs:
           echo 'INHERIT += "rm_work_and_downloads"' >> conf/local.conf
           eval $(bitbake busybox -e | grep "^TMPDIR") && rm -f bitbake.sock && rm -f bitbake.lock
           bitbake cve-update-db-native -c cleanall || true
+          export BUILDNTEST_PRESERVECACHE=1
+          export BUILDNTEST_NOTEST=1
           timeout --foreground --kill-after=60s $MAXRUNTIME \
-            BUILDNTEST_PRESERVECACHE=1 BUILDNTEST_NOTEST=1 ${WORKSPACE}/meta-sca/test/buildntest \
+            ${WORKSPACE}/meta-sca/test/buildntest \
             $(cat ${WORKSPACE}/meta-sca/test/lang_$PARAMFILE.txt | tr '\n' ' ') 2>&1 \
             || if [ $? == 124 ]; then echo "Timeout"; else exit 1; fi;
           rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
