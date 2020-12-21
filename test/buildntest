@@ -17,4 +17,6 @@ if [ ! -z "${_targets}" ]; then
     fi
     bitbake ${_targets}|| exit 1
 fi
-${_thispath}/check_results ${_pwd}/tmp/deploy/images/*/sca ${mods} || exit 1
+if [ -z "BUILDNTEST_NOTEST" ]; then
+    ${_thispath}/check_results ${_pwd}/tmp/deploy/images/*/sca ${mods} || exit 1
+fi
