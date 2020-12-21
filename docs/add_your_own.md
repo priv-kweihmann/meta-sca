@@ -89,6 +89,7 @@ inherit sca-global
 inherit sca-helper
 inherit sca-suppress
 inherit sca-tracefiles
+inherit sca-image-backtrack
 
 # Converter function
 def do_sca_conv_<TOOL>(d):
@@ -385,6 +386,9 @@ def do_sca_conv_myfoolint(d):
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
                                             Tool="myfoolint",
+                                            # in image recipes please use
+                                            # `sca_get_layer_path_for_file(d, d.getVar("FILE"))` instead of 
+                                            # `buildpath`
                                             BuildPath=buildpath,
                                             File=m.group("file"),
                                             Line=m.group("line"),
@@ -402,9 +406,11 @@ def do_sca_conv_myfoolint(d):
                     if g.Severity in sca_allowed_warning_level(d):
                         # if all checks passed append the data model object to the local
                         # _findings list
-                        _findings.append(g)
-                except Exception:
-                    pass
+                        _findings += sca_backtrack_findings(d, g)
+                except Exception as e:
+                    # To see any exceptions use the sca_log_note function
+                    # which is linked to `SCA_VERBOSE_OUTPUT` setting 
+                    sca_log_note(d, str(e))
     # serialize all findings identified
     sca_add_model_class_list(d, _findings)
     # return a string representation of the serialized list
