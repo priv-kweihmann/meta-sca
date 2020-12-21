@@ -41,7 +41,7 @@ def do_sca_conv_scancode(d):
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
                                             Tool="scancode",
-                                            BuildPath=buildpath,
+                                            BuildPath=sca_get_layer_path_for_file(d, d.getVar("FILE")),
                                             File=d.getVar("FILE"),
                                             Column="1",
                                             Line="1",
