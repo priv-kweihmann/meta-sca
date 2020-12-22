@@ -1,4 +1,4 @@
-From b92f89feeaec635470ede588a9257d9b72581b41 Mon Sep 17 00:00:00 2001
+From 9cc2df95f185555bdd94b855146afa34fd328d2a Mon Sep 17 00:00:00 2001
 From: Konrad Weihmann <kweihmann@outlook.com>
 Date: Sun, 29 Nov 2020 21:59:38 +0100
 Subject: [PATCH] remove version limitations
@@ -9,14 +9,17 @@ on
 - ftfy
 - bitarray
 - fingerprints
+- chardet
 
 Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
 ---
- setup.py | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ setup.py                                             | 12 ++++++------
+ .../requests-2.24.0/requests/__init__.py             |  2 +-
+ .../pypi/setup.py-versions/requests-2.24.0/setup.py  |  2 +-
+ 3 files changed, 8 insertions(+), 8 deletions(-)
 
 diff --git a/setup.py b/setup.py
-index d7f026417..a3f43c9db 100644
+index d7f026417..990b2ef87 100644
 --- a/setup.py
 +++ b/setup.py
 @@ -140,7 +140,7 @@ setup(
@@ -37,6 +40,15 @@ index d7f026417..a3f43c9db 100644
          'intbitset >= 2.3.0,  < 3.0',
          'boolean.py >= 3.5,  < 4.0',
          'license_expression >= 0.99',
+@@ -168,7 +168,7 @@ setup(
+         'six',
+         'pdfminer.six >= 20170720',
+         'pycryptodome >= 3.4',
+-        'chardet >= 3.0.0, <4.0.0',
++        'chardet >= 3.0.0',
+ 
+         # typecode
+         'typecode',
 @@ -185,11 +185,11 @@ setup(
          'gemfileparser >= 0.7.0',
          'pkginfo >= 1.5.0.1',
@@ -60,6 +72,32 @@ index d7f026417..a3f43c9db 100644
  
          # scancode outputs
          'jinja2 >= 2.7.0, < 3.0.0',
+diff --git a/tests/packagedcode/data/pypi/setup.py-versions/requests-2.24.0/requests/__init__.py b/tests/packagedcode/data/pypi/setup.py-versions/requests-2.24.0/requests/__init__.py
+index db090aa70..251e776a0 100644
+--- a/tests/packagedcode/data/pypi/setup.py-versions/requests-2.24.0/requests/__init__.py
++++ b/tests/packagedcode/data/pypi/setup.py-versions/requests-2.24.0/requests/__init__.py
+@@ -66,7 +66,7 @@ def check_compatibility(urllib3_version, chardet_version):
+     major, minor, patch = chardet_version.split('.')[:3]
+     major, minor, patch = int(major), int(minor), int(patch)
+     # chardet >= 3.0.2, < 3.1.0
+-    assert major == 3
++    assert major >= 3
+     assert minor < 1
+     assert patch >= 2
+ 
+diff --git a/tests/packagedcode/data/pypi/setup.py-versions/requests-2.24.0/setup.py b/tests/packagedcode/data/pypi/setup.py-versions/requests-2.24.0/setup.py
+index 2da9ba07c..6bd6e5796 100644
+--- a/tests/packagedcode/data/pypi/setup.py-versions/requests-2.24.0/setup.py
++++ b/tests/packagedcode/data/pypi/setup.py-versions/requests-2.24.0/setup.py
+@@ -42,7 +42,7 @@ if sys.argv[-1] == 'publish':
+ packages = ['requests']
+ 
+ requires = [
+-    'chardet>=3.0.2,<4',
++    'chardet>=3.0.2',
+     'idna>=2.5,<3',
+     'urllib3>=1.21.1,<1.26,!=1.25.0,!=1.25.1',
+     'certifi>=2017.4.17'
 -- 
 2.25.1
 
