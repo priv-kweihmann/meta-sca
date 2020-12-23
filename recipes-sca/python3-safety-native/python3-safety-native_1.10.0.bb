@@ -14,8 +14,8 @@ DEPENDS += "\
             "
 
 SRC_URI_append = " file://safety.sca.description"
-SRC_URI[md5sum] = "a419eb2a5123b83b94f365c14c498868"
-SRC_URI[sha256sum] = "23bf20690d4400edc795836b0c983c2b4cbbb922233108ff925b7dd7750f00c9"
+SRC_URI[md5sum] = "f49e4c7caa36842357708627673d570a"
+SRC_URI[sha256sum] = "2ebc71b44666588d7898905d86d575933fcd5fa3c92d301ed12482602b1e928a"
 
 PYPI_PACKAGE = "safety"
 
