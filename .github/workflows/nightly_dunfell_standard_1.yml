@@ -14,7 +14,7 @@ jobs:
       ENABLEMETAOE: 0
       ENABLEMETACLANG: 0
       PARAMFILE: standard_01
-      MAXRUNTIME: 12900s
+      MAXRUNTIME: 14400s
       PYTHONIOENCODING: utf8
       LC_ALL: en_US.UTF-8
       LANG: en_US.UTF-8
