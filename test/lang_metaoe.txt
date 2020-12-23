@@ -1,7 +1,6 @@
 cspell
 eslint
 htmlhint
-inspec
 jshint
 luacheck
 phan
