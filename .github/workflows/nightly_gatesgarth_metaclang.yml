@@ -133,7 +133,7 @@ jobs:
           export BUILDNTEST_NOTEST=1
           timeout --foreground --kill-after=60s $MAXRUNTIME \
             ${WORKSPACE}/meta-sca/test/buildntest \
-            $(cat ${WORKSPACE}/meta-sca/test/lang_$PARAMFILE.txt | tr '\n' ' ') 2>&1 \
+            ${WORKSPACE}/meta-sca/test/lang_$PARAMFILE.txt \
             || if [ $? == 124 ]; then echo "Timeout"; else exit 1; fi;
           rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
         shell: bash
