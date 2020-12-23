@@ -11,9 +11,9 @@ DEPENDS = "npm-babel-eslint-native \
            npm-esquery-native \
            npm-multimap-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-template-visitor/-/eslint-template-visitor-2.2.1.tgz"
-SRC_URI[md5sum] = "2ed9428494f682b0359d24b57c18e8ef"
-SRC_URI[sha256sum] = "d0070febfabb8618b08484ccc784f9efca88037e47a264b94a6dc14bcc47d7a1"
+SRC_URI = "https://registry.npmjs.org/eslint-template-visitor/-/eslint-template-visitor-2.2.2.tgz"
+SRC_URI[md5sum] = "c6e7cb163f27a2162fee064b69a88a55"
+SRC_URI[sha256sum] = "22be335d8f444f1ef09f4ccb0cc83cb327e79e81289c916188c12f98230b8457"
 
 NPM_PKGNAME = "eslint-template-visitor"
 
