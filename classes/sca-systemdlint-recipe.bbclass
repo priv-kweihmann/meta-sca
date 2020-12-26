@@ -7,6 +7,15 @@ inherit sca-systemdlint-core
 
 def sca_systemd_version(d):
     import oe.packagedata
+    import os
+
+    try:
+        files = os.listdir(d.getVar("PKGDATA_DIR") or "/does/not/exist")
+    except OSError:
+        # avoid a warning from oe.packagedata.pkgmap function
+        # and simply return nothing instead
+        bb.note("Can't determine systemd version, assuming latest")
+        return ""
 
     pkgmap = oe.packagedata.pkgmap(d)
     for k,v in pkgmap.items():
