@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=9d60cb9270b846cbb621d0897110eb81"
 
 DEPENDS = "npm-configstore-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-dict-cryptocurrencies/-/cspell-dict-cryptocurrencies-1.0.9.tgz"
-SRC_URI[md5sum] = "87870a8c588580ee64f1d1bc787b4e4a"
-SRC_URI[sha256sum] = "55eeca1874ad32adac068c5e4185d82c902f3126d9c7463283853320262b5049"
+SRC_URI = "https://registry.npmjs.org/cspell-dict-cryptocurrencies/-/cspell-dict-cryptocurrencies-1.1.2.tgz"
+SRC_URI[md5sum] = "623d777e350536bd7455a2800a9b3711"
+SRC_URI[sha256sum] = "d3dc104d93ca802f228e44e1280a78f308c69b90eb6613dbaa1e3ed54a155754"
 
 NPM_PKGNAME = "cspell-dict-cryptocurrencies"
 
