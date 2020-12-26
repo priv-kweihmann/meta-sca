@@ -25,6 +25,8 @@ do_install() {
 
     install -m 0755 ${S}/scripts/checkbashisms.bash_completion ${D}${bindir}
     install -m 0755 ${S}/scripts/checkbashisms.pl ${D}${bindir}
+    # enforce usage of sysroot perl instead of host sided
+    sed -i "s|/usr/bin/perl|/usr/bin/env perl|g" ${D}${bindir}/checkbashisms.pl
 
     install ${WORKDIR}/checkbashism.sca.description ${D}${datadir}
 }
