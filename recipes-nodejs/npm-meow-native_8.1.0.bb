@@ -17,9 +17,9 @@ DEPENDS = "npm-camelcase-keys-native \
            npm-types-minimist-native \
            npm-yargs-parser-native"
 
-SRC_URI = "https://registry.npmjs.org/meow/-/meow-8.0.0.tgz"
-SRC_URI[md5sum] = "c4544cb7773e40771b21e5742626dc88"
-SRC_URI[sha256sum] = "207253135f2822bea082ecfac1ee3d15a8badfeb75ebd491bb1098e64baca322"
+SRC_URI = "https://registry.npmjs.org/meow/-/meow-8.1.0.tgz"
+SRC_URI[md5sum] = "934cf207bc120f040ac0ba601da1c8fb"
+SRC_URI[sha256sum] = "5bf1e6cc259f654718f69174f6c3288a028860eb490af780aeb2114cc7a0d93e"
 
 NPM_PKGNAME = "meow"
 
