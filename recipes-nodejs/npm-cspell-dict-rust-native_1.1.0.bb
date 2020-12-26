@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=a3cad1179829e6879699c59c2800d38b"
 
 DEPENDS = "npm-configstore-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-dict-rust/-/cspell-dict-rust-1.0.21.tgz"
-SRC_URI[md5sum] = "68e7b98a2c5c93ab6167d4ec5314ac3c"
-SRC_URI[sha256sum] = "ed4410c9a4b0c612a15d0cc51bd47052daa220e63d5be21c21b9c16b81ec2f2b"
+SRC_URI = "https://registry.npmjs.org/cspell-dict-rust/-/cspell-dict-rust-1.1.0.tgz"
+SRC_URI[md5sum] = "db2fe224860ed3e0678ced136fdcd001"
+SRC_URI[sha256sum] = "6a5f78d583ea632e175a0ab4dca4f647f424165802074acfb9d8ea10b33a040d"
 
 NPM_PKGNAME = "cspell-dict-rust"
 
