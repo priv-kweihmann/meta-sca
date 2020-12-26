@@ -51,7 +51,7 @@ def create_depends(desc):
     if not "dependencies" in desc:
         return ""
     _tpl = "npm-{}-native"
-    res = [sanitize_pkgname(_tpl.format(k)) for k,_ in desc["dependencies"].items()]
+    res = [sanitize_pkgname(_tpl.format(k)) for k,_ in desc["dependencies"].items() if sanitize_pkgname(_tpl.format(k)) != sanitize_pkgname(_tpl.format(desc["name"]))]
     return " \\\n           ".join(sorted(res))
 
 def get_best_version(desc, pkgname, version):
