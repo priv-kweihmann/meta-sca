@@ -120,8 +120,12 @@ def check_existing(args, pkgname, version, _naming_pattern):
     _matches = glob.glob(os.path.join(args.basepath, _naming_pattern.format(sanitize_pkgname(pkgname), "*")))
     res = []
     for m in _matches:
-        mversion = Version(os.path.basename(m).replace(".bb", "").split("_")[1])
-        cversion = Version(version)
+        try:
+            mversion = Version(os.path.basename(m).replace(".bb", "").split("_")[1])
+            cversion = Version(version)
+        except ValueError:
+            mversion = int(os.path.basename(m).replace(".bb", "").split("_")[1].replace(".", ""))
+            cversion = int(version.replace(".", ""))
         if mversion >= cversion:
             print("{} <= {} @{}".format(mversion, cversion, os.path.basename(m)))
             return False
