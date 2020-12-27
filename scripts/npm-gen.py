@@ -55,8 +55,8 @@ def create_depends(desc):
     return " \\\n           ".join(sorted(res))
 
 def get_best_version(desc, pkgname, version):
-    _available_versions = [Version(x) for x in desc["versions"].keys()]
     try:
+        _available_versions = [Version(x) for x in desc["versions"].keys()]
         return str(NpmSpec(version).select(_available_versions))
     except:
         print("Can't find version for spec {}:'{}' - falling back to latest".format(pkgname, version))
