@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 DEPENDS = "npm-git-diff-tree-native \
            npm-vfile-find-up-native"
 
-SRC_URI = "https://registry.npmjs.org/unified-diff/-/unified-diff-3.0.1.tgz"
-SRC_URI[md5sum] = "5f2ca89d1d167138751bdff6ba423457"
-SRC_URI[sha256sum] = "06b4196a2e462bfcf1a425476ca4ffb8d7be1af06492ed006b3cb945e6bc3936"
+SRC_URI = "https://registry.npmjs.org/unified-diff/-/unified-diff-3.1.0.tgz"
+SRC_URI[md5sum] = "9f4873ac33e9e0f817702ff71a88b99f"
+SRC_URI[sha256sum] = "65c3cff685610047b41d23618b13d8935fed07e340f8cbe26c248fec17e8daa4"
 
 NPM_PKGNAME = "unified-diff"
 
