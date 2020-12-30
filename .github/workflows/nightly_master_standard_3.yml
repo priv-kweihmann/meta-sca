@@ -9,12 +9,16 @@ jobs:
     name: "build"
     env:
       DISTRO: scatest
-      MACHINE: qemux86-64
-      SCABRANCH: master
-      ENABLEMETAOE: 0
-      ENABLEMETACLANG: 0
-      PARAMFILE: standard_03
-      MAXRUNTIME: 14400s
+      SCM_BRANCH_META_CLANG: master
+      SCM_BRANCH_META_OE: master
+      SCM_BRANCH: master
+      SCM_LAYER_ENABLE_CLANG: 0
+      SCM_LAYER_ENABLE_METAOE: 0
+      BUILD_GLIBC: 1
+      BUILD_KERNEL: 1
+      BUILD_MAXRUNTIME: 19800
+      BUILD_PARAMFILE: standard_03
+      BUILD_QEMUSYSTEM: 1
       PYTHONIOENCODING: utf8
       LC_ALL: en_US.UTF-8
       LANG: en_US.UTF-8
@@ -26,157 +30,84 @@ jobs:
       image: privkweihmann/yocto-sca-minimal:latest
       env:
         WORKSPACE: /opt/build
-        WEB_REPOSITORY: priv-kweihmann/priv-kweihmann.github.io
+        TOPDIR: /opt/build
+        TEMPLATECONF: /opt/build/sources/meta-sca/conf/variant/scatest-qemux86-64/
       volumes:
         - ${{ github.workspace }}:/opt/build
       options: --privileged
 
     steps:
-      - name: Prep container
-        run: |
-          sudo sysctl fs.inotify.max_user_watches=524288 2>&1
-          sudo chown yoctouser:yoctouser ${WORKSPACE} 2>&1
-      - name: Check out poky
-        run: |
-          git clone git://git.yoctoproject.org/poky.git/ -b $SCABRANCH ${WORKSPACE}/poky 2>&1
-          rm -rf ${WORKSPACE}/poky/.git 2>&1
-        shell: bash
-      - name: Check out meta-sca
-        run: |
-          git clone https://github.com/priv-kweihmann/meta-sca.git -b $SCABRANCH ${WORKSPACE}/meta-sca 2>&1
-          rm -rf ${WORKSPACE}/meta-sca/.git 2>&1
-      - if: env.ENABLEMETAOE == '1'
-        name: Check out meta-oe
-        run: |
-          git clone git://git.openembedded.org/meta-openembedded -b $SCABRANCH ${WORKSPACE}/meta-oe 2>&1
-          rm -rf ${WORKSPACE}/meta-oe/.git 2>&1
-        shell: bash
-      - if: env.ENABLEMETACLANG == '1'
-        name: Check out meta-clang
-        run: |
-          git clone https://github.com/kraj/meta-clang.git -b $SCABRANCH ${WORKSPACE}/meta-clang 2>&1
-          rm -rf ${WORKSPACE}/meta-clang/.git 2>&1
-      - name: Setup poky
-        run: |
-          cd ${WORKSPACE} 
-          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-        shell: bash
-      - name: add meta-sca
-        run: |
-          cd ${WORKSPACE}
-          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          bitbake-layers add-layer ${WORKSPACE}/meta-sca 2>&1
-        shell: bash
-      - if: env.ENABLEMETAOE == '1'
-        name: add meta-oe
-        run: |
-          cd ${WORKSPACE}
-          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          bitbake-layers add-layer ${WORKSPACE}/meta-oe/meta-oe 2>&1
-        shell: bash
-      - if: env.ENABLEMETACLANG == '1'
-        name: add meta-clang
-        run: |
-          cd ${WORKSPACE}
-          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          bitbake-layers add-layer ${WORKSPACE}/meta-clang 2>&1
-        shell: bash
-      - name: prepare local.conf
-        run: |
-          cd ${WORKSPACE}
-          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          echo 'INHERIT += "rm_work"' >> conf/local.conf
-          echo 'SCA_VERBOSE_OUTPUT = "1"' >> conf/local.conf
-          echo 'BB_DISKMON_DIRS = ""' >> conf/local.conf
-          echo 'BB_GIT_SHALLOW = "1"' >> conf/local.conf
-          echo 'BB_GIT_SHALLOW_DEPTH = "1"' >> conf/local.conf
-          echo 'BB_GENERATE_SHALLOW_TARBALLS = "1"' >> conf/local.conf
-          echo 'PACKAGE_CLASSES = "package_rpm"' >> conf/local.conf
-          sed -i "s/buildstats//g" conf/local.conf
-        shell: bash
-      - name: set modules
-        run: |
-          cd ${WORKSPACE}
-          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          mods=$(cat ${WORKSPACE}/meta-sca/test/lang_$PARAMFILE.txt | tr '\n' ' ')
-          echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> conf/local.conf
-        shell: bash
-      - name: build glibc
-        run: |
-          cd ${WORKSPACE}
-          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          eval $(bitbake busybox -e | grep "^TMPDIR") && rm -f bitbake.sock && rm -f bitbake.lock
-          eval $(bitbake busybox -e | grep "^DL_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
-          bitbake glibc 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/* 2>&1
-          find ${TMPDIR} -type d -name "temp" -exec rm -rf {} \; 2>&1 || true
-        shell: bash
-      - name: build kernel
-        run: |
-          cd ${WORKSPACE}
-          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          eval $(bitbake busybox -e | grep "^TMPDIR") && rm -f bitbake.sock && rm -f bitbake.lock
-          eval $(bitbake busybox -e | grep "^DL_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
-          bitbake linux-yocto 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/* 2>&1
-          find ${TMPDIR} -type d -name "temp" -exec rm -rf {} \; 2>&1 || true
-        shell: bash
-      - name: build qemu-system-native
-        run: |
-          cd ${WORKSPACE}
-          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          eval $(bitbake busybox -e | grep "^TMPDIR") && rm -f bitbake.sock && rm -f bitbake.lock
-          eval $(bitbake busybox -e | grep "^DL_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
-          bitbake qemu-system-native 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          [ -n "${DL_DIR}" ] && rm -rf ${DL_DIR}/* 2>&1
-          find ${TMPDIR} -type d -name "temp" -exec rm -rf {} \; 2>&1 || true
-        shell: bash
-      - name: build
-        run: |
-          cd ${WORKSPACE}
-          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          echo 'INHERIT += "rm_work_and_downloads"' >> conf/local.conf
-          eval $(bitbake busybox -e | grep "^TMPDIR") && rm -f bitbake.sock && rm -f bitbake.lock
-          bitbake cve-update-db-native -c cleanall || true
-          export BUILDNTEST_PRESERVECACHE=1
-          export BUILDNTEST_NOTEST=1
-          timeout --foreground --kill-after=60s $MAXRUNTIME \
-            ${WORKSPACE}/meta-sca/test/buildntest \
-            ${WORKSPACE}/meta-sca/test/lang_$PARAMFILE.txt \
-            || if [ $? == 124 ]; then echo "Timeout"; else exit 1; fi;
-          rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-        shell: bash
-      - name: test results
-        run: |
-          cd ${WORKSPACE}
-          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
-          eval $(bitbake busybox -e | grep "^TMPDIR") && rm -f bitbake.sock && rm -f bitbake.lock
-          find ${TMPDIR} -type f -name "*.dm" 2>&1
-          ${WORKSPACE}/meta-sca/test/check_results $SCA_EXPORT_DIR ${WORKSPACE}/meta-sca/test/lang_$PARAMFILE.txt 2>&1
-          df -h
-          find ${TMPDIR} -type d -maxdepth 1 -mindepth 1 -not -name "deploy" -exec rm -rf {} \; 2>&1
-        shell: bash
-      - name: get latest webdeloy
-        run: |
-          cd ${WORKSPACE}
-          timeout --foreground --kill-after=60s 300s git clone https://github.com/${WEB_REPOSITORY}.git ${WORKSPACE}/website 2>&1 || exit 0;
-        shell: bash
-      - name: export findings
-        run: |
-          cd ${WORKSPACE}
-          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          eval $(bitbake busybox -e | grep "^SCA_EXPORT_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
-          eval $(bitbake busybox -e | grep "^SCA_EXPORT_FINDING_DIR") && rm -f bitbake.sock && rm -f bitbake.lock
-          cd ${WORKSPACE}/website
-          mkdir -p data/${SCABRANCH}/
-          ./tools/report ${SCA_EXPORT_DIR} ${SCA_EXPORT_FINDING_DIR} data/${SCABRANCH}/${PARAMFILE}.json 2>&1
-          ./tools/jsonmerge data/${SCABRANCH}/result.json data/${SCABRANCH}/*.json 2>&1
-          git add . 2>&1
-          git config --local user.email "web@deploy.bot" 2>&1
-          git config --local user.name "Webdeploy bot" 2>&1
-          git remote rm origin 2>&1
-          git remote add origin https://priv-kweihmann:${{ secrets.WEBDEPLOY }}@github.com/${WEB_REPOSITORY}.git 2>&1
-          git diff --quiet && git diff --staged --quiet 2>&1 || (git commit --amend -m "Update findings"; git push origin master --force) 2>&1 || true
-          rm -rf ${WORKSPACE}/website 2>&1
-        shell: bash
+      - name: setup (container)
+        uses: priv-kweihmann/meta-sca-ci-utils/preparecontainer@latest
+      - name: checkout (poky)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        with:
+          repo: git://git.yoctoproject.org/poky.git
+          branch: ${{ env.SCM_BRANCH }}
+          add-layer: "0"
+      - name: checkout (meta-sca)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        with:
+          repo: https://github.com/priv-kweihmann/meta-sca.git
+          branch: ${{ env.SCM_BRANCH }}
+      - if: env.SCM_LAYER_ENABLE_METAOE == '1'
+        name: checkout (meta-openembedded)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        with:
+          repo: git://git.openembedded.org/meta-openembedded
+          branch: ${{ env.SCM_BRANCH_META_OE }}
+          add-layer-suffix: /meta-oe
+      - if: env.SCM_LAYER_ENABLE_CLANG == '1'
+        name: checkout (meta-clang)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        with:
+          repo: https://github.com/kraj/meta-clang.git
+          branch: ${{ env.SCM_BRANCH_META_CLANG }}
+      - name: setup (bitbake config)
+        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
+        with:
+          variable: SCA_AVAILABLE_MODULES
+          value: /opt/build/sources/meta-sca/test/lang_${{ env.BUILD_PARAMFILE }}.txt
+      - if: env.BUILD_GLIBC == '1'
+        name: build (glibc)
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
+        with:
+          target: glibc
+      - if: env.BUILD_KERNEL == '1'
+        name: build (kernel)
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
+        with:
+          target: linux-yocto
+      - if: env.SCM_LAYER_ENABLE_CLANG == '1'
+        name: build (clang)
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
+        with:
+          target: clang-native
+      - if: env.BUILD_QEMUSYSTEM == '1'
+        name: build (qemu-system)
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
+        with:
+          target: qemu-system-native
+      - name: build (sca-modules)
+        uses: priv-kweihmann/meta-sca-ci-utils/buildmodules@latest
+        with:
+          parameter-file: ${{ env.BUILD_PARAMFILE }}
+      - name: test (sca results)
+        uses: priv-kweihmann/meta-sca-ci-utils/testresults@latest
+        with:
+          parameter-file: ${{ env.BUILD_PARAMFILE }}
+      - if: env.BUILD_EXPORT == '1'
+        name: checkout (webpage)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        with:
+          repo: https://github.com/priv-kweihmann/priv-kweihmann.github.io.git
+          branch: master
+          add-layer: "0"
+          remove-git: "0"
+      - if: env.BUILD_EXPORT == '1'
+        name: build (webpage)
+        uses: priv-kweihmann/meta-sca-ci-utils/exportresults@latest
+        with:
+          parameter-file: ${{ env.BUILD_PARAMFILE }}
+          branch: ${{ env.SCM_BRANCH }}
+          deploy-token: ${{ secrets.WEBDEPLOY }}
