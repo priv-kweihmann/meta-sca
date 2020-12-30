@@ -1,0 +1,15 @@
+CONF_VERSION = "1"
+
+MACHINE = "qemux86-64"
+
+BB_DISKMON_DIRS = ""
+BB_GENERATE_SHALLOW_TARBALLS = "1"
+BB_GIT_SHALLOW = "1"
+EXTRA_IMAGE_FEATURES = "debug-tweaks"
+PACKAGE_CLASSES = "package_rpm"
+PACKAGECONFIG_append_pn-qemu-system-native = " sdl"
+PATCHRESOLVE = "noop"
+SCA_VERBOSE_OUTPUT = "1"
+USER_CLASSES = "image-mklibs image-prelink"
+
+INHERIT += "rm_work"
