@@ -3,20 +3,20 @@ DESCRIPTION = "Create boxes in the terminal"
 HOMEPAGE = "https://github.com/sindresorhus/boxen#readme"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
+LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = "npm-ansi-align-native \
            npm-camelcase-native \
            npm-chalk-native \
            npm-cli-boxes-native \
            npm-string-width-native \
-           npm-term-size-native \
            npm-type-fest-native \
-           npm-widest-line-native"
+           npm-widest-line-native \
+           npm-wrap-ansi-native"
 
-SRC_URI = "https://registry.npmjs.org/boxen/-/boxen-4.2.0.tgz"
-SRC_URI[md5sum] = "fdfa1ef3d4970422a2c3396f0aaa3a4b"
-SRC_URI[sha256sum] = "808642c1076dded37f522d02e54f15bb9414a55fc92891618e3509e692d0e9dc"
+SRC_URI = "https://registry.npmjs.org/boxen/-/boxen-5.0.0.tgz"
+SRC_URI[md5sum] = "f6155ef46637ff6df367dd05e8f87944"
+SRC_URI[sha256sum] = "5f6624dccb4bf8eeb78205747492a74ba01d3f985ae21bf78c03275091faa0da"
 
 NPM_PKGNAME = "boxen"
 
