@@ -5,12 +5,13 @@ HOMEPAGE = "https://github.com/ljharb/side-channel#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=375dc7ca936a14e9c29418d5263bd066"
 
-DEPENDS = "npm-es-abstract-native \
+DEPENDS = "npm-call-bind-native \
+           npm-get-intrinsic-native \
            npm-object-inspect-native"
 
-SRC_URI = "https://registry.npmjs.org/side-channel/-/side-channel-1.0.3.tgz"
-SRC_URI[md5sum] = "65f86031294a28cb0a7ca7d54e7587b3"
-SRC_URI[sha256sum] = "3e94642afc363a90c53806e5abdeed638a217a11309cacb4cf51bbc0c0bfb87c"
+SRC_URI = "https://registry.npmjs.org/side-channel/-/side-channel-1.0.4.tgz"
+SRC_URI[md5sum] = "abcc258cdccfd0db4007c7be3888d7df"
+SRC_URI[sha256sum] = "352b84bca536881ae429da1b0574e6805572bdc0312384033f0445204b06d735"
 
 NPM_PKGNAME = "side-channel"
 
