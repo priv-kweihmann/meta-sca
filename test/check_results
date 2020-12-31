@@ -38,6 +38,8 @@ def test_integration(tmppath, recipe, tool, name):
             subprocess.check_output(["oe-run-native", recipe, *item["cmd"]], stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             if e.returncode != item["returncode"]:
+                for line in (e.stdout or b"").decode("utf-8").split("\n"):
+                    sys.stderr.write(">> {}\n".format(line))
                 raise e
 
 def test_results(tmppath, recipe, tool, name):
