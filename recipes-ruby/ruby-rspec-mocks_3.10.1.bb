@@ -5,12 +5,12 @@ HOMEPAGE = "https://github.com/rspec/rspec-mocks"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=3d96800bd9b5ffa0ed091438eaea6f01"
 
-DEPENDS = ""
+DEPENDS += ""
 RDEPENDS_${PN} += "ruby-diff-lcs \
                   ruby-rspec-support"
 
-SRC_URI[md5sum] = "ff20c9465f39c18c06269c7e728397cb"
-SRC_URI[sha256sum] = "83578f61d159c3173ca097da836044610cc8eaf4e2bcfc3972260a51824fe8df"
+SRC_URI[md5sum] = "b29598e788d8fba4b16c69023d16b14b"
+SRC_URI[sha256sum] = "1467e984ac20b1cda924430fde081de8b5e0ef0d2147b2668c09118c8b9e8af4"
 
 GEM_NAME = "rspec-mocks"
 
