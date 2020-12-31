@@ -5,11 +5,11 @@ HOMEPAGE = "https://github.com/janlelis/unicode-display_width"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://MIT-LICENSE.txt;md5=201dbe0582b71d9c7252f7decce3c149"
 
-DEPENDS = ""
+DEPENDS += ""
 RDEPENDS_${PN} += ""
 
-SRC_URI[md5sum] = "fc5d1a566bb85b63054e7dcd2b40661a"
-SRC_URI[sha256sum] = "cad681071867a4cf52613412e379e39e85ac72b1d236677a2001187d448b231a"
+SRC_URI[md5sum] = "62eef99c3236b28f2f49abd6653b7133"
+SRC_URI[sha256sum] = "55ec39f2a0bb8c8c3f0480200b28edbedd70473c27b84c5359531a89985d34ae"
 
 GEM_NAME = "unicode-display_width"
 
