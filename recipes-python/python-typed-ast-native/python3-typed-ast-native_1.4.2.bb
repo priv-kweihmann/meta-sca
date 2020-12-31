@@ -8,8 +8,8 @@ PYPI_PACKAGE = "typed_ast"
 
 UPSTREAM_CHECK_REGEX ?= "/typed-ast/(?P<pver>(\d+[\.\-_]*)+)"
 
-SRC_URI[md5sum] = "bbab93a51ece55b57ea993a436c5ac6f"
-SRC_URI[sha256sum] = "8c8aaad94455178e3187ab22c8b01a3837f8ee50e09cf31f1ba129eb293ec30b"
+SRC_URI[md5sum] = "5aaec45a8259fd9dd13e7fe938a5565d"
+SRC_URI[sha256sum] = "9fc0b3cb5d1720e7141d103cf4819aea239f7d136acf9ee4a69b047b7986175a"
 
 inherit pypi
 inherit native
