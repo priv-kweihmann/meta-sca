@@ -92,6 +92,7 @@ python do_sca_phan() {
     _args += ["-t"]
     _args += ["-u"]
     _args += ["-z"]
+    _args += ["--allow-polyfill-parser"]
 
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), ".*php", [".php"], \
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
