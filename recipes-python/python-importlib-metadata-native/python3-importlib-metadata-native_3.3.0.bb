@@ -19,3 +19,8 @@ SRC_URI[sha256sum] = "5c5a2720817414a6c41f0a49993908068243ae02c1635a228126519b50
 inherit pypi
 inherit native
 inherit setuptools3
+
+do_install_append() {
+    # forcefully replace version when using older setuptools
+    find ${D} -type f -exec sed -i "s#0.0.0#${PV}#g" {} \;
+}
