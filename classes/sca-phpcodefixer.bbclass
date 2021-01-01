@@ -65,7 +65,7 @@ python do_sca_phpcodefixer() {
     import subprocess
 
     ## Run
-    _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "phpcodefixer/vendor/bin/phpcf")]
+    _args = [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "phpcodefixer/vendor/bin/phpdd")]
     _args += ["--max-size=1000mb"]
     _args += ["--output-json=-"]
     _args += ["--ansi"]
