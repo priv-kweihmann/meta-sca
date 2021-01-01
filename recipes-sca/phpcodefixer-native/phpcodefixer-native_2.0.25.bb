@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=c98596cdc7ad2b3b9a3a84255a83cb9f"
 
 SRC_URI = "git://github.com/wapmorgan/PhpCodeFixer.git;protocol=https \
            file://phpcodefixer.sca.description"
-SRCREV = "d6c280079701dfaecc3b8697adf514a76813ea66"
+SRCREV = "a2b9e1f0cbc33264b9e7679a9a262899a5a39e4e"
 PHPCOMPOSER_PKGS_NAME = "wapmorgan/php-code-fixer:${PV}"
 
 S = "${WORKDIR}/git"
