@@ -8,7 +8,7 @@ DEPENDS += "python3-native"
 
 SRC_URI = "git://github.com/a13xp0p0v/kconfig-hardened-check.git;protocol=https;branch=master \
            file://kconfighard.sca.description"
-SRCREV = "aec7c459ac932ee0cda039580351be545edb7de1"
+SRCREV = "2f8e7a4dc57a0e0e192dd303bd89f9be0e9240a4"
 S = "${WORKDIR}/git"
 
 inherit native
