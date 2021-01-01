@@ -1,0 +1,23 @@
+From 9484e13c7da927119fe82794bb5571cec144b6d7 Mon Sep 17 00:00:00 2001
+From: Naor Livne <naorlivne@gmail.com>
+Date: Fri, 1 Jan 2021 14:31:14 +0200
+Subject: [PATCH] bump idna has version 3.0 was released
+
+Upstream-Status: Submitted
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 7ba4b2a25f..f265384236 100755
+--- a/setup.py
++++ b/setup.py
+@@ -43,7 +43,7 @@ def run_tests(self):
+ 
+ requires = [
+     'chardet>=3.0.2,<5',
+-    'idna>=2.5,<3',
++    'idna>=2.5,<4',
+     'urllib3>=1.21.1,<1.27',
+     'certifi>=2017.4.17'
+ 
