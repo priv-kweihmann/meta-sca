@@ -88,6 +88,12 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
           target: qemu-system-native
+      - name: setup (rm_work_and_downloads)
+        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
+        with:
+          variable: INHERIT
+          operation: " += "
+          value: rm_work_and_downloads
       - name: build (sca-modules)
         uses: priv-kweihmann/meta-sca-ci-utils/buildmodules@latest
         with:
