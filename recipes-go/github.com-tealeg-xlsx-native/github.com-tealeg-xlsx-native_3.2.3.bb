@@ -18,5 +18,5 @@ GO_IMPORT = "github.com/tealeg/xlsx"
 
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+\.\d+)"
 
-inherit gonative
+inherit go
 inherit native

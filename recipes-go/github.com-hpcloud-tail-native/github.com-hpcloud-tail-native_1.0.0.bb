@@ -8,5 +8,5 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "a30252cb686a21eb2d0b98132633053ec2f7f1e5"
 GO_IMPORT = "github.com/hpcloud/tail"
 
-inherit gonative
+inherit go
 inherit native

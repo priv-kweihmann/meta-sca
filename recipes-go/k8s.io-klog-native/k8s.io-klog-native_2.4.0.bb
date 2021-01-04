@@ -16,7 +16,7 @@ S = "${WORKDIR}/git"
 
 GO_IMPORT = "k8s.io/klog"
 
-inherit gonative
+inherit go
 inherit native
 
 do_compile_prepend() {

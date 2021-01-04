@@ -28,5 +28,5 @@ S = "${WORKDIR}/git"
 
 GO_IMPORT = "github.com/stretchr"
 
-inherit gonative
+inherit go
 inherit native

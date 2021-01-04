@@ -13,7 +13,7 @@ SRC_URI = "\
 SRCREV = "203ddaad33fd816efa0adb64fc1f42c216e592a0"
 GO_IMPORT = "github.com/mcandre/slick"
 
-inherit gonative
+inherit go
 inherit native
 inherit sca-description
 

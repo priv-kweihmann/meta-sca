@@ -16,7 +16,7 @@ SRC_URI = "\
 SRCREV = "88c64c16b7fc0922322bae9d9dc9945e7219f9d8"
 GO_IMPORT = "github.com/mcandre/stank"
 
-inherit gonative
+inherit go
 inherit native
 inherit sca-description
 
