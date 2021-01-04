@@ -8,5 +8,5 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "bc2269661d49c6c9d0e514eef49710556883f3fa"
 GO_IMPORT = "github.com/fatih/color"
 
-inherit gonative
+inherit go
 inherit native

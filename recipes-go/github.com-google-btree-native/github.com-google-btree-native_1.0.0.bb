@@ -8,5 +8,5 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "4030bb1f1f0c35b30ca7009e9ebd06849dd45306"
 GO_IMPORT = "github.com/google/btree"
 
-inherit gonative
+inherit go
 inherit native

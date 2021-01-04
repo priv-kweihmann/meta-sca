@@ -10,5 +10,5 @@ SRC_URI = "git://${GO_IMPORT};protocol=https;branch=v2"
 SRCREV = "d3b5b032dc8e8927d31a5071b56e14c89f045135"
 GO_IMPORT = "github.com/russross/blackfriday"
 
-inherit gonative
+inherit go
 inherit native

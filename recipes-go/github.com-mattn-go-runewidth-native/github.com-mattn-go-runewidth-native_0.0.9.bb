@@ -8,5 +8,5 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "14e809f6d78fcf9f48ff9b70981472b64c05f754"
 GO_IMPORT = "github.com/mattn/go-runewidth"
 
-inherit gonative
+inherit go
 inherit native

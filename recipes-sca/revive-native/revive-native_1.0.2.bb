@@ -24,7 +24,7 @@ SRC_URI = "\
 SRCREV = "c46974775893f4e0a0c16a1b08ddee7251a1f17d"
 GO_IMPORT = "github.com/mgechev/revive"
 
-inherit gonative
+inherit go
 inherit native
 inherit sca-description
 
