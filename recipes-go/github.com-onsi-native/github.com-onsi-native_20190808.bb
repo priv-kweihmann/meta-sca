@@ -37,5 +37,5 @@ S = "${WORKDIR}/git"
 
 GO_IMPORT = "github.com/onsi"
 
-inherit gonative
+inherit go
 inherit native

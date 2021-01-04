@@ -15,5 +15,5 @@ UPSTREAM_CHECK_COMMITS = "1"
 
 GO_IMPORT ?= "github.com/go-check/check"
 
-inherit gonative
+inherit go
 inherit native

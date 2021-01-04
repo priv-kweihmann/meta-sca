@@ -10,5 +10,5 @@ GO_IMPORT = "github.com/boyter/golangvectorspace"
 
 UPSTREAM_CHECK_COMMITS = "1"
 
-inherit gonative
+inherit go
 inherit native

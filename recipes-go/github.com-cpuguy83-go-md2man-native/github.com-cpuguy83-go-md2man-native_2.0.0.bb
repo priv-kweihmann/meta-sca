@@ -12,5 +12,5 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "f79a8a8ca69da163eee19ab442bedad7a35bba5a"
 GO_IMPORT = "github.com/cpuguy83/go-md2man"
 
-inherit gonative
+inherit go
 inherit native
