@@ -12,8 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "tqdm"
 
-SRC_URI[md5sum] = "e302ddf797723d275f589dfeddf60dbd"
-SRC_URI[sha256sum] = "f4f80b96e2ceafea69add7bf971b8403b9cba8fb4451c1220f91c79be4ebd208"
+SRC_URI[md5sum] = "43c9e06dad24b12974c77bdf18fb60f1"
+SRC_URI[sha256sum] = "556c55b081bd9aa746d34125d024b73f0e2a0e62d5927ff0e400e20ee0a03b9a"
 
 inherit pypi
 inherit native
