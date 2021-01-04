@@ -5,9 +5,11 @@ HOMEPAGE = "https://github.com/davidbonnet/astring#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=092cf85092a220afe2c99f78ddcb7343"
 
-SRC_URI = "https://registry.npmjs.org/astring/-/astring-1.4.3.tgz"
-SRC_URI[md5sum] = "37cf4dba993a737cf26d5bbe4ab37ba4"
-SRC_URI[sha256sum] = "e742e40eca0cef7973c4519c1018f2a06dbb22c389159c71f354633f533a1e26"
+DEPENDS = ""
+
+SRC_URI = "https://registry.npmjs.org/astring/-/astring-1.5.1.tgz"
+SRC_URI[md5sum] = "94768e0999441cb5177c9b7ae2f0e646"
+SRC_URI[sha256sum] = "f46018d1cd60ffe3232e26be142500e28a7ccd52cacc8dec365c009dd69a8929"
 
 NPM_PKGNAME = "astring"
 
