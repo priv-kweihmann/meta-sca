@@ -22,5 +22,5 @@ inherit setuptools3
 
 do_install_append() {
     # forcefully replace version when using older setuptools
-    find ${D} -type f -exec sed -i "s#0.0.0#${PV}#g" {} \;
+    find ${D} -type f -exec sed -i "s#0\.0\.0#${PV}#g" {} \;
 }
