@@ -13,5 +13,5 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "e7d1f0b53af1e9c9cf66924bc310190b1db8c339"
 GO_IMPORT = "github.com/frankban/quicktest"
 
-inherit gonative
+inherit go
 inherit native

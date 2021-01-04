@@ -10,5 +10,5 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "876dd0e0227ec99c0243b639b92139915b65331a"
 GO_IMPORT = "github.com/olekukonko/tablewriter"
 
-inherit gonative
+inherit go
 inherit native

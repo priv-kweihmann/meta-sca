@@ -10,5 +10,5 @@ UPSTREAM_CHECK_COMMITS = "1"
 
 GO_IMPORT = "github.com/go-tomb/tomb"
 
-inherit gonative
+inherit go
 inherit native
