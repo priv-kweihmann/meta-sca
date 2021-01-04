@@ -10,5 +10,5 @@ GO_IMPORT = "github.com/jgautheron/goconst"
 
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+\.\d+)"
 
-inherit gonative
+inherit go
 inherit native

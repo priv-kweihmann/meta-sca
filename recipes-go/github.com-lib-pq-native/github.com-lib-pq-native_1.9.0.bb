@@ -14,5 +14,5 @@ do_compile_prepend() {
     rm -rf ${S}/src/${GO_IMPORT}/auth/kerberos
 }
 
-inherit gonative
+inherit go
 inherit native

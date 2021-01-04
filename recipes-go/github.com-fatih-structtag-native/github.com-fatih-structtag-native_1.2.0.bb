@@ -8,5 +8,5 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "72c94723f1e6825195e0d8e9857fca28cd23d835"
 GO_IMPORT = "github.com/fatih/structtag"
 
-inherit gonative
+inherit go
 inherit native

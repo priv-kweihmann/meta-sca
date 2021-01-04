@@ -9,5 +9,5 @@ SRCREV = "af06845cf3004701891bf4fdb884bfe4920b3727"
 
 GO_IMPORT = "github.com/mitchellh/go-homedir"
 
-inherit gonative
+inherit go
 inherit native

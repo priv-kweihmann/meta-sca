@@ -9,5 +9,5 @@ SRCREV = "ad9e5e50f5274088511afd58a920bf584f0a6b3b"
 GO_IMPORT = "github.com/google/renameio"
 UPSTREAM_CHECK_COMMITS = "1"
 
-inherit gonative
+inherit go
 inherit native

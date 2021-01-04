@@ -10,5 +10,5 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "1ffb69594b42ab99ee2405c3151cbb70d199a403"
 GO_IMPORT = "github.com/gookit/color"
 
-inherit gonative
+inherit go
 inherit native

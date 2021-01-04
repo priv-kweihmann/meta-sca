@@ -10,5 +10,5 @@ UPSTREAM_CHECK_COMMITS = "1"
 
 GO_IMPORT = "mvdan.cc/editorconfig"
 
-inherit gonative
+inherit go
 inherit native

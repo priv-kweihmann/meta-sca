@@ -13,7 +13,7 @@ GO_IMPORT = "github.com/shabbyrobe/xmlwriter"
 
 UPSTREAM_CHECK_COMMITS = "1"
 
-inherit gonative
+inherit go
 inherit native
 
 do_configure_prepend() {
