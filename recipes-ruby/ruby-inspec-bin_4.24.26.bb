@@ -5,11 +5,11 @@ HOMEPAGE = "https://github.com/inspec/inspec/tree/master/inspec-bin"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=81b0e16be045534c5330969d1e542bb4"
 
-DEPENDS = ""
+DEPENDS += ""
 RDEPENDS_${PN} += "ruby-inspec"
 
-SRC_URI[md5sum] = "fadb05bec8b36dd3914edd8ab6089ac1"
-SRC_URI[sha256sum] = "34e42fb37fff0526f3c0b55e4cf5707dd3deb68adc95043c8eed9553f66632c3"
+SRC_URI[md5sum] = "248afa094d8facfc8f4cf68165b8fcc3"
+SRC_URI[sha256sum] = "ceefb439df8011f91643fbd9134120be570c0dc464dbb7685c8c826b355f30d0"
 
 GEM_NAME = "inspec-bin"
 
