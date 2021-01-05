@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/BSD-3-Clause;md5=550794465ba0ec
 
 PYPI_PACKAGE = "idna"
 
-SRC_URI[md5sum] = "527f4b14b1078fed5aa4baf5516dcdcf"
-SRC_URI[sha256sum] = "c9a26e10e5558412384fac891eefb41957831d31be55f1e2c98ed97a70abb969"
+SRC_URI[md5sum] = "576dc9835aba9dd8c0f0baec36b83b51"
+SRC_URI[sha256sum] = "c5b02147e01ea9920e6b0a3f1f7bb833612d507592c837a6c49552768f4054e1"
 
 inherit pypi
 inherit native
