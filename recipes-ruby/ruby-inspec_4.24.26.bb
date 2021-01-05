@@ -5,7 +5,7 @@ HOMEPAGE = "https://github.com/inspec/inspec"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://lib/plugins/inspec-init/templates/profiles/gcp/inspec.yml;beginline=6;endline=6;md5=cfb5ff7823bc166fac8853e293b76fd7"
 
-DEPENDS = ""
+DEPENDS += ""
 RDEPENDS_${PN} += "ruby-faraday-middleware \
                   ruby-inspec-core \
                   ruby-train \
@@ -13,8 +13,8 @@ RDEPENDS_${PN} += "ruby-faraday-middleware \
                   ruby-train-habitat \
                   ruby-train-winrm"
 
-SRC_URI[md5sum] = "543e74b0951c26f60f3d2f97142370cb"
-SRC_URI[sha256sum] = "3f40d38233156136922a0fe990d594f5f88739f7591a1bc7e204b3b01a0a39df"
+SRC_URI[md5sum] = "8de0ec701c766c5f6f0bc99d8648f07e"
+SRC_URI[sha256sum] = "a980582426fc9f9ff54f614a3a655df8bc51d788318771720555b8c82f094fe9"
 
 GEM_NAME = "inspec"
 
