@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b1befbdcbeb73a7fd9b944d31f0fee64"
 DEPENDS = "npm-iconv-lite-native \
            npm-iterable-to-stream-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-io/-/cspell-io-5.1.0.tgz"
-SRC_URI[md5sum] = "dbd79dbda40b1838b0de82b5865fe21e"
-SRC_URI[sha256sum] = "60e3f9834a2d674dcfc2c9427a7efe7eb9b01b329305fe726ffc5917a560a486"
+SRC_URI = "https://registry.npmjs.org/cspell-io/-/cspell-io-5.1.3.tgz"
+SRC_URI[md5sum] = "ceb15487770c8735d96313b5ebab63bf"
+SRC_URI[sha256sum] = "69980696ca46d11d1daa08d8bedff962f37457f1ac9730a4ef07d65820d0f8b3"
 
 NPM_PKGNAME = "cspell-io"
 
