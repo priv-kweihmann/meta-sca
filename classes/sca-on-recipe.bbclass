@@ -90,6 +90,7 @@ SCA_SOURCES_DIR ?= "${S}"
 
 SCA_MODE = "recipe"
 SCA_MODE_UPPER = "${@d.getVar('SCA_MODE').upper()}"
+SCA_ACTIVE_MODULES = ""
 
 def sca_on_recipe_init(d):
     import bb
@@ -127,4 +128,4 @@ def sca_on_recipe_init(d):
     if any(enabledModules):
         if d.getVar("SCA_VERBOSE_OUTPUT") == "1":
             bb.note("Using SCA Module(s) {}".format(",".join(sorted(enabledModules))))
-    d.setVar("SCA_ACTIVE_MODULES", " ".join(sorted(enabledModules)))
+    d.appendVar("SCA_ACTIVE_MODULES", " " + " ".join(sorted(enabledModules)))
