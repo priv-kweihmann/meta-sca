@@ -11,6 +11,8 @@ SCA_SCANCODE_BAD_CRHOLDER ?= ""
 SCA_RAW_RESULT_FILE[scancode] = "txt"
 SCA_RAW_RESULT_FILE[scancode_raw] = "json"
 
+SCA_ACTIVE_MODULES_append = " scancode_raw"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global

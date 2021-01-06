@@ -9,6 +9,8 @@ SCA_LICENSECHECK_EXTRA_FATAL ?= ""
 SCA_RAW_RESULT_FILE[licensecheck] = "txt"
 SCA_RAW_RESULT_FILE[licensecheck_raw] = "csv"
 
+SCA_ACTIVE_MODULES_append = " licensecheck_raw"
+
 inherit sca-conv-to-export
 inherit sca-datamodel
 inherit sca-global
