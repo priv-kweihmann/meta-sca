@@ -1,5 +1,5 @@
 SUMMARY = "A really bad package"
-LICENSE = "CLOSED"
+LICENSE = "CLOSED& GPLv2+ |MIT-style"
 
 SRC_URI += "\
             http://www.magicermine.com/demos/curl/curl/curl-7.30.0.ermine.tar.bz2;subdir=source \
@@ -10,6 +10,7 @@ SRC_URI += "\
             file://test2/test-2.sh;subdir=source \
             file://simple-hello-world.c;subdir=source \
            "
+LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=a4a2bbea1db029f21b3a328c7a059172"
 SRC_URI[md5sum] = "4b6fb79adc54152a9e5dc6aa3222b306"
 SRC_URI[sha256sum] = "9b6a127173cfdca7db0b95ceef2a7946ad592ec23e193dc65ac3d302edc21264"
 
