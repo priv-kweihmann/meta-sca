@@ -64,25 +64,30 @@ def create_parser():
                         help="In case no assertation can be made on a file, take this license as the basis")
     parser.add_argument("--badcrholders", default="",
                         help="comma separate list of bad copyright holders - works only with scancode")
+    parser.add_argument("--sanitized", default="", help=argparse.SUPPRESS) 
     parser.add_argument("license", help="Currently set license")
     parser.add_argument("resulttype", choices=[
                         "lc", "scancode"], help="type of result")
     parser.add_argument("result", help="Result file")
     parser.add_argument("files", nargs="+", help="Files to consider checking")
-    return parser.parse_args()
+    x = parser.parse_args()
+    x.sanitized = _sanitize_license(x, interal_comp_expression(x.license))
+    return x
 
 
 def _sanitize_license(args, _lic):
-    # -only suffix will applied automatically
-    _lic = _lic.rstrip("-only")
+    res = _lic
+    # strip -only suffix
+    res = re.sub(r"-only$", "", res)
     # replace -or-later with +, which is exploded afterwards
-    _lic = _lic.replace("-or-later", "+")
-    # replace NOASSERTION with the default from argparse
-    _lic = _lic.replace("NOASSERTION", args.noassertdefault)
-    for m in re.finditer(r"(^|\s)(?P<prefix>[A-Za-z\-]+)(?P<version>\d\.\d)\+", _lic):
-        _lic = _lic.replace(m.group(0), explode_plus_modifier(
+    res = res.replace("-or-later", "+")
+    # explode pattern
+    for m in re.finditer(r"(^|\s)(?P<prefix>[A-Za-z\-]+)(?P<version>\d\.\d)\+", res):
+        res = res.replace(m.group(0), explode_plus_modifier(
             m.group("prefix"), m.group("version")))
-    return _lic
+    # replace NOASSERTION with the default from argparse
+    res = res.replace("NOASSERTION", args.noassertdefault)
+    return res
 
 # LC specific part
 
@@ -141,14 +146,14 @@ def bitbake_comp_expression(_in):
 
 
 def interal_comp_expression(_in):
-    for k, v in {" & ": " AND ", " | ": " OR "}.items():
+    for k, v in {"&": " AND ", "|": " OR "}.items():
         _in = _in.replace(k, v)
     return _in
 
 
 def evaluate(args, _raw_license, _raw_crholders):
     # License part
-    _set = Licensing().parse(interal_comp_expression(args.license))
+    _set = Licensing().parse(args.sanitized)
     try:
         _det = Licensing().parse(_raw_license)
     except Exception as e:

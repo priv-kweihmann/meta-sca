@@ -83,6 +83,9 @@ def scancode_get_license(d, _in):
         x = d.getVar("LICENSE")
     if not x:
         x = "CLOSED"
+    # Apply SPDXLICENSEMAP settings
+    for rename_flag in d.getVarFlags("SPDXLICENSEMAP"):
+        x = x.replace(rename_flag, d.getVarFlag("SPDXLICENSEMAP", rename_flag))
     return x
 
 python do_sca_scancode_report() {
