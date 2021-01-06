@@ -57,6 +57,7 @@ SCA_SOURCES_DIR ?= "${IMAGE_ROOTFS}"
 
 SCA_MODE = "image"
 SCA_MODE_UPPER = "${@d.getVar('SCA_MODE').upper()}"
+SCA_ACTIVE_MODULES = ""
 
 def sca_on_image_init(d):
     import bb
@@ -92,4 +93,4 @@ def sca_on_image_init(d):
             enabledModules.append("image-summary")
             if d.getVar(func, False) is not None:
                 bb.build.exec_func(func, d, **get_bb_exec_ext_parameter_support(d))
-    d.setVar("SCA_ACTIVE_MODULES", " ".join(sorted(enabledModules)))
+    d.appendVar("SCA_ACTIVE_MODULES", " " + " ".join(sorted(enabledModules)))
