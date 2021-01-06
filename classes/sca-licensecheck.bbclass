@@ -15,6 +15,7 @@ inherit sca-global
 inherit sca-helper
 inherit sca-suppress
 inherit sca-image-backtrack
+inherit sca-tracefiles
 
 def do_sca_conv_licensecheck(d):
     import os
@@ -116,7 +117,7 @@ python do_sca_licensecheck_report() {
 
 do_sca_licensecheck[doc] = "Scan license information in workspace"
 do_sca_licensecheck_report[doc] = "Report findings of do_sca_licensecheck"
-addtask do_sca_licensecheck before do_sca_tracefiles after do_compile
+addtask do_sca_licensecheck after do_compile before do_sca_tracefiles
 addtask do_sca_licensecheck_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "licensecheck-sca-native sca-recipe-licensecheck-rules-native"
