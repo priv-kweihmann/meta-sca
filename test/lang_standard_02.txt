@@ -1,7 +1,6 @@
 ansiblelint
 bandit
 bitbake
-cvecheck
 darglint
 dennis
 detectsecrets
