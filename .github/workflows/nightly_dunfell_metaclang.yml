@@ -9,6 +9,7 @@ jobs:
     name: "build"
     env:
       DISTRO: scatest
+      BUILD_EXPORT: 1
       SCM_BRANCH_META_CLANG: dunfell
       SCM_BRANCH_META_OE: dunfell
       SCM_BRANCH: dunfell
