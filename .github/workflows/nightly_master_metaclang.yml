@@ -10,7 +10,7 @@ jobs:
     env:
       DISTRO: scatest
       BUILD_EXPORT: 1
-      SCM_BRANCH_META_CLANG master
+      SCM_BRANCH_META_CLANG: master
       SCM_BRANCH_META_OE: master
       SCM_BRANCH: master
       SCM_LAYER_ENABLE_CLANG: 1
