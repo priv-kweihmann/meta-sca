@@ -28,8 +28,8 @@ RDEPENDS_${PN} += "ruby-addressable \
                   ruby-tty-prompt \
                   ruby-tty-table"
 
-SRC_URI[md5sum] = "02661b8acfbb20d480edd9a85e4ff56d"
-SRC_URI[sha256sum] = "9d930e17f7c2df626a8179cb61b2d884ac34fbb07574782ffbb22a292c446e42"
+SRC_URI[md5sum] = "4f1ec932d32fa24dae048ad647fbf9ec"
+SRC_URI[sha256sum] = "42d8c8b0c2a589ada2c57ea171563c243e439da127958e0cc3571f48646f0cfd"
 
 GEM_NAME = "inspec-core"
 
