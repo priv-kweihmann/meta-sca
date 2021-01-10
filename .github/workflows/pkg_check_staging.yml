@@ -45,7 +45,7 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
         with:
           repo: https://github.com/priv-kweihmann/meta-sca.git
-          branch: ${{ env.SCM_BRANCH }}
+          branch: staging
       - if: env.SCM_LAYER_ENABLE_METAOE == '1'
         name: checkout (meta-openembedded)
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
