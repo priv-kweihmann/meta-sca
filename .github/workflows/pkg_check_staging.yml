@@ -9,10 +9,12 @@ jobs:
     name: "build"
     env:
       DISTRO: scatest
-      MACHINE: qemux86-64
-      SCABRANCH: staging
-      ENABLEMETAOE: 1
-      ENABLEMETACLANG: 1
+      SCM_BRANCH_META_CLANG: master
+      SCM_BRANCH_META_OE: master
+      SCM_BRANCH: master
+      SCM_LAYER_ENABLE_CLANG: 0
+      SCM_LAYER_ENABLE_METAOE: 0
+      BUILD_MAXRUNTIME: 21000
       PYTHONIOENCODING: utf8
       LC_ALL: en_US.UTF-8
       LANG: en_US.UTF-8
@@ -24,66 +26,48 @@ jobs:
       image: privkweihmann/yocto-sca-minimal:latest
       env:
         WORKSPACE: /opt/build
-        WEB_REPOSITORY: priv-kweihmann/priv-kweihmann.github.io
+        TOPDIR: /opt/build
+        TEMPLATECONF: /opt/build/sources/meta-sca/conf/variant/scatest-qemux86-64/
       volumes:
         - ${{ github.workspace }}:/opt/build
       options: --privileged
 
     steps:
-      - name: Prep container
-        run: |
-          sudo sysctl fs.inotify.max_user_watches=524288 2>&1
-          sudo chown yoctouser:yoctouser ${WORKSPACE} 2>&1
-      - name: Check out poky
-        run: |
-          git clone git://git.yoctoproject.org/poky.git/ -b master ${WORKSPACE}/poky 2>&1
-        shell: bash
-      - name: Check out meta-sca
-        run: |
-          git clone https://github.com/priv-kweihmann/meta-sca.git -b $SCABRANCH ${WORKSPACE}/meta-sca 2>&1
-      - if: env.ENABLEMETAOE == '1'
-        name: Check out meta-oe
-        run: |
-          git clone git://git.openembedded.org/meta-openembedded -b master ${WORKSPACE}/meta-oe 2>&1
-        shell: bash
-      - if: env.ENABLEMETACLANG == '1'
-        name: Check out meta-clang
-        run: |
-          git clone https://github.com/kraj/meta-clang.git -b master ${WORKSPACE}/meta-clang 2>&1
-      - name: Setup poky
-        run: |
-          cd ${WORKSPACE} 
-          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-        shell: bash
-      - name: add meta-sca
-        run: |
-          cd ${WORKSPACE}
-          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          bitbake-layers add-layer ${WORKSPACE}/meta-sca 2>&1
-        shell: bash
-      - if: env.ENABLEMETAOE == '1'
-        name: add meta-oe
-        run: |
-          cd ${WORKSPACE}
-          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          bitbake-layers add-layer ${WORKSPACE}/meta-oe/meta-oe 2>&1
-        shell: bash
-      - if: env.ENABLEMETACLANG == '1'
-        name: add meta-clang
-        run: |
-          cd ${WORKSPACE}
-          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          bitbake-layers add-layer ${WORKSPACE}/meta-clang 2>&1
-        shell: bash
-      - name: prepare local.conf
-        run: |
-          cd ${WORKSPACE}
-          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          echo 'BB_DANGLINGAPPENDS_WARNONLY = "1"' >> conf/local.conf
-        shell: bash
-      - name: perform package check
-        run: |
-          cd ${WORKSPACE}
-          source poky/oe-init-build-env 2>&1 && rm -f bitbake.sock 2>&1 && rm -f bitbake.lock 2>&1
-          ${WORKSPACE}/meta-sca/scripts/check_pkgs.py --blacklistfile=${WORKSPACE}/meta-sca/scripts/blacklist.txt priv-kweihmann ${{ secrets.WEBDEPLOY }} 2>&1
-        shell: bash
+      - name: setup (container)
+        uses: priv-kweihmann/meta-sca-ci-utils/preparecontainer@latest
+      - name: checkout (poky)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        with:
+          repo: git://git.yoctoproject.org/poky.git
+          branch: ${{ env.SCM_BRANCH }}
+          add-layer: "0"
+      - name: checkout (meta-sca)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        with:
+          repo: https://github.com/priv-kweihmann/meta-sca.git
+          branch: ${{ env.SCM_BRANCH }}
+      - if: env.SCM_LAYER_ENABLE_METAOE == '1'
+        name: checkout (meta-openembedded)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        with:
+          repo: git://git.openembedded.org/meta-openembedded
+          branch: ${{ env.SCM_BRANCH_META_OE }}
+          add-layer-suffix: /meta-oe
+      - if: env.SCM_LAYER_ENABLE_CLANG == '1'
+        name: checkout (meta-clang)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        with:
+          repo: https://github.com/kraj/meta-clang.git
+          branch: ${{ env.SCM_BRANCH_META_CLANG }}
+      - name: setup (bitbake config)
+        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
+        with:
+          variable: BB_DANGLINGAPPENDS_WARNONLY
+          value: 1
+      - name: check (packages)
+        uses: priv-kweihmann/meta-sca-ci-utils/packagecheck@latest
+        with:
+          backoff-time: 60
+          blacklist: "blacklist.txt"
+          deploy-token: ${{ secrets.WEBDEPLOY }}
+          user: "priv-kweihmann"
