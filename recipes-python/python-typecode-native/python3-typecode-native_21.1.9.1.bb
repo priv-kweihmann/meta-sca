@@ -2,7 +2,7 @@ SUMMARY = "typecode provides file type detection functionality to ScanCode toolk
 HOMEPAGE = "https://github.com/nexB/typecode"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://apache-2.0.LICENSE;md5=e23fadd6ceef8c618fc1c65191d846fa"
+LIC_FILES_CHKSUM = "file://apache-2.0.LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 
 DEPENDS += "\
              python3-attrs-native \
@@ -19,8 +19,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "typecode"
 
-SRC_URI[md5sum] = "b6d54109454702eb2703820c333ec16e"
-SRC_URI[sha256sum] = "214d633804fc3e79b7cc8e2152baadfdcd62cfe02056ba797d2e5a388d4c9f95"
+SRC_URI[md5sum] = "7a0f04e6e6c633aa011182e6b03a78b4"
+SRC_URI[sha256sum] = "e7107ccf06b53312c16b806fd1c9f778c6cad8a29678c156084af966d7e61d55"
 
 inherit pypi
 inherit native
