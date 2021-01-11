@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=3b55dad4a98748003b5b423477713da1"
 
 DEPENDS = "npm-punycode-native"
 
-SRC_URI = "https://registry.npmjs.org/uri-js/-/uri-js-4.4.0.tgz"
-SRC_URI[md5sum] = "f1054ebca034f8f825313c5ecfbc54b2"
-SRC_URI[sha256sum] = "2136118e898eb299ca560c39e5b0f8e80eb288300054b2229acf290495461da9"
+SRC_URI = "https://registry.npmjs.org/uri-js/-/uri-js-4.4.1.tgz"
+SRC_URI[md5sum] = "a76a588aa2f2433c0f54712ab065b445"
+SRC_URI[sha256sum] = "5612de52afe83da73e66b519e83aa56aa81151c844b90bcf8e045df5ecec8d2d"
 
 NPM_PKGNAME = "uri-js"
 
