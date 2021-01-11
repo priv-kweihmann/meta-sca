@@ -8,7 +8,7 @@ DEPENDS += "python3-native"
 
 SRC_URI += "git://github.com/david-a-wheeler/flawfinder.git;protocol=https \
             file://flawfinder.sca.description"
-SRCREV = "6d3a04cfeffed66401ec41e6f7be3b88f47c238c"
+SRCREV = "0cba711317ff8029addf7d3aba377432b5e31faa"
 S = "${WORKDIR}/git"
 
 inherit native
