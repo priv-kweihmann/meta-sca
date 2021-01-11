@@ -10,8 +10,8 @@ DEPENDS += "ruby-docile-native \
                   ruby-simplecov-json-formatter-native"
 RDEPENDS_${PN} += ""
 
-SRC_URI[md5sum] = "ba04bd63d46e9464782f3d5859dd60f3"
-SRC_URI[sha256sum] = "c2a6ec3f6b0c566672fbdf31fe9d6e96af0e84802362114bf69665164c46666f"
+SRC_URI[md5sum] = "575c6c7861cb467292671ee37e5b795c"
+SRC_URI[sha256sum] = "990db6aedb55086d6bf8874993ff1f796e4830abfa11937468ca502a0d013bc3"
 
 GEM_NAME = "simplecov"
 
