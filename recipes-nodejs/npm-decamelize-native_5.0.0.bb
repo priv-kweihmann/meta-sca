@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/decamelize/-/decamelize-4.0.0.tgz"
-SRC_URI[md5sum] = "17113f86fb93e54ad64017cac7c80002"
-SRC_URI[sha256sum] = "e4533ffad5fe578500b72f12bea96e226251ed6034162af1fb99bff93416f59f"
+SRC_URI = "https://registry.npmjs.org/decamelize/-/decamelize-5.0.0.tgz"
+SRC_URI[md5sum] = "3fbf6fd01fc146f295399968a0b71955"
+SRC_URI[sha256sum] = "fe7781063651a8bb7460161d9db096417b72d8dc8ba6971aa7fd1dcbb01f5b43"
 
 NPM_PKGNAME = "decamelize"
 
