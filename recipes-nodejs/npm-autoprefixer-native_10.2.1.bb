@@ -12,9 +12,9 @@ DEPENDS = "npm-browserslist-native \
            npm-normalize-range-native \
            npm-postcss-value-parser-native"
 
-SRC_URI = "https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.2.0.tgz"
-SRC_URI[md5sum] = "0e67c49846e1c60295ade17a628beb40"
-SRC_URI[sha256sum] = "db9f7b72ef32961535fb6bc32090ea0426e91209286dc6e237ed3fd78c4e208a"
+SRC_URI = "https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.2.1.tgz"
+SRC_URI[md5sum] = "e07e7aab8b655ca5c383ff2c8b12f6a2"
+SRC_URI[sha256sum] = "8ba947e8971d56e309953d86e501e10977b8a4c9f81e28f0d40aadb87e6d9402"
 
 NPM_PKGNAME = "autoprefixer"
 
