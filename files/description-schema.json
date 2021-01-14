@@ -91,6 +91,13 @@
           "minLength": 1,
           "type": "array"
         },
+        "no-findings": {
+          "items": {
+            "type": "string"
+          },
+          "minLength": 0,
+          "type": "array"
+        },
         "integration": {
           "items": {
             "additionalProperties": false,

@@ -58,10 +58,31 @@ def test_results(tmppath, recipe, tool, name):
             for r in glob.glob(os.path.join(tmppath, name, "raw", "{}*".format(finding))):
                 with open(r) as o:
                     for line in o.readlines():
-                        sys.stderr.write(">> {}".format(line.strip("\n"))) 
+                        sys.stderr.write(">> {}".format(line)) 
             raise Exception("[ERROR] No results found for {}@{}\n".format(name, finding))
         else:
             print("[OKAY] Found {} result for {}@{}".format(hits, name, finding))
+
+def test_inv_results(tmppath, recipe, tool, name):
+    if "no-findings" not in tool["test"]:
+        return
+    for finding in tool["test"]["no-findings"]:
+        hits = 0
+        for f in glob.glob(os.path.join(tmppath, name, "datamodel", "*")):
+            with open(f) as i:
+                cnt = json.load(i)
+                if cnt:
+                    hits += sum(1 for x in cnt if x["PackageName"] == finding)
+                    
+        if hits:
+            sys.stderr.write("[ERROR] {} results found for {}@{}\n".format(hits, name, finding))
+            for r in glob.glob(os.path.join(tmppath, name, "raw", "{}*".format(finding))):
+                with open(r) as o:
+                    for line in o.readlines():
+                        sys.stderr.write(">> {}".format(line)) 
+            raise Exception("[ERROR] {} results found for {}@{}\n".format(hits, name, finding))
+        else:
+            print("[OKAY] Found no results for {}@{}".format(name, finding))
 
 if os.path.isabs(sys.argv[2]):
     _modsfile = sys.argv[2]
@@ -75,6 +96,7 @@ for mod in _mods:
         for recipe, desc, name in get_tool_description(mod):
             test_integration(sys.argv[1], recipe, desc, name)
             test_results(sys.argv[1], recipe, desc, name)
+            test_inv_results(sys.argv[1], recipe, desc, name)
     except Exception as e:
         sys.stderr.write(str(e) + "\n")
         ret = -1
