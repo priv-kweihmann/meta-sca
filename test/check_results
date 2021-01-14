@@ -46,27 +46,22 @@ def test_results(tmppath, recipe, tool, name):
     if "findings" not in tool["test"]:
         return
     for finding in tool["test"]["findings"]:
-        found = False
-        for f in glob.glob(os.path.join(tmppath, name, "datamodel", "{}*.dm".format(finding))):
+        hits = 0
+        for f in glob.glob(os.path.join(tmppath, name, "datamodel", "*")):
             with open(f) as i:
                 cnt = json.load(i)
-                if not cnt:
-                    sys.stderr.write("[ERROR] No results found for {}@{}\n".format(name, finding))
-                    for r in glob.glob(os.path.join(tmppath, name, "raw", "{}*".format(finding))):
-                        with open(r) as o:
-                            for line in o.readlines():
-                                sys.stderr.write(">> {}\n".format(line.strip("\n"))) 
-                    raise Exception("[ERROR] No results found for {}@{}\n".format(name, finding))
-                else:
-                    found = True
-                    print("[OKAY] Found {} result for {}@{}".format(len(cnt), name, finding))
-        if not found:
+                if cnt:
+                    hits += sum(1 for x in cnt if x["PackageName"] == finding)
+                    
+        if not hits:
             sys.stderr.write("[ERROR] No results found for {}@{}\n".format(name, finding))
             for r in glob.glob(os.path.join(tmppath, name, "raw", "{}*".format(finding))):
                 with open(r) as o:
                     for line in o.readlines():
                         sys.stderr.write(">> {}".format(line.strip("\n"))) 
             raise Exception("[ERROR] No results found for {}@{}\n".format(name, finding))
+        else:
+            print("[OKAY] Found {} result for {}@{}".format(hits, name, finding))
 
 if os.path.isabs(sys.argv[2]):
     _modsfile = sys.argv[2]
