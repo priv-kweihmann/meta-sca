@@ -18,6 +18,9 @@
     "test": {
         "findings": [
             "bad-json"
+        ],
+        "no-findings": [
+            "bad-bitbake"
         ]
     }
 }

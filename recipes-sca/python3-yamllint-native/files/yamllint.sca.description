@@ -22,6 +22,9 @@
         ],
         "findings": [
             "bad-yaml"
+        ],
+        "no-findings": [
+            "busybox"
         ]
     }
 }

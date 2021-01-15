@@ -29,6 +29,9 @@
         ],
         "findings": [
             "bad-html"
+        ],
+        "no-findings": [
+            "bad-bitbake"
         ]
     }
 }

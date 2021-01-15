@@ -23,6 +23,9 @@
         ],
         "findings": [
             "simple-c"
+        ],
+        "no-findings": [
+            "bad-bitbake"
         ]
     }
 }

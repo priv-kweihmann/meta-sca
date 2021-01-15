@@ -23,6 +23,9 @@
         ],
         "findings": [
             "bad-text"
+        ],
+        "no-findings": [
+            "bad-bitbake"
         ]
     }
 }

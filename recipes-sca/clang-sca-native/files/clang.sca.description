@@ -22,6 +22,9 @@
         ],
         "findings": [
             "simple-c"
+        ],
+        "no-findings": [
+            "bad-html"
         ]
     }
 }

@@ -26,6 +26,9 @@
         ],
         "findings": [
             "bad-po"
+        ],
+        "no-findings": [
+            "bad-go"
         ]
     }
 }

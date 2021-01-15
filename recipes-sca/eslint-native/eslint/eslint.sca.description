@@ -23,6 +23,9 @@
         ],
         "findings": [
             "bad-javascript"
+        ],
+        "no-findings": [
+            "openssh"
         ]
     }
 }
