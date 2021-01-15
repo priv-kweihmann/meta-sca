@@ -21,6 +21,9 @@
         "integration": [
             {"cmd": ["cspell", "--help"], "returncode": 1}
         ],
+        "no-findings": [
+            "bad-bitbake"
+        ],
         "findings": [
             "bad-spelling"
         ]

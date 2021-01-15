@@ -19,6 +19,9 @@
     "test": {
         "findings": [
             "python3-git"
+        ],
+        "no-findings": [
+            "busybox"
         ]
     }
 }

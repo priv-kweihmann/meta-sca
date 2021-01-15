@@ -22,6 +22,9 @@
         ],
         "findings": [
             "linux-yocto"
+        ],
+        "no-findings": [
+            "busybox"
         ]
     }
 }

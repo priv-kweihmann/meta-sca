@@ -20,6 +20,9 @@
         "findings": [
             "bad-go"
         ],
+        "no-findings": [
+            "busybox"
+        ],
         "integration": [
             { "cmd": [ "noret", "--help" ], "returncode": 2},
             { "cmd": [ "nargs", "--help" ], "returncode": 2},

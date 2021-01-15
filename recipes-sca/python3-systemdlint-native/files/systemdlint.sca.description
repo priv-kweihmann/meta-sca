@@ -46,6 +46,9 @@
         "findings": [
             "bad-systemd",
             "core-image-minimal-scatest"
+        ],
+        "no-findings": [
+            "busybox"
         ]
     }
 }
