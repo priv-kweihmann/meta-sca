@@ -25,6 +25,9 @@
         ],
         "no-findings": [
             "busybox"
+        ],
+        "additional-targets": [
+            "github.com-jgautheron-goconst-native"
         ]
     }
 }

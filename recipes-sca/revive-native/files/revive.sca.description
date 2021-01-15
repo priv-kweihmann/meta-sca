@@ -72,6 +72,9 @@
         ],
         "no-findings": [
             "busybox"
+        ],
+        "additional-targets": [
+            "revive-native"
         ]
     }
 }
