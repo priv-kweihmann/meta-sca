@@ -68,22 +68,25 @@ python do_sca_setuptoolslint() {
     os.environ["STAGING_INCDIR"] = d.getVar("STAGING_INCDIR")
     os.environ["STAGING_LIBDIR"] = d.getVar("STAGING_LIBDIR")
     os.environ["HTTP_PROXY"] = d.getVar("SCA_SETUPTOOLSLINT_LOCAL_PROXY")
+    os.environ["HTTPS_PROXY"] = d.getVar("SCA_SETUPTOOLSLINT_LOCAL_PROXY")
     os.environ["PYTHONPATH"] = ":".join([os.environ.get("PYTHONPATH", ""), os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "python-sysconfigdata")])
     _args = [d.getVar("PYTHON")]
 
     cmd_output = ""
 
+    _cwd = os.getcwd()
     for f in clean_split(d, "SCA_SETUPTOOLSLINT_FILES"):
         if os.path.exists(f):
             try:
+                os.chdir(d.getVar("T"))
                 # Lint using a fake package, as we only need to first stage of
                 # linting, as pylint is already run by a different module
-                tmp_output = subprocess.check_output(_args + [f, "lint", "--lint-packages=2107066c996809c8e5cec0a3ce1b10cfe4ab1fbf"], universal_newlines=True, stderr=subprocess.STDOUT)
+                tmp_output = subprocess.check_output(_args + [f, "--dry-run", "lint", "--lint-packages=2107066c996809c8e5cec0a3ce1b10cfe4ab1fbf"], universal_newlines=True, stderr=subprocess.STDOUT)
             except subprocess.CalledProcessError as e:
                 tmp_output = e.stdout or ""
             # Prefix all lines with full file path
             cmd_output += "\n".join(["{}:{}".format(f, x) for x in tmp_output.splitlines()])
-
+    os.chdir(_cwd)
     with open(sca_raw_result_file(d, "setuptoolslint"), "w") as o:
         o.write(cmd_output)
 
