@@ -187,6 +187,9 @@
             "busybox",
             "simple-c"
         ],
+        "no-findings": [
+            "bad-html"
+        ],
         "integration": [
             {"cmd": [ "cppcheck", "--help" ], "returncode": 0 }
         ]
