@@ -23,6 +23,15 @@
         "no-findings": [
             "busybox"
         ],
+        "additional-targets": [
+            "github.com-alexkohler-dogsled-native",
+            "github.com-alexkohler-identypo-native",
+            "github.com-alexkohler-nakedret-native",
+            "github.com-alexkohler-nargs-native",
+            "github.com-alexkohler-noret-native",
+            "github.com-alexkohler-prealloc-native",
+            "github.com-alexkohler-unimport-native"
+        ],
         "integration": [
             { "cmd": [ "noret", "--help" ], "returncode": 2},
             { "cmd": [ "nargs", "--help" ], "returncode": 2},
