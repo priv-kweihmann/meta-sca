@@ -25,6 +25,9 @@
         ],
         "no-findings": [
             "bad-yaml"
+        ],
+        "additional-targets": [
+            "slick-native"
         ]
     }
 }
