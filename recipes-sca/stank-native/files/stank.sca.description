@@ -30,6 +30,9 @@
         ],
         "no-findings": [
             "bad-go"
+        ],
+        "additional-targets": [
+            "stank-native"
         ]
     }
 }
