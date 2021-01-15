@@ -98,6 +98,13 @@
           "minLength": 0,
           "type": "array"
         },
+        "additional-targets": {
+          "items": {
+            "type": "string"
+          },
+          "minLength": 0,
+          "type": "array"
+        },
         "integration": {
           "items": {
             "additionalProperties": false,
