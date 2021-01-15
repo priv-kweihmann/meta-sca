@@ -25,6 +25,9 @@
         ],
         "findings": [
             "bad-javascript"
+        ],
+        "no-findings": [
+            "busybox"
         ]
     }
 }

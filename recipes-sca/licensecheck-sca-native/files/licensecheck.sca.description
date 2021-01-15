@@ -23,6 +23,9 @@
         ],
         "findings": [
             "bad-package"
+        ],
+        "no-findings": [
+            "bad-bitbake"
         ]
     }
 }

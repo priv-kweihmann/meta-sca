@@ -22,6 +22,9 @@
         "findings": [
             "busybox",
             "simple-c"
+        ],
+        "no-findings": [
+            "bad-go"
         ]
     }
 }

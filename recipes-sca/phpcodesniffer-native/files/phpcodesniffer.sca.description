@@ -22,6 +22,9 @@
     "test": {
         "findings": [
             "bad-php"
+        ],
+        "no-findings": [
+            "busybox"
         ]
     }
 }

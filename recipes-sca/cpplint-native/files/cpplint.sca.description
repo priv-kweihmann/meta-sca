@@ -33,6 +33,9 @@
         "integration": [
             {"cmd": ["cpplint", "--help"], "returncode": 0}
         ],
+        "no-findings": [
+            "bad-html"
+        ],
         "findings": [
             "busybox",
             "simple-c"

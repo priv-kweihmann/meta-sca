@@ -22,6 +22,9 @@
         ],
         "findings": [
             "bad-python-reqs"
+        ],
+        "no-findings": [
+            "busybox"
         ]
     }
 }

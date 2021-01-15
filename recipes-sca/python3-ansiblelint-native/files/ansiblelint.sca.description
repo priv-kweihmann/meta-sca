@@ -48,6 +48,9 @@
         ],
         "findings": [
             "bad-ansible"
+        ],
+        "no-findings": [
+            "busybox"
         ]
     }
 }

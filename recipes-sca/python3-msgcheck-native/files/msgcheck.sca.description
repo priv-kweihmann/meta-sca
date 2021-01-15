@@ -22,6 +22,9 @@
         ],
         "findings": [
             "bad-po"
+        ],
+        "no-findings": [
+            "bad-bitbake"
         ]
     }
 }
