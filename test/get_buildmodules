@@ -36,6 +36,8 @@ for mod in _mods:
         for recipe, desc in get_tool_description(mod):
             if "findings" in desc["test"]:
                 ret.update(desc["test"]["findings"])
+            if "additional-targets" in desc["test"]:
+                ret.update(desc["test"]["additional-targets"])
     except Exception as e:
         print(e)
         pass
