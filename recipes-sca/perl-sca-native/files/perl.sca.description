@@ -22,6 +22,9 @@
         ],
         "findings": [
             "bad-perl"
+        ],
+        "no-findings": [
+            "bad-bitbake"
         ]
     }
 }

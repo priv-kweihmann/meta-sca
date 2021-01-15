@@ -22,6 +22,9 @@
         ],
         "findings": [
             "bad-go"
+        ],
+        "no-findings": [
+            "busybox"
         ]
     }
 }

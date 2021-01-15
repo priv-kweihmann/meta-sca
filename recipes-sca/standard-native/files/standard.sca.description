@@ -24,6 +24,9 @@
         ],
         "findings": [
             "bad-javascript"
+        ],
+        "no-findings": [
+            "bad-go"
         ]
     }
 }

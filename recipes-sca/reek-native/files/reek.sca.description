@@ -20,6 +20,9 @@
     "test": {
         "findings": [
             "rubycritic-test"
+        ],
+        "no-findings": [
+            "busybox"
         ]
     }
 }

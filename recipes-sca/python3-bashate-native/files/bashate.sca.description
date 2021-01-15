@@ -23,6 +23,9 @@
         ],
         "findings": [
             "busybox"
+        ],
+        "no-findings": [
+            "bad-bitbake"
         ]
     }
 }

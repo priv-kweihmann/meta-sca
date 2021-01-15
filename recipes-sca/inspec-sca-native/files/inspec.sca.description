@@ -20,6 +20,9 @@
     "test": {
         "findings": [
             "core-image-minimal-scatest"
+        ],
+        "no-findings": [
+            "busybox"
         ]
     }
 }

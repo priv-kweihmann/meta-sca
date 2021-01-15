@@ -22,6 +22,9 @@
         ],
         "findings": [
             "bad-python-types"
+        ],
+        "no-findings": [
+            "busybox"
         ]
     }
 }

@@ -28,6 +28,9 @@
             "bad-python-types",
             "bad-python-reqs",
             "python3-git"
+        ],
+        "no-findings": [
+            "busybox"
         ]
     }
 }
