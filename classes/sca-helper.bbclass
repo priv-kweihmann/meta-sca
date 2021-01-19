@@ -106,7 +106,7 @@ def get_files_by_mimetype(d, path, mime, excludes=[]):
     import sys
     sys.path.insert(0, os.path.join(d.getVar("STAGING_DIR_NATIVE"), d.getVar("PYTHON_SITEPACKAGES_DIR")[1:]))
     try:
-        import python_magic
+        import magic
         local_dirs = clean_split(d, "SCA_LOCAL_FILE_FILTER")
         res = []
         for root, dirs, files in os.walk(path, topdown=True):
@@ -117,7 +117,7 @@ def get_files_by_mimetype(d, path, mime, excludes=[]):
                 if _filename in excludes:
                     continue
                 try:
-                    if python_magic.from_file(_filename, mime=True) in mime:
+                    if magic.from_file(_filename, mime=True) in mime:
                         res.append(_filename)
                 except:
                     pass
