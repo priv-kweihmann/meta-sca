@@ -11,8 +11,8 @@ RDEPENDS_${PN} += "ruby-aws-eventstream \
                   ruby-aws-sigv4 \
                   ruby-jmespath"
 
-SRC_URI[md5sum] = "8a554236dfea18ce722b9f9289b0fcd4"
-SRC_URI[sha256sum] = "c86905e11fbbb75d439dbeb4c0a3111e48694c54db98829b2a5f0f81b398468d"
+SRC_URI[md5sum] = "29f45906de1a73ef703e30aa7e2cc22b"
+SRC_URI[sha256sum] = "24be3799c92416dc9df913d34df162298d4279937412c264ca92827b2d0bd22d"
 
 GEM_NAME = "aws-sdk-core"
 
