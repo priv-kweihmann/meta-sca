@@ -33,7 +33,7 @@ import os
 import re
 import stat
 
-import python_magic
+import magic
 
 
 def warning(id, obj, msg):
@@ -150,8 +150,8 @@ def walk_dir(_args):
                 pass
 
             try:
-                _mime = python_magic.from_file(_filename, mime=True)
-            except python_magic.MagicException as e:
+                _mime = magic.from_file(_filename, mime=True)
+            except magic.MagicException as e:
                 print(e)
                 _mime = "unknown/unknown"
 
