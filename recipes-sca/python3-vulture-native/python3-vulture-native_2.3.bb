@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=7742d436e18716a43014253ae9f16b7e"
 DEPENDS += "python3-toml-native"
 
 SRC_URI_append = " file://vulture.sca.description"
-SRC_URI[md5sum] = "4f3f1ece8bace2f9db4cdbc85bad4cdc"
-SRC_URI[sha256sum] = "933bf7f3848e9e39ecab6a12faa59d5185471c887534abac13baea6fe8138cc2"
+SRC_URI[md5sum] = "4f9b49b480e65eea61f26af9b3a00daa"
+SRC_URI[sha256sum] = "03d5a62bcbe9ceb9a9b0575f42d71a2d414070229f2e6f95fa6e7c71aaaed967"
 
 PYPI_PACKAGE = "vulture"
 
