@@ -1,5 +1,5 @@
-SUMMARY = "Query metadatdata from sdists / bdists / installed packages"
-HOMEPAGE = "https://bazaar.launchpad.net/~tseaver/pkginfo/trunk/files"
+SUMMARY = "plugincode is a library that provides plugin functionality for ScanCode toolkit"
+HOMEPAGE = "https://github.com/nexB/plugincode"
 
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://apache-2.0.LICENSE;md5=e23fadd6ceef8c618fc1c65191d846fa"
