@@ -3,14 +3,14 @@ DESCRIPTION = "Check if your package was installed globally"
 HOMEPAGE = "https://github.com/sindresorhus/is-installed-globally#readme"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
+LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = "npm-global-dirs-native \
            npm-is-path-inside-native"
 
-SRC_URI = "https://registry.npmjs.org/is-installed-globally/-/is-installed-globally-0.3.2.tgz"
-SRC_URI[md5sum] = "cc8509db89d98b00d981e4a7cb1bdf1f"
-SRC_URI[sha256sum] = "fea98ca5a5618fce7207e90482124b8847a0a5c8398e5a7567bef483b7662469"
+SRC_URI = "https://registry.npmjs.org/is-installed-globally/-/is-installed-globally-0.4.0.tgz"
+SRC_URI[md5sum] = "7958f29c3f393acb2d9a044e692aa0a1"
+SRC_URI[sha256sum] = "ca45a47c53b8bfa5ff979784aa17a88584f106ae7518c50d67e3ece74ac5afe0"
 
 NPM_PKGNAME = "is-installed-globally"
 
