@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=73d317079e156478653d02207ca984da"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/flatted/-/flatted-3.1.0.tgz"
-SRC_URI[md5sum] = "649b1e4551ee3651a92de36fe0a71db9"
-SRC_URI[sha256sum] = "e5cf5f81a264bc6baf6d023ea17daec4292627202d0be7ca65e58045f498b1cc"
+SRC_URI = "https://registry.npmjs.org/flatted/-/flatted-3.1.1.tgz"
+SRC_URI[md5sum] = "85dc100872deeddee62dfeafbf2870e9"
+SRC_URI[sha256sum] = "30d7f6d3fb0e560e4eb7b75868d7b0e0e6605104855a5953afad84fd1fef588a"
 
 NPM_PKGNAME = "flatted"
 
