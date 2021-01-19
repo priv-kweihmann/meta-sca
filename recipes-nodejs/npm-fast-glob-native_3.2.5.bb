@@ -12,9 +12,9 @@ DEPENDS = "npm-glob-parent-native \
            npm-nodelib-fs.walk-native \
            npm-picomatch-native"
 
-SRC_URI = "https://registry.npmjs.org/fast-glob/-/fast-glob-3.2.4.tgz"
-SRC_URI[md5sum] = "5fb4ed812866593704566a0fb888b2a8"
-SRC_URI[sha256sum] = "acee77a13f64ff49e26540f2f9f20ab965197033e24be350663efc060bdd2f77"
+SRC_URI = "https://registry.npmjs.org/fast-glob/-/fast-glob-3.2.5.tgz"
+SRC_URI[md5sum] = "52920f8c9332c1fac1a4312034085c18"
+SRC_URI[sha256sum] = "26f7e9fb9cee775654e56da122982c4d2a8909e55d7e03db8edc2311f6fb048e"
 
 NPM_PKGNAME = "fast-glob"
 
