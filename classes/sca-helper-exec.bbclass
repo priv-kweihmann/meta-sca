@@ -12,6 +12,10 @@ def exec_wrap_combine_txt(a, b, **kwargs):
     return a + b
 
 def exec_wrap_combine_xml(a, b, **kwargs):
+    if not a.startswith("<") and "<" in a:
+        a = a[a.find("<"):]
+    if not b.startswith("<") and "<" in b:
+        b = b[b.find("<"):]
     return xml_combine(None, a, b)
 
 def exec_wrap_combine_json(a, b, **kwargs):
