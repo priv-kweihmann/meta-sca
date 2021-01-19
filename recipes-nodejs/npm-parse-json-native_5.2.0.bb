@@ -10,9 +10,9 @@ DEPENDS = "npm-babel-code-frame-native \
            npm-json-parse-even-better-errors-native \
            npm-lines-and-columns-native"
 
-SRC_URI = "https://registry.npmjs.org/parse-json/-/parse-json-5.1.0.tgz"
-SRC_URI[md5sum] = "03a5cb99eecca3a03a089fbf60390565"
-SRC_URI[sha256sum] = "5e2c7480d4f16884188cbacc456a818af0234106b87bcae96666eb7dd575df06"
+SRC_URI = "https://registry.npmjs.org/parse-json/-/parse-json-5.2.0.tgz"
+SRC_URI[md5sum] = "e57264dc3a419b54a3438bb71e1a17b9"
+SRC_URI[sha256sum] = "06b73684e0fdc2344daa6b718cdbeb3365339deab8ce8d0cc3cf3ff80d7b088d"
 
 NPM_PKGNAME = "parse-json"
 
