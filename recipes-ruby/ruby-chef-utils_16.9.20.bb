@@ -8,8 +8,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=8f7bb094c7232b058c7e9f2e431f389c"
 DEPENDS += ""
 RDEPENDS_${PN} += ""
 
-SRC_URI[md5sum] = "e4f3a3f5136915adec242cb137928dc6"
-SRC_URI[sha256sum] = "a0d7dabc6c0a09cf72587e5a2de7e6e251cdeba5a2b2c4f5b94f3917b0755bdb"
+SRC_URI[md5sum] = "a7c8a08e2575b527ed998d3889666a13"
+SRC_URI[sha256sum] = "2fb4613a8ecb712b9bb21ecc6c1fd88d7dbc67126e4e491cbb7f13f2c37172c0"
 
 GEM_NAME = "chef-utils"
 
