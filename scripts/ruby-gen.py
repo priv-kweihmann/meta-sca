@@ -118,6 +118,8 @@ def get_license(desc):
 
 def check_existing(args, pkgname, version, _naming_pattern):
     _matches = glob.glob(os.path.join(args.basepath, _naming_pattern.format(sanitize_pkgname(pkgname), "*")))
+    if not _matches:
+        return ["/tmp/does/not/exists"]
     res = []
     for m in _matches:
         try:
@@ -165,6 +167,8 @@ def create_tpl(args, pkgname, version):
             "__info": re.sub(r'\n|"', "", _description["info"].split(". ")[0]).strip()
         }
         for m in _oldrecipes:
+            if not os.path.exists(m):
+                continue
             print("Deleting old version {}".format(os.path.basename(m)))
             os.remove(m)
         if not args.target:
