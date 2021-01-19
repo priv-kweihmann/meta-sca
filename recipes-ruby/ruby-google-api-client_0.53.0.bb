@@ -6,8 +6,10 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f124bfaefacd4e1a4080065d403bc1d4"
 
 DEPENDS += ""
-RDEPENDS_${PN} += "bash\
+RDEPENDS_${PN} += "bash \
                   ruby-addressable \
+                  ruby-google-apis-core \
+                  ruby-google-apis-generator \
                   ruby-googleauth \
                   ruby-httpclient \
                   ruby-mini-mime \
@@ -16,8 +18,8 @@ RDEPENDS_${PN} += "bash\
                   ruby-rexml \
                   ruby-signet"
 
-SRC_URI[md5sum] = "4f2fec9592929d87614adc980f42e43e"
-SRC_URI[sha256sum] = "6b0c0add28e8bb057451760168fac5602cd3319201647dc439ce6de7bdd734e0"
+SRC_URI[md5sum] = "1b303920fe3bab13fd08331a3f1514fd"
+SRC_URI[sha256sum] = "41006ef21fe02a70cff39a10aebf84fa7fb5f24c63566ab12b149ff1f1d9d7ff"
 
 GEM_NAME = "google-api-client"
 
