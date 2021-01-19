@@ -11,9 +11,9 @@ DEPENDS = "npm-chalk-native \
            npm-tslib-native \
            npm-tsutils-native"
 
-SRC_URI = "https://registry.npmjs.org/@fimbul/mimir/-/mimir-0.22.0.tgz"
-SRC_URI[md5sum] = "b82e84f29356e743d80c94939a5dbc31"
-SRC_URI[sha256sum] = "e8fb44619be4632d5d8534b27bb1f563db91139ee8fff88d653f1e2a7ff5aeec"
+SRC_URI = "https://registry.npmjs.org/@fimbul/mimir/-/mimir-0.23.0.tgz"
+SRC_URI[md5sum] = "03f3a518917566c8f20b427059a56efd"
+SRC_URI[sha256sum] = "72ccee7d525d0b7d107bab15f58f50fdba5bbfc2dc230944e700a0fb30024068"
 
 NPM_PKGNAME = "@fimbul/mimir"
 
