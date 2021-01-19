@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/cli-boxes/-/cli-boxes-2.2.1.tgz"
-SRC_URI[md5sum] = "d51dd5ff02b14948e67107b20973c0e7"
-SRC_URI[sha256sum] = "0757a81d1d63a587db3da7f3c7870d9d77a47367fba2263bcf4d58a9c592a87a"
+SRC_URI = "https://registry.npmjs.org/cli-boxes/-/cli-boxes-3.0.0.tgz"
+SRC_URI[md5sum] = "ecd51fcc2a745c4d1a3e11ff3d5a6005"
+SRC_URI[sha256sum] = "6620935f35628b5d20a1b3270345928da11b02a72d37bbb0b1a09474f97b4f39"
 
 NPM_PKGNAME = "cli-boxes"
 
