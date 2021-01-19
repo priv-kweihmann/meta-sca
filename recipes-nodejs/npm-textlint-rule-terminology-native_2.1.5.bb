@@ -9,9 +9,9 @@ DEPENDS = "npm-lodash-native \
            npm-strip-json-comments-native \
            npm-textlint-rule-helper-native"
 
-SRC_URI = "https://registry.npmjs.org/textlint-rule-terminology/-/textlint-rule-terminology-2.1.4.tgz"
-SRC_URI[md5sum] = "07062d060b875a9c54129b10cd49833c"
-SRC_URI[sha256sum] = "7e1e476775c77f62825df2890719137afdf09545a146b03d346cf28494d7ee0c"
+SRC_URI = "https://registry.npmjs.org/textlint-rule-terminology/-/textlint-rule-terminology-2.1.5.tgz"
+SRC_URI[md5sum] = "bcc675f5fc289aa26bed31b94945a5ed"
+SRC_URI[sha256sum] = "ce30d979f551cb44ab149f531e2b7facb1f4b08e674549c2dac9972c141290c6"
 
 NPM_PKGNAME = "textlint-rule-terminology"
 
