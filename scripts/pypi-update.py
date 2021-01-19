@@ -62,7 +62,8 @@ def update_pkg(args):
     with open(_recipe_newname, "w") as o:
         o.write("".join(_lines))
     
-    os.remove(_recipe_oldname)
+    if _updated:
+        os.remove(_recipe_oldname)
     return True
 
 def main():
