@@ -14,7 +14,7 @@ def sca_systemd_version(d):
     except OSError:
         # avoid a warning from oe.packagedata.pkgmap function
         # and simply return nothing instead
-        bb.note("Can't determine systemd version, assuming latest")
+        bb.debug(1, "Can't determine systemd version, assuming latest")
         return ""
 
     pkgmap = oe.packagedata.pkgmap(d)
@@ -26,7 +26,7 @@ def sca_systemd_version(d):
                 return _pv
             except:
                 pass
-    bb.note("Can't determine systemd version, assuming latest")
+    bb.debug(1, "Can't determine systemd version, assuming latest")
     return ""
 
 # Needs to be overridden to make it work here
