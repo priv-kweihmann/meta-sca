@@ -13,8 +13,8 @@ RDEPENDS_${PN} += "ruby-addressable \
                   ruby-mixlib-shellout \
                   ruby-tomlrb"
 
-SRC_URI[md5sum] = "74300a141666854c640b06ae3b939001"
-SRC_URI[sha256sum] = "a0244b828251fdc849b3a4b136a614fc0163405fe1c61a9a9c72a0eaf34757d7"
+SRC_URI[md5sum] = "c7ab2ee82c360c5abbd0516fad86f722"
+SRC_URI[sha256sum] = "e94c1de62c99f8400fa0c9b0260a0271bf16b63efe0bc6ff8c42bcd7a2607209"
 
 GEM_NAME = "chef-config"
 
