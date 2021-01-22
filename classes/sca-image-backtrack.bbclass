@@ -44,6 +44,17 @@ def sca_backtrack_image_init(d):
                 _result[n.lstrip("/")] = (_recipe, d.expand(_rawpath))
     return _result
 
+def sca_backtrack_bbfiles(d):
+    import glob
+    import json
+    _result = {}
+    for _file in glob.glob(d.expand("${SCA_EXPORT_DIR}/*/datamodel/*.dm")):
+        with open(_file) as i:
+            for j in json.load(i):
+                _result[j["PackageName"]] = j.get("BBFiles", [])
+                break
+    return _result
+
 # Adds additional findings if the findings can be backtracked
 # to a recipe
 def sca_backtrack_findings(d, g):
@@ -52,10 +63,12 @@ def sca_backtrack_findings(d, g):
     if d.getVar("SCA_BACKTRACK") != "1" or not bb.data.inherits_class('image', d):
         return res
     sca_backtrack_findings.map = getattr(sca_backtrack_findings, 'map', sca_backtrack_image_init(d))
+    sca_backtrack_findings.bbmap = getattr(sca_backtrack_findings, 'bbmap', sca_backtrack_bbfiles(d))
 
     if g.File.lstrip("/") in sca_backtrack_findings.map:
         h = copy.deepcopy(g)
         h.PackageName, h.BuildPath = sca_backtrack_findings.map[h.File.lstrip("/")]
+        h.BBFiles = sca_backtrack_findings.bbmap.get(h.PackageName, [])
         bb.debug(1, "Backtracked to {} -> {}".format(h.PackageName, h.BuildPath))
         res.append(h)
     return res
