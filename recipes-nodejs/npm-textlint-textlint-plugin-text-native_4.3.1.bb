@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e13f89c6c99507a95c450fa5e043b0cb"
 
 DEPENDS = "npm-textlint-text-to-ast-native"
 
-SRC_URI = "https://registry.npmjs.org/@textlint/textlint-plugin-text/-/textlint-plugin-text-4.2.7.tgz"
-SRC_URI[md5sum] = "b9e3a10d01fcdf069b059599d94ba41f"
-SRC_URI[sha256sum] = "1c389b917841d618ee754f96270fa2950dcc238c65a3c7aa8ef5cff423a7c49e"
+SRC_URI = "https://registry.npmjs.org/@textlint/textlint-plugin-text/-/textlint-plugin-text-4.3.1.tgz"
+SRC_URI[md5sum] = "22128a77ddafc2260219cda518bda5f9"
+SRC_URI[sha256sum] = "eece730b4f295e03bc25d3774815b7a1b08dbf1eaa8247966a842c64e98237c3"
 
 NPM_PKGNAME = "@textlint/textlint-plugin-text"
 
