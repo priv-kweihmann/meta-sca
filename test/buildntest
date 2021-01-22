@@ -14,6 +14,10 @@ _targets=$(${_thispath}/get_buildmodules $@)
 if [ ! -z "${_targets}" ]; then
     if [ -z "${BUILDNTEST_PRESERVECACHE}" ]; then
         bitbake ${_targets} -c cleansstate || exit 1
+        # Remove all previously exported files
+        for m in ${mods}; do
+            rm -rf ${_pwd}/tmp/deploy/images/*/sca/${m}/*
+        done
     fi
     bitbake ${_targets}|| exit 1
 fi
