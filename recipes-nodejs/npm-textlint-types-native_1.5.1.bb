@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=46ad0c4fd3586dd75b2ed7a332e35acb"
 
 DEPENDS = "npm-textlint-ast-node-types-native"
 
-SRC_URI = "https://registry.npmjs.org/@textlint/types/-/types-1.4.6.tgz"
-SRC_URI[md5sum] = "f3607ef8d6f13932806af385689dd9ab"
-SRC_URI[sha256sum] = "639a20bba53a853ac7e5b6138eb9688e07f9f955d4c702791abbedd9fdf4a60b"
+SRC_URI = "https://registry.npmjs.org/@textlint/types/-/types-1.5.1.tgz"
+SRC_URI[md5sum] = "f6ef8a8518d600c1f8350c54e9028b24"
+SRC_URI[sha256sum] = "60ce68e6a0a54a56e32f81031e52568b9295a284403d80be0cc7dd443c876fb4"
 
 NPM_PKGNAME = "@textlint/types"
 
