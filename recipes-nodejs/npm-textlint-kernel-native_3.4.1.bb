@@ -13,12 +13,13 @@ DEPENDS = "npm-debug-native \
            npm-textlint-ast-tester-native \
            npm-textlint-ast-traverse-native \
            npm-textlint-feature-flag-native \
+           npm-textlint-source-code-fixer-native \
            npm-textlint-types-native \
            npm-textlint-utils-native"
 
-SRC_URI = "https://registry.npmjs.org/@textlint/kernel/-/kernel-3.3.7.tgz"
-SRC_URI[md5sum] = "e77e3c2a773757ba0a9e574880b118fa"
-SRC_URI[sha256sum] = "8d6e878f469cc41ab29451ebc7f1654580505df77c8d6e957c2a10de5111cba9"
+SRC_URI = "https://registry.npmjs.org/@textlint/kernel/-/kernel-3.4.1.tgz"
+SRC_URI[md5sum] = "7b846545fa71e8ee5975cc6764c72e47"
+SRC_URI[sha256sum] = "a588dee88e43fc65a98e4519735160fd546a1363aa9abf68890f3bdac93f03b4"
 
 NPM_PKGNAME = "@textlint/kernel"
 
