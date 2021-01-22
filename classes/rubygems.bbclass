@@ -87,6 +87,7 @@ do_generate_spec() {
     # lift the version bindings to be less strict
     if [ "${GEM_DISABLE_STRICT_VER}" -eq "1" ]; then
         sed -i 's#~>#>=#g' ${GEM_SPEC_FILE}
+        sed -i 's#<=[[:space:]]*[0-9]\+\.[0-9]\+\.[0-9]\+#!=0#g' ${GEM_SPEC_FILE}
         sed -i 's#<[[:space:]]*[0-9]\+\.[0-9]\+\.[0-9]\+#!=0#g' ${GEM_SPEC_FILE}
         sed -i 's#<[[:space:]]*[0-9]\+\.[0-9]\+#!=0#g' ${GEM_SPEC_FILE}
     fi
