@@ -8,8 +8,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=81b0e16be045534c5330969d1e542bb4"
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-inspec"
 
-SRC_URI[md5sum] = "d50eab0cb496f9cbb974b8d5eb4c8428"
-SRC_URI[sha256sum] = "7cab8e958918630bdb74b8737de699bbfee8113a8c2537bbae41544d7520e8cd"
+SRC_URI[md5sum] = "c7e5f70fe2321da730acb62e47e96a3e"
+SRC_URI[sha256sum] = "02ba96e0d23d274422c626881fbb4bcd44a25ff81c6937ba16bf18fa7f49c00a"
 
 GEM_NAME = "inspec-bin"
 
