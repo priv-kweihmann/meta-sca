@@ -14,6 +14,24 @@ def sca_severity_transformation(d):
         res[k] = v
     return res
 
+def sca_datamodel_bbfiles(d):
+    res = set()
+    for x in d.getVar("BBINCLUDED").split(" "):
+        if not os.path.exists(x):
+            continue
+        _name, _ext = os.path.splitext(x)
+        if _ext not in [".bb", ".inc", ".bbappend"]:
+            continue
+        # strip off layer paths
+        for y in d.getVar("BBLAYERS").split(" "):
+            if not y:
+                continue
+            if not y.endswith("/"):
+                y += "/"
+            x = x.replace(y, "", 1)
+        res.add(x.lstrip("/")) 
+    return sorted(res)
+
 def sca_get_model_class(d, **kwargs):
     __SevTrans = sca_severity_transformation(d)
 
@@ -31,6 +49,7 @@ def sca_get_model_class(d, **kwargs):
             self.__SevTrans = {}
             self.__Scope = ""
             self.__description = {}
+            self.__bbfiles = []
             for k,v in kwargs.items():
                 x = getattr(self, k)
                 if x is not None:
@@ -129,6 +148,14 @@ def sca_get_model_class(d, **kwargs):
             self.__SevTrans = value
             self.__sev_transform()
 
+        @property
+        def BBFiles(self):
+            return self.__bbfiles
+        
+        @BBFiles.setter
+        def BBFiles(self, value):
+            self.__bbfiles = value
+
         def AddDescription(self, basepath):
             import json
             _path = os.path.join(basepath, "{}.sca.description".format(self.__Tool.lower()))
@@ -224,9 +251,9 @@ def sca_get_model_class(d, **kwargs):
             return [SCADataModel.FromDict(x) for x in _in]
 
         def ToDict(self):
-            return {k:getattr(self,k) for k in ["File", "BuildPath", "Line", "Column", "Severity", "Message", "ID", "PackageName", "Tool", "Scope"] if getattr(self,k)}
+            return {k:getattr(self,k) for k in ["File", "BBFiles", "BuildPath", "Line", "Column", "Severity", "Message", "ID", "PackageName", "Tool", "Scope"] if getattr(self,k)}
 
-    x = SCADataModel(SevTrans=__SevTrans, **kwargs)
+    x = SCADataModel(SevTrans=__SevTrans, BBFiles=sca_datamodel_bbfiles(d), **kwargs)
     x.AddDescription(d.getVar("STAGING_DATADIR_NATIVE"))
     return x
 
