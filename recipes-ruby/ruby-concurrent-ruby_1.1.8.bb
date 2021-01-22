@@ -5,11 +5,11 @@ HOMEPAGE = "http://www.concurrent-ruby.com"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=e319104fe1435b64fc0a67032db44f02"
 
-DEPENDS = ""
+DEPENDS += ""
 RDEPENDS_${PN} += ""
 
-SRC_URI[md5sum] = "3558ccacd1371bf34a43ba82b79bc5cc"
-SRC_URI[sha256sum] = "ff4befc88d522ccb2109596da26309f4b0b041683ca62d3cb903b313e1caddee"
+SRC_URI[md5sum] = "68c226f3ee1bf39313dd4ebc0cf52d43"
+SRC_URI[sha256sum] = "e35169e8e01c33cddc9d322e4e793a9bc8c3c00c967d206d17457e0d301f2257"
 
 GEM_NAME = "concurrent-ruby"
 
