@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=76c1502273262a5e
 
 PYPI_PACKAGE = "bitarray"
 
-SRC_URI[md5sum] = "a082075dbae478fb53c69e25cc7f9cd6"
-SRC_URI[sha256sum] = "ab85b38365dd9956264226b30dababa02161ed49bb36c7ee82cc6545e07b1599"
+SRC_URI[md5sum] = "5044ee843d9f5a08482d1e2b44a6c7bc"
+SRC_URI[sha256sum] = "ae27ce4bef4f35b4cc2c0b0d9cf02ed49eee567c23d70cb5066ad215f9b62b3c"
 
 inherit pypi
 inherit native
