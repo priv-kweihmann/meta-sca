@@ -8,8 +8,8 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7ca
 DEPENDS += ""
 RDEPENDS_${PN} += ""
 
-SRC_URI[md5sum] = "3f13a940f568b2733bba83116ab35adf"
-SRC_URI[sha256sum] = "408edb91d50ea6a049c46139cf6c9ff3a958152b0770de24c0f9c76bbdd02eb6"
+SRC_URI[md5sum] = "8bed96e09d69d23855e757387ae46e48"
+SRC_URI[sha256sum] = "f91f90d03b4e8fe64c38a26dedef615f527a476de80b4c0a7f76dfdcbb0e9c5c"
 
 GEM_NAME = "aws-partitions"
 
