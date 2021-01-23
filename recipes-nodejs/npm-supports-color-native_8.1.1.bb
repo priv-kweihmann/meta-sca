@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = "npm-has-flag-native"
 
-SRC_URI = "https://registry.npmjs.org/supports-color/-/supports-color-8.1.0.tgz"
-SRC_URI[md5sum] = "739663e34d27ccefa2d69a04d38fb8c8"
-SRC_URI[sha256sum] = "66b9556e93aabd67c1966c53fc5cf419338e0054ee858c84aafebd7ec50fe48a"
+SRC_URI = "https://registry.npmjs.org/supports-color/-/supports-color-8.1.1.tgz"
+SRC_URI[md5sum] = "16e8e38709a4675f8ea1482806cb050c"
+SRC_URI[sha256sum] = "ea69d9b5801e109932f9f12b5499c06de3fde936119a21c5941b2759d4364fb0"
 
 NPM_PKGNAME = "supports-color"
 
