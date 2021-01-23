@@ -7,8 +7,12 @@ def checkstyle_prettify(d, elem):
     from xml.etree.ElementTree import Element, SubElement, Comment, tostring
     from xml.etree import ElementTree
     from xml.dom import minidom
+    from xml.parsers.expat import ExpatError
     rough_string = ElementTree.tostring(elem, 'utf-8')
-    reparsed = minidom.parseString(rough_string)
+    try:
+        reparsed = minidom.parseString(rough_string)
+    except ExpatError:
+        bb.warn("What's wrong with it? '{}'".format(rough_string))
     return reparsed.toprettyxml(indent="  ")
 
 def sca_conv_dm_checkstyle(d, tool):
