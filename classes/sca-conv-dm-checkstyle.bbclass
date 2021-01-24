@@ -9,10 +9,16 @@ def checkstyle_prettify(d, elem):
     from xml.dom import minidom
     from xml.parsers.expat import ExpatError
     rough_string = ElementTree.tostring(elem, 'utf-8')
-    try:
-        reparsed = minidom.parseString(rough_string)
-    except ExpatError:
-        bb.warn("What's wrong with it? '{}'".format(rough_string))
+    okay = False
+    while not okay:
+        try:
+            reparsed = minidom.parseString(rough_string)
+            okay = True
+        except ExpatError as e:
+            # strip off invalid characters at this stage
+            s = list(rough_string)
+            del s[e.offset]
+            rough_string = "".join(s)
     return reparsed.toprettyxml(indent="  ")
 
 def sca_conv_dm_checkstyle(d, tool):
