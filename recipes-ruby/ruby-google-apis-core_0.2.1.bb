@@ -13,10 +13,11 @@ RDEPENDS_${PN} += "ruby-addressable \
                   ruby-representable \
                   ruby-retriable \
                   ruby-rexml \
-                  ruby-signet"
+                  ruby-signet \
+                  ruby-webrick"
 
-SRC_URI[md5sum] = "a6dc2f3eab5efeea75ad1004c4e23e52"
-SRC_URI[sha256sum] = "286b3f1f93846688736645745f816168c2e9c7ee7788a97ddacd4538ab425aaf"
+SRC_URI[md5sum] = "ba38eed85bb6529bf621f745723d69bf"
+SRC_URI[sha256sum] = "4efc94daaf4b73f98a746d83823b28e6a3bbbb390ec957726015e9f30fc797a0"
 
 GEM_NAME = "google-apis-core"
 
