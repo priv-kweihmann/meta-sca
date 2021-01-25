@@ -18,6 +18,7 @@ def checkstyle_prettify(d, elem):
             # strip off invalid characters at this stage
             s = list(rough_string)
             del s[e.offset]
+            s = [x for x in s if isinstance(x, str)]
             rough_string = "".join(s)
     return reparsed.toprettyxml(indent="  ")
 
