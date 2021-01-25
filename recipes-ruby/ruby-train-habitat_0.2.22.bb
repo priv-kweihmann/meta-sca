@@ -5,11 +5,11 @@ HOMEPAGE = "https://github.com/inspec/train-habitat"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f16f9b4dd2d3afd4d244ba4e5d9e715e"
 
-DEPENDS = ""
+DEPENDS += ""
 RDEPENDS_${PN} += ""
 
-SRC_URI[md5sum] = "33658bcc3ad24c44cbc10f789f5e7542"
-SRC_URI[sha256sum] = "16a4662679686391cc0b9934f8cc160781fc2c28930a617c0b0de0b7e717c4f0"
+SRC_URI[md5sum] = "7f9ececb846199215c6e6bcc71f38f11"
+SRC_URI[sha256sum] = "dbd80090cbf6404159fe9b406747e936ef2697df798bed4637d47dd90a16b161"
 
 GEM_NAME = "train-habitat"
 
