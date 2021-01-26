@@ -5,7 +5,7 @@ HOMEPAGE = "https://github.com/googleapis/google-auth-library-ruby"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=10c2a85445c418fe8265c4ad0963535b"
 
-DEPENDS = ""
+DEPENDS += ""
 RDEPENDS_${PN} += "bash \
                   ruby-faraday \
                   ruby-jwt \
@@ -14,8 +14,8 @@ RDEPENDS_${PN} += "bash \
                   ruby-os \
                   ruby-signet"
 
-SRC_URI[md5sum] = "82136599846f514e003e90272e9961c6"
-SRC_URI[sha256sum] = "4659b563d5b2727e775ba9231e75485c1b55ac8fc319e0bf1bc87d5e9705a632"
+SRC_URI[md5sum] = "5a6670e2854ec4644e629b3992bfdc54"
+SRC_URI[sha256sum] = "5fb019c14fb02ff0c8d61b1d6714952663247db06313eecd84cefdb27e0595df"
 
 GEM_NAME = "googleauth"
 
