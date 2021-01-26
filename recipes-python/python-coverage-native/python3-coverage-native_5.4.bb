@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=2ee41112a44fe7014dce33e26468ba93"
 
 PYPI_PACKAGE = "coverage"
 
-SRC_URI[md5sum] = "6ff1e5fafaa6d2156f45c274fa80a6d1"
-SRC_URI[sha256sum] = "38f16b1317b8dd82df67ed5daa5f5e7c959e46579840d77a67a4ceb9cef0a50b"
+SRC_URI[md5sum] = "150f74c0cd9b2243df78dcbc4cbc9378"
+SRC_URI[sha256sum] = "6d2e262e5e8da6fa56e774fb8e2643417351427604c2b177f8e8c5f75fc928ca"
 
 inherit pypi
 inherit native
