@@ -62,8 +62,10 @@ def sca_backtrack_findings(d, g):
     res = [g]
     if d.getVar("SCA_BACKTRACK") != "1" or not bb.data.inherits_class('image', d):
         return res
-    sca_backtrack_findings.map = getattr(sca_backtrack_findings, 'map', sca_backtrack_image_init(d))
-    sca_backtrack_findings.bbmap = getattr(sca_backtrack_findings, 'bbmap', sca_backtrack_bbfiles(d))
+    if not hasattr(sca_backtrack_findings, "map"):
+        sca_backtrack_findings.map = sca_backtrack_image_init(d)
+    if not hasattr(sca_backtrack_findings, "bbmap"):
+        sca_backtrack_findings.bbmap = sca_backtrack_bbfiles(d)
 
     if g.File.lstrip("/") in sca_backtrack_findings.map:
         h = copy.deepcopy(g)
