@@ -17,7 +17,10 @@ def checkstyle_prettify(d, elem):
         except ExpatError as e:
             # strip off invalid characters at this stage
             s = list(rough_string)
-            del s[e.offset]
+            try:
+                del s[e.offset]
+            except:
+                pass
             s = [x for x in s if isinstance(x, str)]
             rough_string = "".join(s)
     return reparsed.toprettyxml(indent="  ")
