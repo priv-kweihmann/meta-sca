@@ -20,7 +20,11 @@ def checkstyle_prettify(d, elem):
             try:
                 del s[e.offset]
             except:
-                pass
+                top = Element("checkstyle")
+                top.set("version", "4.3")
+                # Okay time to give up on this one
+                bb.warn("Checkstyle output is corrupted, check raw files for errors")
+                return top.toprettyxml(indent="  ")
             s = [x for x in s if isinstance(x, str)]
             rough_string = "".join(s)
     return reparsed.toprettyxml(indent="  ")
