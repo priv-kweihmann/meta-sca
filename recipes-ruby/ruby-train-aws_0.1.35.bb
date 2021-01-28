@@ -69,8 +69,8 @@ RDEPENDS_${PN} += "ruby-aws-sdk-apigateway \
                   ruby-aws-sdk-states \
                   ruby-aws-sdk-transfer"
 
-SRC_URI[md5sum] = "c4b25d170ae79d04be318eda3ede76fe"
-SRC_URI[sha256sum] = "2a58638b205c96c8668f8318afe1464adac746c95909efcf242fc7a056e725e4"
+SRC_URI[md5sum] = "2f8217446eed0d1b880f84cf2c96cf14"
+SRC_URI[sha256sum] = "cf91de6a9db4371bc80f9b422fec3539b3b4a0c63d4051cc7139f0f9e75b8c04"
 
 GEM_NAME = "train-aws"
 
