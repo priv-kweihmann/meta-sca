@@ -5,11 +5,11 @@ HOMEPAGE = "https://github.com/winrb/rubyntlm"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1abaf55929270cb01e40abca2d29984f"
 
-DEPENDS = ""
+DEPENDS += ""
 RDEPENDS_${PN} += ""
 
-SRC_URI[md5sum] = "e74146db2e08c5254d15d63f0befcc78"
-SRC_URI[sha256sum] = "be81d7cbe7042c3a582299d89f0b07ef142b9854d260b648b498ad49a7eecbdc"
+SRC_URI[md5sum] = "e1f7477acf8a7d3effb2a3fb931aa84c"
+SRC_URI[sha256sum] = "5b321456dba3130351f7451f8669f1afa83a0d26fd63cdec285b7b88e667102d"
 
 GEM_NAME = "rubyntlm"
 
