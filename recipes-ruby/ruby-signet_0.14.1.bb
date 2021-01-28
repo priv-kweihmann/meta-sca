@@ -5,14 +5,14 @@ HOMEPAGE = "https://github.com/googleapis/signet"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f124bfaefacd4e1a4080065d403bc1d4"
 
-DEPENDS = ""
+DEPENDS += ""
 RDEPENDS_${PN} += "ruby-addressable \
                   ruby-faraday \
                   ruby-jwt \
                   ruby-multi-json"
 
-SRC_URI[md5sum] = "4af653837cec1813e4e04d96dfffc83e"
-SRC_URI[sha256sum] = "17dfcaaf40df57eeb7fcc78e3759b64722b7f4e35e85c62028ccf6ed8e31e281"
+SRC_URI[md5sum] = "85d6d6ac1b31424e531861c363f80539"
+SRC_URI[sha256sum] = "bb878fe3cc115246c3bfbbec87f6d5bcdd49372347a9ead25d431699b3d5b9fe"
 
 GEM_NAME = "signet"
 
