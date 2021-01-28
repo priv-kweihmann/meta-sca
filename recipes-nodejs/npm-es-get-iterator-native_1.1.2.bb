@@ -14,9 +14,9 @@ DEPENDS = "npm-call-bind-native \
            npm-is-string-native \
            npm-isarray-native"
 
-SRC_URI = "https://registry.npmjs.org/es-get-iterator/-/es-get-iterator-1.1.1.tgz"
-SRC_URI[md5sum] = "e0a1ff4d476875664c97a617a09f3ee3"
-SRC_URI[sha256sum] = "e60d0fa63bc4a7ddd6f2dec6e2521ba0033e9177fb26fc52d20c34e6aa014eb4"
+SRC_URI = "https://registry.npmjs.org/es-get-iterator/-/es-get-iterator-1.1.2.tgz"
+SRC_URI[md5sum] = "76e8393660df6aa1172a68aa9f961168"
+SRC_URI[sha256sum] = "4ad0eb3cce28b25ef3facbcf75b6967d7a6ff079ee8d1bd962a4528e430e4052"
 
 NPM_PKGNAME = "es-get-iterator"
 
