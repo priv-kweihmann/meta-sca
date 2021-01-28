@@ -9,6 +9,7 @@ DEPENDS += ""
 RDEPENDS_${PN} += "ruby-addressable \
                   ruby-chef-telemetry \
                   ruby-faraday \
+                  ruby-faraday-middleware \
                   ruby-hashie \
                   ruby-license-acceptance \
                   ruby-method-source \
@@ -28,8 +29,8 @@ RDEPENDS_${PN} += "ruby-addressable \
                   ruby-tty-prompt \
                   ruby-tty-table"
 
-SRC_URI[md5sum] = "772d5885af42f399378685a3e6b182a7"
-SRC_URI[sha256sum] = "e706bac551519a38182b73b2a9aeffabc3eab5acb5b5c7a1b70f60331a0499bd"
+SRC_URI[md5sum] = "0677b92b6dc38f48dfd578023066b30c"
+SRC_URI[sha256sum] = "e80e5f7ae8e0ca8cccd5a2ed34fda4a0e75445f4bd64c8ae39507956bc252d5b"
 
 GEM_NAME = "inspec-core"
 
