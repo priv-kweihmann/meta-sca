@@ -24,7 +24,7 @@ def checkstyle_prettify(d, elem):
                 top.set("version", "4.3")
                 # Okay time to give up on this one
                 bb.warn("Checkstyle output is corrupted, check raw files for errors")
-                return top.toprettyxml(indent="  ")
+                return ElementTree.tostring(top, 'utf-8')
             s = [x for x in s if isinstance(x, str)]
             rough_string = "".join(s)
     return reparsed.toprettyxml(indent="  ")
