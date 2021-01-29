@@ -64,7 +64,7 @@ DEPENDS += "\
             python3-zc-lockfile-native \
         "
 
-SRC_URI = "git://github.com/nexB/scancode-toolkit.git;protocol=https;branch=master \
+SRC_URI = "git://github.com/nexB/scancode-toolkit.git;protocol=https;nobranch=1 \
            file://0001-remove-version-limitations.patch \
            file://scancode.sca.description"
 SRCREV = "ba4bbf216c6f44572662d16c76214a08b0a69e7e"
