@@ -1,7 +1,7 @@
 appnope==0.1.0
 backcall==0.1.0
 beautifulsoup4==4.6.3
-bleach==2.1.4
+bleach==3.3.0
 certifi==2018.8.24
 chardet==3.0.4
 Click==7.0
