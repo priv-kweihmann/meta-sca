@@ -10,7 +10,7 @@ DEPENDS += "\
            "
 
 SRC_URI = "git://github.com/kubernetes/klog.git;protocol=https"
-SRCREV = "52c62e3b70a9a46101f33ebaf0b100ec55099975"
+SRCREV = "2427a79a004e759b853799a2e6abb58dc622c363"
 
 S = "${WORKDIR}/git"
 
@@ -24,4 +24,5 @@ do_compile_prepend() {
     # as we don't care about the tests of this package
     # we just delete them
     rm -rf ${B}/src/${GO_IMPORT}/integration_tests/*
+    rm -rf ${B}/src/${GO_IMPORT}/klogr/calldepth-test
 }
