@@ -5,12 +5,12 @@ HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
 
-DEPENDS = ""
+DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "3d04b3110fddb5f898a9e9c5bff9295a"
-SRC_URI[sha256sum] = "d43cd239200caf790112c5f447c746f47587861ef12fc7bd9ab9cdc0495044be"
+SRC_URI[md5sum] = "8efe6d559c42513e1f885f58cfbe4e98"
+SRC_URI[sha256sum] = "5ff0a23d157e3bb617d498569de22331d718f7f6ff28cb1985b8e070b34e33a9"
 
 GEM_NAME = "aws-sdk-elasticbeanstalk"
 
