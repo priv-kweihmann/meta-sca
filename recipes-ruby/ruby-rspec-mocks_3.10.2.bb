@@ -9,8 +9,8 @@ DEPENDS += ""
 RDEPENDS_${PN} += "ruby-diff-lcs \
                   ruby-rspec-support"
 
-SRC_URI[md5sum] = "b29598e788d8fba4b16c69023d16b14b"
-SRC_URI[sha256sum] = "1467e984ac20b1cda924430fde081de8b5e0ef0d2147b2668c09118c8b9e8af4"
+SRC_URI[md5sum] = "23cf53caff14f2463116c9ffce67f6f8"
+SRC_URI[sha256sum] = "93fc76e312c3d19cacc1cb2eb64bf82731de2e216295cf2b4d0ce31ba77923b4"
 
 GEM_NAME = "rspec-mocks"
 
