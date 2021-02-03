@@ -9,8 +9,8 @@ DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "2782e4e24dc1405b0bdf81a30e24acf5"
-SRC_URI[sha256sum] = "c4be4caa953c12fded924fd9f973cc3ed6e49930a5e2f32ead6b9c62316df407"
+SRC_URI[md5sum] = "eb38f351589a616817dba9c4f3f1546b"
+SRC_URI[sha256sum] = "3436b3feb7b67e8595ad0bd96c9922ed56ec855a9ebd0a194cb649e8000ab24f"
 
 GEM_NAME = "aws-sdk-applicationautoscaling"
 
