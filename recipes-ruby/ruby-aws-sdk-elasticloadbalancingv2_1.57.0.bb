@@ -5,12 +5,12 @@ HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
 
-DEPENDS = ""
+DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "dcdadbb7b0bb11302f248fc428227ec6"
-SRC_URI[sha256sum] = "40a591d0bba1d39a9bc0206b5aeca58180023fc7b0dc0a0ef4feab582fa5b917"
+SRC_URI[md5sum] = "79245ffc09e37459fa6da41d68551274"
+SRC_URI[sha256sum] = "80480fb6ab46ed3e8391c9e229efb5994d08e5a9a8ee4737418614a6f3eb1f09"
 
 GEM_NAME = "aws-sdk-elasticloadbalancingv2"
 
