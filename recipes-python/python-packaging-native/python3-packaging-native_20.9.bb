@@ -8,8 +8,8 @@ DEPENDS += "python3-six-native"
 
 PYPI_PACKAGE = "packaging"
 
-SRC_URI[md5sum] = "101110b3d512d544b70fd61d58482eaf"
-SRC_URI[sha256sum] = "78598185a7008a470d64526a8059de9aaa449238f280fc9eb6b13ba6c4109093"
+SRC_URI[md5sum] = "5377308b3ba89f2d78c05e7f485be65d"
+SRC_URI[sha256sum] = "5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5"
 
 inherit pypi
 inherit native
