@@ -13,7 +13,7 @@ SRC_URI = "git://github.com/VirusTotal/yara.git;protocol=https;branch=4.0.x \
            file://0001-Makefile.am-remove-hardcoded-static-lib.patch \
            "
 
-SRCREV = "814b6296f4ce389c8c16b5508b56f1f3d9af554d"
+SRCREV = "7825004a5a7d1bd69802d85de775224994269a4b"
 
 S = "${WORKDIR}/git"
 
