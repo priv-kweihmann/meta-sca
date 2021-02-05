@@ -12,7 +12,7 @@ DEPENDS += "\
 SRC_URI = "git://github.com/diffblue/cbmc.git;protocol=https;branch=develop \
            file://cbmc.sca.description"
 
-SRCREV = "08c9ae9e571495d8ab010ef1ce6eff63b9561f43"
+SRCREV = "73e820679e5f2972518dac63d58989f9308d5c45"
 
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>cbmc-[\d\.a-f]+)"
 
