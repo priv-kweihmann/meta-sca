@@ -17,9 +17,9 @@ DEPENDS = "npm-debug-native \
            npm-textlint-types-native \
            npm-textlint-utils-native"
 
-SRC_URI = "https://registry.npmjs.org/@textlint/kernel/-/kernel-3.4.1.tgz"
-SRC_URI[md5sum] = "7b846545fa71e8ee5975cc6764c72e47"
-SRC_URI[sha256sum] = "a588dee88e43fc65a98e4519735160fd546a1363aa9abf68890f3bdac93f03b4"
+SRC_URI = "https://registry.npmjs.org/@textlint/kernel/-/kernel-3.4.2.tgz"
+SRC_URI[md5sum] = "8e7f7feb74f512fd3d5b13c3f174fdf6"
+SRC_URI[sha256sum] = "7a4f4209d23c5f797fa3f09cc1dd4019bb1801b84408ef138348813d72c5b952"
 
 NPM_PKGNAME = "@textlint/kernel"
 
