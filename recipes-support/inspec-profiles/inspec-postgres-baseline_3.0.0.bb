@@ -5,7 +5,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=34400b68072d710fecd0a2940a0d1658"
 
 SRC_URI = "git://github.com/dev-sec/postgres-baseline.git;protocol=https"
-SRCREV = "49261595912646798fc0e75ac920ce9aa3ee4aa2"
+SRCREV = "125ad8d8c5d4a4247132f0582a1758e17117ed7e"
 S = "${WORKDIR}/git"
 
 ROLE_NAME = "postgres-baseline"
