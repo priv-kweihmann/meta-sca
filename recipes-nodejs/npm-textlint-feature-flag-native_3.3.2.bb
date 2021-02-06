@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e13f89c6c99507a95c450fa5e043b0cb"
 
 DEPENDS = "npm-map-like-native"
 
-SRC_URI = "https://registry.npmjs.org/@textlint/feature-flag/-/feature-flag-3.3.1.tgz"
-SRC_URI[md5sum] = "1756a13bc3b1636524f323d056830b6a"
-SRC_URI[sha256sum] = "7a0acb7b82c24c9e8d3b803db3db0a4942d087d66f04c8f1af943d17341d5464"
+SRC_URI = "https://registry.npmjs.org/@textlint/feature-flag/-/feature-flag-3.3.2.tgz"
+SRC_URI[md5sum] = "a82f07dc956fa97b895cca0e3a9c249a"
+SRC_URI[sha256sum] = "b38d0fb2e0914fa689cc1f1c3c0c207d59489d9d5710eb1e6ba0375f081860ab"
 
 NPM_PKGNAME = "@textlint/feature-flag"
 
