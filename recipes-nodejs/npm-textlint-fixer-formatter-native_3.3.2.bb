@@ -16,9 +16,9 @@ DEPENDS = "npm-chalk-native \
            npm-textlint-types-native \
            npm-try-resolve-native"
 
-SRC_URI = "https://registry.npmjs.org/@textlint/fixer-formatter/-/fixer-formatter-3.3.1.tgz"
-SRC_URI[md5sum] = "422b26130e0f8171cbb78af524ba8582"
-SRC_URI[sha256sum] = "bd7bfc9393217c3c626605b35e1b4a3c20b576742dfda0d14d53e75ebcce6e57"
+SRC_URI = "https://registry.npmjs.org/@textlint/fixer-formatter/-/fixer-formatter-3.3.2.tgz"
+SRC_URI[md5sum] = "b688eca924d9b4966c061d8003956956"
+SRC_URI[sha256sum] = "95ae59acb2e1f103201a8b287dc88516d3b9010156c8a0fc67d45f27735dbfe1"
 
 NPM_PKGNAME = "@textlint/fixer-formatter"
 
