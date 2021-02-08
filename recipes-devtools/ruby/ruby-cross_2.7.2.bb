@@ -42,6 +42,7 @@ SRC_URI_append = " \
                   file://0001-Modify-shebang-of-libexec-y2racc-and-libexec-racc2y.patch \
                   file://0001-template-Makefile.in-do-not-write-host-cross-cc-item.patch \
                   file://0001-Makefile-cross-compile-fixes.patch \
+                  file://autoconf270.patch \
                  "
 
 SRC_URI[md5sum] = "2d4a28dcfa38352a627a597f6057c465"
