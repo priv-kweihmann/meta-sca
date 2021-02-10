@@ -7,8 +7,8 @@ DEPENDS += "npm-jshint-native"
 
 SRC_URI = "file://jshint.sca.description"
 
-inherit native
 inherit sca-description
+inherit native
 
 do_install() {
     install -d ${D}${datadir}

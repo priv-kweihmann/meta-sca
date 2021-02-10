@@ -18,5 +18,5 @@ SRCREV = "c70ed64f9d41c1032fba4e962b054f8e9d489a74"
 PYPI_PACKAGE = "snowballstemmer"
 
 inherit pypi
-inherit native
 inherit setuptools3
+inherit native

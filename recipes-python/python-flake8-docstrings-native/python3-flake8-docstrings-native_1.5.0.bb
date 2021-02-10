@@ -14,5 +14,5 @@ SRC_URI[sha256sum] = "3d5a31c7ec6b7367ea6506a87ec293b94a0a46c0bce2bb4975b7f1d09b
 PYPI_PACKAGE = "flake8-docstrings"
 
 inherit pypi
-inherit native
 inherit setuptools3
+inherit native

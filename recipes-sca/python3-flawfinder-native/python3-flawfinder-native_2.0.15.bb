@@ -11,9 +11,9 @@ SRC_URI += "git://github.com/david-a-wheeler/flawfinder.git;protocol=https \
 SRCREV = "6c8f2ce729f09047787400200541ff9fab2e0f24"
 S = "${WORKDIR}/git"
 
-inherit native
 inherit sca-description
 inherit setuptools3
+inherit native
 
 do_install_prepend() {
     # Remove the data_files section from setup, as

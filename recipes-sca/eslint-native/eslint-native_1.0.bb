@@ -35,8 +35,8 @@ DEPENDS += "\
 SRC_URI = "file://configs/eslint-plain.json \
            file://eslint.sca.description"
 
-inherit native
 inherit sca-description
+inherit native
 
 do_install() {
     install -d ${D}/${datadir}/eslint/configs

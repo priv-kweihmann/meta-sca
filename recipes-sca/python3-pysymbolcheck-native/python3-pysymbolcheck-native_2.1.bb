@@ -15,9 +15,9 @@ SRC_URI = "git://github.com/priv-kweihmann/pysymbolcheck.git;protocol=https;bran
 SRCREV = "dffc515d53c54d4dc8b6fdef52766decefe99526"
 S = "${WORKDIR}/git"
 
-inherit native
 inherit sca-description
 inherit setuptools3
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}/pysymbolcheck

@@ -12,9 +12,9 @@ UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
 
-inherit native
 inherit pkgconfig
 inherit sca-description
+inherit native
 
 ## we don't need debug packages
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"

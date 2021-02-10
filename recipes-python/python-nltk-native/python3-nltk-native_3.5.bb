@@ -18,8 +18,8 @@ SRC_URI[md5sum] = "2a827c8c8a50b98241c07f2758eb6961"
 SRC_URI[sha256sum] = "845365449cd8c5f9731f7cb9f8bd6fd0767553b9d53af9eb1b3abf7700936b35"
 
 inherit pypi
-inherit native
 inherit setuptools3
+inherit native
 
 do_install_append() {
   # delete pydoc reference

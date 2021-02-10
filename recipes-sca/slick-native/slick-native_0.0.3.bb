@@ -14,8 +14,8 @@ SRCREV = "203ddaad33fd816efa0adb64fc1f42c216e592a0"
 GO_IMPORT = "github.com/mcandre/slick"
 
 inherit go
-inherit native
 inherit sca-description
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}
