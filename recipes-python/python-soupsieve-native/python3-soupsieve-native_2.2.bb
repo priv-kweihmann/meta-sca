@@ -2,12 +2,12 @@ SUMMARY = "Soup Sieve is a CSS selector library designed to be used with Beautif
 HOMEPAGE = "https://github.com/facelessuser/soupsieve"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.md;md5=5a6fd3b0c24fc5a041a3d1bbb22c81b5"
+LIC_FILES_CHKSUM = "file://LICENSE.md;md5=33c3a77def9b3ad83e01c65bdcc1af67"
 
 PYPI_PACKAGE = "soupsieve"
 
-SRC_URI[md5sum] = "0194a795d6073b4336e7b95e42e5292f"
-SRC_URI[sha256sum] = "6dc52924dc0bc710a5d16794e6b3480b2c7c08b07729505feab2b2c16661ff6e"
+SRC_URI[md5sum] = "39fcde64594b2dcf909a9a7bc3703907"
+SRC_URI[sha256sum] = "407fa1e8eb3458d1b5614df51d9651a1180ea5fedf07feb46e45d7e25e6d6cdd"
 
 inherit pypi
 inherit setuptools3
