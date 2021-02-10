@@ -25,7 +25,6 @@ DEPENDS += "\
             openssl \
             readline \
             ruby-native \
-            tcl \
             zlib \
            "
 
