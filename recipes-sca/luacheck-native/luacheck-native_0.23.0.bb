@@ -10,9 +10,9 @@ SRCREV = "76bb56736702e8651537b2a9c10ae55ab7dc1d5d"
 
 S = "${WORKDIR}/git"
 
-inherit native
 inherit luarocks
 inherit sca-description
+inherit native
 
 do_install_append() {
     ## We need to tweak some hardcoded paths in the luacheck wrapper

@@ -7,8 +7,8 @@ DEPENDS += "npm-standard-native"
 
 SRC_URI = "file://standard.sca.description"
 
-inherit native
 inherit sca-description
+inherit native
 
 do_install() {
     install -d ${D}${datadir}

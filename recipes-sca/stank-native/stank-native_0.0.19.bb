@@ -17,8 +17,8 @@ SRCREV = "88c64c16b7fc0922322bae9d9dc9945e7219f9d8"
 GO_IMPORT = "github.com/mcandre/stank"
 
 inherit go
-inherit native
 inherit sca-description
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}

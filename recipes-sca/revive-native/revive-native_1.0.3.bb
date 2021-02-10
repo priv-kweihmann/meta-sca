@@ -25,8 +25,8 @@ SRCREV = "51dd8335dd735dc0d6d32d71bc56c6953de9eb1b"
 GO_IMPORT = "github.com/mgechev/revive"
 
 inherit go
-inherit native
 inherit sca-description
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}

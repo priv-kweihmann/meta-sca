@@ -11,9 +11,9 @@ SRC_URI = "git://github.com/a13xp0p0v/kconfig-hardened-check.git;protocol=https;
 SRCREV = "2f8e7a4dc57a0e0e192dd303bd89f9be0e9240a4"
 S = "${WORKDIR}/git"
 
-inherit native
 inherit setuptools3
 inherit sca-description
+inherit native
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"

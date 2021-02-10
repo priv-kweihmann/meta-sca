@@ -7,8 +7,8 @@ DEPENDS += "github.com-jgautheron-goconst-native"
 
 SRC_URI = "file://goconst.sca.description"
 
-inherit native
 inherit sca-description
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}

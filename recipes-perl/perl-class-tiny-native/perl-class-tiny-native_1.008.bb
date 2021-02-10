@@ -11,5 +11,5 @@ SRC_URI[sha256sum] = "ee058a63912fa1fcb9a72498f56ca421a2056dc7f9f4b67837446d6421
 
 S = "${WORKDIR}/Class-Tiny-${PV}"
 
-inherit native
 inherit cpan
+inherit native

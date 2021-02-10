@@ -15,10 +15,10 @@ SRC_URI[sha256sum] = "b0e4c89985c7f5f8451c2eb8c67d804d10ac13a4abe031cbf49bdf3465
 
 PYPI_PACKAGE = "yamllint"
 
-inherit native
 inherit pypi
 inherit sca-description
 inherit setuptools3
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}

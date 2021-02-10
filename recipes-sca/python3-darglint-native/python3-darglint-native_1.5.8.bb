@@ -10,9 +10,9 @@ SRC_URI += "git://github.com/terrencepreilly/darglint.git;protocol=https \
 SRCREV = "4b5bc3342e2537101233b5f7a9ecb99c8b46d1e9"
 S = "${WORKDIR}/git"
 
-inherit native
 inherit sca-description
 inherit setuptools3
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}

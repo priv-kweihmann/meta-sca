@@ -16,5 +16,5 @@ SRCREV = "acb2bea7e7362e28f9a5c4612d19eaee4142fffb"
 
 S = "${WORKDIR}/git"
 
-inherit native
 inherit setuptools3
+inherit native

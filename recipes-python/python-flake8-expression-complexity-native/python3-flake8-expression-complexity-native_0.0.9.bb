@@ -18,5 +18,5 @@ SRC_URI[sha256sum] = "1ae325880a5dbfef60a35eaa8bb5351d5c5102774a41d4ed7059bc093a
 UPSTREAM_CHECK_REGEX = "project/flake8-expression-complexity/(?P<pver>(\d+[\.]*)+)"
 
 inherit pypi
-inherit native
 inherit setuptools3
+inherit native

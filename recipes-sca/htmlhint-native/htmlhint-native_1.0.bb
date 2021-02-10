@@ -7,8 +7,8 @@ DEPENDS += "npm-htmlhint-native"
 
 SRC_URI = "file://htmlhint.sca.description"
 
-inherit native
 inherit sca-description
+inherit native
 
 do_install() {
     install -d ${D}${datadir}

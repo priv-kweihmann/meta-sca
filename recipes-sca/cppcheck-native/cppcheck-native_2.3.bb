@@ -12,9 +12,9 @@ SRCREV = "f7cad0273b43e81bbd475692585b3cb5fe9361b5"
 
 S = "${WORKDIR}/git"
 
-inherit native
 inherit pkgconfig
 inherit sca-description
+inherit native
 
 PACKAGECONFIG ??= "rules z3"
 PACKAGECONFIG[rules] = "HAVE_RULES=yes,,libpcre-native"

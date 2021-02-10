@@ -18,8 +18,8 @@ SRCREV = "7825004a5a7d1bd69802d85de775224994269a4b"
 S = "${WORKDIR}/git"
 
 inherit autotools-brokensep
-inherit native
 inherit sca-description
+inherit native
 
 EXTRA_OECONF += "--disable-static"
 

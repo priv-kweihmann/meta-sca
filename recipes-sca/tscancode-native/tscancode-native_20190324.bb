@@ -13,8 +13,8 @@ UPSTREAM_CHECK_COMMITS = "1"
 S = "${WORKDIR}/git/trunk"
 
 inherit autotools-brokensep
-inherit native
 inherit sca-description
+inherit native
 
 BUILD_CXXFLAGS += "-std=c++11"
 

@@ -10,5 +10,5 @@ SRC_URI += "git://github.com/tommilligan/flake8-fixme.git;protocol=https"
 SRCREV = "8efe63380de2e42e8049235f135bf102c6d22ea6"
 S = "${WORKDIR}/git"
 
-inherit native
 inherit setuptools3
+inherit native

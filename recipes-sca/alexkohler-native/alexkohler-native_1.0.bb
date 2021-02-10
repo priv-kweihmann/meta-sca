@@ -16,8 +16,8 @@ DEPENDS += "\
 
 SRC_URI = "file://alexkohler.sca.description"
 
-inherit native
 inherit sca-description
+inherit native
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"

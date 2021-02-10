@@ -27,10 +27,11 @@ SRCREV = "d89c6b65ad1c23d71b044790920504d116b322ab"
 
 S = "${WORKDIR}/git"
 
-inherit native
 inherit setuptools3
+inherit native
 
 do_install_append() {
     # forcefully replace version when using older setuptools
     find ${D} -type f -exec sed -i "s#0\.0\.0#${PV}#g" {} \;
 }
+

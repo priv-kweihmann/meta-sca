@@ -7,8 +7,8 @@ DEPENDS += "npm-retire-native"
 
 SRC_URI = "file://retire.sca.description"
 
-inherit native
 inherit sca-description
+inherit native
 
 do_install() {
     install -d ${D}${datadir}

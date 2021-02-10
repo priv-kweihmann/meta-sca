@@ -12,8 +12,8 @@ SRC_URI = "file://licensecheck.sca.description"
 
 S = "${WORKDIR}"
 
-inherit native
 inherit sca-description
+inherit native
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"

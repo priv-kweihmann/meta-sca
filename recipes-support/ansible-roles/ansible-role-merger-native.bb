@@ -7,7 +7,8 @@ DEPENDS += "python3-pyyaml-native"
 
 SRC_URI = "file://ansible-role-merger"
 
-inherit native python3native
+inherit python3native
+inherit native
 
 do_install() {
     install -d ${D}/${bindir}
