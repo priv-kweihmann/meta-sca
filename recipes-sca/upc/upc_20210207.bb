@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://doc/COPYING.GPL;md5=751419260aa954499f7abaabaa882bbe"
 SRC_URI = "git://github.com/pentestmonkey/unix-privesc-check.git;protocol=https \
            file://upc.sca.description"
 
-SRCREV = "de8223a7b2ff3ed8fa6344cf4a358ec624e42270"
+SRCREV = "c7d27e8a2d2d54540778c6d7c1c5bcc290dbba1a"
 UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
