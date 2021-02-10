@@ -10,6 +10,7 @@ DEPENDS += "\
             ruby-parser-native \
             ruby-psych-native \
             ruby-rainbow-native \
+            ruby-rexml-native \
             "
 
 SRC_URI_append = " file://reek.sca.description"

@@ -11,6 +11,7 @@ DEPENDS += "\
             ruby-launchy-native \
             ruby-parser-native \
             ruby-rainbow-native \
+            ruby-rexml-native \
             ruby-ruby-parser-native \
             ruby-simplecov-native \
             ruby-tty-which-native \
