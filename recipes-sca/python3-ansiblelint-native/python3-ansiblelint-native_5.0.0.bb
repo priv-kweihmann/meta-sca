@@ -8,6 +8,8 @@ DEPENDS += "\
             python3-ansible-native \
             python3-bcrypt-native \
             python3-cryptography-native \
+            python3-enrich-native \
+            python3-packaging-native \
             python3-paramiko-native \
             python3-pathlib2-native \
             python3-pyasn1-native \
@@ -20,6 +22,7 @@ DEPENDS += "\
             python3-setuptools-scm-native \
             python3-six-native \
             python3-toml-native \
+            python3-wcmatch-native \
             "
 
 # wheel-files are just zip-files, so we can threat them like that

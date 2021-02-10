@@ -24,12 +24,7 @@ def do_sca_conv_ansiblelint(d):
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
-    pattern = r"^(?P<file>.*):(?P<line>\d+):\s*\[(?P<severity>.)(?P<id>\d+)\]\s+(?P<msg>.*)"
-
-    severity_map = {
-        "E" : "error",
-        "W" : "warning",
-    }
+    pattern = r"^(?P<file>.*):(?P<line>\d+):\s*(?P<id>.*?)\s+(?P<msg>.*)"
 
     _suppress = sca_suppress_init(d, "SCA_ANSIBLELINT_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/ansiblelint-${SCA_MODE}-suppress"))
@@ -51,7 +46,7 @@ def do_sca_conv_ansiblelint(d):
                                             Line=m.group("line"),
                                             Message=m.group("msg"),
                                             ID=m.group("id"),
-                                            Severity=severity_map[m.group("severity")])
+                                            Severity="warning")
                     if g.File in _excludes:
                         continue
                     if _suppress.Suppressed(g):
@@ -74,6 +69,7 @@ python do_sca_ansiblelint_core() {
     _args += ["-m", "ansiblelint"]
     _args += ["-p"]
     _args += ["--nocolor"]
+    _args += ["--offline"]
     _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_ANSIBLELINT_FILE_FILTER"),
                         sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
