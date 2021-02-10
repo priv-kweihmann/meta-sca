@@ -19,11 +19,12 @@ DEPENDS += "\
             python3-setuptools-scm-git-archive-native \
             python3-setuptools-scm-native \
             python3-six-native \
+            python3-toml-native \
             "
 
 # wheel-files are just zip-files, so we can threat them like that
 SRC_URI_append = " file://ansiblelint.sca.description"
-SRC_URI[sha256sum] = "1012fc3f5c4c0c58eece515860f19c34c5088faa5be412eec6fae5b45bda9c4f"
+SRC_URI[sha256sum] = "9c9ef05d361c374097206d1df200ab01c9cd3feef42b55898b90b0a09fee88d4"
 
 PYPI_PACKAGE = "ansible-lint"
 
