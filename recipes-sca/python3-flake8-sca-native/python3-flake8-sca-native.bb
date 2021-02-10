@@ -8,8 +8,8 @@ DEPENDS += "python3-flake8-native"
 SRC_URI_append = " file://flake8.sca.description"
 
 inherit sca-description
-inherit native
 inherit python3-dir
+inherit native
 
 PACKAGECONFIG ??= "\
                    2020 \
