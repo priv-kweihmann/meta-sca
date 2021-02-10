@@ -10,5 +10,5 @@ UPSTREAM_CHECK_GITTAGREGEX = "pyparsing_(?P<pver>\d+\.\d+\.\d+)/"
 
 S = "${WORKDIR}/git"
 
-inherit native
 inherit setuptools3
+inherit native

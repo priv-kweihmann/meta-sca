@@ -12,5 +12,5 @@ SRC_URI[sha256sum] = "4064f494f5f62587d0ae501ca439105821ee5846c687dc6503233f5530
 
 S = "${WORKDIR}/Test-Deep-${PV}"
 
-inherit native
 inherit cpan
+inherit native

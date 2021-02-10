@@ -16,9 +16,9 @@ SRC_URI += "\
 SRCREV = "c3a7cb472d995ecfe4f1ee8f2b08cd8f26af7bde"
 S = "${WORKDIR}/git"
 
-inherit native
 inherit sca-description
 inherit setuptools3
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}

@@ -18,5 +18,5 @@ SRC_URI[sha256sum] = "6383f7bfe22bc0d839a08057a0ce780698b046184aea935be4833d9498
 
 S = "${WORKDIR}/Pod-Spell-${PV}"
 
-inherit native
 inherit cpan
+inherit native

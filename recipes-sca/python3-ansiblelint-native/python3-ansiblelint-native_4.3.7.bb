@@ -27,10 +27,10 @@ SRC_URI[sha256sum] = "1012fc3f5c4c0c58eece515860f19c34c5088faa5be412eec6fae5b45b
 
 PYPI_PACKAGE = "ansible-lint"
 
-inherit native
 inherit pypi
 inherit sca-description
 inherit setuptools3
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}

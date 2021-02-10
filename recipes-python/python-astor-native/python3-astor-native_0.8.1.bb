@@ -10,5 +10,5 @@ SRC_URI[sha256sum] = "6a6effda93f4e1ce9f618779b2dd1d9d84f1e32812c23a29b3fff6fd7f
 PYPI_PACKAGE = "astor"
 
 inherit pypi
-inherit native
 inherit setuptools3
+inherit native

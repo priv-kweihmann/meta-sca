@@ -7,8 +7,8 @@ DEPENDS += "npm-cspell-native"
 
 SRC_URI = "file://cspell.sca.description"
 
-inherit native
 inherit sca-description
+inherit native
 
 do_compile[noexec] = "1"
 

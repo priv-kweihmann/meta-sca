@@ -14,8 +14,8 @@ PYPI_PACKAGE = "setuptools-lint"
 
 inherit pypi
 inherit sca-description
-inherit native
 inherit setuptools3
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}

@@ -10,5 +10,5 @@ SRC_URI[sha256sum] = "8a801fcda604ec741f010bb36d7cbadc3ec8a182ea6fb83e20ab663463
 PYPI_PACKAGE = "astpretty"
 
 inherit pypi
-inherit native
 inherit setuptools3
+inherit native

@@ -18,8 +18,8 @@ S = "${WORKDIR}/git/src"
 
 UPSTREAM_CHECK_COMMITS = "1"
 
-inherit native
 inherit pkgconfig
+inherit native
 
 do_compile() {
     oe_runmake PREFIX=${prefix} BINDIR=${bindir}

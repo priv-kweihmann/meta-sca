@@ -7,8 +7,8 @@ DEPENDS += "clang-native"
 
 SRC_URI = "file://clang.sca.description"
 
-inherit native
 inherit sca-description
+inherit native
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"

@@ -15,8 +15,8 @@ UPSTREAM_CHECK_COMMITS = "1"
 S = "${WORKDIR}/git"
 
 inherit autotools-brokensep
-inherit native
 inherit sca-description
+inherit native
 
 do_install() {
     install -d ${D}/${bindir}

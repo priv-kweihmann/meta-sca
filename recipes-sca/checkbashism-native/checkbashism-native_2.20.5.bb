@@ -13,8 +13,8 @@ SRCREV = "5b91463abe13499c4acc6459a3a8c1d8c60d8a70"
 
 S = "${WORKDIR}/git"
 
-inherit native
 inherit sca-description
+inherit native
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
