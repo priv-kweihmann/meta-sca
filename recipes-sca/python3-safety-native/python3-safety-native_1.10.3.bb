@@ -20,9 +20,9 @@ SRC_URI[sha256sum] = "30e394d02a20ac49b7f65292d19d38fa927a8f9582cdfd3ad1adbbc66c
 PYPI_PACKAGE = "safety"
 
 inherit pypi
-inherit native
 inherit sca-description
 inherit setuptools3
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}

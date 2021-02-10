@@ -15,9 +15,9 @@ SRC_URI = "git://github.com/JonathanSalwan/ROPgadget.git;protocol=https \
 SRCREV = "7c5d4cffc58dfa5e3ce45bdc5e6690122c70f8f3"
 S = "${WORKDIR}/git"
 
-inherit native
 inherit sca-description
 inherit setuptools3
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}

@@ -72,8 +72,8 @@ SRCREV = "ba4bbf216c6f44572662d16c76214a08b0a69e7e"
 S = "${WORKDIR}/git"
 
 inherit sca-description
-inherit native
 inherit setuptools3
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}

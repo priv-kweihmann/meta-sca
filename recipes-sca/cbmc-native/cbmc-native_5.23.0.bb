@@ -20,8 +20,8 @@ UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>cbmc-[\d\.a-f]+)"
 S = "${WORKDIR}/git"
 
 inherit cmake
-inherit native
 inherit sca-description
+inherit native
 
 EXTRA_OECMAKE += "-DWITH_JBMC=OFF -DWITH_MEMORY_ANALYZER=ON"
 CXXFLAGS += "-Wno-error=maybe-uninitialized"

@@ -10,5 +10,5 @@ SRC_URI[sha256sum] = "b3a9005928e5bed54076e6e549c792b306fddfe72b2d1d22dd63d42d5d
 PYPI_PACKAGE = "more-itertools"
 
 inherit pypi
-inherit native
 inherit setuptools3
+inherit native

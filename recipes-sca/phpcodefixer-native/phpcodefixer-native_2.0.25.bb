@@ -12,9 +12,9 @@ PHPCOMPOSER_PKGS_NAME = "wapmorgan/php-code-fixer:${PV}"
 
 S = "${WORKDIR}/git"
 
-inherit native
 inherit phpcomposer
 inherit sca-description
+inherit native
 
 do_compile_prepend() {
     rm -f ${S}/composer.json ${S}/composer.lock

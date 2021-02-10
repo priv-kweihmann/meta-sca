@@ -18,5 +18,5 @@ SRC_URI[sha256sum] = "622a698c781bb85d2bdf7bbfe040fe70d33b79774c9ae01fce2375dc73
 
 S = "${WORKDIR}/PPI-${PV}"
 
-inherit native
 inherit cpan
+inherit native

@@ -12,10 +12,10 @@ SRC_URI[sha256sum] = "03d5a62bcbe9ceb9a9b0575f42d71a2d414070229f2e6f95fa6e7c71aa
 
 PYPI_PACKAGE = "vulture"
 
-inherit native
 inherit pypi
 inherit sca-description
 inherit setuptools3
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}

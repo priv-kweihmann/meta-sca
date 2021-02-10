@@ -12,5 +12,5 @@ SRC_URI[sha256sum] = "05c29ec3482e572313a60da2181b0b30c5db7cf01f8ae7616ad67e1b66
 
 S = "${WORKDIR}/Lingua-EN-Inflect-${PV}"
 
-inherit native
 inherit cpan
+inherit native

@@ -11,9 +11,9 @@ SRC_URI = "git://github.com/priv-kweihmann/tlv.git;protocol=https;branch=master 
 SRCREV = "b6d1aed264c62e404809ef90dbeef880531c48fd"
 S = "${WORKDIR}/git"
 
-inherit native
 inherit sca-description
 inherit setuptools3
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}

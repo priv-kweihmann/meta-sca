@@ -11,5 +11,5 @@ SRC_URI[sha256sum] = "b3f2ad45e4fd10b3fb90d912d78d8b795ab295480db56dc64e86b9fa75
 
 S = "${WORKDIR}/Module-Pluggable-${PV}"
 
-inherit native
 inherit cpan
+inherit native

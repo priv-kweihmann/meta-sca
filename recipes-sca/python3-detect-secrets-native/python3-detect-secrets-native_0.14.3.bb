@@ -15,9 +15,9 @@ SRC_URI += "file://detectsecrets.sca.description"
 SRCREV = "c09b466f7600e35e093c5da0437eca74a7c7a459"
 S = "${WORKDIR}/git"
 
-inherit native
 inherit sca-description
 inherit setuptools3
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}
