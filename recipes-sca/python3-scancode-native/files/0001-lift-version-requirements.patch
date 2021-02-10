@@ -1,0 +1,81 @@
+From c9b9afde0be90dd493c8f05dab36d88d66b8c80f Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Wed, 10 Feb 2021 17:53:35 +0100
+Subject: [PATCH] lift version requirements
+
+remove version limitations for
+- bitarray
+- fyty
+- typing
+- idna
+- chardet
+
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+---
+ setup.cfg                                                   | 6 +++---
+ .../setup.py-versions/requests-2.24.0/requests/__init__.py  | 2 +-
+ .../data/pypi/setup.py-versions/requests-2.24.0/setup.py    | 4 ++--
+ 3 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/setup.cfg b/setup.cfg
+index cf6c50d30..f38ced52c 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -54,7 +54,7 @@ python_requires = >=3.6.*, <4
+ install_requires =
+     attrs >= 18.1, !=20.1.0
+     Beautifulsoup4 >= 4.0.0, <5.0.0
+-    bitarray >= 0.8.1, < 1.0.0
++    bitarray >= 0.8.1
+     boolean.py >= 3.5,  < 4.0
+     chardet >= 3.0.0
+     click >= 6.7, !=7.0
+@@ -64,7 +64,7 @@ install_requires =
+     dparse2
+     fasteners
+     fingerprints >= 0.6.0
+-    ftfy <  5.0.0
++    ftfy
+     gemfileparser >= 0.7.0
+     html5lib
+     intbitset >= 2.3.0,  < 3.0
+@@ -93,7 +93,7 @@ install_requires =
+     text_unidecode >= 1.0, < 2.0
+     toml >= 0.10.0
+     typecode >= 21.1.21
+-    typing >=3.6, < 3.7; python_version < "3.7"
++    typing >=3.6
+     urlpy
+     xmltodict >= 0.11.0
+ 
+diff --git a/tests/packagedcode/data/pypi/setup.py-versions/requests-2.24.0/requests/__init__.py b/tests/packagedcode/data/pypi/setup.py-versions/requests-2.24.0/requests/__init__.py
+index db090aa70..251e776a0 100644
+--- a/tests/packagedcode/data/pypi/setup.py-versions/requests-2.24.0/requests/__init__.py
++++ b/tests/packagedcode/data/pypi/setup.py-versions/requests-2.24.0/requests/__init__.py
+@@ -66,7 +66,7 @@ def check_compatibility(urllib3_version, chardet_version):
+     major, minor, patch = chardet_version.split('.')[:3]
+     major, minor, patch = int(major), int(minor), int(patch)
+     # chardet >= 3.0.2, < 3.1.0
+-    assert major == 3
++    assert major >= 3
+     assert minor < 1
+     assert patch >= 2
+ 
+diff --git a/tests/packagedcode/data/pypi/setup.py-versions/requests-2.24.0/setup.py b/tests/packagedcode/data/pypi/setup.py-versions/requests-2.24.0/setup.py
+index 2da9ba07c..cd77a4797 100644
+--- a/tests/packagedcode/data/pypi/setup.py-versions/requests-2.24.0/setup.py
++++ b/tests/packagedcode/data/pypi/setup.py-versions/requests-2.24.0/setup.py
+@@ -42,8 +42,8 @@ if sys.argv[-1] == 'publish':
+ packages = ['requests']
+ 
+ requires = [
+-    'chardet>=3.0.2,<4',
+-    'idna>=2.5,<3',
++    'chardet>=3.0.24',
++    'idna>=2.5',
+     'urllib3>=1.21.1,<1.26,!=1.25.0,!=1.25.1',
+     'certifi>=2017.4.17'
+ 
+-- 
+2.25.1
+
