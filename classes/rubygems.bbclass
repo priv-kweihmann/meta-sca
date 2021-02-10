@@ -154,6 +154,7 @@ FILES_${PN} += "${GEM_DIR}/gems \
                 ${GEM_DIR}/specifications \
                 ${GEM_DIR}/extensions \
                 ${bindir} \
+                ${libdir}/ruby/gems/plugins \
                 ${RUBY_SITEDIR} \
 "
 
