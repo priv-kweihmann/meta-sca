@@ -1,27 +1,27 @@
-From d189208938d3c031e2abb12e795e398620ff11b3 Mon Sep 17 00:00:00 2001
+From 9d74d2de6a23849536f858f69c1c1b933123bbc2 Mon Sep 17 00:00:00 2001
 From: Konrad Weihmann <kweihmann@outlook.com>
-Date: Sun, 29 Nov 2020 22:33:02 +0100
+Date: Wed, 10 Feb 2021 20:37:20 +0100
 Subject: [PATCH] remove version binding for typing
 
+Upstream-Status: Inappropriate [oe-specific]
 Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
-Upstream-Status: Inappropriate
 ---
  setup.cfg | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/setup.cfg b/setup.cfg
-index 18f0d36..ab453a4 100644
+index 645cdbb..e5ac6c0 100644
 --- a/setup.cfg
 +++ b/setup.cfg
-@@ -33,7 +33,7 @@ install_requires =
+@@ -39,7 +39,7 @@ install_requires =
      requests >= 2.7.0, < 3.0.0
      intbitset >= 2.3.0, < 3.0
      saneyaml
--    typing >=3.6, < 3.7
+-    typing >=3.6, < 3.7; python_version < "3.7"
 +    typing >=3.6
+ 
  setup_requires = setuptools_scm[toml] >= 4
  
- [options.packages.find]
 -- 
 2.25.1
 
