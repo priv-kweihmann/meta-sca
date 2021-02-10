@@ -9,8 +9,8 @@ DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "965e587af7f95c035673146eab23c8c0"
-SRC_URI[sha256sum] = "825810d4412b6493e2be9a829fbed820a12bbf7d38824af80ad3b13bbbd1be51"
+SRC_URI[md5sum] = "860e21fe81d4c5f46b95794043c4f67f"
+SRC_URI[sha256sum] = "8f87a2e4a2603417338e3332d0677a313e4a3a6d995770457674221d52a37620"
 
 GEM_NAME = "aws-sdk-cloudtrail"
 
