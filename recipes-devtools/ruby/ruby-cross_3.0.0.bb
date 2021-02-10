@@ -4,19 +4,18 @@
 # Copyright (c) 2020, Konrad Weihmann
 # Copyright (c) 2020, Yocto maintainers
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/files/2.7.0:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/files/3.0.0:"
 
 SUMMARY = "An interpreter of object-oriented scripting language"
 DESCRIPTION = "Ruby cross variant"
 HOMEPAGE = "http://www.ruby-lang.org/"
 SECTION = "devel/ruby"
-LICENSE = "Ruby | BSD | GPLv2"
-LIC_FILES_CHKSUM = "\
-    file://COPYING;md5=5b8c87559868796979806100db3f3805 \
-    file://BSDL;md5=19aaf65c88a40b508d17ae4be539c4b5\
-    file://GPL;md5=b234ee4d69f5fce4486a80fdaf4a4263\
-    file://LEGAL;md5=2b6d62dc0d608f34d510ca3f428110ec \
-"
+LICENSE = "Ruby | BSD-2-Clause | BSD-3-Clause | GPLv2 | ISC | MIT"
+LIC_FILES_CHKSUM = "file://COPYING;md5=5b8c87559868796979806100db3f3805 \
+                    file://BSDL;md5=8b50bc6de8f586dc66790ba11d064d75 \
+                    file://GPL;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+                    file://LEGAL;md5=cfe5b0bc9f051b58c7e78db882ca5f9b \
+                    "
 
 DEPENDS += "\
             gdbm \
@@ -38,17 +37,12 @@ SHRT_VER = "${@oe.utils.trim_version("${PV}", 2)}"
 
 SRC_URI_append = " \
                   http://cache.ruby-lang.org/pub/ruby/${SHRT_VER}/ruby-${PV}.tar.gz \
-                  file://0001-extmk-fix-cross-compilation-of-external-gems.patch \
-                  file://0002-Obey-LDFLAGS-for-the-link-of-libruby.patch \
                   file://remove_has_include_macros.patch \
-                  file://0001-Modify-shebang-of-libexec-y2racc-and-libexec-racc2y.patch \
                   file://0001-template-Makefile.in-do-not-write-host-cross-cc-item.patch \
                   file://0001-Makefile-cross-compile-fixes.patch \
-                  file://autoconf270.patch \
                  "
 
-SRC_URI[md5sum] = "2d4a28dcfa38352a627a597f6057c465"
-SRC_URI[sha256sum] = "6e5706d0d4ee4e1e2f883db9d768586b4d06567debea353c796ec45e8321c3d4"
+SRC_URI[sha256sum] = "a13ed141a1c18eb967aac1e33f4d6ad5f21be1ac543c344e0d6feeee54af8e28"
 
 S = "${WORKDIR}/ruby-${PV}"
 
