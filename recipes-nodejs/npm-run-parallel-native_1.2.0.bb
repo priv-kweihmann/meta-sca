@@ -5,11 +5,11 @@ HOMEPAGE = "https://github.com/feross/run-parallel"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fb42e5aa12bb9e365d38b4b5691d6984"
 
-DEPENDS = ""
+DEPENDS = "npm-queue-microtask-native"
 
-SRC_URI = "https://registry.npmjs.org/run-parallel/-/run-parallel-1.1.10.tgz"
-SRC_URI[md5sum] = "b6edfe222d3c809926b0682513a6785c"
-SRC_URI[sha256sum] = "fc5fa61c5323c20c6368464252cfbc3ebf77ae05a4f5a8f296298edaabf72395"
+SRC_URI = "https://registry.npmjs.org/run-parallel/-/run-parallel-1.2.0.tgz"
+SRC_URI[md5sum] = "e383fc0a7d63e95a9d599c6b765851e3"
+SRC_URI[sha256sum] = "6ba231f5377e0b18ef7ab0c65ca895708e21f1abff5999b24629436b0ff77ac8"
 
 NPM_PKGNAME = "run-parallel"
 
