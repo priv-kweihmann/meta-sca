@@ -7,8 +7,8 @@ DEPENDS += "npm-pyright-native"
 
 SRC_URI = "file://pyright.sca.description"
 
-inherit native
 inherit sca-description
+inherit native
 
 do_install() {
     install -d ${D}${datadir}

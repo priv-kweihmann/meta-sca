@@ -11,5 +11,5 @@ SRC_URI[sha256sum] = "cd3c03ed547d3d42c61fa5814c98296139392e7971c092e09a431f2c9f
 
 S = "${WORKDIR}/Devel-StackTrace-${PV}"
 
-inherit native
 inherit cpan
+inherit native

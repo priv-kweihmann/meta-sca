@@ -9,9 +9,9 @@ SRC_URI = "git://git.kernel.org/pub/scm/devel/sparse/sparse.git;protocol=https \
 SRCREV = "c3b7facda6adfdbf56c1c158a04a3a648fac6f3f"
 S = "${WORKDIR}/git"
 
-inherit native
 inherit pkgconfig
 inherit sca-description
+inherit native
 
 do_compile() {
     oe_runmake

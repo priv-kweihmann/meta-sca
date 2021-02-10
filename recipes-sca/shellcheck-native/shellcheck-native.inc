@@ -14,8 +14,8 @@ DEPENDS += "\
            "
 SRC_URI_append = " file://shellcheck.sca.description"
 
-inherit native
 inherit sca-description
+inherit native
 
 do_install() {
     install -d ${D}${bindir}

@@ -16,5 +16,5 @@ UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
 
-inherit native
 inherit setuptools3
+inherit native

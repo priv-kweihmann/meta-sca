@@ -11,9 +11,9 @@ UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
 
-inherit native
 inherit sca-description
 inherit setuptools3
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}

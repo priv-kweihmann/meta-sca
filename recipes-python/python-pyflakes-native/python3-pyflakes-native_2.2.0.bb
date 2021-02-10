@@ -10,5 +10,5 @@ SRC_URI[md5sum] = "48b1c29732ca810a70cba0e6d0531169"
 SRC_URI[sha256sum] = "35b2d75ee967ea93b55750aa9edbbf72813e06a66ba54438df2cfac9e3c27fc8"
 
 inherit pypi
-inherit native
 inherit setuptools3
+inherit native

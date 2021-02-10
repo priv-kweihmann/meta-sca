@@ -11,10 +11,10 @@ PHPCOMPOSER_PKGS_NAME = "designsecurity/progpilot:${PV}"
 
 S = "${WORKDIR}/git"
 
-inherit native
 inherit phpcomposer
 inherit php-ext
 inherit sca-description
+inherit native
 
 do_compile_prepend() {
     rm -f ${S}/composer.json ${S}/composer.lock

@@ -18,9 +18,9 @@ SRC_URI = "git://github.com/priv-kweihmann/oelint-adv.git;protocol=https;branch=
 SRCREV = "03181381e94f10d8e6e312e64a3b28f6be793162"
 S = "${WORKDIR}/git"
 
-inherit native
 inherit sca-description
 inherit setuptools3
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}

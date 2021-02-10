@@ -23,10 +23,10 @@ SRC_URI[sha256sum] = "69ffaf8ffdb29cfa69aec8c1bbdc6052a8ab87f24278635884f61253a2
 
 PYPI_PACKAGE = "pytype"
 
-inherit native
 inherit pypi
 inherit sca-description
 inherit setuptools3
+inherit native
 
 do_configure_prepend() {
     sed -i "/ninja/d" ${S}/setup.cfg

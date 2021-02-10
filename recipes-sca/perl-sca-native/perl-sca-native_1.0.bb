@@ -7,8 +7,8 @@ DEPENDS += "perl-native"
 
 SRC_URI = "file://perl.sca.description"
 
-inherit native
 inherit sca-description
+inherit native
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"

@@ -14,9 +14,9 @@ SRC_URI = "git://github.com/priv-kweihmann/systemdlint.git;protocol=https;branch
 SRCREV = "c54a2c5545a78c3f47360adab9eea36cdc3f84c9"
 S = "${WORKDIR}/git/systemdlint"
 
-inherit native
 inherit sca-description
 inherit setuptools3
+inherit native
 
 do_install_append() {
     install -d ${D}${datadir}

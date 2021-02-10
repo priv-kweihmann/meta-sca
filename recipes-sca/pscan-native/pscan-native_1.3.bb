@@ -18,8 +18,8 @@ SRC_URI = "\
 
 S = "${WORKDIR}/src"
 
-inherit native
 inherit sca-description
+inherit native
 
 do_configure[noexec] = "1"
 

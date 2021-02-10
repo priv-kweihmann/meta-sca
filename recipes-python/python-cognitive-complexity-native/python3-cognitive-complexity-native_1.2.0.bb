@@ -16,5 +16,5 @@ SRC_URI[license.sha256sum] = "606ac64848bc8293ed15cb9195dab80b75907c5826156c2139
 UPSTREAM_CHECK_REGEX ?= "/cognitive-complexity/(?P<pver>(\d+[\.\-_]*)+)"
 
 inherit pypi
-inherit native
 inherit setuptools3
+inherit native

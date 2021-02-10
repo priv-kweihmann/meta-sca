@@ -19,5 +19,5 @@ PYPI_PACKAGE = "flake8_bandit"
 UPSTREAM_CHECK_REGEX ?= "/flake8-bandit/(?P<pver>(\d+[\.\-_]*)+)"
 
 inherit pypi
-inherit native
 inherit setuptools3
+inherit native

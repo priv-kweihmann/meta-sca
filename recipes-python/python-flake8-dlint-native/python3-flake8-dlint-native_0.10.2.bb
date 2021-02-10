@@ -12,8 +12,8 @@ SRCREV = "b6029c48345e0d2383fdf01dc4ffb9ac417980f9"
 
 S = "${WORKDIR}/git"
 
-inherit native
 inherit setuptools3
+inherit native
 
 do_install_append() {
     ## This otherwise collides with other modules
