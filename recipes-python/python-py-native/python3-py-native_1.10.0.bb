@@ -11,6 +11,6 @@ PYPI_PACKAGE = "py"
 SRC_URI[md5sum] = "5f108bfe00d5468cbdb8071051f86a55"
 SRC_URI[sha256sum] = "21b81bda15b66ef5e1a777a21c4dcd9c20ad3efd0b3f817e7a809035269e1bd3"
 
-inherit native
 inherit pypi
 inherit setuptools3
+inherit native
