@@ -19,6 +19,7 @@ DEPENDS += "\
             python3-contextlib2-native \
             python3-debut-native \
             python3-dparse2-native \
+            python3-fasteners-native \
             python3-fingerprints-native \
             python3-ftfy-native \
             python3-future-native \
