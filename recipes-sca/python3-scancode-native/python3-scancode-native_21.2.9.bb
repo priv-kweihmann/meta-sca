@@ -1,10 +1,10 @@
 SUMMARY = "ScanCode is a tool to scan code for license, copyright"
 HOMEPAGE = "https://github.com/nexB/scancode-toolkit"
 
-LICENSE = "CC0-1.0 & Apache-2.0"
+LICENSE = "CC-BY-SA-4.0 & Apache-2.0"
 LIC_FILES_CHKSUM = "\
                     file://apache-2.0.LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57 \
-                    file://cc0-1.0.LICENSE;md5=57f047ea87f405486a94bc5a56ba7fcf \
+                    file://cc-by-4.0.LICENSE;md5=c2b69cea79405efd14cca910fbc5c070 \
                     "
 
 DEPENDS += "\
@@ -65,9 +65,9 @@ DEPENDS += "\
         "
 
 SRC_URI = "git://github.com/nexB/scancode-toolkit.git;protocol=https;nobranch=1 \
-           file://0001-remove-version-limitations.patch \
+           file://0001-lift-version-requirements.patch \
            file://scancode.sca.description"
-SRCREV = "ba4bbf216c6f44572662d16c76214a08b0a69e7e"
+SRCREV = "6e39059613f09663b7c897f7738accd8f5e19aa6"
 
 S = "${WORKDIR}/git"
 
