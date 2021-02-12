@@ -15,10 +15,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "debut"
 
-SRC_URI_append = " file://0001-setup.py-remove-chardet-version-limitation.patch"
-
-SRC_URI[md5sum] = "06e89ee95281c712d4d796983be17020"
-SRC_URI[sha256sum] = "b353e1d826d0be80a7268762efd99ba05f9d1df1aef0553fb7ea17c670bee85c"
+SRC_URI[md5sum] = "c0d5fb172c3b7052c53161ae4b756560"
+SRC_URI[sha256sum] = "a3a71e475295f4cf4292440c9c7303ebca0309d395536d2a7f86a5f4d7465dc1"
 
 inherit pypi
 inherit setuptools3
