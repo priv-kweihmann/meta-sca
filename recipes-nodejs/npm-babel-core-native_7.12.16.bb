@@ -3,7 +3,7 @@ DESCRIPTION = "Babel compiler core."
 HOMEPAGE = "https://babel.dev/docs/en/next/babel-core"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=b1d0cd283a346e919abb3beeb018279d"
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
 DEPENDS = "npm-babel-code-frame-native \
            npm-babel-generator-native \
@@ -21,9 +21,9 @@ DEPENDS = "npm-babel-code-frame-native \
            npm-semver-native \
            npm-source-map-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/core/-/core-7.12.13.tgz"
-SRC_URI[md5sum] = "5c88570692a912ada623b3d450aba2d3"
-SRC_URI[sha256sum] = "a128a4fa43e5b9032c709caaaf9b93a166a9bb7f7e78dbaff689a76e48900cdb"
+SRC_URI = "https://registry.npmjs.org/@babel/core/-/core-7.12.16.tgz"
+SRC_URI[md5sum] = "fc251c62b2de391930fd421ca5debd1b"
+SRC_URI[sha256sum] = "407b393b5e00eecf5f597665815fd196395479958f18be218a932374aa339d12"
 
 NPM_PKGNAME = "@babel/core"
 
