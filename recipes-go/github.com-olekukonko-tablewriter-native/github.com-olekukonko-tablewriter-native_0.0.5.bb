@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE.md;md5=0b3be5790ce7a5a6c959f
 DEPENDS += "github.com-mattn-go-runewidth-native"
 
 SRC_URI = "git://${GO_IMPORT};protocol=https"
-SRCREV = "876dd0e0227ec99c0243b639b92139915b65331a"
+SRCREV = "c7d2a8a09b076b70918308a3cd95464b2ae3b5d8"
 GO_IMPORT = "github.com/olekukonko/tablewriter"
 
 inherit go
