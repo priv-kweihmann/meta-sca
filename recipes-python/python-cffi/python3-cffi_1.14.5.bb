@@ -16,8 +16,8 @@ RDEPENDS_${PN}_class-target += "\
 
 PYPI_PACKAGE = "cffi"
 
-SRC_URI[md5sum] = "ad3d8537b1516bad6bcdc36c458788be"
-SRC_URI[sha256sum] = "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
+SRC_URI[md5sum] = "272cb183bf0365530e3c0d8f446cd89d"
+SRC_URI[sha256sum] = "fd78e5fee591709f32ef6edb9a015b4aa1a5022598e36227500c8f4e02328d9c"
 
 inherit pypi
 inherit setuptools3
