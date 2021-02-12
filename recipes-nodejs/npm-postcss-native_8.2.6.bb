@@ -9,9 +9,9 @@ DEPENDS = "npm-colorette-native \
            npm-nanoid-native \
            npm-source-map-native"
 
-SRC_URI = "https://registry.npmjs.org/postcss/-/postcss-8.2.5.tgz"
-SRC_URI[md5sum] = "01f593c6e0c572aadade5cd799ecf0b9"
-SRC_URI[sha256sum] = "e33d841a2e237062417885f35cf1d9ea35ac50548106996939025e410ba5278b"
+SRC_URI = "https://registry.npmjs.org/postcss/-/postcss-8.2.6.tgz"
+SRC_URI[md5sum] = "5b0d6db2d6b924cb3b226f8d0487bb66"
+SRC_URI[sha256sum] = "7dabc976b148fcdfdf932dfdbd31c8cd6720c945782bbfb8df8cd4f487067f59"
 
 NPM_PKGNAME = "postcss"
 
