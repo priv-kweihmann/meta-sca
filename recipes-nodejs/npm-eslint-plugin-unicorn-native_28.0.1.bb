@@ -9,6 +9,7 @@ DEPENDS = "npm-ci-info-native \
            npm-clean-regexp-native \
            npm-eslint-template-visitor-native \
            npm-eslint-utils-native \
+           npm-eslint-visitor-keys-native \
            npm-import-modules-native \
            npm-lodash-native \
            npm-pluralize-native \
@@ -18,9 +19,9 @@ DEPENDS = "npm-ci-info-native \
            npm-safe-regex-native \
            npm-semver-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-unicorn/-/eslint-plugin-unicorn-28.0.0.tgz"
-SRC_URI[md5sum] = "beb60b3bc57d9352e65ed4aa7da69350"
-SRC_URI[sha256sum] = "c08f9bd6f47b1fdd11cbe02a93887197a713288182280922e930ad858806ef05"
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-unicorn/-/eslint-plugin-unicorn-28.0.1.tgz"
+SRC_URI[md5sum] = "5efdbed930800afce6e8eff948649aaa"
+SRC_URI[sha256sum] = "bd91569da4d0c88b98fb4fc4ee16a10e0a64870119cb40067f299d2379a465fd"
 
 NPM_PKGNAME = "eslint-plugin-unicorn"
 
