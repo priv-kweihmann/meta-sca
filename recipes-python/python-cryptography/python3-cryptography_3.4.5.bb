@@ -21,8 +21,8 @@ RDEPENDS_${PN}_class-target += "\
 
 PYPI_PACKAGE = "cryptography"
 
-SRC_URI[md5sum] = "6bacd021e79a475a8137ad4ee38c68cd"
-SRC_URI[sha256sum] = "ee5e19f0856b6fbbdbab15c2787ca65d203801d2d65d0b8de6218f424206c848"
+SRC_URI[md5sum] = "7e83c7259e1a823cebc5c18479716627"
+SRC_URI[sha256sum] = "4f6761a82b51fe02cda8f45af1c2f698a10f50003dc9c2572d8a49eda2e6d35b"
 
 export CRYPTOGRAPHY_DONT_BUILD_RUST="1"
 
