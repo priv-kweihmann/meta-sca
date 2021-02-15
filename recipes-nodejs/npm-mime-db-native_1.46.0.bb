@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=c8d3a30332ecb31cfaf4c0a06da18f5c"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/mime-db/-/mime-db-1.45.0.tgz"
-SRC_URI[md5sum] = "2e1c732da1cde37b6c4a4280fdc9e046"
-SRC_URI[sha256sum] = "43d8f62cd721fc986b4a2a75ec8955d8535f4a201faf6803dc92a14f100e6a2f"
+SRC_URI = "https://registry.npmjs.org/mime-db/-/mime-db-1.46.0.tgz"
+SRC_URI[md5sum] = "52a4db64b57a3ca9ae81bb5a00f4fc5c"
+SRC_URI[sha256sum] = "c90519cc380537ab405bbf9d7f481be3c32fb4d88803ad4ebcba694f7c8a9e7c"
 
 NPM_PKGNAME = "mime-db"
 
