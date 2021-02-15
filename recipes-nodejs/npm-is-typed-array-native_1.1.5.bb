@@ -11,9 +11,9 @@ DEPENDS = "npm-available-typed-arrays-native \
            npm-foreach-native \
            npm-has-symbols-native"
 
-SRC_URI = "https://registry.npmjs.org/is-typed-array/-/is-typed-array-1.1.4.tgz"
-SRC_URI[md5sum] = "4d1e58dd5b94ccce3475653f81fcca64"
-SRC_URI[sha256sum] = "82f6c916fa2e5fe8eb3b9eab649d6bf3ecdcbc35d25b88e2396a542c6bd02edf"
+SRC_URI = "https://registry.npmjs.org/is-typed-array/-/is-typed-array-1.1.5.tgz"
+SRC_URI[md5sum] = "f154238efe870be9f2b50400ac72013f"
+SRC_URI[sha256sum] = "534a4b0ff440ba0ebdce1734a2b4b24a8cf8ad028be058e87770d3293da64453"
 
 NPM_PKGNAME = "is-typed-array"
 
