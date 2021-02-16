@@ -9,9 +9,9 @@ DEPENDS = "npm-asynckit-native \
            npm-combined-stream-native \
            npm-mime-types-native"
 
-SRC_URI = "https://registry.npmjs.org/form-data/-/form-data-3.0.0.tgz"
-SRC_URI[md5sum] = "6b415302a72f371adf08c067d98ffacd"
-SRC_URI[sha256sum] = "0c7f689cb4e7cd8cff60eb5c0fe1482e67488a9d7bb31acd663d837a82fb284e"
+SRC_URI = "https://registry.npmjs.org/form-data/-/form-data-4.0.0.tgz"
+SRC_URI[md5sum] = "524eb959b028ef26348aaec27eb071c1"
+SRC_URI[sha256sum] = "c951c71b54ebcd58d737da62a1daece72fb930a00647208b6e4ab251ab56d81a"
 
 NPM_PKGNAME = "form-data"
 
