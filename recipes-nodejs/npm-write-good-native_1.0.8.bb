@@ -13,9 +13,9 @@ DEPENDS = "npm-adverb-where-native \
            npm-too-wordy-native \
            npm-weasel-words-native"
 
-SRC_URI = "https://registry.npmjs.org/write-good/-/write-good-1.0.7.tgz"
-SRC_URI[md5sum] = "afa93b0751042ecaa6ec0dfe9c5cf85a"
-SRC_URI[sha256sum] = "4ff7a33dc9c6f821f66b91c03810e125f9d9e28b3b2b0b94dd2fabc8f789e616"
+SRC_URI = "https://registry.npmjs.org/write-good/-/write-good-1.0.8.tgz"
+SRC_URI[md5sum] = "d8e9f6ba99b1b3d2705782ca2384731b"
+SRC_URI[sha256sum] = "f54db3db8db0076fd1c05411c7f3923f055176632c51dc4046ab216e51130221"
 
 NPM_PKGNAME = "write-good"
 
