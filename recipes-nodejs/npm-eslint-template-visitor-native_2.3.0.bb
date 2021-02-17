@@ -6,14 +6,14 @@ LICENSE = "GPL-3.0-or-later | MIT"
 # does not provide a license file
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-DEPENDS = "npm-babel-eslint-native \
+DEPENDS = "npm-babel-eslint-parser-native \
            npm-eslint-visitor-keys-native \
            npm-esquery-native \
            npm-multimap-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-template-visitor/-/eslint-template-visitor-2.2.2.tgz"
-SRC_URI[md5sum] = "c6e7cb163f27a2162fee064b69a88a55"
-SRC_URI[sha256sum] = "22be335d8f444f1ef09f4ccb0cc83cb327e79e81289c916188c12f98230b8457"
+SRC_URI = "https://registry.npmjs.org/eslint-template-visitor/-/eslint-template-visitor-2.3.0.tgz"
+SRC_URI[md5sum] = "40b12fe2c48fb0aa20f0e606bec643ff"
+SRC_URI[sha256sum] = "ee7587edbecedf92bfb14f740c016ec21a6e7fa9a7401b5abe1a77b902f0419c"
 
 NPM_PKGNAME = "eslint-template-visitor"
 
