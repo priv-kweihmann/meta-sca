@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+import argparse
+import os
+import subprocess
+
+
+def create_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("tag", help="tag to query from")
+    parser.add_argument("username", help="GitHub username")
+    parser.add_argument("token", help="GitHub token")
+    parser.add_argument("branch", default=[], nargs="+", help="branch to query")
+    return parser.parse_args()
+
+_map = {
+    "master": "v{}",
+    "gatesgarth": "vgatesgarth_{}",
+    "dunfell": "vdunfell_{}",
+    "zeus": "vzeus_{}",
+}
+
+def main():
+    _args = create_parser()
+    for b in _args.branch:
+        try:
+            out = subprocess.check_output([
+                os.path.join(os.path.dirname(__file__), "releasenotes"),
+                b,
+                _map[b].format(_args.tag),
+                _args.username,
+                _args.token
+            ], universal_newlines=True)
+            with open(b + ".md", "w") as o:
+                o.write(out)
+        except:
+            pass
+
+
+if __name__ == '__main__':
+    main()
