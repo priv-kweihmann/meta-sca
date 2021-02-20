@@ -10,9 +10,9 @@ DEPENDS = "npm-fimbul-ymir-native \
            npm-tslib-native \
            npm-void-elements-native"
 
-SRC_URI = "https://registry.npmjs.org/@fimbul/ve/-/ve-0.22.0.tgz"
-SRC_URI[md5sum] = "8ac81605e1452f1f6c697ada0e4c4d94"
-SRC_URI[sha256sum] = "09707cbb006c2ecb506d7a9f5125d04c83a4bd2d25232de0b73c216f7669f6d5"
+SRC_URI = "https://registry.npmjs.org/@fimbul/ve/-/ve-0.24.0.tgz"
+SRC_URI[md5sum] = "34e0fb98c251e5a33383670d4194bace"
+SRC_URI[sha256sum] = "1c0f96a156aa0b3edcdf6bb5653b0a887329cbfa218b944c8255ff3320373363"
 
 NPM_PKGNAME = "@fimbul/ve"
 
