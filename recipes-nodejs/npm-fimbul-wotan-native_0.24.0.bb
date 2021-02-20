@@ -26,9 +26,9 @@ DEPENDS = "npm-bind-decorator-native \
            npm-tslib-native \
            npm-tsutils-native"
 
-SRC_URI = "https://registry.npmjs.org/@fimbul/wotan/-/wotan-0.23.0.tgz"
-SRC_URI[md5sum] = "223d5af199822d7230558776cf5b2564"
-SRC_URI[sha256sum] = "9072f33c5ad517d6db05e2beb7c14bd5f0abb259a9e9a2ea783e9ab11320f6fe"
+SRC_URI = "https://registry.npmjs.org/@fimbul/wotan/-/wotan-0.24.0.tgz"
+SRC_URI[md5sum] = "27887bcdd051082482ad13550678ea26"
+SRC_URI[sha256sum] = "944ac40f468235a0d65eb314431c86d9d1449a220532b078db184690f9452135"
 
 NPM_PKGNAME = "@fimbul/wotan"
 
