@@ -3,16 +3,15 @@ DESCRIPTION = "ESLint parser that allows for linting of experimental syntax tran
 HOMEPAGE = "https://babel.dev/"
 
 LICENSE = "MIT"
-# does not provide a license file
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=b1d0cd283a346e919abb3beeb018279d"
 
 DEPENDS = "npm-eslint-scope-native \
            npm-eslint-visitor-keys-native \
            npm-semver-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/eslint-parser/-/eslint-parser-7.12.16.tgz"
-SRC_URI[md5sum] = "375ce39115a218071bc93d32cb649f05"
-SRC_URI[sha256sum] = "471b1e5c9e5131bc1006a01d580940ff79f475b62c7090b8d5e5302161451055"
+SRC_URI = "https://registry.npmjs.org/@babel/eslint-parser/-/eslint-parser-7.12.17.tgz"
+SRC_URI[md5sum] = "93736792d9ebef6b93391568ce80ae49"
+SRC_URI[sha256sum] = "783dc512065207a7097ba12c31e56e9d67486fb6eedddc75152261b3e568d836"
 
 NPM_PKGNAME = "@babel/eslint-parser"
 
