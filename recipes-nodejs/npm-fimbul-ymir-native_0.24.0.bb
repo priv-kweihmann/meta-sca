@@ -9,9 +9,9 @@ DEPENDS = "npm-inversify-native \
            npm-reflect-metadata-native \
            npm-tslib-native"
 
-SRC_URI = "https://registry.npmjs.org/@fimbul/ymir/-/ymir-0.22.0.tgz"
-SRC_URI[md5sum] = "d91a920cf9e0fa2071e519b090b999b8"
-SRC_URI[sha256sum] = "e848f71203d87b9b475cad8e7eeeedbf9e547d5feb3a5fa1af6b55c47d34b7c4"
+SRC_URI = "https://registry.npmjs.org/@fimbul/ymir/-/ymir-0.24.0.tgz"
+SRC_URI[md5sum] = "061aa99c6349d649c154010978923a31"
+SRC_URI[sha256sum] = "1cfac8d87e6fcec0d51e93395052920a88f3e3972d9363647f73e880aab65bc7"
 
 NPM_PKGNAME = "@fimbul/ymir"
 
