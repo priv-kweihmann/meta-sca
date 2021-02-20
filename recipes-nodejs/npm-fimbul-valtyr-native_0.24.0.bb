@@ -11,9 +11,9 @@ DEPENDS = "npm-fimbul-bifrost-native \
            npm-tslint-native \
            npm-tsutils-native"
 
-SRC_URI = "https://registry.npmjs.org/@fimbul/valtyr/-/valtyr-0.23.0.tgz"
-SRC_URI[md5sum] = "56f483ed7c603484221e3aac1c721369"
-SRC_URI[sha256sum] = "4309b5b25aeb1b183b7e6ae3db75872870181ff16c829ace6cbcea4f4243f686"
+SRC_URI = "https://registry.npmjs.org/@fimbul/valtyr/-/valtyr-0.24.0.tgz"
+SRC_URI[md5sum] = "3e875616767e5a08284d2b183b8b5b62"
+SRC_URI[sha256sum] = "8884507bcf616d144fd3bfeeaec391d638df3577dc6546988b8757e9ae8b5a80"
 
 NPM_PKGNAME = "@fimbul/valtyr"
 
