@@ -10,9 +10,9 @@ DEPENDS = "npm-fimbul-ymir-native \
            npm-tslib-native \
            npm-tsutils-native"
 
-SRC_URI = "https://registry.npmjs.org/@fimbul/bifrost/-/bifrost-0.22.0.tgz"
-SRC_URI[md5sum] = "0667ec1cc30ff3534456afc9816bd79b"
-SRC_URI[sha256sum] = "69f4b23e36be4cd9fcdfeb03fc27f1e9f027ed3e3dff5424c80e9a607631416d"
+SRC_URI = "https://registry.npmjs.org/@fimbul/bifrost/-/bifrost-0.24.0.tgz"
+SRC_URI[md5sum] = "5fe8edabdc7d964f917ad8607503791e"
+SRC_URI[sha256sum] = "fb343f3a026e11abfb8ce12c569e604a72b6adc497c66040cf0d11f7addddb53"
 
 NPM_PKGNAME = "@fimbul/bifrost"
 
