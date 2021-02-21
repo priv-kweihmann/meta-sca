@@ -64,10 +64,11 @@ def create_parser():
                         help="In case no assertation can be made on a file, take this license as the basis")
     parser.add_argument("--badcrholders", default="",
                         help="comma separate list of bad copyright holders - works only with scancode")
+    parser.add_argument("--rootpath", default="", help="root path of all findings")
     parser.add_argument("--sanitized", default="", help=argparse.SUPPRESS) 
     parser.add_argument("license", help="Currently set license")
     parser.add_argument("resulttype", choices=[
-                        "lc", "scancode"], help="type of result")
+                        "lc", "scancode", "reuse"], help="type of result")
     parser.add_argument("result", help="Result file")
     parser.add_argument("files", nargs="+", help="Files to consider checking")
     x = parser.parse_args()
@@ -106,6 +107,9 @@ def version_from_lc(args):
 def crholders_from_lc(args):
     return []
 
+def missingcr_from_lc(args):
+    return []
+
 # scancode specific part
 def version_from_scancode(args):
     res = []
@@ -138,6 +142,49 @@ def crholders_from_scancode(args):
                     res.add(h["value"])
     return res
 
+def missingcr_from_scancode(args):
+    return []
+
+# reuse part
+def __resue_to_map(args):
+    _map = {}
+    _currentfile = None
+    with open(args.result) as i:
+        for line in i.readlines():
+            line = line.rstrip("\n")
+            if line.startswith("FileName:"):
+                _currentfile = os.path.join(args.rootpath, line.replace("FileName:", "", 1).lstrip(" ./"))
+                _map[_currentfile] = {"license": "", "copyright": False}
+            elif _currentfile:
+                if line.startswith("LicenseInfoInFile:"):
+                    _cnt = line.replace("LicenseInfoInFile:", "", 1).strip()
+                    if _cnt:
+                        _map[_currentfile]["license"] = _cnt
+                elif line.startswith("LicenseConcluded:"):
+                    _cnt = line.replace("LicenseConcluded:", "", 1).strip()
+                    if _cnt and _cnt != "NOASSERTION" and not _map[_currentfile]["license"]:
+                        _map[_currentfile]["license"] = _cnt
+                elif line.startswith("FileCopyrightText:"):
+                    _cnt = line.replace("FileCopyrightText:", "", 1).strip()
+                    if _cnt != "NONE":
+                        _map[_currentfile]["copyright"] = True
+    return _map
+
+def version_from_reuse(args):
+    res = []
+    _map = __resue_to_map(args)
+    res = [v["license"] for k,v in _map.items() if k in args.files and v["license"]]
+    for k, v in _map.items():
+        if not v["license"] and k in args.files:
+            print("[noinfo] path '{}' doesn't provide a license info".format(k))
+    return " AND ".join(res)
+
+def crholders_from_reuse(args):
+    return []
+
+def missingcr_from_reuse(args):
+    _map = __resue_to_map(args)
+    return [k for k,v in _map.items() if k in args.files and not v["copyright"]]
 
 def bitbake_comp_expression(_in):
     for k, v in {" AND ": " & ", " OR ": " | "}.items():
@@ -151,7 +198,7 @@ def interal_comp_expression(_in):
     return _in
 
 
-def evaluate(args, _raw_license, _raw_crholders):
+def evaluate(args, _raw_license, _raw_crholders, _raw_missingcr):
     # License part
     _set = Licensing().parse(args.sanitized)
     try:
@@ -189,13 +236,22 @@ def evaluate(args, _raw_license, _raw_crholders):
                 print(
                     "[copyright] Detected discouraged copyright holder '{}'".format(_cr))
 
+    for _cr in _raw_missing_cr:
+        print("[nocopyright] '{}' has no copyright information set".format(_cr))
+
 
 if __name__ == '__main__':
     _args = create_parser()
     if _args.resulttype == "lc":
         _raw_license = version_from_lc(_args)
         _raw_cr_holders = crholders_from_lc(_args)
+        _raw_missing_cr = missingcr_from_lc(_args)
     elif _args.resulttype == "scancode":
         _raw_license = version_from_scancode(_args)
         _raw_cr_holders = crholders_from_scancode(_args)
-    evaluate(_args, _raw_license, _raw_cr_holders)
+        _raw_missing_cr = missingcr_from_scancode(_args)
+    elif _args.resulttype == "reuse":
+        _raw_license = version_from_reuse(_args)
+        _raw_cr_holders = crholders_from_reuse(_args)
+        _raw_missing_cr = missingcr_from_reuse(_args)
+    evaluate(_args, _raw_license, _raw_cr_holders, _raw_missing_cr)

@@ -17,6 +17,7 @@ perlcritic
 pkgqaenc
 pscan
 rats
+reuse
 revive
 scancode
 shellcheck

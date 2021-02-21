@@ -48,4 +48,4 @@ INSANE_SKIP_${PN} += "already-stripped arch"
 
 inherit sca
 
-SCA_ENABLED_MODULES = "bitbake pkgqaenc licensecheck scancode"
+SCA_ENABLED_MODULES = "bitbake pkgqaenc licensecheck reuse scancode"
