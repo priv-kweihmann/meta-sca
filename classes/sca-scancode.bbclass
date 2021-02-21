@@ -118,7 +118,7 @@ python do_sca_scancode_report() {
                        d.expand("${STAGING_DATADIR_NATIVE}/scancode-${SCA_MODE}-fatal")))
 }
 
-do_sca_scancode[doc] = "Lint C files with scancode"
+do_sca_scancode[doc] = "License compliance with scancode"
 do_sca_scancode_report[doc] = "Report findings of do_sca_scancode"
 addtask do_sca_scancode after do_compile before do_sca_tracefiles
 addtask do_sca_scancode_report after do_sca_tracefiles before do_sca_deploy
