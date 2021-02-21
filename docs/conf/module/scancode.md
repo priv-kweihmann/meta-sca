@@ -9,8 +9,8 @@
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_BLACKLIST_scancode | Blacklist filter for this tool | space-separated-list | ""
-| SCA_LICENSECHECK_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
-| SCA_LICENSECHECK_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
+| SCA_SCANCODE_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
+| SCA_SCANCODE_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_SCANCODE_BAD_CRHOLDER |  Discouraged copyright holders | comma separated regex list | ""s
 
 ## Supports
@@ -19,7 +19,7 @@
 * [x] terminate build on fatal
 * [x] run on recipe
 * [ ] run on image
-* [ ] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
+* [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 
