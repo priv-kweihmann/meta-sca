@@ -127,6 +127,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           reconbf \
                           reek \
                           retire \
+                          reuse \
                           revive \
                           rubycritic \
                           safety \

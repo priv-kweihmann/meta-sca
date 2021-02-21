@@ -1,0 +1,27 @@
+{
+    "buildspeed": 2,
+    "execspeed": 9,
+    "languages": [
+        "python"
+    ],
+    "uses": [
+        "@python"
+    ],
+    "quality": 6,
+    "scope": [
+        "compliance"
+    ],
+    "score": {
+        "compliance": [
+            "reuse.reuse..*"
+        ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["reuse", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "bad-package"
+        ]
+    }
+}
