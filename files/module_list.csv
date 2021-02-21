@@ -64,6 +64,7 @@ rats,Check on insecurities in several languages,https://github.com/redNixon/rats
 reconbf,security audit tool,https://github.com/HewlettPackard/reconbf,,,x,,,,,,,,,x,,,,,,,x,,
 reek,Code smell detector for Ruby,https://github.com/troessner/reek,,,,x,,,,,,,,,,,,,,x,,,x
 retire,Check for known vulnerabilities in javascript and NPM,https://retirejs.github.io/retire.js/,,x,,x,,,,,x,,,,,,,,x,,x,,
+reuse,Scan code for license information,https://github.com/fsfe/reuse-tool,,,,x,,,,,,,,,,,,,,x,x,,,
 revive,GO linter,https://github.com/mgechev/revive,,,,x,,,,,,,x,,,,,,,,,x,x
 ropgadget,Determine ROP exploitability in binaries,https://github.com/JonathanSalwan/ROPgadget,manual enable,,,x,,,,,,,,,,,,x,,,x,,
 rubycritic,Ruby linter,https://github.com/whitesmith/rubycritic/,,,,x,,,,,,,,,,,,,,x,,,x,
