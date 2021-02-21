@@ -65,6 +65,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             rats \
                             reek \
                             retire \
+                            reuse \
                             revive \
                             ropgadget \
                             rubycritic \
