@@ -3,7 +3,7 @@ HOMEPAGE = "https://metacpan.org/pod/Lingua::EN::Inflect"
 
 LICENSE = "GPL-2.0 & Artistic-1.0"
 # module doesn't ship an explicit LICENSE file
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-1.0;md5=e9e36a9de734199567a4d769498f743d"
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-or-later;md5=801f80980d171dd6425610833a22dbe6"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/D/DC/DCONWAY/Lingua-EN-Inflect-${PV}.tar.gz"
 
