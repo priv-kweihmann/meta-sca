@@ -27,7 +27,7 @@ DEPENDS += "\
 
 # wheel-files are just zip-files, so we can threat them like that
 SRC_URI_append = " file://ansiblelint.sca.description"
-SRC_URI[sha256sum] = "809655a72960754bf9afb286b7089a7cd4e0a10b80382a56ff7ad42bf056c895"
+SRC_URI[sha256sum] = "be0b7f2aa368cd33da38dfc8d7d4b26c166ea3b6db9770eeab97530533258f8e"
 
 PYPI_PACKAGE = "ansible-lint"
 
