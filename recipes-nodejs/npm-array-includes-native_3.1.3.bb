@@ -11,9 +11,9 @@ DEPENDS = "npm-call-bind-native \
            npm-get-intrinsic-native \
            npm-is-string-native"
 
-SRC_URI = "https://registry.npmjs.org/array-includes/-/array-includes-3.1.2.tgz"
-SRC_URI[md5sum] = "8928ec2c9389c834382ffcf9ccde681f"
-SRC_URI[sha256sum] = "694ea125bcb8eddfc2fbe5113768a1fd4e5723991d2df0213d0645a8b5f67bfb"
+SRC_URI = "https://registry.npmjs.org/array-includes/-/array-includes-3.1.3.tgz"
+SRC_URI[md5sum] = "9c2a1be0ea54ed5e7834caec3d95075f"
+SRC_URI[sha256sum] = "84e7e5a44eeeba996c98a2aeb1ace5876510a7406fb83879a113733db9af20fa"
 
 NPM_PKGNAME = "array-includes"
 
