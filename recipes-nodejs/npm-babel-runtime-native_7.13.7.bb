@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b1d0cd283a346e919abb3beeb018279d"
 
 DEPENDS = "npm-regenerator-runtime-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/runtime/-/runtime-7.12.18.tgz"
-SRC_URI[md5sum] = "e682d508bd26a4dbde235afb874a513e"
-SRC_URI[sha256sum] = "f2896c9be48b2eff7add0b8fb9d63ea42fdbeeedd5c245964328295937269a5d"
+SRC_URI = "https://registry.npmjs.org/@babel/runtime/-/runtime-7.13.7.tgz"
+SRC_URI[md5sum] = "ca12dce4f8a67561274f9f15e5c2491e"
+SRC_URI[sha256sum] = "587b7e3cff369d91d51a057eee726c5aba006f1210c12484c8ec591bdddbd1d3"
 
 NPM_PKGNAME = "@babel/runtime"
 
