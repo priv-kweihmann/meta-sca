@@ -9,8 +9,8 @@ DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "76eea260d9ae38d44eb26d4a4b4a71be"
-SRC_URI[sha256sum] = "fe2fe2820919a5818889736134a4bc9e29be485fcf15b1ff00f7452ccfa5e98c"
+SRC_URI[md5sum] = "f61857cc9d9c95e6daeba67c2c8d69ce"
+SRC_URI[sha256sum] = "0be9f1f7a54e0c5ad85cc884c98ffd48ae191d6388fe42b12c2d1928ab7fd9d4"
 
 GEM_NAME = "aws-sdk-elasticsearchservice"
 
