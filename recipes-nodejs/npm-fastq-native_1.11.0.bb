@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=78523ef0bd3eb9fefc799bbe84780631"
 
 DEPENDS = "npm-reusify-native"
 
-SRC_URI = "https://registry.npmjs.org/fastq/-/fastq-1.10.1.tgz"
-SRC_URI[md5sum] = "3a9ad9e3c8d255e3e238b52ee99613d4"
-SRC_URI[sha256sum] = "5b6bdcb80b761fad52a6e773c135bd4bfa45c491e942739fe6c7d119e95df388"
+SRC_URI = "https://registry.npmjs.org/fastq/-/fastq-1.11.0.tgz"
+SRC_URI[md5sum] = "805fc5162e8165a6d129a4b7f32d8ef0"
+SRC_URI[sha256sum] = "e9f0540bef8ac0bdc8b4ef3471f80ab2020437caf449af8781ce403cf4eb7285"
 
 NPM_PKGNAME = "fastq"
 
