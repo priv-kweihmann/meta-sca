@@ -10,9 +10,9 @@ DEPENDS = "npm-call-bind-native \
            npm-es-abstract-native \
            npm-has-native"
 
-SRC_URI = "https://registry.npmjs.org/object.values/-/object.values-1.1.2.tgz"
-SRC_URI[md5sum] = "2a70c6cad91bb85c975ea9cdc4c3c837"
-SRC_URI[sha256sum] = "c06523eea4f6ba9f060ee36882c9ad1d1a1d481808496b9734d240b6364aaf0d"
+SRC_URI = "https://registry.npmjs.org/object.values/-/object.values-1.1.3.tgz"
+SRC_URI[md5sum] = "90a5bdbedd9f05e60832818f2f5e152a"
+SRC_URI[sha256sum] = "3517fe824a045eb8d23c6773d76bf68153c1540d4a57835ac83192afa6a5cdfd"
 
 NPM_PKGNAME = "object.values"
 
