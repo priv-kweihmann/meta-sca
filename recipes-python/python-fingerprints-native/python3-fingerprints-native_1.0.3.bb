@@ -8,8 +8,8 @@ DEPENDS += "python3-normality-native"
 
 PYPI_PACKAGE = "fingerprints"
 
-SRC_URI[md5sum] = "a503dd59707f7d84a23100bf3adcb138"
-SRC_URI[sha256sum] = "b180a4868d53c2626b3b14004faaa18a23f0596c1de130676f963bd749153869"
+SRC_URI[md5sum] = "0a4c56542198a851f10b831a41bd2113"
+SRC_URI[sha256sum] = "cafd5f92b5b91e4ce34af2b954da9c05b448a4778947785abb19a14f363352d0"
 
 inherit pypi
 inherit setuptools3
