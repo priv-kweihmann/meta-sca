@@ -10,18 +10,18 @@ DEPENDS = "npm-comment-json-native \
            npm-cosmiconfig-native \
            npm-cspell-cspell-bundled-dicts-native \
            npm-cspell-cspell-types-native \
+           npm-cspell-glob-native \
            npm-cspell-io-native \
            npm-cspell-trie-lib-native \
            npm-fs-extra-native \
            npm-gensequence-native \
-           npm-minimatch-native \
            npm-resolve-from-native \
            npm-resolve-global-native \
            npm-vscode-uri-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-lib/-/cspell-lib-5.2.4.tgz"
-SRC_URI[md5sum] = "30deb8acdbefb9ec4b0e732510f94a3e"
-SRC_URI[sha256sum] = "416291cdb1013bc60620488f21293a535e08a6cd7d8bfb6b204250228d5c225a"
+SRC_URI = "https://registry.npmjs.org/cspell-lib/-/cspell-lib-5.3.1.tgz"
+SRC_URI[md5sum] = "ca2e985872105d3d69ef8cd104b23aad"
+SRC_URI[sha256sum] = "3c0fe8013733149d1c767b57ea690b2ca593351c1156528a8f4a149f1a0faf5d"
 
 NPM_PKGNAME = "cspell-lib"
 
