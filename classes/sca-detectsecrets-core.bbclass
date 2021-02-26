@@ -74,7 +74,7 @@ python do_sca_detectsecrets_core() {
     _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "detect-secrets")]
     _args += ["scan"]
     _args += ["--all-files"]
-    _args += ["--use-all-plugins"]
+    _args += ["--no-verify"]
     _files = get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), "",
                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
