@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=1e241a19d2d112b1db1a5c1c23216939"
 DEPENDS = "npm-call-bind-native \
            npm-define-properties-native"
 
-SRC_URI = "https://registry.npmjs.org/string.prototype.trimend/-/string.prototype.trimend-1.0.3.tgz"
-SRC_URI[md5sum] = "149911004b781e0d4aa019c44e6772a3"
-SRC_URI[sha256sum] = "bd2c7cf1cf1b584de9b4b4c5d1b9895e152eee4e776681cb27bcc8e2fa213f4a"
+SRC_URI = "https://registry.npmjs.org/string.prototype.trimend/-/string.prototype.trimend-1.0.4.tgz"
+SRC_URI[md5sum] = "88b629f9cb3e49990b0fbd7c2c06a4f9"
+SRC_URI[sha256sum] = "984cce7dab0d22dfe19301aeedfca180c9243c97d16cdd7c0f31c7be744e6710"
 
 NPM_PKGNAME = "string.prototype.trimend"
 
