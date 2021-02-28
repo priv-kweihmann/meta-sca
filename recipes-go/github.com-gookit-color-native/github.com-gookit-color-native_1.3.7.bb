@@ -10,5 +10,7 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "0ae81bf4312507f3c9a4136faddef52424215e4d"
 GO_IMPORT = "github.com/gookit/color"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

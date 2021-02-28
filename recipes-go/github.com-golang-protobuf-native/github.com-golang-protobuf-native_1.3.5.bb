@@ -8,5 +8,7 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "84668698ea25b64748563aa20726db66a6b8d299"
 GO_IMPORT = "github.com/golang/protobuf"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

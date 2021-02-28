@@ -10,5 +10,7 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "c7d2a8a09b076b70918308a3cd95464b2ae3b5d8"
 GO_IMPORT = "github.com/olekukonko/tablewriter"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

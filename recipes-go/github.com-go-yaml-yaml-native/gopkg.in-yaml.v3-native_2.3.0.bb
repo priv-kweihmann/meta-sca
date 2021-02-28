@@ -12,5 +12,7 @@ SRCREV = "2ff61e1afc866138abf1a8adf3cc89721090ac31"
 ## This is a alias-recipe
 GO_IMPORT = "gopkg.in/yaml.v3"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

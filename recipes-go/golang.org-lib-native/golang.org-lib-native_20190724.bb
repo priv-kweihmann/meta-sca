@@ -55,6 +55,8 @@ S = "${WORKDIR}/git"
 
 GO_IMPORT = "golang.org/x"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native
 
