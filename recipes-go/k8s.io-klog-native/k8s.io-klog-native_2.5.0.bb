@@ -16,6 +16,8 @@ S = "${WORKDIR}/git"
 
 GO_IMPORT = "k8s.io/klog"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native
 

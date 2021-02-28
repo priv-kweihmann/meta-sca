@@ -9,6 +9,8 @@ SRCREV = "cf43108d68808f5db37116cb54b7b42341db4cab"
 
 GO_IMPORT = "github.com/mozilla/tls-observatory"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native
 

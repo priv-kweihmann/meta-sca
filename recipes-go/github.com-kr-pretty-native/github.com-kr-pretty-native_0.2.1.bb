@@ -12,5 +12,7 @@ GO_IMPORT = "github.com/kr/pretty"
 
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+\.\d+)"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

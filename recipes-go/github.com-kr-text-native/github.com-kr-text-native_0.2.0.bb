@@ -10,5 +10,7 @@ SRC_URI = "git://${GO_IMPORT};protocol=https;branch=main"
 SRCREV = "702c74938df48b97370179f33ce2107bd7ff3b3e"
 GO_IMPORT = "github.com/kr/text"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native
