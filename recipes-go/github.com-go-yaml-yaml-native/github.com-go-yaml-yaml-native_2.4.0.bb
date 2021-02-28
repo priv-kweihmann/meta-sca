@@ -11,5 +11,7 @@ SRCREV = "7649d4548cb53a614db133b2a8ac1f31859dda8c"
 
 GO_IMPORT ?= "github.com/go-yaml/yaml"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

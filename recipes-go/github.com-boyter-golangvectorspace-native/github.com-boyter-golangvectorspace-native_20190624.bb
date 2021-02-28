@@ -10,5 +10,7 @@ GO_IMPORT = "github.com/boyter/golangvectorspace"
 
 UPSTREAM_CHECK_COMMITS = "1"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

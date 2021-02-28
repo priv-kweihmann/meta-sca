@@ -15,5 +15,7 @@ UPSTREAM_CHECK_COMMITS = "1"
 
 GO_IMPORT ?= "github.com/go-check/check"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

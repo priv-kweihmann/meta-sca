@@ -10,5 +10,7 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "45d7d09e39ef4ac08d493309fa031790c15bfe8a"
 GO_IMPORT = "github.com/fsnotify/fsnotify"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

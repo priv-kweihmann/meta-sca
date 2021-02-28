@@ -37,5 +37,7 @@ S = "${WORKDIR}/git"
 
 GO_IMPORT = "github.com/onsi"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native
