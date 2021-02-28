@@ -8,5 +8,7 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "d363dedc9af5c63c6809f74e28650cbd635640e0"
 GO_IMPORT = "github.com/ryanuber/columnize"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

@@ -8,5 +8,7 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "2a38352e8b4d7ab6c336eef107e42a55e72e7fbc"
 GO_IMPORT = "github.com/creack/pty"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

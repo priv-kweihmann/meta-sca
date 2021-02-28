@@ -28,5 +28,7 @@ S = "${WORKDIR}/git"
 
 GO_IMPORT = "github.com/stretchr"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

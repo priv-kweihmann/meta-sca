@@ -10,5 +10,7 @@ UPSTREAM_CHECK_COMMITS = "1"
 
 GO_IMPORT = "github.com/golang/glog"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native
