@@ -12,5 +12,7 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "db9a25053a700cbfa2b021429cd6146205028886"
 GO_IMPORT = "github.com/briandowns/spinner"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

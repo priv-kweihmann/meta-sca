@@ -8,5 +8,7 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "10c3923834d38e951ae8f627bfec2dc632c5b6cb"
 GO_IMPORT = "github.com/rogpeppe/fastuuid"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

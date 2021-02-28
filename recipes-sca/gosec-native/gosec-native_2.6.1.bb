@@ -31,6 +31,8 @@ SRCREV = "00bbbd8413c816b90b380e53e47ffab354edeee7"
 
 GO_IMPORT = "github.com/securego/gosec"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit sca-description
 inherit native

@@ -12,5 +12,7 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "0be1b92a6df0e4f5cb0a5d15fb7f643d0ad93ce6"
 GO_IMPORT = "github.com/peterbourgon/diskv"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

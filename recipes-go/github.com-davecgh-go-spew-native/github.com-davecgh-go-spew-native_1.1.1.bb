@@ -8,5 +8,7 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "8991bc29aa16c548c550c7ff78260e27b9ab7c73"
 GO_IMPORT = "github.com/davecgh/go-spew"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

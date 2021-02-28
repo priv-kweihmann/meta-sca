@@ -14,5 +14,7 @@ do_compile_prepend() {
     rm -rf ${S}/src/${GO_IMPORT}/auth/kerberos
 }
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

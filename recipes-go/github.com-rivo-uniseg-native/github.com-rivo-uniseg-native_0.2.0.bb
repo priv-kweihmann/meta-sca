@@ -8,5 +8,7 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "75711fccf6a3e85bc74c241e2dddd06a9bc9e53d"
 GO_IMPORT = "github.com/rivo/uniseg"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

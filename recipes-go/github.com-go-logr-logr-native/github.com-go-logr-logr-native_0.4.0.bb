@@ -9,6 +9,8 @@ SRCREV = "8fc6c73f3911f11de3d0c18ade9880f1114ae72f"
 
 GO_IMPORT = "github.com/go-logr/logr"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native
 

@@ -19,5 +19,7 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "73ca74a348258c5d9931b667a337e2a72490a251"
 GO_IMPORT = "github.com/boyter/lc"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

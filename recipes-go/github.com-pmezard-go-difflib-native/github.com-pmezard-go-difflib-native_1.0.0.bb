@@ -8,5 +8,7 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "792786c7400a136282c1664665ae0a8db921c6c2"
 GO_IMPORT = "github.com/pmezard/go-difflib"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

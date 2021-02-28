@@ -10,5 +10,7 @@ SRC_URI = "git://github.com/mvdan/sh;protocol=https;nobranch=1"
 SRCREV = "7427541e5e83b5c71ebc97b4199b25cb0d6015cd"
 GO_IMPORT ?= "github.com/mvdan/sh"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

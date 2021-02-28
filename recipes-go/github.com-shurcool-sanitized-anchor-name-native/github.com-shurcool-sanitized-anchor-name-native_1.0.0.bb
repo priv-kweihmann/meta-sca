@@ -8,5 +8,7 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "7bfe4c7ecddb3666a94b053b422cdd8f5aaa3615"
 GO_IMPORT = "github.com/shurcooL/sanitized_anchor_name"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native

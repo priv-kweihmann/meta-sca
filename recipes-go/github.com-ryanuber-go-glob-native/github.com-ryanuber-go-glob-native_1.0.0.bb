@@ -8,5 +8,7 @@ SRC_URI = "git://${GO_IMPORT};protocol=https"
 SRCREV = "51a8f68e6c24dc43f1e371749c89a267de4ebc53"
 GO_IMPORT = "github.com/ryanuber/go-glob"
 
+export GO111MODULE = "auto"
+
 inherit go
 inherit native
