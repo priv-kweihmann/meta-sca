@@ -19,6 +19,8 @@ SRC_URI[sha256sum] = "621fd73513a9bef0cb82e8c531a29ef96580b4d6e797f833cce167054a
 
 PYPI_PACKAGE = "ninja"
 
+UPSTREAM_CHECK_REGEX ?= "/ninja/(?P<pver>\d+\.\d+\.\d+(\.\w+)*)"
+
 inherit pypi
 inherit setuptools3
 inherit native
