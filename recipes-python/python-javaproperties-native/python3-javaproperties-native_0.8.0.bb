@@ -11,7 +11,7 @@ SRC_URI[md5sum] = "8593da5d243720a8861376de70aa3e8a"
 SRC_URI[sha256sum] = "b177c0ab70dc587b782154c564ec1e2e1b0e62b997a029e64ea2a0d51b394be1"
 
 UPSTREAM_CHECK_URI ?= "https://pypi.python.org/pypi/javaproperties/"
-UPSTREAM_CHECK_REGEX = "javaproperties-(?P<pver>\d+\.\d+\.\d+)-py2\.py3-none-any\.whl"
+UPSTREAM_CHECK_REGEX = ".*/javaproperties-(?P<pver>\d+\.\d+\.\d+)\.tar\.gz"
 
 do_unpack[depends] += "unzip-native:do_populate_sysroot"
 
