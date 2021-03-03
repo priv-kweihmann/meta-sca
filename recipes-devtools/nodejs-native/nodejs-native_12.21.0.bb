@@ -28,8 +28,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=8c66ff8861d9f96076a7cb61e3d75f54"
 
 DEPENDS += "\
             bash-native \
-            openssl \
-            python3 \
+            openssl-native \
+            python3-native \
            "
 
 SRC_URI = "http://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz \
