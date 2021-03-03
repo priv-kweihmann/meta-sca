@@ -8,6 +8,8 @@ SRCREV = "ad55a1f1c617a7f0c3dd735c0780fc758424c7f1"
 
 S = "${WORKDIR}/git"
 
+UPSTREAM_CHECK_GITTAGREGEX = "z3-(?P<pver>\d+\.\d+\.\d+)"
+
 inherit cmake
 inherit python3native
 inherit native
