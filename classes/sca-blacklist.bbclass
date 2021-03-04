@@ -93,7 +93,16 @@ SCA_BLACKLIST_yara ?= ""
 SCA_BLAckLIST_bashate ?= ""
 SCA_BLAckLIST_checkbashism ?= ""
 
-inherit sca-helper
+# insert a renamed copy of intersect_lists from sca-helpers
+# to avoid inclusing helpers module too early
+# as this pulls in additional dependencies even for
+# modules that shouldn't be touched
+def _intersect_lists_rpl(d, l1, l2):
+    if isinstance(l1, str):
+        l1 = [x for x in l1.split(" ") if x]
+    if isinstance(l2, str):
+        l2 = [x for x in l2.split(" ") if x]
+    return sorted(list(set(l1).intersection(l2)))
 
 def sca_is_module_blacklisted(d, tool):
     import re
@@ -103,4 +112,4 @@ def sca_is_module_blacklisted(d, tool):
     _pns = [re.match(x, pn) for x in matches]
     _def_deps = [x for x in d.getVar("BASE_DEFAULT_DEPS").split(" ")]
     _prov = [x for x in d.getVar("PROVIDES").split(" ")]
-    return any(_pns + intersect_lists(d, _def_deps, _prov))
+    return any(_pns + _intersect_lists_rpl(d, _def_deps, _prov))

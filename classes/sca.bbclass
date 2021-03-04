@@ -7,6 +7,7 @@
 
 ## Settings can be found in sca-global
 inherit sca-global
+inherit sca-blacklist
 
 def sca_files_part_of_unspared_layer(d, files):
     import re
@@ -72,7 +73,7 @@ python sca_invoke_handler() {
         # so we quit here
         sca_mask_vars(d)
         return
-    if d.getVar("SCA_ENABLE") == "1":
+    if d.getVar("SCA_ENABLE") == "1" and not sca_is_module_blacklisted(d, ""):
         py2 = bb.data.inherits_class('pythonnative', d)
         if py2:
             # backup some value before invoking sca
