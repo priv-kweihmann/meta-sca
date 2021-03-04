@@ -3,39 +3,10 @@
 
 inherit sca-datamodel
 
-def checkstyle_prettify(d, elem):
-    from xml.etree.ElementTree import Element, SubElement, Comment, tostring
-    from xml.etree import ElementTree
-    from xml.dom import minidom
-    from xml.parsers.expat import ExpatError
-    rough_string = ElementTree.tostring(elem, 'utf-8')
-    okay = False
-    while not okay:
-        try:
-            reparsed = minidom.parseString(rough_string)
-            okay = True
-        except ExpatError as e:
-            # strip off invalid characters at this stage
-            s = list(rough_string)
-            try:
-                del s[e.offset]
-            except:
-                top = Element("checkstyle")
-                top.set("version", "4.3")
-                # Okay time to give up on this one
-                bb.warn("Checkstyle output is corrupted, check raw files for errors")
-                return ElementTree.tostring(top, 'utf-8')
-            s = [x for x in s if isinstance(x, str)]
-            rough_string = "".join(s)
-    return reparsed.toprettyxml(indent="  ")
-
 def sca_conv_dm_checkstyle(d, tool):
-    from xml.etree.ElementTree import Element, SubElement, Comment, tostring
+    from xml.etree.ElementTree import Element, SubElement
     from xml.etree import ElementTree
-    from xml.dom import minidom
-    import json
     import os
-    import stat
     import shutil
 
     _items = sca_get_datamodel(d, d.getVar("SCA_DATAMODEL_STORAGE"))
@@ -72,7 +43,4 @@ def sca_conv_dm_checkstyle(d, tool):
                 "source": _fileE.GetFormattedID()
             })
 
-    try:
-        return checkstyle_prettify(d, top).decode("utf-8")
-    except:
-        return checkstyle_prettify(d, top)
+    return ElementTree.tostring(top, 'utf-8')
