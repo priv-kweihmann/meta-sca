@@ -34,6 +34,8 @@ env:
       - MAXRUNTIME=600
 jobs:
   include:
+  - name: "global inherit"
+    env: MACHINE=qemux86 PARAMFILE=standard_01 GLOBINHERIT=1
   - name: "qemux86 classic tools"
     env: MACHINE=qemux86 PARAMFILE=standard_01
   - name: "qemux86 script tools"
@@ -44,8 +46,6 @@ jobs:
     env: MACHINE=qemux86 _WITH_METAOE=1 PARAMFILE=metaoe
   - name: "qemux86 + clang"
     env: MACHINE=qemux86 _WITH_METACLANG=1 PARAMFILE=metaclang
-  - name: "global inherit"
-    env: MACHINE=qemux86 PARAMFILE=standard_01 GLOBINHERIT=1
 script:
     # Clone needed repos
     - git clone git://git.yoctoproject.org/poky.git/ -b ${SCA_BRANCH} ${TRAVIS_BUILD_DIR}/poky
@@ -57,7 +57,7 @@ script:
     - bitbake-layers add-layer ${TRAVIS_BUILD_DIR}
     - if [ ! -z ${_WITH_METACLANG} ]; then bitbake-layers add-layer ${TRAVIS_BUILD_DIR}/meta-clang; fi
     - if [ ! -z ${_WITH_METAOE} ]; then bitbake-layers add-layer ${TRAVIS_BUILD_DIR}/meta-oe/meta-oe; fi
-    - if [ ! -z ${GLOBINHERIT} ]; thenecho 'INHERIT += "sca"' >> conf/local.conf; fi
+    - if [ ! -z ${GLOBINHERIT} ]; then echo 'INHERIT += "sca"' >> conf/local.conf; fi
     - |
       mods=$(cat ${TRAVIS_BUILD_DIR}/test/lang_$PARAMFILE.txt | tr '\n' ' ')
       echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> conf/local.conf
