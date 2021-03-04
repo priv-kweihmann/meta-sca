@@ -186,6 +186,7 @@ python do_sca_pkgqaenc() {
 }
 
 do_sca_pkgqaenc_pre[doc] = "Package linter pre function"
+do_sca_pkgqaenc_pre[dirs] = "${S}"
 do_sca_pkgqaenc[doc] = "Lint produced packages"
 addtask do_sca_pkgqaenc_pre before do_configure after do_patch
 addtask do_sca_pkgqaenc before do_sca_deploy after do_package
