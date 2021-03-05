@@ -14,8 +14,8 @@ RDEPENDS_${PN} += "bash \
                   ruby-os \
                   ruby-signet"
 
-SRC_URI[md5sum] = "a7881156f24f8fb91b49c944ea9e7aa7"
-SRC_URI[sha256sum] = "3f99061b6bc5af7345eceef242f32572c1199b24fa350c9024fc3ed41e76eb51"
+SRC_URI[md5sum] = "499c7579d140e2b7677d6af20e923c70"
+SRC_URI[sha256sum] = "89fb8010f81426c1c83183792c2d6f6cf65e3955af2a83115ffe409ca2817581"
 
 GEM_NAME = "googleauth"
 
