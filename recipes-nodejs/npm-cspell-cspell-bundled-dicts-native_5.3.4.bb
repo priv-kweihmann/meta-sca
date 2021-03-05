@@ -5,7 +5,8 @@ HOMEPAGE = "https://github.com/streetsidesoftware/cspell#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b1befbdcbeb73a7fd9b944d31f0fee64"
 
-DEPENDS = "npm-cspell-dict-aws-native \
+DEPENDS = "npm-cspell-dict-ada-native \
+           npm-cspell-dict-aws-native \
            npm-cspell-dict-bash-native \
            npm-cspell-dict-companies-native \
            npm-cspell-dict-cpp-native \
@@ -39,9 +40,9 @@ DEPENDS = "npm-cspell-dict-aws-native \
            npm-cspell-dict-software-terms-native \
            npm-cspell-dict-typescript-native"
 
-SRC_URI = "https://registry.npmjs.org/@cspell/cspell-bundled-dicts/-/cspell-bundled-dicts-5.3.0.tgz"
-SRC_URI[md5sum] = "ca346218f21737e7c32f08d7abbf76ec"
-SRC_URI[sha256sum] = "8e474e3dd46ccce6190cdc4af72a73f8aef5f0d6daf58d4c39e8627a39c0e2aa"
+SRC_URI = "https://registry.npmjs.org/@cspell/cspell-bundled-dicts/-/cspell-bundled-dicts-5.3.4.tgz"
+SRC_URI[md5sum] = "f452db09ee81a3b94daeac9a58c0589b"
+SRC_URI[sha256sum] = "870d2afa5e3ab8daf562002261fdaef8937181cbd291953ef0fd687978b33556"
 
 NPM_PKGNAME = "@cspell/cspell-bundled-dicts"
 
