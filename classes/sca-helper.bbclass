@@ -227,9 +227,9 @@ def sca_task_aftermath(d, tool, fatals=None):
     result_file = os.path.join(d.getVar("T"), sca_conv_export_get_deployname(d, tool))
     conv = sca_conv_to_export(d, tool)
     if isinstance(conv, bytes):
-        mode = "w"
-    else:
         mode = "wb"
+    else:
+        mode = "w"
     with open(result_file, mode) as o:
         o.write(conv)
 
