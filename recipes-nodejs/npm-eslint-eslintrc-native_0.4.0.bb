@@ -12,13 +12,12 @@ DEPENDS = "npm-ajv-native \
            npm-ignore-native \
            npm-import-fresh-native \
            npm-js-yaml-native \
-           npm-lodash-native \
            npm-minimatch-native \
            npm-strip-json-comments-native"
 
-SRC_URI = "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-0.3.0.tgz"
-SRC_URI[md5sum] = "d3abf7b8f95a91662b05b9535d495979"
-SRC_URI[sha256sum] = "c64a4e8ef56e1bc6a42f8b30f41d248aeb30df65ffd6e97bf63325006fa4bfbb"
+SRC_URI = "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-0.4.0.tgz"
+SRC_URI[md5sum] = "030622090b57910178c50094667bcd35"
+SRC_URI[sha256sum] = "ef7c4a73877469c3be3c8f2d965aa08c094e157fc1b86e325f6c82cadf92d072"
 
 NPM_PKGNAME = "@eslint/eslintrc"
 
