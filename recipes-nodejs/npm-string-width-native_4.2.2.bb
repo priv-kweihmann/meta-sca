@@ -9,9 +9,9 @@ DEPENDS = "npm-emoji-regex-native \
            npm-is-fullwidth-code-point-native \
            npm-strip-ansi-native"
 
-SRC_URI = "https://registry.npmjs.org/string-width/-/string-width-4.2.1.tgz"
-SRC_URI[md5sum] = "e74a671d1791b2da588d70c24ef0e1cf"
-SRC_URI[sha256sum] = "1495d8d1509a5ea5612c3c8e2f00bf2bc28644ebaafbc19523ee9ee07c2cf444"
+SRC_URI = "https://registry.npmjs.org/string-width/-/string-width-4.2.2.tgz"
+SRC_URI[md5sum] = "3ba2480e189a770453dc1fa4bc3753b5"
+SRC_URI[sha256sum] = "d593964e756e33a11cac5e3e0c82cb65a5aefd26f2f723187cafad9f91d595e1"
 
 NPM_PKGNAME = "string-width"
 
