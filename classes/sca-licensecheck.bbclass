@@ -78,6 +78,7 @@ python do_sca_licensecheck() {
 }
 
 def licensecheck_get_license(d, _in):
+    import re
     _pn = d.getVar("PN")
     x = d.getVar("LICENSE_{}".format(_in))
     if not x:
@@ -88,7 +89,7 @@ def licensecheck_get_license(d, _in):
         x = "CLOSED"
     # Apply SPDXLICENSEMAP settings
     for rename_flag in d.getVarFlags("SPDXLICENSEMAP"):
-        x = x.replace(rename_flag, d.getVarFlag("SPDXLICENSEMAP", rename_flag))
+        x = re.sub(r"{}(\||&|\s+|$)".format(re.escape(rename_flag)), d.getVarFlag("SPDXLICENSEMAP", rename_flag), x)
     return x
 
 python do_sca_licensecheck_report() {
