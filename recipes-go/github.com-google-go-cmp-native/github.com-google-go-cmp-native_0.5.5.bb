@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE;md5=4ac66f7dea41d8d116cb7fb2
 DEPENDS += "golang.org-x-xerrors-native"
 
 SRC_URI = "git://${GO_IMPORT};protocol=https"
-SRCREV = "ec71d6d790538ad88c95a192fd059e11afb45b6f"
+SRCREV = "8fa37b4dd109f12e42b131e485268768f18bcbf8"
 GO_IMPORT = "github.com/google/go-cmp"
 
 export GO111MODULE = "auto"
