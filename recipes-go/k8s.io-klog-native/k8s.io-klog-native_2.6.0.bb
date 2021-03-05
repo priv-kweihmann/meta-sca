@@ -7,10 +7,11 @@ LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE;md5=19cbd64715b51267a47bf375
 DEPENDS += "\
             github.com-go-logr-logr-native \
             github.com-golang-glog-native \
+            golang.org-x-tools-native \
            "
 
 SRC_URI = "git://github.com/kubernetes/klog.git;protocol=https"
-SRCREV = "2427a79a004e759b853799a2e6abb58dc622c363"
+SRCREV = "14dec3377f55fd2df9cb1ed7b2abc6a5c02df42a"
 
 S = "${WORKDIR}/git"
 
