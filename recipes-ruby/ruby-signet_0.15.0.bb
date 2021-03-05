@@ -11,8 +11,8 @@ RDEPENDS_${PN} += "ruby-addressable \
                   ruby-jwt \
                   ruby-multi-json"
 
-SRC_URI[md5sum] = "85d6d6ac1b31424e531861c363f80539"
-SRC_URI[sha256sum] = "bb878fe3cc115246c3bfbbec87f6d5bcdd49372347a9ead25d431699b3d5b9fe"
+SRC_URI[md5sum] = "e51923e16752e1d362573aebe9a75d74"
+SRC_URI[sha256sum] = "0f184cb36951f56de355a4cf6357a77e2a78a240ac63a47b19b7c399aaab7def"
 
 GEM_NAME = "signet"
 
