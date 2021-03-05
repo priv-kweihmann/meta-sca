@@ -10,8 +10,8 @@ PYPI_PACKAGE = "setuptools_scm"
 
 UPSTREAM_CHECK_REGEX ?= "/setuptools-scm/(?P<pver>(\d+[\.\-_]*)+)"
 
-SRC_URI[md5sum] = "c11bf23d80224691a46ee5deb84c42db"
-SRC_URI[sha256sum] = "c85b6b46d0edd40d2301038cdea96bb6adc14d62ef943e75afb08b3e7bcf142a"
+SRC_URI[md5sum] = "8ddd44e0cd3a243350fe709024ec7224"
+SRC_URI[sha256sum] = "83a0cedd3449e3946307811a4c7b9d89c4b5fd464a2fb5eeccd0a5bb158ae5c8"
 
 inherit pypi
 inherit setuptools3
