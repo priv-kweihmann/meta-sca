@@ -2,14 +2,14 @@ SUMMARY = "ruamel.yaml is a YAML parser/emitter that support comment preservatio
 HOMEPAGE = "https://sourceforge.net/p/ruamel-yaml/"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=60afc0a1bb0501c0c555cabe78bba022"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=fa0a51dfb461e2f803969e0f3fa71dfe"
 
 DEPENDS += "python3-cryptography-native"
 
 PYPI_PACKAGE = "ruamel.yaml"
 
-SRC_URI[md5sum] = "c7e4b216d9554d80be42011b448b7c61"
-SRC_URI[sha256sum] = "076cc0bc34f1966d920a49f18b52b6ad559fbe656a0748e3535cf7b3f29ebf9e"
+SRC_URI[md5sum] = "fa6c72a79b9f420628d83c2d50f9e4c7"
+SRC_URI[sha256sum] = "bb48c514222702878759a05af96f4b7ecdba9b33cd4efcf25c86b882cef3a942"
 
 inherit pypi
 inherit setuptools3
