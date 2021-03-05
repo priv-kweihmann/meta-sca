@@ -9,9 +9,9 @@ DEPENDS = "npm-babel-helper-validator-identifier-native \
            npm-chalk-native \
            npm-js-tokens-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/highlight/-/highlight-7.12.13.tgz"
-SRC_URI[md5sum] = "55ef0df1b744cf4957c1ac4c8283ad13"
-SRC_URI[sha256sum] = "0b7c3a161e990fc34f22549b01436e8116c2d0038e47b6aaecb27be602ea852d"
+SRC_URI = "https://registry.npmjs.org/@babel/highlight/-/highlight-7.13.8.tgz"
+SRC_URI[md5sum] = "7aa0cfbd9b7b8141f0d8ab69f13a77cf"
+SRC_URI[sha256sum] = "cd0248ba3d0b447ba0471b9212aa90b9a92d7a11f9e65b7039c54e20066ffab5"
 
 NPM_PKGNAME = "@babel/highlight"
 
