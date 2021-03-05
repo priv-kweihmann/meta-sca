@@ -225,8 +225,13 @@ def get_local_includes(path):
 def sca_task_aftermath(d, tool, fatals=None):
     ## Write to final export
     result_file = os.path.join(d.getVar("T"), sca_conv_export_get_deployname(d, tool))
-    with open(result_file, "w") as o:
-        o.write(sca_conv_to_export(d, tool))
+    conv = sca_conv_to_export(d, tool)
+    if isinstance(conv, bytes):
+        mode = "w"
+    else:
+        mode = "wb"
+    with open(result_file, mode) as o:
+        o.write(conv)
 
     ## Evaluate
     _warnings = get_warnings_from_result(d)
