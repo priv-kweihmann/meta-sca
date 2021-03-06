@@ -17,6 +17,7 @@ DEPENDS += "\
             python3-pyyaml-native \
             python3-rich-native \
             python3-ruamelyaml-native \
+            python3-ruamelyamlcli-native \
             python3-scandir-native \
             python3-setuptools-scm-git-archive-native \
             python3-setuptools-scm-native \
