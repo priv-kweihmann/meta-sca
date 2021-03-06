@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=dfd25c36f69a5eb33bd7338e42a726c8"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/v8-compile-cache/-/v8-compile-cache-2.2.0.tgz"
-SRC_URI[md5sum] = "8b39c0ca23072d9bafa195d17fb255d2"
-SRC_URI[sha256sum] = "ba2ba2368066f58c1b996a85a39c823ef64e0f9d890c66eb4931c6fafa8e3192"
+SRC_URI = "https://registry.npmjs.org/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz"
+SRC_URI[md5sum] = "776b66d0ccba6076f75f29d0f4c54472"
+SRC_URI[sha256sum] = "927e6cc2f3caf5144d53182fec52989866d774271612fe95529f7e5ef98f913f"
 
 NPM_PKGNAME = "v8-compile-cache"
 
