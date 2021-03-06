@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for Amazon Athena"
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "bbaa148def8bf6eb39a26cb326c0f5c3"
-SRC_URI[sha256sum] = "76b50a89e4a72a3be05f6e30a9208ab53c93247ae50b1cc2983783612564ab52"
+SRC_URI[md5sum] = "fcd29591bee09c5c7b63ffc992529aa7"
+SRC_URI[sha256sum] = "a9ba6fb027bc6a07da025e7fae51c787514fdc3ff815b098ac1950467e03e534"
 
 GEM_NAME = "aws-sdk-athena"
 
