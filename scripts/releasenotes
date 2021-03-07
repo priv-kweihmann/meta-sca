@@ -1,12 +1,24 @@
 #!/usr/bin/env python3
 import argparse
 import re
+from operator import itemgetter
+
 import github3
-import copy
+
+class ExtendAction(argparse.Action):
+
+    def __call__(self, parser, namespace, values, option_string=None):
+        items = getattr(namespace, self.dest) or []
+        items.extend(values)
+        setattr(namespace, self.dest, items)
 
 
 def create_parser():
     parser = argparse.ArgumentParser()
+
+    parser.register('action', 'extend', ExtendAction)
+
+    parser.add_argument("--main", default=[], nargs="*", action="extend", help="add a main section entry")
     parser.add_argument("branch", help="branch to query")
     parser.add_argument("tag", help="tag to query from")
     parser.add_argument("username", help="GitHub username")
@@ -62,34 +74,44 @@ section_map = {
     "deprecation": ["DEPRECATION"]
 }
 
-template = """
-# Main features
+content_map = {
+    "main": { "index": 0, "title": "Main features", "content": "" },
+    "new": { "index": 1, "title": "New", "content": "" },
+    "deprecation": { "index": 2, "title": "Deprecations", "content": "" },
+    "updates": { "index": 3, "title": "Updates", "content": "" },
+    "fixes": { "index": 4, "title": "Bugfixes", "content": "" },
+    "misc": { "index": 5, "title": "Misc", "content": "" },
+    "thanks": { "index": 6, "title": "Thanks to", "content": "" },
+}
 
-# New
+def __gen_section(id, _list):
+    global content_map
+    if id in content_map and _list:
+        content_map[id]["content"] = "\n".join(["- {}".format(x) for x in sorted(_list)])
+    
+def __gen_main_section(args):
+    global content_map
+    content_map["main"]["content"] = "\n".join(["- {}".format(x) for x in sorted(args.main)])
 
-%%new%%
-
-# Deprecations
-
-%%deprecation%%
-
-# Updates
-
-%%updates%%
-
-# Bugfixes
-
-%%fixes%%
-
-# Misc
-
-%%misc%%
-"""
+def __gen_thanks_section(args, _list):
+    global content_map
+    content_map["thanks"]["content"] = "\n".join(["- @{}".format(x) for x in sorted(_list)])
 
 if __name__ == '__main__':
     _args = create_parser()
     _commitids = get_issues_from_commits(_args, get_commits(_args))
     _ids = [x for x in get_issues(_args) if x.number in _commitids]
+    _thanks = [x.user.login for x in get_issues(_args) if x.user.login != _args.username and x.number in _commitids]
+
+    template = ""
+
+    # build sections from arguments
+    __gen_main_section(_args)
+    
+    # other sections
+    __gen_thanks_section(_args, _thanks)
+
+    # build sections from github info
     for k, v in section_map.items():
         _id_map = []
         for label in v:
@@ -99,8 +121,10 @@ if __name__ == '__main__':
                 if label in _labels:
                     _id_map.append("#{} - {} - {}".format(i.number, i.title.strip(),
                                                           ",".join(_labels)))
-
-        template = template.replace("%%{}%%".format(k),
-                                    "\n".join(["* {}".format(x) for x in sorted(_id_map)]))
+        __gen_section(k, _id_map)
+    for v in sorted(content_map.values(), key=itemgetter("index")):
+        if v["content"]:
+            template += "# {}\n\n".format(v["title"])
+            template += "{}\n\n".format(v["content"])
 
     print(template)

@@ -3,9 +3,18 @@ import argparse
 import os
 import subprocess
 
+class ExtendAction(argparse.Action):
+
+    def __call__(self, parser, namespace, values, option_string=None):
+        items = getattr(namespace, self.dest) or []
+        items.extend(values)
+        setattr(namespace, self.dest, items)
 
 def create_parser():
     parser = argparse.ArgumentParser()
+    parser.register('action', 'extend', ExtendAction)
+
+    parser.add_argument("--main", default=[], action="extend", nargs="*", help="add a main section entry")
     parser.add_argument("tag", help="tag to query from")
     parser.add_argument("username", help="GitHub username")
     parser.add_argument("token", help="GitHub token")
@@ -13,23 +22,22 @@ def create_parser():
     return parser.parse_args()
 
 _map = {
-    "master": "v{}",
-    "gatesgarth": "vgatesgarth_{}",
-    "dunfell": "vdunfell_{}",
-    "zeus": "vzeus_{}",
+    "master": "v{tag}"
 }
 
 def main():
     _args = create_parser()
     for b in _args.branch:
+        _sagrs = [os.path.join(os.path.dirname(__file__), "releasenotes")]
+        if _args.main:
+            _sagrs += ["--main={}".format(x) for x in _args.main]
+        _sagrs += [b,
+                   _map.get(b, "v{branch}_{tag}").format(branch=b, tag=_args.tag),
+                   _args.username,
+                   _args.token
+                  ]
         try:
-            out = subprocess.check_output([
-                os.path.join(os.path.dirname(__file__), "releasenotes"),
-                b,
-                _map[b].format(_args.tag),
-                _args.username,
-                _args.token
-            ], universal_newlines=True)
+            out = subprocess.check_output(_sagrs, universal_newlines=True)
             with open(b + ".md", "w") as o:
                 o.write(out)
         except:
