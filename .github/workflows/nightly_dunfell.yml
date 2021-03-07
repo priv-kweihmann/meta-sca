@@ -1,31 +1,57 @@
-name: "[zeus]-system"
+name: "[dunfell]-nightly"
 
 on:
   schedule:
-    - cron: "30 6 * * *"
+    - cron: "30 18 * * *"
 
 jobs:
   qemux86:
     name: "build"
     env:
       DISTRO: scatest
-      BUILD_EXPORT: 1
-      SCM_BRANCH_META_CLANG: zeus
-      SCM_BRANCH_META_OE: zeus
-      SCM_BRANCH: zeus
-      SCM_LAYER_ENABLE_CLANG: 0
-      SCM_LAYER_ENABLE_METAOE: 0
-      BUILD_GLIBC: 1
-      BUILD_KERNEL: 1
-      BUILD_MAXRUNTIME: 21000
-      BUILD_PARAMFILE: standard_03
-      BUILD_QEMUSYSTEM: 1
       PYTHONIOENCODING: utf8
       LC_ALL: en_US.UTF-8
       LANG: en_US.UTF-8
       LANGUAGE: en_US.UTF-8
+      BUILD_EXPORT: 1
+      SCM_BRANCH: dunfell
+      SCM_BRANCH_META_CLANG: dunfell
+      SCM_BRANCH_META_OE: dunfell
+      BUILD_GLIBC: 1
+      BUILD_KERNEL: 1
+      BUILD_MAXRUNTIME: 21000
 
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        testset: [standard_01, standard_02, standard_03, metaoe, metaclang]
+        include:
+        - testset: standard_01
+          SCM_LAYER_ENABLE_CLANG: 0
+          SCM_LAYER_ENABLE_METAOE: 0
+          BUILD_PARAMFILE: standard_01
+          BUILD_QEMUSYSTEM: 0
+        - testset: standard_02
+          SCM_LAYER_ENABLE_CLANG: 0
+          SCM_LAYER_ENABLE_METAOE: 0
+          BUILD_PARAMFILE: standard_02
+          BUILD_QEMUSYSTEM: 0
+        - testset: standard_03
+          SCM_LAYER_ENABLE_CLANG: 0
+          SCM_LAYER_ENABLE_METAOE: 0
+          BUILD_PARAMFILE: standard_03
+          BUILD_QEMUSYSTEM: 1
+        - testset: metaoe
+          SCM_LAYER_ENABLE_CLANG: 0
+          SCM_LAYER_ENABLE_METAOE: 1
+          BUILD_PARAMFILE: metaoe
+          BUILD_QEMUSYSTEM: 0
+        - testset: metaclang
+          SCM_LAYER_ENABLE_CLANG: 1
+          SCM_LAYER_ENABLE_METAOE: 0
+          BUILD_PARAMFILE: metaclang
+          BUILD_QEMUSYSTEM: 0
 
     container:
       image: privkweihmann/yocto-sca-minimal:latest
@@ -51,14 +77,14 @@ jobs:
         with:
           repo: https://github.com/priv-kweihmann/meta-sca.git
           branch: ${{ env.SCM_BRANCH }}
-      - if: env.SCM_LAYER_ENABLE_METAOE == '1'
+      - if: matrix.SCM_LAYER_ENABLE_METAOE == '1'
         name: checkout (meta-openembedded)
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
         with:
           repo: git://git.openembedded.org/meta-openembedded
           branch: ${{ env.SCM_BRANCH_META_OE }}
           add-layer-suffix: /meta-oe
-      - if: env.SCM_LAYER_ENABLE_CLANG == '1'
+      - if: matrix.SCM_LAYER_ENABLE_CLANG == '1'
         name: checkout (meta-clang)
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
         with:
@@ -68,7 +94,7 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
         with:
           variable: SCA_AVAILABLE_MODULES
-          value: /opt/build/sources/meta-sca/test/lang_${{ env.BUILD_PARAMFILE }}.txt
+          value: /opt/build/sources/meta-sca/test/lang_${{ matrix.BUILD_PARAMFILE }}.txt
       - if: env.BUILD_GLIBC == '1'
         name: build (glibc)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
@@ -79,12 +105,12 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
           target: linux-yocto
-      - if: env.SCM_LAYER_ENABLE_CLANG == '1'
+      - if: matrix.SCM_LAYER_ENABLE_CLANG == '1'
         name: build (clang)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
           target: clang-native
-      - if: env.BUILD_QEMUSYSTEM == '1'
+      - if: matrix.BUILD_QEMUSYSTEM == '1'
         name: build (qemu-system)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
@@ -98,11 +124,11 @@ jobs:
       - name: build (sca-modules)
         uses: priv-kweihmann/meta-sca-ci-utils/buildmodules@latest
         with:
-          parameter-file: ${{ env.BUILD_PARAMFILE }}
+          parameter-file: ${{ matrix.BUILD_PARAMFILE }}
       - name: test (sca results)
         uses: priv-kweihmann/meta-sca-ci-utils/testresults@latest
         with:
-          parameter-file: ${{ env.BUILD_PARAMFILE }}
+          parameter-file: ${{ matrix.BUILD_PARAMFILE }}
       - if: env.BUILD_EXPORT == '1'
         name: checkout (webpage)
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
@@ -115,6 +141,6 @@ jobs:
         name: build (webpage)
         uses: priv-kweihmann/meta-sca-ci-utils/exportresults@latest
         with:
-          parameter-file: ${{ env.BUILD_PARAMFILE }}
+          parameter-file: ${{ matrix.BUILD_PARAMFILE }}
           branch: ${{ env.SCM_BRANCH }}
           deploy-token: ${{ secrets.WEBDEPLOY }}
