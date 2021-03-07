@@ -3,11 +3,8 @@
 ![https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CLua%2CPHP%2CPython%2CShell%2Cjs%2Cperl%2Cruby-informational](https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CLua%2CPHP%2CPython%2CShell%2Cjs%2Cperl%2Cruby-informational)
 
 [![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=master)](https://travis-ci.org/priv-kweihmann/meta-sca)
-[![Nightly classic](https://github.com/priv-kweihmann/meta-sca/workflows/[master]-classic/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
-[![Nightly scripts](https://github.com/priv-kweihmann/meta-sca/workflows/[master]-scripts/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
-[![Nightly system](https://github.com/priv-kweihmann/meta-sca/workflows/[master]-system/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
-[![Nightly clang](https://github.com/priv-kweihmann/meta-sca/workflows/[master]-meta-clang/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
-[![Nightly meta-oe](https://github.com/priv-kweihmann/meta-sca/workflows/[master]-meta-oe/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
+[![Nightly](https://github.com/priv-kweihmann/meta-sca/workflows/[master]-nightly/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
+[![Lastest commit](https://github.com/priv-kweihmann/meta-sca/workflows/[master]-push/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
 
 For the list of current findings from pipelines see [meta-sca report](https://priv-kweihmann.github.io/)
 
