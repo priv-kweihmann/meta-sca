@@ -1,0 +1,114 @@
+name: "[dunfell]-push"
+
+on:
+  push:
+    branches:
+      - dunfell
+
+jobs:
+  qemux86:
+    name: "build"
+    env:
+      DISTRO: scatest
+      PYTHONIOENCODING: utf8
+      LC_ALL: en_US.UTF-8
+      LANG: en_US.UTF-8
+      LANGUAGE: en_US.UTF-8
+      SCM_BRANCH: dunfell
+      SCM_BRANCH_META_CLANG: dunfell
+      SCM_BRANCH_META_OE: dunfell
+      BUILD_MAXRUNTIME: 900
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        testset: [standard_01, standard_02, standard_03, metaoe, metaclang, globalinherit]
+        include:
+        - testset: standard_01
+          SCM_LAYER_ENABLE_CLANG: 0
+          SCM_LAYER_ENABLE_METAOE: 0
+          BUILD_PARAMFILE: standard_01
+          BUILD_GLOBALINHERIT: 0
+        - testset: standard_02
+          SCM_LAYER_ENABLE_CLANG: 0
+          SCM_LAYER_ENABLE_METAOE: 0
+          BUILD_PARAMFILE: standard_02
+          BUILD_GLOBALINHERIT: 0
+        - testset: standard_03
+          SCM_LAYER_ENABLE_CLANG: 0
+          SCM_LAYER_ENABLE_METAOE: 0
+          BUILD_PARAMFILE: standard_03
+          BUILD_GLOBALINHERIT: 0
+        - testset: metaoe
+          SCM_LAYER_ENABLE_CLANG: 0
+          SCM_LAYER_ENABLE_METAOE: 1
+          BUILD_PARAMFILE: metaoe
+          BUILD_QEMUSYSTEM: 0
+          BUILD_GLOBALINHERIT: 0
+        - testset: metaclang
+          SCM_LAYER_ENABLE_CLANG: 1
+          SCM_LAYER_ENABLE_METAOE: 0
+          BUILD_PARAMFILE: metaclang
+          BUILD_GLOBALINHERIT: 0
+        - testset: globalinherit
+          SCM_LAYER_ENABLE_CLANG: 1
+          SCM_LAYER_ENABLE_METAOE: 0
+          BUILD_PARAMFILE: metaclang
+          BUILD_GLOBALINHERIT: 1
+
+    container:
+      image: privkweihmann/yocto-sca-minimal:latest
+      env:
+        WORKSPACE: /opt/build
+        TOPDIR: /opt/build
+        TEMPLATECONF: /opt/build/sources/meta-sca/conf/variant/scatest-qemux86-64/
+      volumes:
+        - ${{ github.workspace }}:/opt/build
+      options: --privileged
+
+    steps:
+      - name: setup (container)
+        uses: priv-kweihmann/meta-sca-ci-utils/preparecontainer@latest
+      - name: checkout (poky)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        with:
+          repo: git://git.yoctoproject.org/poky.git
+          branch: ${{ env.SCM_BRANCH }}
+          add-layer: "0"
+      - name: checkout (meta-sca)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        with:
+          repo: https://github.com/priv-kweihmann/meta-sca.git
+          branch: ${{ env.SCM_BRANCH }}
+      - if: matrix.SCM_LAYER_ENABLE_METAOE == '1'
+        name: checkout (meta-openembedded)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        with:
+          repo: git://git.openembedded.org/meta-openembedded
+          branch: ${{ env.SCM_BRANCH_META_OE }}
+          add-layer-suffix: /meta-oe
+      - if: matrix.SCM_LAYER_ENABLE_CLANG == '1'
+        name: checkout (meta-clang)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        with:
+          repo: https://github.com/kraj/meta-clang.git
+          branch: ${{ env.SCM_BRANCH_META_CLANG }}
+      - if: matrix.BUILD_GLOBALINHERIT == '1'
+        name: setup (bitbake global inherit)
+        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
+        with:
+          variable: INHERIT
+          operation: " += "
+          value: sca
+      - if: matrix.BUILD_GLOBALINHERIT != '1'
+        name: setup (bitbake config)
+        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
+        with:
+          variable: SCA_AVAILABLE_MODULES
+          value: /opt/build/sources/meta-sca/test/lang_${{ matrix.BUILD_PARAMFILE }}.txt
+      - name: build (sca-modules)
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
+        with:
+          target: core-image-minimal-scatest
+          ignore-exit-codes: "124"
