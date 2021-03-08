@@ -17,7 +17,7 @@ jobs:
       SCM_BRANCH: master
       SCM_BRANCH_META_CLANG: master
       SCM_BRANCH_META_OE: master
-      BUILD_MAXRUNTIME: 900
+      BUILD_MAXRUNTIME: 600
 
     runs-on: ubuntu-latest
 
