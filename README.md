@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=master)](https://travis-ci.org/priv-kweihmann/meta-sca)
 [![Nightly](https://github.com/priv-kweihmann/meta-sca/workflows/[master]-nightly/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
-[![Lastest commit](https://github.com/priv-kweihmann/meta-sca/workflows/[master]-push/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
+[![Lastest commit](https://github.com/priv-kweihmann/meta-sca/actions/workflows/push.yml/badge.svg?branch=master)](https://github.com/priv-kweihmann/meta-sca/actions/workflows/push.yml)
 
 For the list of current findings from pipelines see [meta-sca report](https://priv-kweihmann.github.io/)
 
