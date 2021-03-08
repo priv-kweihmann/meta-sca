@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/priv-kweihmann/meta-sca.svg?branch=dunfell)](https://travis-ci.org/priv-kweihmann/meta-sca)
 [![Nightly](https://github.com/priv-kweihmann/meta-sca/workflows/[dunfell]-nightly/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
-[![Lastest commit](https://github.com/priv-kweihmann/meta-sca/workflows/[dunfell]-push/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
+[![Lastest commit](https://github.com/priv-kweihmann/meta-sca/actions/workflows/push.yml/badge.svg?branch=dunfell)](https://github.com/priv-kweihmann/meta-sca/actions/workflows/push.yml)
 
 For the list of current findings from pipelines see [meta-sca report](https://priv-kweihmann.github.io/)
 
