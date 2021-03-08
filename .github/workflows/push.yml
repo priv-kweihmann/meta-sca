@@ -17,7 +17,7 @@ jobs:
       SCM_BRANCH: gatesgarth
       SCM_BRANCH_META_CLANG: gatesgarth
       SCM_BRANCH_META_OE: gatesgarth
-      BUILD_MAXRUNTIME: 900
+      BUILD_MAXRUNTIME: 600
 
     runs-on: ubuntu-latest
 
