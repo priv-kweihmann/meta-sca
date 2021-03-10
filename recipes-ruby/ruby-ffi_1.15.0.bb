@@ -9,8 +9,8 @@ DEPENDS += ""
 RDEPENDS_${PN} += "bash \
                   libffi"
 
-SRC_URI[md5sum] = "5306117e5b4ad2332d31cc2661867942"
-SRC_URI[sha256sum] = "7dce3fe0f047a6f774d141d4667c9d23ee28c8dc72fbef6194dca398808f0f96"
+SRC_URI[md5sum] = "d5d910a1a5b079caf88d73bd2c956a3c"
+SRC_URI[sha256sum] = "621057e9bd2bd5771a072015ed57b71f9be43b5d9f18b53863d4bbb5c772015b"
 
 GEM_NAME = "ffi"
 
