@@ -25,6 +25,8 @@ SRC_URI[sha256sum] = "3ab21588992fbfe9de3173aefd63da1267dc12892a60f5cfdc055fe19c
 
 S = "${WORKDIR}/ansible-${PV}"
 
+UPSTREAM_CHECK_REGEX ?= "ansible-(?P<pver>(\d+\.\d+\.\d+)+)\."
+
 inherit setuptools3
 
 do_install_append() {
