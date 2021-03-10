@@ -16,8 +16,8 @@ RDEPENDS_${PN} += "ruby-addressable \
                   ruby-signet \
                   ruby-webrick"
 
-SRC_URI[md5sum] = "ba38eed85bb6529bf621f745723d69bf"
-SRC_URI[sha256sum] = "4efc94daaf4b73f98a746d83823b28e6a3bbbb390ec957726015e9f30fc797a0"
+SRC_URI[md5sum] = "386faccbb3941397db176406edacd9bb"
+SRC_URI[sha256sum] = "4a04e1daa6397781e5ef289e9dcb9274fbb2d8018ea47869bfa875e97c94a4cb"
 
 GEM_NAME = "google-apis-core"
 
