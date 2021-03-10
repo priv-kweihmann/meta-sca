@@ -22,6 +22,7 @@ SRC_URI[sha256sum] = "843aa807813318b0c8a6684a2895c74a4ccfb3c01d2bb41a53856b2434
 
 inherit pypi
 inherit setuptools3
+inherit sca-nosca
 
 do_install_append() {
     # replace hardcoded python shebang
