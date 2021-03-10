@@ -2,3 +2,4 @@
 # checked by sca
 
 SCA_AVAILABLE_MODULES = ""
+SCA_BLACKLIST_append = " ${PN}"
