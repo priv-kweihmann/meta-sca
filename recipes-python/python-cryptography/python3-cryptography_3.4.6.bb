@@ -28,5 +28,6 @@ export CRYPTOGRAPHY_DONT_BUILD_RUST="1"
 
 inherit pypi
 inherit setuptools3
+inherit sca-nosca
 
 BBCLASSEXTEND = "native"
