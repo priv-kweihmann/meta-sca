@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=bbaf2d631ca7165076ef9bdf62d67abe"
 
 DEPENDS = "npm-tslib-native"
 
-SRC_URI = "https://registry.npmjs.org/tsutils/-/tsutils-3.20.0.tgz"
-SRC_URI[md5sum] = "c47b0b65aa4f4b8ed4e7f65a9fe1c3de"
-SRC_URI[sha256sum] = "63048325ada715cababcc05660317a5415e0caa89711954cb50c81c6b42d163c"
+SRC_URI = "https://registry.npmjs.org/tsutils/-/tsutils-3.21.0.tgz"
+SRC_URI[md5sum] = "dfb6c80fcec7b84ee3298c2f2d828ddc"
+SRC_URI[sha256sum] = "ff68d0e14971d21dc9bbfd64a27be1c6c40ed253bb19170ef145f4d551f78a74"
 
 NPM_PKGNAME = "tsutils"
 
