@@ -8,8 +8,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=7e6820981d59cdfac1e6538d3aacfd11"
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-google-apis-core"
 
-SRC_URI[md5sum] = "931278ce45f35237f8604ca24996e7dd"
-SRC_URI[sha256sum] = "0fa659e114f35c2e88ed847f5c129a83deb0cc310cdde687caee66844ea00007"
+SRC_URI[md5sum] = "8a61a47c66ecdf6ed8c395903edd9108"
+SRC_URI[sha256sum] = "054a5d8988e354f99559c5e419875c22985efb6cf24d0011ac0863bba64c995c"
 
 GEM_NAME = "google-apis-discovery_v1"
 
