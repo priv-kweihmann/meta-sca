@@ -5,7 +5,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE.md;md5=0eab29964025b358179aa6d8f7db14bf"
 
 SRC_URI = "git://${GO_IMPORT};protocol=https"
-SRCREV = "4604d39ddc9f62e2ca152114c73aec99b77a3468"
+SRCREV = "072e83d238c297c71cab11154695af301010031e"
 GO_IMPORT = "github.com/lib/pq"
 
 do_compile_prepend() {
