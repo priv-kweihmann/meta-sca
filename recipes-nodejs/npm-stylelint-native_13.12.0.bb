@@ -54,9 +54,9 @@ DEPENDS = "npm-autoprefixer-native \
            npm-v8-compile-cache-native \
            npm-write-file-atomic-native"
 
-SRC_URI = "https://registry.npmjs.org/stylelint/-/stylelint-13.11.0.tgz"
-SRC_URI[md5sum] = "d4303f7b57f604220e2e0d1fd60c83ea"
-SRC_URI[sha256sum] = "09ceca38e33cff5837b74b8e4470c20e483a96110920222f9fb86784e6a75dc2"
+SRC_URI = "https://registry.npmjs.org/stylelint/-/stylelint-13.12.0.tgz"
+SRC_URI[md5sum] = "86bda794d5be31c3e1358d69fe9dafe2"
+SRC_URI[sha256sum] = "d6152dc2ff4deecd5c7b94cd3ecef81031fa94310ba567098ff8cc2dfb1abf25"
 
 NPM_PKGNAME = "stylelint"
 
