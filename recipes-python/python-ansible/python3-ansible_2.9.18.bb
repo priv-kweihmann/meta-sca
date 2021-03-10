@@ -20,8 +20,8 @@ RDEPENDS_${PN}_class-target += "\
                                "
 
 SRC_URI = "http://releases.ansible.com/ansible/ansible-${PV}.tar.gz"
-SRC_URI[md5sum] = "3f66cce5bdbfc49315b9f357d36d38c5"
-SRC_URI[sha256sum] = "3ab21588992fbfe9de3173aefd63da1267dc12892a60f5cfdc055fe19c549644"
+SRC_URI[md5sum] = "bc0e7d5e697e3b9bd25b6c5449312bef"
+SRC_URI[sha256sum] = "55fee77729eab2dce854c94a7b6998f0fcb7b9a053bdaa7eb4057f01a0d5d93c"
 
 S = "${WORKDIR}/ansible-${PV}"
 
