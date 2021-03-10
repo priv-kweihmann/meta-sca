@@ -11,6 +11,7 @@ UPSTREAM_CHECK_GITTAGREGEX = "pyparsing_(?P<pver>\d+\.\d+\.\d+)"
 S = "${WORKDIR}/git"
 
 inherit setuptools3
+inherit sca-nosca
 
 RDEPENDS_${PN}_class-target += "\
     ${PYTHON_PN}-datetime \
