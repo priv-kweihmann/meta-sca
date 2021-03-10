@@ -13,8 +13,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "setuptools-rust"
 
-SRC_URI[md5sum] = "319d2968f076f37279c866e51bcccbcc"
-SRC_URI[sha256sum] = "a5b5954909cbc5d66b914ee6763f81fa2610916041c7266105a469f504a7c4ca"
+SRC_URI[md5sum] = "8db2fb968c015774435ecba875856daa"
+SRC_URI[sha256sum] = "faacca4b85d5f43e9e3836418e1cbf9ed2576a27978b522f3d04513ef052cec5"
 
 inherit pypi
 inherit setuptools3
