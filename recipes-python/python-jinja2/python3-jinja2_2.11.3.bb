@@ -13,6 +13,7 @@ PYPI_PACKAGE = "Jinja2"
 
 inherit setuptools3
 inherit pypi
+inherit sca-nosca
 
 RDEPENDS_${PN} += "python3-markupsafe"
 
