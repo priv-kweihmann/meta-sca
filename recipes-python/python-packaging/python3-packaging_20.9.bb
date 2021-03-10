@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.BSD;md5=7bef9bf4a8e4263634d0597e7ba100b8"
 
 DEPENDS += "python3-setuptools-scm-native"
 DEPENDS_class-native += "\
-    python3-pyparsing \
+    python3-pyparsing-native \
     python3-six-native \
 "
 
