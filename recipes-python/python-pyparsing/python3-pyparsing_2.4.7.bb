@@ -11,4 +11,15 @@ UPSTREAM_CHECK_GITTAGREGEX = "pyparsing_(?P<pver>\d+\.\d+\.\d+)"
 S = "${WORKDIR}/git"
 
 inherit setuptools3
-inherit native
+
+RDEPENDS_${PN}_class-target += "\
+    ${PYTHON_PN}-datetime \
+    ${PYTHON_PN}-debugger \
+    ${PYTHON_PN}-json \
+    ${PYTHON_PN}-netclient \
+    ${PYTHON_PN}-pprint \
+    ${PYTHON_PN}-stringold \
+    ${PYTHON_PN}-threading \
+"
+
+BBCLASSEXTEND = "native"
