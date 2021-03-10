@@ -12,8 +12,8 @@ RDEPENDS_${PN} += "ruby-activesupport \
                   ruby-google-apis-discovery-v1 \
                   ruby-thor"
 
-SRC_URI[md5sum] = "5ce33adfd39e5673fb328d6111b8045b"
-SRC_URI[sha256sum] = "9b581981caa3703086a52d4147145f49f2dc6d422b276ca40ef432b84ffab6cc"
+SRC_URI[md5sum] = "035ebb4d7f369197d6e625ebdd746d22"
+SRC_URI[sha256sum] = "8ea98f042e747f76837137f8b2bd1c927fc6009f873ff6e49cb5dd652b8a3499"
 
 GEM_NAME = "google-apis-generator"
 
