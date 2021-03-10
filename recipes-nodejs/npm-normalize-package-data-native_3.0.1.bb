@@ -10,9 +10,9 @@ DEPENDS = "npm-hosted-git-info-native \
            npm-semver-native \
            npm-validate-npm-package-license-native"
 
-SRC_URI = "https://registry.npmjs.org/normalize-package-data/-/normalize-package-data-3.0.0.tgz"
-SRC_URI[md5sum] = "16a793c625a9f7777002e070c8e4827a"
-SRC_URI[sha256sum] = "c962c258c5b8b2a93461d8ab3cdd2fdcf1c6e80da23a8dd68515e7640c6914c7"
+SRC_URI = "https://registry.npmjs.org/normalize-package-data/-/normalize-package-data-3.0.1.tgz"
+SRC_URI[md5sum] = "bb29a337a7dc7a1b07e2a942ba1c389d"
+SRC_URI[sha256sum] = "e9c1c4fe564059b1d5d64a7dcbdc006a88f460a148f973ba2982fc88d7602b27"
 
 NPM_PKGNAME = "normalize-package-data"
 
