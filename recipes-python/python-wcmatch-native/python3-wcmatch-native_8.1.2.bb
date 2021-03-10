@@ -13,8 +13,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "wcmatch"
 
-SRC_URI[md5sum] = "d2b88127f7c6d223de22c4359f27689c"
-SRC_URI[sha256sum] = "7ba09191f9582e82d864829bdfbab02df46e26a46a304e57c7fe5652f07f297a"
+SRC_URI[md5sum] = "f215eae2744eb344183b42bd1ae32839"
+SRC_URI[sha256sum] = "efda751de15201b395b6d6e64e6ae3b6b03dc502a64c3c908aa5cad14c27eee5"
 
 inherit pypi
 inherit setuptools3
