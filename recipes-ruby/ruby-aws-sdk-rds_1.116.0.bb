@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for Amazon Relational Database Service (Ama
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "40849bc69fff9baa5c66f7bff3a54a29"
-SRC_URI[sha256sum] = "99f81985a9da8b73f0a348af6ab5d9450af0a724262de817a72e8073cba1de93"
+SRC_URI[md5sum] = "d1384ebf739211d5ae29be23b8d1ac32"
+SRC_URI[sha256sum] = "13983babe93558003e82e18d4bd192201f1a85da2e20b852d245dd187b07f238"
 
 GEM_NAME = "aws-sdk-rds"
 
