@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for AWS Database Migration Service"
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "9762b1046a760147047d2929ebbbe7a3"
-SRC_URI[sha256sum] = "8144b97fc81ca474d7aa3c2212fbd79410578baff11eaa4f6ab3350116be5f53"
+SRC_URI[md5sum] = "589fffbf1a57a7ccaf71a863de83a9c6"
+SRC_URI[sha256sum] = "d61d7d6ff3c338c1c3118a553e972b9104762dae81429659b4e33e2e4787202b"
 
 GEM_NAME = "aws-sdk-databasemigrationservice"
 
