@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for Amazon Route 53 Domains"
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "669bd6f81fb36ebb9b40595081478ed1"
-SRC_URI[sha256sum] = "cf03598630b62cd7b6432f806df08e0279b3417f10c2f52b71d6c19af0196b4c"
+SRC_URI[md5sum] = "2810c4319c90524cb296ee139cb93a53"
+SRC_URI[sha256sum] = "2652e73281dc07da720c87b08a226cab696dac07137bb36116329bf14bbc7ed3"
 
 GEM_NAME = "aws-sdk-route53domains"
 
