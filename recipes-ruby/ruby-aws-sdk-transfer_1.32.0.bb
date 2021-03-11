@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for AWS Transfer Family (AWS Transfer)"
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "3d8a308e6b0716650e3923c0a9f9312d"
-SRC_URI[sha256sum] = "bc1194c410d74a3bc22f4ebe311cd03fca0c451f63d2f7eeccb3803456ef2e27"
+SRC_URI[md5sum] = "feb4035d8f5386b999acf1f7ed79b877"
+SRC_URI[sha256sum] = "83c6a5f1524443de8ab14db87126efbf85f535f76111dad59d44bd02214ffd44"
 
 GEM_NAME = "aws-sdk-transfer"
 
