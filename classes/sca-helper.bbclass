@@ -297,3 +297,14 @@ def sca_regex_safe_string(value):
 
 def sca_regex_safe(d, var):
     return sca_regex_safe_string(d.getVar(var) or "")
+
+def sca_module_applicable(d, module):
+    _layers = clean_split(d, "BBFILE_COLLECTIONS")
+    if module in d.getVarFlags("SCA_AVAILABLE_MODULES"):
+        missing_req = set()
+        for req in [x for x in d.getVarFlag("SCA_AVAILABLE_MODULES", module).split(" ") if x]:
+            if req not in _layers:
+                missing_req.add(req)
+        if missing_req:
+            bb.fatal("SCA module {} requires {} layer(s) to be present".format(module, ','.join(missing_req)))
+    return True

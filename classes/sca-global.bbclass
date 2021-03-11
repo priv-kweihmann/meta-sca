@@ -150,6 +150,17 @@ SCA_AVAILABLE_MODULES ?= "\
                           yamllint \
                           yara \
                         "
+# additional layer requirements
+SCA_AVAILABLE_MODULES[clang] = "clang-layer"
+SCA_AVAILABLE_MODULES[inspec] = "openembedded-layer"
+SCA_AVAILABLE_MODULES[luacheck] = "openembedded-layer"
+SCA_AVAILABLE_MODULES[phan] = "openembedded-layer"
+SCA_AVAILABLE_MODULES[phpcodefixer] = "openembedded-layer"
+SCA_AVAILABLE_MODULES[phpcodesniffer] = "openembedded-layer"
+SCA_AVAILABLE_MODULES[phpmd] = "openembedded-layer"
+SCA_AVAILABLE_MODULES[phpsecaudit] = "openembedded-layer"
+SCA_AVAILABLE_MODULES[phpstan] = "openembedded-layer"
+SCA_AVAILABLE_MODULES[progpilot] = "openembedded-layer"
 
 SCA_ENABLED_MODULES := "${SCA_ENABLED_MODULES_${SCA_MODE_UPPER}}"
 
