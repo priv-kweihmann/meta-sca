@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for AWS Step Functions (AWS SFN)"
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "378a9bf79320db6794b6e9736ffcb2c9"
-SRC_URI[sha256sum] = "f5852af34604054c9aff50920980bb70e3e298e87acd78696ffe2cad572601ee"
+SRC_URI[md5sum] = "2ff74191a02ec0dba192f5203c30cce2"
+SRC_URI[sha256sum] = "90296d8e5278e83aaef259e83eb4df0f8755ddaa1b51410468af65d2274c4a02"
 
 GEM_NAME = "aws-sdk-states"
 
