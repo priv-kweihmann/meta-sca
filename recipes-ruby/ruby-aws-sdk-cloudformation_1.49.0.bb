@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for AWS CloudFormation"
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "70eb233a9df8aecb5c465dc5c8267bbf"
-SRC_URI[sha256sum] = "6e604090efdaf08cdc885b45c0a742e4e6e26b7a0fb16f4c920489521965669d"
+SRC_URI[md5sum] = "beb2ff03f7bcad53b43d6e512d3343ae"
+SRC_URI[sha256sum] = "e437f70a825a439c68d54d787c3bfb42773d7da049b711424ec1d53749389fda"
 
 GEM_NAME = "aws-sdk-cloudformation"
 
