@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for Amazon GuardDuty"
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "aa8b3a47f07d6f545298fac940c4f056"
-SRC_URI[sha256sum] = "099f3411e94a2788b4241a16c9c77b4c2e2c8f730b74ab7a28d0a90c841f2659"
+SRC_URI[md5sum] = "6a1e558bde0439cc7445e010ebec999a"
+SRC_URI[sha256sum] = "7e0a438efd0b8c193625eb6d3ee0a74991a3bec83ac563fb4c21537f5cc27562"
 
 GEM_NAME = "aws-sdk-guardduty"
 
