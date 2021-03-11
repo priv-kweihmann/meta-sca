@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for Amazon CloudHSM (CloudHSM)"
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "8442baf25cee394614b0f03ab1dc8d2e"
-SRC_URI[sha256sum] = "0e531e88d9f28c0e03a35207b57cbdc85142379b9d33ca085ca6419501af9128"
+SRC_URI[md5sum] = "a22725345ed3316ba655a7b66c2fd723"
+SRC_URI[sha256sum] = "f406db5747bafaae0cd40124dec158735dd49355b650b01f30fc91ababa40571"
 
 GEM_NAME = "aws-sdk-cloudhsm"
 
