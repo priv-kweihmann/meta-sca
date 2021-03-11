@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for AWS Key Management Service (KMS)"
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "264e07412ed19f720dfa39f55a946055"
-SRC_URI[sha256sum] = "31e0cb176db2bf7116faa0c37062a3deb518b1028d022fd639dff8c606728f03"
+SRC_URI[md5sum] = "8e1c586b68b6e0fee9737ee90329548b"
+SRC_URI[sha256sum] = "506f5131062df1f14e582ac1e4bdc8d917992e0980e04fe82f46e9ac8903ed06"
 
 GEM_NAME = "aws-sdk-kms"
 
