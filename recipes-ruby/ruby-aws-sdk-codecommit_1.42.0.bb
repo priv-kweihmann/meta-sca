@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for AWS CodeCommit (CodeCommit)"
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "bb34037129ac136eeb3674a7c7f4e883"
-SRC_URI[sha256sum] = "02cb9263874760d9664a915e88a530f3591286cdcbf740e95408cee1285e61b1"
+SRC_URI[md5sum] = "d6010fcaf3d9406073a8e507850e64d1"
+SRC_URI[sha256sum] = "d0fed017872442c244a5327d38bdc47627976e621048fc91e0296d2b9fc7e901"
 
 GEM_NAME = "aws-sdk-codecommit"
 
