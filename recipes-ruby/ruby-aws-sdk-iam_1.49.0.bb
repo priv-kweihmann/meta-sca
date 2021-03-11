@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for AWS Identity and Access Management (IAM
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "a7f875939553eb26219418597fd62bfc"
-SRC_URI[sha256sum] = "12f842241a8bc2a09f292c94b673e3c7265ddabe30736b931a459d6cccc2ba0b"
+SRC_URI[md5sum] = "51cff6ae487f68a44518cd067e4281cd"
+SRC_URI[sha256sum] = "346d6dfef227df7091ac9b1073fdd735c6cec1f110f156efebf67c03f9b4fbb0"
 
 GEM_NAME = "aws-sdk-iam"
 
