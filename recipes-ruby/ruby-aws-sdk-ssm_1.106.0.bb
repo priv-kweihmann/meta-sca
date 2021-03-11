@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for Amazon Simple Systems Manager (SSM) (Am
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "c771b119073cfddced3481a4dfb37e1a"
-SRC_URI[sha256sum] = "2f122303f9463c305eaa58dae530f923b4b45bd052edf241f09eed074ebd8eb4"
+SRC_URI[md5sum] = "9f58008745e3b177fcd96724c932b167"
+SRC_URI[sha256sum] = "3593867cbd9e172f6dfb42109bad84c4ebfbda4e733f360267b8bd5971870c55"
 
 GEM_NAME = "aws-sdk-ssm"
 
