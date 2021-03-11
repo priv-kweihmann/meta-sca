@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for Amazon Simple Notification Service (Ama
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "d80f5f441816f8932c8243e9d9fd9e28"
-SRC_URI[sha256sum] = "cba925691dd51cfa42d9cb7fae9278ffa7e3ab05efa97515edacba1749881933"
+SRC_URI[md5sum] = "7a3edcbab8c875b08744a5e956521e4c"
+SRC_URI[sha256sum] = "04a79867cac6afccbc33c5db59a1c90d4da80af07a27e497a1d38a1c0e8abd5e"
 
 GEM_NAME = "aws-sdk-sns"
 
