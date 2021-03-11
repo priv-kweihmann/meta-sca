@@ -17,7 +17,6 @@ SRC_URI[sha256sum] = "5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd77
 
 inherit pypi
 inherit setuptools3
-inherit sca-nosca
 
 RDEPENDS_${PN}_class-target += "\
     python3-pyparsing \
