@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for AmazonApiGatewayV2"
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "9d6f602f8148d17d3c5c1728ecdd4836"
-SRC_URI[sha256sum] = "87e5e368c0a3ff5866bf03432a2494c4857f73227bc78c6d98d0c0f26c073b9c"
+SRC_URI[md5sum] = "1531b648ffe4ac93c22d929b43239b17"
+SRC_URI[sha256sum] = "d9ed93d220c8c40eacae93f29c0ec5f651fed094ea930a9ac5f7a619ed109106"
 
 GEM_NAME = "aws-sdk-apigatewayv2"
 
