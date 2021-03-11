@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for Amazon EC2 Container Registry (Amazon E
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "4d10e504a01c3321e5a23e9080d9a37e"
-SRC_URI[sha256sum] = "1bf27b4bfbef2ad727013495f3a781e2d4b9ac1c14f58b852d547d7f5bd22836"
+SRC_URI[md5sum] = "e53a38299343c7a7cd5820a71cbad154"
+SRC_URI[sha256sum] = "2a733de04c9b00d68f0941c334bd272f45c4c289300d3fa23cfda2d1eaf2be64"
 
 GEM_NAME = "aws-sdk-ecr"
 
