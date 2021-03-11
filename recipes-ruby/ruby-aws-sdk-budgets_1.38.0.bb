@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for AWS Budgets (AWSBudgets)"
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "e3185df740115be15f9c80b14f32d761"
-SRC_URI[sha256sum] = "825c6f47c424816ca4967c8e27785dc63ab4fb600e86fdadca5496eb12a8a752"
+SRC_URI[md5sum] = "200244da9dffacabf60eee838ece9891"
+SRC_URI[sha256sum] = "dd841360e99583c877344cfc9ba12f9d0415cda713729620795deeb32bb10b13"
 
 GEM_NAME = "aws-sdk-budgets"
 
