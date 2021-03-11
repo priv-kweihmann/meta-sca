@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for AWS Config (Config Service)"
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "01c6d5029031863ec30b5e30ef0d8b6f"
-SRC_URI[sha256sum] = "23e716492dc414f1d0869f078fa597953b75d44d52d7d4087a908e389ce62e09"
+SRC_URI[md5sum] = "84d50e58d6213a90752ab9de0df5ca20"
+SRC_URI[sha256sum] = "696ebd5607dd751591aaa9b5afd5588c9b938c530f355afb21c4bf8dcb76a83a"
 
 GEM_NAME = "aws-sdk-configservice"
 
