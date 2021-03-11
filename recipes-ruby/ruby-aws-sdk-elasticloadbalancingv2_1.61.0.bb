@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for Elastic Load Balancing (Elastic Load Ba
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "17d836d6f9e6ad88db8670dbc0537819"
-SRC_URI[sha256sum] = "f07eaefe156b43c5ef880f52adc6406de438ecc4b5aa1784abcc5db361c6d51c"
+SRC_URI[md5sum] = "c50ee8a63cfda5d63e86b8098fea3aea"
+SRC_URI[sha256sum] = "b5062682d3bb22c28581b1d538821107f474d86a3341d608a831e8b2f1b2139a"
 
 GEM_NAME = "aws-sdk-elasticloadbalancingv2"
 
