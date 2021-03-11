@@ -3,14 +3,14 @@ DESCRIPTION = "Official AWS Ruby gem for Amazon Redshift"
 HOMEPAGE = "https://github.com/aws/aws-sdk-ruby"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7cacdbeed46a0096b10"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "ebb03a69531721ab56c5017159df20ec"
-SRC_URI[sha256sum] = "8fcc5ee6b77b526dba715e3de96b8a4199d68b15a695ad6fdc4c30bfcb8ba4b8"
+SRC_URI[md5sum] = "c5fc7c3d7557281fce95ff25bb2935a0"
+SRC_URI[sha256sum] = "eef479c2fb81d7587e82d02bbe1452bec958dcd6f1ca3a080d89e0dfc38ed2b5"
 
 GEM_NAME = "aws-sdk-redshift"
 
