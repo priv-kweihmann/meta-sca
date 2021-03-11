@@ -98,6 +98,8 @@ def sca_on_recipe_init(d):
     from bb.parse.parse_py import BBHandler
     enabledModules = []
     for item in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")):
+        if not sca_module_applicable(d, item):
+            continue
         if sca_is_module_blacklisted(d, item) or not any(sca_filter_by_license(d)):
             continue
         okay = False
