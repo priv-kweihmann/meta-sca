@@ -5,9 +5,11 @@ HOMEPAGE = "https://github.com/wooorm/is-decimal#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 
-SRC_URI = "https://registry.npmjs.org/is-decimal/-/is-decimal-1.0.4.tgz"
-SRC_URI[md5sum] = "9c3e2e92a6962fa6852319aad932c1a5"
-SRC_URI[sha256sum] = "5891489df22c00b961ce4c78c5d223f2f919122d33a93d81dc5b29079364ad82"
+DEPENDS = ""
+
+SRC_URI = "https://registry.npmjs.org/is-decimal/-/is-decimal-2.0.0.tgz"
+SRC_URI[md5sum] = "5f819e8dddb02014d4e091aab72940fd"
+SRC_URI[sha256sum] = "d991452a6a883dcd97a79233d1ed05eb8ed2a239db21ff326187c63fbc760679"
 
 NPM_PKGNAME = "is-decimal"
 
