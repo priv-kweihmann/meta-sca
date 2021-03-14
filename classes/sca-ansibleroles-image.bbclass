@@ -147,6 +147,6 @@ fakeroot python do_sca_ansibleroles() {
         sca_task_aftermath(d, "ansibleroles", get_fatal_entries(d, "SCA_ANSIBLEROLES_EXTRA_FATAL", None))
 }
 
-do_sca_ansibleroles[lockfiles] += "${WORKDIR}/crossemu.lock"
+do_sca_ansibleroles[lockfiles] += "${TMPDIR}/crossemu.lock"
 do_sca_ansibleroles[doc] = "Audit image with ansible roles"
 addtask do_sca_ansibleroles before do_sca_deploy after do_image
