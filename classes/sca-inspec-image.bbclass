@@ -91,6 +91,6 @@ fakeroot python do_sca_inspec() {
                        d.expand("${STAGING_DATADIR_NATIVE}/inspec-${SCA_MODE}-fatal")))
 }
 
-do_sca_inspec[lockfiles] += "${WORKDIR}/crossemu.lock"
+do_sca_inspec[lockfiles] += "${TMPDIR}/crossemu.lock"
 do_sca_inspec[doc] = "For overall compliance with inspec profiles"
 addtask do_sca_inspec before do_sca_deploy after do_image
