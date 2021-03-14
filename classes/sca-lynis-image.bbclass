@@ -86,7 +86,7 @@ fakeroot python do_sca_lynis() {
                         d.expand("${STAGING_DATADIR_NATIVE}/lynis-${SCA_MODE}-fatal")))
 }
 
-do_sca_lynis[lockfiles] += "${WORKDIR}/crossemu.lock"
+do_sca_lynis[lockfiles] += "${TMPDIR}/crossemu.lock"
 do_sca_lynis[doc] = "Audit image with lynis"
 addtask do_sca_lynis before do_sca_deploy after do_image
 
