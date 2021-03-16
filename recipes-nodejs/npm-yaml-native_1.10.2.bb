@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=f43d95a153ee2ee3d2169246bae2f14b"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/yaml/-/yaml-1.10.1.tgz"
-SRC_URI[md5sum] = "bc78ef323debf2c46c082f8d0836c6d4"
-SRC_URI[sha256sum] = "b06bb5b03ed4678fe80110ff97cb16748cb434d20c35f49631e577205136824e"
+SRC_URI = "https://registry.npmjs.org/yaml/-/yaml-1.10.2.tgz"
+SRC_URI[md5sum] = "dab724772bdd43c416fbe046ad0b1200"
+SRC_URI[sha256sum] = "3dcf035ab6eced0862953bf4c09f5d9a431a1a565cf2bab9166d09183ae4e08d"
 
 NPM_PKGNAME = "yaml"
 
