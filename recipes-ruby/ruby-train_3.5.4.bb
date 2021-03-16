@@ -19,8 +19,8 @@ RDEPENDS_${PN} += "ruby-activesupport \
                   ruby-train-core \
                   ruby-train-winrm"
 
-SRC_URI[md5sum] = "eeb2b981e2ae37dd108f20a274f0a0bf"
-SRC_URI[sha256sum] = "2cb0ec9a66be0a02b2a70f1202726a77b44d9331a04d4b84697ff39d9e5a54cd"
+SRC_URI[md5sum] = "de81254c3669d3bc34093b859edf8534"
+SRC_URI[sha256sum] = "da69f837cfc8bdd041929cd3de5777e7bc81125dfcd3f9d587619361b5a8485c"
 
 GEM_NAME = "train"
 
