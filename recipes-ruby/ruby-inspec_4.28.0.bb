@@ -13,8 +13,8 @@ RDEPENDS_${PN} += "ruby-faraday-middleware \
                   ruby-train-habitat \
                   ruby-train-winrm"
 
-SRC_URI[md5sum] = "e8a932c8b7261eb3fa3a88da011d5214"
-SRC_URI[sha256sum] = "5f435ec635915c7a4e34d1fe8df2a7b03f59b1d4f16861a0fbed173cefa704bf"
+SRC_URI[md5sum] = "37e4dacf7000ee1ea872cf60dfd847ef"
+SRC_URI[sha256sum] = "a09e5a6ee4075af6f304b71b772900d467458023631a19ea6c9720a6a8529a83"
 
 GEM_NAME = "inspec"
 
