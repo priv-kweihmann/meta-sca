@@ -9,8 +9,8 @@ DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "f92a36c165964bd048921d01c07c2946"
-SRC_URI[sha256sum] = "f6b9a460dc6247c618dabb942df401dce7a5aa4a2b480c0b571eb39f32d2eee8"
+SRC_URI[md5sum] = "b5a2eb84f8797e949abc19ec3029094d"
+SRC_URI[sha256sum] = "e55137d18c6b58ca60451c91320b37f58d4ff48892e0961c5ff493b44aceac65"
 
 GEM_NAME = "aws-sdk-lambda"
 
