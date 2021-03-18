@@ -10,8 +10,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "jsonstreams"
 
-SRC_URI[md5sum] = "68fded16d2ab839c1ba30051224ff594"
-SRC_URI[sha256sum] = "adb58f50ae374fdc01ef7cf29958dee662b03e190519c6d32402ea903ac8fac5"
+SRC_URI[md5sum] = "f3a40174a4f54e0ecbf803cf92ead38a"
+SRC_URI[sha256sum] = "721cda7391e9415b7b15cebd6cf92fc7f8788ca211eda7d64162a066ee45a72e"
 
 inherit pypi
 inherit setuptools3
