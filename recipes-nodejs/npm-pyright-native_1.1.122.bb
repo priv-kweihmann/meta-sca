@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/pyright/-/pyright-1.1.121.tgz"
-SRC_URI[md5sum] = "6a508609a47f4867dd5aa76f43ee2096"
-SRC_URI[sha256sum] = "dc65c1a47cecb222878757dd84599d3efabea8b4968395f224900eab5e6a951c"
+SRC_URI = "https://registry.npmjs.org/pyright/-/pyright-1.1.122.tgz"
+SRC_URI[md5sum] = "8f1acc75c2ea929a88b17680f89117bf"
+SRC_URI[sha256sum] = "0a1b4d24ff641d8a3d55b45e7da5bc12f224ce7ced12d85fb60fd5f4910d9b3e"
 
 NPM_PKGNAME = "pyright"
 
