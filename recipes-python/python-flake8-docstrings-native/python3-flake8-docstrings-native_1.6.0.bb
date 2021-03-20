@@ -8,8 +8,8 @@ DEPENDS += "\
             python3-flake8-native \
             python3-pydocstyle-native \
             "
-SRC_URI[md5sum] = "adcbc65177fadb659e269fa3d99ee938"
-SRC_URI[sha256sum] = "3d5a31c7ec6b7367ea6506a87ec293b94a0a46c0bce2bb4975b7f1d09b6f3717"
+SRC_URI[md5sum] = "ef95e19755f21a0a32d79cea8af73c45"
+SRC_URI[sha256sum] = "9fe7c6a306064af8e62a055c2f61e9eb1da55f84bb39caef2b84ce53708ac34b"
 
 PYPI_PACKAGE = "flake8-docstrings"
 
