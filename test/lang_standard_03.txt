@@ -1,5 +1,6 @@
 ansible
 ansibleroles
+checksec
 gixy
 lse
 lynis
