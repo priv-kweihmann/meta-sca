@@ -25,7 +25,7 @@ do_install_class-native () {
     install ${WORKDIR}/checksec.sca.description ${D}${datadir}
 }
 
-RDEPENDS_${PN} += "\
+RDEPENDS_${PN}_class-target += "\
     bash \
     binutils \
     file \
