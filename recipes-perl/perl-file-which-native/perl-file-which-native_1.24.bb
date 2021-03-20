@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=d4aece164a4cb5012c03e0b99aa7c6a4"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "c8f054534c3c098dd7a0dada60aaae34"
-SRC_URI[sha256sum] = "b79dc2244b2d97b6f27167fc3b7799ef61a179040f3abd76ce1e0a3b0bc4e078"
+SRC_URI[md5sum] = "3578a39424d3254e48057ffafbde9a96"
+SRC_URI[sha256sum] = "7c5414dd6d5c61cb992fdd257aefe52f9a80bf55158cd5ec17469199d0b12eef"
 
 S = "${WORKDIR}/File-Which-${PV}"
 
