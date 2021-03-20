@@ -85,6 +85,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           bitbake \
                           cbmc \
                           checkbashism \
+                          checksec \
                           configcheck \
                           cppcheck \
                           cpplint \
