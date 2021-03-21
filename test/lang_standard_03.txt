@@ -1,6 +1,7 @@
 ansible
 ansibleroles
 checksec
+configcheck
 gixy
 lse
 lynis
