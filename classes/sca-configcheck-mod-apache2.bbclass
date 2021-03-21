@@ -2,7 +2,7 @@
 SCA_CONFIGCHECK_apache2_CONFIGFILE ?= "/etc/apache2/httpd.conf"
 
 def do_sca_configcheck_run_apache2(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which httpd) ] && httpd -f {} -t".format(d.getVar("SCA_CONFIGCHECK_apache2_CONFIGFILE"))]
+    return ["[ ! -z $(which httpd) ] && httpd -f {} -t".format(d.getVar("SCA_CONFIGCHECK_apache2_CONFIGFILE"))]
 
 def do_sca_configcheck_conv_apache2(d, toolout, suppress):
     import os

@@ -1,5 +1,5 @@
 def do_sca_configcheck_run_freeradius(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which radiusd) ] && mkdir -p /tmp && radiusd -C -l /tmp/radius_check; cat /tmp/radius_check"]
+    return ["[ ! -z $(which radiusd) ] && mkdir -p /tmp && radiusd -C -l /tmp/radius_check; cat /tmp/radius_check"]
 
 def do_sca_configcheck_conv_freeradius(d, toolout, suppress):
     import os
