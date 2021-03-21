@@ -11,6 +11,8 @@ S = "${WORKDIR}/git"
 
 ROLE_NAME = "dev-sec.nginx-hardening"
 
+DEPENDS += "ansible-role-merger-native"
+
 do_configure() {
     :
 }
@@ -29,6 +31,8 @@ do_install () {
 do_install_append() {
     install -d ${D}/${datadir}/ansible/roles/
     install -m 0444 ${WORKDIR}/${ROLE_NAME}.json ${D}/${datadir}/ansible/roles/${ROLE_NAME}.json
+    nativepython3 ${STAGING_BINDIR_NATIVE}/ansible-role-merger ${D}/${datadir}/ansible/roles/${ROLE_NAME}.json > \
+        ${D}/${datadir}/ansible/rolebook-${ROLE_NAME}.yaml
 }
 
 FILES_${PN} += "${datadir}"
