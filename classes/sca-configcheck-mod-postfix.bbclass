@@ -2,7 +2,7 @@
 SCA_CONFIGCHECK_postfix_CONFIGDIR ?= "/etc/postfix/"
 
 def do_sca_configcheck_run_postfix(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which postfix) ] && postfix -c {} check".format(d.getVar("SCA_CONFIGCHECK_postfix_CONFIGDIR"))]
+    return ["[ ! -z $(which postfix) ] && postfix -c {} check".format(d.getVar("SCA_CONFIGCHECK_postfix_CONFIGDIR"))]
 
 def do_sca_configcheck_conv_postfix(d, toolout, suppress):
     import os

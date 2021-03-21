@@ -2,7 +2,7 @@
 SCA_CONFIGCHECK_samba_CONFIGFILE ?= "/etc/samba/smb.conf"
 
 def do_sca_configcheck_run_samba(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which testparm) ] && testparm -v -s {}".format(d.getVar("SCA_CONFIGCHECK_samba_CONFIGFILE"))]
+    return ["[ ! -z $(which testparm) ] && testparm -v -s {}".format(d.getVar("SCA_CONFIGCHECK_samba_CONFIGFILE"))]
 
 def do_sca_configcheck_conv_samba(d, toolout, suppress):
     import os

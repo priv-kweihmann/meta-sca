@@ -4,7 +4,7 @@ SCA_CONFIGCHECK_nftables_INCLUDEDIR ?= "/etc/nft/rules"
 SCA_CONFIGCHECK_nftables_FILEGLOB ?= "/etc/nft/rules/*"
 
 def do_sca_configcheck_run_nftables(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which nft) ] && for f in {};do nft -c -I {} -f $f; done".format(d.getVar("SCA_CONFIGCHECK_nftables_FILEGLOB"), d.getVar("SCA_CONFIGCHECK_nftables_INCLUDEDIR"))]
+    return ["[ ! -z $(which nft) ] && for f in {};do nft -c -I {} -f $f; done".format(d.getVar("SCA_CONFIGCHECK_nftables_FILEGLOB"), d.getVar("SCA_CONFIGCHECK_nftables_INCLUDEDIR"))]
 
 def do_sca_configcheck_conv_nftables(d, toolout, suppress):
     import os

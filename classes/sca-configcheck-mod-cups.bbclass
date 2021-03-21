@@ -2,7 +2,7 @@
 SCA_CONFIGCHECK_cups_CONFIGFILE ?= "/etc/cups/cupsd.conf"
 
 def do_sca_configcheck_run_cups(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which cupsd) ] && cupsd -t -c {}".format(d.getVar("SCA_CONFIGCHECK_cups_CONFIGFILE"))]
+    return ["[ ! -z $(which cupsd) ] && cupsd -t -c {}".format(d.getVar("SCA_CONFIGCHECK_cups_CONFIGFILE"))]
 
 def do_sca_configcheck_conv_cups(d, toolout, suppress):
     import os

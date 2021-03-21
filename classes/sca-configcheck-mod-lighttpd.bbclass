@@ -2,7 +2,7 @@
 SCA_CONFIGCHECK_lighttpd_CONFIGFILE ?= "/etc/lighttpd/lighttpd.conf"
 
 def do_sca_configcheck_run_lighttpd(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which lighttpd) ] && lighttpd -t -f {}".format(d.getVar("SCA_CONFIGCHECK_lighttpd_CONFIGFILE"))]
+    return ["[ ! -z $(which lighttpd) ] && lighttpd -t -f {}".format(d.getVar("SCA_CONFIGCHECK_lighttpd_CONFIGFILE"))]
 
 def do_sca_configcheck_conv_lighttpd(d, toolout, suppress):
     import os
