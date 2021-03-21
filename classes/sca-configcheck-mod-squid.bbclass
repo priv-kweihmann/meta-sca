@@ -2,7 +2,7 @@
 SCA_CONFIGCHECK_squid_CONFIGFILE ?= "/etc/squid/squid.conf"
 
 def do_sca_configcheck_run_squid(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which squid) ] && squid -k parse -f {}".format(d.getVar("SCA_CONFIGCHECK_squid_CONFIGFILE"))]
+    return ["[ ! -z $(which squid) ] && squid -k parse -f {}".format(d.getVar("SCA_CONFIGCHECK_squid_CONFIGFILE"))]
 
 def do_sca_configcheck_conv_squid(d, toolout, suppress):
     import os

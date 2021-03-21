@@ -70,33 +70,47 @@ fakeroot python do_sca_configcheck() {
 
     cmd_output = ""
 
-    ## Create rootfs first
-    sca_crossemu(d, None, ["bash"], "configcheck", "sca_configcheck_prepare;")
-
     _raw_findings = []
-    _suppress = sca_suppress_init(d, "SCA_TIGER_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, "SCA_CONFIGCHECK_EXTRA_SUPPRESS",
                                   d.expand("${STAGING_DATADIR_NATIVE}/configcheck-${SCA_MODE}-suppress"))
+
+    _pargs = []
+    _conv_funcs = []
 
     for mod in clean_split(d, "SCA_CONFIGCHECK_MODULES"):
         _run_args_name = "do_sca_configcheck_run_{}".format(mod)
-        _conv_args_name = "do_sca_configcheck_conv_{}".format(mod)
+        _conv_funcs.append("do_sca_configcheck_conv_{}".format(mod))
+
         try:
-            _args = sca_get_func_by_name(d, _run_args_name)(d)
-            _cmd_output, _ = sca_crossemu(d, _args, [], "configcheck", ";", nocreateroot=True)
-            if _cmd_output:
-                _cmd_output = _cmd_output.decode("utf-8")
-                cmd_output += _cmd_output + "\n###########\n"
-                _raw_findings += sca_get_func_by_name(d, _conv_args_name)(d, _cmd_output, _suppress)
-            else:
-                sca_log_note(d, "configcheck -> {} no output".format(mod))
-        except NotImplementedError:
+            _pargs += [" ".join(sca_get_func_by_name(d, _run_args_name)(d))]
+        except:
             pass
-        except Exception as e:
-            sca_log_note(d, str(e))
 
-    with open(sca_raw_result_file(d, "configcheck"), "w") as o:
-        o.write(cmd_output)
+    _cmd_output = ""
 
+    if any(_pargs):
+        _cmd_output, _ = sca_crossemu(d, ["/bin/sh", "-c", ";echo 'EOM###########';".join(_pargs)], ["bash"], "configcheck", 
+                                        "sca_configcheck_prepare;")
+
+        if not isinstance(_cmd_output, str):
+            _cmd_output = _cmd_output.decode("utf-8")
+        
+        with open(sca_raw_result_file(d, "configcheck"), "w") as o:
+            o.write(_cmd_output)
+
+        if _cmd_output:
+            _cmd_output = _cmd_output.split("###########\n")
+            for _conv in _conv_funcs:
+                try:
+                    _raw_findings += sca_get_func_by_name(d, _conv)(d, _cmd_output.pop(), _suppress)
+                    del _cmd_output[0]
+                except IndexError:
+                    pass
+                except NotImplementedError:
+                    pass
+    else:
+        with open(sca_raw_result_file(d, "configcheck"), "w") as o:
+            o.write(_cmd_output)
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/configcheck.dm".format(d.getVar("T")))
     dm_output = do_sca_conv_configcheck(d, _raw_findings)
@@ -111,4 +125,4 @@ do_sca_configcheck[lockfiles] += "${TMPDIR}/crossemu.lock"
 do_sca_configcheck[doc] = "Check configuration of tools for validity in image"
 addtask do_sca_configcheck before do_sca_deploy after do_image
 
-DEPENDS += "configcheck-sca-native sca-image-configcheck-rules-native bash"
+DEPENDS += "configcheck-sca-native sca-image-configcheck-rules-native"
