@@ -1,5 +1,5 @@
 def do_sca_configcheck_run_vsftpd(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which vsftpd) ] && vsftpd -olisten=NO"]
+    return ["[ ! -z $(which vsftpd) ] && vsftpd -olisten=NO"]
 
 def do_sca_configcheck_conv_vsftpd(d, toolout, suppress):
     import os
