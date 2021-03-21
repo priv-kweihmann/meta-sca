@@ -63,6 +63,7 @@ def do_sca_create_crossemu_img(d, tool, addpkgs, postcmd=""):
     ## Create dirs
     os.makedirs(dc.getVar("T"), exist_ok=True)
     os.makedirs(dc.getVar("WORKDIR"), exist_ok=True)
+    os.makedirs(dc.expand("${T}/ipktemp"), exist_ok=True)
 
     ## Create log-file (seems to be needed by logger)
     with open(os.path.join(dc.getVar("T"), "log.do_rootfs"), "w") as o:
