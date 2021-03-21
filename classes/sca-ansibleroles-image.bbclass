@@ -28,7 +28,7 @@ inherit sca-image-backtrack
 
 SCA_RAW_RESULT_FILE[ansibleroles] = "txt"
 
-DEPENDS += "ansibleroles-sca-native ansible-role-merger-native packagegroup-ansible-roles"
+DEPENDS += "ansibleroles-sca-native packagegroup-ansible-roles"
 
 def do_sca_conv_ansibleroles(d):
     import os
@@ -77,21 +77,6 @@ def do_sca_conv_ansibleroles(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
-def sca_ansibleroles_create_config(d, rootfs, path, playbooks):
-    import subprocess
-    import os
-
-    _roles = [os.path.join(rootfs, d.getVar("datadir")[1:], "ansible/roles", "{}.json".format(x))
-              for x in playbooks]
-    try:
-        output = subprocess.check_output(["nativepython3", os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "ansible-role-merger")] +
-                                          _roles, universal_newlines=True)
-    except subprocess.CalledProcessError as e:
-        output = e.stdout or ""
-
-    with open(path, "w") as o:
-        o.write(output)
-
 # Some of the roles try to os specific settings
 # fake that by symlinking againt the one specified
 # with SCA_ANSIBLEROLES_FAKEOS
@@ -116,14 +101,13 @@ fakeroot python do_sca_ansibleroles() {
         os.environ["ANSIBLE_ACTION_WARNINGS"] = "False"
         os.environ["ANSIBLE_COMMAND_WARNINGS"] = "False"
         os.environ["ANSIBLE_LOCALHOST_WARNING"] = "False"
-        # First create rootfs
-        cmd_output, rootfs_path = sca_crossemu(d, [], ["packagegroup-ansible-roles"], "ansibleroles", "do_sca_ansibleroles_fix_osvars;")
 
-        _args = ["/bin/sh", "-c", "ansible-playbook --flush-cache /rolebook.yaml"]
         cmd_output = b""
 
         _installed_pkgs = sca_get_installed_pkgs(d)
         _role_flags = d.getVarFlags("SCA_ANSIBLEROLES_ROLES")
+
+        _pbargs = []
         # As playbooks could crash run each in a single instance
         for pb in clean_split(d, "SCA_ANSIBLEROLES_ROLES"):
             # Check if the package that is checked is installed
@@ -131,8 +115,15 @@ fakeroot python do_sca_ansibleroles() {
                 if not any(intersect_lists(d, _installed_pkgs, _role_flags[pb].split(","))):
                     sca_log_note(d, "Skipping {}, as none of {} is installed".format(pb, _role_flags[pb]))
                     continue
-            sca_ansibleroles_create_config(d, rootfs_path, os.path.join(rootfs_path, "rolebook.yaml"), [pb])
-            _tmp, _ = sca_crossemu(d, _args, [], "ansibleroles", "", nocreateroot=True, addargs=["-b", "/dev/shm:/dev/shm"])
+            _pbargs += ["ansible-playbook --flush-cache {datadir}/ansible/rolebook-{pb}.yaml".format(datadir=d.getVar("datadir"), pb=pb)]
+
+
+        if any(_pbargs):
+            _tmp, rootfs_path = sca_crossemu(d, ["/bin/sh", "-c", ";".join(_pbargs)], 
+                                            ["packagegroup-ansible-roles"], 
+                                            "ansibleroles", 
+                                            postcmd="do_sca_ansibleroles_fix_osvars;", 
+                                            addargs=["-b", "/dev/shm:/dev/shm"])
             cmd_output += _tmp
 
         with open(sca_raw_result_file(d, "ansibleroles"), "wb") as o:
