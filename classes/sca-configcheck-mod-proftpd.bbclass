@@ -2,7 +2,7 @@
 SCA_CONFIGCHECK_proftpd_CONFIGFILE ?= "/etc/proftpd.conf"
 
 def do_sca_configcheck_run_proftpd(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which proftpd) ] && proftpd -c {} -t".format(d.getVar("SCA_CONFIGCHECK_proftpd_CONFIGFILE"))]
+    return ["[ ! -z $(which proftpd) ] && proftpd -c {} -t".format(d.getVar("SCA_CONFIGCHECK_proftpd_CONFIGFILE"))]
 
 def do_sca_configcheck_conv_proftpd(d, toolout, suppress):
     import os

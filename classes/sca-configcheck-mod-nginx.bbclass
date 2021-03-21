@@ -2,7 +2,7 @@
 SCA_CONFIGCHECK_nginx_CONFIGFILE ?= "/etc/nginx/nginx.conf"
 
 def do_sca_configcheck_run_nginx(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which nginx) ] && nginx -T -c {}".format(d.getVar("SCA_CONFIGCHECK_nginx_CONFIGFILE"))]
+    return ["[ ! -z $(which nginx) ] && nginx -T -c {}".format(d.getVar("SCA_CONFIGCHECK_nginx_CONFIGFILE"))]
 
 def do_sca_configcheck_conv_nginx(d, toolout, suppress):
     import os

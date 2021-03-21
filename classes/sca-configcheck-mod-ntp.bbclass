@@ -2,7 +2,7 @@
 SCA_CONFIGCHECK_ntp_CONFIGFILE ?= "/etc/ntp.conf"
 
 def do_sca_configcheck_run_ntp(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which ntpd) ] && ntpd -c {} -n".format(d.getVar("SCA_CONFIGCHECK_ntp_CONFIGFILE"))]
+    return ["[ ! -z $(which ntpd) ] && ntpd -c {} -n".format(d.getVar("SCA_CONFIGCHECK_ntp_CONFIGFILE"))]
 
 def do_sca_configcheck_conv_ntp(d, toolout, suppress):
     import os

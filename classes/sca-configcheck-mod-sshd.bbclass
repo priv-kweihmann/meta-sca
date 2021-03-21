@@ -2,7 +2,7 @@
 SCA_CONFIGCHECK_sshd_CONFIGFILE ?= "/etc/ssh/sshd_config"
 
 def do_sca_configcheck_run_sshd(d):
-    return ["/bin/sh", "-c", "[ ! -z $(which sshd) ] && /usr/libexec/openssh/sshd_check_keys && sshd -T -f {}".format(d.getVar("SCA_CONFIGCHECK_sshd_CONFIGFILE"))]
+    return ["[ ! -z $(which sshd) ] && /usr/libexec/openssh/sshd_check_keys && sshd -T -f {}".format(d.getVar("SCA_CONFIGCHECK_sshd_CONFIGFILE"))]
 
 def do_sca_configcheck_conv_sshd(d, toolout, suppress):
     import os
