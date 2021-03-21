@@ -6,14 +6,11 @@ inherit sca-crossemu-image
 
 DEPENDS += "proot-native qemu-static-native"
 
-def sca_crossemu(d, cmd, addpkgs, toolname, postcmd="", subprocargs={}, nocreateroot=False, addargs=[]):
+def sca_crossemu(d, cmd, addpkgs, toolname, postcmd="", subprocargs={}, addargs=[]):
     import subprocess
     import os
 
-    if not nocreateroot:
-        _target_path = do_sca_create_crossemu_img(d, toolname, addpkgs, postcmd)
-    else:
-        _target_path = os.path.join(d.getVar("WORKDIR"), "rootfs_{}".format(toolname))
+    _target_path = do_sca_create_crossemu_img(d, toolname, addpkgs, postcmd)
 
     cmd_output = ""
     if cmd:
