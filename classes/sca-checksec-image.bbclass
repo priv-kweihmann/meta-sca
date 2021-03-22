@@ -104,6 +104,5 @@ fakeroot python do_sca_checksec() {
                        d.expand("${STAGING_DATADIR_NATIVE}/checksec-${SCA_MODE}-fatal")))
 }
 
-do_sca_checksec[lockfiles] += "${TMPDIR}/crossemu.lock"
 do_sca_checksec[doc] = "Find security weaknesses in binaries"
 addtask do_sca_checksec before do_sca_deploy after do_image

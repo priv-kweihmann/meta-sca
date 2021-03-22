@@ -97,7 +97,6 @@ fakeroot python do_sca_reconbf() {
                         d.expand("${STAGING_DATADIR_NATIVE}/reconbf-${SCA_MODE}-fatal")))
 }
 
-do_sca_reconbf[lockfiles] += "${TMPDIR}/crossemu.lock"
 do_sca_reconbf[doc] = "Run reconbf audit on image"
 addtask do_sca_reconbf before do_sca_deploy after do_image
 
