@@ -83,7 +83,6 @@ fakeroot python do_sca_tiger() {
                        d.expand("${STAGING_DATADIR_NATIVE}/tiger-${SCA_MODE}-fatal")))
 }
 
-do_sca_tiger[lockfiles] += "${TMPDIR}/crossemu.lock"
 do_sca_tiger[doc] = "Run audit with tiger on image"
 addtask do_sca_tiger before do_sca_deploy after do_image
 

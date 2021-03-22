@@ -66,17 +66,18 @@ fakeroot python do_sca_inspec() {
     import subprocess
 
     # create root first
-    _, _ = sca_crossemu(d, [], ["packagegroup-inspec-profiles"], "inspec", ";")
     cmd_output = '{"profiles": []}'
+    _args = []
     for mod in clean_split(d, "SCA_INSPEC_MODULES"):
-        _args = ["/bin/sh", "-c",
-                 "GEM_PATH=/usr/lib/ruby/site_ruby:/usr/lib/ruby/gems inspec exec --no-interactive "
-                 "--no-enable-telemetry --chef-license=accept-no-persist " +
-                 "/usr/share/inspec/profiles/{}/".format(mod) + " --reporter json:-"]
-        _tmp, _ = sca_crossemu(d, _args, [], "inspec", ";", nocreateroot=True)
-        _tmp = _tmp.decode("utf-8")
-        _tmp = _tmp[_tmp.find("{"):]
-        cmd_output = exec_wrap_combine_json_subarray(cmd_output, _tmp, key="profiles")
+        _args += ["GEM_PATH=/usr/lib/ruby/site_ruby:/usr/lib/ruby/gems inspec exec --no-interactive " +
+                    "--no-enable-telemetry --chef-license=accept-no-persist " +
+                    "/usr/share/inspec/profiles/{}/".format(mod) + " --reporter json:-"]
+    if any(_args):
+        _cmd_output, _ = sca_crossemu(d, ["/bin/sh", "-c", ";echo '###INSPEC###';".join(_args)], ["packagegroup-inspec-profiles"], "inspec", ";")
+        if not isinstance(_cmd_output, str):
+            _cmd_output = _cmd_output.decode("utf-8")
+        for chunk in _cmd_output.split("###INSPEC###\n"):
+            cmd_output = exec_wrap_combine_json_subarray(cmd_output, chunk[chunk.find("{"):], key="profiles")
     
     with open(sca_raw_result_file(d, "inspec"), "w") as o:
         o.write(cmd_output)
@@ -91,6 +92,5 @@ fakeroot python do_sca_inspec() {
                        d.expand("${STAGING_DATADIR_NATIVE}/inspec-${SCA_MODE}-fatal")))
 }
 
-do_sca_inspec[lockfiles] += "${TMPDIR}/crossemu.lock"
 do_sca_inspec[doc] = "For overall compliance with inspec profiles"
 addtask do_sca_inspec before do_sca_deploy after do_image
