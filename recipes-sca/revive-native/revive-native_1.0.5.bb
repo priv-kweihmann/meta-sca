@@ -21,7 +21,7 @@ SRC_URI = "\
            git://${GO_IMPORT};protocol=https;name=revive \
            file://revive.sca.description \
           "
-SRCREV = "f8f4bf23a4d0c3919a3b12fb1ce2c39342f9a129"
+SRCREV = "46f65914e3b26f7044ffe6842ecce10b58e2c2aa"
 GO_IMPORT = "github.com/mgechev/revive"
 
 export GO111MODULE = "auto"
