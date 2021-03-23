@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=ac49fb893a5f9f03c162f1927dfc7bc1"
 
 DEPENDS = "npm-textlint-ast-node-types-native"
 
-SRC_URI = "https://registry.npmjs.org/@textlint/ast-traverse/-/ast-traverse-2.3.3.tgz"
-SRC_URI[md5sum] = "0eb85c795170b583e23a11dd5fe2cc6e"
-SRC_URI[sha256sum] = "6bc0d453c91b81dc4e3793a13334086cbf338a20342af0c52dfc628d4695d637"
+SRC_URI = "https://registry.npmjs.org/@textlint/ast-traverse/-/ast-traverse-2.3.4.tgz"
+SRC_URI[md5sum] = "2ac6349ddbd3383d99d7e60b35dc2650"
+SRC_URI[sha256sum] = "85f5b65d4a8cfa3b2d69241d206fa682bbbb5047c2a412787b77e01842a935bc"
 
 NPM_PKGNAME = "@textlint/ast-traverse"
 
