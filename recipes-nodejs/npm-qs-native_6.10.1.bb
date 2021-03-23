@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=b289135779dd930509ae81e6041690c0"
 
 DEPENDS = "npm-side-channel-native"
 
-SRC_URI = "https://registry.npmjs.org/qs/-/qs-6.10.0.tgz"
-SRC_URI[md5sum] = "669953eb8100f251803ce0272b607bf1"
-SRC_URI[sha256sum] = "770e1ac102e7f310384d1637482380e5a25431cd5d155ad4cd883cf9b42ea962"
+SRC_URI = "https://registry.npmjs.org/qs/-/qs-6.10.1.tgz"
+SRC_URI[md5sum] = "cc3c3da7e8c180084ea48c5b7d21b441"
+SRC_URI[sha256sum] = "48ff71ae029bdc028e6b26955edf93d811a212d46c8ed4d0d5454c18182a889a"
 
 NPM_PKGNAME = "qs"
 
