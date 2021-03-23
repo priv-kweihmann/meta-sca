@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=c4bd4cd0c32203ba1496aa7686422491"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.693.tgz"
-SRC_URI[md5sum] = "a587962a2336a7286896e1eb05ef335b"
-SRC_URI[sha256sum] = "923bfc9d22135be33ded67572aa9d96579760e7627863bbc89f182f7eb4a4089"
+SRC_URI = "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.695.tgz"
+SRC_URI[md5sum] = "bd1b4ceb64bd143bc4fc6aa20285d36a"
+SRC_URI[sha256sum] = "eb15cadcc03191237017cf113dac2d32d64d4b7ba00a068505b423898da41fe8"
 
 NPM_PKGNAME = "electron-to-chromium"
 
