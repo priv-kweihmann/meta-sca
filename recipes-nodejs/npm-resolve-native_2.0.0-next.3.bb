@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=baa47288b5bd3e657a01886ce3dd0cb6"
 DEPENDS = "npm-is-core-module-native \
            npm-path-parse-native"
 
-SRC_URI = "https://registry.npmjs.org/resolve/-/resolve-1.20.0.tgz"
-SRC_URI[md5sum] = "7e9568376e819375f1fa883664af6d8c"
-SRC_URI[sha256sum] = "d441fb6a44363703ce6db58a81cc00f56b9d014742bd922ba0c5f993ed2ea18b"
+SRC_URI = "https://registry.npmjs.org/resolve/-/resolve-2.0.0-next.3.tgz"
+SRC_URI[md5sum] = "4c4b44ede4eca72b5859c177733700b3"
+SRC_URI[sha256sum] = "4fab90bee86e697d188ca950438a75aadee891adaaeab575de19d17595796ea9"
 
 NPM_PKGNAME = "resolve"
 
