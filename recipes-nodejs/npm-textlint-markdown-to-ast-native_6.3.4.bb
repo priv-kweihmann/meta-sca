@@ -13,9 +13,9 @@ DEPENDS = "npm-debug-native \
            npm-traverse-native \
            npm-unified-native"
 
-SRC_URI = "https://registry.npmjs.org/@textlint/markdown-to-ast/-/markdown-to-ast-6.3.3.tgz"
-SRC_URI[md5sum] = "4f76f208b40d3856cafe6bbd4d9ed419"
-SRC_URI[sha256sum] = "de341638888f7811b59d0cf58f566cbf83a5a369be7e4742aa787f6aaaf619dc"
+SRC_URI = "https://registry.npmjs.org/@textlint/markdown-to-ast/-/markdown-to-ast-6.3.4.tgz"
+SRC_URI[md5sum] = "6a99d8816c364d09dc77d4787abdd455"
+SRC_URI[sha256sum] = "bb718a01480ba76b0b5f6ad462c977e22ff2387a1818bc4f1ab1db46d7657768"
 
 NPM_PKGNAME = "@textlint/markdown-to-ast"
 
