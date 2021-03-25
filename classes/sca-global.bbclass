@@ -163,6 +163,20 @@ SCA_AVAILABLE_MODULES[phpsecaudit] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[phpstan] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[progpilot] = "openembedded-layer"
 
+# Modules using crossemu support, because they need some extra "love"
+_SCA_CROSSEMU_MODULES = "\
+    ansibleroles \
+    checksec \
+    configcheck \
+    inspec \
+    lse \
+    lynis \
+    nixauditor \
+    reconbf \
+    sudokiller \
+    tiger \
+"
+
 SCA_ENABLED_MODULES := "${SCA_ENABLED_MODULES_${SCA_MODE_UPPER}}"
 
 SCA_HASHEXCLUDE_VARS = "\
