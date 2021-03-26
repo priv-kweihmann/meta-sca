@@ -9,13 +9,13 @@ inherit sca-crossemu-image
 
 DEPENDS += "proot-native qemu-static-native"
 
-PSEUDO_IGNORE_PATHS .= "${WORKDIR}/temp_,${WORKDIR}/work_"
-
 python() {
     for module in clean_split(d, "_SCA_CROSSEMU_MODULES"):
-        d.appendVar("PSEUDO_IGNORE_PATHS", d.expand("${WORKDIR}/work_" + module + "/intercept_scripts"))
-        d.appendVar("PSEUDO_IGNORE_PATHS", d.expand("${WORKDIR}/work_" + module + "/oe-rootfs-repo"))
-        d.appendVar("PSEUDO_IGNORE_PATHS", d.expand("${WORKDIR}/work_" + module + "/sstate-build-image_complete"))
+        d.appendVar("PSEUDO_IGNORE_PATHS", d.expand(",${WORKDIR}/temp_" + module))
+        d.appendVar("PSEUDO_IGNORE_PATHS", d.expand(",${WORKDIR}/work_" + module))
+        d.appendVar("PSEUDO_IGNORE_PATHS", d.expand(",${WORKDIR}/work_" + module + "/intercept_scripts"))
+        d.appendVar("PSEUDO_IGNORE_PATHS", d.expand(",${WORKDIR}/work_" + module + "/oe-rootfs-repo"))
+        d.appendVar("PSEUDO_IGNORE_PATHS", d.expand(",${WORKDIR}/work_" + module + "/sstate-build-image_complete"))
 }
 
 def sca_crossemu(d, cmd, addpkgs, toolname, postcmd="", subprocargs={}, addargs=[]):
