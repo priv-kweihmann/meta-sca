@@ -9,20 +9,17 @@ inherit sca-crossemu-image
 
 DEPENDS += "proot-native qemu-static-native"
 
-python() {
-    for module in clean_split(d, "_SCA_CROSSEMU_MODULES"):
-        d.appendVar("PSEUDO_IGNORE_PATHS", d.expand(",${WORKDIR}/temp_" + module))
-        d.appendVar("PSEUDO_IGNORE_PATHS", d.expand(",${WORKDIR}/work_" + module))
-        d.appendVar("PSEUDO_IGNORE_PATHS", d.expand(",${WORKDIR}/work_" + module + "/intercept_scripts"))
-        d.appendVar("PSEUDO_IGNORE_PATHS", d.expand(",${WORKDIR}/work_" + module + "/oe-rootfs-repo"))
-        d.appendVar("PSEUDO_IGNORE_PATHS", d.expand(",${WORKDIR}/work_" + module + "/sstate-build-image_complete"))
-}
+PSEUDO_IGNORE_PATHS .= ",${WORKDIR}/crossemu.lock,${WORKDIR}/temp_"
+
 
 def sca_crossemu(d, cmd, addpkgs, toolname, postcmd="", subprocargs={}, addargs=[]):
     import subprocess
     import os
 
-    _target_path = do_sca_create_crossemu_img(d, toolname, addpkgs, postcmd)
+    sca_log_note(d, "crossqemu: {} - pre lock".format(toolname))
+
+    with bb.utils.fileslocked([d.expand("${WORKDIR}/crossemu.lock")]):
+        _target_path = do_sca_create_crossemu_img(d, toolname, addpkgs, postcmd)
 
     sca_log_note(d, "crossqemu: {} - image created".format(toolname))
 
