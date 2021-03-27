@@ -12,8 +12,8 @@ RDEPENDS_${PN} += "ruby-concurrent-ruby \
                   ruby-tzinfo \
                   ruby-zeitwerk"
 
-SRC_URI[md5sum] = "237d41781517b485f27b00b180721cfa"
-SRC_URI[sha256sum] = "1009ad0f8a8bd3f752b59b25f60bf4dbb59ab115537d68a6f785a347cc6a4401"
+SRC_URI[md5sum] = "adf13ec272011f5fa74b0df6a2786357"
+SRC_URI[sha256sum] = "8c263a78c1278d621be523185788c1fcc0de78d9cf572b7b08c6feb3f2831350"
 
 GEM_NAME = "activesupport"
 
