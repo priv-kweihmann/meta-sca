@@ -94,7 +94,7 @@ def do_sca_conv_pyright(d):
         try:
             with open(sca_raw_result_file(d, "pyright"), "r") as f:
                 content = json.load(f)
-                for m in content["diagnostics"]:
+                for m in content["generalDiagnostics"]:
                     try:
                         g = sca_get_model_class(d,
                                                 PackageName=package_name,
