@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE;md5=3b83ef96387f14655fc854dd
 DEPENDS += "golang.org-lib-native"
 
 SRC_URI = "git://${GO_IMPORT};protocol=https"
-SRCREV = "9fca06d00ffa0a458732d1cb904f4b7a4846c8b2"
+SRCREV = "440e98cf0c87b91f0960818eed2116e33af1b43a"
 GO_IMPORT = "github.com/shabbyrobe/xmlwriter"
 
 UPSTREAM_CHECK_COMMITS = "1"
