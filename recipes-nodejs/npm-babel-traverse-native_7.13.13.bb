@@ -12,12 +12,11 @@ DEPENDS = "npm-babel-code-frame-native \
            npm-babel-parser-native \
            npm-babel-types-native \
            npm-debug-native \
-           npm-globals-native \
-           npm-lodash-native"
+           npm-globals-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/traverse/-/traverse-7.13.0.tgz"
-SRC_URI[md5sum] = "8a85f1b3a9e985d3fc5227dd5a2190dc"
-SRC_URI[sha256sum] = "4707f7ddc7db567d18c6815ef8f5cbbb7381bd50f4aad504ed6abf8b06af9942"
+SRC_URI = "https://registry.npmjs.org/@babel/traverse/-/traverse-7.13.13.tgz"
+SRC_URI[md5sum] = "f2872e93eeaa29bc535c82dc8e9e44de"
+SRC_URI[sha256sum] = "599d9b5b31089e4d7074ae86960f9ef547a76bc1182672ea33e5989c7d1687b7"
 
 NPM_PKGNAME = "@babel/traverse"
 
