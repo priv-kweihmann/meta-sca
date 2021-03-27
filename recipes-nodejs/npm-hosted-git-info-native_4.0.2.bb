@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=a01f10cd299d5727263720d47cc2c908"
 
 DEPENDS = "npm-lru-cache-native"
 
-SRC_URI = "https://registry.npmjs.org/hosted-git-info/-/hosted-git-info-4.0.1.tgz"
-SRC_URI[md5sum] = "ba240dbfdf15036f934fefca5cea579a"
-SRC_URI[sha256sum] = "031fa9ed9b16d0fdee4ad6a8dd77e5ed8d91a7fdc16e35230f9ba74b82b832e2"
+SRC_URI = "https://registry.npmjs.org/hosted-git-info/-/hosted-git-info-4.0.2.tgz"
+SRC_URI[md5sum] = "72ca81ed6ad66d2474ce51d06fb2f907"
+SRC_URI[sha256sum] = "6097db42df00835669526fc9b28fdad2830eb579dfd3a6c2860619d8a34a3519"
 
 NPM_PKGNAME = "hosted-git-info"
 
