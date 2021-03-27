@@ -13,8 +13,8 @@ RDEPENDS_${PN} += "ruby-addressable \
                   ruby-net-scp \
                   ruby-net-ssh"
 
-SRC_URI[md5sum] = "9191fda5d10b28d1a5c2d9a02dcd5b98"
-SRC_URI[sha256sum] = "5d4ae7f882f4ffc5ca654024850c63deac8b4058efa5ad22ffaa440ea8e16590"
+SRC_URI[md5sum] = "38fdd642bbac7d999cce93147434f8fe"
+SRC_URI[sha256sum] = "235d7609db0f40856284394693a6824a729c29fb80a8de76ff8eb2de7f7081b8"
 
 GEM_NAME = "train-core"
 
