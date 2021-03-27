@@ -18,6 +18,12 @@ def _get_pkgs_list(d, pkg):
         sca_log_note(d, str(e))
     return list(set(res))
 
+do_sca_flush_pseudodb() {
+    ${FAKEROOTENV} ${FAKEROOTCMD} -S
+    kill -6 $(cat ${PSEUDO_LOCALSTATEDIR}/pseudo.pid)
+    rm -rf ${PSEUDO_LOCALSTATEDIR}/*
+}
+
 def do_sca_create_crossemu_img(d, tool, addpkgs, postcmd=""):
     import shutil
     import os
@@ -27,6 +33,9 @@ def do_sca_create_crossemu_img(d, tool, addpkgs, postcmd=""):
     from oe.rootfs import create_rootfs
     from oe.manifest import create_manifest
     from oe.utils import execute_pre_post_process
+
+    bb.build.exec_func("do_sca_flush_pseudodb", d)
+
     ## Create a copy of the rootfs
     _target_path = os.path.join(d.getVar("WORKDIR"), "rootfs_{}".format(tool))
     if os.path.exists(_target_path):
@@ -53,8 +62,6 @@ def do_sca_create_crossemu_img(d, tool, addpkgs, postcmd=""):
     for item in _backup_vars.keys():
         _backup_vars[item] = d.getVar(item)
 
-    dc.setVar("WORKDIR", os.path.join(d.getVar("WORKDIR"), "work_{}".format(tool)))
-
     ## Then we apply the previously expanded values
     ## back to the vars
     for k, v in _backup_vars.items():
@@ -62,7 +69,6 @@ def do_sca_create_crossemu_img(d, tool, addpkgs, postcmd=""):
 
     ## Create dirs
     os.makedirs(dc.getVar("T"), exist_ok=True)
-    os.makedirs(dc.getVar("WORKDIR"), exist_ok=True)
     os.makedirs(dc.expand("${T}/ipktemp"), exist_ok=True)
 
     ## Create log-file (seems to be needed by logger)
@@ -97,5 +103,7 @@ def do_sca_create_crossemu_img(d, tool, addpkgs, postcmd=""):
     _qemu = "{}-static".format(qemu_target_binary(d))
     shutil.copy(os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), _qemu),
                 os.path.join(_target_path, _qemu))
+
+    bb.build.exec_func("do_sca_flush_pseudodb", d)
 
     return _target_path
