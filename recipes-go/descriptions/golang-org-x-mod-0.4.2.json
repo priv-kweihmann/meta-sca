@@ -1,0 +1,33 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause"
+  ],
+  "cleanname": "golang-org-x-mod",
+  "extra": [
+    "SRC_URI[golang-org-x-mod.sha256sum] = \"39bc9b1570666300ba5c86244621ffbcc63b007ce69e6b7a46ffba7691929621\""
+  ],
+  "extrastr": "SRC_URI[golang-org-x-mod.sha256sum] = \"39bc9b1570666300ba5c86244621ffbcc63b007ce69e6b7a46ffba7691929621\"",
+  "includes": [
+    "require golang.org-x-mod-sources.inc"
+  ],
+  "includesstr": "require golang.org-x-mod-sources.inc\nrequire golang.org-x-crypto-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc\nrequire golang.org-x-xerrors-sources.inc",
+  "license": "BSD-3-Clause",
+  "licensefiles": [
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/crypto/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/mod/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/xerrors/LICENSE;md5=a413d6b3884e141783f23d00d5838777",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "golang.org/x/xerrors",
+    "golang.org/x/crypto"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "golang.org/x/mod",
+  "srcuri": "https://proxy.golang.org/golang.org/x/mod/@v/v0.4.2.zip;srcoutput=golang.org/x/mod;srcinput=golang.org/x/mod@v0.4.2;downloadfilename=golang-org-x-mod-0.4.2.zip;name=golang-org-x-mod",
+  "version": "0.4.2"
+}

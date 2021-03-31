@@ -1,0 +1,31 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause"
+  ],
+  "cleanname": "golang-org-x-net",
+  "extra": [
+    "SRC_URI[golang-org-x-net.sha256sum] = \"6ef4f2201a538fe9c3cde2ed5e748f06f30d6c9ead13124a4c1b75e959a615db\""
+  ],
+  "extrastr": "SRC_URI[golang-org-x-net.sha256sum] = \"6ef4f2201a538fe9c3cde2ed5e748f06f30d6c9ead13124a4c1b75e959a615db\"",
+  "includes": [
+    "require golang.org-x-net-sources.inc"
+  ],
+  "includesstr": "require golang.org-x-net-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc",
+  "license": "BSD-3-Clause",
+  "licensefiles": [
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "golang.org/x/text",
+    "golang.org/x/sys",
+    "golang.org/x/term"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "golang.org/x/net",
+  "srcuri": "https://proxy.golang.org/golang.org/x/net/@v/v0.0.0-20210331060903-cb1fcc7394e5.zip;srcoutput=golang.org/x/net;srcinput=golang.org/x/net@v0.0.0-20210331060903-cb1fcc7394e5;downloadfilename=golang-org-x-net-0.0.0-20210331060903-cb1fcc7394e5.zip;name=golang-org-x-net",
+  "version": "0.0.0-20210331060903-cb1fcc7394e5"
+}

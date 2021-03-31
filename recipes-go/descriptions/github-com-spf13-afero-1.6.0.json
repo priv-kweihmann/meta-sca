@@ -1,0 +1,35 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "github-com-spf13-afero",
+  "extra": [
+    "SRC_URI[github-com-spf13-afero.sha256sum] = \"234791203d4bb7405bf5ef7f5cecc6e64fdfa9fc5a12d85b6ec7ecdb86cc0834\""
+  ],
+  "extrastr": "SRC_URI[github-com-spf13-afero.sha256sum] = \"234791203d4bb7405bf5ef7f5cecc6e64fdfa9fc5a12d85b6ec7ecdb86cc0834\"",
+  "includes": [
+    "require github.com-spf13-afero-sources.inc"
+  ],
+  "includesstr": "require github.com-spf13-afero-sources.inc\nrequire github.com-kr-fs-sources.inc\nrequire github.com-pkg-errors-sources.inc\nrequire github.com-pkg-sftp-sources.inc\nrequire golang.org-x-crypto-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/crypto/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/pkg/errors/LICENSE;md5=6fe682a02df52c6653f33bd0f7126b5a",
+    "file://src/github.com/kr/fs/LICENSE;md5=591778525c869cdde0ab5a1bf283cd81",
+    "file://src/github.com/pkg/sftp/LICENSE;md5=452fc5cc5a9127a0e828d73423d45035",
+    "file://src/github.com/spf13/afero/LICENSE.txt;md5=920d76114a32b0fb75b3f2718c5a91be",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "golang.org/x/text",
+    "github.com/pkg/sftp"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/spf13/afero",
+  "srcuri": "https://proxy.golang.org/github.com/spf13/afero/@v/v1.6.0.zip;srcoutput=github.com/spf13/afero;srcinput=github.com/spf13/afero@v1.6.0;downloadfilename=github-com-spf13-afero-1.6.0.zip;name=github-com-spf13-afero",
+  "version": "1.6.0"
+}

@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-yudai-gojsondiff",
+  "extra": [
+    "SRC_URI[github-com-yudai-gojsondiff.sha256sum] = \"90c457b595a661a25760d9f10cfda3fec27f7213c0e7026a5b97b30168e8f2d1\""
+  ],
+  "extrastr": "SRC_URI[github-com-yudai-gojsondiff.sha256sum] = \"90c457b595a661a25760d9f10cfda3fec27f7213c0e7026a5b97b30168e8f2d1\"",
+  "includes": [
+    "require github.com-yudai-gojsondiff-sources.inc"
+  ],
+  "includesstr": "require github.com-yudai-gojsondiff-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/yudai/gojsondiff/LICENSE;md5=a828e909ffdf323a651b97c768b42f8c"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/yudai/gojsondiff",
+  "srcuri": "https://proxy.golang.org/github.com/yudai/gojsondiff/@v/v1.0.0.zip;srcoutput=github.com/yudai/gojsondiff;srcinput=github.com/yudai/gojsondiff@v1.0.0;downloadfilename=github-com-yudai-gojsondiff-1.0.0.zip;name=github-com-yudai-gojsondiff",
+  "version": "1.0.0"
+}

@@ -1,0 +1,26 @@
+{
+  "_collected_licenses": [
+    "LGPL-3.0-linking-exception",
+    "LGPL-3.0-or-later",
+    "LGPL-3.0-only"
+  ],
+  "cleanname": "github-com-juju-ratelimit",
+  "extra": [
+    "SRC_URI[github-com-juju-ratelimit.sha256sum] = \"c9af5c6719ce3b6912579a029cb2a651707aa25daa1921488f9cae9c4f8ed334\""
+  ],
+  "extrastr": "SRC_URI[github-com-juju-ratelimit.sha256sum] = \"c9af5c6719ce3b6912579a029cb2a651707aa25daa1921488f9cae9c4f8ed334\"",
+  "includes": [
+    "require github.com-juju-ratelimit-sources.inc"
+  ],
+  "includesstr": "require github.com-juju-ratelimit-sources.inc",
+  "license": "LGPL-3.0-linking-exception & LGPL-3.0-only & LGPL-3.0-or-later",
+  "licensefiles": [
+    "file://src/github.com/juju/ratelimit/LICENSE;md5=2d1c30374313ae40df7772dc92ef9fd5"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/juju/ratelimit",
+  "srcuri": "https://proxy.golang.org/github.com/juju/ratelimit/@v/v1.0.1.zip;srcoutput=github.com/juju/ratelimit;srcinput=github.com/juju/ratelimit@v1.0.1;downloadfilename=github-com-juju-ratelimit-1.0.1.zip;name=github-com-juju-ratelimit",
+  "version": "1.0.1"
+}

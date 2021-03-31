@@ -1,0 +1,29 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-alexkohler-identypo",
+  "extra": [
+    "SRC_URI[github-com-alexkohler-identypo.sha256sum] = \"4cd1e5eace0bde3d318e1bfd300a65d6326bcec1579fd28d3f6853df68b3761e\""
+  ],
+  "extrastr": "SRC_URI[github-com-alexkohler-identypo.sha256sum] = \"4cd1e5eace0bde3d318e1bfd300a65d6326bcec1579fd28d3f6853df68b3761e\"",
+  "includes": [
+    "require github.com-alexkohler-identypo-sources.inc"
+  ],
+  "includesstr": "require github.com-alexkohler-identypo-sources.inc\nrequire github.com-client9-misspell-sources.inc\nrequire github.com-fatih-camelcase-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/client9/misspell/LICENSE;md5=387f6b7d6741c8a7f4f7e3c2bbdf97e4",
+    "file://src/github.com/fatih/camelcase/LICENSE.md;md5=4c59b216ce25dc182cdb837e07ba07c0",
+    "file://src/github.com/alexkohler/identypo/LICENSE;md5=55bfb4256a903d5c2d6be3e909894bef"
+  ],
+  "mods": [
+    "github.com/client9/misspell",
+    "github.com/fatih/camelcase"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/alexkohler/identypo",
+  "srcuri": "https://proxy.golang.org/github.com/alexkohler/identypo/@v/v0.0.0-20180915162145-dcb8a7984045.zip;srcoutput=github.com/alexkohler/identypo;srcinput=github.com/alexkohler/identypo@v0.0.0-20180915162145-dcb8a7984045;downloadfilename=github-com-alexkohler-identypo-0.0.0-20180915162145-dcb8a7984045.zip;name=github-com-alexkohler-identypo",
+  "version": "0.0.0-20180915162145-dcb8a7984045"
+}

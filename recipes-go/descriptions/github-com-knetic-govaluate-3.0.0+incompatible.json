@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-knetic-govaluate",
+  "extra": [
+    "SRC_URI[github-com-knetic-govaluate.sha256sum] = \"884038fdad05f64fbc33f4921e9d61f487732bd58238978da146b1987f394a4a\""
+  ],
+  "extrastr": "SRC_URI[github-com-knetic-govaluate.sha256sum] = \"884038fdad05f64fbc33f4921e9d61f487732bd58238978da146b1987f394a4a\"",
+  "includes": [
+    "require github.com-knetic-govaluate-sources.inc"
+  ],
+  "includesstr": "require github.com-knetic-govaluate-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/Knetic/govaluate/LICENSE;md5=bf6ae48cca7d6fb204c6aa2c46743baa"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/Knetic/govaluate",
+  "srcuri": "https://github.com/Knetic/govaluate/archive/refs/tags/v3.0.0.zip;srcoutput=github.com/Knetic/govaluate;srcinput=govaluate-3.0.0;downloadfilename=github-com-knetic-govaluate-3.0.0+incompatible.zip;name=github-com-knetic-govaluate",
+  "version": "3.0.0+incompatible"
+}

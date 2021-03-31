@@ -1,0 +1,30 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "github-com-briandowns-spinner",
+  "extra": [
+    "SRC_URI[github-com-briandowns-spinner.sha256sum] = \"cc46a226c4bffdd7c772ee9536b2a62b31502404f09cff1dbc3010827aba3907\""
+  ],
+  "extrastr": "SRC_URI[github-com-briandowns-spinner.sha256sum] = \"cc46a226c4bffdd7c772ee9536b2a62b31502404f09cff1dbc3010827aba3907\"",
+  "includes": [
+    "require github.com-briandowns-spinner-sources.inc"
+  ],
+  "includesstr": "require github.com-briandowns-spinner-sources.inc\nrequire github.com-fatih-color-sources.inc\nrequire github.com-mattn-go-colorable-sources.inc\nrequire github.com-mattn-go-isatty-sources.inc\nrequire golang.org-x-sys-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/github.com/briandowns/spinner/LICENSE;md5=5335066555b14d832335aa4660d6c376",
+    "file://src/github.com/fatih/color/LICENSE.md;md5=316e6d590bdcde7993fb175662c0dd5a",
+    "file://src/github.com/mattn/go-isatty/LICENSE;md5=f509beadd5a11227c27b5d2ad6c9f2c6",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/mattn/go-colorable/LICENSE;md5=24ce168f90aec2456a73de1839037245"
+  ],
+  "mods": [
+    "github.com/fatih/color"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/briandowns/spinner",
+  "srcuri": "https://proxy.golang.org/github.com/briandowns/spinner/@v/v1.12.0.zip;srcoutput=github.com/briandowns/spinner;srcinput=github.com/briandowns/spinner@v1.12.0;downloadfilename=github-com-briandowns-spinner-1.12.0.zip;name=github-com-briandowns-spinner",
+  "version": "1.12.0"
+}

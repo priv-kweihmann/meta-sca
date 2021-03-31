@@ -1,0 +1,30 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "github-com-jcmturner-rpc-v2",
+  "extra": [
+    "SRC_URI[github-com-jcmturner-rpc-v2.sha256sum] = \"90c595355e5e2c9dc1e1ae71a88491a04c34d8791180098da103217cbf5f5574\""
+  ],
+  "extrastr": "SRC_URI[github-com-jcmturner-rpc-v2.sha256sum] = \"90c595355e5e2c9dc1e1ae71a88491a04c34d8791180098da103217cbf5f5574\"",
+  "includes": [
+    "require github.com-jcmturner-rpc-v2-sources.inc"
+  ],
+  "includesstr": "require github.com-jcmturner-rpc-v2-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/github.com/jcmturner/rpc/v2/LICENSE;md5=86d3f3a95c324c9479bd8986968f4327",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "golang.org/x/net"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/jcmturner/rpc/v2",
+  "srcuri": "https://proxy.golang.org/github.com/jcmturner/rpc/v2/@v/v2.0.3.zip;srcoutput=github.com/jcmturner/rpc/v2;srcinput=github.com/jcmturner/rpc/v2@v2.0.3;downloadfilename=github-com-jcmturner-rpc-v2-2.0.3.zip;name=github-com-jcmturner-rpc-v2",
+  "version": "2.0.3"
+}

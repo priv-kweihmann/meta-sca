@@ -1,0 +1,35 @@
+{
+  "_collected_licenses": [
+    "BSD-2-Clause"
+  ],
+  "cleanname": "github-com-pkg-sftp",
+  "extra": [
+    "SRC_URI[github-com-pkg-sftp.sha256sum] = \"2292120b7a174493875109b85913928059917360aede24a3d17bd7c2465678dd\""
+  ],
+  "extrastr": "SRC_URI[github-com-pkg-sftp.sha256sum] = \"2292120b7a174493875109b85913928059917360aede24a3d17bd7c2465678dd\"",
+  "includes": [
+    "require github.com-pkg-sftp-sources.inc"
+  ],
+  "includesstr": "require github.com-pkg-sftp-sources.inc\nrequire github.com-kr-fs-sources.inc\nrequire github.com-pkg-errors-sources.inc\nrequire golang.org-x-crypto-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc",
+  "license": "BSD-2-Clause",
+  "licensefiles": [
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/crypto/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/pkg/errors/LICENSE;md5=6fe682a02df52c6653f33bd0f7126b5a",
+    "file://src/github.com/kr/fs/LICENSE;md5=591778525c869cdde0ab5a1bf283cd81",
+    "file://src/github.com/pkg/sftp/LICENSE;md5=452fc5cc5a9127a0e828d73423d45035",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "github.com/pkg/errors",
+    "golang.org/x/crypto",
+    "github.com/kr/fs"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/pkg/sftp",
+  "srcuri": "https://proxy.golang.org/github.com/pkg/sftp/@v/v1.13.0.zip;srcoutput=github.com/pkg/sftp;srcinput=github.com/pkg/sftp@v1.13.0;downloadfilename=github-com-pkg-sftp-1.13.0.zip;name=github-com-pkg-sftp",
+  "version": "1.13.0"
+}

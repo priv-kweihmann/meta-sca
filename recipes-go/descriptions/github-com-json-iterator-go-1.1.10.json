@@ -1,0 +1,29 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-json-iterator-go",
+  "extra": [
+    "SRC_URI[github-com-json-iterator-go.sha256sum] = \"2311e83151f13b90ca153a613af5feaf4ffa8618abda33cd58719cebd1dc5bb7\""
+  ],
+  "extrastr": "SRC_URI[github-com-json-iterator-go.sha256sum] = \"2311e83151f13b90ca153a613af5feaf4ffa8618abda33cd58719cebd1dc5bb7\"",
+  "includes": [
+    "require github.com-json-iterator-go-sources.inc"
+  ],
+  "includesstr": "require github.com-json-iterator-go-sources.inc\nrequire github.com-modern-go-concurrent-sources.inc\nrequire github.com-modern-go-reflect2-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/json-iterator/go/LICENSE;md5=0b69744b481d72d30dbf69f84a451cfd",
+    "file://src/github.com/modern-go/reflect2/LICENSE;md5=86d3f3a95c324c9479bd8986968f4327",
+    "file://src/github.com/modern-go/concurrent/LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
+  ],
+  "mods": [
+    "github.com/modern-go/reflect2",
+    "github.com/modern-go/concurrent"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/json-iterator/go",
+  "srcuri": "https://proxy.golang.org/github.com/json-iterator/go/@v/v1.1.10.zip;srcoutput=github.com/json-iterator/go;srcinput=github.com/json-iterator/go@v1.1.10;downloadfilename=github-com-json-iterator-go-1.1.10.zip;name=github-com-json-iterator-go",
+  "version": "1.1.10"
+}

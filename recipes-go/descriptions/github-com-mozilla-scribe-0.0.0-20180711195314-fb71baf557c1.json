@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "MPL-2.0"
+  ],
+  "cleanname": "github-com-mozilla-scribe",
+  "extra": [
+    "SRC_URI[github-com-mozilla-scribe.sha256sum] = \"f92a2bcc665bf606d7f3abbf994917e2deedb8574a8d41eef11a6634f80d6f89\""
+  ],
+  "extrastr": "SRC_URI[github-com-mozilla-scribe.sha256sum] = \"f92a2bcc665bf606d7f3abbf994917e2deedb8574a8d41eef11a6634f80d6f89\"",
+  "includes": [
+    "require github.com-mozilla-scribe-sources.inc"
+  ],
+  "includesstr": "require github.com-mozilla-scribe-sources.inc",
+  "license": "MPL-2.0",
+  "licensefiles": [
+    "file://src/github.com/mozilla/scribe/LICENSE;md5=65d26fcc2f35ea6a181ac777e42db1ea"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/mozilla/scribe",
+  "srcuri": "https://proxy.golang.org/github.com/mozilla/scribe/@v/v0.0.0-20180711195314-fb71baf557c1.zip;srcoutput=github.com/mozilla/scribe;srcinput=github.com/mozilla/scribe@v0.0.0-20180711195314-fb71baf557c1;downloadfilename=github-com-mozilla-scribe-0.0.0-20180711195314-fb71baf557c1.zip;name=github-com-mozilla-scribe",
+  "version": "0.0.0-20180711195314-fb71baf557c1"
+}

@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause"
+  ],
+  "cleanname": "github-com-pkg-diff",
+  "extra": [
+    "SRC_URI[github-com-pkg-diff.sha256sum] = \"f35b23fdd2b9522ddd46cc5c0161b4f0765c514475d5d4ca2a86aca31388c8bd\""
+  ],
+  "extrastr": "SRC_URI[github-com-pkg-diff.sha256sum] = \"f35b23fdd2b9522ddd46cc5c0161b4f0765c514475d5d4ca2a86aca31388c8bd\"",
+  "includes": [
+    "require github.com-pkg-diff-sources.inc"
+  ],
+  "includesstr": "require github.com-pkg-diff-sources.inc",
+  "license": "BSD-3-Clause",
+  "licensefiles": [
+    "file://src/github.com/pkg/diff/LICENSE;md5=d0250703509998b3201f5dd7f26e8c35"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/pkg/diff",
+  "srcuri": "https://proxy.golang.org/github.com/pkg/diff/@v/v0.0.0-20210226163009-20ebb0f2a09e.zip;srcoutput=github.com/pkg/diff;srcinput=github.com/pkg/diff@v0.0.0-20210226163009-20ebb0f2a09e;downloadfilename=github-com-pkg-diff-0.0.0-20210226163009-20ebb0f2a09e.zip;name=github-com-pkg-diff",
+  "version": "0.0.0-20210226163009-20ebb0f2a09e"
+}

@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-eapache-queue",
+  "extra": [
+    "SRC_URI[github-com-eapache-queue.sha256sum] = \"1dc1b4972e8505c4763c65424b19604c65c944911d16c18c5cbd35aae45626fb\""
+  ],
+  "extrastr": "SRC_URI[github-com-eapache-queue.sha256sum] = \"1dc1b4972e8505c4763c65424b19604c65c944911d16c18c5cbd35aae45626fb\"",
+  "includes": [
+    "require github.com-eapache-queue-sources.inc"
+  ],
+  "includesstr": "require github.com-eapache-queue-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/eapache/queue/LICENSE;md5=1bfd4408d3de090ef6b908b0cc45a316"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/eapache/queue",
+  "srcuri": "https://proxy.golang.org/github.com/eapache/queue/@v/v1.1.0.zip;srcoutput=github.com/eapache/queue;srcinput=github.com/eapache/queue@v1.1.0;downloadfilename=github-com-eapache-queue-1.1.0.zip;name=github-com-eapache-queue",
+  "version": "1.1.0"
+}

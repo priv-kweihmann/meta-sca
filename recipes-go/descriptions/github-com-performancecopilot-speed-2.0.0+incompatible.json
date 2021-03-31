@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-performancecopilot-speed",
+  "extra": [
+    "SRC_URI[github-com-performancecopilot-speed.sha256sum] = \"0c6acb3367c360076929d13180c9a2361e1952eae35927bc633c2b6f3ab86947\""
+  ],
+  "extrastr": "SRC_URI[github-com-performancecopilot-speed.sha256sum] = \"0c6acb3367c360076929d13180c9a2361e1952eae35927bc633c2b6f3ab86947\"",
+  "includes": [
+    "require github.com-performancecopilot-speed-sources.inc"
+  ],
+  "includesstr": "require github.com-performancecopilot-speed-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/performancecopilot/speed/LICENSE;md5=341d2a674724269aad196e93d56192f7"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/performancecopilot/speed",
+  "srcuri": "https://proxy.golang.org/github.com/performancecopilot/speed/@v/v2.0.0+incompatible.zip;srcoutput=github.com/performancecopilot/speed;srcinput=github.com/performancecopilot/speed@v2.0.0+incompatible;downloadfilename=github-com-performancecopilot-speed-2.0.0+incompatible.zip;name=github-com-performancecopilot-speed",
+  "version": "2.0.0+incompatible"
+}

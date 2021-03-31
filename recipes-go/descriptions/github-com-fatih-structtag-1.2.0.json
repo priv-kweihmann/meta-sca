@@ -1,0 +1,25 @@
+{
+  "_collected_licenses": [
+    "CC-BY-3.0",
+    "BSD-3-Clause"
+  ],
+  "cleanname": "github-com-fatih-structtag",
+  "extra": [
+    "SRC_URI[github-com-fatih-structtag.sha256sum] = \"9fe0ed2128614a3c35c4149febde484cfae8c5ecb13c128957cfcdf2776dd1eb\""
+  ],
+  "extrastr": "SRC_URI[github-com-fatih-structtag.sha256sum] = \"9fe0ed2128614a3c35c4149febde484cfae8c5ecb13c128957cfcdf2776dd1eb\"",
+  "includes": [
+    "require github.com-fatih-structtag-sources.inc"
+  ],
+  "includesstr": "require github.com-fatih-structtag-sources.inc",
+  "license": "BSD-3-Clause & CC-BY-3.0",
+  "licensefiles": [
+    "file://src/github.com/fatih/structtag/LICENSE;md5=7cd9e46c722ee0e2532709c7ab80abaf"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/fatih/structtag",
+  "srcuri": "https://proxy.golang.org/github.com/fatih/structtag/@v/v1.2.0.zip;srcoutput=github.com/fatih/structtag;srcinput=github.com/fatih/structtag@v1.2.0;downloadfilename=github-com-fatih-structtag-1.2.0.zip;name=github-com-fatih-structtag",
+  "version": "1.2.0"
+}

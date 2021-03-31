@@ -1,0 +1,30 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "github-com-google-martian-v3",
+  "extra": [
+    "SRC_URI[github-com-google-martian-v3.sha256sum] = \"b8997565c0ae7efb32e4155b80375971c822c2b0aba6097e9735cc247fda3d72\""
+  ],
+  "extrastr": "SRC_URI[github-com-google-martian-v3.sha256sum] = \"b8997565c0ae7efb32e4155b80375971c822c2b0aba6097e9735cc247fda3d72\"",
+  "includes": [
+    "require github.com-google-martian-v3-sources.inc"
+  ],
+  "includesstr": "require github.com-google-martian-v3-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/github.com/google/martian/v3/LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "golang.org/x/net"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/google/martian/v3",
+  "srcuri": "https://proxy.golang.org/github.com/google/martian/v3/@v/v3.1.0.zip;srcoutput=github.com/google/martian/v3;srcinput=github.com/google/martian/v3@v3.1.0;downloadfilename=github-com-google-martian-v3-3.1.0.zip;name=github-com-google-martian-v3",
+  "version": "3.1.0"
+}

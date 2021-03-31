@@ -1,0 +1,42 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "github-com-mwitkow-go-proto-validators",
+  "extra": [
+    "SRC_URI[github-com-mwitkow-go-proto-validators.sha256sum] = \"68eb5beb818a44435ece07e88dada8c9bab8f5a4b70a3ca2dce5d5a3eb3421b0\""
+  ],
+  "extrastr": "SRC_URI[github-com-mwitkow-go-proto-validators.sha256sum] = \"68eb5beb818a44435ece07e88dada8c9bab8f5a4b70a3ca2dce5d5a3eb3421b0\"",
+  "includes": [
+    "require github.com-mwitkow-go-proto-validators-sources.inc"
+  ],
+  "includesstr": "require github.com-mwitkow-go-proto-validators-sources.inc\nrequire github.com-creack-pty-sources.inc\nrequire github.com-davecgh-go-spew-sources.inc\nrequire github.com-gogo-protobuf-sources.inc\nrequire github.com-golang-protobuf-sources.inc\nrequire github.com-google-go-cmp-sources.inc\nrequire github.com-kr-pretty-sources.inc\nrequire github.com-kr-text-sources.inc\nrequire github.com-pmezard-go-difflib-sources.inc\nrequire github.com-stretchr-objx-sources.inc\nrequire github.com-stretchr-testify-sources.inc\nrequire golang.org-x-xerrors-sources.inc\nrequire google.golang.org-protobuf-sources.inc\nrequire gopkg.in-check.v1-sources.inc\nrequire gopkg.in-yaml.v3-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/gopkg.in/check.v1/LICENSE;md5=598d6673548efc92a7d6dfb739add1ed",
+    "file://src/github.com/davecgh/go-spew/LICENSE;md5=c06795ed54b2a35ebeeb543cd3a73e56",
+    "file://src/github.com/golang/protobuf/LICENSE;md5=939cce1ec101726fa754e698ac871622",
+    "file://src/github.com/kr/text/License;md5=449bfedd81a372635934cf9ce004c0cf",
+    "file://src/github.com/google/go-cmp/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab",
+    "file://src/golang.org/x/xerrors/LICENSE;md5=a413d6b3884e141783f23d00d5838777",
+    "file://src/github.com/kr/pretty/License;md5=449bfedd81a372635934cf9ce004c0cf",
+    "file://src/github.com/stretchr/objx/LICENSE;md5=d023fd31d3ca39ec61eec65a91732735",
+    "file://src/google.golang.org/protobuf/LICENSE;md5=02d4002e9171d41a8fad93aa7faf3956",
+    "file://src/github.com/creack/pty/LICENSE;md5=93958070863d769117fa33b129020050",
+    "file://src/github.com/gogo/protobuf/LICENSE;md5=38be95f95200434dc208e2ee3dab5081",
+    "file://src/github.com/stretchr/testify/LICENSE;md5=188f01994659f3c0d310612333d2a26f",
+    "file://src/github.com/pmezard/go-difflib/LICENSE;md5=e9a2ebb8de779a07500ddecca806145e",
+    "file://src/github.com/mwitkow/go-proto-validators/LICENSE.txt;md5=7ab5c73bb7e4679b16dd7c11b3559acf",
+    "file://src/gopkg.in/yaml.v3/LICENSE;md5=3c91c17266710e16afdbb2b6d15c761c"
+  ],
+  "mods": [
+    "github.com/golang/protobuf",
+    "github.com/gogo/protobuf",
+    "github.com/stretchr/testify"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/mwitkow/go-proto-validators",
+  "srcuri": "https://proxy.golang.org/github.com/mwitkow/go-proto-validators/@v/v0.3.2.zip;srcoutput=github.com/mwitkow/go-proto-validators;srcinput=github.com/mwitkow/go-proto-validators@v0.3.2;downloadfilename=github-com-mwitkow-go-proto-validators-0.3.2.zip;name=github-com-mwitkow-go-proto-validators",
+  "version": "0.3.2"
+}

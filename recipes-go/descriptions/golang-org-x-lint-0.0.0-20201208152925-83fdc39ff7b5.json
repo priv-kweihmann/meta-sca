@@ -1,0 +1,37 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause"
+  ],
+  "cleanname": "golang-org-x-lint",
+  "extra": [
+    "SRC_URI[golang-org-x-lint.sha256sum] = \"4620205ccd1fd5c5ced7ccbc264217f407c53924e847f4219e48c04c7480b294\""
+  ],
+  "extrastr": "SRC_URI[golang-org-x-lint.sha256sum] = \"4620205ccd1fd5c5ced7ccbc264217f407c53924e847f4219e48c04c7480b294\"",
+  "includes": [
+    "require golang.org-x-lint-sources.inc"
+  ],
+  "includesstr": "require golang.org-x-lint-sources.inc\nrequire github.com-yuin-goldmark-sources.inc\nrequire golang.org-x-crypto-sources.inc\nrequire golang.org-x-mod-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sync-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc\nrequire golang.org-x-tools-sources.inc\nrequire golang.org-x-xerrors-sources.inc",
+  "license": "BSD-3-Clause",
+  "licensefiles": [
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/crypto/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/mod/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/tools/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/xerrors/LICENSE;md5=a413d6b3884e141783f23d00d5838777",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/tools/cmd/getgo/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab",
+    "file://src/golang.org/x/sync/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/lint/LICENSE;md5=4c728948788b1a02f33ae4e906546eef",
+    "file://src/github.com/yuin/goldmark/LICENSE;md5=9ccc571100d655d5a450059a79f1339e"
+  ],
+  "mods": [
+    "golang.org/x/tools"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "golang.org/x/lint",
+  "srcuri": "https://proxy.golang.org/golang.org/x/lint/@v/v0.0.0-20201208152925-83fdc39ff7b5.zip;srcoutput=golang.org/x/lint;srcinput=golang.org/x/lint@v0.0.0-20201208152925-83fdc39ff7b5;downloadfilename=golang-org-x-lint-0.0.0-20201208152925-83fdc39ff7b5.zip;name=golang-org-x-lint",
+  "version": "0.0.0-20201208152925-83fdc39ff7b5"
+}

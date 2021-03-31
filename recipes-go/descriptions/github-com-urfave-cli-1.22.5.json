@@ -1,0 +1,36 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-urfave-cli",
+  "extra": [
+    "SRC_URI[github-com-urfave-cli.sha256sum] = \"e041bbae76c31607e696b03b42dacdaf8e8f73b8c14e6e84b9d33914ce324e8f\""
+  ],
+  "extrastr": "SRC_URI[github-com-urfave-cli.sha256sum] = \"e041bbae76c31607e696b03b42dacdaf8e8f73b8c14e6e84b9d33914ce324e8f\"",
+  "includes": [
+    "require github.com-urfave-cli-sources.inc"
+  ],
+  "includesstr": "require github.com-urfave-cli-sources.inc\nrequire github.com-burntsushi-toml-sources.inc\nrequire github.com-cpuguy83-go-md2man-v2-sources.inc\nrequire github.com-russross-blackfriday-v2-sources.inc\nrequire gopkg.in-yaml.v2-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/BurntSushi/toml/cmd/tomlv/COPYING;md5=9e24c0e2a784c1d1fcabb279f4f107e0",
+    "file://src/github.com/BurntSushi/toml/cmd/toml-test-encoder/COPYING;md5=9e24c0e2a784c1d1fcabb279f4f107e0",
+    "file://src/gopkg.in/yaml.v2/LICENSE.libyaml;md5=d0b68be4a2dc957aaf09144970bc6696",
+    "file://src/github.com/cpuguy83/go-md2man/v2/LICENSE.md;md5=80794f9009df723bbc6fe19234c9f517",
+    "file://src/github.com/russross/blackfriday/v2/LICENSE.txt;md5=ecf8a8a60560c35a862a4a545f2db1b3",
+    "file://src/github.com/BurntSushi/toml/COPYING;md5=9e24c0e2a784c1d1fcabb279f4f107e0",
+    "file://src/gopkg.in/yaml.v2/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e",
+    "file://src/github.com/urfave/cli/LICENSE;md5=c542707ca9fc0b7802407ba62310bd8f",
+    "file://src/github.com/BurntSushi/toml/cmd/toml-test-decoder/COPYING;md5=9e24c0e2a784c1d1fcabb279f4f107e0"
+  ],
+  "mods": [
+    "github.com/BurntSushi/toml",
+    "github.com/cpuguy83/go-md2man/v2",
+    "gopkg.in/yaml.v2"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/urfave/cli",
+  "srcuri": "https://proxy.golang.org/github.com/urfave/cli/@v/v1.22.5.zip;srcoutput=github.com/urfave/cli;srcinput=github.com/urfave/cli@v1.22.5;downloadfilename=github-com-urfave-cli-1.22.5.zip;name=github-com-urfave-cli",
+  "version": "1.22.5"
+}

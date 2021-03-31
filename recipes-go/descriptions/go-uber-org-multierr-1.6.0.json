@@ -1,0 +1,27 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "go-uber-org-multierr",
+  "extra": [
+    "SRC_URI[go-uber-org-multierr.sha256sum] = \"5238ef4df5394e9b69cc2062592476ab5d8bafa4b876e2aff5413de9b5c05a27\""
+  ],
+  "extrastr": "SRC_URI[go-uber-org-multierr.sha256sum] = \"5238ef4df5394e9b69cc2062592476ab5d8bafa4b876e2aff5413de9b5c05a27\"",
+  "includes": [
+    "require go.uber.org-multierr-sources.inc"
+  ],
+  "includesstr": "require go.uber.org-multierr-sources.inc\nrequire go.uber.org-atomic-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/go.uber.org/multierr/LICENSE.txt;md5=f65b21a547112d1bc7b11b90f9b31997",
+    "file://src/go.uber.org/atomic/LICENSE.txt;md5=1caee86519456feda989f8a838102b50"
+  ],
+  "mods": [
+    "go.uber.org/atomic"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "go.uber.org/multierr",
+  "srcuri": "https://proxy.golang.org/go.uber.org/multierr/@v/v1.6.0.zip;srcoutput=go.uber.org/multierr;srcinput=go.uber.org/multierr@v1.6.0;downloadfilename=go-uber-org-multierr-1.6.0.zip;name=go-uber-org-multierr",
+  "version": "1.6.0"
+}

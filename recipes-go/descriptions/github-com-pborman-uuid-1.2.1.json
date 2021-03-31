@@ -1,0 +1,27 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause"
+  ],
+  "cleanname": "github-com-pborman-uuid",
+  "extra": [
+    "SRC_URI[github-com-pborman-uuid.sha256sum] = \"3699aef3b9e0a97863a4a90bf26254d1a6ba03a2b1d4f4d2a5061c4d29d9dd7f\""
+  ],
+  "extrastr": "SRC_URI[github-com-pborman-uuid.sha256sum] = \"3699aef3b9e0a97863a4a90bf26254d1a6ba03a2b1d4f4d2a5061c4d29d9dd7f\"",
+  "includes": [
+    "require github.com-pborman-uuid-sources.inc"
+  ],
+  "includesstr": "require github.com-pborman-uuid-sources.inc\nrequire github.com-google-uuid-sources.inc",
+  "license": "BSD-3-Clause",
+  "licensefiles": [
+    "file://src/github.com/google/uuid/LICENSE;md5=88073b6dd8ec00fe09da59e0b6dfded1",
+    "file://src/github.com/pborman/uuid/LICENSE;md5=88073b6dd8ec00fe09da59e0b6dfded1"
+  ],
+  "mods": [
+    "github.com/google/uuid"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/pborman/uuid",
+  "srcuri": "https://proxy.golang.org/github.com/pborman/uuid/@v/v1.2.1.zip;srcoutput=github.com/pborman/uuid;srcinput=github.com/pborman/uuid@v1.2.1;downloadfilename=github-com-pborman-uuid-1.2.1.zip;name=github-com-pborman-uuid",
+  "version": "1.2.1"
+}

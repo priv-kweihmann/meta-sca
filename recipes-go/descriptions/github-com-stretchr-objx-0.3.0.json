@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-stretchr-objx",
+  "extra": [
+    "SRC_URI[github-com-stretchr-objx.sha256sum] = \"21b63367c9f7e86a30383ee0bf4aa13b1bd3df890eef3529e351a692012946e5\""
+  ],
+  "extrastr": "SRC_URI[github-com-stretchr-objx.sha256sum] = \"21b63367c9f7e86a30383ee0bf4aa13b1bd3df890eef3529e351a692012946e5\"",
+  "includes": [
+    "require github.com-stretchr-objx-sources.inc"
+  ],
+  "includesstr": "require github.com-stretchr-objx-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/stretchr/objx/LICENSE;md5=d023fd31d3ca39ec61eec65a91732735"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/stretchr/objx",
+  "srcuri": "https://proxy.golang.org/github.com/stretchr/objx/@v/v0.3.0.zip;srcoutput=github.com/stretchr/objx;srcinput=github.com/stretchr/objx@v0.3.0;downloadfilename=github-com-stretchr-objx-0.3.0.zip;name=github-com-stretchr-objx",
+  "version": "0.3.0"
+}

@@ -1,0 +1,40 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "github-com-casbin-casbin-v2",
+  "extra": [
+    "SRC_URI[github-com-casbin-casbin-v2.sha256sum] = \"454aa949f05ee4a4cec13a6ea0cb8c790dc76436cf20e1a4bf6d8cbd6810e1ab\""
+  ],
+  "extrastr": "SRC_URI[github-com-casbin-casbin-v2.sha256sum] = \"454aa949f05ee4a4cec13a6ea0cb8c790dc76436cf20e1a4bf6d8cbd6810e1ab\"",
+  "includes": [
+    "require github.com-casbin-casbin-v2-sources.inc"
+  ],
+  "includesstr": "require github.com-casbin-casbin-v2-sources.inc\nrequire github.com-golang-mock-sources.inc\nrequire github.com-knetic-govaluate-sources.inc\nrequire github.com-yuin-goldmark-sources.inc\nrequire golang.org-x-crypto-sources.inc\nrequire golang.org-x-mod-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sync-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc\nrequire golang.org-x-tools-sources.inc\nrequire golang.org-x-xerrors-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/crypto/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/mod/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/tools/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/xerrors/LICENSE;md5=a413d6b3884e141783f23d00d5838777",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/Knetic/govaluate/LICENSE;md5=bf6ae48cca7d6fb204c6aa2c46743baa",
+    "file://src/golang.org/x/tools/cmd/getgo/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab",
+    "file://src/golang.org/x/sync/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/casbin/casbin/v2/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/golang/mock/LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57",
+    "file://src/github.com/yuin/goldmark/LICENSE;md5=9ccc571100d655d5a450059a79f1339e"
+  ],
+  "mods": [
+    "github.com/Knetic/govaluate",
+    "github.com/golang/mock"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/casbin/casbin/v2",
+  "srcuri": "https://proxy.golang.org/github.com/casbin/casbin/v2/@v/v2.25.5.zip;srcoutput=github.com/casbin/casbin/v2;srcinput=github.com/casbin/casbin/v2@v2.25.5;downloadfilename=github-com-casbin-casbin-v2-2.25.5.zip;name=github-com-casbin-casbin-v2",
+  "version": "2.25.5"
+}

@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause"
+  ],
+  "cleanname": "github-com-kr-fs",
+  "extra": [
+    "SRC_URI[github-com-kr-fs.sha256sum] = \"d376bd98e81aea34585fc3b04bab76363e9e87cde69383964e57e9779f2af81e\""
+  ],
+  "extrastr": "SRC_URI[github-com-kr-fs.sha256sum] = \"d376bd98e81aea34585fc3b04bab76363e9e87cde69383964e57e9779f2af81e\"",
+  "includes": [
+    "require github.com-kr-fs-sources.inc"
+  ],
+  "includesstr": "require github.com-kr-fs-sources.inc",
+  "license": "BSD-3-Clause",
+  "licensefiles": [
+    "file://src/github.com/kr/fs/LICENSE;md5=591778525c869cdde0ab5a1bf283cd81"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/kr/fs",
+  "srcuri": "https://proxy.golang.org/github.com/kr/fs/@v/v0.1.0.zip;srcoutput=github.com/kr/fs;srcinput=github.com/kr/fs@v0.1.0;downloadfilename=github-com-kr-fs-0.1.0.zip;name=github-com-kr-fs",
+  "version": "0.1.0"
+}
