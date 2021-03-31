@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause"
+  ],
+  "cleanname": "github-com-tealeg-xlsx",
+  "extra": [
+    "SRC_URI[github-com-tealeg-xlsx.sha256sum] = \"ff32f4336aed03df7c9cb7a4df9f1f42a1c64fe5d17c34566159511943d24bde\""
+  ],
+  "extrastr": "SRC_URI[github-com-tealeg-xlsx.sha256sum] = \"ff32f4336aed03df7c9cb7a4df9f1f42a1c64fe5d17c34566159511943d24bde\"",
+  "includes": [
+    "require github.com-tealeg-xlsx-sources.inc"
+  ],
+  "includesstr": "require github.com-tealeg-xlsx-sources.inc",
+  "license": "BSD-3-Clause",
+  "licensefiles": [
+    "file://src/github.com/tealeg/xlsx/LICENSE;md5=f609f72877939978ce194fa2431db040"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/tealeg/xlsx",
+  "srcuri": "https://proxy.golang.org/github.com/tealeg/xlsx/@v/v1.0.5.zip;srcoutput=github.com/tealeg/xlsx;srcinput=github.com/tealeg/xlsx@v1.0.5;downloadfilename=github-com-tealeg-xlsx-1.0.5.zip;name=github-com-tealeg-xlsx",
+  "version": "1.0.5"
+}

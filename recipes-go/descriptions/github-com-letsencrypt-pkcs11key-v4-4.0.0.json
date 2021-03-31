@@ -1,0 +1,27 @@
+{
+  "_collected_licenses": [
+    "BSD-2-Clause"
+  ],
+  "cleanname": "github-com-letsencrypt-pkcs11key-v4",
+  "extra": [
+    "SRC_URI[github-com-letsencrypt-pkcs11key-v4.sha256sum] = \"b8893408cd27d59fc36881c451d737a9ea7f938bb62fa48e7537dd02fc598964\""
+  ],
+  "extrastr": "SRC_URI[github-com-letsencrypt-pkcs11key-v4.sha256sum] = \"b8893408cd27d59fc36881c451d737a9ea7f938bb62fa48e7537dd02fc598964\"",
+  "includes": [
+    "require github.com-letsencrypt-pkcs11key-v4-sources.inc"
+  ],
+  "includesstr": "require github.com-letsencrypt-pkcs11key-v4-sources.inc\nrequire github.com-miekg-pkcs11-sources.inc",
+  "license": "BSD-2-Clause",
+  "licensefiles": [
+    "file://src/github.com/letsencrypt/pkcs11key/v4/LICENSE;md5=fb0c3340290e8b57d69b9b578badd25d",
+    "file://src/github.com/miekg/pkcs11/LICENSE;md5=746b23f793d7aaacdeb34a1c4e7d103b"
+  ],
+  "mods": [
+    "github.com/miekg/pkcs11"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/letsencrypt/pkcs11key/v4",
+  "srcuri": "https://proxy.golang.org/github.com/letsencrypt/pkcs11key/v4/@v/v4.0.0.zip;srcoutput=github.com/letsencrypt/pkcs11key/v4;srcinput=github.com/letsencrypt/pkcs11key/v4@v4.0.0;downloadfilename=github-com-letsencrypt-pkcs11key-v4-4.0.0.zip;name=github-com-letsencrypt-pkcs11key-v4",
+  "version": "4.0.0"
+}

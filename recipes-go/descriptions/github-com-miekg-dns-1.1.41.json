@@ -1,0 +1,31 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause"
+  ],
+  "cleanname": "github-com-miekg-dns",
+  "extra": [
+    "SRC_URI[github-com-miekg-dns.sha256sum] = \"0e484478e5057a155b61523c17e6941558888b8f2f450c4235cc993d233dcc14\""
+  ],
+  "extrastr": "SRC_URI[github-com-miekg-dns.sha256sum] = \"0e484478e5057a155b61523c17e6941558888b8f2f450c4235cc993d233dcc14\"",
+  "includes": [
+    "require github.com-miekg-dns-sources.inc"
+  ],
+  "includesstr": "require github.com-miekg-dns-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc",
+  "license": "BSD-3-Clause",
+  "licensefiles": [
+    "file://src/github.com/miekg/dns/LICENSE;md5=567c1ad6c08ca0ee8d7e0a0cf790aff9",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "golang.org/x/net",
+    "golang.org/x/sys"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/miekg/dns",
+  "srcuri": "https://proxy.golang.org/github.com/miekg/dns/@v/v1.1.41.zip;srcoutput=github.com/miekg/dns;srcinput=github.com/miekg/dns@v1.1.41;downloadfilename=github-com-miekg-dns-1.1.41.zip;name=github-com-miekg-dns",
+  "version": "1.1.41"
+}

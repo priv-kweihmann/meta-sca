@@ -1,0 +1,28 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-olekukonko-tablewriter",
+  "extra": [
+    "SRC_URI[github-com-olekukonko-tablewriter.sha256sum] = \"ba678c0fddd0645293afc2ac50a5943730d755e31059f588f4b4a8c581b65dad\""
+  ],
+  "extrastr": "SRC_URI[github-com-olekukonko-tablewriter.sha256sum] = \"ba678c0fddd0645293afc2ac50a5943730d755e31059f588f4b4a8c581b65dad\"",
+  "includes": [
+    "require github.com-olekukonko-tablewriter-sources.inc"
+  ],
+  "includesstr": "require github.com-olekukonko-tablewriter-sources.inc\nrequire github.com-mattn-go-runewidth-sources.inc\nrequire github.com-rivo-uniseg-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/mattn/go-runewidth/LICENSE;md5=24ce168f90aec2456a73de1839037245",
+    "file://src/github.com/olekukonko/tablewriter/LICENSE.md;md5=0b3be5790ce7a5a6c959f60a5ce4c138",
+    "file://src/github.com/rivo/uniseg/LICENSE.txt;md5=4393c339bf180cf6e188b6ea32d8b93c"
+  ],
+  "mods": [
+    "github.com/mattn/go-runewidth"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/olekukonko/tablewriter",
+  "srcuri": "https://proxy.golang.org/github.com/olekukonko/tablewriter/@v/v0.0.5.zip;srcoutput=github.com/olekukonko/tablewriter;srcinput=github.com/olekukonko/tablewriter@v0.0.5;downloadfilename=github-com-olekukonko-tablewriter-0.0.5.zip;name=github-com-olekukonko-tablewriter",
+  "version": "0.0.5"
+}

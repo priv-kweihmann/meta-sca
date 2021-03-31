@@ -1,0 +1,27 @@
+{
+  "_collected_licenses": [
+    "MPL-2.0"
+  ],
+  "cleanname": "github-com-hashicorp-go-rootcerts",
+  "extra": [
+    "SRC_URI[github-com-hashicorp-go-rootcerts.sha256sum] = \"864a48e642e87a273fb5ef60bb3575bd74a7090510f93143163fa6700be31948\""
+  ],
+  "extrastr": "SRC_URI[github-com-hashicorp-go-rootcerts.sha256sum] = \"864a48e642e87a273fb5ef60bb3575bd74a7090510f93143163fa6700be31948\"",
+  "includes": [
+    "require github.com-hashicorp-go-rootcerts-sources.inc"
+  ],
+  "includesstr": "require github.com-hashicorp-go-rootcerts-sources.inc\nrequire github.com-mitchellh-go-homedir-sources.inc",
+  "license": "MPL-2.0",
+  "licensefiles": [
+    "file://src/github.com/mitchellh/go-homedir/LICENSE;md5=3f7765c3d4f58e1f84c4313cecf0f5bd",
+    "file://src/github.com/hashicorp/go-rootcerts/LICENSE;md5=65d26fcc2f35ea6a181ac777e42db1ea"
+  ],
+  "mods": [
+    "github.com/mitchellh/go-homedir"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/hashicorp/go-rootcerts",
+  "srcuri": "https://proxy.golang.org/github.com/hashicorp/go-rootcerts/@v/v1.0.2.zip;srcoutput=github.com/hashicorp/go-rootcerts;srcinput=github.com/hashicorp/go-rootcerts@v1.0.2;downloadfilename=github-com-hashicorp-go-rootcerts-1.0.2.zip;name=github-com-hashicorp-go-rootcerts",
+  "version": "1.0.2"
+}

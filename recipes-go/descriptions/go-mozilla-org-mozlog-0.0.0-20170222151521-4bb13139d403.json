@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "MPL-2.0"
+  ],
+  "cleanname": "go-mozilla-org-mozlog",
+  "extra": [
+    "SRC_URI[go-mozilla-org-mozlog.sha256sum] = \"246dd9bbd31c427e46f14e012c03d3a0ab8e3d86dc1bd5d763f6a69f1a8d656b\""
+  ],
+  "extrastr": "SRC_URI[go-mozilla-org-mozlog.sha256sum] = \"246dd9bbd31c427e46f14e012c03d3a0ab8e3d86dc1bd5d763f6a69f1a8d656b\"",
+  "includes": [
+    "require go.mozilla.org-mozlog-sources.inc"
+  ],
+  "includesstr": "require go.mozilla.org-mozlog-sources.inc",
+  "license": "MPL-2.0",
+  "licensefiles": [
+    "file://src/go.mozilla.org/mozlog/LICENSE;md5=f27a50d2e878867827842f2c60e30bfc"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "go.mozilla.org/mozlog",
+  "srcuri": "https://proxy.golang.org/go.mozilla.org/mozlog/@v/v0.0.0-20170222151521-4bb13139d403.zip;srcoutput=go.mozilla.org/mozlog;srcinput=go.mozilla.org/mozlog@v0.0.0-20170222151521-4bb13139d403;downloadfilename=go-mozilla-org-mozlog-0.0.0-20170222151521-4bb13139d403.zip;name=go-mozilla-org-mozlog",
+  "version": "0.0.0-20170222151521-4bb13139d403"
+}

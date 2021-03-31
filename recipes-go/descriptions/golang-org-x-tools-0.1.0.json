@@ -1,0 +1,41 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause"
+  ],
+  "cleanname": "golang-org-x-tools",
+  "extra": [
+    "SRC_URI[golang-org-x-tools.sha256sum] = \"bb7d50a844ccfbe67a8d51ce04404bddc8cdc46eaf3fe82d84806d61fffc22dd\""
+  ],
+  "extrastr": "SRC_URI[golang-org-x-tools.sha256sum] = \"bb7d50a844ccfbe67a8d51ce04404bddc8cdc46eaf3fe82d84806d61fffc22dd\"",
+  "includes": [
+    "require golang.org-x-tools-sources.inc"
+  ],
+  "includesstr": "require golang.org-x-tools-sources.inc\nrequire github.com-yuin-goldmark-sources.inc\nrequire golang.org-x-crypto-sources.inc\nrequire golang.org-x-mod-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sync-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc\nrequire golang.org-x-xerrors-sources.inc",
+  "license": "BSD-3-Clause",
+  "licensefiles": [
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/tools/cmd/getgo/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab",
+    "file://src/golang.org/x/crypto/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/mod/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/sync/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/yuin/goldmark/LICENSE;md5=9ccc571100d655d5a450059a79f1339e",
+    "file://src/golang.org/x/xerrors/LICENSE;md5=a413d6b3884e141783f23d00d5838777",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/tools/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "golang.org/x/xerrors",
+    "golang.org/x/mod",
+    "github.com/yuin/goldmark",
+    "golang.org/x/sys",
+    "golang.org/x/net",
+    "golang.org/x/sync"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "golang.org/x/tools",
+  "srcuri": "https://proxy.golang.org/golang.org/x/tools/@v/v0.1.0.zip;srcoutput=golang.org/x/tools;srcinput=golang.org/x/tools@v0.1.0;downloadfilename=golang-org-x-tools-0.1.0.zip;name=golang-org-x-tools",
+  "version": "0.1.0"
+}

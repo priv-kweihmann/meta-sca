@@ -1,0 +1,40 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "github-com-lyft-protoc-gen-star",
+  "extra": [
+    "SRC_URI[github-com-lyft-protoc-gen-star.sha256sum] = \"ae6299b31156146fa0cbb0509b7cf821db252c60b8fb03a90435feee1de84777\""
+  ],
+  "extrastr": "SRC_URI[github-com-lyft-protoc-gen-star.sha256sum] = \"ae6299b31156146fa0cbb0509b7cf821db252c60b8fb03a90435feee1de84777\"",
+  "includes": [
+    "require github.com-lyft-protoc-gen-star-sources.inc"
+  ],
+  "includesstr": "require github.com-lyft-protoc-gen-star-sources.inc\nrequire github.com-golang-protobuf-sources.inc\nrequire github.com-google-go-cmp-sources.inc\nrequire github.com-kr-fs-sources.inc\nrequire github.com-pkg-errors-sources.inc\nrequire github.com-pkg-sftp-sources.inc\nrequire github.com-spf13-afero-sources.inc\nrequire golang.org-x-crypto-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc\nrequire golang.org-x-xerrors-sources.inc\nrequire google.golang.org-protobuf-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/crypto/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/kr/fs/LICENSE;md5=591778525c869cdde0ab5a1bf283cd81",
+    "file://src/github.com/golang/protobuf/LICENSE;md5=939cce1ec101726fa754e698ac871622",
+    "file://src/github.com/google/go-cmp/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab",
+    "file://src/golang.org/x/xerrors/LICENSE;md5=a413d6b3884e141783f23d00d5838777",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/google.golang.org/protobuf/LICENSE;md5=02d4002e9171d41a8fad93aa7faf3956",
+    "file://src/github.com/pkg/errors/LICENSE;md5=6fe682a02df52c6653f33bd0f7126b5a",
+    "file://src/github.com/lyft/protoc-gen-star/LICENSE;md5=175792518e4ac015ab6696d16c4f607e",
+    "file://src/github.com/pkg/sftp/LICENSE;md5=452fc5cc5a9127a0e828d73423d45035",
+    "file://src/github.com/spf13/afero/LICENSE.txt;md5=920d76114a32b0fb75b3f2718c5a91be",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "github.com/golang/protobuf",
+    "github.com/spf13/afero"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/lyft/protoc-gen-star",
+  "srcuri": "https://proxy.golang.org/github.com/lyft/protoc-gen-star/@v/v0.5.2.zip;srcoutput=github.com/lyft/protoc-gen-star;srcinput=github.com/lyft/protoc-gen-star@v0.5.2;downloadfilename=github-com-lyft-protoc-gen-star-0.5.2.zip;name=github-com-lyft-protoc-gen-star",
+  "version": "0.5.2"
+}

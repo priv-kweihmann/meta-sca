@@ -1,0 +1,37 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-hashicorp-go-msgpack",
+  "extra": [
+    "SRC_URI[github-com-hashicorp-go-msgpack.sha256sum] = \"7bdbe258c6c84bb35b26d6a0e613792c17364ac9d5f141cc304cfb636129a6d4\""
+  ],
+  "extrastr": "SRC_URI[github-com-hashicorp-go-msgpack.sha256sum] = \"7bdbe258c6c84bb35b26d6a0e613792c17364ac9d5f141cc304cfb636129a6d4\"",
+  "includes": [
+    "require github.com-hashicorp-go-msgpack-sources.inc"
+  ],
+  "includesstr": "require github.com-hashicorp-go-msgpack-sources.inc\nrequire github.com-yuin-goldmark-sources.inc\nrequire golang.org-x-crypto-sources.inc\nrequire golang.org-x-mod-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sync-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc\nrequire golang.org-x-tools-sources.inc\nrequire golang.org-x-xerrors-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/crypto/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/mod/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/tools/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/xerrors/LICENSE;md5=a413d6b3884e141783f23d00d5838777",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/hashicorp/go-msgpack/LICENSE;md5=a03c0693c900925da5789db4e72da142",
+    "file://src/golang.org/x/tools/cmd/getgo/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab",
+    "file://src/golang.org/x/sync/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/yuin/goldmark/LICENSE;md5=9ccc571100d655d5a450059a79f1339e"
+  ],
+  "mods": [
+    "golang.org/x/tools"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/hashicorp/go-msgpack",
+  "srcuri": "https://proxy.golang.org/github.com/hashicorp/go-msgpack/@v/v1.1.5.zip;srcoutput=github.com/hashicorp/go-msgpack;srcinput=github.com/hashicorp/go-msgpack@v1.1.5;downloadfilename=github-com-hashicorp-go-msgpack-1.1.5.zip;name=github-com-hashicorp-go-msgpack",
+  "version": "1.1.5"
+}

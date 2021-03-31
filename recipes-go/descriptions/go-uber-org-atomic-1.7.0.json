@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "go-uber-org-atomic",
+  "extra": [
+    "SRC_URI[go-uber-org-atomic.sha256sum] = \"0417b4203eb1454a0eeda59e79f426c27fcfb9e3c74077060303429cc16db307\""
+  ],
+  "extrastr": "SRC_URI[go-uber-org-atomic.sha256sum] = \"0417b4203eb1454a0eeda59e79f426c27fcfb9e3c74077060303429cc16db307\"",
+  "includes": [
+    "require go.uber.org-atomic-sources.inc"
+  ],
+  "includesstr": "require go.uber.org-atomic-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/go.uber.org/atomic/LICENSE.txt;md5=1caee86519456feda989f8a838102b50"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "go.uber.org/atomic",
+  "srcuri": "https://proxy.golang.org/go.uber.org/atomic/@v/v1.7.0.zip;srcoutput=go.uber.org/atomic;srcinput=go.uber.org/atomic@v1.7.0;downloadfilename=go-uber-org-atomic-1.7.0.zip;name=go-uber-org-atomic",
+  "version": "1.7.0"
+}

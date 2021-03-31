@@ -1,0 +1,27 @@
+{
+  "_collected_licenses": [
+    "MPL-2.0"
+  ],
+  "cleanname": "github-com-hashicorp-go-multierror",
+  "extra": [
+    "SRC_URI[github-com-hashicorp-go-multierror.sha256sum] = \"972cd841ee51fdeac69c5a301e57f8ea27aebf15fddd7f621d5c240f28c3000c\""
+  ],
+  "extrastr": "SRC_URI[github-com-hashicorp-go-multierror.sha256sum] = \"972cd841ee51fdeac69c5a301e57f8ea27aebf15fddd7f621d5c240f28c3000c\"",
+  "includes": [
+    "require github.com-hashicorp-go-multierror-sources.inc"
+  ],
+  "includesstr": "require github.com-hashicorp-go-multierror-sources.inc\nrequire github.com-hashicorp-errwrap-sources.inc",
+  "license": "MPL-2.0",
+  "licensefiles": [
+    "file://src/github.com/hashicorp/go-multierror/LICENSE;md5=d44fdeb607e2d2614db9464dbedd4094",
+    "file://src/github.com/hashicorp/errwrap/LICENSE;md5=b278a92d2c1509760384428817710378"
+  ],
+  "mods": [
+    "github.com/hashicorp/errwrap"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/hashicorp/go-multierror",
+  "srcuri": "https://proxy.golang.org/github.com/hashicorp/go-multierror/@v/v1.1.1.zip;srcoutput=github.com/hashicorp/go-multierror;srcinput=github.com/hashicorp/go-multierror@v1.1.1;downloadfilename=github-com-hashicorp-go-multierror-1.1.1.zip;name=github-com-hashicorp-go-multierror",
+  "version": "1.1.1"
+}

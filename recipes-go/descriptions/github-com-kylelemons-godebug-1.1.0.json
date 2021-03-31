@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "github-com-kylelemons-godebug",
+  "extra": [
+    "SRC_URI[github-com-kylelemons-godebug.sha256sum] = \"dbbd0ce8c2f4932bb03704d73026b21af12bd68d5b8f4798dbf10a487a2b6d13\""
+  ],
+  "extrastr": "SRC_URI[github-com-kylelemons-godebug.sha256sum] = \"dbbd0ce8c2f4932bb03704d73026b21af12bd68d5b8f4798dbf10a487a2b6d13\"",
+  "includes": [
+    "require github.com-kylelemons-godebug-sources.inc"
+  ],
+  "includesstr": "require github.com-kylelemons-godebug-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/github.com/kylelemons/godebug/LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/kylelemons/godebug",
+  "srcuri": "https://proxy.golang.org/github.com/kylelemons/godebug/@v/v1.1.0.zip;srcoutput=github.com/kylelemons/godebug;srcinput=github.com/kylelemons/godebug@v1.1.0;downloadfilename=github-com-kylelemons-godebug-1.1.0.zip;name=github-com-kylelemons-godebug",
+  "version": "1.1.0"
+}

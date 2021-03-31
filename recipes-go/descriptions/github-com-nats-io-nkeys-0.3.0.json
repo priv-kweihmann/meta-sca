@@ -1,0 +1,31 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "github-com-nats-io-nkeys",
+  "extra": [
+    "SRC_URI[github-com-nats-io-nkeys.sha256sum] = \"9383fa98356bb67ba1110814918e9997fdbcb83c08ffd6902b5aed7b9d96dfa2\""
+  ],
+  "extrastr": "SRC_URI[github-com-nats-io-nkeys.sha256sum] = \"9383fa98356bb67ba1110814918e9997fdbcb83c08ffd6902b5aed7b9d96dfa2\"",
+  "includes": [
+    "require github.com-nats-io-nkeys-sources.inc"
+  ],
+  "includesstr": "require github.com-nats-io-nkeys-sources.inc\nrequire golang.org-x-crypto-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/crypto/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/nats-io/nkeys/LICENSE;md5=86d3f3a95c324c9479bd8986968f4327",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "golang.org/x/crypto"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/nats-io/nkeys",
+  "srcuri": "https://proxy.golang.org/github.com/nats-io/nkeys/@v/v0.3.0.zip;srcoutput=github.com/nats-io/nkeys;srcinput=github.com/nats-io/nkeys@v0.3.0;downloadfilename=github-com-nats-io-nkeys-0.3.0.zip;name=github-com-nats-io-nkeys",
+  "version": "0.3.0"
+}

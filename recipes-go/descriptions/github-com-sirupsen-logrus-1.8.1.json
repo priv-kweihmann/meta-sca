@@ -1,0 +1,37 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-sirupsen-logrus",
+  "extra": [
+    "SRC_URI[github-com-sirupsen-logrus.sha256sum] = \"8caec32e0aba1b95effc69d645b50f937137f78f0d0534b149f017dc0164a354\""
+  ],
+  "extrastr": "SRC_URI[github-com-sirupsen-logrus.sha256sum] = \"8caec32e0aba1b95effc69d645b50f937137f78f0d0534b149f017dc0164a354\"",
+  "includes": [
+    "require github.com-sirupsen-logrus-sources.inc"
+  ],
+  "includesstr": "require github.com-sirupsen-logrus-sources.inc\nrequire github.com-creack-pty-sources.inc\nrequire github.com-davecgh-go-spew-sources.inc\nrequire github.com-kr-pretty-sources.inc\nrequire github.com-kr-text-sources.inc\nrequire github.com-pmezard-go-difflib-sources.inc\nrequire github.com-stretchr-objx-sources.inc\nrequire github.com-stretchr-testify-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire gopkg.in-check.v1-sources.inc\nrequire gopkg.in-yaml.v3-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/gopkg.in/check.v1/LICENSE;md5=598d6673548efc92a7d6dfb739add1ed",
+    "file://src/github.com/sirupsen/logrus/LICENSE;md5=8dadfef729c08ec4e631c4f6fc5d43a0",
+    "file://src/github.com/davecgh/go-spew/LICENSE;md5=c06795ed54b2a35ebeeb543cd3a73e56",
+    "file://src/github.com/stretchr/testify/LICENSE;md5=188f01994659f3c0d310612333d2a26f",
+    "file://src/github.com/pmezard/go-difflib/LICENSE;md5=e9a2ebb8de779a07500ddecca806145e",
+    "file://src/github.com/kr/text/License;md5=449bfedd81a372635934cf9ce004c0cf",
+    "file://src/github.com/kr/pretty/License;md5=449bfedd81a372635934cf9ce004c0cf",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/stretchr/objx/LICENSE;md5=d023fd31d3ca39ec61eec65a91732735",
+    "file://src/gopkg.in/yaml.v3/LICENSE;md5=3c91c17266710e16afdbb2b6d15c761c",
+    "file://src/github.com/creack/pty/LICENSE;md5=93958070863d769117fa33b129020050"
+  ],
+  "mods": [
+    "github.com/stretchr/testify",
+    "golang.org/x/sys"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/sirupsen/logrus",
+  "srcuri": "https://proxy.golang.org/github.com/sirupsen/logrus/@v/v1.8.1.zip;srcoutput=github.com/sirupsen/logrus;srcinput=github.com/sirupsen/logrus@v1.8.1;downloadfilename=github-com-sirupsen-logrus-1.8.1.zip;name=github-com-sirupsen-logrus",
+  "version": "1.8.1"
+}

@@ -1,0 +1,32 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-hashicorp-mdns",
+  "extra": [
+    "SRC_URI[github-com-hashicorp-mdns.sha256sum] = \"932a18b9cf8d29b9a4b9aca614751f4b65c81b8dcfc9c6159067a25d93e1d236\""
+  ],
+  "extrastr": "SRC_URI[github-com-hashicorp-mdns.sha256sum] = \"932a18b9cf8d29b9a4b9aca614751f4b65c81b8dcfc9c6159067a25d93e1d236\"",
+  "includes": [
+    "require github.com-hashicorp-mdns-sources.inc"
+  ],
+  "includesstr": "require github.com-hashicorp-mdns-sources.inc\nrequire github.com-miekg-dns-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/miekg/dns/LICENSE;md5=567c1ad6c08ca0ee8d7e0a0cf790aff9",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/hashicorp/mdns/LICENSE;md5=cb04212e101fbbd028f325e04ad45778"
+  ],
+  "mods": [
+    "github.com/miekg/dns",
+    "golang.org/x/net"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/hashicorp/mdns",
+  "srcuri": "https://proxy.golang.org/github.com/hashicorp/mdns/@v/v1.0.3.zip;srcoutput=github.com/hashicorp/mdns;srcinput=github.com/hashicorp/mdns@v1.0.3;downloadfilename=github-com-hashicorp-mdns-1.0.3.zip;name=github-com-hashicorp-mdns",
+  "version": "1.0.3"
+}

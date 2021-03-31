@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-tomasen-realip",
+  "extra": [
+    "SRC_URI[github-com-tomasen-realip.sha256sum] = \"cfb071871db31d0262d51bef042aa16f516a12325cd8985bf9d849d8e307320e\""
+  ],
+  "extrastr": "SRC_URI[github-com-tomasen-realip.sha256sum] = \"cfb071871db31d0262d51bef042aa16f516a12325cd8985bf9d849d8e307320e\"",
+  "includes": [
+    "require github.com-tomasen-realip-sources.inc"
+  ],
+  "includesstr": "require github.com-tomasen-realip-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/tomasen/realip/LICENSE;md5=40dcf5b63afc5dd031c9733e46b8c4f1"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/tomasen/realip",
+  "srcuri": "https://proxy.golang.org/github.com/tomasen/realip/@v/v0.0.0-20180522021738-f0c99a92ddce.zip;srcoutput=github.com/tomasen/realip;srcinput=github.com/tomasen/realip@v0.0.0-20180522021738-f0c99a92ddce;downloadfilename=github-com-tomasen-realip-0.0.0-20180522021738-f0c99a92ddce.zip;name=github-com-tomasen-realip",
+  "version": "0.0.0-20180522021738-f0c99a92ddce"
+}

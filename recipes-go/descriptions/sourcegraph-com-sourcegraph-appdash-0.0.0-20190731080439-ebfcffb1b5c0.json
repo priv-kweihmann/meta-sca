@@ -1,0 +1,25 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause",
+    "MIT"
+  ],
+  "cleanname": "sourcegraph-com-sourcegraph-appdash",
+  "extra": [
+    "SRC_URI[sourcegraph-com-sourcegraph-appdash.sha256sum] = \"bd2492d9db05362c2fecd0b3d0f6002c89a6d90d678fb93b4158298ab883736f\""
+  ],
+  "extrastr": "SRC_URI[sourcegraph-com-sourcegraph-appdash.sha256sum] = \"bd2492d9db05362c2fecd0b3d0f6002c89a6d90d678fb93b4158298ab883736f\"",
+  "includes": [
+    "require sourcegraph.com-sourcegraph-appdash-sources.inc"
+  ],
+  "includesstr": "require sourcegraph.com-sourcegraph-appdash-sources.inc",
+  "license": "BSD-3-Clause & MIT",
+  "licensefiles": [
+    "file://src/sourcegraph.com/sourcegraph/appdash/LICENSE;md5=7382694b07abfd90abcab68784334326"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "sourcegraph.com/sourcegraph/appdash",
+  "srcuri": "https://proxy.golang.org/sourcegraph.com/sourcegraph/appdash/@v/v0.0.0-20190731080439-ebfcffb1b5c0.zip;srcoutput=sourcegraph.com/sourcegraph/appdash;srcinput=sourcegraph.com/sourcegraph/appdash@v0.0.0-20190731080439-ebfcffb1b5c0;downloadfilename=sourcegraph-com-sourcegraph-appdash-0.0.0-20190731080439-ebfcffb1b5c0.zip;name=sourcegraph-com-sourcegraph-appdash",
+  "version": "0.0.0-20190731080439-ebfcffb1b5c0"
+}

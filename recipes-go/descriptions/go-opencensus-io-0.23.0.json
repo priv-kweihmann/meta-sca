@@ -1,0 +1,39 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "go-opencensus-io",
+  "extra": [
+    "SRC_URI[go-opencensus-io.sha256sum] = \"81c78beb84872084d6d5ddc0a0bffc47294412898472c891a29cfcb66f3fa2d8\""
+  ],
+  "extrastr": "SRC_URI[go-opencensus-io.sha256sum] = \"81c78beb84872084d6d5ddc0a0bffc47294412898472c891a29cfcb66f3fa2d8\"",
+  "includes": [
+    "require go.opencensus.io-sources.inc"
+  ],
+  "includesstr": "require go.opencensus.io-sources.inc\nrequire github.com-golang-groupcache-sources.inc\nrequire github.com-golang-protobuf-sources.inc\nrequire github.com-google-go-cmp-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc\nrequire golang.org-x-xerrors-sources.inc\nrequire google.golang.org-protobuf-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/go.opencensus.io/LICENSE;md5=175792518e4ac015ab6696d16c4f607e",
+    "file://src/github.com/golang/groupcache/LICENSE;md5=19cbd64715b51267a47bf3750cc6a8a5",
+    "file://src/github.com/golang/protobuf/LICENSE;md5=939cce1ec101726fa754e698ac871622",
+    "file://src/github.com/google/go-cmp/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/xerrors/LICENSE;md5=a413d6b3884e141783f23d00d5838777",
+    "file://src/google.golang.org/protobuf/LICENSE;md5=02d4002e9171d41a8fad93aa7faf3956"
+  ],
+  "mods": [
+    "golang.org/x/net",
+    "github.com/golang/groupcache",
+    "google.golang.org/grpc",
+    "github.com/golang/protobuf",
+    "github.com/google/go-cmp"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "go.opencensus.io",
+  "srcuri": "https://proxy.golang.org/go.opencensus.io/@v/v0.23.0.zip;srcoutput=go.opencensus.io;srcinput=go.opencensus.io@v0.23.0;downloadfilename=go-opencensus-io-0.23.0.zip;name=go-opencensus-io",
+  "version": "0.23.0"
+}

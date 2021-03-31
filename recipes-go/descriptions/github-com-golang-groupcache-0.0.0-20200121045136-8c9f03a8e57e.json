@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "github-com-golang-groupcache",
+  "extra": [
+    "SRC_URI[github-com-golang-groupcache.sha256sum] = \"5d3a47edd7d97bbaf8685ddb3271fdc9f4790134998b39016e5d63eca6d99599\""
+  ],
+  "extrastr": "SRC_URI[github-com-golang-groupcache.sha256sum] = \"5d3a47edd7d97bbaf8685ddb3271fdc9f4790134998b39016e5d63eca6d99599\"",
+  "includes": [
+    "require github.com-golang-groupcache-sources.inc"
+  ],
+  "includesstr": "require github.com-golang-groupcache-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/github.com/golang/groupcache/LICENSE;md5=19cbd64715b51267a47bf3750cc6a8a5"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/golang/groupcache",
+  "srcuri": "https://proxy.golang.org/github.com/golang/groupcache/@v/v0.0.0-20200121045136-8c9f03a8e57e.zip;srcoutput=github.com/golang/groupcache;srcinput=github.com/golang/groupcache@v0.0.0-20200121045136-8c9f03a8e57e;downloadfilename=github-com-golang-groupcache-0.0.0-20200121045136-8c9f03a8e57e.zip;name=github-com-golang-groupcache",
+  "version": "0.0.0-20200121045136-8c9f03a8e57e"
+}

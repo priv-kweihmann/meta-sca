@@ -1,0 +1,29 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "github-com-prometheus-procfs",
+  "extra": [
+    "SRC_URI[github-com-prometheus-procfs.sha256sum] = \"e7ec0d883ba2358a79e8e5267b00d76360680c7827eec6da0a7533b6dba92bfc\""
+  ],
+  "extrastr": "SRC_URI[github-com-prometheus-procfs.sha256sum] = \"e7ec0d883ba2358a79e8e5267b00d76360680c7827eec6da0a7533b6dba92bfc\"",
+  "includes": [
+    "require github.com-prometheus-procfs-sources.inc"
+  ],
+  "includesstr": "require github.com-prometheus-procfs-sources.inc\nrequire golang.org-x-sync-sources.inc\nrequire golang.org-x-sys-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/golang.org/x/sync/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/prometheus/procfs/LICENSE;md5=86d3f3a95c324c9479bd8986968f4327",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "golang.org/x/sync",
+    "golang.org/x/sys"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/prometheus/procfs",
+  "srcuri": "https://proxy.golang.org/github.com/prometheus/procfs/@v/v0.6.0.zip;srcoutput=github.com/prometheus/procfs;srcinput=github.com/prometheus/procfs@v0.6.0;downloadfilename=github-com-prometheus-procfs-0.6.0.zip;name=github-com-prometheus-procfs",
+  "version": "0.6.0"
+}

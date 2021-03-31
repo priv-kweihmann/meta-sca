@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause"
+  ],
+  "cleanname": "github-com-pmezard-go-difflib",
+  "extra": [
+    "SRC_URI[github-com-pmezard-go-difflib.sha256sum] = \"de04cecc1a4b8d53e4357051026794bcbc54f2e6a260cfac508ce69d5d6457a0\""
+  ],
+  "extrastr": "SRC_URI[github-com-pmezard-go-difflib.sha256sum] = \"de04cecc1a4b8d53e4357051026794bcbc54f2e6a260cfac508ce69d5d6457a0\"",
+  "includes": [
+    "require github.com-pmezard-go-difflib-sources.inc"
+  ],
+  "includesstr": "require github.com-pmezard-go-difflib-sources.inc",
+  "license": "BSD-3-Clause",
+  "licensefiles": [
+    "file://src/github.com/pmezard/go-difflib/LICENSE;md5=e9a2ebb8de779a07500ddecca806145e"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/pmezard/go-difflib",
+  "srcuri": "https://proxy.golang.org/github.com/pmezard/go-difflib/@v/v1.0.0.zip;srcoutput=github.com/pmezard/go-difflib;srcinput=github.com/pmezard/go-difflib@v1.0.0;downloadfilename=github-com-pmezard-go-difflib-1.0.0.zip;name=github-com-pmezard-go-difflib",
+  "version": "1.0.0"
+}

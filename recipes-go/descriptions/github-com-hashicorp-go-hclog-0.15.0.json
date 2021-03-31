@@ -1,0 +1,32 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-hashicorp-go-hclog",
+  "extra": [
+    "SRC_URI[github-com-hashicorp-go-hclog.sha256sum] = \"f00cde8e35434e1dbcb06d2d2a4d08406ea89c1c30ef35ee02f4e1e15250d1ad\""
+  ],
+  "extrastr": "SRC_URI[github-com-hashicorp-go-hclog.sha256sum] = \"f00cde8e35434e1dbcb06d2d2a4d08406ea89c1c30ef35ee02f4e1e15250d1ad\"",
+  "includes": [
+    "require github.com-hashicorp-go-hclog-sources.inc"
+  ],
+  "includesstr": "require github.com-hashicorp-go-hclog-sources.inc\nrequire github.com-fatih-color-sources.inc\nrequire github.com-mattn-go-colorable-sources.inc\nrequire github.com-mattn-go-isatty-sources.inc\nrequire golang.org-x-sys-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/hashicorp/go-hclog/LICENSE;md5=ec7f605b74b9ad03347d0a93a5cc7eb8",
+    "file://src/github.com/fatih/color/LICENSE.md;md5=316e6d590bdcde7993fb175662c0dd5a",
+    "file://src/github.com/mattn/go-isatty/LICENSE;md5=f509beadd5a11227c27b5d2ad6c9f2c6",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/mattn/go-colorable/LICENSE;md5=24ce168f90aec2456a73de1839037245"
+  ],
+  "mods": [
+    "github.com/mattn/go-colorable",
+    "github.com/fatih/color",
+    "github.com/mattn/go-isatty"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/hashicorp/go-hclog",
+  "srcuri": "https://proxy.golang.org/github.com/hashicorp/go-hclog/@v/v0.15.0.zip;srcoutput=github.com/hashicorp/go-hclog;srcinput=github.com/hashicorp/go-hclog@v0.15.0;downloadfilename=github-com-hashicorp-go-hclog-0.15.0.zip;name=github-com-hashicorp-go-hclog",
+  "version": "0.15.0"
+}

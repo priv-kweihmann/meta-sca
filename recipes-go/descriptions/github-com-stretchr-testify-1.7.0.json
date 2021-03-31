@@ -1,0 +1,37 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-stretchr-testify",
+  "extra": [
+    "SRC_URI[github-com-stretchr-testify.sha256sum] = \"5a46ccebeff510df3e2f6d3842ee79d3f68d0e7b1554cd6ee93390d68b6c6b34\""
+  ],
+  "extrastr": "SRC_URI[github-com-stretchr-testify.sha256sum] = \"5a46ccebeff510df3e2f6d3842ee79d3f68d0e7b1554cd6ee93390d68b6c6b34\"",
+  "includes": [
+    "require github.com-stretchr-testify-sources.inc"
+  ],
+  "includesstr": "require github.com-stretchr-testify-sources.inc\nrequire github.com-creack-pty-sources.inc\nrequire github.com-davecgh-go-spew-sources.inc\nrequire github.com-kr-pretty-sources.inc\nrequire github.com-kr-text-sources.inc\nrequire github.com-pmezard-go-difflib-sources.inc\nrequire github.com-stretchr-objx-sources.inc\nrequire gopkg.in-check.v1-sources.inc\nrequire gopkg.in-yaml.v3-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/gopkg.in/check.v1/LICENSE;md5=598d6673548efc92a7d6dfb739add1ed",
+    "file://src/github.com/davecgh/go-spew/LICENSE;md5=c06795ed54b2a35ebeeb543cd3a73e56",
+    "file://src/github.com/stretchr/testify/LICENSE;md5=188f01994659f3c0d310612333d2a26f",
+    "file://src/github.com/pmezard/go-difflib/LICENSE;md5=e9a2ebb8de779a07500ddecca806145e",
+    "file://src/github.com/kr/text/License;md5=449bfedd81a372635934cf9ce004c0cf",
+    "file://src/github.com/kr/pretty/License;md5=449bfedd81a372635934cf9ce004c0cf",
+    "file://src/github.com/stretchr/objx/LICENSE;md5=d023fd31d3ca39ec61eec65a91732735",
+    "file://src/gopkg.in/yaml.v3/LICENSE;md5=3c91c17266710e16afdbb2b6d15c761c",
+    "file://src/github.com/creack/pty/LICENSE;md5=93958070863d769117fa33b129020050"
+  ],
+  "mods": [
+    "github.com/pmezard/go-difflib",
+    "gopkg.in/yaml.v3",
+    "github.com/stretchr/objx",
+    "github.com/davecgh/go-spew"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/stretchr/testify",
+  "srcuri": "https://proxy.golang.org/github.com/stretchr/testify/@v/v1.7.0.zip;srcoutput=github.com/stretchr/testify;srcinput=github.com/stretchr/testify@v1.7.0;downloadfilename=github-com-stretchr-testify-1.7.0.zip;name=github-com-stretchr-testify",
+  "version": "1.7.0"
+}

@@ -1,0 +1,50 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0",
+    "BSD-3-Clause",
+    "MIT"
+  ],
+  "cleanname": "honnef-co-go-tools",
+  "extra": [
+    "SRC_URI[honnef-co-go-tools.sha256sum] = \"4607c8c642126be0632ce8b1e82b34f04404bb40c62e5982bf4572e3e08d0751\""
+  ],
+  "extrastr": "SRC_URI[honnef-co-go-tools.sha256sum] = \"4607c8c642126be0632ce8b1e82b34f04404bb40c62e5982bf4572e3e08d0751\"",
+  "includes": [
+    "require honnef.co-go-tools-sources.inc"
+  ],
+  "includesstr": "require honnef.co-go-tools-sources.inc\nrequire github.com-burntsushi-toml-sources.inc\nrequire github.com-kisielk-gotool-sources.inc\nrequire github.com-yuin-goldmark-sources.inc\nrequire golang.org-x-crypto-sources.inc\nrequire golang.org-x-mod-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sync-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc\nrequire golang.org-x-tools-sources.inc\nrequire golang.org-x-xerrors-sources.inc",
+  "license": "Apache-2.0 & BSD-3-Clause & MIT",
+  "licensefiles": [
+    "file://src/github.com/BurntSushi/toml/cmd/tomlv/COPYING;md5=9e24c0e2a784c1d1fcabb279f4f107e0",
+    "file://src/honnef.co/go/tools/LICENSE;md5=ca0492e2abd2c12b3f3c25d6e33972ad",
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/honnef.co/go/tools/go/ir/LICENSE;md5=5ec8b64b7997364598d73f2d1e94f474",
+    "file://src/golang.org/x/crypto/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/BurntSushi/toml/cmd/toml-test-encoder/COPYING;md5=9e24c0e2a784c1d1fcabb279f4f107e0",
+    "file://src/golang.org/x/mod/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/kisielk/gotool/LICENSE;md5=fff1ad9eb4a97976f126153f3ad79f2a",
+    "file://src/honnef.co/go/tools/go/gcsizes/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/xerrors/LICENSE;md5=a413d6b3884e141783f23d00d5838777",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/BurntSushi/toml/cmd/toml-test-decoder/COPYING;md5=9e24c0e2a784c1d1fcabb279f4f107e0",
+    "file://src/honnef.co/go/tools/internal/gosmith/LICENSE;md5=34371deb29bfed5ca2285fbe4b9df6f5",
+    "file://src/golang.org/x/tools/cmd/getgo/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab",
+    "file://src/golang.org/x/sync/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/yuin/goldmark/LICENSE;md5=9ccc571100d655d5a450059a79f1339e",
+    "file://src/github.com/BurntSushi/toml/COPYING;md5=9e24c0e2a784c1d1fcabb279f4f107e0",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/tools/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/honnef.co/go/tools/LICENSE-THIRD-PARTY;md5=310cf4b1e8d243f332294d0ac2c88d97"
+  ],
+  "mods": [
+    "github.com/kisielk/gotool",
+    "github.com/BurntSushi/toml",
+    "golang.org/x/tools"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "honnef.co/go/tools",
+  "srcuri": "https://proxy.golang.org/honnef.co/go/tools/@v/v0.1.3.zip;srcoutput=honnef.co/go/tools;srcinput=honnef.co/go/tools@v0.1.3;downloadfilename=honnef-co-go-tools-0.1.3.zip;name=honnef-co-go-tools",
+  "version": "0.1.3"
+}
