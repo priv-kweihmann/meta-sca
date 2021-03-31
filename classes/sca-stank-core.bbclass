@@ -106,4 +106,4 @@ python do_sca_stank_core_report() {
                        d.expand("${STAGING_DATADIR_NATIVE}/stank-${SCA_MODE}-fatal")))
 }
 
-DEPENDS += "stank-native"
+DEPENDS += "stank-sca-native"
