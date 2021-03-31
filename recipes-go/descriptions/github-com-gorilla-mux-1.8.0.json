@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause"
+  ],
+  "cleanname": "github-com-gorilla-mux",
+  "extra": [
+    "SRC_URI[github-com-gorilla-mux.sha256sum] = \"7641911e00af9c91f089868333067c9cb9a58702d2c9ea821ee374940091c385\""
+  ],
+  "extrastr": "SRC_URI[github-com-gorilla-mux.sha256sum] = \"7641911e00af9c91f089868333067c9cb9a58702d2c9ea821ee374940091c385\"",
+  "includes": [
+    "require github.com-gorilla-mux-sources.inc"
+  ],
+  "includesstr": "require github.com-gorilla-mux-sources.inc",
+  "license": "BSD-3-Clause",
+  "licensefiles": [
+    "file://src/github.com/gorilla/mux/LICENSE;md5=33fa1116c45f9e8de714033f99edde13"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/gorilla/mux",
+  "srcuri": "https://proxy.golang.org/github.com/gorilla/mux/@v/v1.8.0.zip;srcoutput=github.com/gorilla/mux;srcinput=github.com/gorilla/mux@v1.8.0;downloadfilename=github-com-gorilla-mux-1.8.0.zip;name=github-com-gorilla-mux",
+  "version": "1.8.0"
+}

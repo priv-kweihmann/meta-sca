@@ -1,0 +1,30 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "github-com-prometheus-client-model",
+  "extra": [
+    "SRC_URI[github-com-prometheus-client-model.sha256sum] = \"c3e0c48e8786a8cc4ff2de3d0fe3097f07f0e3882f827981c6371bf9cb449b5d\""
+  ],
+  "extrastr": "SRC_URI[github-com-prometheus-client-model.sha256sum] = \"c3e0c48e8786a8cc4ff2de3d0fe3097f07f0e3882f827981c6371bf9cb449b5d\"",
+  "includes": [
+    "require github.com-prometheus-client-model-sources.inc"
+  ],
+  "includesstr": "require github.com-prometheus-client-model-sources.inc\nrequire github.com-golang-protobuf-sources.inc\nrequire github.com-google-go-cmp-sources.inc\nrequire golang.org-x-xerrors-sources.inc\nrequire google.golang.org-protobuf-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/github.com/prometheus/client_model/LICENSE;md5=86d3f3a95c324c9479bd8986968f4327",
+    "file://src/github.com/golang/protobuf/LICENSE;md5=939cce1ec101726fa754e698ac871622",
+    "file://src/github.com/google/go-cmp/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab",
+    "file://src/golang.org/x/xerrors/LICENSE;md5=a413d6b3884e141783f23d00d5838777",
+    "file://src/google.golang.org/protobuf/LICENSE;md5=02d4002e9171d41a8fad93aa7faf3956"
+  ],
+  "mods": [
+    "github.com/golang/protobuf"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/prometheus/client_model",
+  "srcuri": "https://proxy.golang.org/github.com/prometheus/client_model/@v/v0.2.0.zip;srcoutput=github.com/prometheus/client_model;srcinput=github.com/prometheus/client_model@v0.2.0;downloadfilename=github-com-prometheus-client-model-0.2.0.zip;name=github-com-prometheus-client-model",
+  "version": "0.2.0"
+}

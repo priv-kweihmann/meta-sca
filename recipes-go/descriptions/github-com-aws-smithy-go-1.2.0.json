@@ -1,0 +1,28 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "github-com-aws-smithy-go",
+  "extra": [
+    "SRC_URI[github-com-aws-smithy-go.sha256sum] = \"ed61ace6c1f0aadfb0b94dcdd09058abadd3827bca6af789004681e25a6df053\""
+  ],
+  "extrastr": "SRC_URI[github-com-aws-smithy-go.sha256sum] = \"ed61ace6c1f0aadfb0b94dcdd09058abadd3827bca6af789004681e25a6df053\"",
+  "includes": [
+    "require github.com-aws-smithy-go-sources.inc"
+  ],
+  "includesstr": "require github.com-aws-smithy-go-sources.inc\nrequire github.com-google-go-cmp-sources.inc\nrequire golang.org-x-xerrors-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/github.com/google/go-cmp/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab",
+    "file://src/golang.org/x/xerrors/LICENSE;md5=a413d6b3884e141783f23d00d5838777",
+    "file://src/github.com/aws/smithy-go/LICENSE;md5=34400b68072d710fecd0a2940a0d1658"
+  ],
+  "mods": [
+    "github.com/google/go-cmp"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/aws/smithy-go",
+  "srcuri": "https://proxy.golang.org/github.com/aws/smithy-go/@v/v1.2.0.zip;srcoutput=github.com/aws/smithy-go;srcinput=github.com/aws/smithy-go@v1.2.0;downloadfilename=github-com-aws-smithy-go-1.2.0.zip;name=github-com-aws-smithy-go",
+  "version": "1.2.0"
+}

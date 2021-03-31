@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-client9-misspell",
+  "extra": [
+    "SRC_URI[github-com-client9-misspell.sha256sum] = \"a3af206372e131dd10a68ac470c66a1b18eaf51c6afacb55b2e2a06e39b90728\""
+  ],
+  "extrastr": "SRC_URI[github-com-client9-misspell.sha256sum] = \"a3af206372e131dd10a68ac470c66a1b18eaf51c6afacb55b2e2a06e39b90728\"",
+  "includes": [
+    "require github.com-client9-misspell-sources.inc"
+  ],
+  "includesstr": "require github.com-client9-misspell-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/client9/misspell/LICENSE;md5=387f6b7d6741c8a7f4f7e3c2bbdf97e4"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/client9/misspell",
+  "srcuri": "https://proxy.golang.org/github.com/client9/misspell/@v/v0.3.4.zip;srcoutput=github.com/client9/misspell;srcinput=github.com/client9/misspell@v0.3.4;downloadfilename=github-com-client9-misspell-0.3.4.zip;name=github-com-client9-misspell",
+  "version": "0.3.4"
+}

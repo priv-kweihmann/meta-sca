@@ -1,0 +1,37 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-alexkohler-noret",
+  "extra": [
+    "SRC_URI[github-com-alexkohler-noret.sha256sum] = \"beeea1d58be01a1080c49b62e4decd24c170dce97b697270c8c34688f47a6278\""
+  ],
+  "extrastr": "SRC_URI[github-com-alexkohler-noret.sha256sum] = \"beeea1d58be01a1080c49b62e4decd24c170dce97b697270c8c34688f47a6278\"",
+  "includes": [
+    "require github.com-alexkohler-noret-sources.inc"
+  ],
+  "includesstr": "require github.com-alexkohler-noret-sources.inc\nrequire github.com-yuin-goldmark-sources.inc\nrequire golang.org-x-crypto-sources.inc\nrequire golang.org-x-mod-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sync-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc\nrequire golang.org-x-tools-sources.inc\nrequire golang.org-x-xerrors-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/crypto/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/mod/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/xerrors/LICENSE;md5=a413d6b3884e141783f23d00d5838777",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/tools/cmd/getgo/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab",
+    "file://src/golang.org/x/sync/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/yuin/goldmark/LICENSE;md5=9ccc571100d655d5a450059a79f1339e",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/alexkohler/noret/LICENSE;md5=2c7b8f9e174db37605a15c992b0dc995",
+    "file://src/golang.org/x/tools/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "golang.org/x/tools"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/alexkohler/noret",
+  "srcuri": "https://proxy.golang.org/github.com/alexkohler/noret/@v/v0.0.0-20190804174149-57c4d447ca7a.zip;srcoutput=github.com/alexkohler/noret;srcinput=github.com/alexkohler/noret@v0.0.0-20190804174149-57c4d447ca7a;downloadfilename=github-com-alexkohler-noret-0.0.0-20190804174149-57c4d447ca7a.zip;name=github-com-alexkohler-noret",
+  "version": "0.0.0-20190804174149-57c4d447ca7a"
+}

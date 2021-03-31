@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-go-logfmt-logfmt",
+  "extra": [
+    "SRC_URI[github-com-go-logfmt-logfmt.sha256sum] = \"59a6b59ae3da84f7a58373844ca8d298f5007ce0e173437fc85c26d4fc76ca8b\""
+  ],
+  "extrastr": "SRC_URI[github-com-go-logfmt-logfmt.sha256sum] = \"59a6b59ae3da84f7a58373844ca8d298f5007ce0e173437fc85c26d4fc76ca8b\"",
+  "includes": [
+    "require github.com-go-logfmt-logfmt-sources.inc"
+  ],
+  "includesstr": "require github.com-go-logfmt-logfmt-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/go-logfmt/logfmt/LICENSE;md5=98e39517c38127f969de33057067091e"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/go-logfmt/logfmt",
+  "srcuri": "https://proxy.golang.org/github.com/go-logfmt/logfmt/@v/v0.5.0.zip;srcoutput=github.com/go-logfmt/logfmt;srcinput=github.com/go-logfmt/logfmt@v0.5.0;downloadfilename=github-com-go-logfmt-logfmt-0.5.0.zip;name=github-com-go-logfmt-logfmt",
+  "version": "0.5.0"
+}

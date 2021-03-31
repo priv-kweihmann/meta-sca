@@ -1,0 +1,28 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-mattn-go-colorable",
+  "extra": [
+    "SRC_URI[github-com-mattn-go-colorable.sha256sum] = \"7a488866ca8dbefc2b9e62a9a7ab6de3db4e1b85a9a665908ff03515d365cdc1\""
+  ],
+  "extrastr": "SRC_URI[github-com-mattn-go-colorable.sha256sum] = \"7a488866ca8dbefc2b9e62a9a7ab6de3db4e1b85a9a665908ff03515d365cdc1\"",
+  "includes": [
+    "require github.com-mattn-go-colorable-sources.inc"
+  ],
+  "includesstr": "require github.com-mattn-go-colorable-sources.inc\nrequire github.com-mattn-go-isatty-sources.inc\nrequire golang.org-x-sys-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/mattn/go-colorable/LICENSE;md5=24ce168f90aec2456a73de1839037245",
+    "file://src/github.com/mattn/go-isatty/LICENSE;md5=f509beadd5a11227c27b5d2ad6c9f2c6",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "github.com/mattn/go-isatty"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/mattn/go-colorable",
+  "srcuri": "https://proxy.golang.org/github.com/mattn/go-colorable/@v/v0.1.8.zip;srcoutput=github.com/mattn/go-colorable;srcinput=github.com/mattn/go-colorable@v0.1.8;downloadfilename=github-com-mattn-go-colorable-0.1.8.zip;name=github-com-mattn-go-colorable",
+  "version": "0.1.8"
+}

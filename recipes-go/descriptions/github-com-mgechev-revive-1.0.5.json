@@ -1,0 +1,58 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-mgechev-revive",
+  "extra": [
+    "SRC_URI[github-com-mgechev-revive.sha256sum] = \"c7c78dee16f96878938e49c1e5c160135d3295d5384407852ff57d9815d1a967\""
+  ],
+  "extrastr": "SRC_URI[github-com-mgechev-revive.sha256sum] = \"c7c78dee16f96878938e49c1e5c160135d3295d5384407852ff57d9815d1a967\"",
+  "includes": [
+    "require github.com-mgechev-revive-sources.inc"
+  ],
+  "includesstr": "require github.com-mgechev-revive-sources.inc\nrequire github.com-burntsushi-toml-sources.inc\nrequire github.com-fatih-color-sources.inc\nrequire github.com-fatih-structtag-sources.inc\nrequire github.com-mattn-go-colorable-sources.inc\nrequire github.com-mattn-go-isatty-sources.inc\nrequire github.com-mattn-go-runewidth-sources.inc\nrequire github.com-mgechev-dots-sources.inc\nrequire github.com-mitchellh-go-homedir-sources.inc\nrequire github.com-olekukonko-tablewriter-sources.inc\nrequire github.com-pkg-errors-sources.inc\nrequire github.com-rivo-uniseg-sources.inc\nrequire github.com-yuin-goldmark-sources.inc\nrequire golang.org-x-crypto-sources.inc\nrequire golang.org-x-mod-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sync-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc\nrequire golang.org-x-tools-sources.inc\nrequire golang.org-x-xerrors-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/BurntSushi/toml/cmd/tomlv/COPYING;md5=9e24c0e2a784c1d1fcabb279f4f107e0",
+    "file://src/github.com/mgechev/dots/LICENSE;md5=6898b1ee52bce3bd296aba3dff3fffb0",
+    "file://src/github.com/mattn/go-isatty/LICENSE;md5=f509beadd5a11227c27b5d2ad6c9f2c6",
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/BurntSushi/toml/cmd/toml-test-encoder/COPYING;md5=9e24c0e2a784c1d1fcabb279f4f107e0",
+    "file://src/github.com/mitchellh/go-homedir/LICENSE;md5=3f7765c3d4f58e1f84c4313cecf0f5bd",
+    "file://src/golang.org/x/crypto/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/mod/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/rivo/uniseg/LICENSE.txt;md5=4393c339bf180cf6e188b6ea32d8b93c",
+    "file://src/golang.org/x/xerrors/LICENSE;md5=a413d6b3884e141783f23d00d5838777",
+    "file://src/github.com/mgechev/revive/LICENSE;md5=6898b1ee52bce3bd296aba3dff3fffb0",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/fatih/structtag/LICENSE;md5=7cd9e46c722ee0e2532709c7ab80abaf",
+    "file://src/github.com/BurntSushi/toml/cmd/toml-test-decoder/COPYING;md5=9e24c0e2a784c1d1fcabb279f4f107e0",
+    "file://src/golang.org/x/tools/cmd/getgo/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab",
+    "file://src/golang.org/x/sync/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/mattn/go-colorable/LICENSE;md5=24ce168f90aec2456a73de1839037245",
+    "file://src/github.com/pkg/errors/LICENSE;md5=6fe682a02df52c6653f33bd0f7126b5a",
+    "file://src/github.com/yuin/goldmark/LICENSE;md5=9ccc571100d655d5a450059a79f1339e",
+    "file://src/github.com/fatih/color/LICENSE.md;md5=316e6d590bdcde7993fb175662c0dd5a",
+    "file://src/github.com/BurntSushi/toml/COPYING;md5=9e24c0e2a784c1d1fcabb279f4f107e0",
+    "file://src/github.com/olekukonko/tablewriter/LICENSE.md;md5=0b3be5790ce7a5a6c959f60a5ce4c138",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/mattn/go-runewidth/LICENSE;md5=24ce168f90aec2456a73de1839037245",
+    "file://src/golang.org/x/tools/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "github.com/BurntSushi/toml",
+    "github.com/mgechev/dots",
+    "github.com/mitchellh/go-homedir",
+    "github.com/fatih/color",
+    "golang.org/x/tools",
+    "github.com/fatih/structtag",
+    "github.com/pkg/errors",
+    "github.com/olekukonko/tablewriter"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/mgechev/revive",
+  "srcuri": "https://proxy.golang.org/github.com/mgechev/revive/@v/v1.0.5.zip;srcoutput=github.com/mgechev/revive;srcinput=github.com/mgechev/revive@v1.0.5;downloadfilename=github-com-mgechev-revive-1.0.5.zip;name=github-com-mgechev-revive",
+  "version": "1.0.5"
+}

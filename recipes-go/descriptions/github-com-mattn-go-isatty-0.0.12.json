@@ -1,0 +1,27 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-mattn-go-isatty",
+  "extra": [
+    "SRC_URI[github-com-mattn-go-isatty.sha256sum] = \"07941d24e0894c29dc42bcd29d644815cd7b5ee84e3c14bbe6d51ad13efcbf07\""
+  ],
+  "extrastr": "SRC_URI[github-com-mattn-go-isatty.sha256sum] = \"07941d24e0894c29dc42bcd29d644815cd7b5ee84e3c14bbe6d51ad13efcbf07\"",
+  "includes": [
+    "require github.com-mattn-go-isatty-sources.inc"
+  ],
+  "includesstr": "require github.com-mattn-go-isatty-sources.inc\nrequire golang.org-x-sys-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/mattn/go-isatty/LICENSE;md5=f509beadd5a11227c27b5d2ad6c9f2c6",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "golang.org/x/sys"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/mattn/go-isatty",
+  "srcuri": "https://proxy.golang.org/github.com/mattn/go-isatty/@v/v0.0.12.zip;srcoutput=github.com/mattn/go-isatty;srcinput=github.com/mattn/go-isatty@v0.0.12;downloadfilename=github-com-mattn-go-isatty-0.0.12.zip;name=github-com-mattn-go-isatty",
+  "version": "0.0.12"
+}

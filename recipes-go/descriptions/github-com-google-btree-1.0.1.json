@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "github-com-google-btree",
+  "extra": [
+    "SRC_URI[github-com-google-btree.sha256sum] = \"9b9f66ca4eb36bb1867b5ff9134fb2eb9fe9717d44e28836f2e977f9c03b4128\""
+  ],
+  "extrastr": "SRC_URI[github-com-google-btree.sha256sum] = \"9b9f66ca4eb36bb1867b5ff9134fb2eb9fe9717d44e28836f2e977f9c03b4128\"",
+  "includes": [
+    "require github.com-google-btree-sources.inc"
+  ],
+  "includesstr": "require github.com-google-btree-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/github.com/google/btree/LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/google/btree",
+  "srcuri": "https://proxy.golang.org/github.com/google/btree/@v/v1.0.1.zip;srcoutput=github.com/google/btree;srcinput=github.com/google/btree@v1.0.1;downloadfilename=github-com-google-btree-1.0.1.zip;name=github-com-google-btree",
+  "version": "1.0.1"
+}

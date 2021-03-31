@@ -1,0 +1,61 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-shopify-sarama",
+  "extra": [
+    "SRC_URI[github-com-shopify-sarama.sha256sum] = \"aa4a55ce4c95c45e4913e5e39c976fdf1028855f4ed1f00f702682a9fe3d5c6b\""
+  ],
+  "extrastr": "SRC_URI[github-com-shopify-sarama.sha256sum] = \"aa4a55ce4c95c45e4913e5e39c976fdf1028855f4ed1f00f702682a9fe3d5c6b\"",
+  "includes": [
+    "require github.com-shopify-sarama-sources.inc"
+  ],
+  "includesstr": "require github.com-shopify-sarama-sources.inc\nrequire github.com-davecgh-go-spew-sources.inc\nrequire github.com-eapache-go-resiliency-sources.inc\nrequire github.com-eapache-go-xerial-snappy-sources.inc\nrequire github.com-eapache-queue-sources.inc\nrequire github.com-gorilla-securecookie-sources.inc\nrequire github.com-gorilla-sessions-sources.inc\nrequire github.com-hashicorp-go-uuid-sources.inc\nrequire github.com-jcmturner-aescts-v2-sources.inc\nrequire github.com-jcmturner-dnsutils-v2-sources.inc\nrequire github.com-jcmturner-gofork-sources.inc\nrequire github.com-jcmturner-goidentity-v6-sources.inc\nrequire github.com-jcmturner-gokrb5-v8-sources.inc\nrequire github.com-jcmturner-rpc-v2-sources.inc\nrequire github.com-klauspost-compress-sources.inc\nrequire github.com-pierrec-lz4-sources.inc\nrequire github.com-rcrowley-go-metrics-sources.inc\nrequire github.com-xdg-scram-sources.inc\nrequire golang.org-x-crypto-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/jcmturner/goidentity/v6/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e",
+    "file://src/github.com/klauspost/compress/s2/cmd/internal/readahead/LICENSE;md5=42a7f8bb0a8aa77348e7e5817f10976a",
+    "file://src/github.com/klauspost/compress/snappy/LICENSE;md5=b8b79c7d4cda128290b98c6a21f9aac6",
+    "file://src/github.com/eapache/go-resiliency/LICENSE;md5=b5d5c42dfd88384315d2340222c139ab",
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/crypto/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/davecgh/go-spew/LICENSE;md5=c06795ed54b2a35ebeeb543cd3a73e56",
+    "file://src/github.com/jcmturner/gokrb5/v8/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e",
+    "file://src/github.com/jcmturner/rpc/v2/LICENSE;md5=86d3f3a95c324c9479bd8986968f4327",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/klauspost/compress/s2/LICENSE;md5=2460814a2b25a7277556c2d89de915d1",
+    "file://src/github.com/klauspost/compress/zstd/internal/xxhash/LICENSE.txt;md5=802da049c92a99b4387d3f3d91b00fa9",
+    "file://src/github.com/eapache/queue/LICENSE;md5=1bfd4408d3de090ef6b908b0cc45a316",
+    "file://src/github.com/jcmturner/aescts/v2/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e",
+    "file://src/github.com/gorilla/securecookie/LICENSE;md5=c50f6bd9c1e15ed0bad3bea18e3c1b7f",
+    "file://src/github.com/pierrec/lz4/LICENSE;md5=09ece85f3c312a63b522bfc6ebd44943",
+    "file://src/github.com/Shopify/sarama/LICENSE;md5=1fa4320041cdb56ed9a992c3ff1eac7c",
+    "file://src/github.com/hashicorp/go-uuid/LICENSE;md5=65d26fcc2f35ea6a181ac777e42db1ea",
+    "file://src/github.com/eapache/go-xerial-snappy/LICENSE;md5=dcb7929be2a0ff22ad39f869509911d7",
+    "file://src/github.com/jcmturner/gofork/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/jcmturner/dnsutils/v2/LICENSE;md5=86d3f3a95c324c9479bd8986968f4327",
+    "file://src/github.com/klauspost/compress/LICENSE;md5=f6eed50d75781660de81b193021f14a2",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/rcrowley/go-metrics/LICENSE;md5=1bdf5d819f50f141366dabce3be1460f",
+    "file://src/github.com/xdg/scram/LICENSE;md5=34400b68072d710fecd0a2940a0d1658",
+    "file://src/github.com/gorilla/sessions/LICENSE;md5=33fa1116c45f9e8de714033f99edde13"
+  ],
+  "mods": [
+    "github.com/eapache/go-xerial-snappy",
+    "github.com/eapache/queue",
+    "github.com/rcrowley/go-metrics",
+    "github.com/pierrec/lz4",
+    "golang.org/x/net",
+    "github.com/klauspost/compress",
+    "github.com/davecgh/go-spew",
+    "github.com/eapache/go-resiliency",
+    "github.com/xdg/scram",
+    "github.com/jcmturner/gokrb5/v8"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/Shopify/sarama",
+  "srcuri": "https://github.com/Shopify/sarama/archive/refs/tags/v1.28.0.zip;srcoutput=github.com/Shopify/sarama;srcinput=sarama-1.28.0;downloadfilename=github-com-shopify-sarama-1.28.0.zip;name=github-com-shopify-sarama",
+  "version": "1.28.0"
+}

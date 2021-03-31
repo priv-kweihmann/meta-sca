@@ -1,0 +1,45 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "google-golang-org-genproto",
+  "extra": [
+    "SRC_URI[google-golang-org-genproto.sha256sum] = \"84128c92666a3f45ced08ba5d4c20e298114e7fa309e585381c418a97cf2c945\""
+  ],
+  "extrastr": "SRC_URI[google-golang-org-genproto.sha256sum] = \"84128c92666a3f45ced08ba5d4c20e298114e7fa309e585381c418a97cf2c945\"",
+  "includes": [
+    "require google.golang.org-genproto-sources.inc"
+  ],
+  "includesstr": "require google.golang.org-genproto-sources.inc\nrequire github.com-golang-protobuf-sources.inc\nrequire github.com-google-go-cmp-sources.inc\nrequire github.com-yuin-goldmark-sources.inc\nrequire golang.org-x-crypto-sources.inc\nrequire golang.org-x-lint-sources.inc\nrequire golang.org-x-mod-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sync-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc\nrequire golang.org-x-tools-sources.inc\nrequire golang.org-x-xerrors-sources.inc\nrequire google.golang.org-protobuf-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/crypto/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/mod/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/golang/protobuf/LICENSE;md5=939cce1ec101726fa754e698ac871622",
+    "file://src/github.com/google/go-cmp/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab",
+    "file://src/golang.org/x/xerrors/LICENSE;md5=a413d6b3884e141783f23d00d5838777",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/google.golang.org/protobuf/LICENSE;md5=02d4002e9171d41a8fad93aa7faf3956",
+    "file://src/golang.org/x/tools/cmd/getgo/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab",
+    "file://src/google.golang.org/genproto/LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57",
+    "file://src/golang.org/x/sync/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/yuin/goldmark/LICENSE;md5=9ccc571100d655d5a450059a79f1339e",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/lint/LICENSE;md5=4c728948788b1a02f33ae4e906546eef",
+    "file://src/golang.org/x/tools/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "github.com/golang/protobuf",
+    "golang.org/x/tools",
+    "golang.org/x/lint",
+    "google.golang.org/protobuf",
+    "google.golang.org/grpc"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "google.golang.org/genproto",
+  "srcuri": "https://proxy.golang.org/google.golang.org/genproto/@v/v0.0.0-20210330181207-2295ebbda0c6.zip;srcoutput=google.golang.org/genproto;srcinput=google.golang.org/genproto@v0.0.0-20210330181207-2295ebbda0c6;downloadfilename=google-golang-org-genproto-0.0.0-20210330181207-2295ebbda0c6.zip;name=google-golang-org-genproto",
+  "version": "0.0.0-20210330181207-2295ebbda0c6"
+}

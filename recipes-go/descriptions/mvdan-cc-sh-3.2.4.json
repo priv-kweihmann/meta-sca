@@ -1,0 +1,40 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause"
+  ],
+  "cleanname": "mvdan-cc-sh",
+  "extra": [
+    "SRC_URI[mvdan-cc-sh.sha256sum] = \"4ad35f48877132b2225343df1c504cd87024f126e2a9499b3d378f8d2c4276ba\""
+  ],
+  "extrastr": "SRC_URI[mvdan-cc-sh.sha256sum] = \"4ad35f48877132b2225343df1c504cd87024f126e2a9499b3d378f8d2c4276ba\"",
+  "includes": [
+    "require mvdan.cc-sh-sources.inc"
+  ],
+  "includesstr": "require mvdan.cc-sh-sources.inc\nrequire github.com-google-renameio-sources.inc\nrequire github.com-pkg-diff-sources.inc\nrequire golang.org-x-sync-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire mvdan.cc-editorconfig-sources.inc\nrequire mvdan.cc-sh-v3-sources.inc",
+  "license": "BSD-3-Clause",
+  "licensefiles": [
+    "file://src/mvdan.cc/sh/LICENSE;md5=5762bc15271b0661f5c9c593cd080548",
+    "file://src/golang.org/x/sync/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/mvdan.cc/sh/v3/LICENSE;md5=5762bc15271b0661f5c9c593cd080548",
+    "file://src/mvdan.cc/editorconfig/LICENSE;md5=5d1b329cf2d09f301b0d604f96046e5a",
+    "file://src/github.com/google/renameio/LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/mvdan.cc/sh/_js/LICENSE;md5=5762bc15271b0661f5c9c593cd080548",
+    "file://src/github.com/pkg/diff/LICENSE;md5=d0250703509998b3201f5dd7f26e8c35"
+  ],
+  "mods": [
+    "golang.org/x/sys",
+    "mvdan.cc/sh/v3",
+    "github.com/google/renameio",
+    "github.com/pkg/diff",
+    "golang.org/x/sync",
+    "mvdan.cc/editorconfig",
+    "golang.org/x/term"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "mvdan.cc/sh",
+  "srcuri": "https://github.com/mvdan/sh/archive/refs/tags/v3.2.4.zip;srcoutput=mvdan.cc/sh;srcinput=sh-3.2.4;downloadfilename=mvdan-cc-sh-3.2.4.zip;name=mvdan-cc-sh",
+  "version": "3.2.4"
+}

@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "MPL-2.0"
+  ],
+  "cleanname": "github-com-hashicorp-golang-lru",
+  "extra": [
+    "SRC_URI[github-com-hashicorp-golang-lru.sha256sum] = \"7b2a8b1739c858727fca497a6415323edb801dc97b8aca04f7bac4ab9fb5c66b\""
+  ],
+  "extrastr": "SRC_URI[github-com-hashicorp-golang-lru.sha256sum] = \"7b2a8b1739c858727fca497a6415323edb801dc97b8aca04f7bac4ab9fb5c66b\"",
+  "includes": [
+    "require github.com-hashicorp-golang-lru-sources.inc"
+  ],
+  "includesstr": "require github.com-hashicorp-golang-lru-sources.inc",
+  "license": "MPL-2.0",
+  "licensefiles": [
+    "file://src/github.com/hashicorp/golang-lru/LICENSE;md5=f27a50d2e878867827842f2c60e30bfc"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/hashicorp/golang-lru",
+  "srcuri": "https://proxy.golang.org/github.com/hashicorp/golang-lru/@v/v0.5.4.zip;srcoutput=github.com/hashicorp/golang-lru;srcinput=github.com/hashicorp/golang-lru@v0.5.4;downloadfilename=github-com-hashicorp-golang-lru-0.5.4.zip;name=github-com-hashicorp-golang-lru",
+  "version": "0.5.4"
+}

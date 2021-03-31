@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause"
+  ],
+  "cleanname": "github-com-pierrec-lz4",
+  "extra": [
+    "SRC_URI[github-com-pierrec-lz4.sha256sum] = \"3442d00156073088858844e4e25753b683ef1d39a5ff9f912079f7f8a1d72a61\""
+  ],
+  "extrastr": "SRC_URI[github-com-pierrec-lz4.sha256sum] = \"3442d00156073088858844e4e25753b683ef1d39a5ff9f912079f7f8a1d72a61\"",
+  "includes": [
+    "require github.com-pierrec-lz4-sources.inc"
+  ],
+  "includesstr": "require github.com-pierrec-lz4-sources.inc",
+  "license": "BSD-3-Clause",
+  "licensefiles": [
+    "file://src/github.com/pierrec/lz4/LICENSE;md5=09ece85f3c312a63b522bfc6ebd44943"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/pierrec/lz4",
+  "srcuri": "https://proxy.golang.org/github.com/pierrec/lz4/@v/v2.6.0+incompatible.zip;srcoutput=github.com/pierrec/lz4;srcinput=github.com/pierrec/lz4@v2.6.0+incompatible;downloadfilename=github-com-pierrec-lz4-2.6.0+incompatible.zip;name=github-com-pierrec-lz4",
+  "version": "2.6.0+incompatible"
+}

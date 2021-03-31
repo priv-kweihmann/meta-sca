@@ -1,0 +1,47 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-boyter-lc",
+  "extra": [
+    "SRC_URI[github-com-boyter-lc.sha256sum] = \"fa311055664a5682654d79d0ffe955ecd862a5e104abe8e3f781d4551fcd388c\""
+  ],
+  "extrastr": "SRC_URI[github-com-boyter-lc.sha256sum] = \"fa311055664a5682654d79d0ffe955ecd862a5e104abe8e3f781d4551fcd388c\"",
+  "includes": [
+    "require github.com-boyter-lc-sources.inc"
+  ],
+  "includesstr": "require github.com-boyter-lc-sources.inc\nrequire github.com-boyter-golangvectorspace-sources.inc\nrequire github.com-briandowns-spinner-sources.inc\nrequire github.com-burntsushi-toml-sources.inc\nrequire github.com-cpuguy83-go-md2man-v2-sources.inc\nrequire github.com-fatih-color-sources.inc\nrequire github.com-mattn-go-colorable-sources.inc\nrequire github.com-mattn-go-isatty-sources.inc\nrequire github.com-russross-blackfriday-v2-sources.inc\nrequire github.com-ryanuber-columnize-sources.inc\nrequire github.com-tealeg-xlsx-sources.inc\nrequire github.com-urfave-cli-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire gopkg.in-yaml.v2-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/BurntSushi/toml/cmd/tomlv/COPYING;md5=9e24c0e2a784c1d1fcabb279f4f107e0",
+    "file://src/github.com/mattn/go-isatty/LICENSE;md5=f509beadd5a11227c27b5d2ad6c9f2c6",
+    "file://src/github.com/tealeg/xlsx/LICENSE;md5=f609f72877939978ce194fa2431db040",
+    "file://src/github.com/BurntSushi/toml/cmd/toml-test-encoder/COPYING;md5=9e24c0e2a784c1d1fcabb279f4f107e0",
+    "file://src/gopkg.in/yaml.v2/LICENSE.libyaml;md5=d0b68be4a2dc957aaf09144970bc6696",
+    "file://src/github.com/ryanuber/columnize/LICENSE;md5=2dcf22ecbbb7a43c2280f859bdb4bc76",
+    "file://src/github.com/briandowns/spinner/LICENSE;md5=5335066555b14d832335aa4660d6c376",
+    "file://src/github.com/russross/blackfriday/v2/LICENSE.txt;md5=ecf8a8a60560c35a862a4a545f2db1b3",
+    "file://src/gopkg.in/yaml.v2/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e",
+    "file://src/github.com/boyter/golangvectorspace/LICENCE;md5=2e03a9c45ba188fd78617966f0b4602f",
+    "file://src/github.com/BurntSushi/toml/cmd/toml-test-decoder/COPYING;md5=9e24c0e2a784c1d1fcabb279f4f107e0",
+    "file://src/github.com/mattn/go-colorable/LICENSE;md5=24ce168f90aec2456a73de1839037245",
+    "file://src/github.com/cpuguy83/go-md2man/v2/LICENSE.md;md5=80794f9009df723bbc6fe19234c9f517",
+    "file://src/github.com/boyter/lc/LICENSE;md5=c80dc78b1efbb79817c0b2699aa1b357",
+    "file://src/github.com/fatih/color/LICENSE.md;md5=316e6d590bdcde7993fb175662c0dd5a",
+    "file://src/github.com/BurntSushi/toml/COPYING;md5=9e24c0e2a784c1d1fcabb279f4f107e0",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/urfave/cli/LICENSE;md5=c542707ca9fc0b7802407ba62310bd8f"
+  ],
+  "mods": [
+    "github.com/ryanuber/columnize",
+    "github.com/urfave/cli",
+    "github.com/boyter/golangvectorspace",
+    "github.com/tealeg/xlsx",
+    "github.com/briandowns/spinner"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/boyter/lc",
+  "srcuri": "https://proxy.golang.org/github.com/boyter/lc/@v/v1.3.1.zip;srcoutput=github.com/boyter/lc;srcinput=github.com/boyter/lc@v1.3.1;downloadfilename=github-com-boyter-lc-1.3.1.zip;name=github-com-boyter-lc",
+  "version": "1.3.1"
+}

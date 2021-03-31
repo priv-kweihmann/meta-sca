@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause"
+  ],
+  "cleanname": "github-com-jcmturner-gofork",
+  "extra": [
+    "SRC_URI[github-com-jcmturner-gofork.sha256sum] = \"5e015dd9b038f1dded0b2ded77e529d2f6ba0bed228a98831af5a3610eefcb52\""
+  ],
+  "extrastr": "SRC_URI[github-com-jcmturner-gofork.sha256sum] = \"5e015dd9b038f1dded0b2ded77e529d2f6ba0bed228a98831af5a3610eefcb52\"",
+  "includes": [
+    "require github.com-jcmturner-gofork-sources.inc"
+  ],
+  "includesstr": "require github.com-jcmturner-gofork-sources.inc",
+  "license": "BSD-3-Clause",
+  "licensefiles": [
+    "file://src/github.com/jcmturner/gofork/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/jcmturner/gofork",
+  "srcuri": "https://proxy.golang.org/github.com/jcmturner/gofork/@v/v1.0.0.zip;srcoutput=github.com/jcmturner/gofork;srcinput=github.com/jcmturner/gofork@v1.0.0;downloadfilename=github-com-jcmturner-gofork-1.0.0.zip;name=github-com-jcmturner-gofork",
+  "version": "1.0.0"
+}

@@ -1,0 +1,35 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "github-com-opentracing-opentracing-go",
+  "extra": [
+    "SRC_URI[github-com-opentracing-opentracing-go.sha256sum] = \"9b1a75e9a454a0cf01a26c18e48cd321e3b300943ac5adb9098ba033dbd40db5\""
+  ],
+  "extrastr": "SRC_URI[github-com-opentracing-opentracing-go.sha256sum] = \"9b1a75e9a454a0cf01a26c18e48cd321e3b300943ac5adb9098ba033dbd40db5\"",
+  "includes": [
+    "require github.com-opentracing-opentracing-go-sources.inc"
+  ],
+  "includesstr": "require github.com-opentracing-opentracing-go-sources.inc\nrequire github.com-creack-pty-sources.inc\nrequire github.com-davecgh-go-spew-sources.inc\nrequire github.com-kr-pretty-sources.inc\nrequire github.com-kr-text-sources.inc\nrequire github.com-pmezard-go-difflib-sources.inc\nrequire github.com-stretchr-objx-sources.inc\nrequire github.com-stretchr-testify-sources.inc\nrequire gopkg.in-check.v1-sources.inc\nrequire gopkg.in-yaml.v3-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/github.com/opentracing/opentracing-go/LICENSE;md5=f4e91fcd9abdeb3c904b834127d5cb20",
+    "file://src/gopkg.in/check.v1/LICENSE;md5=598d6673548efc92a7d6dfb739add1ed",
+    "file://src/github.com/davecgh/go-spew/LICENSE;md5=c06795ed54b2a35ebeeb543cd3a73e56",
+    "file://src/github.com/stretchr/testify/LICENSE;md5=188f01994659f3c0d310612333d2a26f",
+    "file://src/github.com/pmezard/go-difflib/LICENSE;md5=e9a2ebb8de779a07500ddecca806145e",
+    "file://src/github.com/kr/text/License;md5=449bfedd81a372635934cf9ce004c0cf",
+    "file://src/github.com/kr/pretty/License;md5=449bfedd81a372635934cf9ce004c0cf",
+    "file://src/github.com/stretchr/objx/LICENSE;md5=d023fd31d3ca39ec61eec65a91732735",
+    "file://src/gopkg.in/yaml.v3/LICENSE;md5=3c91c17266710e16afdbb2b6d15c761c",
+    "file://src/github.com/creack/pty/LICENSE;md5=93958070863d769117fa33b129020050"
+  ],
+  "mods": [
+    "github.com/stretchr/testify"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/opentracing/opentracing-go",
+  "srcuri": "https://proxy.golang.org/github.com/opentracing/opentracing-go/@v/v1.2.0.zip;srcoutput=github.com/opentracing/opentracing-go;srcinput=github.com/opentracing/opentracing-go@v1.2.0;downloadfilename=github-com-opentracing-opentracing-go-1.2.0.zip;name=github-com-opentracing-opentracing-go",
+  "version": "1.2.0"
+}

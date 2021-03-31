@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "github-com-census-instrumentation-opencensus-proto",
+  "extra": [
+    "SRC_URI[github-com-census-instrumentation-opencensus-proto.sha256sum] = \"579ab1ff19403579c3b438ab95528dfc691f0ff6076829f4ed2b2d2dc5b72552\""
+  ],
+  "extrastr": "SRC_URI[github-com-census-instrumentation-opencensus-proto.sha256sum] = \"579ab1ff19403579c3b438ab95528dfc691f0ff6076829f4ed2b2d2dc5b72552\"",
+  "includes": [
+    "require github.com-census-instrumentation-opencensus-proto-sources.inc"
+  ],
+  "includesstr": "require github.com-census-instrumentation-opencensus-proto-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/github.com/census-instrumentation/opencensus-proto/LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/census-instrumentation/opencensus-proto",
+  "srcuri": "https://proxy.golang.org/github.com/census-instrumentation/opencensus-proto/@v/v0.3.0.zip;srcoutput=github.com/census-instrumentation/opencensus-proto;srcinput=github.com/census-instrumentation/opencensus-proto@v0.3.0;downloadfilename=github-com-census-instrumentation-opencensus-proto-0.3.0.zip;name=github-com-census-instrumentation-opencensus-proto",
+  "version": "0.3.0"
+}
