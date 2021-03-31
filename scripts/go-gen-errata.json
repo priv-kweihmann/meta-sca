@@ -156,5 +156,10 @@
         "striplevel": 1,
         "url": "https://github.com/mvdan/sh/archive/refs/tags/v3.2.4.zip",
         "version": "3.2.4"
+    },
+    "github.com/aws/aws-sdk-go-v2": {
+        "licenseignore": [
+            "codegen/sdk-codegen/aws-models/licensemanager.*.json"
+        ]
     }
 }

@@ -1,7 +1,6 @@
 {
   "_collected_licenses": [
     "Apache-2.0",
-    "UNKNOWN",
     "BSD-3-Clause"
   ],
   "cleanname": "github-com-aws-aws-sdk-go-v2",
@@ -13,13 +12,12 @@
     "require github.com-aws-aws-sdk-go-v2-sources.inc"
   ],
   "includesstr": "require github.com-aws-aws-sdk-go-v2-sources.inc\nrequire github.com-aws-smithy-go-sources.inc\nrequire github.com-google-go-cmp-sources.inc\nrequire github.com-jmespath-go-jmespath-sources.inc\nrequire golang.org-x-xerrors-sources.inc",
-  "license": "Apache-2.0 & BSD-3-Clause & UNKNOWN",
+  "license": "Apache-2.0 & BSD-3-Clause",
   "licensefiles": [
-    "file://src/github.com/aws/aws-sdk-go-v2/codegen/sdk-codegen/aws-models/licensemanager.2018-08-01.json;md5=efd631c626b20a473c9fbcbc961d969b",
-    "file://src/github.com/jmespath/go-jmespath/LICENSE;md5=9abfa8353fce3f2cb28364e1e9016852",
     "file://src/github.com/google/go-cmp/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab",
     "file://src/github.com/aws/aws-sdk-go-v2/LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57",
     "file://src/golang.org/x/xerrors/LICENSE;md5=a413d6b3884e141783f23d00d5838777",
+    "file://src/github.com/jmespath/go-jmespath/LICENSE;md5=9abfa8353fce3f2cb28364e1e9016852",
     "file://src/github.com/aws/smithy-go/LICENSE;md5=34400b68072d710fecd0a2940a0d1658",
     "file://src/github.com/aws/aws-sdk-go-v2/internal/sync/singleflight/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
   ],
