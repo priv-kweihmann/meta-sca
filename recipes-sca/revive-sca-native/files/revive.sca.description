@@ -74,7 +74,7 @@
             "busybox"
         ],
         "additional-targets": [
-            "revive-native"
+            "github.com-mgechev-revive-native"
         ]
     }
 }

@@ -92,4 +92,4 @@ do_sca_revive_report[doc] = "Report findings of do_sca_revive"
 addtask do_sca_revive after do_configure before do_sca_tracefiles
 addtask do_sca_revive_report after do_sca_tracefiles before do_sca_deploy
 
-DEPENDS += "revive-native sca-recipe-revive-rules-native"
+DEPENDS += "revive-sca-native sca-recipe-revive-rules-native"
