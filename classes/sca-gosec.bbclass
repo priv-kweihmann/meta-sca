@@ -125,4 +125,4 @@ do_sca_gosec_report[doc] = "Report findings of do_sca_gosec"
 addtask do_sca_gosec after do_configure before do_sca_tracefiles
 addtask do_sca_gosec_report after do_sca_tracefiles before do_sca_deploy
 
-DEPENDS += "gosec-native sca-recipe-gosec-rules-native"
+DEPENDS += "gosec-sca-native sca-recipe-gosec-rules-native"
