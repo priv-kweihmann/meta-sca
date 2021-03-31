@@ -1,0 +1,519 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: BSD-2-Clause
+# Copyright (c) 2021, Konrad Weihmann
+
+# a go-recipe generator using https://pkg.go.dev and https://proxy.golang.org info
+
+import argparse
+import fnmatch
+import glob
+import hashlib
+import json
+import logging
+import os
+from os.path import isfile
+import re
+import shutil
+import subprocess
+import tempfile
+
+import requests
+from tqdm import tqdm
+
+log = logging.getLogger(__name__)
+
+
+class TqdmLoggingHandler(logging.Handler):
+    def __init__(self, pbar, level=logging.NOTSET):
+        self._pbar = pbar
+        super().__init__(level)
+
+    def emit(self, record):
+        try:
+            self._pbar.write("[{}] {}".format(
+                record.levelname, self.format(record)))
+            self.flush()
+        except (KeyboardInterrupt, SystemExit):
+            raise
+        except:
+            self.handleError(record)
+
+
+class ExtendAction(argparse.Action):
+
+    def __call__(self, parser, namespace, values, option_string=None):
+        items = getattr(namespace, self.dest) or []
+        items.extend(values)
+        setattr(namespace, self.dest, items)
+
+
+def create_parser():
+    parser = argparse.ArgumentParser(description='go-recipe generator')
+    parser.add_argument("--version", default="",
+                        help="explicit version to chose")
+    parser.add_argument("--tmpdir", default=tempfile.gettempdir(),
+                        help="explicit version to chose")
+    parser.add_argument("--errata", default=os.path.join(os.path.dirname(__file__),
+                                                         "go-gen-errata.json"), help="errata file for this tool")
+    parser.add_argument("--erratadict", help=argparse.SUPPRESS)
+    parser.add_argument("--usetests", default=False,
+                        action="store_true", help="Use also test files")
+    parser.add_argument("--withunused", default=False,
+                        action="store_true", help="Add go.mod even they are unused")
+    parser.add_argument("--nolicensesfrom", default=["vendor/*", "examples/*", "*/testdata/*"],
+                        action="extend", nargs="*", help="Ignore licenses from these pattern")
+    parser.add_argument("--force", default=False,
+                        action="store_true", help="Force creation")
+    parser.add_argument("path", help="path to store the recipes to")
+    parser.add_argument("mod", nargs="+", help="go-mod to create")
+    x = parser.parse_args()
+    with open(x.errata) as i:
+        x.erratadict = json.load(i)
+    return x
+
+
+def __get_latest_version(args, name):
+    _fixed = args.version or args.erratadict.get(name, {}).get("version")
+    if not _fixed:
+        req = requests.get('https://proxy.golang.org/{}/@latest'.format(name))
+        if req.status_code == 200:
+            _fixed = req.json()["Version"].lstrip("v")
+    if not _fixed:
+        raise Exception("Can't determine version for {}".format(name))
+    return _fixed
+
+
+def __get_sha256(path):
+    hash_sha = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(4096), b""):
+            hash_sha.update(chunk)
+    return hash_sha.hexdigest()
+
+
+def __name_clean(name):
+    return name.lower().replace("/", "-").replace(".", "-").replace("_", "-")
+
+
+def __get_checkout(args, name):
+    _path = os.path.join(args.tmpdir, name)
+    _version = __get_latest_version(args, name)
+    _url = args.erratadict.get(name, {}).get(
+        "url", "https://proxy.golang.org/{}/@v/v{}.zip".format(name, _version))
+    __temp_file = os.path.join(args.tmpdir, "temp.zip")
+    shutil.rmtree(_path, ignore_errors=True)
+    os.makedirs(_path, exist_ok=True)
+
+    _extra_recipes_lines = []
+    _attional_fetcher_attr = []
+    _suffix_out = args.erratadict.get(name, {}).get("buildsuffix", "")
+    if _url.startswith("https://"):
+        subprocess.check_call(
+            "wget --quiet {url} -O {tmpfile}".format(url=_url, tmpfile=__temp_file), shell=True)
+        subprocess.check_call("unzip {tmpfile} -d {path} 2>&1 >/dev/null".format(
+            path=_path, tmpfile=__temp_file), shell=True)
+
+        _attional_fetcher_attr.append(
+            "srcoutput={}{}".format(name, _suffix_out))
+        _strip_level = args.erratadict.get(name, {}).get(
+            "striplevel", len(name.split("/")))
+        _strip_path = []
+        for i in range(_strip_level):
+            _dir = [x for x in os.listdir(os.path.join(
+                _path, *_strip_path)) if os.path.isdir(os.path.join(_path, *_strip_path, x))]
+            if _dir:
+                _strip_path.append(_dir[0])
+        subprocess.check_call(
+            "mv {path}/{sub}/* {path}; rm -rf {path}/{sub}".format(path=_path, sub="/".join(_strip_path)), shell=True)
+
+        _attional_fetcher_attr.append(
+            "srcinput={}".format("/".join(_strip_path)))
+        _attional_fetcher_attr.append(
+            "downloadfilename={cn}-{ver}.zip".format(cn=__name_clean(name), ver=_version))
+        _sha = __get_sha256(__temp_file)
+        _extra_recipes_lines.append('SRC_URI[{cleanname}.sha256sum] = "{sha256}"'.format(
+            cleanname=__name_clean(name), sha256=_sha))
+    elif _url.startswith("git://"):
+        subprocess.check_call("git clone {url} {path}".format(path=_path, url=_url), shell=True,
+                              stderr=subprocess.DEVNULL)
+        subprocess.check_call("git checkout {revision}".format(revision=_version), shell=True, cwd=_path,
+                              stderr=subprocess.DEVNULL)
+        _extra_recipes_lines.append('SRCREV_{cn} = "{rev}"'.format(
+            cn=__name_clean(name), rev=_version))
+        _attional_fetcher_attr.append("nobranch=1")
+        _attional_fetcher_attr.append("protocol=https")
+        _attional_fetcher_attr.append("srcinput={}".format(name))
+        _attional_fetcher_attr.append(
+            "srcoutput={}{}".format(name, _suffix_out))
+        _attional_fetcher_attr.append(
+            "destsuffix={}".format(os.path.join(name)))
+    _attional_fetcher_attr.append("name={cn}".format(cn=__name_clean(name)))
+    if _attional_fetcher_attr:
+        _url += ";" + ";".join(_attional_fetcher_attr)
+
+    _extra_recipes_lines += args.erratadict.get(name, {}).get("extra", [])
+
+    return _path, _url, _version, _extra_recipes_lines
+
+
+def __prettify(value):
+    if isinstance(value, str):
+        return value
+    if isinstance(value, (list, set)):
+        if value:
+            return "\\\n    " + " \\\n    ".join(sorted(value)) + " \\\n"
+    return ""
+
+
+def __get_md5sum(path):
+    hash_md5 = hashlib.md5()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(4096), b""):
+            hash_md5.update(chunk)
+    return hash_md5.hexdigest()
+
+
+def __get_license(args, path, default=["UNKNOWN"]):
+    res = set()
+    _tmp_store = os.path.join(args.tmpdir, "scancode.json")
+    subprocess.check_call(["scancode", "-l", "--quiet", "--json",
+                           _tmp_store, path], stderr=subprocess.DEVNULL)
+    with open(_tmp_store) as i:
+        j = json.load(i)
+        for f in j["files"]:
+            for l in f["licenses"]:
+                if l["spdx_license_key"].startswith("LicenseRef-scancode"):
+                    continue
+                res.add(l["spdx_license_key"])
+    if not res:
+        return set(default)
+    return res
+
+
+def __get_license_from_root(args, name, path):
+    _files = []
+    for x in glob.glob(os.path.join(path, "*"), recursive=False):
+        if not os.path.isfile(x):
+            continue
+        if any(fnmatch.fnmatch(x, y) for y in args.nolicensesfrom):
+            continue
+        _files.append(x)
+    _suffix_out = args.erratadict.get(name, {}).get("buildsuffix", "")
+    res = []
+    for f in _files:
+        _relpath = f.replace(path, "", 1).lstrip("/")
+        _lic = __get_license(args, f, default=[])
+        if _lic:
+            res.append(
+                (_lic, "file://src/{}{}/{};md5={}".format(name, _suffix_out, _relpath, __get_md5sum(f))))
+    return res
+
+
+def __get_license_file(args, name, path):
+    res = []
+    _suffix_out = args.erratadict.get(name, {}).get("buildsuffix", "")
+    _ignores = args.nolicensesfrom + \
+        args.erratadict.get(name, {}).get("licenseignore", [])
+    _fixedlicense = args.erratadict.get(name, {}).get("licenses", [])
+    if _fixedlicense:
+        for lic in _fixedlicense:
+            _relpath = lic["file"]
+            _fullpath = os.path.join(path, _relpath)
+            res.append(([lic["spdx"]],
+                       "file://src/{}{}/{};md5={}".format(name, _suffix_out, _relpath, __get_md5sum(_fullpath))))
+    else:
+        for root, dirs, files in os.walk(path, topdown=True):
+            for f in files:
+                _filename = os.path.basename(f)
+                _fullpath = os.path.join(root, f)
+                _relpath = _fullpath.replace(path, "", 1).lstrip("/")
+                if any(fnmatch.fnmatch(_relpath, x) for x in _ignores):
+                    continue
+                if re.match(r"(license.*|copying.*|licence.*|.*-license)", _filename, re.IGNORECASE):
+                    res.append((__get_license(args, _fullpath),
+                                "file://src/{}{}/{};md5={}".format(name, _suffix_out, _relpath, __get_md5sum(_fullpath))))
+        if not res:
+            res = __get_license_from_root(args, name, path)
+        if not res:
+            return [(["UNKNOWN"], "file://does/not/exist;md5=1234")]
+    return res
+
+
+def __double_check_mods(args, name, path, mods):
+    res = set()
+    for m in mods:
+        _excl = "--exclude='*_test.go'" if not args.usetests else ""
+        _pattern = [
+            "-e ' \"{}'".format(m),
+            "-e '\t\"{}'".format(m)
+        ]
+        if name.startswith("golang.org/x"):
+            _pattern += [
+                "-e ' \"{}'".format(m.replace("golang.org/x", "", 1)),
+                "-e '\t\"{}'".format(m.replace("golang.org/x", "", 1))
+            ]
+        _cmdstring = "grep -h -R {exl} {pattern} -c {path} ".format(exl=_excl, pattern=" ".join(_pattern), path=path) + \
+            "| paste -sd+ | bc"
+        try:
+            out = subprocess.check_output(_cmdstring, shell=True)
+            if int(out) < 1 and not args.withunused:
+                log.info("{name} doesn't seem to be actively using {mod}, ignoring it".format(
+                    name=name, mod=m))
+            else:
+                res.add(m)
+        except subprocess.SubprocessError as e:
+            pass
+    res.update(args.erratadict.get(name, {}).get("extramods", []))
+    return res
+
+
+def __name_to_recipe_native(name):
+    return "{}-native".format(name.lower().replace("/", "-").replace("_", "-"))
+
+
+def __name_to_recipe_native_fn(name, version):
+    return "{}_{}.bb".format(__name_to_recipe_native(name), version)
+
+
+def __name_to_inc_native(name):
+    return "{}-sources".format(name.lower().replace("/", "-").replace("_", "-"))
+
+
+def __name_to_inc_native_fn(name):
+    return "{}.inc".format(__name_to_inc_native(name))
+
+
+def __get_mods(path, name):
+    res = set()
+    if os.path.exists(os.path.join(path, "go.mod")):
+        with open(os.path.join(path, "go.mod")) as i:
+            _lines = i.readlines()
+
+            # prepare lines
+            line_prefix = ""
+            for index, value in enumerate(_lines):
+                _lines[index] = line_prefix + value
+                if value.startswith("require ("):
+                    line_prefix = "require "
+                elif value.startswith("replace ("):
+                    line_prefix = "replace "
+                elif value.startswith("exclude ("):
+                    line_prefix = "exclude "
+                elif value.startswith(")"):
+                    line_prefix = ""
+
+            _cnt = "".join(_lines)
+
+            m = re.match(r"^module\s(?P<name>.*)", _cnt)
+
+            if m:
+                if m.group("name") != name:
+                    # add dependency is case the module is named
+                    # different in public
+                    res.add(m.group("name"))
+
+            for m in re.finditer(r"^require\s+(?P<mod>.*)\s+v\d+\.", _cnt, re.MULTILINE):
+                res.add(m.group("mod").strip('"'))
+            for m in re.finditer(r"^exclude\s+(?P<mod>.*)\s+v\d+\.", _cnt, re.MULTILINE):
+                try:
+                    res.remove(m.group("mod").strip('"'))
+                except KeyError:
+                    pass
+            for m in re.finditer(r"^replace\s+(?P<what>.*) => (?P<mod>.*)", _cnt, re.MULTILINE):
+                try:
+                    res.remove(m.group("what").strip('"'))
+                    # strip off potential version info
+                    res.add(m.group("mod").strip('"').split(" ")[0])
+                except KeyError:
+                    pass
+    return res
+
+
+def __create_recipe_native(args, desc):
+    _tpl = """
+SUMMARY = "go.mod: %name%"
+HOMEPAGE = "https://pkg.go.dev/%name%"
+
+# License is determined by the modules included and will be therefore computed
+LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('MOD_LICENSE') or '').split(' ') if x)))}"
+
+# inject the needed sources
+%includesstr%
+
+GO_IMPORT = "%name%"
+
+inherit gosrc
+inherit native
+"""
+    _tpl = _tpl.strip() + "\n"
+    _recipe_fn = __name_to_recipe_native_fn(desc["name"], desc["version"])
+    for k, v in desc.items():
+        _tpl = _tpl.replace("%" + k + "%", __prettify(v))
+
+    with open(os.path.join(args.path, _recipe_fn), "w") as o:
+        o.write(_tpl)
+    log.info("Created {}".format(_recipe_fn))
+
+
+def __create_include_file(args, desc):
+    _tpl = """
+SRC_URI_append = " %srcuri%"
+%extrastr%
+
+MOD_LICENSE_append = " %_collected_licenses%"
+LIC_FILES_CHKSUM_append = " %licensefiles%"
+"""
+    _tpl = _tpl.strip() + "\n"
+    _recipe_fn = __name_to_inc_native_fn(desc["name"])
+    for k, v in desc.items():
+        _tpl = _tpl.replace("%" + k + "%", __prettify(v))
+
+    with open(os.path.join(args.path, _recipe_fn), "w") as o:
+        o.write(_tpl)
+    log.info("Created {}".format(_recipe_fn))
+    return ["require {}".format(_recipe_fn)]
+
+
+def __get_description_fn(name, version):
+    return "{}-{}.json".format(__name_clean(name), version)
+
+
+def dump_description(args, desc):
+    _path = os.path.join(args.path, "descriptions",
+                         __get_description_fn(desc["name"], desc["version"]))
+    os.makedirs(os.path.dirname(_path), exist_ok=True)
+    with open(_path, "w") as o:
+        dump = {
+
+        }
+        for k, v in desc.items():
+            if isinstance(v, str):
+                dump[k] = v
+            if isinstance(v, (list, set)):
+                dump[k] = list(v)
+        json.dump(dump, o, indent=2, sort_keys=True)
+
+
+def load_description(args, name, version):
+    _path = os.path.join(args.path, "descriptions",
+                         __get_description_fn(name, version))
+    _res = {}
+    if os.path.exists(_path):
+        with open(_path) as i:
+            for k, v in json.load(i).items():
+                if isinstance(v, str):
+                    _res[k] = v
+                if isinstance(v, (list, set)):
+                    _res[k] = set(v)
+    return _res
+
+
+def cleanup_descriptions(args, name, version):
+    _path = os.path.join(args.path, "descriptions",
+                         __get_description_fn(name, version))
+    for file in glob.glob(os.path.join(args.path, "descriptions", __get_description_fn(name, "*"))):
+        if file != _path:
+            os.remove(file)
+
+
+def cleanup_recipes(args, name, version):
+    _path = os.path.join(args.path, __name_to_recipe_native_fn(name, version))
+    for file in glob.glob(os.path.join(args.path, __name_to_recipe_native_fn(name, "*"))):
+        if file != _path:
+            os.remove(file)
+
+
+_children_log = {
+
+}
+
+
+def create_module(args, pbar, name, breadcrumb=[]):
+    _desc = {
+        "cleanname": __name_clean(name),
+        "license": "UNKNOWN",
+        "licensefiles": set(),
+        "mods": set(),
+        "modsrecipes": set(),
+        "modsrecipesnat": set(),
+        "name": name,
+        "extra": [],
+        "extrastr": "",
+        "srcuri": "",
+        "version": "",
+        "_collected_licenses": set(),
+        "includes": set(),
+        "includesstr": ""
+    }
+    try:
+        log.debug("#" + ">".join(breadcrumb + [name]))
+        pbar.reset()
+        pbar.update(min(20, len(breadcrumb) + 1))
+        pbar.set_description("Processing {0: >40}".format(name))
+        _restored_desc = load_description(
+            args, name, __get_latest_version(args, name))
+        if _restored_desc and not args.force:
+            log.debug("Reusing cached info for {}".format(name))
+            _desc = _restored_desc
+        else:
+            _restored_desc = None
+            _path, _desc["srcuri"], _desc["version"], _desc["extra"] = __get_checkout(
+                args, name)
+            _desc["extrastr"] = "\n".join(_desc["extra"])
+            _desc["mods"] = __double_check_mods(
+                args, name, _path, __get_mods(_path, name))
+            _raw_lic = __get_license_file(args, name, _path)
+
+            _desc["licensefiles"] = set(x[1] for x in _raw_lic)
+            for x in _raw_lic:
+                _desc["_collected_licenses"].update(x[0])
+
+            _desc["includes"].update(__create_include_file(args, _desc))
+
+        _children = _children_log.get(name, None)
+        if _children is None:
+            _children = []
+            for m in _desc["mods"]:
+                if m in breadcrumb:
+                    continue
+                _children += create_module(args, pbar, m,
+                                           breadcrumb=breadcrumb + [name])
+            _children_log[name] = _children
+
+        _child_includes = set()
+        for c in _children:
+            _child_includes.update(c["includes"])
+            _desc["licensefiles"].update(c["licensefiles"])
+
+        _desc["license"] = " & ".join(sorted(_desc["_collected_licenses"]))
+        _desc["includesstr"] = "\n".join(
+            sorted(_desc["includes"]) + sorted(_child_includes))
+
+        if not _restored_desc:
+            __create_recipe_native(args, _desc)
+            dump_description(args, _desc)
+
+            cleanup_descriptions(args, name, _desc["version"])
+            cleanup_recipes(args, name, _desc["version"])
+
+        return [_desc] + _children
+
+    except Exception as e:
+        log.exception(e)
+        pbar.write(
+            "Can't generate recipe for {} - please do manually add to {}".format(name, args.errata))
+    return []
+
+
+def main():
+    args = create_parser()
+    pbar = tqdm(
+        total=20, bar_format="{desc} depth: {bar}{n_fmt}/{total_fmt}")
+    log.setLevel(logging.INFO)
+    log.addHandler(TqdmLoggingHandler(pbar))
+    for mod in args.mod:
+        create_module(args, pbar, mod)
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,160 @@
+{
+    "github.com/Azure/azure-amqp-common-go/v3": {
+        "striplevel": 1,
+        "url": "https://github.com/Azure/azure-amqp-common-go/archive/refs/tags/v3.1.0.zip",
+        "version": "3.1.0"
+    },
+    "github.com/Azure/azure-pipeline-go": {
+        "striplevel": 1,
+        "url": "https://github.com/Azure/azure-pipeline-go/archive/refs/tags/v0.2.3.zip",
+        "version": "0.2.3"
+    },
+    "github.com/Azure/azure-storage-blob-go": {
+        "striplevel": 1,
+        "url": "https://github.com/Azure/azure-storage-blob-go/archive/refs/tags/v0.13.0.zip",
+        "version": "0.13.0"
+    },
+    "github.com/Azure/go-amqp": {
+        "striplevel": 1,
+        "url": "https://github.com/Azure/go-amqp/archive/refs/tags/v0.13.6.zip",
+        "version": "0.13.6"
+    },
+    "github.com/Azure/go-autorest/autorest": {
+        "striplevel": 1,
+        "url": "https://github.com/Azure/go-autorest/archive/refs/tags/autorest/v0.11.18.zip",
+        "version": "0.11.18"
+    },
+    "github.com/BobuSumisu/aho-corasick": {
+        "striplevel": 1,
+        "url": "https://github.com/BobuSumisu/aho-corasick/archive/refs/tags/v1.0.3.zip",
+        "version": "1.0.3"
+    },
+    "github.com/BurntSushi/toml": {
+        "striplevel": 1,
+        "url": "https://github.com/BurntSushi/toml/archive/refs/tags/v0.3.1.zip",
+        "version": "0.3.1"
+    },
+    "github.com/BurntSushi/xgb": {
+        "extra": [
+            "UPSTREAM_CHECK_COMMITS = \"1\""
+        ],
+        "striplevel": 1,
+        "url": "git://github.com/BurntSushi/xgb",
+        "version": "deaf085860bc2ec870e50cacc83c467b3501a404"
+    },
+    "github.com/DataDog/datadog-go": {
+        "striplevel": 1,
+        "url": "https://github.com/DataDog/datadog-go/archive/refs/tags/v4.5.0.zip",
+        "version": "4.5.0+incompatible"
+    },
+    "github.com/Knetic/govaluate": {
+        "striplevel": 1,
+        "url": "https://github.com/Knetic/govaluate/archive/refs/tags/v3.0.0.zip",
+        "version": "3.0.0+incompatible"
+    },
+    "github.com/Masterminds/goutils": {
+        "striplevel": 1,
+        "url": "https://github.com/Masterminds/goutils/archive/refs/tags/v1.1.1.zip",
+        "version": "1.1.1"
+    },
+    "github.com/Masterminds/semver": {
+        "striplevel": 1,
+        "url": "https://github.com/Masterminds/semver/archive/refs/tags/v1.5.0.zip",
+        "version": "1.5.0"
+    },
+    "github.com/Masterminds/semver/v3": {
+        "striplevel": 1,
+        "url": "https://github.com/Masterminds/semver/archive/refs/tags/v3.1.1.zip",
+        "version": "3.1.1"
+    },
+    "github.com/Masterminds/sprig": {
+        "striplevel": 1,
+        "url": "https://github.com/Masterminds/sprig/archive/refs/tags/v2.22.0.zip",
+        "version": "2.22.0+incompatible"
+    },
+    "github.com/Microsoft/go-winio": {
+        "striplevel": 1,
+        "url": "https://github.com/microsoft/go-winio/archive/refs/tags/v0.4.16.zip",
+        "version": "0.4.16"
+    },
+    "github.com/Shopify/sarama": {
+        "striplevel": 1,
+        "url": "https://github.com/Shopify/sarama/archive/refs/tags/v1.28.0.zip",
+        "version": "1.28.0"
+    },
+    "github.com/Shopify/toxiproxy": {
+        "striplevel": 1,
+        "url": "https://github.com/Shopify/toxiproxy/archive/refs/tags/v1.2.1.zip",
+        "version": "1.2.1"
+    },
+    "github.com/StackExchange/wmi": {
+        "extra": [
+            "UPSTREAM_CHECK_COMMITS = \"1\""
+        ],
+        "striplevel": 1,
+        "url": "git://github.com/StackExchange/wmi",
+        "version": "fe8f1750fd46057fb58f854c1d35205bed539913"
+    },
+    "github.com/VividCortex/gohistogram": {
+        "striplevel": 1,
+        "url": "https://github.com/VividCortex/gohistogram/archive/refs/tags/v1.0.0.zip",
+        "version": "1.0.0"
+    },
+    "github.com/alexkohler/identypo": {
+        "extramods": [
+            "github.com/client9/misspell",
+            "github.com/fatih/camelcase"
+        ]
+    },
+    "github.com/alexkohler/noret": {
+        "extramods": [
+            "golang.org/x/tools"
+        ]
+    },
+    "github.com/boyter/lc": {
+        "extramods": [
+            "github.com/boyter/golangvectorspace",
+            "github.com/briandowns/spinner",
+            "github.com/ryanuber/columnize",
+            "github.com/tealeg/xlsx",
+            "github.com/urfave/cli"
+        ],
+        "licenseignore": [
+            "assets/database/licenses/*",
+            "licensechecker.spdx"
+        ]
+    },
+    "github.com/coreos/etcd": {
+        "licenseignore": [
+            "Godeps/_workspace/*"
+        ]
+    },
+    "github.com/gorhill/cronexpr": {
+        "licenses": [
+            {
+                "file": "GPLv3",
+                "spdx": "GPLv3"
+            }
+        ]
+    },
+    "github.com/mcandre/slick": {
+        "extramods": [
+            "mvdan.cc/sh"
+        ]
+    },
+    "github.com/mcandre/stank": {
+        "extramods": [
+            "mvdan.cc/sh"
+        ]
+    },
+    "github.com/shurcooL/sanitized_anchor_name": {
+        "striplevel": 1,
+        "url": "https://github.com/shurcooL/sanitized_anchor_name/archive/refs/tags/v1.0.0.zip",
+        "version": "1.0.0"
+    },
+    "mvdan.cc/sh": {
+        "striplevel": 1,
+        "url": "https://github.com/mvdan/sh/archive/refs/tags/v3.2.4.zip",
+        "version": "3.2.4"
+    }
+}
