@@ -27,7 +27,7 @@
             "bad-yaml"
         ],
         "additional-targets": [
-            "slick-native"
+            "github.com-mcandre-slick-native"
         ]
     }
 }
