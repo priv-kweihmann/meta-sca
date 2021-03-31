@@ -32,7 +32,7 @@
             "bad-go"
         ],
         "additional-targets": [
-            "stank-native"
+            "github.com-mcandre-stank-native"
         ]
     }
 }
