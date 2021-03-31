@@ -1,0 +1,29 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "go-uber-org-zap",
+  "extra": [
+    "SRC_URI[go-uber-org-zap.sha256sum] = \"611e9bd05f4391b2dbf3649ce91a82478ee990ff96249e545588f5d34a5a1d75\""
+  ],
+  "extrastr": "SRC_URI[go-uber-org-zap.sha256sum] = \"611e9bd05f4391b2dbf3649ce91a82478ee990ff96249e545588f5d34a5a1d75\"",
+  "includes": [
+    "require go.uber.org-zap-sources.inc"
+  ],
+  "includesstr": "require go.uber.org-zap-sources.inc\nrequire go.uber.org-atomic-sources.inc\nrequire go.uber.org-multierr-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/go.uber.org/multierr/LICENSE.txt;md5=f65b21a547112d1bc7b11b90f9b31997",
+    "file://src/go.uber.org/atomic/LICENSE.txt;md5=1caee86519456feda989f8a838102b50",
+    "file://src/go.uber.org/zap/LICENSE.txt;md5=5e8153e456a82529ea845e0d511abb69"
+  ],
+  "mods": [
+    "go.uber.org/multierr",
+    "go.uber.org/atomic"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "go.uber.org/zap",
+  "srcuri": "https://proxy.golang.org/go.uber.org/zap/@v/v1.16.0.zip;srcoutput=go.uber.org/zap;srcinput=go.uber.org/zap@v1.16.0;downloadfilename=go-uber-org-zap-1.16.0.zip;name=go-uber-org-zap",
+  "version": "1.16.0"
+}

@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause"
+  ],
+  "cleanname": "bitbucket-org-creachadair-shell",
+  "extra": [
+    "SRC_URI[bitbucket-org-creachadair-shell.sha256sum] = \"8be90d87643ef5fb8a437bed24529f06e5791869ccf89dde652c0dec58b1f62d\""
+  ],
+  "extrastr": "SRC_URI[bitbucket-org-creachadair-shell.sha256sum] = \"8be90d87643ef5fb8a437bed24529f06e5791869ccf89dde652c0dec58b1f62d\"",
+  "includes": [
+    "require bitbucket.org-creachadair-shell-sources.inc"
+  ],
+  "includesstr": "require bitbucket.org-creachadair-shell-sources.inc",
+  "license": "BSD-3-Clause",
+  "licensefiles": [
+    "file://src/bitbucket.org/creachadair/shell/LICENSE;md5=5ab805cea35f8960c320947cb99b2db3"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "bitbucket.org/creachadair/shell",
+  "srcuri": "https://proxy.golang.org/bitbucket.org/creachadair/shell/@v/v0.0.6.zip;srcoutput=bitbucket.org/creachadair/shell;srcinput=bitbucket.org/creachadair/shell@v0.0.6;downloadfilename=bitbucket-org-creachadair-shell-0.0.6.zip;name=bitbucket-org-creachadair-shell",
+  "version": "0.0.6"
+}

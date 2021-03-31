@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause"
+  ],
+  "cleanname": "github-com-gogo-protobuf",
+  "extra": [
+    "SRC_URI[github-com-gogo-protobuf.sha256sum] = \"dd2b73f163c8183941626360196c8f844addd95423d341a0412e1b22d0104ff7\""
+  ],
+  "extrastr": "SRC_URI[github-com-gogo-protobuf.sha256sum] = \"dd2b73f163c8183941626360196c8f844addd95423d341a0412e1b22d0104ff7\"",
+  "includes": [
+    "require github.com-gogo-protobuf-sources.inc"
+  ],
+  "includesstr": "require github.com-gogo-protobuf-sources.inc",
+  "license": "BSD-3-Clause",
+  "licensefiles": [
+    "file://src/github.com/gogo/protobuf/LICENSE;md5=38be95f95200434dc208e2ee3dab5081"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/gogo/protobuf",
+  "srcuri": "https://proxy.golang.org/github.com/gogo/protobuf/@v/v1.3.2.zip;srcoutput=github.com/gogo/protobuf;srcinput=github.com/gogo/protobuf@v1.3.2;downloadfilename=github-com-gogo-protobuf-1.3.2.zip;name=github-com-gogo-protobuf",
+  "version": "1.3.2"
+}

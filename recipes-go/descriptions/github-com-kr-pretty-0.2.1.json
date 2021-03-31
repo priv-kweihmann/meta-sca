@@ -1,0 +1,28 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-kr-pretty",
+  "extra": [
+    "SRC_URI[github-com-kr-pretty.sha256sum] = \"80af0452082052d1b3265d7cb8985d464d4be222c27e14658e95632c222761e5\""
+  ],
+  "extrastr": "SRC_URI[github-com-kr-pretty.sha256sum] = \"80af0452082052d1b3265d7cb8985d464d4be222c27e14658e95632c222761e5\"",
+  "includes": [
+    "require github.com-kr-pretty-sources.inc"
+  ],
+  "includesstr": "require github.com-kr-pretty-sources.inc\nrequire github.com-creack-pty-sources.inc\nrequire github.com-kr-text-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/creack/pty/LICENSE;md5=93958070863d769117fa33b129020050",
+    "file://src/github.com/kr/text/License;md5=449bfedd81a372635934cf9ce004c0cf",
+    "file://src/github.com/kr/pretty/License;md5=449bfedd81a372635934cf9ce004c0cf"
+  ],
+  "mods": [
+    "github.com/kr/text"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/kr/pretty",
+  "srcuri": "https://proxy.golang.org/github.com/kr/pretty/@v/v0.2.1.zip;srcoutput=github.com/kr/pretty;srcinput=github.com/kr/pretty@v0.2.1;downloadfilename=github-com-kr-pretty-0.2.1.zip;name=github-com-kr-pretty",
+  "version": "0.2.1"
+}

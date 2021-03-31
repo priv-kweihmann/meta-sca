@@ -1,0 +1,68 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-armon-go-metrics",
+  "extra": [
+    "SRC_URI[github-com-armon-go-metrics.sha256sum] = \"ea9fd5f9a73e0b4d3119f77bb72b476319675e4bdec692c5675d33fb6bd1121f\""
+  ],
+  "extrastr": "SRC_URI[github-com-armon-go-metrics.sha256sum] = \"ea9fd5f9a73e0b4d3119f77bb72b476319675e4bdec692c5675d33fb6bd1121f\"",
+  "includes": [
+    "require github.com-armon-go-metrics-sources.inc"
+  ],
+  "includesstr": "require github.com-armon-go-metrics-sources.inc\nrequire github.com-beorn7-perks-sources.inc\nrequire github.com-cespare-xxhash-v2-sources.inc\nrequire github.com-circonus-labs-circonus-gometrics-sources.inc\nrequire github.com-creack-pty-sources.inc\nrequire github.com-datadog-datadog-go-sources.inc\nrequire github.com-davecgh-go-spew-sources.inc\nrequire github.com-golang-protobuf-sources.inc\nrequire github.com-google-go-cmp-sources.inc\nrequire github.com-hashicorp-go-immutable-radix-sources.inc\nrequire github.com-hashicorp-golang-lru-sources.inc\nrequire github.com-json-iterator-go-sources.inc\nrequire github.com-julienschmidt-httprouter-sources.inc\nrequire github.com-kr-pretty-sources.inc\nrequire github.com-kr-text-sources.inc\nrequire github.com-matttproud-golang-protobuf-extensions-sources.inc\nrequire github.com-modern-go-concurrent-sources.inc\nrequire github.com-modern-go-reflect2-sources.inc\nrequire github.com-mwitkow-go-conntrack-sources.inc\nrequire github.com-pkg-errors-sources.inc\nrequire github.com-pmezard-go-difflib-sources.inc\nrequire github.com-prometheus-client-golang-sources.inc\nrequire github.com-prometheus-client-model-sources.inc\nrequire github.com-prometheus-common-sources.inc\nrequire github.com-prometheus-procfs-sources.inc\nrequire github.com-sirupsen-logrus-sources.inc\nrequire github.com-stretchr-objx-sources.inc\nrequire github.com-stretchr-testify-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sync-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc\nrequire golang.org-x-xerrors-sources.inc\nrequire google.golang.org-protobuf-sources.inc\nrequire gopkg.in-alecthomas-kingpin.v2-sources.inc\nrequire gopkg.in-check.v1-sources.inc\nrequire gopkg.in-yaml.v2-sources.inc\nrequire gopkg.in-yaml.v3-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/julienschmidt/httprouter/LICENSE;md5=f85688063699957f6fa44fa2caacd4a1",
+    "file://src/github.com/google/go-cmp/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab",
+    "file://src/github.com/armon/go-metrics/LICENSE;md5=d2d77030c0183e3d1e66d26dc1f243be",
+    "file://src/golang.org/x/xerrors/LICENSE;md5=a413d6b3884e141783f23d00d5838777",
+    "file://src/gopkg.in/alecthomas/kingpin.v2/COPYING;md5=c5ef1b09608767a6284a2cffd3b9765f",
+    "file://src/github.com/kr/pretty/License;md5=449bfedd81a372635934cf9ce004c0cf",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/sirupsen/logrus/LICENSE;md5=8dadfef729c08ec4e631c4f6fc5d43a0",
+    "file://src/github.com/stretchr/testify/LICENSE;md5=188f01994659f3c0d310612333d2a26f",
+    "file://src/github.com/pmezard/go-difflib/LICENSE;md5=e9a2ebb8de779a07500ddecca806145e",
+    "file://src/github.com/prometheus/procfs/LICENSE;md5=86d3f3a95c324c9479bd8986968f4327",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/gopkg.in/yaml.v3/LICENSE;md5=3c91c17266710e16afdbb2b6d15c761c",
+    "file://src/github.com/prometheus/client_golang/LICENSE;md5=86d3f3a95c324c9479bd8986968f4327",
+    "file://src/github.com/mwitkow/go-conntrack/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e",
+    "file://src/github.com/prometheus/common/LICENSE;md5=86d3f3a95c324c9479bd8986968f4327",
+    "file://src/github.com/cespare/xxhash/v2/LICENSE.txt;md5=802da049c92a99b4387d3f3d91b00fa9",
+    "file://src/github.com/prometheus/client_model/LICENSE;md5=86d3f3a95c324c9479bd8986968f4327",
+    "file://src/github.com/beorn7/perks/LICENSE;md5=0d0738f37ee8dc0b5f88a32e83c60198",
+    "file://src/github.com/json-iterator/go/LICENSE;md5=0b69744b481d72d30dbf69f84a451cfd",
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/gopkg.in/check.v1/LICENSE;md5=598d6673548efc92a7d6dfb739add1ed",
+    "file://src/github.com/davecgh/go-spew/LICENSE;md5=c06795ed54b2a35ebeeb543cd3a73e56",
+    "file://src/gopkg.in/yaml.v2/LICENSE.libyaml;md5=d0b68be4a2dc957aaf09144970bc6696",
+    "file://src/github.com/modern-go/reflect2/LICENSE;md5=86d3f3a95c324c9479bd8986968f4327",
+    "file://src/github.com/golang/protobuf/LICENSE;md5=939cce1ec101726fa754e698ac871622",
+    "file://src/github.com/kr/text/License;md5=449bfedd81a372635934cf9ce004c0cf",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/stretchr/objx/LICENSE;md5=d023fd31d3ca39ec61eec65a91732735",
+    "file://src/gopkg.in/yaml.v2/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e",
+    "file://src/google.golang.org/protobuf/LICENSE;md5=02d4002e9171d41a8fad93aa7faf3956",
+    "file://src/github.com/creack/pty/LICENSE;md5=93958070863d769117fa33b129020050",
+    "file://src/github.com/hashicorp/golang-lru/LICENSE;md5=f27a50d2e878867827842f2c60e30bfc",
+    "file://src/github.com/hashicorp/go-immutable-radix/LICENSE;md5=65d26fcc2f35ea6a181ac777e42db1ea",
+    "file://src/golang.org/x/sync/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/matttproud/golang_protobuf_extensions/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e",
+    "file://src/github.com/DataDog/datadog-go/LICENSE.txt;md5=229fc88a2f846fc676e9edeafb0e4011",
+    "file://src/github.com/pkg/errors/LICENSE;md5=6fe682a02df52c6653f33bd0f7126b5a",
+    "file://src/github.com/circonus-labs/circonus-gometrics/LICENSE;md5=c9618a5897975a87180ce7ae9ea19a15",
+    "file://src/github.com/modern-go/concurrent/LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
+  ],
+  "mods": [
+    "github.com/circonus-labs/circonus-gometrics",
+    "github.com/hashicorp/go-immutable-radix",
+    "github.com/DataDog/datadog-go",
+    "github.com/prometheus/client_golang"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/armon/go-metrics",
+  "srcuri": "https://proxy.golang.org/github.com/armon/go-metrics/@v/v0.3.6.zip;srcoutput=github.com/armon/go-metrics;srcinput=github.com/armon/go-metrics@v0.3.6;downloadfilename=github-com-armon-go-metrics-0.3.6.zip;name=github-com-armon-go-metrics",
+  "version": "0.3.6"
+}

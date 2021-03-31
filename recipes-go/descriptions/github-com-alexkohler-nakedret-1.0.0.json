@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-alexkohler-nakedret",
+  "extra": [
+    "SRC_URI[github-com-alexkohler-nakedret.sha256sum] = \"49085b54732ebb40eead03d29fd46b88a5a2240d90849e3d2ddc85dbf607905e\""
+  ],
+  "extrastr": "SRC_URI[github-com-alexkohler-nakedret.sha256sum] = \"49085b54732ebb40eead03d29fd46b88a5a2240d90849e3d2ddc85dbf607905e\"",
+  "includes": [
+    "require github.com-alexkohler-nakedret-sources.inc"
+  ],
+  "includesstr": "require github.com-alexkohler-nakedret-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/alexkohler/nakedret/LICENSE;md5=2c7b8f9e174db37605a15c992b0dc995"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/alexkohler/nakedret",
+  "srcuri": "https://proxy.golang.org/github.com/alexkohler/nakedret/@v/v1.0.0.zip;srcoutput=github.com/alexkohler/nakedret;srcinput=github.com/alexkohler/nakedret@v1.0.0;downloadfilename=github-com-alexkohler-nakedret-1.0.0.zip;name=github-com-alexkohler-nakedret",
+  "version": "1.0.0"
+}

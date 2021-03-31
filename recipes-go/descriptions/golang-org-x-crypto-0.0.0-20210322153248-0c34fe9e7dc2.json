@@ -1,0 +1,32 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause"
+  ],
+  "cleanname": "golang-org-x-crypto",
+  "extra": [
+    "SRC_URI[golang-org-x-crypto.sha256sum] = \"2d8c67019031583297a020f2fea24f726808f6bbf9374fcc4ec609c47b6ca2e7\""
+  ],
+  "extrastr": "SRC_URI[golang-org-x-crypto.sha256sum] = \"2d8c67019031583297a020f2fea24f726808f6bbf9374fcc4ec609c47b6ca2e7\"",
+  "includes": [
+    "require golang.org-x-crypto-sources.inc"
+  ],
+  "includesstr": "require golang.org-x-crypto-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc",
+  "license": "BSD-3-Clause",
+  "licensefiles": [
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/crypto/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "golang.org/x/sys",
+    "golang.org/x/net",
+    "golang.org/x/term"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "golang.org/x/crypto",
+  "srcuri": "https://proxy.golang.org/golang.org/x/crypto/@v/v0.0.0-20210322153248-0c34fe9e7dc2.zip;srcoutput=golang.org/x/crypto;srcinput=golang.org/x/crypto@v0.0.0-20210322153248-0c34fe9e7dc2;downloadfilename=golang-org-x-crypto-0.0.0-20210322153248-0c34fe9e7dc2.zip;name=golang-org-x-crypto",
+  "version": "0.0.0-20210322153248-0c34fe9e7dc2"
+}

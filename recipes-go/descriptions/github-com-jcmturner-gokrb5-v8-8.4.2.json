@@ -1,0 +1,46 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "github-com-jcmturner-gokrb5-v8",
+  "extra": [
+    "SRC_URI[github-com-jcmturner-gokrb5-v8.sha256sum] = \"eecd7120363321bb6b58b015395089958720271b3211659d802447d417af5970\""
+  ],
+  "extrastr": "SRC_URI[github-com-jcmturner-gokrb5-v8.sha256sum] = \"eecd7120363321bb6b58b015395089958720271b3211659d802447d417af5970\"",
+  "includes": [
+    "require github.com-jcmturner-gokrb5-v8-sources.inc"
+  ],
+  "includesstr": "require github.com-jcmturner-gokrb5-v8-sources.inc\nrequire github.com-gorilla-securecookie-sources.inc\nrequire github.com-gorilla-sessions-sources.inc\nrequire github.com-hashicorp-go-uuid-sources.inc\nrequire github.com-jcmturner-aescts-v2-sources.inc\nrequire github.com-jcmturner-dnsutils-v2-sources.inc\nrequire github.com-jcmturner-gofork-sources.inc\nrequire github.com-jcmturner-goidentity-v6-sources.inc\nrequire github.com-jcmturner-rpc-v2-sources.inc\nrequire golang.org-x-crypto-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/github.com/jcmturner/goidentity/v6/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e",
+    "file://src/github.com/jcmturner/aescts/v2/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e",
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/crypto/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/gorilla/securecookie/LICENSE;md5=c50f6bd9c1e15ed0bad3bea18e3c1b7f",
+    "file://src/github.com/jcmturner/gokrb5/v8/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e",
+    "file://src/github.com/hashicorp/go-uuid/LICENSE;md5=65d26fcc2f35ea6a181ac777e42db1ea",
+    "file://src/github.com/jcmturner/rpc/v2/LICENSE;md5=86d3f3a95c324c9479bd8986968f4327",
+    "file://src/github.com/jcmturner/gofork/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/jcmturner/dnsutils/v2/LICENSE;md5=86d3f3a95c324c9479bd8986968f4327",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/gorilla/sessions/LICENSE;md5=33fa1116c45f9e8de714033f99edde13"
+  ],
+  "mods": [
+    "github.com/hashicorp/go-uuid",
+    "golang.org/x/crypto",
+    "github.com/jcmturner/aescts/v2",
+    "github.com/jcmturner/rpc/v2",
+    "github.com/gorilla/sessions",
+    "github.com/jcmturner/goidentity/v6",
+    "github.com/jcmturner/gofork",
+    "github.com/jcmturner/dnsutils/v2"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/jcmturner/gokrb5/v8",
+  "srcuri": "https://proxy.golang.org/github.com/jcmturner/gokrb5/v8/@v/v8.4.2.zip;srcoutput=github.com/jcmturner/gokrb5/v8;srcinput=github.com/jcmturner/gokrb5/v8@v8.4.2;downloadfilename=github-com-jcmturner-gokrb5-v8-8.4.2.zip;name=github-com-jcmturner-gokrb5-v8",
+  "version": "8.4.2"
+}

@@ -1,0 +1,36 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0",
+    "BSD-3-Clause"
+  ],
+  "cleanname": "github-com-aws-aws-sdk-go",
+  "extra": [
+    "SRC_URI[github-com-aws-aws-sdk-go.sha256sum] = \"b6fb5fbef051a80751e63fea794136ae77005db8a8809473b80a1b6dc25d9f6e\""
+  ],
+  "extrastr": "SRC_URI[github-com-aws-aws-sdk-go.sha256sum] = \"b6fb5fbef051a80751e63fea794136ae77005db8a8809473b80a1b6dc25d9f6e\"",
+  "includes": [
+    "require github.com-aws-aws-sdk-go-sources.inc"
+  ],
+  "includesstr": "require github.com-aws-aws-sdk-go-sources.inc\nrequire github.com-jmespath-go-jmespath-sources.inc\nrequire github.com-pkg-errors-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc",
+  "license": "Apache-2.0 & BSD-3-Clause",
+  "licensefiles": [
+    "file://src/github.com/aws/aws-sdk-go/internal/sync/singleflight/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/pkg/errors/LICENSE;md5=6fe682a02df52c6653f33bd0f7126b5a",
+    "file://src/github.com/jmespath/go-jmespath/LICENSE;md5=9abfa8353fce3f2cb28364e1e9016852",
+    "file://src/github.com/aws/aws-sdk-go/LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "github.com/jmespath/go-jmespath",
+    "github.com/pkg/errors",
+    "golang.org/x/net"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/aws/aws-sdk-go",
+  "srcuri": "https://proxy.golang.org/github.com/aws/aws-sdk-go/@v/v1.38.9.zip;srcoutput=github.com/aws/aws-sdk-go;srcinput=github.com/aws/aws-sdk-go@v1.38.9;downloadfilename=github-com-aws-aws-sdk-go-1.38.9.zip;name=github-com-aws-aws-sdk-go",
+  "version": "1.38.9"
+}

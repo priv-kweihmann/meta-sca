@@ -1,0 +1,27 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-mattn-go-runewidth",
+  "extra": [
+    "SRC_URI[github-com-mattn-go-runewidth.sha256sum] = \"030dcf3ea6cb39b34269f119ee5fe5e9d5834daf409e1f3f48c065a45326f4a6\""
+  ],
+  "extrastr": "SRC_URI[github-com-mattn-go-runewidth.sha256sum] = \"030dcf3ea6cb39b34269f119ee5fe5e9d5834daf409e1f3f48c065a45326f4a6\"",
+  "includes": [
+    "require github.com-mattn-go-runewidth-sources.inc"
+  ],
+  "includesstr": "require github.com-mattn-go-runewidth-sources.inc\nrequire github.com-rivo-uniseg-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/mattn/go-runewidth/LICENSE;md5=24ce168f90aec2456a73de1839037245",
+    "file://src/github.com/rivo/uniseg/LICENSE.txt;md5=4393c339bf180cf6e188b6ea32d8b93c"
+  ],
+  "mods": [
+    "github.com/rivo/uniseg"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/mattn/go-runewidth",
+  "srcuri": "https://proxy.golang.org/github.com/mattn/go-runewidth/@v/v0.0.10.zip;srcoutput=github.com/mattn/go-runewidth;srcinput=github.com/mattn/go-runewidth@v0.0.10;downloadfilename=github-com-mattn-go-runewidth-0.0.10.zip;name=github-com-mattn-go-runewidth",
+  "version": "0.0.10"
+}

@@ -1,0 +1,27 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause"
+  ],
+  "cleanname": "github-com-google-go-cmp",
+  "extra": [
+    "SRC_URI[github-com-google-go-cmp.sha256sum] = \"0ee90a7194c025d849699f897d97641b8676ceca9215c96e00eaf1f0e6e953ad\""
+  ],
+  "extrastr": "SRC_URI[github-com-google-go-cmp.sha256sum] = \"0ee90a7194c025d849699f897d97641b8676ceca9215c96e00eaf1f0e6e953ad\"",
+  "includes": [
+    "require github.com-google-go-cmp-sources.inc"
+  ],
+  "includesstr": "require github.com-google-go-cmp-sources.inc\nrequire golang.org-x-xerrors-sources.inc",
+  "license": "BSD-3-Clause",
+  "licensefiles": [
+    "file://src/github.com/google/go-cmp/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab",
+    "file://src/golang.org/x/xerrors/LICENSE;md5=a413d6b3884e141783f23d00d5838777"
+  ],
+  "mods": [
+    "golang.org/x/xerrors"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/google/go-cmp",
+  "srcuri": "https://proxy.golang.org/github.com/google/go-cmp/@v/v0.5.5.zip;srcoutput=github.com/google/go-cmp;srcinput=github.com/google/go-cmp@v0.5.5;downloadfilename=github-com-google-go-cmp-0.5.5.zip;name=github-com-google-go-cmp",
+  "version": "0.5.5"
+}

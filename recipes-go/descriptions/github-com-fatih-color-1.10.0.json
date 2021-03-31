@@ -1,0 +1,30 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-fatih-color",
+  "extra": [
+    "SRC_URI[github-com-fatih-color.sha256sum] = \"e1b2da810ca48a16d9ecd808b7aaae757f1c3c906cf1e8ca1d149b8db7cdb91b\""
+  ],
+  "extrastr": "SRC_URI[github-com-fatih-color.sha256sum] = \"e1b2da810ca48a16d9ecd808b7aaae757f1c3c906cf1e8ca1d149b8db7cdb91b\"",
+  "includes": [
+    "require github.com-fatih-color-sources.inc"
+  ],
+  "includesstr": "require github.com-fatih-color-sources.inc\nrequire github.com-mattn-go-colorable-sources.inc\nrequire github.com-mattn-go-isatty-sources.inc\nrequire golang.org-x-sys-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/fatih/color/LICENSE.md;md5=316e6d590bdcde7993fb175662c0dd5a",
+    "file://src/github.com/mattn/go-isatty/LICENSE;md5=f509beadd5a11227c27b5d2ad6c9f2c6",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/mattn/go-colorable/LICENSE;md5=24ce168f90aec2456a73de1839037245"
+  ],
+  "mods": [
+    "github.com/mattn/go-colorable",
+    "github.com/mattn/go-isatty"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/fatih/color",
+  "srcuri": "https://proxy.golang.org/github.com/fatih/color/@v/v1.10.0.zip;srcoutput=github.com/fatih/color;srcinput=github.com/fatih/color@v1.10.0;downloadfilename=github-com-fatih-color-1.10.0.zip;name=github-com-fatih-color",
+  "version": "1.10.0"
+}

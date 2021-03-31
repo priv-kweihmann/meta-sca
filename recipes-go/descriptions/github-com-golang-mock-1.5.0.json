@@ -1,0 +1,38 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0"
+  ],
+  "cleanname": "github-com-golang-mock",
+  "extra": [
+    "SRC_URI[github-com-golang-mock.sha256sum] = \"87e7217adce199e9a3c2813174e221a4e06cde85b1423c7462b4fa422cbfbede\""
+  ],
+  "extrastr": "SRC_URI[github-com-golang-mock.sha256sum] = \"87e7217adce199e9a3c2813174e221a4e06cde85b1423c7462b4fa422cbfbede\"",
+  "includes": [
+    "require github.com-golang-mock-sources.inc"
+  ],
+  "includesstr": "require github.com-golang-mock-sources.inc\nrequire github.com-yuin-goldmark-sources.inc\nrequire golang.org-x-crypto-sources.inc\nrequire golang.org-x-mod-sources.inc\nrequire golang.org-x-net-sources.inc\nrequire golang.org-x-sync-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc\nrequire golang.org-x-tools-sources.inc\nrequire golang.org-x-xerrors-sources.inc",
+  "license": "Apache-2.0",
+  "licensefiles": [
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/crypto/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/mod/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/xerrors/LICENSE;md5=a413d6b3884e141783f23d00d5838777",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/tools/cmd/getgo/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab",
+    "file://src/golang.org/x/sync/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/yuin/goldmark/LICENSE;md5=9ccc571100d655d5a450059a79f1339e",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/golang/mock/LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57",
+    "file://src/golang.org/x/tools/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "golang.org/x/mod",
+    "golang.org/x/tools"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/golang/mock",
+  "srcuri": "https://proxy.golang.org/github.com/golang/mock/@v/v1.5.0.zip;srcoutput=github.com/golang/mock;srcinput=github.com/golang/mock@v1.5.0;downloadfilename=github-com-golang-mock-1.5.0.zip;name=github-com-golang-mock",
+  "version": "1.5.0"
+}

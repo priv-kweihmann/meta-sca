@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "MPL-2.0"
+  ],
+  "cleanname": "github-com-hashicorp-errwrap",
+  "extra": [
+    "SRC_URI[github-com-hashicorp-errwrap.sha256sum] = \"209ae99bc039443e28e4d6bb66517d1756d9468b7578d31f1b63a28103d8e18c\""
+  ],
+  "extrastr": "SRC_URI[github-com-hashicorp-errwrap.sha256sum] = \"209ae99bc039443e28e4d6bb66517d1756d9468b7578d31f1b63a28103d8e18c\"",
+  "includes": [
+    "require github.com-hashicorp-errwrap-sources.inc"
+  ],
+  "includesstr": "require github.com-hashicorp-errwrap-sources.inc",
+  "license": "MPL-2.0",
+  "licensefiles": [
+    "file://src/github.com/hashicorp/errwrap/LICENSE;md5=b278a92d2c1509760384428817710378"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/hashicorp/errwrap",
+  "srcuri": "https://proxy.golang.org/github.com/hashicorp/errwrap/@v/v1.1.0.zip;srcoutput=github.com/hashicorp/errwrap;srcinput=github.com/hashicorp/errwrap@v1.1.0;downloadfilename=github-com-hashicorp-errwrap-1.1.0.zip;name=github-com-hashicorp-errwrap",
+  "version": "1.1.0"
+}

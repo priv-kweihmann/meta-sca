@@ -1,0 +1,42 @@
+{
+  "_collected_licenses": [
+    "MPL-2.0"
+  ],
+  "cleanname": "github-com-mitchellh-cli",
+  "extra": [
+    "SRC_URI[github-com-mitchellh-cli.sha256sum] = \"38cf52dd2c968e946f3364c8dcf68db56da6ccfd4b78d63b044835c3d38c2770\""
+  ],
+  "extrastr": "SRC_URI[github-com-mitchellh-cli.sha256sum] = \"38cf52dd2c968e946f3364c8dcf68db56da6ccfd4b78d63b044835c3d38c2770\"",
+  "includes": [
+    "require github.com-mitchellh-cli-sources.inc"
+  ],
+  "includesstr": "require github.com-mitchellh-cli-sources.inc\nrequire github.com-armon-go-radix-sources.inc\nrequire github.com-bgentry-speakeasy-sources.inc\nrequire github.com-fatih-color-sources.inc\nrequire github.com-hashicorp-errwrap-sources.inc\nrequire github.com-hashicorp-go-multierror-sources.inc\nrequire github.com-masterminds-sprig-sources.inc\nrequire github.com-mattn-go-colorable-sources.inc\nrequire github.com-mattn-go-isatty-sources.inc\nrequire github.com-posener-complete-sources.inc\nrequire golang.org-x-sys-sources.inc",
+  "license": "MPL-2.0",
+  "licensefiles": [
+    "file://src/github.com/bgentry/speakeasy/LICENSE;md5=adf5a740fe07eb2aa1ac54aafe2d41f2",
+    "file://src/github.com/hashicorp/errwrap/LICENSE;md5=b278a92d2c1509760384428817710378",
+    "file://src/github.com/mattn/go-isatty/LICENSE;md5=f509beadd5a11227c27b5d2ad6c9f2c6",
+    "file://src/github.com/mattn/go-colorable/LICENSE;md5=24ce168f90aec2456a73de1839037245",
+    "file://src/github.com/mitchellh/cli/LICENSE;md5=b278a92d2c1509760384428817710378",
+    "file://src/github.com/hashicorp/go-multierror/LICENSE;md5=d44fdeb607e2d2614db9464dbedd4094",
+    "file://src/github.com/posener/complete/LICENSE.txt;md5=6778be8533804ed9e25f746e2f0ba0ee",
+    "file://src/github.com/fatih/color/LICENSE.md;md5=316e6d590bdcde7993fb175662c0dd5a",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/github.com/bgentry/speakeasy/LICENSE_WINDOWS;md5=b563ae7163bca24b2c0ed1486f8c944c",
+    "file://src/github.com/Masterminds/sprig/LICENSE.txt;md5=652ef7590e03427663a9b9d1318a9fbb",
+    "file://src/github.com/armon/go-radix/LICENSE;md5=cb04212e101fbbd028f325e04ad45778"
+  ],
+  "mods": [
+    "github.com/armon/go-radix",
+    "github.com/fatih/color",
+    "github.com/mattn/go-isatty",
+    "github.com/bgentry/speakeasy",
+    "github.com/Masterminds/sprig",
+    "github.com/posener/complete"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/mitchellh/cli",
+  "srcuri": "https://proxy.golang.org/github.com/mitchellh/cli/@v/v1.1.2.zip;srcoutput=github.com/mitchellh/cli;srcinput=github.com/mitchellh/cli@v1.1.2;downloadfilename=github-com-mitchellh-cli-1.1.2.zip;name=github-com-mitchellh-cli",
+  "version": "1.1.2"
+}

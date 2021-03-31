@@ -1,0 +1,31 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0",
+    "MIT"
+  ],
+  "cleanname": "gopkg-in-yaml-v3",
+  "extra": [
+    "SRC_URI[gopkg-in-yaml-v3.sha256sum] = \"5169b5625d3c351f13e8a4ec4802f709072701b441ed92181c6051ece53615a9\""
+  ],
+  "extrastr": "SRC_URI[gopkg-in-yaml-v3.sha256sum] = \"5169b5625d3c351f13e8a4ec4802f709072701b441ed92181c6051ece53615a9\"",
+  "includes": [
+    "require gopkg.in-yaml.v3-sources.inc"
+  ],
+  "includesstr": "require gopkg.in-yaml.v3-sources.inc\nrequire github.com-creack-pty-sources.inc\nrequire github.com-kr-pretty-sources.inc\nrequire github.com-kr-text-sources.inc\nrequire gopkg.in-check.v1-sources.inc",
+  "license": "Apache-2.0 & MIT",
+  "licensefiles": [
+    "file://src/github.com/kr/text/License;md5=449bfedd81a372635934cf9ce004c0cf",
+    "file://src/github.com/kr/pretty/License;md5=449bfedd81a372635934cf9ce004c0cf",
+    "file://src/gopkg.in/check.v1/LICENSE;md5=598d6673548efc92a7d6dfb739add1ed",
+    "file://src/gopkg.in/yaml.v3/LICENSE;md5=3c91c17266710e16afdbb2b6d15c761c",
+    "file://src/github.com/creack/pty/LICENSE;md5=93958070863d769117fa33b129020050"
+  ],
+  "mods": [
+    "gopkg.in/check.v1"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "gopkg.in/yaml.v3",
+  "srcuri": "https://proxy.golang.org/gopkg.in/yaml.v3/@v/v3.0.0-20210107192922-496545a6307b.zip;srcoutput=gopkg.in/yaml.v3;srcinput=gopkg.in/yaml.v3@v3.0.0-20210107192922-496545a6307b;downloadfilename=gopkg-in-yaml-v3-3.0.0-20210107192922-496545a6307b.zip;name=gopkg-in-yaml-v3",
+  "version": "3.0.0-20210107192922-496545a6307b"
+}

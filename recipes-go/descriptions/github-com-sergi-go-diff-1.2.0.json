@@ -1,0 +1,26 @@
+{
+  "_collected_licenses": [
+    "Apache-2.0",
+    "MIT"
+  ],
+  "cleanname": "github-com-sergi-go-diff",
+  "extra": [
+    "SRC_URI[github-com-sergi-go-diff.sha256sum] = \"da1accb73e9ac304a805eb59fba2c50d0089f9206a2574b8812af7e75e8ec105\""
+  ],
+  "extrastr": "SRC_URI[github-com-sergi-go-diff.sha256sum] = \"da1accb73e9ac304a805eb59fba2c50d0089f9206a2574b8812af7e75e8ec105\"",
+  "includes": [
+    "require github.com-sergi-go-diff-sources.inc"
+  ],
+  "includesstr": "require github.com-sergi-go-diff-sources.inc",
+  "license": "Apache-2.0 & MIT",
+  "licensefiles": [
+    "file://src/github.com/sergi/go-diff/LICENSE;md5=16f703825b70b736d741a46be315b0d9",
+    "file://src/github.com/sergi/go-diff/APACHE-LICENSE-2.0;md5=2ee41112a44fe7014dce33e26468ba93"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/sergi/go-diff",
+  "srcuri": "https://proxy.golang.org/github.com/sergi/go-diff/@v/v1.2.0.zip;srcoutput=github.com/sergi/go-diff;srcinput=github.com/sergi/go-diff@v1.2.0;downloadfilename=github-com-sergi-go-diff-1.2.0.zip;name=github-com-sergi-go-diff",
+  "version": "1.2.0"
+}

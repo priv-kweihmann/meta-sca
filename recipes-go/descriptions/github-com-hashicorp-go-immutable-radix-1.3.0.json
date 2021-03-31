@@ -1,0 +1,27 @@
+{
+  "_collected_licenses": [
+    "MPL-2.0"
+  ],
+  "cleanname": "github-com-hashicorp-go-immutable-radix",
+  "extra": [
+    "SRC_URI[github-com-hashicorp-go-immutable-radix.sha256sum] = \"99e880764d9796088e9f8b348bd6c1d68354a4f9f28a757496c83c0f51eb8e49\""
+  ],
+  "extrastr": "SRC_URI[github-com-hashicorp-go-immutable-radix.sha256sum] = \"99e880764d9796088e9f8b348bd6c1d68354a4f9f28a757496c83c0f51eb8e49\"",
+  "includes": [
+    "require github.com-hashicorp-go-immutable-radix-sources.inc"
+  ],
+  "includesstr": "require github.com-hashicorp-go-immutable-radix-sources.inc\nrequire github.com-hashicorp-golang-lru-sources.inc",
+  "license": "MPL-2.0",
+  "licensefiles": [
+    "file://src/github.com/hashicorp/golang-lru/LICENSE;md5=f27a50d2e878867827842f2c60e30bfc",
+    "file://src/github.com/hashicorp/go-immutable-radix/LICENSE;md5=65d26fcc2f35ea6a181ac777e42db1ea"
+  ],
+  "mods": [
+    "github.com/hashicorp/golang-lru"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/hashicorp/go-immutable-radix",
+  "srcuri": "https://proxy.golang.org/github.com/hashicorp/go-immutable-radix/@v/v1.3.0.zip;srcoutput=github.com/hashicorp/go-immutable-radix;srcinput=github.com/hashicorp/go-immutable-radix@v1.3.0;downloadfilename=github-com-hashicorp-go-immutable-radix-1.3.0.zip;name=github-com-hashicorp-go-immutable-radix",
+  "version": "1.3.0"
+}
