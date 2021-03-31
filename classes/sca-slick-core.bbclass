@@ -82,4 +82,4 @@ python do_sca_slick_core_report() {
                        d.expand("${STAGING_DATADIR_NATIVE}/slick-${SCA_MODE}-fatal")))
 }
 
-DEPENDS += "slick-native"
+DEPENDS += "slick-sca-native"
