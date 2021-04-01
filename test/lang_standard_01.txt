@@ -15,6 +15,7 @@ licensecheck
 perl
 perlcritic
 pkgqaenc
+protolint
 pscan
 rats
 reuse

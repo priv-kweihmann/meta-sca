@@ -56,6 +56,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             pkgqaenc \
                             progpilot \
                             proselint \
+                            protolint \
                             pscan \
                             pyfindinjection \
                             pylint \

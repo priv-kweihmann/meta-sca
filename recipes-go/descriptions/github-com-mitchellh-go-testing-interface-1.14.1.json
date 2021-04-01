@@ -1,0 +1,24 @@
+{
+  "_collected_licenses": [
+    "MIT"
+  ],
+  "cleanname": "github-com-mitchellh-go-testing-interface",
+  "extra": [
+    "SRC_URI[github-com-mitchellh-go-testing-interface.sha256sum] = \"c178afbb9d041b7ecaebf40d3fee1b169f2f11f929accca7642f9b57f801ff4c\""
+  ],
+  "extrastr": "SRC_URI[github-com-mitchellh-go-testing-interface.sha256sum] = \"c178afbb9d041b7ecaebf40d3fee1b169f2f11f929accca7642f9b57f801ff4c\"",
+  "includes": [
+    "require github.com-mitchellh-go-testing-interface-sources.inc"
+  ],
+  "includesstr": "require github.com-mitchellh-go-testing-interface-sources.inc",
+  "license": "MIT",
+  "licensefiles": [
+    "file://src/github.com/mitchellh/go-testing-interface/LICENSE;md5=96ada10a9e51c98c4656f2cede08c673"
+  ],
+  "mods": [],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "github.com/mitchellh/go-testing-interface",
+  "srcuri": "https://proxy.golang.org/github.com/mitchellh/go-testing-interface/@v/v1.14.1.zip;srcoutput=github.com/mitchellh/go-testing-interface;srcinput=github.com/mitchellh/go-testing-interface@v1.14.1;downloadfilename=github-com-mitchellh-go-testing-interface-1.14.1.zip;name=github-com-mitchellh-go-testing-interface",
+  "version": "1.14.1"
+}

@@ -1,0 +1,38 @@
+{
+  "_collected_licenses": [
+    "BSD-3-Clause"
+  ],
+  "cleanname": "golang-org-x-net",
+  "extra": [
+    "SRC_URI[golang-org-x-net.sha256sum] = \"40a25aa5d1f09209ad78388f04bf42b45798d1c0a308e842e2c3e813eac5e501\""
+  ],
+  "extrastr": "SRC_URI[golang-org-x-net.sha256sum] = \"40a25aa5d1f09209ad78388f04bf42b45798d1c0a308e842e2c3e813eac5e501\"",
+  "includes": [
+    "require golang.org-x-net-sources.inc"
+  ],
+  "includesstr": "require golang.org-x-net-sources.inc\nrequire github.com-yuin-goldmark-sources.inc\nrequire golang.org-x-crypto-sources.inc\nrequire golang.org-x-mod-sources.inc\nrequire golang.org-x-sync-sources.inc\nrequire golang.org-x-sys-sources.inc\nrequire golang.org-x-term-sources.inc\nrequire golang.org-x-text-sources.inc\nrequire golang.org-x-tools-sources.inc\nrequire golang.org-x-xerrors-sources.inc",
+  "license": "BSD-3-Clause",
+  "licensefiles": [
+    "file://src/golang.org/x/crypto/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/sys/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/term/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/sync/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/mod/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/tools/cmd/getgo/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab",
+    "file://src/github.com/yuin/goldmark/LICENSE;md5=9ccc571100d655d5a450059a79f1339e",
+    "file://src/golang.org/x/xerrors/LICENSE;md5=a413d6b3884e141783f23d00d5838777",
+    "file://src/golang.org/x/net/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/tools/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707",
+    "file://src/golang.org/x/text/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+  ],
+  "mods": [
+    "golang.org/x/text",
+    "golang.org/x/term",
+    "golang.org/x/sys"
+  ],
+  "modsrecipes": [],
+  "modsrecipesnat": [],
+  "name": "golang.org/x/net",
+  "srcuri": "https://proxy.golang.org/golang.org/x/net/@v/v0.0.0-20210331212208-0fccb6fa2b5c.zip;srcoutput=golang.org/x/net;srcinput=golang.org/x/net@v0.0.0-20210331212208-0fccb6fa2b5c;downloadfilename=golang-org-x-net-0.0.0-20210331212208-0fccb6fa2b5c.zip;name=golang-org-x-net",
+  "version": "0.0.0-20210331212208-0fccb6fa2b5c"
+}
