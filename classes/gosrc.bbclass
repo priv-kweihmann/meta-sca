@@ -42,4 +42,4 @@ do_unpack[cleandirs] += "${WORKDIR}/sources ${WORKDIR}/src"
 EXPORT_FUNCTIONS do_unpack
 
 UPSTREAM_CHECK_URI ?= "https://pkg.go.dev/${GO_IMPORT}?tab=versions"
-UPSTREAM_CHECK_REGEX ?= "/${GO_IMPORT}/v(?P<pver>(\d+[\.\-_a-f0-9]*)+)/"
+UPSTREAM_CHECK_REGEX ?= "/${GO_IMPORT}@v(?P<pver>\d+[\.\-_a-f0-9]+)"
