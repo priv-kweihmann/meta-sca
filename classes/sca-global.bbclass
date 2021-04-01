@@ -118,6 +118,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           perlcritic \
                           pkgqaenc \
                           proselint \
+                          protolint \
                           pscan \
                           pyfindinjection \
                           pylint \

@@ -1,5 +1,5 @@
-SRC_URI_append = " https://proxy.golang.org/github.com/ianlancetaylor/demangle/@v/v0.0.0-20210312005511-7a0008c442e6.zip;srcoutput=github.com/ianlancetaylor/demangle;srcinput=github.com/ianlancetaylor/demangle@v0.0.0-20210312005511-7a0008c442e6;downloadfilename=github-com-ianlancetaylor-demangle-0.0.0-20210312005511-7a0008c442e6.zip;name=github-com-ianlancetaylor-demangle"
-SRC_URI[github-com-ianlancetaylor-demangle.sha256sum] = "cdbbe9cb2f0ae6d717af2e894f612bdff03113de2d55423111cf5c68b05faf87"
+SRC_URI_append = " https://proxy.golang.org/github.com/ianlancetaylor/demangle/@v/v0.0.0-20210331232236-9bc5433e3b46.zip;srcoutput=github.com/ianlancetaylor/demangle;srcinput=github.com/ianlancetaylor/demangle@v0.0.0-20210331232236-9bc5433e3b46;downloadfilename=github-com-ianlancetaylor-demangle-0.0.0-20210331232236-9bc5433e3b46.zip;name=github-com-ianlancetaylor-demangle"
+SRC_URI[github-com-ianlancetaylor-demangle.sha256sum] = "44532bac9580a85c43c98a1317d280f7f3012e941d99990f39e7acb1f2e5aa71"
 
 MOD_LICENSE_append = " \
     BSD-3-Clause \
