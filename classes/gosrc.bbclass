@@ -8,7 +8,6 @@ export GO111MODULE = "auto"
 
 python gosrc_do_unpack() {
     import os
-    import re
     import shutil
 
     src_uri = (d.getVar('SRC_URI') or "").split()
@@ -38,6 +37,32 @@ python gosrc_do_unpack() {
 }
 do_unpack[dirs] += "${WORKDIR}/sources ${WORKDIR}/src"
 do_unpack[cleandirs] += "${WORKDIR}/sources ${WORKDIR}/src"
+
+python remove_testdirs() {
+    import os
+    import shutil
+
+    # optionally remove a few directories
+    for _dir in (d.getVar("GOSRC_REMOVEDIRS") or "").split(" "):
+        if not _dir:
+            continue
+        _path = os.path.join(d.getVar("WORKDIR"), "src", _dir)
+        if os.path.isdir(_path):
+            shutil.rmtree(_path, ignore_errors=True)
+        elif os.path.isfile(_path):
+            os.remove(_path)
+}
+
+python create_pseudo_mod() {
+    import os
+    # create a pseudo go.mod in case none could be found
+    _path = d.expand("${WORKDIR}/src/${GO_IMPORT}/go.mod")
+    if not os.path.exists(_path):
+        with open(_path, "w") as o:
+            o.write("module {}\n".format(d.getVar("GO_IMPORT")))
+}
+
+do_compile[prefuncs] += "remove_testdirs create_pseudo_mod"
 
 EXPORT_FUNCTIONS do_unpack
 
