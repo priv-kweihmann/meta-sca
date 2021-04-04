@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
 import argparse
+import glob
 import json
 import os
 import re
@@ -37,32 +38,43 @@ def get_real_package_name_ruby(_args, recipe):
     return out
 
 
+def get_real_package_name_go(_args, recipe):
+    try:
+        out = subprocess.check_output(
+            ["/bin/sh", "-c", "bitbake -e {} | grep ^GO_IMPORT=".format(recipe)], universal_newlines=True)
+        out = out.replace("GO_IMPORT=", "", 1).strip('" \n')
+    except subprocess.CalledProcessError as e:
+        print(e)
+        out = ""
+    return out
+
+
 def run_package_update_npm(_args, packagename, version):
     try:
         subprocess.check_call(["python3", os.path.join(_args.repo, "scripts", "npm-gen.py"),
                                os.path.join(_args.repo, "recipes-nodejs"),
                                packagename, version], universal_newlines=True)
-        return True
+        return (True, 1)
     except:
-        return False
+        return (False, 1)
 
 
 def run_package_update_pypi(_args, packagename, version):
     try:
         subprocess.check_call(["python3", os.path.join(_args.repo, "scripts", "pypi-update.py"),
                                _args.repo, packagename, version], universal_newlines=True)
-        return True
+        return (True, 1)
     except:
-        return False
+        return (False, 1)
 
 
 def run_package_update_perl(_args, packagename, version):
     try:
         subprocess.check_call(["python3", os.path.join(_args.repo, "scripts", "perl-update.py"),
                                _args.repo, packagename, version], universal_newlines=True)
-        return True
+        return (True, 1)
     except:
-        return False
+        return (False, 1)
 
 
 def run_package_update_ruby(_args, packagename, version, target=False):
@@ -74,16 +86,37 @@ def run_package_update_ruby(_args, packagename, version, target=False):
         _pargs += [os.path.join(_args.repo, "recipes-ruby"),
                    packagename, version]
         subprocess.check_call(_pargs, universal_newlines=True)
-        return True
+        return (True, 1)
     except:
-        return False
+        return (False, 1)
 
 
-def git_commit(_args, recipe, version, issue):
+def is_go_package(_args, title):
+    m = re.match(r"Update (?P<recipe>.*) to (?P<version>.*)", title)
+    if m:
+        if any(glob.glob(os.path.join(_args.repo, "recipes-go", m.group("recipe") + "_*.bb"))):
+            return True
+    return False
+
+
+def run_package_update_go(_args, packagename, version):
+    try:
+        _pargs = ["python3", os.path.join(
+            _args.repo, "scripts", "go-gen")]
+        # get GO_IMPORT from bb file
+        _pargs += [os.path.join(_args.repo, "recipes-go"),
+                   packagename]
+        subprocess.check_call(_pargs, universal_newlines=True)
+        return (True, 1)
+    except:
+        return (False, 1)
+
+
+def git_commit(_args, recipe, version, issue, numchanges):
     __git = git.Repo(path=_args.repo)
     _nr = len(__git.untracked_files)
-    if _nr > 1:
-        input("More than 2 changes, your problem now - press any key then you're done")
+    if _nr > numchanges:
+        input("More than {} changes, your problem now - press any key then you're done".format(numchanges))
     elif _nr < 1:
         # Nothing to do here - seems to updated already
         return
@@ -109,43 +142,58 @@ def update_packages(_args, _input, number):
     m = re.match(r"Update (?P<recipe>.*) to (?P<version>.*)", _input)
     if m:
         _update = None
+        _allowed_changes = 0
         _recipe = m.group("recipe")
         if _recipe.startswith("npm-"):
             _pkgname = get_real_package_name_npm(_args, _recipe)
             if _pkgname:
-                _update = run_package_update_npm(
+                _update, _allowed_changes = run_package_update_npm(
                     _args, _pkgname, m.group("version"))
         elif _recipe.startswith("python3-"):
-            _update = run_package_update_pypi(
+            _update, _allowed_changes = run_package_update_pypi(
                 _args, _recipe, m.group("version"))
         elif _recipe.startswith("perl-"):
-            _update = run_package_update_perl(
+            _update, _allowed_changes = run_package_update_perl(
                 _args, _recipe, m.group("version"))
         elif _recipe.startswith("ruby-"):
             _pkgname = get_real_package_name_ruby(_args, _recipe)
             if _pkgname:
-                _update = run_package_update_ruby(_args, _pkgname, m.group(
+                _update, _allowed_changes = run_package_update_ruby(_args, _pkgname, m.group(
                     "version"), target=False if _recipe.endswith("-native") else True)
+        elif is_go_package(_args, _input):
+            _pkgname = get_real_package_name_go(_args, _recipe)
+            if _pkgname:
+                _update, _allowed_changes = run_package_update_go(
+                    _args, _pkgname, m.group("version"))
         if _update:
             if run_bitbake_test(_args, _recipe):
                 git_commit(_args, _recipe,
-                           m.group("version"), number)
+                           m.group("version"), number, _allowed_changes)
                 return 1
         else:
             print(
                 "Failed to update {recipe} - skipping".format(recipe=_recipe))
     return 0
 
+
+def is_updateable(_args, title):
+    if title.startswith("Update npm-") or title.startswith("Update python3-") or \
+       title.startswith("Update perl-") or title.startswith("Update ruby-"):
+        return True
+    return is_go_package(_args, title)
+
+
 _args = create_parser()
 with urllib.request.urlopen("https://api.github.com/repos/priv-kweihmann/meta-sca/issues?state=open&per_page=1000") as url:
     data = json.loads(url.read().decode())
     _updated_items = 0
     for item in data:
-        if item["state"] == "open" and any(x in item["title"] for x in ["npm-", "python3-", "perl-", "ruby-"]):
+        if item["state"] == "open" and is_updateable(_args, item["title"]):
             if any(x["name"] == "Postponed" for x in item["labels"]):
                 continue
             print("Attempting {}".format(item["title"]))
-            _updated_items += update_packages(_args, item["title"], item["number"])
+            _updated_items += update_packages(_args,
+                                              item["title"], item["number"])
     if _updated_items > 0:
         try:
             _pargs = [os.path.join(_args.repo, "..", "meta-buildutils", "scripts", "unused"),
