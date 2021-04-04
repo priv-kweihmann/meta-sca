@@ -1,0 +1,13 @@
+SUMMARY = "go.mod: github.com/rogpeppe/go-internal"
+HOMEPAGE = "https://pkg.go.dev/github.com/rogpeppe/go-internal"
+
+# License is determined by the modules included and will be therefore computed
+LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '').split(' ') if x)))}"
+
+# inject the needed sources
+require github.com-rogpeppe-go-internal-sources.inc
+
+GO_IMPORT = "github.com/rogpeppe/go-internal"
+
+inherit gosrc
+inherit native
