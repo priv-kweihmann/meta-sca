@@ -1,10 +1,11 @@
-SRC_URI_append = " https://proxy.golang.org/github.com/hudl/fargo/@v/v1.3.0.zip;srcoutput=github.com/hudl/fargo;srcinput=github.com/hudl/fargo@v1.3.0;downloadfilename=github-com-hudl-fargo-1.3.0.zip;name=github-com-hudl-fargo"
+SRC_URI += "https://proxy.golang.org/github.com/hudl/fargo/@v/v1.3.0.zip;srcoutput=github.com/hudl/fargo;srcinput=github.com/hudl/fargo@v1.3.0;downloadfilename=github-com-hudl-fargo-1.3.0.zip;name=github-com-hudl-fargo"
 SRC_URI[github-com-hudl-fargo.sha256sum] = "040aa24d7c5cdf43ed18767d4dff7d5533c65f58f45424f38eed51a5956445cf"
+GOSRC_REMOVEDIRS += "github.com/hudl/fargo/tests"
 
-MOD_LICENSE_append = " \
+GOSRC_LICENSE += "\
     MIT \
 "
-LIC_FILES_CHKSUM_append = " \
+LIC_FILES_CHKSUM += "\
     file://src/github.com/hudl/fargo/README.md;md5=74755580a9b05b4b8a1f577d1c178498 \
     file://src/github.com/hudl/fargo/config.go;md5=9826d50764ceba4e3254a9cfe68f7a17 \
     file://src/github.com/hudl/fargo/connection.go;md5=377cf23679ad5e9f803045df1e0dcec9 \
@@ -24,3 +25,12 @@ LIC_FILES_CHKSUM_append = " \
     file://src/github.com/hudl/fargo/rpc.go;md5=9c9be5d7f7be723b44f2139cf34d4e95 \
     file://src/github.com/hudl/fargo/struct.go;md5=f1e584fc95d4ea63431f519a36480a1d \
 "
+
+GOSRC_INCLUDEGUARD += "github.com-hudl-fargo-sources.inc"
+
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-cenkalti-backoff-sources.inc', '', 'github.com-cenkalti-backoff-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-clbanning-x2j-sources.inc', '', 'github.com-clbanning-x2j-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-franela-goreq-sources.inc', '', 'github.com-franela-goreq-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-miekg-dns-sources.inc', '', 'github.com-miekg-dns-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-op-go-logging-sources.inc', '', 'github.com-op-go-logging-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'gopkg.in-gcfg.v1-sources.inc', '', 'gopkg.in-gcfg.v1-sources.inc', d)}
