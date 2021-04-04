@@ -2,7 +2,7 @@ SUMMARY = "go.mod: golang.org/x/time"
 HOMEPAGE = "https://pkg.go.dev/golang.org/x/time"
 
 # License is determined by the modules included and will be therefore computed
-LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('MOD_LICENSE') or '').split(' ') if x)))}"
+LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '').split(' ') if x)))}"
 
 # inject the needed sources
 require golang.org-x-time-sources.inc
