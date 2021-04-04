@@ -11,7 +11,6 @@ import hashlib
 import json
 import logging
 import os
-from os.path import isfile
 import re
 import shutil
 import subprocess
@@ -64,6 +63,8 @@ def create_parser():
                         action="extend", nargs="*", help="Ignore licenses from these pattern")
     parser.add_argument("--force", default=False,
                         action="store_true", help="Force creation")
+    parser.add_argument("--recursionlevel", type=int,
+                        default=99999999999, help="Level of recursion")
     parser.add_argument("path", help="path to store the recipes to")
     parser.add_argument("mod", nargs="+", help="go-mod to create")
     x = parser.parse_args()
@@ -220,7 +221,7 @@ def __get_license_file(args, name, path):
             _relpath = lic["file"]
             _fullpath = os.path.join(path, _relpath)
             res.append(([lic["spdx"]],
-                       "file://src/{}{}/{};md5={}".format(name, _suffix_out, _relpath, __get_md5sum(_fullpath))))
+                        "file://src/{}{}/{};md5={}".format(name, _suffix_out, _relpath, __get_md5sum(_fullpath))))
     else:
         for root, dirs, files in os.walk(path, topdown=True):
             for f in files:
@@ -256,14 +257,59 @@ def __double_check_mods(args, name, path, mods):
             "| paste -sd+ | bc"
         try:
             out = subprocess.check_output(_cmdstring, shell=True)
-            if int(out) < 1 and not args.withunused:
+            if int(out) < 1 and not args.withunused and out.strip() != name:
                 log.info("{name} doesn't seem to be actively using {mod}, ignoring it".format(
                     name=name, mod=m))
             else:
                 res.add(m)
         except subprocess.SubprocessError as e:
             pass
+    # check for unlisted mods
+    if not os.path.exists(os.path.join(path, "go.mod")):
+        with open(os.path.join(path, "go.mod"), "w") as o:
+            o.write('module "{}"\n'.format(name))
+    try:
+        out = subprocess.check_output("go list -f '{{ join .Imports \" \" }}' ./...",
+                                      shell=True, universal_newlines=True, cwd=path, stderr=subprocess.DEVNULL)
+        seen = set()
+        for x in out.replace("\n", " ").split(" "):
+            y = x
+            x = x.strip()
+            if "/" not in x:
+                continue
+            if "." not in x.split("/")[0]:
+                continue
+            if any(x.startswith(z) for z in res):
+                continue
+            if x.startswith(name):
+                continue
+            okay = False
+            while not okay:
+                log.debug("peep {}".format(x))
+                try:
+                    __get_latest_version(args, x)
+                    okay = True
+                except:
+                    z = x
+                    x = "/".join(x.split("/")[:-1])
+                    if z == x:
+                        x = ""
+                        log.error(
+                            "{}: Cannot determine namespace of the following {} - ignoring it".format(name, y))
+                        break
+            if x == name:
+                continue
+            if x in res:
+                continue
+            if x:
+                res.add(x)
+                log.warning(
+                    "{} uses unlisted module {} - adding that".format(name, x))
+    except subprocess.SubprocessError as e:
+        pass
     res.update(args.erratadict.get(name, {}).get("extramods", []))
+    if res:
+        log.info("{} depends on {}".format(name, ",".join(sorted(res))))
     return res
 
 
@@ -304,13 +350,13 @@ def __get_mods(path, name):
 
             _cnt = "".join(_lines)
 
-            m = re.match(r"^module\s(?P<name>.*)", _cnt)
+            # m = re.match(r"^module\s(?P<name>.*)", _cnt)
 
-            if m:
-                if m.group("name") != name:
-                    # add dependency is case the module is named
-                    # different in public
-                    res.add(m.group("name"))
+            # if m:
+            #     if m.group("name") != name:
+            #         # add dependency is case the module is named
+            #         # different in public
+            #         res.add(m.group("name"))
 
             for m in re.finditer(r"^require\s+(?P<mod>.*)\s+v\d+\.", _cnt, re.MULTILINE):
                 res.add(m.group("mod").strip('"'))
@@ -335,12 +381,14 @@ SUMMARY = "go.mod: %name%"
 HOMEPAGE = "https://pkg.go.dev/%name%"
 
 # License is determined by the modules included and will be therefore computed
-LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('MOD_LICENSE') or '').split(' ') if x)))}"
+LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '').split(' ') if x)))}"
 
 # inject the needed sources
 %includesstr%
 
 GO_IMPORT = "%name%"
+
+%recipeextra%
 
 inherit gosrc
 inherit native
@@ -350,6 +398,9 @@ inherit native
     for k, v in desc.items():
         _tpl = _tpl.replace("%" + k + "%", __prettify(v))
 
+    # prettify
+    _tpl = re.sub(r"\n{3,}", "\n\n", _tpl)
+
     with open(os.path.join(args.path, _recipe_fn), "w") as o:
         o.write(_tpl)
     log.info("Created {}".format(_recipe_fn))
@@ -357,63 +408,31 @@ inherit native
 
 def __create_include_file(args, desc):
     _tpl = """
-SRC_URI_append = " %srcuri%"
+SRC_URI += "%srcuri%"
 %extrastr%
 
-MOD_LICENSE_append = " %_collected_licenses%"
-LIC_FILES_CHKSUM_append = " %licensefiles%"
+GOSRC_LICENSE += "%_collected_licenses%"
+LIC_FILES_CHKSUM += "%licensefiles%"
+
+GOSRC_INCLUDEGUARD += "%selfname%"
+
+%childincludestr%
 """
     _tpl = _tpl.strip() + "\n"
     _recipe_fn = __name_to_inc_native_fn(desc["name"])
     for k, v in desc.items():
         _tpl = _tpl.replace("%" + k + "%", __prettify(v))
 
+    _tpl = _tpl.replace("%selfname%", _recipe_fn)
+
+    # prettify
+    _tpl = _tpl.replace('GOSRC_INCLUDEGUARD += ""', "")
+    _tpl = re.sub(r"\n{3,}", "\n\n", _tpl)
+
     with open(os.path.join(args.path, _recipe_fn), "w") as o:
         o.write(_tpl)
     log.info("Created {}".format(_recipe_fn))
     return ["require {}".format(_recipe_fn)]
-
-
-def __get_description_fn(name, version):
-    return "{}-{}.json".format(__name_clean(name), version)
-
-
-def dump_description(args, desc):
-    _path = os.path.join(args.path, "descriptions",
-                         __get_description_fn(desc["name"], desc["version"]))
-    os.makedirs(os.path.dirname(_path), exist_ok=True)
-    with open(_path, "w") as o:
-        dump = {
-
-        }
-        for k, v in desc.items():
-            if isinstance(v, str):
-                dump[k] = v
-            if isinstance(v, (list, set)):
-                dump[k] = list(v)
-        json.dump(dump, o, indent=2, sort_keys=True)
-
-
-def load_description(args, name, version):
-    _path = os.path.join(args.path, "descriptions",
-                         __get_description_fn(name, version))
-    _res = {}
-    if os.path.exists(_path):
-        with open(_path) as i:
-            for k, v in json.load(i).items():
-                if isinstance(v, str):
-                    _res[k] = v
-                if isinstance(v, (list, set)):
-                    _res[k] = set(v)
-    return _res
-
-
-def cleanup_descriptions(args, name, version):
-    _path = os.path.join(args.path, "descriptions",
-                         __get_description_fn(name, version))
-    for file in glob.glob(os.path.join(args.path, "descriptions", __get_description_fn(name, "*"))):
-        if file != _path:
-            os.remove(file)
 
 
 def cleanup_recipes(args, name, version):
@@ -423,12 +442,15 @@ def cleanup_recipes(args, name, version):
             os.remove(file)
 
 
-_children_log = {
+def __get_conditional_require_string(incname):
+    return "require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', '%s', '', '%s', d)}" % (incname, incname)
 
-}
+
+def __does_version_exist(args, name, version):
+    return os.path.exists(os.path.join(args.path, __name_to_recipe_native_fn(name, version)))
 
 
-def create_module(args, pbar, name, breadcrumb=[]):
+def create_module(args, pbar, name, level, force, breadcrumb=[]):
     _desc = {
         "cleanname": __name_clean(name),
         "license": "UNKNOWN",
@@ -443,60 +465,50 @@ def create_module(args, pbar, name, breadcrumb=[]):
         "version": "",
         "_collected_licenses": set(),
         "includes": set(),
-        "includesstr": ""
+        "includesstr": "",
+        "childreninc": set(),
+        "childincludestr": "",
+        "recipeextra": ""
     }
+    if not force and (level < 1 or __does_version_exist(args, name, __get_latest_version(args, name)) or name in breadcrumb):
+        return [{"name": name}]
     try:
         log.debug("#" + ">".join(breadcrumb + [name]))
         pbar.reset()
-        pbar.update(min(20, len(breadcrumb) + 1))
+        pbar.update(min(25, len(breadcrumb) + 1))
         pbar.set_description("Processing {0: >40}".format(name))
-        _restored_desc = load_description(
-            args, name, __get_latest_version(args, name))
-        if _restored_desc and not args.force:
-            log.debug("Reusing cached info for {}".format(name))
-            _desc = _restored_desc
-        else:
-            _restored_desc = None
-            _path, _desc["srcuri"], _desc["version"], _desc["extra"] = __get_checkout(
-                args, name)
-            _desc["extrastr"] = "\n".join(_desc["extra"])
-            _desc["mods"] = __double_check_mods(
-                args, name, _path, __get_mods(_path, name))
-            _raw_lic = __get_license_file(args, name, _path)
+        _path, _desc["srcuri"], _desc["version"], _desc["extra"] = __get_checkout(
+            args, name)
+        _desc["extrastr"] = "\n".join(_desc["extra"])
+        _desc["mods"] = __double_check_mods(
+            args, name, _path, __get_mods(_path, name))
+        _raw_lic = __get_license_file(args, name, _path)
 
-            _desc["licensefiles"] = set(x[1] for x in _raw_lic)
-            for x in _raw_lic:
-                _desc["_collected_licenses"].update(x[0])
+        _desc["licensefiles"] = set(x[1] for x in _raw_lic)
+        for x in _raw_lic:
+            _desc["_collected_licenses"].update(x[0])
 
-            _desc["includes"].update(__create_include_file(args, _desc))
+        _children = []
+        for m in _desc["mods"]:
+            _children += create_module(args, pbar, m, level - 1, False,
+                                       breadcrumb=breadcrumb + [name])
 
-        _children = _children_log.get(name, None)
-        if _children is None:
-            _children = []
-            for m in _desc["mods"]:
-                if m in breadcrumb:
-                    continue
-                _children += create_module(args, pbar, m,
-                                           breadcrumb=breadcrumb + [name])
-            _children_log[name] = _children
-
-        _child_includes = set()
         for c in _children:
-            _child_includes.update(c["includes"])
-            _desc["licensefiles"].update(c["licensefiles"])
+            _desc["childreninc"].add(__name_to_inc_native_fn(c["name"]))
+
+        _desc["childincludestr"] = "\n".join(
+            __get_conditional_require_string(x) for x in sorted(_desc["childreninc"])
+        )
 
         _desc["license"] = " & ".join(sorted(_desc["_collected_licenses"]))
-        _desc["includesstr"] = "\n".join(
-            sorted(_desc["includes"]) + sorted(_child_includes))
+        _desc["includesstr"] = "\n".join(__create_include_file(args, _desc))
+        _desc["recipeextra"] = "\n".join(args.erratadict.get(name, {}).get("recipeextra", []))
 
-        if not _restored_desc:
-            __create_recipe_native(args, _desc)
-            dump_description(args, _desc)
+        __create_recipe_native(args, _desc)
 
-            cleanup_descriptions(args, name, _desc["version"])
-            cleanup_recipes(args, name, _desc["version"])
+        cleanup_recipes(args, name, _desc["version"])
 
-        return [_desc] + _children
+        return [_desc]
 
     except Exception as e:
         log.exception(e)
@@ -508,11 +520,11 @@ def create_module(args, pbar, name, breadcrumb=[]):
 def main():
     args = create_parser()
     pbar = tqdm(
-        total=20, bar_format="{desc} depth: {bar}{n_fmt}/{total_fmt}")
+        total=25, bar_format="{desc} depth: {bar}{n_fmt}/{total_fmt}")
     log.setLevel(logging.INFO)
     log.addHandler(TqdmLoggingHandler(pbar))
     for mod in args.mod:
-        create_module(args, pbar, mod)
+        create_module(args, pbar, mod, args.recursionlevel, args.force)
 
 
 if __name__ == '__main__':

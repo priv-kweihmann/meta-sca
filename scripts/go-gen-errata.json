@@ -1,4 +1,9 @@
 {
+    "cloud.google.com/go/pubsub": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"cloud.google.com/go/pubsub/internal/longtest\""
+        ]
+    },
     "github.com/Azure/azure-amqp-common-go/v3": {
         "striplevel": 1,
         "url": "https://github.com/Azure/azure-amqp-common-go/archive/refs/tags/v3.1.0.zip",
@@ -77,7 +82,15 @@
         "url": "https://github.com/microsoft/go-winio/archive/refs/tags/v0.4.16.zip",
         "version": "0.4.16"
     },
+    "github.com/PuerkitoBio/goquery": {
+        "striplevel": 1,
+        "url": "https://github.com/PuerkitoBio/goquery/archive/refs/tags/v1.6.1.zip",
+        "version": "1.6.1"
+    },
     "github.com/Shopify/sarama": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/Shopify/sarama/examples\""
+        ],
         "striplevel": 1,
         "url": "https://github.com/Shopify/sarama/archive/refs/tags/v1.28.0.zip",
         "version": "1.28.0"
@@ -100,28 +113,64 @@
         "url": "https://github.com/VividCortex/gohistogram/archive/refs/tags/v1.0.0.zip",
         "version": "1.0.0"
     },
-    "github.com/alexkohler/identypo": {
+    "github.com/afex/hystrix-go": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/afex/hystrix-go/plugins/statsd_collector.go\""
+        ],
         "extramods": [
-            "github.com/client9/misspell",
-            "github.com/fatih/camelcase"
+            "github.com/DataDog/datadog-go",
+            "github.com/cactus/go-statsd-client",
+            "github.com/rcrowley/go-metrics"
+        ],
+        "recipeextra": [
+            "# version is somehow broken",
+            "do_compile[noexec] = \"1\""
         ]
     },
-    "github.com/alexkohler/noret": {
-        "extramods": [
-            "golang.org/x/tools"
+    "github.com/apache/beam": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/apache/beam/sdks/go/test/integration/xlang\""
+        ],
+        "recipeextra": [
+            "# needs CGO",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "github.com/apache/thrift": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/apache/thrift/tutorial\"",
+            "GOSRC_REMOVEDIRS += \"github.com/apache/thrift/test\"",
+            "GOSRC_REMOVEDIRS += \"github.com/apache/thrift/lib/go/test/tests\"",
+            "GOSRC_REMOVEDIRS += \"github.com/apache/thrift/test/go/src/bin/testclient\"",
+            "GOSRC_REMOVEDIRS += \"github.com/apache/thrift/test/go/src/bin/stress\"",
+            "GOSRC_REMOVEDIRS += \"github.com/apache/thrift/lib/go/test\""
+        ]
+    },
+    "github.com/aws/aws-sdk-go-v2": {
+        "licenses": [
+            {
+                "file": "LICENSE.txt",
+                "spdx": "Apache-2.0"
+            }
         ]
     },
     "github.com/boyter/lc": {
-        "extramods": [
-            "github.com/boyter/golangvectorspace",
-            "github.com/briandowns/spinner",
-            "github.com/ryanuber/columnize",
-            "github.com/tealeg/xlsx",
-            "github.com/urfave/cli"
-        ],
         "licenseignore": [
             "assets/database/licenses/*",
             "licensechecker.spdx"
+        ]
+    },
+    "github.com/cactus/go-statsd-client": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/cactus/go-statsd-client/test-client\""
+        ],
+        "striplevel": 1,
+        "url": "https://github.com/cactus/go-statsd-client/archive/refs/tags/v5.0.0.zip",
+        "version": "5.0.0"
+    },
+    "github.com/clbanning/x2j": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/clbanning/x2j/examples\""
         ]
     },
     "github.com/coreos/etcd": {
@@ -129,22 +178,175 @@
             "Godeps/_workspace/*"
         ]
     },
+    "github.com/coreos/go-systemd": {
+        "recipeextra": [
+            "# recipe needs systemd header, which isn't available as a native recipe",
+            "do_compile[noexec] = \"1\""
+        ],
+        "striplevel": 1,
+        "url": "https://github.com/coreos/go-systemd/archive/refs/tags/v22.3.1.zip",
+        "version": "22.3.1"
+    },
+    "github.com/fullstorydev/grpcurl": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/fullstorydev/grpcurl/cmd\""
+        ]
+    },
+    "github.com/go-kit/kit": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/go-kit/kit/metrics/cloudwatch2\""
+        ],
+        "extramods": [
+            "github.com/aws/aws-sdk-go-v2"
+        ],
+        "recipeextra": [
+            "# version is somehow broken",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "github.com/gobuffalo/fizz": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/gobuffalo/fizz/internal/e2e\""
+        ]
+    },
+    "github.com/gobuffalo/pop": {
+        "striplevel": 1,
+        "url": "https://github.com/gobuffalo/pop/archive/refs/tags/v5.3.3.zip",
+        "version": "5.3.3"
+    },
+    "github.com/gomodule/redigo": {
+        "recipeextra": [
+            "# version is somehow broken",
+            "do_compile[noexec] = \"1\""
+        ],
+        "striplevel": 1,
+        "url": "https://github.com/gomodule/redigo/archive/refs/tags/v1.8.4.zip",
+        "version": "1.8.4"
+    },
+    "github.com/gomodule/redigo/redis": {
+        "recipeextra": [
+            "# version is somehow broken",
+            "do_compile[noexec] = \"1\""
+        ],
+        "striplevel": 1,
+        "url": "https://github.com/gomodule/redigo/archive/refs/tags/v1.8.4.zip",
+        "version": "1.8.4"
+    },
+    "github.com/google/certificate-transparency-go": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/google/certificate-transparency-go/trillian/\""
+        ],
+        "recipeextra": [
+            "# trillian integration is completely broken",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "github.com/google/trillian": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/google/trillian/cmd/internal/serverutil\"",
+            "GOSRC_REMOVEDIRS += \"github.com/google/trillian/cmd\"",
+            "GOSRC_REMOVEDIRS += \"github.com/google/trillian/monitoring/prometheus/etcdiscover\"",
+            "GOSRC_REMOVEDIRS += \"github.com/google/trillian/testonly\"",
+            "GOSRC_REMOVEDIRS += \"github.com/google/trillian/storage/testonly\"",
+            "GOSRC_REMOVEDIRS += \"github.com/google/trillian/integration/storagetest\"",
+            "GOSRC_REMOVEDIRS += \"github.com/google/trillian/merkle/testonly\"",
+            "GOSRC_REMOVEDIRS += \"github.com/google/trillian/storage/postgres/testdb\"",
+            "GOSRC_REMOVEDIRS += \"github.com/google/trillian/storage/testdb\""
+        ],
+        "extramods": [
+            "go.etcd.io/etcd",
+            "google.golang.org/grpc"
+        ],
+        "recipeextra": [
+            "# who ever made that weird mix of test/internal and cross reference should get fired",
+            "# version is simply not compilable",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
     "github.com/gorhill/cronexpr": {
         "licenses": [
             {
-                "file": "GPLv3",
-                "spdx": "GPLv3"
+                "file": "APLv2",
+                "spdx": "Apache-2.0"
             }
         ]
     },
-    "github.com/mcandre/slick": {
-        "extramods": [
-            "mvdan.cc/sh"
+    "github.com/gregjones/httpcache": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/gregjones/httpcache/redis\""
         ]
     },
-    "github.com/mcandre/stank": {
-        "extramods": [
-            "mvdan.cc/sh"
+    "github.com/grpc-ecosystem/grpc-gateway": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/grpc-ecosystem/grpc-gateway/examples\""
+        ]
+    },
+    "github.com/hashicorp/serf": {
+        "recipeextra": [
+            "# standalone version is broken",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "github.com/hudl/fargo": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/hudl/fargo/tests\""
+        ]
+    },
+    "github.com/imdario/mergo": {
+        "licenseignore": [
+            "testdata/license.yml"
+        ]
+    },
+    "github.com/json-iterator/go": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/json-iterator/go/api_tests\"",
+            "GOSRC_REMOVEDIRS += \"github.com/json-iterator/go/benchmarks\"",
+            "GOSRC_REMOVEDIRS += \"github.com/json-iterator/go/extension_tests\"",
+            "GOSRC_REMOVEDIRS += \"github.com/json-iterator/go/misc_tests\"",
+            "GOSRC_REMOVEDIRS += \"github.com/json-iterator/go/skip_tests\"",
+            "GOSRC_REMOVEDIRS += \"github.com/json-iterator/go/value_tests\"",
+            "GOSRC_REMOVEDIRS += \"github.com/json-iterator/go/type_tests\"",
+            "GOSRC_REMOVEDIRS += \"github.com/json-iterator/go/any_tests\""
+        ]
+    },
+    "github.com/juju/ratelimit": {
+        "licenses": [
+            {
+                "file": "LICENSE",
+                "spdx": "LGPL-3.0-linking-exception"
+            }
+        ]
+    },
+    "github.com/mozilla/tls-observatory": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/mozilla/tls-observatory/tools\""
+        ]
+    },
+    "github.com/mwitkow/go-proto-validators": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/mwitkow/go-proto-validators/test\""
+        ]
+    },
+    "github.com/nats-io/nats.go": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/nats-io/nats.go/test\""
+        ]
+    },
+    "github.com/pierrec/lz4": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/pierrec/lz4/cmd\""
+        ],
+        "striplevel": 1,
+        "url": "https://github.com/pierrec/lz4/archive/refs/tags/v4.1.4.zip",
+        "version": "4.1.4"
+    },
+    "github.com/pseudomuto/protokit": {
+        "extra": [
+            "export CGO_ENABLED = \"1\""
+        ],
+        "recipeextra": [
+            "# needs CGO",
+            "do_compile[noexec] = \"1\""
         ]
     },
     "github.com/shurcooL/sanitized_anchor_name": {
@@ -152,14 +354,72 @@
         "url": "https://github.com/shurcooL/sanitized_anchor_name/archive/refs/tags/v1.0.0.zip",
         "version": "1.0.0"
     },
+    "github.com/spf13/cobra": {
+        "licenseignore": [
+            "cobra/cmd/license*"
+        ]
+    },
+    "github.com/xdg/scram": {
+        "extramods": [
+            "github.com/xdg/stringprep",
+            "golang.org/x/crypto"
+        ]
+    },
+    "go.etcd.io/etcd": {
+        "extramods": [
+            "github.com/coreos/etcd"
+        ],
+        "licenseignore": [
+            "Godeps/_workspace/*"
+        ],
+        "recipeextra": [
+            "# version is somehow broken",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "golang.org/x/crypto": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"golang.org/x/crypto/internal/wycheproof\""
+        ]
+    },
+    "golang.org/x/net": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"golang.org/x/net/http2/h2demo\""
+        ]
+    },
+    "google.golang.org/grpc": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"google.golang.org/grpc/xds\""
+        ],
+        "recipeextra": [
+            "# version is somehow broken",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "google.golang.org/protobuf": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"google.golang.org/protobuf/internal/benchmarks\"",
+            "GOSRC_REMOVEDIRS += \"google.golang.org/protobuf/internal/weakdeps\"",
+            "GOSRC_REMOVEDIRS += \"google.golang.org/protobuf/internal/conformance\""
+        ],
+        "recipeextra": [
+            "# needs CGO",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "honnef.co/go/tools": {
+        "striplevel": 1,
+        "url": "https://github.com/dominikh/go-tools/archive/refs/tags/2020.2.3.zip",
+        "version": "2020.2.3"
+    },
     "mvdan.cc/sh": {
         "striplevel": 1,
         "url": "https://github.com/mvdan/sh/archive/refs/tags/v3.2.4.zip",
         "version": "3.2.4"
     },
-    "github.com/aws/aws-sdk-go-v2": {
-        "licenseignore": [
-            "codegen/sdk-codegen/aws-models/licensemanager.*.json"
+    "sourcegraph.com/sourcegraph/appdash": {
+        "extramods": [
+            "sourcegraph.com/sourcegraph/appdash-data"
         ]
     }
 }
