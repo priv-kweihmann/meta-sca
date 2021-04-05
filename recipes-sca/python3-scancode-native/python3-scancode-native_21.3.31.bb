@@ -17,8 +17,9 @@ DEPENDS += "\
             python3-colorama-native \
             python3-commoncode-native \
             python3-contextlib2-native \
-            python3-debut-native \
+            python3-debian-inspector-native \
             python3-dparse2-native \
+            python3-extractcode-native \
             python3-fasteners-native \
             python3-fingerprints-native \
             python3-ftfy-native \
@@ -65,10 +66,12 @@ DEPENDS += "\
             python3-zc-lockfile-native \
         "
 
+RDEPENDS_${PN} += "${DEPENDS}"
+
 SRC_URI = "git://github.com/nexB/scancode-toolkit.git;protocol=https;nobranch=1 \
            file://0001-lift-version-requirements.patch \
            file://scancode.sca.description"
-SRCREV = "6e39059613f09663b7c897f7738accd8f5e19aa6"
+SRCREV = "fa3e3662868c331232f75a93d4b8a1797bc8ddb5"
 
 S = "${WORKDIR}/git"
 

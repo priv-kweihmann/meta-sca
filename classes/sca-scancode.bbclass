@@ -21,6 +21,10 @@ inherit sca-suppress
 inherit sca-image-backtrack
 inherit sca-tracefiles
 
+export SCANCODE_SYSTEM_BINDIR = "${STAGING_BINDIR_NATIVE}"
+export SCANCODE_SYSTEM_LIBDIR = "${STAGING_LIBDIR_NATIVE}"
+export SCANCODE_SYSTEM_DATADIR = "${STAGING_DATADIR_NATIVE}"
+
 def do_sca_conv_scancode(d):
     import os
     import re

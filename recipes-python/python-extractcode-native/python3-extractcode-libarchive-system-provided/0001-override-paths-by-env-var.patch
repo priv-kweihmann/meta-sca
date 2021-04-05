@@ -1,0 +1,57 @@
+From c39c0bd61bff087f6be3491dda09420ffb8447fd Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Mon, 5 Apr 2021 12:42:50 +0200
+Subject: [PATCH] override paths by env var
+
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+Upstream-Status: Pending
+---
+ src/extractcode_libarchive/__init__.py | 25 ++-----------------------
+ 1 file changed, 2 insertions(+), 23 deletions(-)
+
+diff --git a/src/extractcode_libarchive/__init__.py b/src/extractcode_libarchive/__init__.py
+index bcf33a1..e6cbadd 100755
+--- a/src/extractcode_libarchive/__init__.py
++++ b/src/extractcode_libarchive/__init__.py
+@@ -18,8 +18,7 @@
+ # limitations under the License.
+ #
+ 
+-from os import path
+-import platform
++from os import path, environ
+ 
+ from plugincode.location_provider import LocationProviderPlugin
+ 
+@@ -31,27 +30,7 @@ class LibarchivePaths(LocationProviderPlugin):
+         locations of the libarchive shared library as installed on various Linux
+         distros or on FreeBSD.
+         """
+-        system_arch = platform.machine()
+-        mainstream_system = platform.system().lower()
+-        if mainstream_system == 'linux':
+-            distribution = platform.linux_distribution()[0].lower()
+-            debian_based_distro = ['ubuntu', 'mint', 'debian']
+-            rpm_based_distro = ['fedora', 'redhat']
+-
+-            if distribution in debian_based_distro:
+-                lib_dir = '/usr/lib/'+system_arch+'-linux-gnu'
+-
+-            elif distribution in rpm_based_distro:
+-                lib_dir = '/usr/lib64'
+-
+-            else:
+-                raise Exception('Unsupported system: {}'.format(distribution))
+-
+-        elif mainstream_system == 'freebsd':
+-            if path.isdir('/usr/local/'):
+-                lib_dir = '/usr/local/lib'
+-            else:
+-                lib_dir = '/usr/lib'
++        lib_dir = environ.get('SCANCODE_SYSTEM_LIBDIR', '/usr/lib')
+ 
+         locations = {
+             'extractcode.libarchive.libdir': lib_dir,
+-- 
+2.25.1
+

@@ -1,0 +1,31 @@
+From 795d6e7483a002186a71fa842506dca1b7f0107d Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Mon, 5 Apr 2021 12:20:23 +0200
+Subject: [PATCH] remove hard lib dependencies
+
+as we are going to use the ones provided by system
+
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+Upstream-Status: Pending
+---
+ setup.cfg | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/setup.cfg b/setup.cfg
+index 99d8d29..08f4c7e 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -44,9 +44,7 @@ where = src
+ 
+ [options.extras_require]
+ full = 
+-	extractcode-7z >= 16.5.210223
+-	extractcode_libarchive >= 3.5.1.210223
+-	typecode[full] >= 21.2.23
++	typecode >= 21.2.23
+ testing = 
+ 	pytest >= 6
+ 	pytest-xdist >= 2
+-- 
+2.25.1
+
