@@ -69,20 +69,15 @@ python do_sca_pytype() {
     _args = ["pytype"]
     _args += ["--keep-going"]
     _pyversion = d.getVar("PYTHON_BASEVERSION")
-    # TODO: if tool officially supports python 3.9
-    # remove this condition
-    if _pyversion != "3.9":
-        _args += ["-V", _pyversion]
-        _args += ["-P", ":".join(_paths)]
-        _args += ["-o", os.path.join(d.getVar("T"), "pytypeout")]
+    _args += ["-V", _pyversion]
+    _args += ["-P", ":".join(_paths)]
+    _args += ["-o", os.path.join(d.getVar("T"), "pytypeout")]
 
-        _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_PYTHON_SHEBANG"), [".py"], \
-                                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
+    _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_PYTHON_SHEBANG"), [".py"], \
+                                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
-            ## Run
-        cmd_output = exec_wrap_check_output(d, _args, _files)
-    else:
-        cmd_output = ""
+    ## Run
+    cmd_output = exec_wrap_check_output(d, _args, _files)
 
     with open(sca_raw_result_file(d, "pytype"), "w") as o:
         o.write(cmd_output)
