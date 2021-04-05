@@ -9,8 +9,8 @@ DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "4762da6bcbde6b038826028318c0157b"
-SRC_URI[sha256sum] = "0ce46e9a34c294478fa054dfb470036046a5c838ee8b4bfe73b988641b00ea75"
+SRC_URI[md5sum] = "6a8e83d0eccbf71a06e3c7b0a6a8f7dc"
+SRC_URI[sha256sum] = "c8937d420ccd5d8c233d098bc18c8df3775a984c3de1313e6feaacd244b34d87"
 
 GEM_NAME = "aws-sdk-cloudwatch"
 
