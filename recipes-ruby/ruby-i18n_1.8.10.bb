@@ -8,8 +8,8 @@ LIC_FILES_CHKSUM = "file://MIT-LICENSE;md5=c0e4b0e10e0acf26e4e423343ccf78f8"
 DEPENDS += ""
 RDEPENDS_${PN} += "ruby-concurrent-ruby"
 
-SRC_URI[md5sum] = "eb6d2f8a637b693c687ecf5846bf1866"
-SRC_URI[sha256sum] = "62a877ff6b5fdb4c20ca614c6bfcd6abd7b426d883069e59ce41a6744758e622"
+SRC_URI[md5sum] = "2694f6336817961b18e82b40a94e8054"
+SRC_URI[sha256sum] = "ca24e52fdd6ad7af419241eef8c41e65ef4e3499c6b252df13f697919eb24e3c"
 
 GEM_NAME = "i18n"
 
