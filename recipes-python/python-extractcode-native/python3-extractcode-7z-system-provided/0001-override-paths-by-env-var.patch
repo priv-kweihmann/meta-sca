@@ -1,0 +1,57 @@
+From 94aabfbbc34d9f10f70ac038a9cad8eeeffaed5e Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Mon, 5 Apr 2021 12:41:34 +0200
+Subject: [PATCH] override paths by env var
+
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+Upstream-Status: Pending
+---
+ src/extractcode_7z/__init__.py | 24 ++++--------------------
+ 1 file changed, 4 insertions(+), 20 deletions(-)
+
+diff --git a/src/extractcode_7z/__init__.py b/src/extractcode_7z/__init__.py
+index 00e49e0..49a7de1 100755
+--- a/src/extractcode_7z/__init__.py
++++ b/src/extractcode_7z/__init__.py
+@@ -20,7 +20,7 @@
+ 
+ 
+ import platform
+-from os import path
++from os import path, environ
+ 
+ from plugincode.location_provider import LocationProviderPlugin
+ 
+@@ -33,26 +33,10 @@ class SevenzipPaths(LocationProviderPlugin):
+         locations of the 7zip exe and shared libraries as installed on various
+         Linux distros or on FreeBSD.
+         """
+-        mainstream_system = platform.system().lower()
+-        if mainstream_system == 'linux':
+-            distribution = platform.linux_distribution()[0].lower()
+-            debian_based_distro = ['ubuntu', 'mint', 'debian']
+-            rpm_based_distro = ['fedora', 'redhat']
+-
+-            if distribution in debian_based_distro:
+-                lib_dir = '/usr/lib/p7zip'
+-
+-            elif distribution in rpm_based_distro:
+-                lib_dir = '/usr/libexec/p7zip'
+-
+-            else:
+-                raise Exception('Unsupported system: {}'.format(distribution))
+-        elif mainstream_system == 'freebsd':
+-            lib_dir = '/usr/local/libexec/p7zip'
+-
++        bin_dir = environ.get('SCANCODE_SYSTEM_BINDIR', '/usr/bin')
+         locations = {
+-            'extractcode.sevenzip.libdir': lib_dir,
+-            'extractcode.sevenzip.exe': path.join(lib_dir, '7z'),
++            'extractcode.sevenzip.libdir': bin_dir,
++            'extractcode.sevenzip.exe': path.join(bin_dir, '7z'),
+         }
+ 
+         return locations
+-- 
+2.25.1
+
