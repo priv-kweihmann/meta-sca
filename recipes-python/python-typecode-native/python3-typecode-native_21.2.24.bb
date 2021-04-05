@@ -13,9 +13,11 @@ DEPENDS += "\
              python3-setuptools-scm-native \
              python3-six-native \
              python3-toml-native \
-             python3-typecode-libmagic-from-sources-native \
+             python3-typecode-libmagic-system-provided-native \
              python3-wheel-native \
             "
+
+SRC_URI_append = " file://0001-Relax-typecode_libmagic-requirements.patch"
 
 PYPI_PACKAGE = "typecode"
 
