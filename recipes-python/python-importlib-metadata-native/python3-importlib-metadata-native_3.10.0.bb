@@ -13,8 +13,8 @@ PYPI_PACKAGE = "importlib_metadata"
 
 UPSTREAM_CHECK_REGEX ?= "/importlib-metadata/(?P<pver>(\d+[\.\-_]*)+)"
 
-SRC_URI[md5sum] = "9114e934db8fac20d6a0c7d3d3c7e595"
-SRC_URI[sha256sum] = "9dd89454add8894cc93619426949a58bdad9c1ef42822e46b884e7fc2d2a901e"
+SRC_URI[md5sum] = "f9805f90cecb9eeb0d75349f7fa3ad43"
+SRC_URI[sha256sum] = "c9db46394197244adf2f0b08ec5bc3cf16757e9590b02af1fca085c16c0d600a"
 
 inherit pypi
 inherit setuptools3
