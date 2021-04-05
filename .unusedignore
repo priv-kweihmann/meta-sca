@@ -1,5 +1,6 @@
 [
     "dynamic-distro/",
     "recipes-support/inspec-profiles/",
-    "recipes-devtools/ruby/"
+    "recipes-devtools/ruby/",
+    "recipes-go/"
 ]
