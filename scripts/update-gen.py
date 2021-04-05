@@ -103,7 +103,7 @@ def run_package_update_go(_args, packagename, version):
     try:
         _pargs = ["python3", os.path.join(
             _args.repo, "scripts", "go-gen")]
-        # get GO_IMPORT from bb file
+        _pargs += ["--version={}".format(version)]
         _pargs += [os.path.join(_args.repo, "recipes-go"),
                    packagename]
         subprocess.check_call(_pargs, universal_newlines=True)
