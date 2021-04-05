@@ -9,8 +9,8 @@ DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "e50b602f0ccbecdd1260fdc7108a4280"
-SRC_URI[sha256sum] = "f851f71cd9368ee1f6b70c99bf1418a8caa0b10a29ca9304e3c7e7d1fc6d4328"
+SRC_URI[md5sum] = "58eee74cdfb05e95661d0ca74423ff96"
+SRC_URI[sha256sum] = "aa4fe6e1dd9786c9f2ed9ce5cabdf469d2749e16dd703c5d99b39149f3388cf4"
 
 GEM_NAME = "aws-sdk-glue"
 
