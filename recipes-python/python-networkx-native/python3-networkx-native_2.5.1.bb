@@ -8,8 +8,8 @@ DEPENDS += "python3-decorator-native"
 
 PYPI_PACKAGE = "networkx"
 
-SRC_URI[md5sum] = "21f25be1f4373e19153a9beca63346e7"
-SRC_URI[sha256sum] = "7978955423fbc9639c10498878be59caf99b44dc304c2286162fd24b458c1602"
+SRC_URI[md5sum] = "bded9f095b2757f6ce11531a6f874d9d"
+SRC_URI[sha256sum] = "109cd585cac41297f71103c3c42ac6ef7379f29788eb54cb751be5a663bb235a"
 
 inherit pypi
 inherit setuptools3
