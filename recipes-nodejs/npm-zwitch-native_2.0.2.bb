@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/zwitch/-/zwitch-2.0.0.tgz"
-SRC_URI[md5sum] = "fc5f6020b9026938b834f65328404433"
-SRC_URI[sha256sum] = "5229475adef7b2649ca214f71c4d208522d6ca6016b7e37ea7b741683dada9c6"
+SRC_URI = "https://registry.npmjs.org/zwitch/-/zwitch-2.0.2.tgz"
+SRC_URI[md5sum] = "e4c4923926986147e33f2846ef8bc79e"
+SRC_URI[sha256sum] = "602be80ba8effccc2afa1c33d309d4a372575acd3a45639ff3d8d244faaac869"
 
 NPM_PKGNAME = "zwitch"
 
