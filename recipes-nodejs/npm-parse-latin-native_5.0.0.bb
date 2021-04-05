@@ -9,9 +9,9 @@ DEPENDS = "npm-nlcst-to-string-native \
            npm-unist-util-modify-children-native \
            npm-unist-util-visit-children-native"
 
-SRC_URI = "https://registry.npmjs.org/parse-latin/-/parse-latin-4.3.0.tgz"
-SRC_URI[md5sum] = "5ca8dc6b9a19a81d18b895df2af4ce7c"
-SRC_URI[sha256sum] = "4de44c7562470425bfffd0d8c1bc56301a5ef48452e50403f61360d57bdd3915"
+SRC_URI = "https://registry.npmjs.org/parse-latin/-/parse-latin-5.0.0.tgz"
+SRC_URI[md5sum] = "4f39ceaf1d37d2f0307a86b17144cd0a"
+SRC_URI[sha256sum] = "1c793bb699a13d8dc9570a49935e5c07d867b77c01f9b6a3febacd3830498514"
 
 NPM_PKGNAME = "parse-latin"
 
