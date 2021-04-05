@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=be2fd2007972bf96c08af3293d728b22"
 
 PYPI_PACKAGE = "decorator"
 
-SRC_URI[md5sum] = "d83c624cce93e6bdfab144821b526e1d"
-SRC_URI[sha256sum] = "e3a62f0520172440ca0dcc823749319382e377f37f140a0b99ef45fecb84bfe7"
+SRC_URI[md5sum] = "769d96549a076f6bdcf0c730797f58f1"
+SRC_URI[sha256sum] = "acda948ffcfe4bd0c4a57834b74ad968b91925b8201b740ca9d46fb8c5c618ce"
 
 inherit pypi
 inherit setuptools3
