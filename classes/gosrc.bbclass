@@ -66,5 +66,18 @@ do_compile[prefuncs] += "remove_testdirs create_pseudo_mod"
 
 EXPORT_FUNCTIONS do_unpack
 
+def gosrc_version_pattern(d):
+    import re
+    _map = {
+        r"0.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}@v(?P<pver>0.0.0-\d+-[a-f0-9]+)",
+        r"\d+\.\d+\.\d+\+incompatible": "/${GO_IMPORT}@v(?P<pver>\d+\.\d+\.\d+\+incompatible)",
+        r"\d+\.\d+\.\d+": "/${GO_IMPORT}@v(?P<pver>\d+\.\d+\.\d+)",
+    }
+    for pattern, value in _map.items():
+        if re.match(pattern, d.getVar("PV")):
+            bb.warn("Using {}".format(value))
+            return value
+    return "/${GO_IMPORT}@v(?P<pver>\d+[\.\-_a-f0-9]+)"
+
 UPSTREAM_CHECK_URI ?= "https://pkg.go.dev/${GO_IMPORT}?tab=versions"
-UPSTREAM_CHECK_REGEX ?= "/${GO_IMPORT}@v(?P<pver>\d+[\.\-_a-f0-9]+)"
+UPSTREAM_CHECK_REGEX ?= "${@gosrc_version_pattern(d)}"
