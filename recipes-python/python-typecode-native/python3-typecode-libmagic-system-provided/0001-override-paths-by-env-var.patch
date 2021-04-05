@@ -1,0 +1,82 @@
+From 48a01e90c3fa0fd85e0f3df47d1f78e6527385e9 Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Mon, 5 Apr 2021 12:51:43 +0200
+Subject: [PATCH] override paths by env var
+
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+Upstream-Status: Pending
+---
+ src/typecode_libmagic/__init__.py | 48 +++----------------------------
+ 1 file changed, 4 insertions(+), 44 deletions(-)
+
+diff --git a/src/typecode_libmagic/__init__.py b/src/typecode_libmagic/__init__.py
+index fc2b303..57c677e 100755
+--- a/src/typecode_libmagic/__init__.py
++++ b/src/typecode_libmagic/__init__.py
+@@ -27,9 +27,7 @@ from __future__ import unicode_literals
+ 
+ import ctypes
+ import ctypes.util
+-import distro
+ import os
+-import platform
+ 
+ from plugincode.location_provider import LocationProviderPlugin
+ 
+@@ -78,49 +76,11 @@ class LibmagicPaths(LocationProviderPlugin):
+         locations of the libmagic shared library as installed on various Linux
+         distros or on FreeBSD.
+         """
+-        system_arch = platform.machine()
+-        mainstream_system = platform.system().lower()
+-        if mainstream_system == 'linux':
+-            distribution = distro.linux_distribution()[0].lower()
+-            debian_based_distro = ['ubuntu', 'mint', 'debian']
+-            rpm_based_distro = ['fedora', 'redhat', 'centos linux']
+ 
+-            if distribution in debian_based_distro:
+-                data_dir = '/usr/lib/file'
+-                lib_dir = '/usr/lib/'+system_arch+'-linux-gnu'
+-            elif distribution in rpm_based_distro:
+-                data_dir = '/usr/share/misc'
+-                lib_dir = '/usr/lib64'
+-            else:
+-                raise Exception('Unsupported system: {}'.format(distribution))
+-
+-            lib_dll = os.path.join(lib_dir, 'libmagic.so.1.0.0')
+-
+-        elif mainstream_system == 'freebsd':
+-            if os.path.isdir('/usr/local/'):
+-                lib_dir = '/usr/local'
+-            else:
+-                lib_dir = '/usr'
+-            lib_dll = os.path.join(lib_dir, 'lib/libmagic.so')
+-            data_dir = os.path.join(lib_dir,'share/file')
+-
+-        else:
+-            raise Exception('Unsupported system: {}'.format(mainstream_system))
+-
+-        if not os.path.exists(lib_dll):
+-            lib_dll = ctypes.util.find_library('magic')
+-            if not lib_dll:
+-                raise Exception('libmagic.so was not found on the system')
+-            # Load library
+-            _ = ctypes.CDLL(lib_dll)
+-            # Find loaded library
+-            c = CallbackWrapper()
+-            _ = dl_iterate_phdr(callback_t(c.callback), bytes(lib_dll.encode('utf-8')))
+-            lib_dll = c.dll_path
+-
+-        magic_mgc_path = os.path.join(data_dir, 'magic.mgc')
+-        if not os.path.exists(magic_mgc_path):
+-            raise Exception('magic.mgc was not found on the system')
++        lib_dir = os.environ.get('SCANCODE_SYSTEM_LIBDIR', '/usr/lib')
++        data_dir = os.environ.get('SCANCODE_SYSTEM_DATADIR', '/usr/share')
++        lib_dll = os.path.join(lib_dir, 'libmagic.so')
++        magic_mgc_path = os.path.join(data_dir, 'misc', 'magic.mgc')
+ 
+         return {
+             'typecode.libmagic.libdir': lib_dir,
+-- 
+2.25.1
+
