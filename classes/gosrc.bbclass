@@ -69,9 +69,9 @@ EXPORT_FUNCTIONS do_unpack
 def gosrc_version_pattern(d):
     import re
     _map = {
-        r"0.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}@v(?P<pver>0.0.0-\d+-[a-f0-9]+)",
-        r"\d+\.\d+\.\d+\+incompatible": "/${GO_IMPORT}@v(?P<pver>\d+\.\d+\.\d+\+incompatible)",
-        r"\d+\.\d+\.\d+": "/${GO_IMPORT}@v(?P<pver>\d+\.\d+\.\d+)",
+        r"0.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}@v(?P<pver>0.0.0-\d+-[a-f0-9]+)$",
+        r"\d+\.\d+\.\d+\+incompatible": "/${GO_IMPORT}@v(?P<pver>\d+\.\d+\.\d+\+incompatible)$",
+        r"\d+\.\d+\.\d+": "/${GO_IMPORT}@v(?P<pver>\d+\.\d+\.\d+)$",
     }
     for pattern, value in _map.items():
         if re.match(pattern, d.getVar("PV")):
