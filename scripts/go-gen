@@ -490,7 +490,7 @@ def create_module(args, pbar, name, version, level, force, breadcrumb=[]):
 
         _children = []
         for m in _desc["mods"]:
-            _children += create_module(args, pbar, m, level - 1, "", False,
+            _children += create_module(args, pbar, m, "", level - 1, False,
                                        breadcrumb=breadcrumb + [name])
 
         for c in _children:
