@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/sourcegraph/syntaxhighlight/@v/v0.0.0-20170531221838-bd320f5d308e.zip;srcoutput=github.com/sourcegraph/syntaxhighlight;srcinput=github.com/sourcegraph/syntaxhighlight@v0.0.0-20170531221838-bd320f5d308e;downloadfilename=github-com-sourcegraph-syntaxhighlight-0.0.0-20170531221838-bd320f5d308e.zip;name=github-com-sourcegraph-syntaxhighlight"
-SRC_URI[github-com-sourcegraph-syntaxhighlight.sha256sum] = "c0e6323ed7a5dcddcdd7686f2d7c68dff44a8ecbfd6818db3bdb33a7af422792"
+SRC_URI += "https://proxy.golang.org/github.com/sourcegraph/syntaxhighlight/@v/v0.0.0-20201028155326-fc05dd37300c.zip;srcoutput=github.com/sourcegraph/syntaxhighlight;srcinput=github.com/sourcegraph/syntaxhighlight@v0.0.0-20201028155326-fc05dd37300c;downloadfilename=github-com-sourcegraph-syntaxhighlight-0.0.0-20201028155326-fc05dd37300c.zip;name=github-com-sourcegraph-syntaxhighlight"
+SRC_URI[github-com-sourcegraph-syntaxhighlight.sha256sum] = "a41b97143760640278fe2afb0974285fa3814f7e671463cb9f23c7d76dcde5e7"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
