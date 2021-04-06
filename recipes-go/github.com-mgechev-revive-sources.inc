@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/mgechev/revive/@v/v1.0.5.zip;srcoutput=github.com/mgechev/revive;srcinput=github.com/mgechev/revive@v1.0.5;downloadfilename=github-com-mgechev-revive-1.0.5.zip;name=github-com-mgechev-revive"
-SRC_URI[github-com-mgechev-revive.sha256sum] = "c7c78dee16f96878938e49c1e5c160135d3295d5384407852ff57d9815d1a967"
+SRC_URI += "https://proxy.golang.org/github.com/mgechev/revive/@v/v1.0.6.zip;srcoutput=github.com/mgechev/revive;srcinput=github.com/mgechev/revive@v1.0.6;downloadfilename=github-com-mgechev-revive-1.0.6.zip;name=github-com-mgechev-revive"
+SRC_URI[github-com-mgechev-revive.sha256sum] = "62ec9836e817647ebe6afa6fe91c6841e6faf9b7d554316aeb959df635a6ff48"
 
 GOSRC_LICENSE += "\
     MIT \
@@ -11,6 +11,7 @@ LIC_FILES_CHKSUM += "\
 GOSRC_INCLUDEGUARD += "github.com-mgechev-revive-sources.inc"
 
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-burntsushi-toml-sources.inc', '', 'github.com-burntsushi-toml-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-chavacava-garif-sources.inc', '', 'github.com-chavacava-garif-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-fatih-color-sources.inc', '', 'github.com-fatih-color-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-fatih-structtag-sources.inc', '', 'github.com-fatih-structtag-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-mgechev-dots-sources.inc', '', 'github.com-mgechev-dots-sources.inc', d)}
