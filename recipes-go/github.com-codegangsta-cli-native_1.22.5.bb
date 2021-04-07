@@ -9,5 +9,7 @@ require github.com-codegangsta-cli-sources.inc
 
 GO_IMPORT = "github.com/codegangsta/cli"
 
+UPSTREAM_CHECK_GITHUB_TAGS = "1"
+
 inherit gosrc
 inherit native

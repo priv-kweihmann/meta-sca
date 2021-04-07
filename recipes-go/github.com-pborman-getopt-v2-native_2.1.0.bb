@@ -9,5 +9,8 @@ require github.com-pborman-getopt-v2-sources.inc
 
 GO_IMPORT = "github.com/pborman/getopt/v2"
 
+UPSTREAM_CHECK_URI = "https://github.com/pborman/getopt/tags"
+UPSTREAM_CHECK_REGEX = "releases/tag/v(?P<pver>\d+\.\d+\.\d+)"
+
 inherit gosrc
 inherit native

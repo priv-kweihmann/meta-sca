@@ -19,7 +19,6 @@ LIC_FILES_CHKSUM += "\
     file://src/github.com/apache/thrift/doc/licenses/otp-base-license.txt;md5=7eb1bd181118ec910ac57a02f5f44a88 \
     file://src/github.com/apache/thrift/lib/dart/LICENSE;md5=2bb738113ce26a7910645e5790af76a5 \
     file://src/github.com/apache/thrift/lib/hs/LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57 \
-    file://src/github.com/apache/thrift/tutorial/hs/LICENSE;md5=394465e125cffc0f133695ed43f14047 \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-apache-thrift-sources.inc"

@@ -9,5 +9,7 @@ require github.com-cactus-go-statsd-client-sources.inc
 
 GO_IMPORT = "github.com/cactus/go-statsd-client"
 
+UPSTREAM_CHECK_IMPORT_SUFFIX = "/v5"
+
 inherit gosrc
 inherit native
