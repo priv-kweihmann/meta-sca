@@ -1,3 +1,4 @@
+
 ansible-role-merger-native
 ansible-sca-native
 ansibleroles-sca-native
@@ -30,6 +31,7 @@ cvecheck-sca-native
 gcc-sca-native
 github.com-golang-protobuf-native
 npmaudit-sca-native
+p7zip-native
 packagegroup-ansible-roles
 packagegroup-sca-test
 pkgqaenc-native
