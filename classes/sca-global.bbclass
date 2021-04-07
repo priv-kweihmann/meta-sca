@@ -99,6 +99,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           flint \
                           gcc \
                           gixy \
+                          goconsistent \
                           goconst \
                           golint \
                           gosec \

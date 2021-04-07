@@ -30,6 +30,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             flawfinder \
                             flint \
                             gcc \
+                            goconsistent \
                             goconst \
                             golint \
                             gosec \
