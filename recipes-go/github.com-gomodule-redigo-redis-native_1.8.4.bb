@@ -11,6 +11,8 @@ GO_IMPORT = "github.com/gomodule/redigo/redis"
 
 # version is somehow broken
 do_compile[noexec] = "1"
+UPSTREAM_CHECK_URI = "https://github.com/github.com/gomodule/redigo/tags"
+UPSTREAM_CHECK_REGEX = "releases/tag/v(?P<pver>\d+\.\d+\.\d+)"
 
 inherit gosrc
 inherit native

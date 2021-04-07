@@ -1,5 +1,5 @@
-SRC_URI += "https://github.com/gomodule/redigo/archive/refs/tags/v1.8.4.zip;srcoutput=github.com/gomodule/redigo;srcinput=redigo-1.8.4;downloadfilename=github-com-gomodule-redigo-2.0.0.zip;name=github-com-gomodule-redigo"
-SRC_URI[github-com-gomodule-redigo.sha256sum] = "5f7308025def1dc467727e5f9a3af5a69bc68249341a36b31deb38b2d0881879"
+SRC_URI += "https://proxy.golang.org/github.com/gomodule/redigo/@v/v1.8.4.zip;srcoutput=github.com/gomodule/redigo;srcinput=github.com/gomodule/redigo@v1.8.4;downloadfilename=github-com-gomodule-redigo-1.8.4.zip;name=github-com-gomodule-redigo"
+SRC_URI[github-com-gomodule-redigo.sha256sum] = "880ca30d3c7065d093133b46f92d9c4550dfe25e5be9df57205ae9fa95e48faf"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \

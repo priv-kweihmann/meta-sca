@@ -1,11 +1,13 @@
-SRC_URI += "https://proxy.golang.org/github.com/lightstep/lightstep-tracer-common/golang/gogo/@v/v0.0.0-20210210170715-a8dfcb80d3a7.zip;srcoutput=github.com/lightstep/lightstep-tracer-common/golang/gogo;srcinput=github.com/lightstep/lightstep-tracer-common/golang/gogo@v0.0.0-20210210170715-a8dfcb80d3a7;downloadfilename=github-com-lightstep-lightstep-tracer-common-golang-gogo-0.0.0-20210210170715-a8dfcb80d3a7.zip;name=github-com-lightstep-lightstep-tracer-common-golang-gogo"
-SRC_URI[github-com-lightstep-lightstep-tracer-common-golang-gogo.sha256sum] = "b4cdc3a48d9a9f46c14875fb399d6345c17c57940ff58243a0ccd7d670934f5f"
+SRC_URI += "https://github.com/lightstep/lightstep-tracer-common/archive/refs/tags/v1.1.0.zip;srcoutput=github.com/lightstep/lightstep-tracer-common;srcinput=lightstep-tracer-common-1.1.0;downloadfilename=github-com-lightstep-lightstep-tracer-common-golang-gogo-1.1.0.zip;name=github-com-lightstep-lightstep-tracer-common-golang-gogo"
+SRC_URI[github-com-lightstep-lightstep-tracer-common-golang-gogo.sha256sum] = "d0dec6837de67e4d58f5c407160043f7109a6ba5e1a500211a570fa1b690e9b0"
 
 GOSRC_LICENSE += "\
+    Apache-2.0 \
     MIT \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/lightstep/lightstep-tracer-common/golang/gogo/LICENSE;md5=ce5e14e16e13722613cbe38415c54085 \
+    file://src/github.com/lightstep/lightstep-tracer-common/LICENSE;md5=ce5e14e16e13722613cbe38415c54085 \
+    file://src/github.com/lightstep/lightstep-tracer-common/third_party/googleapis/LICENSE;md5=86d3f3a95c324c9479bd8986968f4327 \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-lightstep-lightstep-tracer-common-golang-gogo-sources.inc"

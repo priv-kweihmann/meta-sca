@@ -9,5 +9,7 @@ require github.com-circonus-labs-circonusllhist-sources.inc
 
 GO_IMPORT = "github.com/circonus-labs/circonusllhist"
 
+UPSTREAM_CHECK_GITHUB_TAGS = "1"
+
 inherit gosrc
 inherit native
