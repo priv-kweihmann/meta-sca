@@ -21,3 +21,6 @@ SRC_URI[sha256sum] = "3d66a0bade4b7c813af745bdb0bbbb4f506d9e889a0256f17b023134bc
 inherit pypi
 inherit setuptools3
 inherit native
+
+UPSTREAM_CHECK_URI = "https://pypi.org/project/extractcode-libarchive-system-provided/"
+UPSTREAM_CHECK_REGEX = "/extractcode-libarchive-system-provided/(?P<pver>(\d+[\.\-_]*)+)/"
