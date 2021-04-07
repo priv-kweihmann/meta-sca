@@ -1,0 +1,33 @@
+{
+    "buildspeed": 8,
+    "execspeed": 10,
+    "languages": [
+        "go"
+    ],
+    "uses": [
+        "@go"
+    ],
+    "quality": 9,
+    "scope": [
+        "style"
+    ],
+    "score": {
+        "style": [
+            "goconsistent.goconsistent..*"
+        ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["go-consistent", "--help"], "returncode": 2}
+        ],
+        "findings": [
+            "bad-go"
+        ],
+        "no-findings": [
+            "busybox"
+        ],
+        "additional-targets": [
+            "github.com-quasilyte-go-consistent-native"
+        ]
+    }
+}
