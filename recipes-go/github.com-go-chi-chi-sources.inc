@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/go-chi/chi/@v/v1.5.4.zip;srcoutput=github.com/go-chi/chi;srcinput=github.com/go-chi/chi@v1.5.4;downloadfilename=github-com-go-chi-chi-1.5.4.zip;name=github-com-go-chi-chi"
-SRC_URI[github-com-go-chi-chi.sha256sum] = "e3f9fecb9fcf42e7b198167c43ec3ecfd31fc588ec0f9daf28a4a01f821477a5"
+SRC_URI += "https://proxy.golang.org/github.com/go-chi/chi/@v/v4.1.2+incompatible.zip;srcoutput=github.com/go-chi/chi;srcinput=github.com/go-chi/chi@v4.1.2+incompatible;downloadfilename=github-com-go-chi-chi-4.1.2+incompatible.zip;name=github-com-go-chi-chi"
+SRC_URI[github-com-go-chi-chi.sha256sum] = "b18ec574b5d476df20b181724fdb46180d277a4040dbbbd45e277cc4ce7d04ec"
 
 GOSRC_LICENSE += "\
     MIT \
