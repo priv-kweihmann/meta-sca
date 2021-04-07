@@ -59,7 +59,7 @@ def create_parser():
                         action="store_true", help="Use also test files")
     parser.add_argument("--withunused", default=False,
                         action="store_true", help="Add go.mod even they are unused")
-    parser.add_argument("--nolicensesfrom", default=["vendor/*", "examples/*", "*/testdata/*"],
+    parser.add_argument("--nolicensesfrom", default=["vendor/*", "examples/*", "*/testdata/*", "tutorial/*"],
                         action="extend", nargs="*", help="Ignore licenses from these pattern")
     parser.add_argument("--force", default=False,
                         action="store_true", help="Force creation")
@@ -107,15 +107,14 @@ def __get_checkout(args, name, version):
 
     _extra_recipes_lines = []
     _attional_fetcher_attr = []
-    _suffix_out = args.erratadict.get(name, {}).get("buildsuffix", "")
+    _suffix_out = args.erratadict.get(name, {}).get("buildsuffix", name)
     if _url.startswith("https://"):
         subprocess.check_call(
             "wget --quiet {url} -O {tmpfile}".format(url=_url, tmpfile=__temp_file), shell=True)
         subprocess.check_call("unzip {tmpfile} -d {path} 2>&1 >/dev/null".format(
             path=_path, tmpfile=__temp_file), shell=True)
 
-        _attional_fetcher_attr.append(
-            "srcoutput={}{}".format(name, _suffix_out))
+        _attional_fetcher_attr.append("srcoutput={}".format(_suffix_out))
         _strip_level = args.erratadict.get(name, {}).get(
             "striplevel", len(name.split("/")))
         _strip_path = []
@@ -124,6 +123,10 @@ def __get_checkout(args, name, version):
                 _path, *_strip_path)) if os.path.isdir(os.path.join(_path, *_strip_path, x))]
             if _dir:
                 _strip_path.append(_dir[0])
+
+        _add_strip_path = args.erratadict.get(name, {}).get("addtionalstrip")
+        if _add_strip_path:
+            _strip_path += [_add_strip_path]
         subprocess.check_call(
             "mv {path}/{sub}/* {path}; rm -rf {path}/{sub}".format(path=_path, sub="/".join(_strip_path)), shell=True)
 
@@ -144,8 +147,7 @@ def __get_checkout(args, name, version):
         _attional_fetcher_attr.append("nobranch=1")
         _attional_fetcher_attr.append("protocol=https")
         _attional_fetcher_attr.append("srcinput={}".format(name))
-        _attional_fetcher_attr.append(
-            "srcoutput={}{}".format(name, _suffix_out))
+        _attional_fetcher_attr.append("srcoutput={}".format(_suffix_out))
         _attional_fetcher_attr.append(
             "destsuffix={}".format(os.path.join(name)))
     _attional_fetcher_attr.append("name={cn}".format(cn=__name_clean(name)))
@@ -199,20 +201,20 @@ def __get_license_from_root(args, name, path):
         if any(fnmatch.fnmatch(x, y) for y in args.nolicensesfrom):
             continue
         _files.append(x)
-    _suffix_out = args.erratadict.get(name, {}).get("buildsuffix", "")
+    _suffix_out = args.erratadict.get(name, {}).get("buildsuffix", name)
     res = []
     for f in _files:
         _relpath = f.replace(path, "", 1).lstrip("/")
         _lic = __get_license(args, f, default=[])
         if _lic:
             res.append(
-                (_lic, "file://src/{}{}/{};md5={}".format(name, _suffix_out, _relpath, __get_md5sum(f))))
+                (_lic, "file://src/{}/{};md5={}".format(_suffix_out, _relpath, __get_md5sum(f))))
     return res
 
 
 def __get_license_file(args, name, path):
     res = []
-    _suffix_out = args.erratadict.get(name, {}).get("buildsuffix", "")
+    _suffix_out = args.erratadict.get(name, {}).get("buildsuffix", name)
     _ignores = args.nolicensesfrom + \
         args.erratadict.get(name, {}).get("licenseignore", [])
     _fixedlicense = args.erratadict.get(name, {}).get("licenses", [])
@@ -221,7 +223,7 @@ def __get_license_file(args, name, path):
             _relpath = lic["file"]
             _fullpath = os.path.join(path, _relpath)
             res.append(([lic["spdx"]],
-                        "file://src/{}{}/{};md5={}".format(name, _suffix_out, _relpath, __get_md5sum(_fullpath))))
+                        "file://src/{}/{};md5={}".format(_suffix_out, _relpath, __get_md5sum(_fullpath))))
     else:
         for root, dirs, files in os.walk(path, topdown=True):
             for f in files:
@@ -232,7 +234,7 @@ def __get_license_file(args, name, path):
                     continue
                 if re.match(r"(license.*|copying.*|licence.*|.*-license)", _filename, re.IGNORECASE):
                     res.append((__get_license(args, _fullpath),
-                                "file://src/{}{}/{};md5={}".format(name, _suffix_out, _relpath, __get_md5sum(_fullpath))))
+                                "file://src/{}/{};md5={}".format(_suffix_out, _relpath, __get_md5sum(_fullpath))))
         if not res:
             res = __get_license_from_root(args, name, path)
         if not res:
@@ -269,8 +271,9 @@ def __double_check_mods(args, name, path, mods):
         with open(os.path.join(path, "go.mod"), "w") as o:
             o.write('module "{}"\n'.format(name))
     try:
+        _modscan_path = os.path.join(path, args.erratadict.get(name, {}).get("modscan", ""))
         out = subprocess.check_output("go list -f '{{ join .Imports \" \" }}' ./...",
-                                      shell=True, universal_newlines=True, cwd=path, stderr=subprocess.DEVNULL)
+                                      shell=True, universal_newlines=True, cwd=_modscan_path, stderr=subprocess.DEVNULL)
         seen = set()
         for x in out.replace("\n", " ").split(" "):
             y = x

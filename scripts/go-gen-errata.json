@@ -154,6 +154,11 @@
             }
         ]
     },
+    "github.com/aws/smithy-go": {
+        "recipeextra": [
+            "UPSTREAM_CHECK_GITHUB_TAGS = \"1\""
+        ]
+    },
     "github.com/boyter/lc": {
         "licenseignore": [
             "assets/database/licenses/*",
@@ -164,13 +169,31 @@
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/cactus/go-statsd-client/test-client\""
         ],
+        "recipeextra": [
+            "UPSTREAM_CHECK_IMPORT_SUFFIX = \"/v5\""
+        ],
         "striplevel": 1,
         "url": "https://github.com/cactus/go-statsd-client/archive/refs/tags/v5.0.0.zip",
         "version": "5.0.0"
     },
+    "github.com/circonus-labs/circonusllhist": {
+        "recipeextra": [
+            "UPSTREAM_CHECK_GITHUB_TAGS = \"1\""
+        ]
+    },
     "github.com/clbanning/x2j": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/clbanning/x2j/examples\""
+        ]
+    },
+    "github.com/codahale/hdrhistogram": {
+        "recipeextra": [
+            "UPSTREAM_CHECK_GITHUB_TAGS = \"1\""
+        ]
+    },
+    "github.com/codegangsta/cli": {
+        "recipeextra": [
+            "UPSTREAM_CHECK_GITHUB_TAGS = \"1\""
         ]
     },
     "github.com/coreos/etcd": {
@@ -181,7 +204,8 @@
     "github.com/coreos/go-systemd": {
         "recipeextra": [
             "# recipe needs systemd header, which isn't available as a native recipe",
-            "do_compile[noexec] = \"1\""
+            "do_compile[noexec] = \"1\"",
+            "UPSTREAM_CHECK_IMPORT_SUFFIX = \"/v22\""
         ],
         "striplevel": 1,
         "url": "https://github.com/coreos/go-systemd/archive/refs/tags/v22.3.1.zip",
@@ -219,14 +243,14 @@
             "# version is somehow broken",
             "do_compile[noexec] = \"1\""
         ],
-        "striplevel": 1,
-        "url": "https://github.com/gomodule/redigo/archive/refs/tags/v1.8.4.zip",
         "version": "1.8.4"
     },
     "github.com/gomodule/redigo/redis": {
         "recipeextra": [
             "# version is somehow broken",
-            "do_compile[noexec] = \"1\""
+            "do_compile[noexec] = \"1\"",
+            "UPSTREAM_CHECK_URI = \"https://github.com/github.com/gomodule/redigo/tags\"",
+            "UPSTREAM_CHECK_REGEX = \"releases/tag/v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
         ],
         "striplevel": 1,
         "url": "https://github.com/gomodule/redigo/archive/refs/tags/v1.8.4.zip",
@@ -317,6 +341,17 @@
             }
         ]
     },
+    "github.com/lightstep/lightstep-tracer-common/golang/gogo": {
+        "buildsuffix": "github.com/lightstep/lightstep-tracer-common",
+        "modscan": "golang/gogo",
+        "recipeextra": [
+            "UPSTREAM_CHECK_URI = \"https://github.com/lightstep/lightstep-tracer-common/tags\"",
+            "UPSTREAM_CHECK_REGEX = \"releases/tag/v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
+        ],
+        "striplevel": 1,
+        "url": "https://github.com/lightstep/lightstep-tracer-common/archive/refs/tags/v1.1.0.zip",
+        "version": "1.1.0"
+    },
     "github.com/mozilla/tls-observatory": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/mozilla/tls-observatory/tools\""
@@ -332,9 +367,18 @@
             "GOSRC_REMOVEDIRS += \"github.com/nats-io/nats.go/test\""
         ]
     },
+    "github.com/pborman/getopt/v2": {
+        "recipeextra": [
+            "UPSTREAM_CHECK_URI = \"https://github.com/pborman/getopt/tags\"",
+            "UPSTREAM_CHECK_REGEX = \"releases/tag/v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
+        ]
+    },
     "github.com/pierrec/lz4": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/pierrec/lz4/cmd\""
+        ],
+        "recipeextra": [
+            "UPSTREAM_CHECK_GITHUB_TAGS = \"1\""
         ],
         "striplevel": 1,
         "url": "https://github.com/pierrec/lz4/archive/refs/tags/v4.1.4.zip",
@@ -347,6 +391,11 @@
         "recipeextra": [
             "# needs CGO",
             "do_compile[noexec] = \"1\""
+        ]
+    },
+    "github.com/securego/gosec": {
+        "recipeextra": [
+            "UPSTREAM_CHECK_IMPORT_SUFFIX = \"/v2\""
         ]
     },
     "github.com/shurcooL/sanitized_anchor_name": {
@@ -408,11 +457,19 @@
         ]
     },
     "honnef.co/go/tools": {
+        "recipeextra": [
+            "UPSTREAM_CHECK_URI = \"https://github.com/dominikh/go-tools/tags\"",
+            "UPSTREAM_CHECK_REGEX = \"releases/tag/(?P<pver>\\d+\\.\\d+\\.\\d+)\""
+        ],
         "striplevel": 1,
         "url": "https://github.com/dominikh/go-tools/archive/refs/tags/2020.2.3.zip",
         "version": "2020.2.3"
     },
     "mvdan.cc/sh": {
+        "recipeextra": [
+            "UPSTREAM_CHECK_URI = \"https://github.com/mvdan/sh/tags\"",
+            "UPSTREAM_CHECK_REGEX = \"releases/tag/v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
+        ],
         "striplevel": 1,
         "url": "https://github.com/mvdan/sh/archive/refs/tags/v3.2.4.zip",
         "version": "3.2.4"
