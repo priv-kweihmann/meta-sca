@@ -66,12 +66,32 @@ do_compile[prefuncs] += "remove_testdirs create_pseudo_mod"
 
 EXPORT_FUNCTIONS do_unpack
 
+UPSTREAM_CHECK_IMPORT_SUFFIX ?= ""
+UPSTREAM_CHECK_GITHUB_TAGS ?= "0"
+
+def gosrc_upstream_url(d):
+    if d.getVar("UPSTREAM_CHECK_GITHUB_TAGS") != "0":
+        return "https://${GO_IMPORT}/tags"
+    return "https://pkg.go.dev/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}?tab=versions"
+
 def gosrc_version_pattern(d):
+    if d.getVar("UPSTREAM_CHECK_GITHUB_TAGS") != "0":
+        return "releases/tag/v(?P<pver>\\d+\\.\\d+\\.\\d+)"
     import re
     _map = {
-        r"0.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}@v(?P<pver>0.0.0-\d+-[a-f0-9]+)$",
-        r"\d+\.\d+\.\d+\+incompatible": "/${GO_IMPORT}@v(?P<pver>\d+\.\d+\.\d+\+incompatible)$",
-        r"\d+\.\d+\.\d+": "/${GO_IMPORT}@v(?P<pver>\d+\.\d+\.\d+)$",
+        r"0.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>0.0.0-\d+-[a-f0-9]+)$",
+        r"1.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>1.0.0-\d+-[a-f0-9]+)$",
+        r"2.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>2.0.0-\d+-[a-f0-9]+)$",
+        r"3.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>3.0.0-\d+-[a-f0-9]+)$",
+        r"4.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>4.0.0-\d+-[a-f0-9]+)$",
+        r"5.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>5.0.0-\d+-[a-f0-9]+)$",
+        r"6.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>6.0.0-\d+-[a-f0-9]+)$",
+        r"7.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>7.0.0-\d+-[a-f0-9]+)$",
+        r"8.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>8.0.0-\d+-[a-f0-9]+)$",
+        r"9.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>9.0.0-\d+-[a-f0-9]+)$",
+        r"10.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>10.0.0-\d+-[a-f0-9]+)$",
+        r"\d+\.\d+\.\d+\+incompatible": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>\d+\.\d+\.\d+\+incompatible)$",
+        r"\d+\.\d+\.\d+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>\d+\.\d+\.\d+)$",
     }
     for pattern, value in _map.items():
         if re.match(pattern, d.getVar("PV")):
@@ -79,5 +99,5 @@ def gosrc_version_pattern(d):
             return value
     return "/${GO_IMPORT}@v(?P<pver>\d+[\.\-_a-f0-9]+)"
 
-UPSTREAM_CHECK_URI ?= "https://pkg.go.dev/${GO_IMPORT}?tab=versions"
+UPSTREAM_CHECK_URI ?= "${@gosrc_upstream_url(d)}"
 UPSTREAM_CHECK_REGEX ?= "${@gosrc_version_pattern(d)}"
