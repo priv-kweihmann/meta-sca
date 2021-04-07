@@ -9,5 +9,7 @@ require github.com-codahale-hdrhistogram-sources.inc
 
 GO_IMPORT = "github.com/codahale/hdrhistogram"
 
+UPSTREAM_CHECK_GITHUB_TAGS = "1"
+
 inherit gosrc
 inherit native

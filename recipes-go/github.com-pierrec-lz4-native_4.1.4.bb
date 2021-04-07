@@ -9,5 +9,7 @@ require github.com-pierrec-lz4-sources.inc
 
 GO_IMPORT = "github.com/pierrec/lz4"
 
+UPSTREAM_CHECK_GITHUB_TAGS = "1"
+
 inherit gosrc
 inherit native

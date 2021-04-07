@@ -11,6 +11,7 @@ GO_IMPORT = "github.com/coreos/go-systemd"
 
 # recipe needs systemd header, which isn't available as a native recipe
 do_compile[noexec] = "1"
+UPSTREAM_CHECK_IMPORT_SUFFIX = "/v22"
 
 inherit gosrc
 inherit native

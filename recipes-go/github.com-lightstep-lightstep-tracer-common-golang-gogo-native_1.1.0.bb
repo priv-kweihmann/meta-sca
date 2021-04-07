@@ -9,5 +9,8 @@ require github.com-lightstep-lightstep-tracer-common-golang-gogo-sources.inc
 
 GO_IMPORT = "github.com/lightstep/lightstep-tracer-common/golang/gogo"
 
+UPSTREAM_CHECK_URI = "https://github.com/lightstep/lightstep-tracer-common/tags"
+UPSTREAM_CHECK_REGEX = "releases/tag/v(?P<pver>\d+\.\d+\.\d+)"
+
 inherit gosrc
 inherit native
