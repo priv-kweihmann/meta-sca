@@ -21,7 +21,7 @@
             {"cmd": ["gosec", "--help"], "returncode": 2}
         ],
         "additional-targets": [
-            "github.com-securego-gosec-native"
+            "github.com-securego-gosec-v2-native"
         ]
     }
 }
