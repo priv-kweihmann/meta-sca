@@ -5,11 +5,11 @@ HOMEPAGE = "https://github.com/juliangruber/balanced-match"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=7fa99ddc3424107350ca6e9a24552085"
 
-SRC_URI = "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.0.tgz"
-SRC_URI[md5sum] = "83d3f9f047e9700f6c4ac4028c4c5c53"
-SRC_URI[sha256sum] = "2896602c12d3cef566bfbed7ccdef79232f4f1e00622fc5c9b40737465baffad"
+DEPENDS = ""
 
-S = "${WORKDIR}/package"
+SRC_URI = "https://registry.npmjs.org/balanced-match/-/balanced-match-2.0.0.tgz"
+SRC_URI[md5sum] = "ccfe1eaf94629a030170c10e2bf4c3ec"
+SRC_URI[sha256sum] = "561e0fb7b25ac6bebee816546c7fd71c36a2b8f3e5c091212c3e753052fdc9f9"
 
 NPM_PKGNAME = "balanced-match"
 
