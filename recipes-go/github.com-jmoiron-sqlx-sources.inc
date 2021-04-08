@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/jmoiron/sqlx/@v/v1.3.1.zip;srcoutput=github.com/jmoiron/sqlx;srcinput=github.com/jmoiron/sqlx@v1.3.1;downloadfilename=github-com-jmoiron-sqlx-1.3.1.zip;name=github-com-jmoiron-sqlx"
-SRC_URI[github-com-jmoiron-sqlx.sha256sum] = "84cf22439d71b3dfe534639a128f4459664976271941c2a33bef5c5aa4f7ed70"
+SRC_URI += "https://proxy.golang.org/github.com/jmoiron/sqlx/@v/v1.3.3.zip;srcoutput=github.com/jmoiron/sqlx;srcinput=github.com/jmoiron/sqlx@v1.3.3;downloadfilename=github-com-jmoiron-sqlx-1.3.3.zip;name=github-com-jmoiron-sqlx"
+SRC_URI[github-com-jmoiron-sqlx.sha256sum] = "1b1af14439a8e89689e737d475b2fcf80027160a8280f264a97f594cedbbbc57"
 
 GOSRC_LICENSE += "\
     MIT \
