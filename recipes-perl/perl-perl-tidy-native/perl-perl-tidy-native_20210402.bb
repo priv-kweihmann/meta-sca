@@ -11,4 +11,5 @@ SRC_URI[sha256sum] = "b6e9c75d4c8e6047fb5c2e9c60f3ea1cc5783ffde389ef90832d1965b3
 S = "${WORKDIR}/Perl-Tidy-${PV}"
 
 inherit cpan
+inherit cpan-upgrade-check
 inherit native
