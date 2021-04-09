@@ -13,4 +13,5 @@ SRC_URI[sha256sum] = "a558503aa6b1f8c727c0073339081a77888606aa701ada1ad62dd9d8c3
 S = "${WORKDIR}/PathTools-${PV}"
 
 inherit cpan
+inherit cpan-upgrade-check
 inherit native
