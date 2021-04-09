@@ -15,7 +15,7 @@ do_install_append() {
     # according to https://github.com/networkx/networkx/issues/4718#issuecomment-813034594
     # it's safe to use decorator 5.0.5+
     # can be likely removed with a future update of networkx
-    find ${D} -type f -exec sed -i "s#decorator>.*,<5#decorator#g" {} \;
+    find ${D} -type f -exec sed -i "s#decorator<5.*#decorator#g" {} \;
 }
 
 inherit pypi
