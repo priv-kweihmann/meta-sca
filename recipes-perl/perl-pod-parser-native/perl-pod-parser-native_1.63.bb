@@ -12,6 +12,7 @@ SRC_URI[sha256sum] = "dbe0b56129975b2f83a02841e8e0ed47be80f060686c66ea37e529d97a
 S = "${WORKDIR}/Pod-Parser-${PV}"
 
 inherit cpan
+inherit cpan-upgrade-check
 inherit native
 
 do_install_append() {
