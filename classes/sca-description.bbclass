@@ -6,6 +6,10 @@ python do_sca_tool_description() {
     import glob
     import re
 
+    if bb.data.inherits_class('native', d):
+        # do some sanity checking
+        return
+
     for item in glob.glob(d.expand("${D}${datadir}/*.sca.description")):
         cnt = {}
         with open(item) as i:
