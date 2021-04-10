@@ -5,9 +5,11 @@ HOMEPAGE = "https://github.com/micromatch/picomatch"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=abd0e25891525eb13d5a794f550a6ee4"
 
-SRC_URI = "https://registry.npmjs.org/picomatch/-/picomatch-2.2.2.tgz"
-SRC_URI[md5sum] = "779a92f2024d89a858e1dcdd469de315"
-SRC_URI[sha256sum] = "00ba0896db003bba593ff4405d7cd14887eb41a81c09c9eb3bf665168deb86c8"
+DEPENDS = ""
+
+SRC_URI = "https://registry.npmjs.org/picomatch/-/picomatch-2.2.3.tgz"
+SRC_URI[md5sum] = "a3fff3731b0e57765cf302757cf16088"
+SRC_URI[sha256sum] = "5d8c1f5b50a9a5a5d6092dfcf61ee6d1ede4c1a04f13b14fe78e9642e28b4a54"
 
 NPM_PKGNAME = "picomatch"
 
