@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/split-lines/-/split-lines-2.1.0.tgz"
-SRC_URI[md5sum] = "e83ea019e358bd153b70593b03f75243"
-SRC_URI[sha256sum] = "b926d6faefda237bf5468213ec2162d8303b6015dfc48e4f5848973a881ad804"
+SRC_URI = "https://registry.npmjs.org/split-lines/-/split-lines-3.0.0.tgz"
+SRC_URI[md5sum] = "5d1b62a6fda30e9e2f2394c37acb7939"
+SRC_URI[sha256sum] = "a20b14785c6873a7e169c1c249833b6235f147b421488f28f175acbfa9364a02"
 
 NPM_PKGNAME = "split-lines"
 
