@@ -8,8 +8,8 @@ DEPENDS += "python3-wcwidth-native"
 
 PYPI_PACKAGE = "ftfy"
 
-SRC_URI[md5sum] = "5bc4119a31ce162eab8cc79194671a97"
-SRC_URI[sha256sum] = "8c4fb2863c0b82eae2ab3cf353d9ade268dfbde863d322f78d6a9fd5cefb31e9"
+SRC_URI[md5sum] = "fd4dd70a088c32a51fdbd6fc0af697d7"
+SRC_URI[sha256sum] = "4d7445f7c05d4ad3751147094da400dcf1f7a9c93844f5ed168bbcf17e4598ca"
 
 inherit pypi
 inherit setuptools3
