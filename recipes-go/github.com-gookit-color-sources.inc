@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/gookit/color/@v/v1.4.1.zip;srcoutput=github.com/gookit/color;srcinput=github.com/gookit/color@v1.4.1;downloadfilename=github-com-gookit-color-1.4.1.zip;name=github-com-gookit-color"
-SRC_URI[github-com-gookit-color.sha256sum] = "50657676710fe2a8a12daeddd8b6e8289f7f762c41b07643e0f8b54a4868d19c"
+SRC_URI += "https://proxy.golang.org/github.com/gookit/color/@v/v1.4.2.zip;srcoutput=github.com/gookit/color;srcinput=github.com/gookit/color@v1.4.2;downloadfilename=github-com-gookit-color-1.4.2.zip;name=github-com-gookit-color"
+SRC_URI[github-com-gookit-color.sha256sum] = "da649e806704b461a251024f5b496d6e728bb559c8a79d28935d9e386b36ccd9"
 
 GOSRC_LICENSE += "\
     MIT \
