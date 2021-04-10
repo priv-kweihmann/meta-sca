@@ -23,3 +23,8 @@ inherit native
 
 UPSTREAM_CHECK_URI = "https://pypi.org/project/typecode-libmagic-system-provided/"
 UPSTREAM_CHECK_REGEX = "/typecode-libmagic-system-provided/(?P<pver>(\d+[\.\-_]*)+)/"
+
+do_install_append() {
+    # forcefully replace version when using older setuptools
+    find ${D} -type f -exec sed -i "s#0\.0\.0#${PV}#g" {} \;
+}
