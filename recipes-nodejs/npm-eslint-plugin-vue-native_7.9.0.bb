@@ -10,9 +10,9 @@ DEPENDS = "npm-eslint-utils-native \
            npm-semver-native \
            npm-vue-eslint-parser-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-vue/-/eslint-plugin-vue-7.8.0.tgz"
-SRC_URI[md5sum] = "d6b90600a133cc9c05e0b796d33f9cea"
-SRC_URI[sha256sum] = "6393e9dab3af5cca1beb4040f48be49b61d5b4cf6a47c19b9bd8bee9ad319c4e"
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-vue/-/eslint-plugin-vue-7.9.0.tgz"
+SRC_URI[md5sum] = "70e065f1f6428aff427f3d1320c5f7cf"
+SRC_URI[sha256sum] = "68d30b14170519e3c711e45bd071f38e98817c199cdcfa3bd7cf8e9e7ea7cacd"
 
 NPM_PKGNAME = "eslint-plugin-vue"
 
