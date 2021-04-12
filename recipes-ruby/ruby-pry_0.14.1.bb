@@ -9,8 +9,8 @@ DEPENDS += ""
 RDEPENDS_${PN} += "ruby-coderay \
                   ruby-method-source"
 
-SRC_URI[md5sum] = "a9670cf49b2d9e70930f59562c46cbea"
-SRC_URI[sha256sum] = "3b5e50b6b5e114218d7a103f6b37afbc24da62a61ad17b79a0899dd7dc1e18ea"
+SRC_URI[md5sum] = "c329302a76b316033e16d27ba872d208"
+SRC_URI[sha256sum] = "99b6df0665875dd5a39d85e0150aa5a12e2bb4fef401b6c4f64d32ee502f8454"
 
 GEM_NAME = "pry"
 
