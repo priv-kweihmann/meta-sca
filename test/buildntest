@@ -2,15 +2,34 @@
 _thispath=$(dirname $0)
 _pwd=$(pwd)
 
+_req_mods=""
+_add_targets=""
+
 trap "sed -i '$ d' ${_pwd}/conf/local.conf" EXIT
 
-mods=$(${_thispath}/get_matching_mods $@)
+while test $# -gt 0
+do
+    case "$1" in
+        @go)
+            if [ -e ${_thispath}/../scripts/get_all_go_recipes.sh ]; then
+                _add_targets="${_add_targets} $(${_thispath}/../scripts/get_all_go_recipes.sh)"
+            fi
+            _req_mods="${_req_mods} $1"
+        ;;
+        *)
+            _req_mods="${_req_mods} $1"
+        ;;
+    esac
+    shift
+done
+
+mods=$(${_thispath}/get_matching_mods ${_req_mods})
 
 echo "Check the following modules: ${mods}"
 
 echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> ${_pwd}/conf/local.conf
 
-_targets=$(${_thispath}/get_buildmodules $@)
+_targets="$(${_thispath}/get_buildmodules ${_req_mods}) ${_add_targets}"
 if [ ! -z "${_targets}" ]; then
     if [ -z "${BUILDNTEST_PRESERVECACHE}" ]; then
         bitbake ${_targets} -c cleansstate || exit 1
