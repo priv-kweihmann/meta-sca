@@ -34,6 +34,9 @@ export SEMGREP_SKIP_BIN = "1"
 do_install_append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/semgrep.sca.description ${D}${datadir}
+
+    # remove test files
+    rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/tests
 }
 
 FILES_${PN} += "${datadir}"
