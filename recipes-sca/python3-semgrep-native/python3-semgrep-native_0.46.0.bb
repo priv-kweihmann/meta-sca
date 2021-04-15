@@ -2,7 +2,7 @@ SUMMARY = "Lightweight static analysis for many languages"
 HOMEPAGE = "https://github.com/returntocorp/semgrep"
 
 LICENSE = "LGPL-2.1"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/LGPL-2.0-only;md5=9427b8ccf5cf3df47c29110424c9641a"
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/LGPL-2.1;md5=1a6d268fd218675ffea8be556788b780"
 
 DEPENDS += "\
             python3-attrs-native \
