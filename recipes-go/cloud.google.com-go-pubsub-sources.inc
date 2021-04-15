@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/pubsub/@v/v1.10.1.zip;srcoutput=cloud.google.com/go/pubsub;srcinput=cloud.google.com/go/pubsub@v1.10.1;downloadfilename=cloud-google-com-go-pubsub-1.10.1.zip;name=cloud-google-com-go-pubsub"
-SRC_URI[cloud-google-com-go-pubsub.sha256sum] = "368e6e04b5a2943ba81281e192b143d00183d7ffab148f8bc37c65d772c5224d"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/pubsub/@v/v1.10.2.zip;srcoutput=cloud.google.com/go/pubsub;srcinput=cloud.google.com/go/pubsub@v1.10.2;downloadfilename=cloud-google-com-go-pubsub-1.10.2.zip;name=cloud-google-com-go-pubsub"
+SRC_URI[cloud-google-com-go-pubsub.sha256sum] = "d0fc32f35d361be2508e611509773b5f83721e7878afe913ac92e38a295e1adb"
 GOSRC_REMOVEDIRS += "cloud.google.com/go/pubsub/internal/longtest"
 
 GOSRC_LICENSE += "\
@@ -21,3 +21,4 @@ require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-time-sources.in
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-api-sources.inc', '', 'google.golang.org-api-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-genproto-sources.inc', '', 'google.golang.org-genproto-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-grpc-sources.inc', '', 'google.golang.org-grpc-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-protobuf-sources.inc', '', 'google.golang.org-protobuf-sources.inc', d)}
