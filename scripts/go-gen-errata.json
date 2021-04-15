@@ -4,6 +4,12 @@
             "GOSRC_REMOVEDIRS += \"cloud.google.com/go/pubsub/internal/longtest\""
         ]
     },
+    "dmitri.shuralyov.com/gpu/mtl": {
+        "recipeextra": [
+            "# not a compileable package",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
     "github.com/Azure/azure-amqp-common-go/v3": {
         "striplevel": 1,
         "url": "https://github.com/Azure/azure-amqp-common-go/archive/refs/tags/v3.1.0.zip",
@@ -211,9 +217,23 @@
         "url": "https://github.com/coreos/go-systemd/archive/refs/tags/v22.3.1.zip",
         "version": "22.3.1"
     },
+    "github.com/ekzhu/minhash-lsh": {
+        "recipeextra": [
+            "UPSTREAM_CHECK_GITHUB_TAGS = \"1\""
+        ],
+        "striplevel": 1,
+        "url": "https://github.com/ekzhu/minhash-lsh/archive/refs/tags/v1.0.zip",
+        "version": "1.0"
+    },
     "github.com/fullstorydev/grpcurl": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/fullstorydev/grpcurl/cmd\""
+        ]
+    },
+    "github.com/go-gl/glfw/v3.3/glfw": {
+        "recipeextra": [
+            "# needs X11/Xlib.h",
+            "do_compile[noexec] = \"1\""
         ]
     },
     "github.com/go-kit/kit": {
@@ -352,6 +372,17 @@
         "url": "https://github.com/lightstep/lightstep-tracer-common/archive/refs/tags/v1.1.0.zip",
         "version": "1.1.0"
     },
+    "github.com/microsoft/go-winio": {
+        "recipeextra": [
+            "# windows only",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "github.com/montanaflynn/stats": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/montanaflynn/stats/examples\""
+        ]
+    },
     "github.com/mozilla/tls-observatory": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/mozilla/tls-observatory/tools\""
@@ -431,9 +462,29 @@
             "GOSRC_REMOVEDIRS += \"golang.org/x/crypto/internal/wycheproof\""
         ]
     },
+    "golang.org/x/exp": {
+        "recipeextra": [
+            "# needs GLES3/gl3.h",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "golang.org/x/mobile": {
+        "recipeextra": [
+            "# needs GLES3/gl3.h",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
     "golang.org/x/net": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"golang.org/x/net/http2/h2demo\""
+        ]
+    },
+    "gonum.org/v1/gonum": {
+        "licenseignore": [
+            "graph/formats/rdf/LICENSE.md",
+            "THIRD_PARTY_LICENSES/W3C-TestSuite-LICENSE",
+            "THIRD_PARTY_LICENSES/Sun-LICENSE",
+            "THIRD_PARTY_LICENSES/Bogaert-LICENSE"
         ]
     },
     "google.golang.org/grpc": {
