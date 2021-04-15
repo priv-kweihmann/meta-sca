@@ -2,7 +2,7 @@ SUMMARY = "standard library for Semgrep rules"
 HOMEPAGE = "https://github.com/returntocorp/semgrep-rules"
 
 LICENSE = "LGPL-2.1"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/LGPL-2.0-only;md5=9427b8ccf5cf3df47c29110424c9641a"
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/LGPL-2.1-only;md5=9427b8ccf5cf3df47c29110424c9641a"
 
 SRC_URI = "git://github.com/returntocorp/semgrep-rules.git;protocol=https;branch=develop"
 SRCREV = "df408a80f57780178cca01f6c7d572655ed6202c"
