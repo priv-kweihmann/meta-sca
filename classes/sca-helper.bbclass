@@ -125,6 +125,22 @@ def get_files_by_mimetype(d, path, mime, excludes=[]):
     except ImportError:
         return []
 
+def get_folders(d, path, excludes=[]):
+    import os
+    res = []
+    local_dirs = clean_split(d, "SCA_LOCAL_FILE_FILTER")
+    for root, dirs, files in os.walk(path, topdown=True):
+        for item in dirs:
+            _filepath = os.path.join(root, item)
+            if not os.path.isdir(_filepath):
+                continue
+            if any([_filepath.startswith(x) for x in local_dirs]):
+                continue
+            if _filepath in excludes:
+                continue
+            res.append(_filepath)
+    return [x for x in res if os.path.isdir(x)]
+
 def get_files_by_glob(d, basedir, pattern, excludes=[]):
     import os
     import glob

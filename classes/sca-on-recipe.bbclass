@@ -32,6 +32,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             gcc \
                             goconsistent \
                             goconst \
+                            golicensecheck \
                             golint \
                             gosec \
                             htmlhint \
