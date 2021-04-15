@@ -1,4 +1,4 @@
-SRC_URI += "https://github.com/pierrec/lz4/archive/refs/tags/v4.1.4.zip;srcoutput=github.com/pierrec/lz4;srcinput=lz4-4.1.4;downloadfilename=github-com-pierrec-lz4-4.1.4.zip;name=github-com-pierrec-lz4"
+SRC_URI += "https://github.com/pierrec/lz4/archive/refs/tags/v4.1.4.zip;srcoutput=github.com/pierrec/lz4;srcinput=lz4-4.1.4;downloadfilename=github-com-pierrec-lz4-4.1.6.zip;name=github-com-pierrec-lz4"
 SRC_URI[github-com-pierrec-lz4.sha256sum] = "c3f5a2e500d9553e285720177432387622490f262256acc8666dfa453d165bb5"
 GOSRC_REMOVEDIRS += "github.com/pierrec/lz4/cmd"
 
