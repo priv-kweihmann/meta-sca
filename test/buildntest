@@ -29,7 +29,7 @@ echo "Check the following modules: ${mods}"
 
 echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> ${_pwd}/conf/local.conf
 
-_targets="$(${_thispath}/get_buildmodules ${_req_mods}) ${_add_targets}"
+_targets="$(${_thispath}/get_buildmodules ${_req_mods})"
 if [ ! -z "${_targets}" ]; then
     if [ -z "${BUILDNTEST_PRESERVECACHE}" ]; then
         bitbake ${_targets} -c cleansstate || exit 1
@@ -38,7 +38,7 @@ if [ ! -z "${_targets}" ]; then
             rm -rf ${_pwd}/tmp/deploy/images/*/sca/${m}/*
         done
     fi
-    bitbake ${_targets}|| exit 1
+    bitbake ${_targets} ${_add_targets} || exit 1
 fi
 if [ -z "${BUILDNTEST_NOTEST}" ]; then
     ${_thispath}/check_results ${_pwd}/tmp/deploy/images/*/sca ${mods} || exit 1
