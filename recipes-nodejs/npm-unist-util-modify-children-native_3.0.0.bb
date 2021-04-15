@@ -5,11 +5,12 @@ HOMEPAGE = "https://github.com/syntax-tree/unist-util-modify-children#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=91fb5297439b32d9cd49df8a2484d3eb"
 
-DEPENDS = "npm-array-iterate-native"
+DEPENDS = "npm-array-iterate-native \
+           npm-types-unist-native"
 
-SRC_URI = "https://registry.npmjs.org/unist-util-modify-children/-/unist-util-modify-children-2.0.0.tgz"
-SRC_URI[md5sum] = "eee04818d2a367198cd2a2bb68326b92"
-SRC_URI[sha256sum] = "baaa58044596740c47e604d63ded99fdf8bac7628149b7e6980dae82154e7004"
+SRC_URI = "https://registry.npmjs.org/unist-util-modify-children/-/unist-util-modify-children-3.0.0.tgz"
+SRC_URI[md5sum] = "a88cebee3fcc53250e819e689c705619"
+SRC_URI[sha256sum] = "10cd43da768f3f8643012f44252aba47f74b46ec27180893bb219be76265fc0c"
 
 NPM_PKGNAME = "unist-util-modify-children"
 
