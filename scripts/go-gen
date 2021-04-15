@@ -188,7 +188,9 @@ def __get_license(args, path, default=["UNKNOWN"]):
                 if l["spdx_license_key"].startswith("LicenseRef-scancode"):
                     continue
                 res.add(l["spdx_license_key"])
+                log.info("{} identified as {}".format(f["path"], l["spdx_license_key"]))
     if not res:
+        log.warning("{} has no identifiable license".format(os.path.basename(path)))
         return set(default)
     return res
 
