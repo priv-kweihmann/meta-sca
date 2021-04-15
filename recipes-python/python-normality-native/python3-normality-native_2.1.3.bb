@@ -18,3 +18,8 @@ SRC_URI[sha256sum] = "58b89457fd38651868623b60c275cb7c3e06eb7867e37220bbc744bda7
 inherit pypi
 inherit setuptools3
 inherit native
+
+do_install_append() {
+    # remove test files
+    rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/tests
+}
