@@ -101,6 +101,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           gixy \
                           goconsistent \
                           goconst \
+                          golicensecheck \
                           golint \
                           gosec \
                           htmlhint \

@@ -9,6 +9,7 @@ flint
 gcc
 goconsistent
 goconst
+golicensecheck
 golint
 gosec
 kconfighard

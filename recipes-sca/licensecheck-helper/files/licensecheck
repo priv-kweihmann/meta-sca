@@ -68,7 +68,7 @@ def create_parser():
     parser.add_argument("--sanitized", default="", help=argparse.SUPPRESS) 
     parser.add_argument("license", help="Currently set license")
     parser.add_argument("resulttype", choices=[
-                        "lc", "scancode", "reuse"], help="type of result")
+                        "lc", "scancode", "reuse", "golicensecheck"], help="type of result")
     parser.add_argument("result", help="Result file")
     parser.add_argument("files", nargs="+", help="Files to consider checking")
     x = parser.parse_args()
@@ -108,6 +108,22 @@ def crholders_from_lc(args):
     return []
 
 def missingcr_from_lc(args):
+    return []
+
+def version_from_golicensecheck(args):
+    res = set()
+    with open(args.result) as i:
+        for row in json.load(i):
+            for m in row["matches"]:
+                _filepath = os.path.join(row["project"], m["file"])
+                res.add(_sanitize_license(args, m["license"]))
+    return " AND ".join(res)
+
+
+def crholders_from_golicensecheck(args):
+    return []
+
+def missingcr_from_golicensecheck(args):
     return []
 
 # scancode specific part
@@ -254,4 +270,8 @@ if __name__ == '__main__':
         _raw_license = version_from_reuse(_args)
         _raw_cr_holders = crholders_from_reuse(_args)
         _raw_missing_cr = missingcr_from_reuse(_args)
+    elif _args.resulttype == "golicensecheck":
+        _raw_license = version_from_golicensecheck(_args)
+        _raw_cr_holders = crholders_from_golicensecheck(_args)
+        _raw_missing_cr = missingcr_from_golicensecheck(_args)
     evaluate(_args, _raw_license, _raw_cr_holders, _raw_missing_cr)
