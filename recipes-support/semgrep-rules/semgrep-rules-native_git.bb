@@ -5,7 +5,7 @@ LICENSE = "LGPL-2.1"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/LGPL-2.0-only;md5=9427b8ccf5cf3df47c29110424c9641a"
 
 SRC_URI = "git://github.com/returntocorp/semgrep-rules.git;protocol=https;branch=develop"
-SRCREV = "ac980ea67b6573d6c2ed4e4688e1843c4629d908"
+SRCREV = "df408a80f57780178cca01f6c7d572655ed6202c"
 UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
