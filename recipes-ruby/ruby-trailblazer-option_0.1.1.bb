@@ -8,8 +8,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=246c61a72af89fae27a4339662b56ee8"
 DEPENDS += ""
 RDEPENDS_${PN} += ""
 
-SRC_URI[md5sum] = "2032acad8005ada6221370df6a128c47"
-SRC_URI[sha256sum] = "c7d40fa508f2ff5a8a4b9d67d08a6e6dda99bbf9ba7cbf3b67cd8752537a6abb"
+SRC_URI[md5sum] = "c649c7ef2238155de5eb58ed5041e534"
+SRC_URI[sha256sum] = "59c59c76d20e091f898509ad4f9c7c0017b5bea256b91cd73fa6818372caba79"
 
 GEM_NAME = "trailblazer-option"
 
