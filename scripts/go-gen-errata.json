@@ -84,6 +84,9 @@
         "version": "2.22.0+incompatible"
     },
     "github.com/Microsoft/go-winio": {
+        "recipeextra": [
+            "UPSTREAM_CHECK_GITHUB_TAGS = \"1\""
+        ],
         "striplevel": 1,
         "url": "https://github.com/microsoft/go-winio/archive/refs/tags/v0.4.16.zip",
         "version": "0.4.16"
@@ -219,7 +222,8 @@
     },
     "github.com/ekzhu/minhash-lsh": {
         "recipeextra": [
-            "UPSTREAM_CHECK_GITHUB_TAGS = \"1\""
+            "UPSTREAM_CHECK_GITHUB_TAGS = \"1\"",
+            "UPSTREAM_CHECK_REGEX = \"releases/tag/v(?P<pver>\\d+\\.\\d+)\""
         ],
         "striplevel": 1,
         "url": "https://github.com/ekzhu/minhash-lsh/archive/refs/tags/v1.0.zip",
@@ -228,6 +232,12 @@
     "github.com/fullstorydev/grpcurl": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/fullstorydev/grpcurl/cmd\""
+        ]
+    },
+    "github.com/go-git/go-git-fixtures/v4": {
+        "recipeextra": [
+            "UPSTREAM_CHECK_URI = \"https://github.com/go-git/go-git-fixtures/tags\"",
+            "UPSTREAM_CHECK_REGEX = \"releases/tag/v(?P<pver>4\\.\\d+\\.\\d+)\""
         ]
     },
     "github.com/go-gl/glfw/v3.3/glfw": {
@@ -269,8 +279,8 @@
         "recipeextra": [
             "# version is somehow broken",
             "do_compile[noexec] = \"1\"",
-            "UPSTREAM_CHECK_URI = \"https://github.com/github.com/gomodule/redigo/tags\"",
-            "UPSTREAM_CHECK_REGEX = \"releases/tag/v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_URI = \"https://github.com/gomodule/redigo/tags\"",
+            "UPSTREAM_CHECK_REGEX = \"releases/tag/v(?P<pver>1\\.\\d+\\.\\d+)\""
         ],
         "striplevel": 1,
         "url": "https://github.com/gomodule/redigo/archive/refs/tags/v1.8.4.zip",
@@ -375,7 +385,8 @@
     "github.com/microsoft/go-winio": {
         "recipeextra": [
             "# windows only",
-            "do_compile[noexec] = \"1\""
+            "do_compile[noexec] = \"1\"",
+            "UPSTREAM_CHECK_GITHUB_TAGS = \"1\""
         ]
     },
     "github.com/montanaflynn/stats": {
