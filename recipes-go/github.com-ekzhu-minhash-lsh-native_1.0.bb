@@ -10,6 +10,7 @@ require github.com-ekzhu-minhash-lsh-sources.inc
 GO_IMPORT = "github.com/ekzhu/minhash-lsh"
 
 UPSTREAM_CHECK_GITHUB_TAGS = "1"
+UPSTREAM_CHECK_REGEX = "releases/tag/v(?P<pver>\d+\.\d+)"
 
 inherit gosrc
 inherit native

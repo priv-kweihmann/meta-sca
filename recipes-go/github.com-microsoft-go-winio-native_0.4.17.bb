@@ -11,6 +11,7 @@ GO_IMPORT = "github.com/microsoft/go-winio"
 
 # windows only
 do_compile[noexec] = "1"
+UPSTREAM_CHECK_GITHUB_TAGS = "1"
 
 inherit gosrc
 inherit native
