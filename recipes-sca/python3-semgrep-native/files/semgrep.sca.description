@@ -26,11 +26,8 @@
         ]
     },
     "test": {
-        "findings": [
-            "bad-go",
-            "bad-php",
-            "python3-git",
-            "rubycritic-test"
+        "integration": [
+            {"cmd": ["semgrep", "--help"], "returncode": 0}
         ]
     }
 }
