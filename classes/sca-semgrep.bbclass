@@ -8,7 +8,6 @@ SCA_SEMGREP_EXTRA_FATAL ?= ""
 
 SCA_SEMGREP_RULESETS ?= "\
     ${STAGING_DATADIR_NATIVE}/semgrep/semgrep-go \
-    ${STAGING_DATADIR_NATIVE}/semgrep/semgrep-rules \
 "
 
 SCA_SEMGREP_ALLOW_ARBITRARY_CODE ?= "1"
@@ -116,5 +115,4 @@ DEPENDS += "\
     sca-recipe-semgrep-rules-native \
     semgrep-go-native \
     semgrep-core-native \
-    semgrep-rules-native \
 "
