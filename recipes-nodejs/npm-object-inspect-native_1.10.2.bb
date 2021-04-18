@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=288162f1d1bfa064f127f2b42d2a656f"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/object-inspect/-/object-inspect-1.9.0.tgz"
-SRC_URI[md5sum] = "221d12c29092d358e6150ca201750a3a"
-SRC_URI[sha256sum] = "acc35adbd0289c081ce0a107536730bc32361168547fdc6d12008543fd94aede"
+SRC_URI = "https://registry.npmjs.org/object-inspect/-/object-inspect-1.10.2.tgz"
+SRC_URI[md5sum] = "ca0c0cd3d1c7cb68a62b7517dc370766"
+SRC_URI[sha256sum] = "f0d90e9d22f3434c985eb6f45470f2226f7aa0377fd34a7c98d747fd180e5cef"
 
 NPM_PKGNAME = "object-inspect"
 
