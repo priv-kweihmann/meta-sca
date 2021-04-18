@@ -13,7 +13,7 @@ SRC_URI += "\
             git://github.com/priv-kweihmann/multimetric.git;protocol=https;branch=master \
             file://multimetric.sca.description \
            "
-SRCREV = "c3a7cb472d995ecfe4f1ee8f2b08cd8f26af7bde"
+SRCREV = "fa2ac6a6e8db55e9edc7df1cb396978539703b64"
 S = "${WORKDIR}/git"
 
 inherit sca-description
