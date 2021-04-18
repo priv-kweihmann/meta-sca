@@ -13,8 +13,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "flake8"
 
-SRC_URI[md5sum] = "7c1cd6aeb465ad3c572e5461c4d7b022"
-SRC_URI[sha256sum] = "78873e372b12b093da7b5e5ed302e8ad9e988b38b063b61ad937f26ca58fc5f0"
+SRC_URI[md5sum] = "c2a4fffcd06f06d4bc73a579b4dc0cf2"
+SRC_URI[sha256sum] = "1aa8990be1e689d96c745c5682b687ea49f2e05a443aff1f8251092b0014e378"
 
 inherit pypi
 inherit setuptools3
