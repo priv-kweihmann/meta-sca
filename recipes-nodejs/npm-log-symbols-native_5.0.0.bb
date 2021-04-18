@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 DEPENDS = "npm-chalk-native \
            npm-is-unicode-supported-native"
 
-SRC_URI = "https://registry.npmjs.org/log-symbols/-/log-symbols-4.1.0.tgz"
-SRC_URI[md5sum] = "6b7e77c65213bd66f0e775dd1a501ef1"
-SRC_URI[sha256sum] = "32e706aac11b2ba4c0e9647a3a6738bcd9eb6615bf8ad9f157282e8ed9701323"
+SRC_URI = "https://registry.npmjs.org/log-symbols/-/log-symbols-5.0.0.tgz"
+SRC_URI[md5sum] = "23382b7b80de8d1cb659dbd0a1dec900"
+SRC_URI[sha256sum] = "723abd04e0ea2812edaa63dda1941becbe399d07b7edd0e73f6329669a913daf"
 
 NPM_PKGNAME = "log-symbols"
 
