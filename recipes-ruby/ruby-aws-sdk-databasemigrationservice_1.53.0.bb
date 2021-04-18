@@ -9,8 +9,8 @@ DEPENDS += ""
 RDEPENDS_${PN} += "ruby-aws-sdk-core \
                   ruby-aws-sigv4"
 
-SRC_URI[md5sum] = "589fffbf1a57a7ccaf71a863de83a9c6"
-SRC_URI[sha256sum] = "d61d7d6ff3c338c1c3118a553e972b9104762dae81429659b4e33e2e4787202b"
+SRC_URI[md5sum] = "1ce2f08c33bd63b75196909a2c4b2533"
+SRC_URI[sha256sum] = "865414c83054e4026548edb55adc8b6b9ae1abd70320173c5f7519d1565df74e"
 
 GEM_NAME = "aws-sdk-databasemigrationservice"
 
