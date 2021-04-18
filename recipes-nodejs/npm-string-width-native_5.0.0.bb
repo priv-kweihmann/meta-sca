@@ -3,15 +3,15 @@ DESCRIPTION = "Get the visual width of a string - the number of columns required
 HOMEPAGE = "https://github.com/sindresorhus/string-width#readme"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
+LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = "npm-emoji-regex-native \
            npm-is-fullwidth-code-point-native \
            npm-strip-ansi-native"
 
-SRC_URI = "https://registry.npmjs.org/string-width/-/string-width-4.2.2.tgz"
-SRC_URI[md5sum] = "3ba2480e189a770453dc1fa4bc3753b5"
-SRC_URI[sha256sum] = "d593964e756e33a11cac5e3e0c82cb65a5aefd26f2f723187cafad9f91d595e1"
+SRC_URI = "https://registry.npmjs.org/string-width/-/string-width-5.0.0.tgz"
+SRC_URI[md5sum] = "4ec0e7eb5557abbd8b0c9b4e05359e8e"
+SRC_URI[sha256sum] = "896eee6ef2640e4f34c2b19f93adab63244d16cd154f5ab0efcf80d172ef5535"
 
 NPM_PKGNAME = "string-width"
 
