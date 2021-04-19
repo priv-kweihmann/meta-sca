@@ -37,6 +37,7 @@ SRC_URI = "http://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz \
            file://0005-Install-both-binaries-and-use-libdir.patch \
            file://0003-v8-don-t-override-ARM-CFLAGS.patch \
            file://0004-Bind-python-to-nativepython3.patch \
+           file://0001-call-new-ListFormatter-createInstance.patch \
            "
 
 SRC_URI[md5sum] = "6c8fd17343bebfdf659d990b21453bc7"
