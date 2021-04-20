@@ -14,6 +14,7 @@ Following branches are actively maintained.
 | Branch     | Integration with poky | Integration with meta-oe | Integration with meta-clang | Support ends | Release tag           |
 | ---------- | --------------------- | ------------------------ | --------------------------- | ------------ | --------------------- |
 | master     | daily                 | daily                    | daily                       | never        | v[VERSION]            |
+| hardknott  | daily                 | daily                    | daily                       | Q2 2022      | vhardknott_[VERSION]  |
 | gatesgarth | daily                 | daily                    | daily                       | Q4 2021      | vgatesgarth_[VERSION] |
 | dunfell    | daily                 | daily                    | daily                       | Q2 2022      | vdunfell_[VERSION]    |
 
