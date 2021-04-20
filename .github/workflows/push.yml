@@ -1,9 +1,9 @@
-name: "[hartknott]-push"
+name: "[hardknott]-push"
 
 on:
   push:
     branches:
-      - hartknott
+      - hardknott
 
 jobs:
   qemux86:
@@ -14,9 +14,9 @@ jobs:
       LC_ALL: en_US.UTF-8
       LANG: en_US.UTF-8
       LANGUAGE: en_US.UTF-8
-      SCM_BRANCH: hartknott
-      SCM_BRANCH_META_CLANG: hartknott
-      SCM_BRANCH_META_OE: hartknott
+      SCM_BRANCH: hardknott
+      SCM_BRANCH_META_CLANG: hardknott
+      SCM_BRANCH_META_OE: hardknott
       BUILD_MAXRUNTIME: 600
 
     runs-on: ubuntu-latest
