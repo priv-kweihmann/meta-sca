@@ -18,7 +18,7 @@ case ${mode} in
         res=$(git log origin/staging..staging --oneline | cut -d' ' -f1 | tac | tr '\n' ' ')
         ;;
 esac
-_BRANCHES="master hartknott gatesgarth dunfell"
+_BRANCHES="master hardknott gatesgarth dunfell"
 if [ ! -z "${BRANCHES}" ]; then
     _BRANCHES=${BRANCHES}
 fi
