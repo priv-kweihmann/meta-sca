@@ -16,7 +16,6 @@ Following branches are actively maintained.
 | master     | daily                 | daily                    | daily                       | never        | v[VERSION]            |
 | gatesgarth | daily                 | daily                    | daily                       | Q4 2021      | vgatesgarth_[VERSION] |
 | dunfell    | daily                 | daily                    | daily                       | Q2 2022      | vdunfell_[VERSION]    |
-| zeus       | daily                 | daily                    | daily                       | Q2 2021      | vzeus_[VERSION]       |
 
 ## Other branches
 
@@ -24,6 +23,7 @@ Following branches get package updates from time to time, but no feature updates
 
 | Branch  | Integration with poky | Integration with meta-oe | Integration with meta-clang | Support ends  | Release tag        |
 | ------- | --------------------- | ------------------------ | --------------------------- | ------------- | ------------------ |
+| zeus    | on push               | n.a.                     | n.a.                        | already ended | vzeus_[VERSION]    |
 | warrior | on push               | n.a.                     | n.a.                        | already ended | vwarrior_[VERSION] |
 | thud    | on push               | n.a.                     | n.a.                        | already ended | vthud_[VERSION]    |
 | sumo    | on push               | n.a.                     | n.a.                        | already ended | vsumo_[VERSION]    |
