@@ -1,4 +1,4 @@
-name: "[hartknott]-nightly"
+name: "[hardknott]-nightly"
 
 on:
   schedule:
@@ -14,9 +14,9 @@ jobs:
       LANG: en_US.UTF-8
       LANGUAGE: en_US.UTF-8
       BUILD_EXPORT: 1
-      SCM_BRANCH: hartknott
-      SCM_BRANCH_META_CLANG: hartknott
-      SCM_BRANCH_META_OE: hartknott
+      SCM_BRANCH: hardknott
+      SCM_BRANCH_META_CLANG: hardknott
+      SCM_BRANCH_META_OE: hardknott
       BUILD_GLIBC: 1
       BUILD_KERNEL: 1
       BUILD_MAXRUNTIME: 21000
