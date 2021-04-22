@@ -69,7 +69,7 @@ fakeroot python do_sca_inspec() {
     cmd_output = '{"profiles": []}'
     _args = []
     for mod in clean_split(d, "SCA_INSPEC_MODULES"):
-        _args += ["GEM_PATH=/usr/lib/ruby/site_ruby:/usr/lib/ruby/gems inspec exec --no-interactive " +
+        _args += ["inspec exec --no-interactive " +
                     "--no-enable-telemetry --chef-license=accept-no-persist " +
                     "/usr/share/inspec/profiles/{}/".format(mod) + " --reporter json:-"]
     if any(_args):

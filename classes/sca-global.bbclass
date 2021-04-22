@@ -129,10 +129,8 @@ SCA_AVAILABLE_MODULES ?= "\
                           pytype \
                           rats \
                           reconbf \
-                          reek \
                           retire \
                           reuse \
-                          revive \
                           rubycritic \
                           safety \
                           semgrep \
@@ -157,7 +155,7 @@ SCA_AVAILABLE_MODULES ?= "\
                         "
 # additional layer requirements
 SCA_AVAILABLE_MODULES[clang] = "clang-layer"
-SCA_AVAILABLE_MODULES[inspec] = "openembedded-layer"
+SCA_AVAILABLE_MODULES[inspec] = "openembedded-layer rubygems"
 SCA_AVAILABLE_MODULES[luacheck] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[phan] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[phpcodefixer] = "openembedded-layer"
@@ -166,6 +164,8 @@ SCA_AVAILABLE_MODULES[phpmd] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[phpsecaudit] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[phpstan] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[progpilot] = "openembedded-layer"
+SCA_AVAILABLE_MODULES[reek] = "rubygems"
+SCA_AVAILABLE_MODULES[rubycritic] = "rubygems"
 
 # Modules using crossemu support, because they need some extra "love"
 _SCA_CROSSEMU_MODULES = "\

@@ -87,10 +87,6 @@ python do_sca_rubycritic() {
 
     ## Run
     os.environ["HOME"] = d.getVar("T")
-    os.environ["RUBYLIB"] = os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "ruby/")
-    os.environ["GEM_DIR"] = os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "ruby/gems/")
-    os.environ["GEM_HOME"] = os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "ruby/gems/")
-    os.environ["GEM_PATH"] = os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "ruby/gems/")
 
     _args = ["rubycritic"]
     _args += ["--format=json"]
@@ -123,4 +119,4 @@ do_sca_rubycritic_report[doc] = "Report findings of do_sca_rubycritic"
 addtask do_sca_rubycritic after do_configure before do_sca_tracefiles
 addtask do_sca_rubycritic_report after do_sca_tracefiles before do_sca_deploy
 
-DEPENDS += "rubycritic-native sca-recipe-rubycritic-rules-native"
+DEPENDS += "rubycritic-sca-native sca-recipe-rubycritic-rules-native"
