@@ -31,7 +31,7 @@ golint,GO linter,https://github.com/golang/lint,,,,x,,,,,,,x,,,,,,,,,,x
 gosec,GO security linter,https://github.com/securego/gosec,,,,x,,,,,,,x,,,,,,,,x,,
 htmlhint,HTML linter,https://github.com/htmlhint/HTMLHint,,x,x,x,,,,,,,,,,,,,,x,,x,
 image-summary,Aggregate all findings for package in an image,,,,x,,,,,,,,,,,,,,x,,x,x,x
-inspec,framework for end-to-end infrastructure tests,https://github.com/inspec/inspec,"meta-oe, manual enable",,x,,,,,,,,,x,,,,,,,x,,
+inspec,framework for end-to-end infrastructure tests,https://github.com/inspec/inspec,"meta-oe, meta-rubygems, manual enable",,x,,,,,,,,,x,,,,,,,x,,
 jshint,Javascript linter,https://github.com/jshint/jshint,,x,x,x,,,,,x,,,,,,,,,,,x,x
 jsonlint,JSON file linter,,,,x,x,,,,,,,,,,,,,,x,,x,
 kconfighard,Kernel config hardening checker,https://github.com/a13xp0p0v/kconfig-hardened-check,,,,x,,,,,,,,,,,,,,x,x,,
@@ -50,7 +50,7 @@ perl,Perl warnings check,,,,,x,,,,,,,,,,,,,,x,,x,
 perlcritic,Perl linter,https://metacpan.org/pod/perlcritic,,,,x,,,,,,,,,,,,,,x,,x,
 phan,PHP linter,https://github.com/phan/phan,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,,x
 phpcodefixer,Find deprecated PHP functions,https://github.com/wapmorgan/PhpCodeFixer,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,x,
-phpcodesniffer,PHP," Js and CSS linter",https://github.com/squizlabs/PHP_CodeSniffer,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,
+phpcodesniffer,PHP Js and CSS linter,https://github.com/squizlabs/PHP_CodeSniffer,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,
 phpmd,PHP Linter,https://github.com/phpmd/phpmd,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,x,x
 phpsecaudit,Find vulnerabilities in PHP code,https://github.com/FloeDesignTechnologies/phpcs-security-audit,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,x,,
 phpstan,PHP linter,https://github.com/phpstan/phpstan,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,,x
@@ -66,12 +66,12 @@ pysymcheck,Check binaries for forbidden function usage,https://github.com/priv-k
 pytype,Python linter using type-annotations,https://github.com/google/pytype,,x,,x,,,x,,,,,,,,,,,,,x,
 rats,Check on insecurities in several languages,https://github.com/redNixon/rats,,,,x,,x,x,x,,x,,,,,,,,,x,,
 reconbf,security audit tool,https://github.com/HewlettPackard/reconbf,,,x,,,,,,,,,x,,,,,,,x,,
-reek,Code smell detector for Ruby,https://github.com/troessner/reek,,,,x,,,,,,,,,,,,,,x,,,x
+reek,Code smell detector for Ruby,https://github.com/troessner/reek,"meta-rubygems, manual enable",,,x,,,,,,,,,,,,,,x,,,x
 retire,Check for known vulnerabilities in javascript and NPM,https://retirejs.github.io/retire.js/,,x,,x,,,,,x,,,,,,,,x,,x,,
 reuse,Scan code for license information,https://github.com/fsfe/reuse-tool,,,,x,,,,,,,,,,,,,,x,x,,
 revive,GO linter,https://github.com/mgechev/revive,,,,x,,,,,,,x,,,,,,,,,x,x
 ropgadget,Determine ROP exploitability in binaries,https://github.com/JonathanSalwan/ROPgadget,manual enable,,,x,,,,,,,,,,,,x,,,x,,
-rubycritic,Ruby linter,https://github.com/whitesmith/rubycritic/,,,,x,,,,,,,,,,,,,,x,,,x
+rubycritic,Ruby linter,https://github.com/whitesmith/rubycritic/,"meta-rubygems, manual enable",,,x,,,,,,,,,,,,,,x,,,x
 safety,Check for known vulnerabilities in python-packages,https://github.com/pyupio/safety,,,,x,,,x,,,,,,,,,,x,,x,,
 scancode,Scan code for license information,https://github.com/nexB/scancode-toolkit,,,,x,,,,,,,,,,,,,,x,x,,
 semgrep,Pattern based linting for many formats and languages,https://github.com/returntocorp/semgrep,"only avaiable for x86-64 hosts",,,x,x,x,x,,x,x,x,,,,,,,x,,x,
