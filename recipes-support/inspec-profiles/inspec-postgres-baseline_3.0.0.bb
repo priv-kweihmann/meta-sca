@@ -27,4 +27,4 @@ do_install () {
 
 FILES_${PN} += "${datadir}"
 
-RDEPENDS_${PN} += "ruby-inspec-bin"
+RDEPENDS_${PN} += "rubygems-inspec-bin"
