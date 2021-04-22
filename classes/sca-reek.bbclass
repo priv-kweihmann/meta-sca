@@ -62,11 +62,6 @@ python do_sca_reek() {
     import os
     import subprocess
 
-    os.environ["RUBYLIB"] = os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "ruby/")
-    os.environ["GEM_DIR"] = os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "ruby/gems/")
-    os.environ["GEM_HOME"] = os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "ruby/gems/")
-    os.environ["GEM_PATH"] = os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "ruby/gems/")
-
     _args = ["reek"]
     _args += ["-f", "json"]
 
@@ -96,4 +91,4 @@ do_sca_reek_report[doc] = "Report findings of do_sca_reek"
 addtask do_sca_reek after do_configure before do_sca_tracefiles
 addtask do_sca_reek_report after do_sca_tracefiles before do_sca_deploy
 
-DEPENDS += "reek-native sca-recipe-reek-rules-native"
+DEPENDS += "reek-sca-native sca-recipe-reek-rules-native"
