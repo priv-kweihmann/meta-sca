@@ -1,5 +1,5 @@
 SUMMARY = "NPM: @babel/helper-compilation-targets"
-DESCRIPTION = "Engine compat data used in @babel/preset-env"
+DESCRIPTION = "Helper functions on Babel compilation targets"
 HOMEPAGE = "{homepage}"
 
 LICENSE = "MIT"
@@ -10,9 +10,9 @@ DEPENDS = "npm-babel-compat-data-native \
            npm-browserslist-native \
            npm-semver-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/helper-compilation-targets/-/helper-compilation-targets-7.13.13.tgz"
-SRC_URI[md5sum] = "c1d3a8632119fbe0078c56061a58bb4d"
-SRC_URI[sha256sum] = "a9189a218179a891da94ff111af935d3f21a9fddff63c3a1e9a90b9021a7bff0"
+SRC_URI = "https://registry.npmjs.org/@babel/helper-compilation-targets/-/helper-compilation-targets-7.13.16.tgz"
+SRC_URI[md5sum] = "976d62e3ef568c96b2f0c276e83306a2"
+SRC_URI[sha256sum] = "133ab331cab5cb3b69ad23ebba099201ab59745ac75e58582cec046241c627ea"
 
 NPM_PKGNAME = "@babel/helper-compilation-targets"
 
