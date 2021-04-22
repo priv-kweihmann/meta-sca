@@ -9,9 +9,9 @@ DEPENDS = "npm-types-unist-native \
            npm-unist-util-is-native \
            npm-unist-util-visit-parents-native"
 
-SRC_URI = "https://registry.npmjs.org/unist-util-visit/-/unist-util-visit-2.0.3.tgz"
-SRC_URI[md5sum] = "9cc10ec11a08d910858e2bc57b79bde2"
-SRC_URI[sha256sum] = "e867eb929f30abff19830d95aa0ad454b4f8ba9e1824198705e36ffd2d9d4a49"
+SRC_URI = "https://registry.npmjs.org/unist-util-visit/-/unist-util-visit-3.0.0.tgz"
+SRC_URI[md5sum] = "fa0698df6bf380c9ecb47ca4ba33b7f3"
+SRC_URI[sha256sum] = "4dde806f2bce8fae83e195dcc5c244d09cfda7a67d56a5efade31a4def135ec3"
 
 NPM_PKGNAME = "unist-util-visit"
 
