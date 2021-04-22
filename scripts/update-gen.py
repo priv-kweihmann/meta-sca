@@ -27,17 +27,6 @@ def get_real_package_name_npm(_args, recipe):
     return out
 
 
-def get_real_package_name_ruby(_args, recipe):
-    try:
-        out = subprocess.check_output(
-            ["/bin/sh", "-c", "bitbake -e {} | grep ^GEM_NAME=".format(recipe)], universal_newlines=True)
-        out = out.replace("GEM_NAME=", "", 1).strip('" \n')
-    except subprocess.CalledProcessError as e:
-        print(e)
-        out = ""
-    return out
-
-
 def get_real_package_name_go(_args, recipe):
     try:
         out = subprocess.check_output(
@@ -72,20 +61,6 @@ def run_package_update_perl(_args, packagename, version):
     try:
         subprocess.check_call(["python3", os.path.join(_args.repo, "scripts", "perl-update.py"),
                                _args.repo, packagename, version], universal_newlines=True)
-        return (True, 1)
-    except:
-        return (False, 1)
-
-
-def run_package_update_ruby(_args, packagename, version, target=False):
-    try:
-        _pargs = ["python3", os.path.join(
-            _args.repo, "scripts", "ruby-gen.py")]
-        if target:
-            _pargs += ["--target"]
-        _pargs += [os.path.join(_args.repo, "recipes-ruby"),
-                   packagename, version]
-        subprocess.check_call(_pargs, universal_newlines=True)
         return (True, 1)
     except:
         return (False, 1)
@@ -155,11 +130,6 @@ def update_packages(_args, _input, number):
         elif _recipe.startswith("perl-"):
             _update, _allowed_changes = run_package_update_perl(
                 _args, _recipe, m.group("version"))
-        elif _recipe.startswith("ruby-"):
-            _pkgname = get_real_package_name_ruby(_args, _recipe)
-            if _pkgname:
-                _update, _allowed_changes = run_package_update_ruby(_args, _pkgname, m.group(
-                    "version"), target=False if _recipe.endswith("-native") else True)
         elif is_go_package(_args, _input):
             _pkgname = get_real_package_name_go(_args, _recipe)
             if _pkgname:
@@ -178,7 +148,7 @@ def update_packages(_args, _input, number):
 
 def is_updateable(_args, title):
     if title.startswith("Update npm-") or title.startswith("Update python3-") or \
-       title.startswith("Update perl-") or title.startswith("Update ruby-"):
+       title.startswith("Update perl-"):
         return True
     return is_go_package(_args, title)
 
