@@ -15,9 +15,9 @@ DEPENDS = "npm-ajv-native \
            npm-slice-ansi-native \
            npm-string-width-native"
 
-SRC_URI = "https://registry.npmjs.org/table/-/table-6.1.0.tgz"
-SRC_URI[md5sum] = "660595a0cee796307f25b11342e606c5"
-SRC_URI[sha256sum] = "5840d4bb48253f7662672175607a5f35ec59b6dd41b00d08c1cfad90c8968119"
+SRC_URI = "https://registry.npmjs.org/table/-/table-6.3.2.tgz"
+SRC_URI[md5sum] = "6483075aba39859fbdbe8f51ff5d927d"
+SRC_URI[sha256sum] = "4c1058d2b880755809a46658906c91859efbd04591de9504fbdf7a3fc8c6fc48"
 
 NPM_PKGNAME = "table"
 
