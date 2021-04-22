@@ -6,12 +6,11 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b1d0cd283a346e919abb3beeb018279d"
 
 DEPENDS = "npm-babel-helper-validator-identifier-native \
-           npm-lodash-native \
            npm-to-fast-properties-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/types/-/types-7.13.14.tgz"
-SRC_URI[md5sum] = "5f0761f2fea0c900575a636f4c600880"
-SRC_URI[sha256sum] = "74860d2d703d29c4c0638720f991ef17b777d7ed0229736ece88ac90f742947f"
+SRC_URI = "https://registry.npmjs.org/@babel/types/-/types-7.13.17.tgz"
+SRC_URI[md5sum] = "4874e682ae331e8fefd56f19fc981068"
+SRC_URI[sha256sum] = "5d9b4f037998d194183af705bd76ee76fdc3600b94aeb16d38f1472f74fdec61"
 
 NPM_PKGNAME = "@babel/types"
 
