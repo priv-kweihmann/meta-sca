@@ -59,7 +59,7 @@ jobs:
           BUILD_GLOBALINHERIT: 0
         - testset: globalinherit
           SCM_LAYER_ENABLE_CLANG: 1
-          SCM_LAYER_ENABLE_METAOE: 0
+          SCM_LAYER_ENABLE_METAOE: 1
           SCA_LAYER_ENABLE_RUBYGEMS: 1
           BUILD_PARAMFILE: metaclang
           BUILD_GLOBALINHERIT: 1
