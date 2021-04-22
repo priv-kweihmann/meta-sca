@@ -6,13 +6,11 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE-MIT;md5=5a9c687fbbd43eb51c08313a2cbbf60d"
 
 DEPENDS = "npm-cssesc-native \
-           npm-indexes-of-native \
-           npm-uniq-native \
            npm-util-deprecate-native"
 
-SRC_URI = "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.0.4.tgz"
-SRC_URI[md5sum] = "d4116226ae954fcef829f04373477a2b"
-SRC_URI[sha256sum] = "9c26a47a587c6daeb04e21783b1fe4ecbc6c4bfcc321edbc96fd8c3514635fef"
+SRC_URI = "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.0.5.tgz"
+SRC_URI[md5sum] = "f01057369277cd43fe25ae66a9d9d087"
+SRC_URI[sha256sum] = "23c1b524d71ef3b93dfa49532d9a232eb19f583db0f570d4781fda20bc1c6291"
 
 NPM_PKGNAME = "postcss-selector-parser"
 
