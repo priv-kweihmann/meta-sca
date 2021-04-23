@@ -131,7 +131,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           reconbf \
                           retire \
                           reuse \
-                          rubycritic \
+                          revive \
                           safety \
                           semgrep \
                           setuptoolslint \
