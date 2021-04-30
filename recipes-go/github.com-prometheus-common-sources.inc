@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/prometheus/common/@v/v0.21.0.zip;srcoutput=github.com/prometheus/common;srcinput=github.com/prometheus/common@v0.21.0;downloadfilename=github-com-prometheus-common-0.21.0.zip;name=github-com-prometheus-common"
-SRC_URI[github-com-prometheus-common.sha256sum] = "2324d42c2e3f193ea0d3eb8b78390cce1b364a776d1392633518c560d07bcc1c"
+SRC_URI += "https://proxy.golang.org/github.com/prometheus/common/@v/v0.23.0.zip;srcoutput=github.com/prometheus/common;srcinput=github.com/prometheus/common@v0.23.0;downloadfilename=github-com-prometheus-common-0.23.0.zip;name=github-com-prometheus-common"
+SRC_URI[github-com-prometheus-common.sha256sum] = "e296c3fdbe170ea037169a9e01db7c0165508569ffe00977e8c640800496c51d"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
@@ -20,6 +20,7 @@ require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-prometheus-client
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-prometheus-client-model-sources.inc', '', 'github.com-prometheus-client-model-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-sirupsen-logrus-sources.inc', '', 'github.com-sirupsen-logrus-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-net-sources.inc', '', 'golang.org-x-net-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-oauth2-sources.inc', '', 'golang.org-x-oauth2-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-sys-sources.inc', '', 'golang.org-x-sys-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'gopkg.in-alecthomas-kingpin.v2-sources.inc', '', 'gopkg.in-alecthomas-kingpin.v2-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'gopkg.in-yaml.v2-sources.inc', '', 'gopkg.in-yaml.v2-sources.inc', d)}
