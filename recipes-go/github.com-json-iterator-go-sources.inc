@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/json-iterator/go/@v/v1.1.10.zip;srcoutput=github.com/json-iterator/go;srcinput=github.com/json-iterator/go@v1.1.10;downloadfilename=github-com-json-iterator-go-1.1.10.zip;name=github-com-json-iterator-go"
-SRC_URI[github-com-json-iterator-go.sha256sum] = "2311e83151f13b90ca153a613af5feaf4ffa8618abda33cd58719cebd1dc5bb7"
+SRC_URI += "https://proxy.golang.org/github.com/json-iterator/go/@v/v1.1.11.zip;srcoutput=github.com/json-iterator/go;srcinput=github.com/json-iterator/go@v1.1.11;downloadfilename=github-com-json-iterator-go-1.1.11.zip;name=github-com-json-iterator-go"
+SRC_URI[github-com-json-iterator-go.sha256sum] = "02ead1e16c24846359e237725336bbf67888e3f5cea2ac94b4372302bbd52304"
 GOSRC_REMOVEDIRS += "github.com/json-iterator/go/api_tests"
 GOSRC_REMOVEDIRS += "github.com/json-iterator/go/benchmarks"
 GOSRC_REMOVEDIRS += "github.com/json-iterator/go/extension_tests"
