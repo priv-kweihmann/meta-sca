@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/djherbis/buffer/@v/v1.1.0.zip;srcoutput=github.com/djherbis/buffer;srcinput=github.com/djherbis/buffer@v1.1.0;downloadfilename=github-com-djherbis-buffer-1.1.0.zip;name=github-com-djherbis-buffer"
-SRC_URI[github-com-djherbis-buffer.sha256sum] = "8dfe1a46aad38bec6f551b99dd6f1fbb6f16b44655382ba9724b30eaa4c83e13"
+SRC_URI += "https://proxy.golang.org/github.com/djherbis/buffer/@v/v1.2.0.zip;srcoutput=github.com/djherbis/buffer;srcinput=github.com/djherbis/buffer@v1.2.0;downloadfilename=github-com-djherbis-buffer-1.2.0.zip;name=github-com-djherbis-buffer"
+SRC_URI[github-com-djherbis-buffer.sha256sum] = "86150488adfbf0930c8c1e82d1fb9703d27cc82ccc7d4f1e1fb3a4ba81069ee9"
 
 GOSRC_LICENSE += "\
     MIT \
