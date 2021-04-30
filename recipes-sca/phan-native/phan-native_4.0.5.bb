@@ -8,7 +8,7 @@ DEPENDS += "php-ast-native"
 
 SRC_URI = "git://github.com/phan/phan.git;protocol=https;branch=v4 \
            file://phan.sca.description"
-SRCREV = "37d1ffa99abaf034bd35f43ea7bbc468cb430a3f"
+SRCREV = "e1800772a91d5791baf805a32227dfb5f720b0cd"
 PHP_EXTENSION += "ast"
 PHPCOMPOSER_PKGS_NAME = "phan/phan:${PV}"
 
