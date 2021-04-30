@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/montanaflynn/stats/@v/v0.6.5.zip;srcoutput=github.com/montanaflynn/stats;srcinput=github.com/montanaflynn/stats@v0.6.5;downloadfilename=github-com-montanaflynn-stats-0.6.5.zip;name=github-com-montanaflynn-stats"
-SRC_URI[github-com-montanaflynn-stats.sha256sum] = "2e67972bea8b2dceec6c612312c4773e1363ecf8bdde8fa1e43d124356f56ac9"
+SRC_URI += "https://proxy.golang.org/github.com/montanaflynn/stats/@v/v0.6.6.zip;srcoutput=github.com/montanaflynn/stats;srcinput=github.com/montanaflynn/stats@v0.6.6;downloadfilename=github-com-montanaflynn-stats-0.6.6.zip;name=github-com-montanaflynn-stats"
+SRC_URI[github-com-montanaflynn-stats.sha256sum] = "fac4308cc66d568256e7aafe694ae58603ddeb9bb39965caa550dbe3fbd77ddc"
 GOSRC_REMOVEDIRS += "github.com/montanaflynn/stats/examples"
 
 GOSRC_LICENSE += "\
