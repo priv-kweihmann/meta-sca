@@ -5,11 +5,11 @@ HOMEPAGE = "https://github.com/syntax-tree/hast-util-parse-selector#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 
-DEPENDS = ""
+DEPENDS = "npm-types-hast-native"
 
-SRC_URI = "https://registry.npmjs.org/hast-util-parse-selector/-/hast-util-parse-selector-2.2.5.tgz"
-SRC_URI[md5sum] = "b04a4dc8a16fac34945d32c498f656c4"
-SRC_URI[sha256sum] = "b7d9a6e070b8c5be0b128c8cd824643955b055da8a7136cea503f7df541a8bc6"
+SRC_URI = "https://registry.npmjs.org/hast-util-parse-selector/-/hast-util-parse-selector-3.0.0.tgz"
+SRC_URI[md5sum] = "09a79fa7af2d474edd02a7dcf0325159"
+SRC_URI[sha256sum] = "7dbf809ff652991d66fb5ce27ed6439d0ed8aa368232be0e2e04bc47b9e26cdd"
 
 NPM_PKGNAME = "hast-util-parse-selector"
 
