@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=0f64900f8f30e53054962c9f1fc3205b"
 DEPENDS = "npm-braces-native \
            npm-picomatch-native"
 
-SRC_URI = "https://registry.npmjs.org/micromatch/-/micromatch-4.0.3.tgz"
-SRC_URI[md5sum] = "17c94f2c684b4058757ec75269befeb6"
-SRC_URI[sha256sum] = "536f3e9a1cc32a05476a0f69af8d9314f393cbf163498025bae998a278b488e4"
+SRC_URI = "https://registry.npmjs.org/micromatch/-/micromatch-4.0.4.tgz"
+SRC_URI[md5sum] = "52ddc23b8b7151fe6ee65af0ae8823c4"
+SRC_URI[sha256sum] = "19c5a16c7828ca394e7befb243245dc44160de59ce9e376906fccd9336a8c306"
 
 NPM_PKGNAME = "micromatch"
 
