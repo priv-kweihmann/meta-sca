@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=db4ebb1057458d039cb8f6edcc5d756e"
 DEPENDS += "php-native"
 
 SRC_URI = "https://github.com/composer/getcomposer.org/archive/${SRCREV}.zip;protocol=https;downloadfilename=composer-${PV}.zip"
-SRC_URI[sha256sum] = "fe48f377de1e9e4c54d75c4fee1479ec02e63bba2ba40abf376900f1f10b88ab"
+SRC_URI[sha256sum] = "a1f45d30de8e34adf47333f2bbe6fcb71d330dbf9ad7cd51a7eba4aad59b70e0"
 
-SRCREV = "95d11ed947f602b5a5f83f80c062e134d62c9f4b"
+SRCREV = "9b15acb8cb2cdaf2207f2bff8c0412ede0e7bd5b"
 
 UPSTREAM_CHECK_URI = "https://github.com/composer/composer/tags"
 UPSTREAM_CHECK_REGEX ?= "/composer/composer/releases/tag/(?P<pver>(\d+[\.]*)+)$"
