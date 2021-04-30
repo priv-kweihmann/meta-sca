@@ -15,8 +15,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "black"
 
-SRC_URI[md5sum] = "d2ea4865c1336bf3d986eb2da322c8ad"
-SRC_URI[sha256sum] = "1c02557aa099101b9d21496f8a914e9ed2222ef70336404eeeac8edba836fbea"
+SRC_URI[md5sum] = "95d1666a08f6f0481cfbe5e301f5ce7a"
+SRC_URI[sha256sum] = "fc9bcf3b482b05c1f35f6a882c079dc01b9c7795827532f4cc43c0ec88067bbc"
 
 UPSTREAM_CHECK_REGEX ?= "/${PYPI_PACKAGE}/(?P<pver>(\d+[a-z0-9\.\-_]*)+)"
 
