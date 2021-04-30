@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/space-separated-tokens/-/space-separated-tokens-2.0.0.tgz"
-SRC_URI[md5sum] = "fe87ac95dab1025dbfe24725393df110"
-SRC_URI[sha256sum] = "69d38f46f395f4e75cbd9b4172a1758daebb49f6eb48693b77c9b6367b9f87cc"
+SRC_URI = "https://registry.npmjs.org/space-separated-tokens/-/space-separated-tokens-2.0.1.tgz"
+SRC_URI[md5sum] = "9f8567547cef674ac30145a483fd4ab2"
+SRC_URI[sha256sum] = "f85bde13642680f088467feca6959011638863bb54efe6f85b131dbff98c520f"
 
 NPM_PKGNAME = "space-separated-tokens"
 
