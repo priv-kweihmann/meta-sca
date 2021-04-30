@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/felixge/httpsnoop/@v/v1.0.1.zip;srcoutput=github.com/felixge/httpsnoop;srcinput=github.com/felixge/httpsnoop@v1.0.1;downloadfilename=github-com-felixge-httpsnoop-1.0.1.zip;name=github-com-felixge-httpsnoop"
-SRC_URI[github-com-felixge-httpsnoop.sha256sum] = "dc0c57cc57f116de113c320cffcbc61fa437d19a729deec373cce786dd89a029"
+SRC_URI += "https://proxy.golang.org/github.com/felixge/httpsnoop/@v/v1.0.2.zip;srcoutput=github.com/felixge/httpsnoop;srcinput=github.com/felixge/httpsnoop@v1.0.2;downloadfilename=github-com-felixge-httpsnoop-1.0.2.zip;name=github-com-felixge-httpsnoop"
+SRC_URI[github-com-felixge-httpsnoop.sha256sum] = "b345e22aa5ff8c496e6c5b8aed355ac47eb3ce631361782065e0cfdcab1b54ac"
 
 GOSRC_LICENSE += "\
     MIT \
