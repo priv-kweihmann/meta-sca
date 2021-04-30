@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/buffalo/@v/v0.16.21.zip;srcoutput=github.com/gobuffalo/buffalo;srcinput=github.com/gobuffalo/buffalo@v0.16.21;downloadfilename=github-com-gobuffalo-buffalo-0.16.21.zip;name=github-com-gobuffalo-buffalo"
-SRC_URI[github-com-gobuffalo-buffalo.sha256sum] = "81add89304fb8ef637d720dd88a09f76846a890ae2a78c08eb5162ef2cfadd9b"
+SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/buffalo/@v/v0.16.23.zip;srcoutput=github.com/gobuffalo/buffalo;srcinput=github.com/gobuffalo/buffalo@v0.16.23;downloadfilename=github-com-gobuffalo-buffalo-0.16.23.zip;name=github-com-gobuffalo-buffalo"
+SRC_URI[github-com-gobuffalo-buffalo.sha256sum] = "b4a49991e39a91b844793875d2c486d6ef9a4e018b669f8effa1c06c08d86738"
 
 GOSRC_LICENSE += "\
     MIT \
