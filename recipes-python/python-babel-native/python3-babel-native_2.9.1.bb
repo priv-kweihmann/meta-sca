@@ -2,15 +2,15 @@ SUMMARY = "Internationalization utilities"
 HOMEPAGE = "http://babel.pocoo.org/en/latest/"
 
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=22a580b27e4ebf9689e466b63aedeb7f"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=05fb707293a85504aa67afc8ea34d747"
 
 DEPENDS += "python3-native \
             python3-pytz-native"
 
 PYPI_PACKAGE = "Babel"
 
-SRC_URI[md5sum] = "bfc803874aa71e9e9bd54bdd1ce944ba"
-SRC_URI[sha256sum] = "da031ab54472314f210b0adcff1588ee5d1d1d0ba4dbd07b94dba82bde791e05"
+SRC_URI[md5sum] = "7166099733d78aa857d74fa50d8ff58c"
+SRC_URI[sha256sum] = "bc0c176f9f6a994582230df350aa6e05ba2ebe4b3ac317eab29d9be5d2768da0"
 
 inherit pypi
 inherit setuptools3
