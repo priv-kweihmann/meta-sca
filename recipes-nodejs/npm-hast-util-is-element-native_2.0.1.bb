@@ -5,11 +5,12 @@ HOMEPAGE = "https://github.com/syntax-tree/hast-util-is-element#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 
-DEPENDS = ""
+DEPENDS = "npm-types-hast-native \
+           npm-types-unist-native"
 
-SRC_URI = "https://registry.npmjs.org/hast-util-is-element/-/hast-util-is-element-1.1.0.tgz"
-SRC_URI[md5sum] = "410748a9dff5b5e31969f42063b9542a"
-SRC_URI[sha256sum] = "3ed9d860fe66f77176d8819e0e292334a7860b9da472042f84aac90ad645e369"
+SRC_URI = "https://registry.npmjs.org/hast-util-is-element/-/hast-util-is-element-2.0.1.tgz"
+SRC_URI[md5sum] = "fab65ecd3af0ba083b449a7bb67ae1be"
+SRC_URI[sha256sum] = "ff9b6bccb219e25f5a8e9c0f58ad1121372bea99a444575ce2006ad9acab50f3"
 
 NPM_PKGNAME = "hast-util-is-element"
 
