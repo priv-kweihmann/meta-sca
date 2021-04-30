@@ -7,13 +7,12 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=541962f9dacf27c928f57e3a7ba9e1f2"
 DEPENDS += "\
             bison-native"
 
-SRC_URI = "git://github.com/VirusTotal/yara.git;protocol=https;branch=4.0.x \
+SRC_URI = "git://github.com/VirusTotal/yara.git;protocol=https \
            file://yara.sca.description \
            file://0001-remove-protobuf-requirement.patch \
-           file://0001-Makefile.am-remove-hardcoded-static-lib.patch \
            "
 
-SRCREV = "7825004a5a7d1bd69802d85de775224994269a4b"
+SRCREV = "e1360f6cbe3d8daf350018661bc6772bd5b726f2"
 
 S = "${WORKDIR}/git"
 
