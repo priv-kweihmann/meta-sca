@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/microsoft/go-winio/@v/v0.4.18.zip;srcoutput=github.com/microsoft/go-winio;srcinput=github.com/microsoft/go-winio@v0.4.18;downloadfilename=github-com-microsoft-go-winio-0.4.18.zip;name=github-com-microsoft-go-winio"
-SRC_URI[github-com-microsoft-go-winio.sha256sum] = "83f3cc010698ed4488a44369ba374e45173ac1926dd7c88f0ab88e20404af6e4"
+SRC_URI += "https://proxy.golang.org/github.com/microsoft/go-winio/@v/v0.5.0.zip;srcoutput=github.com/microsoft/go-winio;srcinput=github.com/microsoft/go-winio@v0.5.0;downloadfilename=github-com-microsoft-go-winio-0.5.0.zip;name=github-com-microsoft-go-winio"
+SRC_URI[github-com-microsoft-go-winio.sha256sum] = "31679d311ecf539ac597998bc5cb852a797d8dbe210b92c434d4fb31bc091beb"
 
 GOSRC_LICENSE += "\
     MIT \
