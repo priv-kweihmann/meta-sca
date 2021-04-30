@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/hast-util-whitespace/-/hast-util-whitespace-1.0.4.tgz"
-SRC_URI[md5sum] = "2e664e858c1dc6187381f91a66e9eb92"
-SRC_URI[sha256sum] = "dc4eefe224180bdc3c93b98705c5124eac1d5725302ec6f83237da814e6b5441"
+SRC_URI = "https://registry.npmjs.org/hast-util-whitespace/-/hast-util-whitespace-2.0.0.tgz"
+SRC_URI[md5sum] = "ab04ff05164e6a7537c689e2d005c7b2"
+SRC_URI[sha256sum] = "a0ab51de1ca80ca56d90101d78a6909ca6f576d7b495c966c3edc1a592f16cc4"
 
 NPM_PKGNAME = "hast-util-whitespace"
 
