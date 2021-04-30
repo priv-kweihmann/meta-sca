@@ -10,9 +10,9 @@ DEPENDS = "npm-hast-util-embedded-native \
            npm-hast-util-is-body-ok-link-native \
            npm-hast-util-is-element-native"
 
-SRC_URI = "https://registry.npmjs.org/hast-util-phrasing/-/hast-util-phrasing-1.0.5.tgz"
-SRC_URI[md5sum] = "92d7a4f5c5808ffdd9cc8c6cfb0d79aa"
-SRC_URI[sha256sum] = "375dcffcc381ed83628cd96c2c6a6992d224c1b69f4bfc7435f22c808402957d"
+SRC_URI = "https://registry.npmjs.org/hast-util-phrasing/-/hast-util-phrasing-2.0.0.tgz"
+SRC_URI[md5sum] = "578c03954458f36d0cee875b4a12c6c2"
+SRC_URI[sha256sum] = "9d56792cd99b26492faaf1283aa57f1a1424984bb3e322951f86d4155c22fa7e"
 
 NPM_PKGNAME = "hast-util-phrasing"
 
