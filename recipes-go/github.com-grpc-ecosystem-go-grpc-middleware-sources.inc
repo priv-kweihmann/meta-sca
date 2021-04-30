@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/grpc-ecosystem/go-grpc-middleware/@v/v1.2.2.zip;srcoutput=github.com/grpc-ecosystem/go-grpc-middleware;srcinput=github.com/grpc-ecosystem/go-grpc-middleware@v1.2.2;downloadfilename=github-com-grpc-ecosystem-go-grpc-middleware-1.2.2.zip;name=github-com-grpc-ecosystem-go-grpc-middleware"
-SRC_URI[github-com-grpc-ecosystem-go-grpc-middleware.sha256sum] = "c785f2d1102a813db34466b1f4fdca5555fc89cd56e787a2b934269da897d999"
+SRC_URI += "https://proxy.golang.org/github.com/grpc-ecosystem/go-grpc-middleware/@v/v1.3.0.zip;srcoutput=github.com/grpc-ecosystem/go-grpc-middleware;srcinput=github.com/grpc-ecosystem/go-grpc-middleware@v1.3.0;downloadfilename=github-com-grpc-ecosystem-go-grpc-middleware-1.3.0.zip;name=github-com-grpc-ecosystem-go-grpc-middleware"
+SRC_URI[github-com-grpc-ecosystem-go-grpc-middleware.sha256sum] = "081d63238be37f9f7fd2688642dc0f2c9c37374f99e7ac1d42c1f9184521723a"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
