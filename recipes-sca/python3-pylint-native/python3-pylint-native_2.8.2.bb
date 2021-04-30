@@ -2,7 +2,7 @@ SUMMARY = "Pylint is a tool that checks for errors in Python code"
 HOMEPAGE = "https://github.com/PyCQA/pylint"
 
 LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://COPYING;md5=c107cf754550e65755c42985a5d4e9c9"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=c107cf754550e65755c42985a5d4e9c9"
 
 DEPENDS += "\
             python3-astroids-native \
@@ -15,8 +15,8 @@ DEPENDS += "\
             "
 
 SRC_URI_append = " file://pylint.sca.description"
-SRC_URI[md5sum] = "448218b9b424be9b3012dd60ee14ad94"
-SRC_URI[sha256sum] = "bd38914c7731cdc518634a8d3c5585951302b6e2b6de60fbb3f7a0220e21eeee"
+SRC_URI[md5sum] = "2ce22566a99be4991b2a0d0849610412"
+SRC_URI[sha256sum] = "586d8fa9b1891f4b725f587ef267abe2a1bad89d6b184520c7f07a253dd6e217"
 
 PYPI_PACKAGE = "pylint"
 
