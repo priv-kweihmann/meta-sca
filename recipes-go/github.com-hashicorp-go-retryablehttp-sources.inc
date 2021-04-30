@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/hashicorp/go-retryablehttp/@v/v0.6.8.zip;srcoutput=github.com/hashicorp/go-retryablehttp;srcinput=github.com/hashicorp/go-retryablehttp@v0.6.8;downloadfilename=github-com-hashicorp-go-retryablehttp-0.6.8.zip;name=github-com-hashicorp-go-retryablehttp"
-SRC_URI[github-com-hashicorp-go-retryablehttp.sha256sum] = "01d3574d31385b4d7ea639ddddbb471e7eaad6204426cc9cff54974e9bb48f3b"
+SRC_URI += "https://proxy.golang.org/github.com/hashicorp/go-retryablehttp/@v/v0.7.0.zip;srcoutput=github.com/hashicorp/go-retryablehttp;srcinput=github.com/hashicorp/go-retryablehttp@v0.7.0;downloadfilename=github-com-hashicorp-go-retryablehttp-0.7.0.zip;name=github-com-hashicorp-go-retryablehttp"
+SRC_URI[github-com-hashicorp-go-retryablehttp.sha256sum] = "a11a3f6c2a5fbaa1b251c4e5ad809eea46c342991cf33ac32ddbc38372dda6b2"
 
 GOSRC_LICENSE += "\
     MPL-2.0 \
