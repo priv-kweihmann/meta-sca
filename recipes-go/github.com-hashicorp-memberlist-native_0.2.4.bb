@@ -7,6 +7,16 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-hashicorp-memberlist-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-armon-go-metrics-native \
+    github.com-google-btree-native \
+    github.com-hashicorp-go-msgpack-native \
+    github.com-hashicorp-go-multierror-native \
+    github.com-hashicorp-go-sockaddr-native \
+    github.com-miekg-dns-native \
+    github.com-sean--seed-native \
+"
+
 GO_IMPORT = "github.com/hashicorp/memberlist"
 
 inherit gosrc
