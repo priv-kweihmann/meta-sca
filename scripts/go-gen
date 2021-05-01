@@ -391,6 +391,8 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 %includesstr%
 
+EXTRA_DEPENDS += "%rdepends%"
+
 GO_IMPORT = "%name%"
 
 %recipeextra%
@@ -404,6 +406,7 @@ inherit native
         _tpl = _tpl.replace("%" + k + "%", __prettify(v))
 
     # prettify
+    _tpl = _tpl.replace('EXTRA_DEPENDS += ""', "")
     _tpl = re.sub(r"\n{3,}", "\n\n", _tpl)
 
     with open(os.path.join(args.path, _recipe_fn), "w") as o:
@@ -473,6 +476,7 @@ def create_module(args, pbar, name, version, level, force, breadcrumb=[]):
         "includesstr": "",
         "childreninc": set(),
         "childincludestr": "",
+        "rdepends": set(),
         "recipeextra": ""
     }
     if not force and (level < 1 or __does_version_exist(args, name, __get_latest_version(args, name, version)) or name in breadcrumb):
@@ -500,6 +504,7 @@ def create_module(args, pbar, name, version, level, force, breadcrumb=[]):
 
         for c in _children:
             _desc["childreninc"].add(__name_to_inc_native_fn(c["name"]))
+            _desc["rdepends"].add(__name_to_recipe_native(c["name"]))
 
         _desc["childincludestr"] = "\n".join(
             __get_conditional_require_string(x) for x in sorted(_desc["childreninc"])
