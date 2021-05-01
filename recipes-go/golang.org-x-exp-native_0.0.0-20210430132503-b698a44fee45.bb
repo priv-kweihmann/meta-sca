@@ -7,6 +7,18 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require golang.org-x-exp-sources.inc
 
+EXTRA_DEPENDS += "\
+    dmitri.shuralyov.com-gpu-mtl-native \
+    github.com-burntsushi-xgb-native \
+    github.com-go-gl-glfw-v3.3-glfw-native \
+    golang.org-x-image-native \
+    golang.org-x-mobile-native \
+    golang.org-x-mod-native \
+    golang.org-x-sys-native \
+    golang.org-x-tools-native \
+    golang.org-x-xerrors-native \
+"
+
 GO_IMPORT = "golang.org/x/exp"
 
 # needs GLES3/gl3.h
