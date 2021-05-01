@@ -7,6 +7,13 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-fullstorydev-grpcurl-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-golang-protobuf-native \
+    github.com-jhump-protoreflect-native \
+    google.golang.org-grpc-native \
+    google.golang.org-protobuf-native \
+"
+
 GO_IMPORT = "github.com/fullstorydev/grpcurl"
 
 inherit gosrc
