@@ -7,6 +7,12 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-aws-aws-sdk-go-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-jmespath-go-jmespath-native \
+    github.com-pkg-errors-native \
+    golang.org-x-net-native \
+"
+
 GO_IMPORT = "github.com/aws/aws-sdk-go"
 
 inherit gosrc
