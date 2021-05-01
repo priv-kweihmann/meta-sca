@@ -7,6 +7,12 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-performancecopilot-speed-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-codahale-hdrhistogram-native \
+    github.com-edsrzf-mmap-go-native \
+    go.uber.org-zap-native \
+"
+
 GO_IMPORT = "github.com/performancecopilot/speed"
 
 inherit gosrc

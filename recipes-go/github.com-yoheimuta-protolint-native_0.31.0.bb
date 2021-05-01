@@ -7,6 +7,16 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-yoheimuta-protolint-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-gertd-go-pluralize-native \
+    github.com-golang-protobuf-native \
+    github.com-hashicorp-go-hclog-native \
+    github.com-hashicorp-go-plugin-native \
+    github.com-yoheimuta-go-protoparser-v4-native \
+    google.golang.org-grpc-native \
+    gopkg.in-yaml.v2-native \
+"
+
 GO_IMPORT = "github.com/yoheimuta/protolint"
 
 inherit gosrc

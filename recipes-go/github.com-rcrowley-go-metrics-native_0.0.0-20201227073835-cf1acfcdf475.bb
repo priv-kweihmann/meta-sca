@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-rcrowley-go-metrics-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-stathat-go-native \
+"
+
 GO_IMPORT = "github.com/rcrowley/go-metrics"
 
 inherit gosrc

@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-cactus-go-statsd-client-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-jessevdk-go-flags-native \
+"
+
 GO_IMPORT = "github.com/cactus/go-statsd-client"
 
 UPSTREAM_CHECK_IMPORT_SUFFIX = "/v5"

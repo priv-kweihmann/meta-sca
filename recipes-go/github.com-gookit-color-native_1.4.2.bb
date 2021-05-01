@@ -7,6 +7,11 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-gookit-color-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-xo-terminfo-native \
+    golang.org-x-sys-native \
+"
+
 GO_IMPORT = "github.com/gookit/color"
 
 inherit gosrc

@@ -7,6 +7,11 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-martini-contrib-render-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-go-martini-martini-native \
+    github.com-oxtoacart-bpool-native \
+"
+
 GO_IMPORT = "github.com/martini-contrib/render"
 
 inherit gosrc

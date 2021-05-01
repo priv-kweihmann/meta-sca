@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-kr-text-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-creack-pty-native \
+"
+
 GO_IMPORT = "github.com/kr/text"
 
 inherit gosrc

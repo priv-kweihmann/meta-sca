@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-go-martini-martini-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-codegangsta-inject-native \
+"
+
 GO_IMPORT = "github.com/go-martini/martini"
 
 inherit gosrc

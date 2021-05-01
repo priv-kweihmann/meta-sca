@@ -7,6 +7,11 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-go-git-go-billy-v5-sources.inc
 
+EXTRA_DEPENDS += "\
+    golang.org-x-sys-native \
+    gopkg.in-check.v1-native \
+"
+
 GO_IMPORT = "github.com/go-git/go-billy/v5"
 
 inherit gosrc

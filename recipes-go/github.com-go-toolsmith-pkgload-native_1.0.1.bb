@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-go-toolsmith-pkgload-sources.inc
 
+EXTRA_DEPENDS += "\
+    golang.org-x-tools-native \
+"
+
 GO_IMPORT = "github.com/go-toolsmith/pkgload"
 
 inherit gosrc

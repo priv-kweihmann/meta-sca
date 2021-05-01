@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-mcandre-stank-sources.inc
 
+EXTRA_DEPENDS += "\
+    mvdan.cc-sh-native \
+"
+
 GO_IMPORT = "github.com/mcandre/stank"
 
 inherit gosrc

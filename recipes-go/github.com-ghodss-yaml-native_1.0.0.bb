@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-ghodss-yaml-sources.inc
 
+EXTRA_DEPENDS += "\
+    gopkg.in-yaml.v2-native \
+"
+
 GO_IMPORT = "github.com/ghodss/yaml"
 
 inherit gosrc

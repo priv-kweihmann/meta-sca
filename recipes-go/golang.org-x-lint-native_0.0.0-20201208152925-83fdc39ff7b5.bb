@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require golang.org-x-lint-sources.inc
 
+EXTRA_DEPENDS += "\
+    golang.org-x-tools-native \
+"
+
 GO_IMPORT = "golang.org/x/lint"
 
 inherit gosrc

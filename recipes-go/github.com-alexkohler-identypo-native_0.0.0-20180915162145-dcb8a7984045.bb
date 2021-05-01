@@ -7,6 +7,11 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-alexkohler-identypo-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-client9-misspell-native \
+    github.com-fatih-camelcase-native \
+"
+
 GO_IMPORT = "github.com/alexkohler/identypo"
 
 inherit gosrc
