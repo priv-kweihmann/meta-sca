@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/armon/go-metrics/@v/v0.3.7.zip;srcoutput=github.com/armon/go-metrics;srcinput=github.com/armon/go-metrics@v0.3.7;downloadfilename=github-com-armon-go-metrics-0.3.7.zip;name=github-com-armon-go-metrics"
-SRC_URI[github-com-armon-go-metrics.sha256sum] = "b844b30f2926a48d5e2e082c1fb23b67fd4af5a29b85bd4895b48fd58021228b"
+SRC_URI += "https://proxy.golang.org/github.com/armon/go-metrics/@v/v0.3.8.zip;srcoutput=github.com/armon/go-metrics;srcinput=github.com/armon/go-metrics@v0.3.8;downloadfilename=github-com-armon-go-metrics-0.3.8.zip;name=github-com-armon-go-metrics"
+SRC_URI[github-com-armon-go-metrics.sha256sum] = "c5155072f08976a293aa2d7209baef2e1343483010c0ff82473426729ee0f771"
 
 GOSRC_LICENSE += "\
     MIT \
