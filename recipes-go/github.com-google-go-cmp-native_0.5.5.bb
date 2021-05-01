@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-google-go-cmp-sources.inc
 
+EXTRA_DEPENDS += "\
+    golang.org-x-xerrors-native \
+"
+
 GO_IMPORT = "github.com/google/go-cmp"
 
 inherit gosrc

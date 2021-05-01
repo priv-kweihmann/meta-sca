@@ -7,6 +7,11 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-microcosm-cc-bluemonday-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-aymerick-douceur-native \
+    golang.org-x-net-native \
+"
+
 GO_IMPORT = "github.com/microcosm-cc/bluemonday"
 
 inherit gosrc

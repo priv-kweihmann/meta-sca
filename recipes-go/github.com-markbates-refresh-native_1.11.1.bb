@@ -7,6 +7,14 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-markbates-refresh-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-fatih-color-native \
+    github.com-fsnotify-fsnotify-native \
+    github.com-mitchellh-go-homedir-native \
+    github.com-spf13-cobra-native \
+    gopkg.in-yaml.v2-native \
+"
+
 GO_IMPORT = "github.com/markbates/refresh"
 
 inherit gosrc

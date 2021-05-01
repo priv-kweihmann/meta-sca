@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-xdg-stringprep-sources.inc
 
+EXTRA_DEPENDS += "\
+    golang.org-x-text-native \
+"
+
 GO_IMPORT = "github.com/xdg/stringprep"
 
 inherit gosrc

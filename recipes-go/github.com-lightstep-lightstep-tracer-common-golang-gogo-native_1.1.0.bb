@@ -7,6 +7,13 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-lightstep-lightstep-tracer-common-golang-gogo-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-gogo-protobuf-native \
+    golang.org-x-net-native \
+    google.golang.org-genproto-native \
+    google.golang.org-grpc-native \
+"
+
 GO_IMPORT = "github.com/lightstep/lightstep-tracer-common/golang/gogo"
 
 UPSTREAM_CHECK_URI = "https://github.com/lightstep/lightstep-tracer-common/tags"

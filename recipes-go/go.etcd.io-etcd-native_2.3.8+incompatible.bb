@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require go.etcd.io-etcd-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-coreos-etcd-native \
+"
+
 GO_IMPORT = "go.etcd.io/etcd"
 
 # version is somehow broken

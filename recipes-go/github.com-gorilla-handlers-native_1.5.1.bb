@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-gorilla-handlers-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-felixge-httpsnoop-native \
+"
+
 GO_IMPORT = "github.com/gorilla/handlers"
 
 inherit gosrc

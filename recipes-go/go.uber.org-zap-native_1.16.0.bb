@@ -7,6 +7,11 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require go.uber.org-zap-sources.inc
 
+EXTRA_DEPENDS += "\
+    go.uber.org-atomic-native \
+    go.uber.org-multierr-native \
+"
+
 GO_IMPORT = "go.uber.org/zap"
 
 inherit gosrc

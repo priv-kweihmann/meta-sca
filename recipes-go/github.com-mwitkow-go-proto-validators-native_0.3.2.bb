@@ -7,6 +7,12 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-mwitkow-go-proto-validators-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-gogo-protobuf-native \
+    github.com-golang-protobuf-native \
+    github.com-stretchr-testify-native \
+"
+
 GO_IMPORT = "github.com/mwitkow/go-proto-validators"
 
 inherit gosrc

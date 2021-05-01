@@ -7,6 +7,14 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-openzipkin-zipkin-go-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-golang-protobuf-native \
+    github.com-shopify-sarama-native \
+    github.com-streadway-amqp-native \
+    google.golang.org-grpc-native \
+    google.golang.org-protobuf-native \
+"
+
 GO_IMPORT = "github.com/openzipkin/zipkin-go"
 
 inherit gosrc

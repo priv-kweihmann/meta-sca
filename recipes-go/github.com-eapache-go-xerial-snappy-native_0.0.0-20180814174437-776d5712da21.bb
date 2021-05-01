@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-eapache-go-xerial-snappy-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-golang-snappy-native \
+"
+
 GO_IMPORT = "github.com/eapache/go-xerial-snappy"
 
 inherit gosrc

@@ -7,6 +7,12 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-afex-hystrix-go-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-cactus-go-statsd-client-native \
+    github.com-datadog-datadog-go-native \
+    github.com-rcrowley-go-metrics-native \
+"
+
 GO_IMPORT = "github.com/afex/hystrix-go"
 
 # version is somehow broken

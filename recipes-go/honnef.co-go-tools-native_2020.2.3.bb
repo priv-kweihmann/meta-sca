@@ -7,6 +7,12 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require honnef.co-go-tools-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-burntsushi-toml-native \
+    github.com-kisielk-gotool-native \
+    golang.org-x-tools-native \
+"
+
 GO_IMPORT = "honnef.co/go/tools"
 
 UPSTREAM_CHECK_URI = "https://github.com/dominikh/go-tools/tags"

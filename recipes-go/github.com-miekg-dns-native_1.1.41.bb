@@ -7,6 +7,11 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-miekg-dns-sources.inc
 
+EXTRA_DEPENDS += "\
+    golang.org-x-net-native \
+    golang.org-x-sys-native \
+"
+
 GO_IMPORT = "github.com/miekg/dns"
 
 inherit gosrc

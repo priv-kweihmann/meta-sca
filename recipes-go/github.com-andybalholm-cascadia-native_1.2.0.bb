@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-andybalholm-cascadia-sources.inc
 
+EXTRA_DEPENDS += "\
+    golang.org-x-net-native \
+"
+
 GO_IMPORT = "github.com/andybalholm/cascadia"
 
 inherit gosrc

@@ -7,6 +7,11 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require gopkg.in-alecthomas-kingpin.v2-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-alecthomas-template-native \
+    github.com-alecthomas-units-native \
+"
+
 GO_IMPORT = "gopkg.in/alecthomas/kingpin.v2"
 
 inherit gosrc

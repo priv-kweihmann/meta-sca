@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require gopkg.in-check.v1-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-kr-pretty-native \
+"
+
 GO_IMPORT = "gopkg.in/check.v1"
 
 inherit gosrc

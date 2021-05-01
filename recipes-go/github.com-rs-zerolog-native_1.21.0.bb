@@ -7,6 +7,13 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-rs-zerolog-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-coreos-go-systemd-native \
+    github.com-pkg-errors-native \
+    github.com-rs-xid-native \
+    golang.org-x-tools-native \
+"
+
 GO_IMPORT = "github.com/rs/zerolog"
 
 inherit gosrc

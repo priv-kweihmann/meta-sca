@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-opentracing-opentracing-go-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-stretchr-testify-native \
+"
+
 GO_IMPORT = "github.com/opentracing/opentracing-go"
 
 inherit gosrc

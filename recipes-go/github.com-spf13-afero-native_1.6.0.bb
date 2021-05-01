@@ -7,6 +7,11 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-spf13-afero-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-pkg-sftp-native \
+    golang.org-x-text-native \
+"
+
 GO_IMPORT = "github.com/spf13/afero"
 
 inherit gosrc

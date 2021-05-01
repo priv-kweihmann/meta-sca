@@ -7,6 +7,11 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-gobuffalo-logger-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-sirupsen-logrus-native \
+    golang.org-x-crypto-native \
+"
+
 GO_IMPORT = "github.com/gobuffalo/logger"
 
 inherit gosrc

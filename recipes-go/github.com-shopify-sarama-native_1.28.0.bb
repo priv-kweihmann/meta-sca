@@ -7,6 +7,19 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-shopify-sarama-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-davecgh-go-spew-native \
+    github.com-eapache-go-resiliency-native \
+    github.com-eapache-go-xerial-snappy-native \
+    github.com-eapache-queue-native \
+    github.com-jcmturner-gokrb5-v8-native \
+    github.com-klauspost-compress-native \
+    github.com-pierrec-lz4-native \
+    github.com-rcrowley-go-metrics-native \
+    github.com-xdg-scram-native \
+    golang.org-x-net-native \
+"
+
 GO_IMPORT = "github.com/Shopify/sarama"
 
 inherit gosrc

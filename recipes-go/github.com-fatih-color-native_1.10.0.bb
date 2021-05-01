@@ -7,6 +7,11 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-fatih-color-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-mattn-go-colorable-native \
+    github.com-mattn-go-isatty-native \
+"
+
 GO_IMPORT = "github.com/fatih/color"
 
 inherit gosrc

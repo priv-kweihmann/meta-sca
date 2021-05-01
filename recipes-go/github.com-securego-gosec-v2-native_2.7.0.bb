@@ -7,6 +7,16 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-securego-gosec-v2-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-gookit-color-native \
+    github.com-lib-pq-native \
+    github.com-mozilla-tls-observatory-native \
+    github.com-nbutton23-zxcvbn-go-native \
+    golang.org-x-crypto-native \
+    golang.org-x-tools-native \
+    gopkg.in-yaml.v2-native \
+"
+
 GO_IMPORT = "github.com/securego/gosec/v2"
 
 inherit gosrc
