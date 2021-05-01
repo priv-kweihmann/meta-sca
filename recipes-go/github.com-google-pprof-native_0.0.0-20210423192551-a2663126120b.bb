@@ -7,6 +7,11 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-google-pprof-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-chzyer-readline-native \
+    github.com-ianlancetaylor-demangle-native \
+"
+
 GO_IMPORT = "github.com/google/pprof"
 
 inherit gosrc
