@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/go-enry/go-license-detector/v4/@v/v4.1.1.zip;srcoutput=github.com/go-enry/go-license-detector/v4;srcinput=github.com/go-enry/go-license-detector/v4@v4.1.1;downloadfilename=github-com-go-enry-go-license-detector-v4-4.1.1.zip;name=github-com-go-enry-go-license-detector-v4"
-SRC_URI[github-com-go-enry-go-license-detector-v4.sha256sum] = "e6672b93fd242a695b40a50f0f8e036872da585dfa756a2435cdb492fb21b329"
+SRC_URI += "https://proxy.golang.org/github.com/go-enry/go-license-detector/v4/@v/v4.2.0.zip;srcoutput=github.com/go-enry/go-license-detector/v4;srcinput=github.com/go-enry/go-license-detector/v4@v4.2.0;downloadfilename=github-com-go-enry-go-license-detector-v4-4.2.0.zip;name=github-com-go-enry-go-license-detector-v4"
+SRC_URI[github-com-go-enry-go-license-detector-v4.sha256sum] = "3e436249cbe8dc15b7865476d00afb1289320938421cb170ab5ceecbfe736368"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
