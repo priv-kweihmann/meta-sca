@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/shirou/gopsutil/@v/v3.21.3+incompatible.zip;srcoutput=github.com/shirou/gopsutil;srcinput=github.com/shirou/gopsutil@v3.21.3+incompatible;downloadfilename=github-com-shirou-gopsutil-3.21.3+incompatible.zip;name=github-com-shirou-gopsutil"
-SRC_URI[github-com-shirou-gopsutil.sha256sum] = "fa170746b36ef05b502e8bd61088f662bb913c0d5c395fab27a52f0ae74f1b62"
+SRC_URI += "https://proxy.golang.org/github.com/shirou/gopsutil/@v/v3.21.4+incompatible.zip;srcoutput=github.com/shirou/gopsutil;srcinput=github.com/shirou/gopsutil@v3.21.4+incompatible;downloadfilename=github-com-shirou-gopsutil-3.21.4+incompatible.zip;name=github-com-shirou-gopsutil"
+SRC_URI[github-com-shirou-gopsutil.sha256sum] = "8d7437ac8806601bb09ef128a941cc6437c595bdd2c14a3edaf3373a198f51e5"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \

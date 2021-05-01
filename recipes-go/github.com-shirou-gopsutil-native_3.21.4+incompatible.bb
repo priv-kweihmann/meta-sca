@@ -7,6 +7,11 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-shirou-gopsutil-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-tklauser-go-sysconf-native \
+    golang.org-x-sys-native \
+"
+
 GO_IMPORT = "github.com/shirou/gopsutil"
 
 inherit gosrc
