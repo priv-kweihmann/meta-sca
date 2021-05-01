@@ -7,6 +7,14 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-onsi-ginkgo-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-go-task-slim-sprig-native \
+    github.com-nxadm-tail-native \
+    github.com-onsi-gomega-native \
+    golang.org-x-sys-native \
+    golang.org-x-tools-native \
+"
+
 GO_IMPORT = "github.com/onsi/ginkgo"
 
 inherit gosrc

@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-golang-groupcache-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-golang-protobuf-native \
+"
+
 GO_IMPORT = "github.com/golang/groupcache"
 
 inherit gosrc

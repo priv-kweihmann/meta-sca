@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require go.uber.org-multierr-sources.inc
 
+EXTRA_DEPENDS += "\
+    go.uber.org-atomic-native \
+"
+
 GO_IMPORT = "go.uber.org/multierr"
 
 inherit gosrc

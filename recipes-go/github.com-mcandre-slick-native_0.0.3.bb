@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-mcandre-slick-sources.inc
 
+EXTRA_DEPENDS += "\
+    mvdan.cc-sh-native \
+"
+
 GO_IMPORT = "github.com/mcandre/slick"
 
 inherit gosrc

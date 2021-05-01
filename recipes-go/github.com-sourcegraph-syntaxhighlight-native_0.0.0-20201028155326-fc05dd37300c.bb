@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-sourcegraph-syntaxhighlight-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-sourcegraph-annotate-native \
+"
+
 GO_IMPORT = "github.com/sourcegraph/syntaxhighlight"
 
 inherit gosrc

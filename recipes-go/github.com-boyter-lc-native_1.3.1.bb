@@ -7,6 +7,13 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-boyter-lc-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-boyter-golangvectorspace-native \
+    github.com-briandowns-spinner-native \
+    github.com-ryanuber-columnize-native \
+    github.com-urfave-cli-native \
+"
+
 GO_IMPORT = "github.com/boyter/lc"
 
 inherit gosrc

@@ -7,6 +7,13 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-gregjones-httpcache-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-bradfitz-gomemcache-native \
+    github.com-gomodule-redigo-redis-native \
+    github.com-peterbourgon-diskv-native \
+    github.com-syndtr-goleveldb-native \
+"
+
 GO_IMPORT = "github.com/gregjones/httpcache"
 
 inherit gosrc

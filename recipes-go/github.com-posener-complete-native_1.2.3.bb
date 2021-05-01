@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-posener-complete-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-hashicorp-go-multierror-native \
+"
+
 GO_IMPORT = "github.com/posener/complete"
 
 inherit gosrc

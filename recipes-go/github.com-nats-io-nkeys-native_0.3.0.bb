@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-nats-io-nkeys-sources.inc
 
+EXTRA_DEPENDS += "\
+    golang.org-x-crypto-native \
+"
+
 GO_IMPORT = "github.com/nats-io/nkeys"
 
 inherit gosrc

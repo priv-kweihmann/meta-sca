@@ -7,6 +7,11 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-golang-mock-sources.inc
 
+EXTRA_DEPENDS += "\
+    golang.org-x-mod-native \
+    golang.org-x-tools-native \
+"
+
 GO_IMPORT = "github.com/golang/mock"
 
 inherit gosrc

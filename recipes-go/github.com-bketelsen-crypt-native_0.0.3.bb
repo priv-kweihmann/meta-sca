@@ -7,6 +7,15 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-bketelsen-crypt-sources.inc
 
+EXTRA_DEPENDS += "\
+    cloud.google.com-go-firestore-native \
+    github.com-coreos-etcd-native \
+    github.com-hashicorp-consul-api-native \
+    golang.org-x-crypto-native \
+    google.golang.org-api-native \
+    google.golang.org-grpc-native \
+"
+
 GO_IMPORT = "github.com/bketelsen/crypt"
 
 inherit gosrc

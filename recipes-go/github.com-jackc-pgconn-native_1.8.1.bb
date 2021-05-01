@@ -7,6 +7,16 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-jackc-pgconn-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-jackc-chunkreader-v2-native \
+    github.com-jackc-pgio-native \
+    github.com-jackc-pgpassfile-native \
+    github.com-jackc-pgproto3-v2-native \
+    github.com-jackc-pgservicefile-native \
+    golang.org-x-crypto-native \
+    golang.org-x-text-native \
+"
+
 GO_IMPORT = "github.com/jackc/pgconn"
 
 inherit gosrc
