@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-googleapis-gax-go-v2-sources.inc
 
+EXTRA_DEPENDS += "\
+    google.golang.org-grpc-native \
+"
+
 GO_IMPORT = "github.com/googleapis/gax-go/v2"
 
 inherit gosrc

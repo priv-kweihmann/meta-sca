@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-briandowns-spinner-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-fatih-color-native \
+"
+
 GO_IMPORT = "github.com/briandowns/spinner"
 
 inherit gosrc

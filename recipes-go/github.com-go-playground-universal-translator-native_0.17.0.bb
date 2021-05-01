@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-go-playground-universal-translator-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-go-playground-locales-native \
+"
+
 GO_IMPORT = "github.com/go-playground/universal-translator"
 
 inherit gosrc

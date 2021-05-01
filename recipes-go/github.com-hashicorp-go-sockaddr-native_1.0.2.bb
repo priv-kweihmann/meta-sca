@@ -7,6 +7,13 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-hashicorp-go-sockaddr-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-hashicorp-errwrap-native \
+    github.com-mitchellh-cli-native \
+    github.com-mitchellh-go-wordwrap-native \
+    github.com-ryanuber-columnize-native \
+"
+
 GO_IMPORT = "github.com/hashicorp/go-sockaddr"
 
 inherit gosrc

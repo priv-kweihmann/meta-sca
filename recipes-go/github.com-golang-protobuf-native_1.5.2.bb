@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-golang-protobuf-sources.inc
 
+EXTRA_DEPENDS += "\
+    google.golang.org-protobuf-native \
+"
+
 GO_IMPORT = "github.com/golang/protobuf"
 
 inherit gosrc

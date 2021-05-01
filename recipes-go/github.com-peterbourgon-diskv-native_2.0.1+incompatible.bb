@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-peterbourgon-diskv-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-google-btree-native \
+"
+
 GO_IMPORT = "github.com/peterbourgon/diskv"
 
 inherit gosrc

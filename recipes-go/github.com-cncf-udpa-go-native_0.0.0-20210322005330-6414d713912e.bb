@@ -7,6 +7,12 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-cncf-udpa-go-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-envoyproxy-protoc-gen-validate-native \
+    github.com-golang-protobuf-native \
+    google.golang.org-grpc-native \
+"
+
 GO_IMPORT = "github.com/cncf/udpa/go"
 
 inherit gosrc

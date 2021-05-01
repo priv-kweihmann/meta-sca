@@ -7,6 +7,23 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-prometheus-common-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-go-kit-kit-native \
+    github.com-golang-protobuf-native \
+    github.com-julienschmidt-httprouter-native \
+    github.com-matttproud-golang-protobuf-extensions-native \
+    github.com-mwitkow-go-conntrack-native \
+    github.com-pkg-errors-native \
+    github.com-prometheus-client-golang-native \
+    github.com-prometheus-client-model-native \
+    github.com-sirupsen-logrus-native \
+    golang.org-x-net-native \
+    golang.org-x-oauth2-native \
+    golang.org-x-sys-native \
+    gopkg.in-alecthomas-kingpin.v2-native \
+    gopkg.in-yaml.v2-native \
+"
+
 GO_IMPORT = "github.com/prometheus/common"
 
 inherit gosrc
