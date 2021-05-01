@@ -7,6 +7,11 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-jackc-pgproto3-v2-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-jackc-chunkreader-v2-native \
+    github.com-jackc-pgio-native \
+"
+
 GO_IMPORT = "github.com/jackc/pgproto3/v2"
 
 inherit gosrc

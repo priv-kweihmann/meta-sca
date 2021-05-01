@@ -7,6 +7,11 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-gobuffalo-envy-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-joho-godotenv-native \
+    github.com-rogpeppe-go-internal-native \
+"
+
 GO_IMPORT = "github.com/gobuffalo/envy"
 
 inherit gosrc

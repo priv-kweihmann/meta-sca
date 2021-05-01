@@ -7,6 +7,11 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-json-iterator-go-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-modern-go-concurrent-native \
+    github.com-modern-go-reflect2-native \
+"
+
 GO_IMPORT = "github.com/json-iterator/go"
 
 inherit gosrc

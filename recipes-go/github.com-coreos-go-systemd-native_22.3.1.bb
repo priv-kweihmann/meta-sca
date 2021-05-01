@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-coreos-go-systemd-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-godbus-dbus-v5-native \
+"
+
 GO_IMPORT = "github.com/coreos/go-systemd"
 
 # recipe needs systemd header, which isn't available as a native recipe

@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-olekukonko-tablewriter-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-mattn-go-runewidth-native \
+"
+
 GO_IMPORT = "github.com/olekukonko/tablewriter"
 
 inherit gosrc

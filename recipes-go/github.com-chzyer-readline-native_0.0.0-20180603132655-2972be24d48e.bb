@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-chzyer-readline-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-nbutton23-zxcvbn-go-native \
+"
+
 GO_IMPORT = "github.com/chzyer/readline"
 
 inherit gosrc

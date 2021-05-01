@@ -7,6 +7,15 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-spf13-cobra-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-cpuguy83-go-md2man-v2-native \
+    github.com-inconshreveable-mousetrap-native \
+    github.com-mitchellh-go-homedir-native \
+    github.com-spf13-pflag-native \
+    github.com-spf13-viper-native \
+    gopkg.in-yaml.v2-native \
+"
+
 GO_IMPORT = "github.com/spf13/cobra"
 
 inherit gosrc

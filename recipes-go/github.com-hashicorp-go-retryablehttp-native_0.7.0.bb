@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-hashicorp-go-retryablehttp-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-hashicorp-go-cleanhttp-native \
+"
+
 GO_IMPORT = "github.com/hashicorp/go-retryablehttp"
 
 inherit gosrc

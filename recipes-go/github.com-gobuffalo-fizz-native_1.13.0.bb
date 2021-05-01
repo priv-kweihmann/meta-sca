@@ -7,6 +7,12 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-gobuffalo-fizz-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-gobuffalo-plush-v4-native \
+    github.com-kballard-go-shellquote-native \
+    github.com-masterminds-semver-v3-native \
+"
+
 GO_IMPORT = "github.com/gobuffalo/fizz"
 
 inherit gosrc

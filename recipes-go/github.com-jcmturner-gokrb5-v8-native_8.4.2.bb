@@ -7,6 +7,17 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-jcmturner-gokrb5-v8-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-gorilla-sessions-native \
+    github.com-hashicorp-go-uuid-native \
+    github.com-jcmturner-aescts-v2-native \
+    github.com-jcmturner-dnsutils-v2-native \
+    github.com-jcmturner-gofork-native \
+    github.com-jcmturner-goidentity-v6-native \
+    github.com-jcmturner-rpc-v2-native \
+    golang.org-x-crypto-native \
+"
+
 GO_IMPORT = "github.com/jcmturner/gokrb5/v8"
 
 inherit gosrc

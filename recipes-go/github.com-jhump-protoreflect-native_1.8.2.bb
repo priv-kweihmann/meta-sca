@@ -7,6 +7,14 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-jhump-protoreflect-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-golang-protobuf-native \
+    golang.org-x-net-native \
+    google.golang.org-genproto-native \
+    google.golang.org-grpc-native \
+    google.golang.org-protobuf-native \
+"
+
 GO_IMPORT = "github.com/jhump/protoreflect"
 
 inherit gosrc

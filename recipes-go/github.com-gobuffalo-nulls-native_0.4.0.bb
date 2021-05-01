@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-gobuffalo-nulls-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-gofrs-uuid-native \
+"
+
 GO_IMPORT = "github.com/gobuffalo/nulls"
 
 inherit gosrc

@@ -7,6 +7,12 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require google.golang.org-appengine-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-golang-protobuf-native \
+    golang.org-x-net-native \
+    golang.org-x-text-native \
+"
+
 GO_IMPORT = "google.golang.org/appengine"
 
 inherit gosrc

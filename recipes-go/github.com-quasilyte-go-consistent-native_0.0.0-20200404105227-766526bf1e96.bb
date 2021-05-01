@@ -7,6 +7,16 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-quasilyte-go-consistent-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-go-toolsmith-astcast-native \
+    github.com-go-toolsmith-astequal-native \
+    github.com-go-toolsmith-astinfo-native \
+    github.com-go-toolsmith-pkgload-native \
+    github.com-go-toolsmith-typep-native \
+    github.com-kisielk-gotool-native \
+    golang.org-x-tools-native \
+"
+
 GO_IMPORT = "github.com/quasilyte/go-consistent"
 
 inherit gosrc

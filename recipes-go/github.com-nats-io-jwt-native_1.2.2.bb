@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-nats-io-jwt-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-nats-io-nkeys-native \
+"
+
 GO_IMPORT = "github.com/nats-io/jwt"
 
 inherit gosrc

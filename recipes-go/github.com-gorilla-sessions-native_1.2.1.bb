@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-gorilla-sessions-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-gorilla-securecookie-native \
+"
+
 GO_IMPORT = "github.com/gorilla/sessions"
 
 inherit gosrc

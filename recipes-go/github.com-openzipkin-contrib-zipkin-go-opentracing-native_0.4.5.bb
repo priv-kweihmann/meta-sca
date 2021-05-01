@@ -7,6 +7,12 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-openzipkin-contrib-zipkin-go-opentracing-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-opentracing-contrib-go-observer-native \
+    github.com-opentracing-opentracing-go-native \
+    github.com-openzipkin-zipkin-go-native \
+"
+
 GO_IMPORT = "github.com/openzipkin-contrib/zipkin-go-opentracing"
 
 inherit gosrc

@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-mitchellh-copystructure-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-mitchellh-reflectwalk-native \
+"
+
 GO_IMPORT = "github.com/mitchellh/copystructure"
 
 inherit gosrc

@@ -7,6 +7,12 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-microsoft-go-winio-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-pkg-errors-native \
+    github.com-sirupsen-logrus-native \
+    golang.org-x-sys-native \
+"
+
 GO_IMPORT = "github.com/microsoft/go-winio"
 
 # windows only

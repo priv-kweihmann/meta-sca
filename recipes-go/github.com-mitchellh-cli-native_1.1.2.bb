@@ -7,6 +7,15 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-mitchellh-cli-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-armon-go-radix-native \
+    github.com-bgentry-speakeasy-native \
+    github.com-fatih-color-native \
+    github.com-masterminds-sprig-native \
+    github.com-mattn-go-isatty-native \
+    github.com-posener-complete-native \
+"
+
 GO_IMPORT = "github.com/mitchellh/cli"
 
 inherit gosrc
