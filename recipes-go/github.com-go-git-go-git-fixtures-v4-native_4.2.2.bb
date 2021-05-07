@@ -8,7 +8,6 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require github.com-go-git-go-git-fixtures-v4-sources.inc
 
 EXTRA_DEPENDS += "\
-    github.com-alcortesm-tgz-native \
     github.com-go-git-go-billy-v5-native \
     gopkg.in-check.v1-native \
 "
