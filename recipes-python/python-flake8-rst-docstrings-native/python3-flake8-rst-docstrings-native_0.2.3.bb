@@ -11,8 +11,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "flake8-rst-docstrings"
 
-SRC_URI[md5sum] = "1dc97d0116c4c997ea32d18fd72337f3"
-SRC_URI[sha256sum] = "1617d1dcdb31675d24fd8ff8e5d7932e449a4518dcc1365e50beceb86d658e7f"
+SRC_URI[md5sum] = "e018666e40af21248c6c558b29287b5d"
+SRC_URI[sha256sum] = "3045794e1c8467fba33aaea5c246b8369efc9c44ef8b0b20199bb6df7a4bd47b"
 
 inherit pypi
 inherit setuptools3
