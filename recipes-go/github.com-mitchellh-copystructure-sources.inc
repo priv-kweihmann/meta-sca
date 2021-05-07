@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/mitchellh/copystructure/@v/v1.1.2.zip;srcoutput=github.com/mitchellh/copystructure;srcinput=github.com/mitchellh/copystructure@v1.1.2;downloadfilename=github-com-mitchellh-copystructure-1.1.2.zip;name=github-com-mitchellh-copystructure"
-SRC_URI[github-com-mitchellh-copystructure.sha256sum] = "974434c1db8dfbc7bca305bb7bfb778b43bc5b725e1823c6f3dbea365f0e683b"
+SRC_URI += "https://proxy.golang.org/github.com/mitchellh/copystructure/@v/v1.2.0.zip;srcoutput=github.com/mitchellh/copystructure;srcinput=github.com/mitchellh/copystructure@v1.2.0;downloadfilename=github-com-mitchellh-copystructure-1.2.0.zip;name=github-com-mitchellh-copystructure"
+SRC_URI[github-com-mitchellh-copystructure.sha256sum] = "4a1ce1f3c66bf99883e55da50fe1b3122299b79ad1d11c5407abbd74ace12550"
 
 GOSRC_LICENSE += "\
     MIT \
