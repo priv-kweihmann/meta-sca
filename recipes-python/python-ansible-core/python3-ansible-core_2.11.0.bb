@@ -3,6 +3,9 @@ DESCRIPTION = "Ansible is a simple IT automation platform that makes your applic
 HOMEPAGE = "https://github.com/ansible/ansible/"
 SECTION = "devel/python"
 
+LICENSE = "GPL-3.0"
+LIC_FILES_CHKSUM = "file://COPYING;md5=8f0e2cd40e05189ec81232da84bd6e1a"
+
 DEPENDS_class-native += "\
     python3-cryptography-native \
     python3-jinja2-native \
@@ -11,13 +14,10 @@ DEPENDS_class-native += "\
     python3-resolvelib-native \
 "
 
-LICENSE = "GPL-3.0"
-LIC_FILES_CHKSUM = "file://COPYING;md5=8f0e2cd40e05189ec81232da84bd6e1a"
-
 PYPI_PACKAGE = "ansible-core"
 
-SRC_URI[md5sum] = "c30ca3469a639ecfc3d27f09d1f3bd25"
-SRC_URI[sha256sum] = "92dda110768e44325b551b1e711907b8fcff27f245f8ad1d66b623da10dd2b67"
+SRC_URI[md5sum] = "909ae2606e7c217d849fc6883619f9a4"
+SRC_URI[sha256sum] = "9470ceb710711eacd75f1bcae802af036ab2a6c2cd5a13bfcb50b2d89667c9c5"
 
 inherit pypi
 inherit setuptools3
