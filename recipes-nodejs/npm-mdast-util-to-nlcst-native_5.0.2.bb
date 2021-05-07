@@ -11,11 +11,12 @@ DEPENDS = "npm-nlcst-to-string-native \
            npm-types-repeat-string-native \
            npm-types-unist-native \
            npm-unist-util-position-native \
-           npm-vfile-location-native"
+           npm-vfile-location-native \
+           npm-vfile-native"
 
-SRC_URI = "https://registry.npmjs.org/mdast-util-to-nlcst/-/mdast-util-to-nlcst-5.0.0.tgz"
-SRC_URI[md5sum] = "cdfcada270698c141252da36bc24fa79"
-SRC_URI[sha256sum] = "aa6808a2d6ecef9710a2b3ceb21c6b7c0e2f2b8399a27428a2a04f185f411d02"
+SRC_URI = "https://registry.npmjs.org/mdast-util-to-nlcst/-/mdast-util-to-nlcst-5.0.2.tgz"
+SRC_URI[md5sum] = "09bf944f0e115902b9b09becf62a5c9e"
+SRC_URI[sha256sum] = "9babd2bd256c89b4010cdc9e47649cc129ccc4e37de18d0bc9fc625d14a06109"
 
 NPM_PKGNAME = "mdast-util-to-nlcst"
 
