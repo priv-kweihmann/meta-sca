@@ -1,4 +1,4 @@
-SRC_URI += "https://github.com/dominikh/go-tools/archive/refs/tags/2020.2.3.zip;srcoutput=honnef.co/go/tools;srcinput=go-tools-2020.2.3;downloadfilename=honnef-co-go-tools-2020.2.3.zip;name=honnef-co-go-tools"
+SRC_URI += "https://github.com/dominikh/go-tools/archive/refs/tags/2020.2.3.zip;srcoutput=honnef.co/go/tools;srcinput=go-tools-2020.2.3;downloadfilename=honnef-co-go-tools-2020.2.4.zip;name=honnef-co-go-tools"
 SRC_URI[honnef-co-go-tools.sha256sum] = "d622b009c9754d5c66a1cfd7cfda3de5f9cda2249d99f5ff6db984287cd8ffad"
 
 GOSRC_LICENSE += "\
