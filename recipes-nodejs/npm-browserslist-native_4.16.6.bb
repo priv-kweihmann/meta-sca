@@ -11,9 +11,9 @@ DEPENDS = "npm-caniuse-lite-native \
            npm-escalade-native \
            npm-node-releases-native"
 
-SRC_URI = "https://registry.npmjs.org/browserslist/-/browserslist-4.16.5.tgz"
-SRC_URI[md5sum] = "0cb4702271c1c3817a7cdb55282d7c85"
-SRC_URI[sha256sum] = "d0a061da03ee3f9589d7b768780e80d3a267e23e915a0572119e42838fcad699"
+SRC_URI = "https://registry.npmjs.org/browserslist/-/browserslist-4.16.6.tgz"
+SRC_URI[md5sum] = "28c10f742c3d4b3daa5fdf20c2403cee"
+SRC_URI[sha256sum] = "438d08e520e550518dcc5964c61a5a0013b1f53c39503d1a82194cf1aad33213"
 
 NPM_PKGNAME = "browserslist"
 
