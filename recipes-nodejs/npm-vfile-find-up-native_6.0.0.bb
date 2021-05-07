@@ -5,11 +5,12 @@ HOMEPAGE = "https://github.com/vfile/vfile-find-up#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=91fb5297439b32d9cd49df8a2484d3eb"
 
-DEPENDS = "npm-to-vfile-native"
+DEPENDS = "npm-to-vfile-native \
+           npm-vfile-native"
 
-SRC_URI = "https://registry.npmjs.org/vfile-find-up/-/vfile-find-up-5.0.1.tgz"
-SRC_URI[md5sum] = "62ac4216d306d27cc0196d86bd287071"
-SRC_URI[sha256sum] = "77b1f9928581e86c1efed53dc8874b612bc093316fb53f18b8d0e039680bab25"
+SRC_URI = "https://registry.npmjs.org/vfile-find-up/-/vfile-find-up-6.0.0.tgz"
+SRC_URI[md5sum] = "aa796de9da9c2316114d855e0506fd0e"
+SRC_URI[sha256sum] = "007c5f9325afa70019d30e34a28d38b18c5d46e8edf2ebe3bde6536dec8ad99e"
 
 NPM_PKGNAME = "vfile-find-up"
 
