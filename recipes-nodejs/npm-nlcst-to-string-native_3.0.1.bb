@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=f94eeeb01d2350e09cda730abca93641"
 
 DEPENDS = "npm-types-unist-native"
 
-SRC_URI = "https://registry.npmjs.org/nlcst-to-string/-/nlcst-to-string-3.0.0.tgz"
-SRC_URI[md5sum] = "433b3644f0f1e0b7ccc17f1dd9ebda50"
-SRC_URI[sha256sum] = "79dc58349c62cf8f135a91a0c5ffdec99c06693e70b7969724a31a67459d631b"
+SRC_URI = "https://registry.npmjs.org/nlcst-to-string/-/nlcst-to-string-3.0.1.tgz"
+SRC_URI[md5sum] = "89d83328995d2d69e1ae2565c5b6e8f2"
+SRC_URI[sha256sum] = "046e1a5335ca2cd3ff2710f8fbad97d196a9585128e9f932a9c92ab5a2fcbc22"
 
 NPM_PKGNAME = "nlcst-to-string"
 
