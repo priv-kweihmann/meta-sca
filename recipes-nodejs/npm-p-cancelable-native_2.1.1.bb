@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/p-cancelable/-/p-cancelable-2.1.0.tgz"
-SRC_URI[md5sum] = "ac37d979e4921f4f00a053cd108058f6"
-SRC_URI[sha256sum] = "a606ad5ea7fc116166903aecae303f6b238ce02bccc0471fec109bcf5e6ecec2"
+SRC_URI = "https://registry.npmjs.org/p-cancelable/-/p-cancelable-2.1.1.tgz"
+SRC_URI[md5sum] = "e270d3b46c3c33ece984b27cc140e652"
+SRC_URI[sha256sum] = "90b27023c7008f572240c117c23b92933743a4da50419a3724b91c4ec79040d0"
 
 NPM_PKGNAME = "p-cancelable"
 
