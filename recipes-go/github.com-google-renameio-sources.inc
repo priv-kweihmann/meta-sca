@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/google/renameio/@v/v1.0.0.zip;srcoutput=github.com/google/renameio;srcinput=github.com/google/renameio@v1.0.0;downloadfilename=github-com-google-renameio-1.0.0.zip;name=github-com-google-renameio"
-SRC_URI[github-com-google-renameio.sha256sum] = "eda9cf3d2245401817f23dd3719affcc957cb052ec85a546b0096d7a37db47e8"
+SRC_URI += "https://proxy.golang.org/github.com/google/renameio/@v/v1.0.1.zip;srcoutput=github.com/google/renameio;srcinput=github.com/google/renameio@v1.0.1;downloadfilename=github-com-google-renameio-1.0.1.zip;name=github-com-google-renameio"
+SRC_URI[github-com-google-renameio.sha256sum] = "846a437abb62928546377741fdfcd0cb583eb1a2f6e0f1fd983a02fe87d204c9"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
