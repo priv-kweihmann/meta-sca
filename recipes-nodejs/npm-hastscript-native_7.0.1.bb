@@ -11,9 +11,9 @@ DEPENDS = "npm-comma-separated-tokens-native \
            npm-space-separated-tokens-native \
            npm-types-hast-native"
 
-SRC_URI = "https://registry.npmjs.org/hastscript/-/hastscript-7.0.0.tgz"
-SRC_URI[md5sum] = "3bde8b957e26b5fb3af4d1e9df83c30f"
-SRC_URI[sha256sum] = "30027ad510b95d1d57b4b350ef9ac335effa336eb458e5adb238af0c1b1ebdbd"
+SRC_URI = "https://registry.npmjs.org/hastscript/-/hastscript-7.0.1.tgz"
+SRC_URI[md5sum] = "06e2908ada28d6d89bade8159eaef121"
+SRC_URI[sha256sum] = "6cd27a9b540057424043c3860dd8e4d114aa31f4ca1fc3d205b704c73faa82cf"
 
 NPM_PKGNAME = "hastscript"
 
