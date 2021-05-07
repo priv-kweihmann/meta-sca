@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://license;md5=7e5307a85144ae88c8ce8eb803918a97"
 DEPENDS = "npm-character-entities-html4-native \
            npm-character-entities-legacy-native"
 
-SRC_URI = "https://registry.npmjs.org/stringify-entities/-/stringify-entities-4.0.0.tgz"
-SRC_URI[md5sum] = "b0f026d81eff30554bb2929f74c65bb6"
-SRC_URI[sha256sum] = "56f65c7e776b2a5477b02f5fb41249b4c060e5035d4883e0bf0877c46e1dd5ea"
+SRC_URI = "https://registry.npmjs.org/stringify-entities/-/stringify-entities-4.0.1.tgz"
+SRC_URI[md5sum] = "b39647d4010d39508373b9c33796eba2"
+SRC_URI[sha256sum] = "34a757278f10b22c04ad9277714da0cae5b2fd76a78e576b455021520d6a774c"
 
 NPM_PKGNAME = "stringify-entities"
 
