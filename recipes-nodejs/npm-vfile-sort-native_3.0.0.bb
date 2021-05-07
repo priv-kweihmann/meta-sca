@@ -5,9 +5,11 @@ HOMEPAGE = "https://github.com/vfile/vfile-sort#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=91fb5297439b32d9cd49df8a2484d3eb"
 
-SRC_URI = "https://registry.npmjs.org/vfile-sort/-/vfile-sort-2.2.2.tgz"
-SRC_URI[md5sum] = "611bf645a37a479289f1213dc17c0093"
-SRC_URI[sha256sum] = "89f0a3e9daca768e694286a297c18a37cbc3abf0a4d0949abcba7a32c2cef58b"
+DEPENDS = "npm-vfile-message-native"
+
+SRC_URI = "https://registry.npmjs.org/vfile-sort/-/vfile-sort-3.0.0.tgz"
+SRC_URI[md5sum] = "a24135314a157579c6457e46a9a89555"
+SRC_URI[sha256sum] = "40179e53a4f3e0ca642456e6b5b2ef6d0d635513d99352288fe9467d9b044238"
 
 NPM_PKGNAME = "vfile-sort"
 
