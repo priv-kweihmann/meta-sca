@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/plush/v4/@v/v4.1.4.zip;srcoutput=github.com/gobuffalo/plush/v4;srcinput=github.com/gobuffalo/plush/v4@v4.1.4;downloadfilename=github-com-gobuffalo-plush-v4-4.1.4.zip;name=github-com-gobuffalo-plush-v4"
-SRC_URI[github-com-gobuffalo-plush-v4.sha256sum] = "d93ab2b973e9d5956571181790730795b823d0b8d0bc12453bd5493bab00c5f7"
+SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/plush/v4/@v/v4.1.5.zip;srcoutput=github.com/gobuffalo/plush/v4;srcinput=github.com/gobuffalo/plush/v4@v4.1.5;downloadfilename=github-com-gobuffalo-plush-v4-4.1.5.zip;name=github-com-gobuffalo-plush-v4"
+SRC_URI[github-com-gobuffalo-plush-v4.sha256sum] = "44e205a66160cb107f287a44892b48fcaa4b20d8d7877f44c81a5f236316b5a7"
 
 GOSRC_LICENSE += "\
     MIT \
