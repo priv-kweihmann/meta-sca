@@ -103,7 +103,7 @@ def do_sca_conv_pyright(d):
                                                 File=m["file"],
                                                 Line=str(m["range"]["start"]["line"] + 1),
                                                 Message=m["message"],
-                                                ID=hashlib.md5(str.encode(m["message"])).hexdigest(),
+                                                ID=m.get("rule", hashlib.md5(str.encode(m["message"])).hexdigest()),
                                                 Severity=_severity_map[m["severity"]])
                         if _suppress.Suppressed(g):
                             continue
@@ -138,6 +138,8 @@ def exec_wrap_combine_json_pyright(a, b, **kwargs):
     import json
     if not b.strip().endswith("}"):
         b = b[:b.rfind("}") + 1]
+    if not b.strip().startswith("{"):
+        b = b[b.find("{"):]
     try:
         b = json.loads(b)
     except:
@@ -188,7 +190,7 @@ python do_sca_pyright_core() {
                                     ])
         cmd_output = exec_wrap_check_output(d, _args, _files,
                                             combine=exec_wrap_combine_json_pyright,
-                                            key="diagnostics",
+                                            key="generalDiagnostics",
                                             chunk_size=5)
     with open(sca_raw_result_file(d, "pyright"), "w") as o:
         o.write(cmd_output)
