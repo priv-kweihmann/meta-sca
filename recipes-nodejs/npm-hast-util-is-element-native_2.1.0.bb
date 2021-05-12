@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 DEPENDS = "npm-types-hast-native \
            npm-types-unist-native"
 
-SRC_URI = "https://registry.npmjs.org/hast-util-is-element/-/hast-util-is-element-2.0.1.tgz"
-SRC_URI[md5sum] = "fab65ecd3af0ba083b449a7bb67ae1be"
-SRC_URI[sha256sum] = "ff9b6bccb219e25f5a8e9c0f58ad1121372bea99a444575ce2006ad9acab50f3"
+SRC_URI = "https://registry.npmjs.org/hast-util-is-element/-/hast-util-is-element-2.1.0.tgz"
+SRC_URI[md5sum] = "63ce40be4f54351ea25dce03df650834"
+SRC_URI[sha256sum] = "9847ca8d4b669cdc331f9f22a38ee9705af29fe2534a91cf32d61ad3fe33ebf5"
 
 NPM_PKGNAME = "hast-util-is-element"
 
