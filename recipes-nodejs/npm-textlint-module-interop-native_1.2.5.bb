@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=fdf16298bf702d1ba5d61988dfe70c9f"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/@textlint/module-interop/-/module-interop-1.2.4.tgz"
-SRC_URI[md5sum] = "9f69de83643e02e65160ec91fc2a2b0f"
-SRC_URI[sha256sum] = "8bc37a82666a9194c2a2d2b22e953fe8a96acf106a9cc2f573b3ad0dd9908bc1"
+SRC_URI = "https://registry.npmjs.org/@textlint/module-interop/-/module-interop-1.2.5.tgz"
+SRC_URI[md5sum] = "7cec65fa83ecef85e84660037ac06260"
+SRC_URI[sha256sum] = "385140dc5022915b1168df2105a9f3d9173b47fcd9b9d6bb4ddc1eefc8982aa0"
 
 NPM_PKGNAME = "@textlint/module-interop"
 
