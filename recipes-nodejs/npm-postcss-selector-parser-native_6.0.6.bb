@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://LICENSE-MIT;md5=5a9c687fbbd43eb51c08313a2cbbf60d"
 DEPENDS = "npm-cssesc-native \
            npm-util-deprecate-native"
 
-SRC_URI = "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.0.5.tgz"
-SRC_URI[md5sum] = "f01057369277cd43fe25ae66a9d9d087"
-SRC_URI[sha256sum] = "23c1b524d71ef3b93dfa49532d9a232eb19f583db0f570d4781fda20bc1c6291"
+SRC_URI = "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.0.6.tgz"
+SRC_URI[md5sum] = "32c6837ad0d32bc8059180498340cd03"
+SRC_URI[sha256sum] = "a540bb9661b1fb0da58618a34cdff2711306874b91556bcb5055f5d9b7d6a2aa"
 
 NPM_PKGNAME = "postcss-selector-parser"
 
