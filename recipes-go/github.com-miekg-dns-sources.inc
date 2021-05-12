@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/miekg/dns/@v/v1.1.41.zip;srcoutput=github.com/miekg/dns;srcinput=github.com/miekg/dns@v1.1.41;downloadfilename=github-com-miekg-dns-1.1.41.zip;name=github-com-miekg-dns"
-SRC_URI[github-com-miekg-dns.sha256sum] = "0e484478e5057a155b61523c17e6941558888b8f2f450c4235cc993d233dcc14"
+SRC_URI += "https://proxy.golang.org/github.com/miekg/dns/@v/v1.1.42.zip;srcoutput=github.com/miekg/dns;srcinput=github.com/miekg/dns@v1.1.42;downloadfilename=github-com-miekg-dns-1.1.42.zip;name=github-com-miekg-dns"
+SRC_URI[github-com-miekg-dns.sha256sum] = "c722c3162340873879be4db866caeb46dc752854a57c7007350fdfc5c350bdfe"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
