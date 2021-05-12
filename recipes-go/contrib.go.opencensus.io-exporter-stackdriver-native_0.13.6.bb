@@ -21,6 +21,7 @@ EXTRA_DEPENDS += "\
     google.golang.org-api-native \
     google.golang.org-genproto-native \
     google.golang.org-grpc-native \
+    google.golang.org-protobuf-native \
     honnef.co-go-tools-native \
 "
 
