@@ -5,9 +5,11 @@ HOMEPAGE = "https://github.com/ljharb/is-string#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5db8fa3e421a3211e6a3dc68544da455"
 
-SRC_URI = "https://registry.npmjs.org/is-string/-/is-string-1.0.5.tgz"
-SRC_URI[md5sum] = "abe51bbe7cdfeff3c4253a143a9617c6"
-SRC_URI[sha256sum] = "d6c05956276d3f3f9443ebe0cafd248191f0348bc397c6cfbcd52f4eb32efb1e"
+DEPENDS = ""
+
+SRC_URI = "https://registry.npmjs.org/is-string/-/is-string-1.0.6.tgz"
+SRC_URI[md5sum] = "4011805b57b0620fe11e548b4fd8a16d"
+SRC_URI[sha256sum] = "30866f3f23009e3598653a9ee564605c8eeefe8b086259ce8a934e3872396211"
 
 NPM_PKGNAME = "is-string"
 
