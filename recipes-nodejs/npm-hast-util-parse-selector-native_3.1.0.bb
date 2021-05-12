@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 
 DEPENDS = "npm-types-hast-native"
 
-SRC_URI = "https://registry.npmjs.org/hast-util-parse-selector/-/hast-util-parse-selector-3.0.0.tgz"
-SRC_URI[md5sum] = "09a79fa7af2d474edd02a7dcf0325159"
-SRC_URI[sha256sum] = "7dbf809ff652991d66fb5ce27ed6439d0ed8aa368232be0e2e04bc47b9e26cdd"
+SRC_URI = "https://registry.npmjs.org/hast-util-parse-selector/-/hast-util-parse-selector-3.1.0.tgz"
+SRC_URI[md5sum] = "19cf04eb07ea475b71baf3a60c53ccec"
+SRC_URI[sha256sum] = "68c56e48c73353740b3466cc8c44a03839f77ff89f24ba8a98bdf008ef58928a"
 
 NPM_PKGNAME = "hast-util-parse-selector"
 
