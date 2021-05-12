@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=bc9a2bae21f2f74984d4a43e24285986"
 
 DEPENDS = "npm-textlint-ast-node-types-native"
 
-SRC_URI = "https://registry.npmjs.org/@textlint/ast-tester/-/ast-tester-2.3.4.tgz"
-SRC_URI[md5sum] = "f77ef7c3a02a183e8286683e856af928"
-SRC_URI[sha256sum] = "2d292331bac884feb51109c09886756a301048ec28f458609ae810acbf55f1d0"
+SRC_URI = "https://registry.npmjs.org/@textlint/ast-tester/-/ast-tester-2.3.5.tgz"
+SRC_URI[md5sum] = "c25e654e01c23d0b09992e077a6bd5c1"
+SRC_URI[sha256sum] = "d08164d93fe81afa447c74e246a52d6ff4ec2874d0a0ddd62eec0fbc05f678c7"
 
 NPM_PKGNAME = "@textlint/ast-tester"
 
