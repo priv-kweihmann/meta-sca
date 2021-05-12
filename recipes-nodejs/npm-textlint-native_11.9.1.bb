@@ -35,9 +35,9 @@ DEPENDS = "npm-debug-native \
            npm-try-resolve-native \
            npm-unique-concat-native"
 
-SRC_URI = "https://registry.npmjs.org/textlint/-/textlint-11.9.0.tgz"
-SRC_URI[md5sum] = "9c02f977fa06a5687e9584a4ee9af20c"
-SRC_URI[sha256sum] = "3f689452205ad912f9b764319b43c3fd4092019adcf5a4bbef876e1e5fc8dccc"
+SRC_URI = "https://registry.npmjs.org/textlint/-/textlint-11.9.1.tgz"
+SRC_URI[md5sum] = "1f46e2a3e10d609f11ce9042abeeb56a"
+SRC_URI[sha256sum] = "c954b8bd99c7fcf2a5ec354614b23e3b4a5dc30b203889476792662acccb7165"
 
 NPM_PKGNAME = "textlint"
 
