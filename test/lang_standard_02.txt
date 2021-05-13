@@ -19,6 +19,7 @@ pylint
 pyright
 pysymcheck
 safety
+secretlint
 setuptoolslint
 stylelint
 vulture
