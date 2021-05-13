@@ -1,2 +1,2 @@
 inherit sca
-SCA_ENABLED_MODULES = "detectsecrets"
+SCA_ENABLED_MODULES = "detectsecrets secretlint"
