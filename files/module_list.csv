@@ -76,6 +76,7 @@ safety,Check for known vulnerabilities in python-packages,https://github.com/pyu
 scancode,Scan code for license information,https://github.com/nexB/scancode-toolkit,,,,x,,,,,,,,,,,,,,x,x,,
 semgrep,Pattern based linting for many formats and languages,https://github.com/returntocorp/semgrep,"only avaiable for x86-64 hosts",,,x,x,x,x,,x,x,x,,,,,,,x,,x,
 setuptoolslint,Lint python-setup.py,https://github.com/johnnoone/setuptools-pylint,,,,x,,,x,,,,,,,,,,,,,x,
+secretlint,Tool to prevent committing credential,https://github.com/secretlint/secretlint,,,x,x,,,,,,,,,,,,,,x,x,,
 shellcheck,Shell script linter,https://github.com/koalaman/shellcheck,,,x,x,,,,x,,,,,,,,,,,,x,x
 slick,Shell script linter,https://github.com/mcandre/slick,,,x,x,,,,x,,,,,,,,,,,,x,
 sparse,C linter,https://sparse.wiki.kernel.org/index.php/Main_Page,,,,x,x,,,,,,,,,,,,,,,x,

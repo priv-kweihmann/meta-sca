@@ -74,6 +74,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             rubycritic \
                             safety \
                             scancode \
+                            secretlint \
                             semgrep \
                             setuptoolslint \
                             shellcheck \

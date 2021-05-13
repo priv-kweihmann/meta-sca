@@ -133,6 +133,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           reuse \
                           revive \
                           safety \
+                          secretlint \
                           semgrep \
                           setuptoolslint \
                           shellcheck \
