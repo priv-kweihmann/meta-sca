@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=10f8378cf9409df9bd8015af40a24b59"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/textextensions/-/textextensions-3.3.0.tgz"
-SRC_URI[md5sum] = "5da438a44e8a6bf4086c0cc64a92a091"
-SRC_URI[sha256sum] = "8d2f74fec32b5b1b0112cf2a84ec181cab3c6b19195715bf812ee623085ab04c"
+SRC_URI = "https://registry.npmjs.org/textextensions/-/textextensions-5.12.0.tgz"
+SRC_URI[md5sum] = "766395f907aeb2b1406c568f930c04be"
+SRC_URI[sha256sum] = "1d7f2906c212b185b42156515203be4ec8e6e935537e665bda54d7b5ea955297"
 
 NPM_PKGNAME = "textextensions"
 
