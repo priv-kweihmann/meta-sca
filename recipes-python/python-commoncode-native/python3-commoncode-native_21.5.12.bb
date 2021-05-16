@@ -21,7 +21,7 @@ SRC_URI = "\
            git://github.com/nexB/commoncode.git;protocol=https;branch=main \
            file://0001-remove-version-binding-for-typing.patch \
           "
-SRCREV = "b647b4207cfa59ea0c9d70d045d121a8b6a325ee"
+SRCREV = "06d2e64dea3c4c604b4e2cccf5bc90922255a5d9"
 
 S = "${WORKDIR}/git"
 
