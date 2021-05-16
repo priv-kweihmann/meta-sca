@@ -3,14 +3,15 @@ DESCRIPTION = "Determine if a filename and/or buffer is text or binary. Smarter 
 HOMEPAGE = "https://github.com/bevry/istextorbinary"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.md;md5=04a9afc24140a62c48528d0a8cac4c82"
+LIC_FILES_CHKSUM = "file://LICENSE.md;md5=90c2e5df173fd34066031c1476c854ec"
 
 DEPENDS = "npm-binaryextensions-native \
+           npm-editions-native \
            npm-textextensions-native"
 
-SRC_URI = "https://registry.npmjs.org/istextorbinary/-/istextorbinary-3.3.0.tgz"
-SRC_URI[md5sum] = "306664719bfba0ff52a9f8ea4a721ca5"
-SRC_URI[sha256sum] = "0da9c1134b8d53c939bdd5b7e162df1fbed0178dbbc85dba00c159775add9d59"
+SRC_URI = "https://registry.npmjs.org/istextorbinary/-/istextorbinary-5.12.0.tgz"
+SRC_URI[md5sum] = "bee22563c59c1b8e561dde30595efcd6"
+SRC_URI[sha256sum] = "a2018c615a23f22c56b22b587b4a07e9b6ad5e1d468e34b6b85230bcdbbeb3b1"
 
 NPM_PKGNAME = "istextorbinary"
 
