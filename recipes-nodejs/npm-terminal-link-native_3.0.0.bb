@@ -3,14 +3,14 @@ DESCRIPTION = "Create clickable links in the terminal"
 HOMEPAGE = "https://github.com/sindresorhus/terminal-link#readme"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
+LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = "npm-ansi-escapes-native \
            npm-supports-hyperlinks-native"
 
-SRC_URI = "https://registry.npmjs.org/terminal-link/-/terminal-link-2.1.1.tgz"
-SRC_URI[md5sum] = "f131d1e7d205ed1643f93354a96e6eb1"
-SRC_URI[sha256sum] = "7b4ce824773fe7a6d9304aed5f9a9c882f0b0a73c480ecda76917312a0c1af09"
+SRC_URI = "https://registry.npmjs.org/terminal-link/-/terminal-link-3.0.0.tgz"
+SRC_URI[md5sum] = "e5b548a93767f05ee7ce56d0a57c6d30"
+SRC_URI[sha256sum] = "b924a012933c5eac5d411d65d02aabe1c01e2e3d21bcb6ab6353311e2f6f4e3e"
 
 NPM_PKGNAME = "terminal-link"
 
