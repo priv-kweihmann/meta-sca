@@ -1,5 +1,5 @@
 SUMMARY = "NPM: dom-serializer"
-DESCRIPTION = "render dom nodes to string"
+DESCRIPTION = "render domhandler DOM nodes to a string"
 HOMEPAGE = "https://github.com/cheeriojs/dom-renderer#readme"
 
 LICENSE = "MIT"
@@ -9,9 +9,9 @@ DEPENDS = "npm-domelementtype-native \
            npm-domhandler-native \
            npm-entities-native"
 
-SRC_URI = "https://registry.npmjs.org/dom-serializer/-/dom-serializer-1.3.1.tgz"
-SRC_URI[md5sum] = "6692f4c69e4a79860c0ace29c8e7bfc5"
-SRC_URI[sha256sum] = "4cdb0c674f025ae0b3172c80e935469a9e78cb8641db66502bd5fec9fbebc496"
+SRC_URI = "https://registry.npmjs.org/dom-serializer/-/dom-serializer-1.3.2.tgz"
+SRC_URI[md5sum] = "beb389ea0e65742b73dc4dc798ea267b"
+SRC_URI[sha256sum] = "771bf9bbb2a7a3e317417b554841128d76b60ec64b365445b7d68b4f44fcfff7"
 
 NPM_PKGNAME = "dom-serializer"
 
