@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=7c7c6a1a12ec816da16c1839137d53ae"
 
 PYPI_PACKAGE = "sortedcontainers"
 
-SRC_URI[md5sum] = "660260df593a3769c7b5854f13d574c0"
-SRC_URI[sha256sum] = "59cc937650cf60d677c16775597c89a960658a09cf7c1a668f86e1e4464b10a1"
+SRC_URI[md5sum] = "50eeb6cb739568b590b28f9a3f445c78"
+SRC_URI[sha256sum] = "25caa5a06cc30b6b83d11423433f65d1f9d76c4c6a0c90e3379eaa43b9bfdb88"
 
 inherit pypi
 inherit setuptools3
