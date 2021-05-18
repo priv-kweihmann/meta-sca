@@ -3,13 +3,13 @@ DESCRIPTION = "Resolve things like Node.js — ponyfill for `import.meta.resolve
 HOMEPAGE = "https://github.com/wooorm/import-meta-resolve#readme"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://license;md5=7e5307a85144ae88c8ce8eb803918a97"
+LIC_FILES_CHKSUM = "file://license;md5=5dc2bb8d675a94d28780e8e16a5bfa12"
 
 DEPENDS = "npm-builtins-native"
 
-SRC_URI = "https://registry.npmjs.org/import-meta-resolve/-/import-meta-resolve-1.0.1.tgz"
-SRC_URI[md5sum] = "0568e04e82deb9987d37f1a0a3309632"
-SRC_URI[sha256sum] = "c7f53358a37e945bb8552e015d4feb80ca701fc8b1c2fd85d88825b0af620ba3"
+SRC_URI = "https://registry.npmjs.org/import-meta-resolve/-/import-meta-resolve-1.1.0.tgz"
+SRC_URI[md5sum] = "726d8a386f437d049eb2bbb205804b22"
+SRC_URI[sha256sum] = "97d4a2c1e3e397eab104e0d276389e7e55016d65bc860d7ead103939a390a3bc"
 
 NPM_PKGNAME = "import-meta-resolve"
 
