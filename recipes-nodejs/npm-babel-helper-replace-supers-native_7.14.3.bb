@@ -10,9 +10,9 @@ DEPENDS = "npm-babel-helper-member-expression-to-functions-native \
            npm-babel-traverse-native \
            npm-babel-types-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/helper-replace-supers/-/helper-replace-supers-7.13.12.tgz"
-SRC_URI[md5sum] = "6e901dd640a09a8e1e8e49dc250fe39a"
-SRC_URI[sha256sum] = "28cfbcca3c738ed0172e97145a47e28d985d9febb33231992bf3ba816a5f7e66"
+SRC_URI = "https://registry.npmjs.org/@babel/helper-replace-supers/-/helper-replace-supers-7.14.3.tgz"
+SRC_URI[md5sum] = "14a0b010ec77b699a720634286e6cd9f"
+SRC_URI[sha256sum] = "a5218d5e5873c9e4737a491bda0539113515511fae686f7890165e50f91c7d20"
 
 NPM_PKGNAME = "@babel/helper-replace-supers"
 
