@@ -13,6 +13,9 @@
 | SCA_GCC_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_GCC_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_GCC_HARDENING | Additional hardening checks | int: "0" or "1" | "1"
+| SCA_GCC_ANALYZER | Enable GCC analyzer support | int: "0" or "1" | "1"
+
+**NOTE**: analyzer support significantly increases the build time
 
 ## Supports
 
