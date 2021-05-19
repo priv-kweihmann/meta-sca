@@ -7,6 +7,8 @@ SCA_GCC_EXTRA_SUPPRESS ?= ""
 SCA_GCC_EXTRA_FATAL ?= ""
 ## Enable additional hardening checks
 SCA_GCC_HARDENING ?= "1"
+## Enable static analyzer support
+SCA_GCC_ANALYZER ?= "1"
 
 SCA_RAW_RESULT_FILE[gcc] = "txt"
 
@@ -17,6 +19,8 @@ inherit sca-helper
 inherit sca-suppress
 inherit sca-image-backtrack
 inherit sca-tracefiles
+
+TARGET_CFLAGS_append = "${@oe.utils.ifelse(d.getVar('SCA_GCC_ANALYZER') == '1', ' -fanalyzer', '')}"
 
 def sca_gcc_hardening(d):
     import os
