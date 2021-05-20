@@ -20,7 +20,10 @@ inherit sca-suppress
 inherit sca-image-backtrack
 inherit sca-tracefiles
 
-TARGET_CFLAGS_append = "${@oe.utils.ifelse(d.getVar('SCA_GCC_ANALYZER') == '1', ' -fanalyzer', '')}"
+def sca_can_run_gcc_analyzer(d):
+    return d.getVar('SCA_GCC_ANALYZER') == '1' and float(d.getVar('GCCVERSION') or "0.0") >= 10.0
+
+TARGET_CFLAGS_append = "${@oe.utils.ifelse(sca_can_run_gcc_analyzer(d), ' -fanalyzer', '')}"
 
 def sca_gcc_hardening(d):
     import os
