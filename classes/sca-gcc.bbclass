@@ -21,7 +21,9 @@ inherit sca-image-backtrack
 inherit sca-tracefiles
 
 def sca_can_run_gcc_analyzer(d):
-    return d.getVar('SCA_GCC_ANALYZER') == '1' and float(d.getVar('GCCVERSION') or "0.0") >= 10.0
+    _gcc_version = d.getVar('GCCVERSION') or "0.0"
+    _gcc_version = _gcc_version.replace("%", "0")
+    return d.getVar('SCA_GCC_ANALYZER') == '1' and float(_gcc_version) >= 10.0
 
 TARGET_CFLAGS_append = "${@oe.utils.ifelse(sca_can_run_gcc_analyzer(d), ' -fanalyzer', '')}"
 
