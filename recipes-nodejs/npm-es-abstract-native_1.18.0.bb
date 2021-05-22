@@ -14,15 +14,17 @@ DEPENDS = "npm-call-bind-native \
            npm-is-callable-native \
            npm-is-negative-zero-native \
            npm-is-regex-native \
+           npm-is-string-native \
            npm-object-inspect-native \
            npm-object-keys-native \
            npm-object.assign-native \
            npm-string.prototype.trimend-native \
-           npm-string.prototype.trimstart-native"
+           npm-string.prototype.trimstart-native \
+           npm-unbox-primitive-native"
 
-SRC_URI = "https://registry.npmjs.org/es-abstract/-/es-abstract-1.18.0-next.2.tgz"
-SRC_URI[md5sum] = "b9e00b358d007c2fef025a19a511fd0a"
-SRC_URI[sha256sum] = "2f517b6879733b5481330026392969ddaa2120a5d2eb99c81bb87443e0ef5b5f"
+SRC_URI = "https://registry.npmjs.org/es-abstract/-/es-abstract-1.18.0.tgz"
+SRC_URI[md5sum] = "48823ee716fa809134b4585c7362f998"
+SRC_URI[sha256sum] = "fd385c31db8271a5772f2f38f2a543b3358786ffd21d718307885c90ad3093e6"
 
 NPM_PKGNAME = "es-abstract"
 
