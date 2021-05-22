@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=abd0e25891525eb13d5a794f550a6ee4"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/picomatch/-/picomatch-2.2.3.tgz"
-SRC_URI[md5sum] = "a3fff3731b0e57765cf302757cf16088"
-SRC_URI[sha256sum] = "5d8c1f5b50a9a5a5d6092dfcf61ee6d1ede4c1a04f13b14fe78e9642e28b4a54"
+SRC_URI = "https://registry.npmjs.org/picomatch/-/picomatch-2.3.0.tgz"
+SRC_URI[md5sum] = "21b93be8448e9e1f9167e305ad1b4c79"
+SRC_URI[sha256sum] = "ec81cbb36546358b4369be6521148b129569dc0a51fd0154af618326f89a3596"
 
 NPM_PKGNAME = "picomatch"
 
