@@ -8,7 +8,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require github.com-google-martian-v3-sources.inc
 
 EXTRA_DEPENDS += "\
+    github.com-golang-snappy-native \
     golang.org-x-net-native \
+    google.golang.org-grpc-native \
+    google.golang.org-protobuf-native \
 "
 
 GO_IMPORT = "github.com/google/martian/v3"
