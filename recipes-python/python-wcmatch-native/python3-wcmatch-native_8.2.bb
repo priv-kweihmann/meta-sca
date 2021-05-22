@@ -3,7 +3,7 @@ DESCRIPTION = "Wildcard Match provides an enhanced fnmatch, glob, and pathlib li
 HOMEPAGE = "https://github.com/facelessuser/wcmatch"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.md;md5=afeaf26eb7075154cef8e8a5fe5fa5ee"
+LIC_FILES_CHKSUM = "file://LICENSE.md;md5=838e17f50a700d2416b311b28960bcd3"
 
 DEPENDS += "\
             python3-bracex-native \
@@ -13,8 +13,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "wcmatch"
 
-SRC_URI[md5sum] = "f215eae2744eb344183b42bd1ae32839"
-SRC_URI[sha256sum] = "efda751de15201b395b6d6e64e6ae3b6b03dc502a64c3c908aa5cad14c27eee5"
+SRC_URI[md5sum] = "3e8b058e22c24c35f3be0ed43f0452eb"
+SRC_URI[sha256sum] = "4d54ddb506c90b5a5bba3a96a1cfb0bb07127909e19046a71d689ddfb18c3617"
 
 inherit pypi
 inherit setuptools3
