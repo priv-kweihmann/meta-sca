@@ -10,9 +10,9 @@ DEPENDS = "npm-concat-stream-native \
            npm-structured-source-native \
            npm-textlint-ast-node-types-native"
 
-SRC_URI = "https://registry.npmjs.org/sentence-splitter/-/sentence-splitter-3.2.1.tgz"
-SRC_URI[md5sum] = "80e3177ff9487668d31e41a72749b3ea"
-SRC_URI[sha256sum] = "d83e957bf1212c725911beea43aac3636e1a4a953b443f1d105611d386e31020"
+SRC_URI = "https://registry.npmjs.org/sentence-splitter/-/sentence-splitter-3.2.2.tgz"
+SRC_URI[md5sum] = "52870de189c9c7fbdeef97c2ccc2a3a5"
+SRC_URI[sha256sum] = "369a9289c9d896adb539fc159d799aeda822eb81284a6f7c5aa1c207d9cb8f50"
 
 NPM_PKGNAME = "sentence-splitter"
 
