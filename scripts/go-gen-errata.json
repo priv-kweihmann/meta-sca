@@ -404,6 +404,11 @@
             "GOSRC_REMOVEDIRS += \"github.com/mwitkow/go-proto-validators/test\""
         ]
     },
+    "github.com/envoyproxy/go-control-plane": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/envoyproxy/go-control-plane/pkg/integration\""
+        ]
+    },
     "github.com/nats-io/nats.go": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/nats-io/nats.go/test\""
