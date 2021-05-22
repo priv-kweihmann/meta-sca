@@ -12,6 +12,7 @@ DEPENDS = "npm-ajv-native \
            npm-debug-native \
            npm-doctrine-native \
            npm-enquirer-native \
+           npm-escape-string-regexp-native \
            npm-eslint-eslintrc-native \
            npm-eslint-scope-native \
            npm-eslint-utils-native \
@@ -19,6 +20,7 @@ DEPENDS = "npm-ajv-native \
            npm-espree-native \
            npm-esquery-native \
            npm-esutils-native \
+           npm-fast-deep-equal-native \
            npm-file-entry-cache-native \
            npm-functional-red-black-tree-native \
            npm-glob-parent-native \
@@ -30,7 +32,7 @@ DEPENDS = "npm-ajv-native \
            npm-js-yaml-native \
            npm-json-stable-stringify-without-jsonify-native \
            npm-levn-native \
-           npm-lodash-native \
+           npm-lodash.merge-native \
            npm-minimatch-native \
            npm-natural-compare-native \
            npm-optionator-native \
@@ -43,9 +45,9 @@ DEPENDS = "npm-ajv-native \
            npm-text-table-native \
            npm-v8-compile-cache-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint/-/eslint-7.26.0.tgz"
-SRC_URI[md5sum] = "f4271d50f3871dec84a7c76f610497b1"
-SRC_URI[sha256sum] = "7df1293cce22e076980b9aba48d1521a4ff3edab093b60a0547eb586ccebe4f2"
+SRC_URI = "https://registry.npmjs.org/eslint/-/eslint-7.27.0.tgz"
+SRC_URI[md5sum] = "af3ba2489463a534c6851140ea343806"
+SRC_URI[sha256sum] = "61cd0bdac9edf6dfbde8ce7a8c7d861620bf54f1d750e8e3116a1b609ce8719d"
 
 NPM_PKGNAME = "eslint"
 
