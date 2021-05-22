@@ -9,10 +9,11 @@ require github.com-envoyproxy-go-control-plane-sources.inc
 
 EXTRA_DEPENDS += "\
     github.com-census-instrumentation-opencensus-proto-native \
-    github.com-cncf-udpa-go-native \
+    github.com-cncf-xds-go-native \
     github.com-envoyproxy-protoc-gen-validate-native \
     github.com-golang-protobuf-native \
     github.com-prometheus-client-model-native \
+    go.opentelemetry.io-proto-otlp-native \
     google.golang.org-genproto-native \
     google.golang.org-grpc-native \
     google.golang.org-protobuf-native \
