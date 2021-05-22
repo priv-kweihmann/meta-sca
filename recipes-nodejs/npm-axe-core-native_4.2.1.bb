@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=f27a50d2e878867827842f2c60e30bfc"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/axe-core/-/axe-core-4.2.0.tgz"
-SRC_URI[md5sum] = "f3373384f2aed42aa01849678985946d"
-SRC_URI[sha256sum] = "a0dece03b152771c5165cea7c4581968d72f352bb6a57582f40399fe8274ee21"
+SRC_URI = "https://registry.npmjs.org/axe-core/-/axe-core-4.2.1.tgz"
+SRC_URI[md5sum] = "7d6af2e2616c496e2cc0d2794ef46a51"
+SRC_URI[sha256sum] = "ed4dd8e93938db9e56755fcd5c50dd3a4133d5f0da39fac15e706066897cb586"
 
 NPM_PKGNAME = "axe-core"
 
