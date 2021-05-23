@@ -1,0 +1,36 @@
+From 03066eb71918b49c4f747394fcbdea7fe09dcc28 Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Sun, 23 May 2021 10:40:26 +0200
+Subject: [PATCH] config: proper handling of DistributionNotFound
+
+Previously DistributionNotFound was referenced in an
+exception handler, without being guaranteed to have been
+imported in before
+
+Upstream-Status: Pending
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+---
+ src/scancode_config.py | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/src/scancode_config.py b/src/scancode_config.py
+index b6e7ac371..ce4fadc71 100644
+--- a/src/scancode_config.py
++++ b/src/scancode_config.py
+@@ -75,8 +75,11 @@ def _create_dir(location):
+ 
+ try:
+     from pkg_resources import get_distribution, DistributionNotFound
+-    __version__ = get_distribution('scancode-toolkit').version
+-except (DistributionNotFound, ImportError):
++    try:
++        __version__ = get_distribution('scancode-toolkit').version
++    except DistributionNotFound:
++        __version__ = '21.3.31'
++except ImportError:
+     # package is not installed or we do not have setutools/pkg_resources
+     # on hand
+     __version__ = '21.3.31'
+-- 
+2.25.1
+

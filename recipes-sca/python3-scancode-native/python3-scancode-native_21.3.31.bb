@@ -51,6 +51,7 @@ DEPENDS += "\
             python3-pytz-native \
             python3-requests-native \
             python3-saneyaml-native \
+            python3-setuptools-native \
             python3-simplejson-native \
             python3-six-native \
             python3-sortedcontainers-native \
@@ -70,6 +71,8 @@ RDEPENDS_${PN} += "${DEPENDS}"
 
 SRC_URI = "git://github.com/nexB/scancode-toolkit.git;protocol=https;nobranch=1 \
            file://0001-lift-version-requirements.patch \
+           file://0001-config-proper-handling-of-DistributionNotFound.patch \
+           file://0001-jinja2-lift-upper-pkg-version-boundary.patch \
            file://scancode.sca.description"
 SRCREV = "fa3e3662868c331232f75a93d4b8a1797bc8ddb5"
 
