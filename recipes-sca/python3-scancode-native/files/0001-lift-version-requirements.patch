@@ -8,6 +8,7 @@ remove version limitations for
 - fyty
 - typing
 
+Upstream-Status: Pending
 Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
 ---
  requirements.txt | 3 ---
