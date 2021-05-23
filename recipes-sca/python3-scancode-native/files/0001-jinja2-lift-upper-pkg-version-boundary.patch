@@ -1,0 +1,69 @@
+From 953bbd8da8d600d97af8c6374c37acdde098dc3f Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Sun, 23 May 2021 10:45:56 +0200
+Subject: [PATCH] jinja2: lift upper pkg version boundary
+
+Upstream-Status: Pending
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+---
+ requirements.txt                               | 2 +-
+ setup-mini.cfg                                 | 2 +-
+ setup.cfg                                      | 2 +-
+ tests/packagedcode/data/pypi/setup.py/setup.py | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/requirements.txt b/requirements.txt
+index bc2795b0e..f9ae854e1 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -24,7 +24,7 @@ intbitset==2.4.1
+ isodate==0.6.0
+ jaraco.functools==2.0
+ javaproperties==0.5.1
+-Jinja2==2.10
++Jinja2>=2.10
+ jsonstreams==0.5.0
+ license-expression==1.2
+ lxml==4.6.2
+diff --git a/setup-mini.cfg b/setup-mini.cfg
+index f7ce2d4dd..c4509dbc8 100644
+--- a/setup-mini.cfg
++++ b/setup-mini.cfg
+@@ -70,7 +70,7 @@ install_requires =
+     intbitset >= 2.3.0,  < 3.0
+     jaraco.functools
+     javaproperties >= 0.5
+-    jinja2 >= 2.7.0, < 3.0.0
++    jinja2 >= 2.7.0, < 4.0.0
+     jsonstreams >= 0.5.0
+     license_expression >= 0.99
+     lxml >= 4.0.0, < 5.0.0
+diff --git a/setup.cfg b/setup.cfg
+index 0af59d145..5f7da3b80 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -70,7 +70,7 @@ install_requires =
+     intbitset >= 2.3.0,  < 3.0
+     jaraco.functools
+     javaproperties >= 0.5
+-    jinja2 >= 2.7.0, < 3.0.0
++    jinja2 >= 2.7.0, < 4.0.0
+     jsonstreams >= 0.5.0
+     license_expression >= 0.99
+     lxml >= 4.0.0, < 5.0.0
+diff --git a/tests/packagedcode/data/pypi/setup.py/setup.py b/tests/packagedcode/data/pypi/setup.py/setup.py
+index fe0b8c8f2..e95b210dc 100644
+--- a/tests/packagedcode/data/pypi/setup.py/setup.py
++++ b/tests/packagedcode/data/pypi/setup.py/setup.py
+@@ -87,7 +87,7 @@ setup(
+ 
+         # scancode and AboutCode
+         'click >= 4.0.0, < 5.0.0',
+-        'jinja2 >= 2.7.0, < 3.0.0',
++        'jinja2 >= 2.7.0, < 4.0.0',
+         'MarkupSafe >= 0.23',
+         'colorama',
+ 
+-- 
+2.25.1
+
