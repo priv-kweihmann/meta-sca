@@ -15,13 +15,17 @@
 | SCA_PKGQAENC_BLACKLIST_FILES | Files that shouldn't be installed | space-separated-list | ".c .h .cpp .hpp .man" for base, "application/x-executable application/x-sharedlib application/x-pie-executable" for -dev
 | SCA_PKGQAENC_BLACKLIST_SHEBANG | Blacklisted shebangs in script files | space-separated-list | ""
 | SCA_PKGQAENC_EXEC_CHECK | Files that needs to be executable | space-separated-list | see sca-pkgqaenc.bbclass
+| SCA_PKGQAENC_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
+| SCA_PKGQAENC_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
+| SCA_PKGQAENC_HASHDOG_CULP | Variables known to be not sstate safe | space-separated-list | "DATETIME"
+| SCA_PKGQAENC_HASHDOG_EXCL | Variables excluded from sstate safety checks | space-separated-list | See `sca-pkgqaenc-hashdog.bbclass` for details
 | SCA_PKGQAENC_NO_COPY_CHECK | Files that should NOT be directly copied from sources | space-separated-list | see sca-pkgqaenc.bbclass
 | SCA_PKGQAENC_NO_COPY_NO_CHECK_CLASSES | inherited bbclasses that automatically disable SCA_PKGQAENC_NO_COPY_CHECK | space-separated-list | "bin_package"
 | SCA_PKGQAENC_PERM_MAX_MASK | Max. permitted file mode  mask | octal representation | see below
 | SCA_PKGQAENC_PERM_MIN_MASK | Min. required file mode  mask | octal representation | see below
+| SCA_PKGQAENC_PYIDENT_BUILTINS | Modules builtin to the python interpreter | space-separated-list | See `sca-pkgqaenc-pyident.bbclass` for details
+| SCA_PKGQAENC_SHELLIDENT_SHELLS | Shells to be checked for missing binaries | space-separated-list | "bash sh ksh"
 | SCA_PKGQAENC_WHITELIST_FILES | Files that are okay to be installed | space-separated-list | ""
-| SCA_PROGPILOT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
-| SCA_PROGPILOT_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 
 ### Package based rules
 
@@ -120,18 +124,20 @@ SCA_PKGQAENC_BLACKLIST_FILES-dev ?= "\
 * pkgqaenc.pkgqaenc.blacklisted-file - File is blacklisted
 * pkgqaenc.pkgqaenc.blacklist-dir - Directory is blacklisted
 * pkgqaenc.pkgqaenc.acceptableDirs - Directory is non-standard
+* pkgqaenc.pkgqaenc.missingprodiver - Package is missing a providing package in RDEPENDS
+* pkgqaenc.pkgqaenc.notsstatesafe - Recipe is not safe to use with sstate cache
 
 ## Checking scope
 
-* [x] security
-* [ ] functional defects
+* [ ] security
+* [x] functional defects
 * [ ] compliance
 * [ ] style issues
 
 ## Statistics
 
 * ⬛⬛⬛⬛⬛⬛⬜⬜⬜⬜ 06/10 Build Speed
-* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10 Execution Speed
+* ⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ 05/10 Execution Speed
 * ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Quality
 
 ## Score mapping
