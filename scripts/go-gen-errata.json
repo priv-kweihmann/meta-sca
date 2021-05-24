@@ -91,6 +91,17 @@
         "url": "https://github.com/microsoft/go-winio/archive/refs/tags/v0.4.16.zip",
         "version": "0.4.16"
     },
+    "github.com/ProtonMail/go-crypto": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/ProtonMail/go-crypto/openpgp/integration_tests\""
+        ],
+        "recipeextra": [
+            "UPSTREAM_CHECK_COMMITS = \"1\""
+        ],
+        "striplevel": 1,
+        "url": "git://github.com/ProtonMail/go-crypto",
+        "version": "c05353c2d58c90ebc6e81dfabef7e3ba48137059"
+    },
     "github.com/PuerkitoBio/goquery": {
         "striplevel": 1,
         "url": "https://github.com/PuerkitoBio/goquery/archive/refs/tags/v1.6.1.zip",
@@ -121,6 +132,14 @@
         "striplevel": 1,
         "url": "https://github.com/VividCortex/gohistogram/archive/refs/tags/v1.0.0.zip",
         "version": "1.0.0"
+    },
+    "github.com/acomagu/bufpipe": {
+        "recipeextra": [
+            "UPSTREAM_CHECK_COMMITS = \"1\""
+        ],
+        "striplevel": 1,
+        "url": "git://github.com/acomagu/bufpipe",
+        "version": "2cfa345846425216dbbf1a8c31652b7ea379bf27"
     },
     "github.com/afex/hystrix-go": {
         "extra": [
@@ -228,6 +247,11 @@
         "striplevel": 1,
         "url": "https://github.com/ekzhu/minhash-lsh/archive/refs/tags/v1.0.zip",
         "version": "1.0"
+    },
+    "github.com/envoyproxy/go-control-plane": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/envoyproxy/go-control-plane/pkg/integration\""
+        ]
     },
     "github.com/fullstorydev/grpcurl": {
         "extra": [
@@ -404,11 +428,6 @@
             "GOSRC_REMOVEDIRS += \"github.com/mwitkow/go-proto-validators/test\""
         ]
     },
-    "github.com/envoyproxy/go-control-plane": {
-        "extra": [
-            "GOSRC_REMOVEDIRS += \"github.com/envoyproxy/go-control-plane/pkg/integration\""
-        ]
-    },
     "github.com/nats-io/nats.go": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/nats-io/nats.go/test\""
@@ -501,6 +520,11 @@
             "THIRD_PARTY_LICENSES/W3C-TestSuite-LICENSE",
             "THIRD_PARTY_LICENSES/Sun-LICENSE",
             "THIRD_PARTY_LICENSES/Bogaert-LICENSE"
+        ]
+    },
+    "google.golang.org/api": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"google.golang.org/api/integration-tests/byoid\""
         ]
     },
     "google.golang.org/grpc": {
