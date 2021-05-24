@@ -65,6 +65,9 @@ SCA_PKGQAENC_BLACKLIST_FILES-dev ?= "\
 
 SCA_PKGQAENC_SOURCECHECKSUM ?= "${T}/sca_seen_sources.txt"
 SCA_PKGQAENC_NO_COPY_NO_CHECK_CLASSES ?= "bin_package"
+
+
+
 SCA_RAW_RESULT_FILE[pkgqaenc] = "txt"
 
 inherit sca-conv-to-export
@@ -73,6 +76,11 @@ inherit sca-global
 inherit sca-helper
 inherit sca-suppress
 inherit sca-image-backtrack
+
+inherit sca-pkgqaenc-pyident
+inherit sca-pkgqaenc-hashdog
+inherit sca-pkgqaenc-shellident
+
 
 def do_sca_conv_pkgqaenc(d):
     import os
@@ -119,7 +127,7 @@ do_sca_pkgqaenc_pre() {
     find ${S} -type f -exec md5sum {} >> ${SCA_PKGQAENC_SOURCECHECKSUM} \;
 }
 
-python do_sca_pkgqaenc() {
+def do_sca_pkgqaenc_core(d, package):
     import os
     import subprocess
     import json
@@ -130,47 +138,53 @@ python do_sca_pkgqaenc() {
     _args = ["nativepython3", os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "pkgqaenc")]
     _args += ["--debug"]
     _args += [_config_tmp]
+    
+    _suffix = package.replace(d.getVar("PN"), "", 1)
+    conf = {
+        "minMask": {},
+        "maxMask": {},
+        "acceptableDirs": [],
+        "acceptableShebang": [],
+        "blacklistShebang": [],
+        "blacklistDirs": [],
+        "blacklistFiles": [],
+        "nocopyCheck": [],
+        "execCheck": [],
+        "sourceChecksum": d.expand("${SCA_PKGQAENC_SOURCECHECKSUM}")
+    }
+    for k, v in (d.getVarFlags("SCA_PKGQAENC_PERM_MAX_MASK{}".format(_suffix)) or {}).items():
+        if "maxMask" not in conf:
+            conf["maxMask"] = {}
+        conf["maxMask"][k.replace("_", "/")] = v
+    for k, v in (d.getVarFlags("SCA_PKGQAENC_PERM_MIN_MASK{}".format(_suffix)) or {}).items():
+        if "minMask" not in conf:
+            conf["minMask"] = {}
+        conf["minMask"][k.replace("_", "/")] = v
+    conf["acceptableDirs"] = [x for x in (d.getVar("SCA_PKGQAENC_ACCEPTABLE_DIRS{}".format(_suffix)) or "").split(" ") if x]
+    conf["blacklistDirs"] = [x for x in (d.getVar("SCA_PKGQAENC_BLACKLIST_DIRS{}".format(_suffix)) or "").split(" ") if x]
+    conf["acceptableShebang"] = [unquote(x) for x in (d.getVar("SCA_PKGQAENC_ACCEPTABLE_SHEBANG{}".format(_suffix)) or "").split(" ") if x]
+    conf["blacklistShebang"] = [unquote(x) for x in (d.getVar("SCA_PKGQAENC_BLACKLIST_SHEBANG{}".format(_suffix)) or "").split(" ") if x]
+    conf["blacklistFiles"] = [x for x in (d.getVar("SCA_PKGQAENC_BLACKLIST_FILES{}".format(_suffix)) or "").split(" ") if x]
+    conf["whitelistFiles"] = [x for x in (d.getVar("SCA_PKGQAENC_WHITELIST_FILES{}".format(_suffix)) or "").split(" ") if x]
+    conf["execCheck"] = [x for x in (d.getVar("SCA_PKGQAENC_EXEC_CHECK{}".format(_suffix)) or "").split(" ") if x]
+    if not any(bb.data.inherits_class(x, d) for x in clean_split(d, "SCA_PKGQAENC_NO_COPY_NO_CHECK_CLASSES")):
+        conf["nocopyCheck"] = clean_split(d, "SCA_PKGQAENC_NO_COPY_CHECK{}".format(_suffix))
+    with open(_config_tmp, "w") as o:
+        json.dump(conf, o)
+    _destDir = os.path.join(d.getVar("PKGDEST"), package)
+    try:
+        return subprocess.check_output(_args + [_destDir], universal_newlines=True, stderr=subprocess.STDOUT)
+    except subprocess.CalledProcessError as e:
+        return e.stdout or ""
 
+python do_sca_pkgqaenc() {
     cmd_output = ""
-
+    
     for p in clean_split(d, "PACKAGES"):
-        _suffix = p.replace(d.getVar("PN"), "", 1)
-        conf = {
-            "minMask": {},
-            "maxMask": {},
-            "acceptableDirs": [],
-            "acceptableShebang": [],
-            "blacklistShebang": [],
-            "blacklistDirs": [],
-            "blacklistFiles": [],
-            "nocopyCheck": [],
-            "execCheck": [],
-            "sourceChecksum": d.expand("${SCA_PKGQAENC_SOURCECHECKSUM}")
-        }
-        for k, v in (d.getVarFlags("SCA_PKGQAENC_PERM_MAX_MASK{}".format(_suffix)) or {}).items():
-            if "maxMask" not in conf:
-                conf["maxMask"] = {}
-            conf["maxMask"][k.replace("_", "/")] = v
-        for k, v in (d.getVarFlags("SCA_PKGQAENC_PERM_MIN_MASK{}".format(_suffix)) or {}).items():
-            if "minMask" not in conf:
-                conf["minMask"] = {}
-            conf["minMask"][k.replace("_", "/")] = v
-        conf["acceptableDirs"] = [x for x in (d.getVar("SCA_PKGQAENC_ACCEPTABLE_DIRS{}".format(_suffix)) or "").split(" ") if x]
-        conf["blacklistDirs"] = [x for x in (d.getVar("SCA_PKGQAENC_BLACKLIST_DIRS{}".format(_suffix)) or "").split(" ") if x]
-        conf["acceptableShebang"] = [unquote(x) for x in (d.getVar("SCA_PKGQAENC_ACCEPTABLE_SHEBANG{}".format(_suffix)) or "").split(" ") if x]
-        conf["blacklistShebang"] = [unquote(x) for x in (d.getVar("SCA_PKGQAENC_BLACKLIST_SHEBANG{}".format(_suffix)) or "").split(" ") if x]
-        conf["blacklistFiles"] = [x for x in (d.getVar("SCA_PKGQAENC_BLACKLIST_FILES{}".format(_suffix)) or "").split(" ") if x]
-        conf["whitelistFiles"] = [x for x in (d.getVar("SCA_PKGQAENC_WHITELIST_FILES{}".format(_suffix)) or "").split(" ") if x]
-        conf["execCheck"] = [x for x in (d.getVar("SCA_PKGQAENC_EXEC_CHECK{}".format(_suffix)) or "").split(" ") if x]
-        if not any(bb.data.inherits_class(x, d) for x in clean_split(d, "SCA_PKGQAENC_NO_COPY_NO_CHECK_CLASSES")):
-            conf["nocopyCheck"] = clean_split(d, "SCA_PKGQAENC_NO_COPY_CHECK{}".format(_suffix))
-        with open(_config_tmp, "w") as o:
-            json.dump(conf, o)
-        _destDir = os.path.join(d.getVar("PKGDEST"), p)
-        try:
-            cmd_output += subprocess.check_output(_args + [_destDir], universal_newlines=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            cmd_output += e.stdout or ""
+        cmd_output += do_sca_pkgqaenc_core(d, p)
+        cmd_output += do_sca_pkgqaenc_shelllist(d, p)
+        cmd_output += do_sca_pkgqaenc_pythonident(d, p)
+    cmd_output += do_sca_pkgqaenc_hashdog(d)
 
     with open(sca_raw_result_file(d, "pkgqaenc"), "w") as o:
         o.write(cmd_output)
@@ -188,7 +202,8 @@ python do_sca_pkgqaenc() {
 do_sca_pkgqaenc_pre[doc] = "Package linter pre function"
 do_sca_pkgqaenc_pre[dirs] = "${S}"
 do_sca_pkgqaenc[doc] = "Lint produced packages"
+do_sca_pkgqaenc[depends] += "python3-native:do_populate_sysroot ${PN}:do_prepare_recipe_sysroot"
 addtask do_sca_pkgqaenc_pre before do_configure after do_patch
 addtask do_sca_pkgqaenc before do_sca_deploy after do_package
 
-DEPENDS += "pkgqaenc-native sca-recipe-pkgqaenc-rules-native"
+DEPENDS += "pkgqaenc-native sca-recipe-pkgqaenc-rules-native python3-native"
