@@ -1,5 +1,6 @@
-SRC_URI += "https://proxy.golang.org/google.golang.org/api/@v/v0.46.0.zip;srcoutput=google.golang.org/api;srcinput=google.golang.org/api@v0.46.0;downloadfilename=google-golang-org-api-0.46.0.zip;name=google-golang-org-api"
-SRC_URI[google-golang-org-api.sha256sum] = "4acb6c9a0b1beb4cf30f59e84c117f7f07003825decf6f29a6b1b564b43d918f"
+SRC_URI += "https://proxy.golang.org/google.golang.org/api/@v/v0.47.0.zip;srcoutput=google.golang.org/api;srcinput=google.golang.org/api@v0.47.0;downloadfilename=google-golang-org-api-0.47.0.zip;name=google-golang-org-api"
+SRC_URI[google-golang-org-api.sha256sum] = "d013698c3225077a6a8a97f03f454cd4f548425ad9263b2f8d59d0237dc028f3"
+GOSRC_REMOVEDIRS += "google.golang.org/api/integration-tests/byoid"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
