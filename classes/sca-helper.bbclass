@@ -8,6 +8,15 @@ inherit sca-helper-exec
 
 DEPENDS += "${@oe.utils.ifelse(sca_is_module_blacklisted(d, 'foo'), '', 'python3-python-magic-native')}"
 
+def find_file_in_layer(d, _file, _skipPath=""):
+    import os
+    import glob
+    for _dir in [x for x in d.getVar("BBLAYERS").split(" ") if x]:
+        files = [x for x in glob.glob("{}/**/{}".format(_dir, _file), recursive=True) if x != _skipPath]
+        if any(files):
+            return files[0]
+    return None
+
 def get_relative_source_path(d):
     import os
     source = d.getVar("S")
