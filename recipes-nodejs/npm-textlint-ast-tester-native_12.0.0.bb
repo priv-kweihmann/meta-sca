@@ -5,11 +5,12 @@ HOMEPAGE = "https://github.com/textlint/textlint/tree/master/packages/@textlint/
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=bc9a2bae21f2f74984d4a43e24285986"
 
-DEPENDS = "npm-textlint-ast-node-types-native"
+DEPENDS = "npm-debug-native \
+           npm-textlint-ast-node-types-native"
 
-SRC_URI = "https://registry.npmjs.org/@textlint/ast-tester/-/ast-tester-2.3.5.tgz"
-SRC_URI[md5sum] = "c25e654e01c23d0b09992e077a6bd5c1"
-SRC_URI[sha256sum] = "d08164d93fe81afa447c74e246a52d6ff4ec2874d0a0ddd62eec0fbc05f678c7"
+SRC_URI = "https://registry.npmjs.org/@textlint/ast-tester/-/ast-tester-12.0.0.tgz"
+SRC_URI[md5sum] = "7f99f5e29fd588660a4eb6a57044b1a3"
+SRC_URI[sha256sum] = "36ead797f83b7452d5e1601a40a2e7d19e927441b56d4f1f7503b23d758cc665"
 
 NPM_PKGNAME = "@textlint/ast-tester"
 
