@@ -12,13 +12,17 @@ DEPENDS += "python3-pytest-runner-native"
 SRC_URI = "git://github.com/cpplint/cpplint.git;protocol=https;branch=master \
            file://cpplint.sca.description \
            file://cpplint-multi"
-SRCREV = "5b4259ef4c94d34e98192f53466c8af5e9d1c259"
+SRCREV = "6b1d29874dc5d7c3c9201b70e760b3eb9468a60d"
 
 S = "${WORKDIR}/git"
 
 inherit sca-description
 inherit setuptools3
 inherit native
+
+do_configure_prepend() {
+    sed -i "s#pytest-runner==5.2#pytest-runner>=5.2#g" ${S}/setup.py
+}
 
 do_install_append() {
     install -d ${D}${datadir}
