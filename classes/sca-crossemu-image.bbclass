@@ -19,7 +19,7 @@ def _get_pkgs_list(d, pkg):
     return list(set(res))
 
 do_sca_flush_pseudodb() {
-    ${FAKEROOTENV} ${FAKEROOTCMD} -S
+    ${FAKEROOTENV} ${FAKEROOTCMD} -S || true
     kill -6 $(cat ${PSEUDO_LOCALSTATEDIR}/pseudo.pid)
     rm -rf ${PSEUDO_LOCALSTATEDIR}/*
 }
