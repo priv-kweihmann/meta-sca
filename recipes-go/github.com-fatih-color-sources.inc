@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/fatih/color/@v/v1.11.0.zip;srcoutput=github.com/fatih/color;srcinput=github.com/fatih/color@v1.11.0;downloadfilename=github-com-fatih-color-1.11.0.zip;name=github-com-fatih-color"
-SRC_URI[github-com-fatih-color.sha256sum] = "049e2a87f074ac15168b906f26119c7e818484842a3f820a209b88b1c58e9c53"
+SRC_URI += "https://proxy.golang.org/github.com/fatih/color/@v/v1.12.0.zip;srcoutput=github.com/fatih/color;srcinput=github.com/fatih/color@v1.12.0;downloadfilename=github-com-fatih-color-1.12.0.zip;name=github-com-fatih-color"
+SRC_URI[github-com-fatih-color.sha256sum] = "956287958f170cadf7172a8700aae854221a6e6e7e2a55c216fa98f8024d4551"
 
 GOSRC_LICENSE += "\
     MIT \
