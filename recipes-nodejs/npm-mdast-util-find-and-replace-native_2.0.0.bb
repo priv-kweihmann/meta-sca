@@ -9,9 +9,9 @@ DEPENDS = "npm-escape-string-regexp-native \
            npm-unist-util-is-native \
            npm-unist-util-visit-parents-native"
 
-SRC_URI = "https://registry.npmjs.org/mdast-util-find-and-replace/-/mdast-util-find-and-replace-1.1.1.tgz"
-SRC_URI[md5sum] = "f8775841fef9fce7c3fadaaa0ef5507e"
-SRC_URI[sha256sum] = "e74cf325ac3f30bed0511eabeda0106ee07bceab0aea58feaff2f12fcd059cf2"
+SRC_URI = "https://registry.npmjs.org/mdast-util-find-and-replace/-/mdast-util-find-and-replace-2.0.0.tgz"
+SRC_URI[md5sum] = "e259eae2db928d11ffe8a121dea9cd5c"
+SRC_URI[sha256sum] = "0bfa11dc23872c422e19bc18e71998c23019a4e9844ae06595da037e4bdb47d4"
 
 NPM_PKGNAME = "mdast-util-find-and-replace"
 
