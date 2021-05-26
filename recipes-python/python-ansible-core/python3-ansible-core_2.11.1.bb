@@ -16,8 +16,8 @@ DEPENDS_class-native += "\
 
 PYPI_PACKAGE = "ansible-core"
 
-SRC_URI[md5sum] = "909ae2606e7c217d849fc6883619f9a4"
-SRC_URI[sha256sum] = "9470ceb710711eacd75f1bcae802af036ab2a6c2cd5a13bfcb50b2d89667c9c5"
+SRC_URI[md5sum] = "1d421e30eedc98eb18c5cecc5d8ec25a"
+SRC_URI[sha256sum] = "7e75827a94d47d1c3e1930d708f0ef637a3ab9a21f757aaf55deab6e9f47c682"
 
 inherit pypi
 inherit setuptools3
