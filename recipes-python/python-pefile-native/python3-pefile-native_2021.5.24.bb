@@ -10,8 +10,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "pefile"
 
-SRC_URI[md5sum] = "bb81eb9c396ec805ff51457ccb6b2cd8"
-SRC_URI[sha256sum] = "2aae0c135d4d37e81ff120e825af18b5e4884a97b9290aee811afd6317618f52"
+SRC_URI[md5sum] = "3124186a88faf518a8e5243787bde669"
+SRC_URI[sha256sum] = "ed79b2353daa58421459abf4d685953bde0adf9f6e188944f97ba9795f100246"
 
 inherit pypi
 inherit setuptools3
