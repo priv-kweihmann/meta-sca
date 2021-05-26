@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=62f84db3eea2ff0da5510fedd081ea0c"
 
 DEPENDS = "npm-configstore-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-dict-ruby/-/cspell-dict-ruby-1.1.3.tgz"
-SRC_URI[md5sum] = "299fa39e5d3cd435fec0a8ad5d7172ba"
-SRC_URI[sha256sum] = "f3932fdbefc9404c26ca344a3f7aedf9bf6f39115c80bb626074c635b5428002"
+SRC_URI = "https://registry.npmjs.org/cspell-dict-ruby/-/cspell-dict-ruby-1.1.4.tgz"
+SRC_URI[md5sum] = "033034c9963fa8e3b830196fad30b90e"
+SRC_URI[sha256sum] = "fd6e2a8a52b79cde02b3eb5f3919f9b0b6c3f5b9662bded2faa59a52f8467323"
 
 NPM_PKGNAME = "cspell-dict-ruby"
 
