@@ -11,9 +11,9 @@ DEPENDS = "npm-debug-native \
            npm-textlint-linter-formatter-native \
            npm-textlint-types-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/formatter/-/formatter-2.1.1.tgz"
-SRC_URI[md5sum] = "749a6e0aed154c06c09bf6b04151a84f"
-SRC_URI[sha256sum] = "7948f4e181497c09892e1a46d7d35516e2b8762cb427cb231c03e749ebae7382"
+SRC_URI = "https://registry.npmjs.org/@secretlint/formatter/-/formatter-2.2.0.tgz"
+SRC_URI[md5sum] = "8328dbb5d087eed069f0649f9ed66fdf"
+SRC_URI[sha256sum] = "7ec05eae9200007f114891a3133dd5ff608f772684e3b4806ec7056c41fa90ad"
 
 NPM_PKGNAME = "@secretlint/formatter"
 
