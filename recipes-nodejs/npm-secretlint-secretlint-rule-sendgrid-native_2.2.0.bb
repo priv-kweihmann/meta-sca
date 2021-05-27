@@ -9,9 +9,9 @@ DEPENDS = "npm-secretlint-types-native \
            npm-string.prototype.matchall-native \
            npm-textlint-regexp-string-matcher-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-sendgrid/-/secretlint-rule-sendgrid-2.1.1.tgz"
-SRC_URI[md5sum] = "87672c818e4977a42f910e62f6630d93"
-SRC_URI[sha256sum] = "fa94911c1382a4a39762f113479a50109388fce958a3abc8c373dd8dd06eb82e"
+SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-sendgrid/-/secretlint-rule-sendgrid-2.2.0.tgz"
+SRC_URI[md5sum] = "7b83bd82f579de4b5c87845d00049d9f"
+SRC_URI[sha256sum] = "cde82c01757f8d41637d5400016523845e2bcb23e3c6dc7ac1b282a401ed1dba"
 
 NPM_PKGNAME = "@secretlint/secretlint-rule-sendgrid"
 
