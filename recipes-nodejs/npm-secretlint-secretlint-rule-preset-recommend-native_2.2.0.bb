@@ -13,9 +13,9 @@ DEPENDS = "npm-secretlint-secretlint-rule-aws-native \
            npm-secretlint-secretlint-rule-sendgrid-native \
            npm-secretlint-secretlint-rule-slack-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-preset-recommend/-/secretlint-rule-preset-recommend-2.1.1.tgz"
-SRC_URI[md5sum] = "077b8a7d83aec18b6f392c943e0f7a98"
-SRC_URI[sha256sum] = "3f2f98ce110a49cbdd60c02298a0552c0c3981e2069aa43c9071ef17d20631fe"
+SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-preset-recommend/-/secretlint-rule-preset-recommend-2.2.0.tgz"
+SRC_URI[md5sum] = "e1774cd49324f072d65d95e4499d163b"
+SRC_URI[sha256sum] = "f9dccf206a40df7ee0bd41d2111c91d622e23e7963acd3959505823d6b3606fb"
 
 NPM_PKGNAME = "@secretlint/secretlint-rule-preset-recommend"
 
