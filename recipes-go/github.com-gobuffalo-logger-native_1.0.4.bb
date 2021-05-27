@@ -9,7 +9,7 @@ require github.com-gobuffalo-logger-sources.inc
 
 EXTRA_DEPENDS += "\
     github.com-sirupsen-logrus-native \
-    golang.org-x-crypto-native \
+    golang.org-x-term-native \
 "
 
 GO_IMPORT = "github.com/gobuffalo/logger"
