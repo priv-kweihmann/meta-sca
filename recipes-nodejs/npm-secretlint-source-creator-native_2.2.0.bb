@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=402802be77c922cb018a8b5099208dab"
 DEPENDS = "npm-istextorbinary-native \
            npm-secretlint-types-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/source-creator/-/source-creator-2.1.1.tgz"
-SRC_URI[md5sum] = "4c7ce689a2cceea9f764bb47b122b653"
-SRC_URI[sha256sum] = "5a0c0e5d89515b5eebd548204f3d4988e10cb941facd8a976608dc553a09e33e"
+SRC_URI = "https://registry.npmjs.org/@secretlint/source-creator/-/source-creator-2.2.0.tgz"
+SRC_URI[md5sum] = "0727a2ad045b2d0474c019df53b33936"
+SRC_URI[sha256sum] = "ddda39b7a794ce6689afd5408fae1416289463ff7dd418b554d8c5f5b3567d44"
 
 NPM_PKGNAME = "@secretlint/source-creator"
 
