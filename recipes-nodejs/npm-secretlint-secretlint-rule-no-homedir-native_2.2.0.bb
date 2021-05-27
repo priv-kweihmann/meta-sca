@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=402802be77c922cb018a8b5099208dab"
 DEPENDS = "npm-escape-string-regexp-native \
            npm-secretlint-types-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-no-homedir/-/secretlint-rule-no-homedir-2.1.1.tgz"
-SRC_URI[md5sum] = "3d2843e2fc2c25d66724e3e57c251d68"
-SRC_URI[sha256sum] = "3f3b8071365c0d4218a85e7dc491c28fecaa5e54578fb4bb685b10d91bcc2469"
+SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-no-homedir/-/secretlint-rule-no-homedir-2.2.0.tgz"
+SRC_URI[md5sum] = "a2716f3f89d24f2fb1443df5e8d3965a"
+SRC_URI[sha256sum] = "84552c333d616042fdeb994511a5c30d9d62554b95adf8dda5ebe5be6bde86c6"
 
 NPM_PKGNAME = "@secretlint/secretlint-rule-no-homedir"
 
