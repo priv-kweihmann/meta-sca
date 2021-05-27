@@ -4,15 +4,15 @@ Depending on how you configured the variable __SCA_EXPORT_DIR__ (default \${DEPL
 
 - sca
   - cppcheck
-    - checkstyle or console or diff or codeclimate
+    - checkstyle or console or diff or stat
     - datamodel
     - raw
   - cpplint
-    - checkstyle or console or diff or codeclimate
+    - checkstyle or console or diff or stat
     - datamodel
     - raw
   - pylint
-    - checkstyle or console or diff or codeclimate
+    - checkstyle or console or diff or stat
     - datamodel
     - raw
 
@@ -39,10 +39,10 @@ In each diff-subfolder you will find a txt-document named __\${PN}_\${PV}.txt__ 
 This document contains all findings in plain text format.
 See [output formats](output_formats.md) for details.
 
-## codeslimate folder
+## stat folder
 
-In each codeslimate-subfolder you will find a json-document named __\${PN}_\${PV}.json__ e.g. for recipe **acl** this would be **acl_1.2.3.json**.
-This document contains all findings in codeclimate compatible format.
+In each stat-subfolder you will find a json-document named __\${PN}_\${PV}.json__ e.g. for recipe **acl** this would be **acl_1.2.3.json**.
+This document contains all findings in stat compatible format.
 See [output formats](output_formats.md) for details.
 
 **NOTE**: this applies only if __SCA_EXPORT_FORMAT__ is set to __diff__

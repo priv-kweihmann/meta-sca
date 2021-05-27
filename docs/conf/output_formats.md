@@ -6,7 +6,7 @@ Currently supported are
 * checkstyle
 * console
 * diff
-* codeclimate
+* stat
 * sarif
 * plain
 
@@ -78,9 +78,9 @@ General format is the following
 The diff format is the same as [console output](#console-format), but shows only the items changed since the last run.
 So this mode might be useful when actively working on recipes and sources
 
-## codeclimate format
+## stat format
 
-This export format is compatible to CodeClimate exports and can be used in several editions of Gitlab.
+This export format is structured-acceptance-test exports and can be used in several editions of Gitlab.
 The complete format is described [here](https://github.com/fulldecent/structured-acceptance-test/blob/master/Stat-Output.md)
 
 ## sarif format
