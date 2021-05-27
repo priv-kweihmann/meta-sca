@@ -1,9 +1,11 @@
 ## SPDX-License-Identifier: BSD-2-Clause
-## Copyright (c) 2020, Konrad Weihmann
+## Copyright (c) 2021, Konrad Weihmann
+
+# Full format description to be found at https://github.com/fulldecent/structured-acceptance-test/blob/master/Stat-Output.md
 
 inherit sca-datamodel
 
-def sca_conv_dm_codeclimate(d, tool):
+def sca_conv_dm_stat(d, tool):
     import json
     import os
     import stat
