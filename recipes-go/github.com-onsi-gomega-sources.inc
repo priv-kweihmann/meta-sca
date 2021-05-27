@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/onsi/gomega/@v/v1.12.0.zip;srcoutput=github.com/onsi/gomega;srcinput=github.com/onsi/gomega@v1.12.0;downloadfilename=github-com-onsi-gomega-1.12.0.zip;name=github-com-onsi-gomega"
-SRC_URI[github-com-onsi-gomega.sha256sum] = "80051ce1a3f4cb863a65462c91427c78ed8e25ee18bb9103f56c69fd81036446"
+SRC_URI += "https://proxy.golang.org/github.com/onsi/gomega/@v/v1.13.0.zip;srcoutput=github.com/onsi/gomega;srcinput=github.com/onsi/gomega@v1.13.0;downloadfilename=github-com-onsi-gomega-1.13.0.zip;name=github-com-onsi-gomega"
+SRC_URI[github-com-onsi-gomega.sha256sum] = "fb5e97717250320cf5bd383dc08dec6801993997c883766781942a66a17a9942"
 
 GOSRC_LICENSE += "\
     MIT \
