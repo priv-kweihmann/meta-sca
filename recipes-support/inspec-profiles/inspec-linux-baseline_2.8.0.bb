@@ -5,7 +5,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=34400b68072d710fecd0a2940a0d1658"
 
 SRC_URI = "git://github.com/dev-sec/linux-baseline.git;protocol=https"
-SRCREV = "8da3825e0700fccb507e41e94f7ea419197719e6"
+SRCREV = "2735730e7f063878beecce987a35d2c0a29421fd"
 S = "${WORKDIR}/git"
 
 ROLE_NAME = "linux-baseline"
