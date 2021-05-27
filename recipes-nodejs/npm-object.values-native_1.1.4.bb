@@ -7,12 +7,11 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=5db8fa3e421a3211e6a3dc68544da455"
 
 DEPENDS = "npm-call-bind-native \
            npm-define-properties-native \
-           npm-es-abstract-native \
-           npm-has-native"
+           npm-es-abstract-native"
 
-SRC_URI = "https://registry.npmjs.org/object.values/-/object.values-1.1.3.tgz"
-SRC_URI[md5sum] = "90a5bdbedd9f05e60832818f2f5e152a"
-SRC_URI[sha256sum] = "3517fe824a045eb8d23c6773d76bf68153c1540d4a57835ac83192afa6a5cdfd"
+SRC_URI = "https://registry.npmjs.org/object.values/-/object.values-1.1.4.tgz"
+SRC_URI[md5sum] = "bd81af5190989a4e27daa0077ffc5d15"
+SRC_URI[sha256sum] = "083682bd01cf38a99285cdc81abdfa1c7eedf85573c46f37bacdf654b72c6035"
 
 NPM_PKGNAME = "object.values"
 
