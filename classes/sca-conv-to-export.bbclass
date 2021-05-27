@@ -15,6 +15,11 @@ def sca_conv_to_export(d, tool):
     from bb.parse.parse_py import BBHandler
     try:
         item = d.getVar("SCA_EXPORT_FORMAT")
+
+        if item == "codeclimate":
+            bb.warn("codeclimate export has been renamed to 'stat', please update your configuration")
+            item = 'stat'
+
         BBHandler.inherit("sca-conv-dm-{}".format(item), "sca-export", 1, d)
         func = "sca_conv_dm_{}".format(item)
         if func in locals().keys():

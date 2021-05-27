@@ -20,7 +20,7 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_EXPORT_DIR | Directory where to store the results of analysis | path | \${DEPLOY_DIR_IMAGE}/sca
 | SCA_EXPORT_FINDING_DIR | The folder where to store the original source-files of findings | path | \${DEPLOY_DIR_IMAGE}/sca/sources/\${PN}/
 | SCA_EXPORT_FINDING_SRC | Do copy the source-files of any finding to deploy-dir. This proved to helpful when integrating into Jenkins. | string | "1"
-| SCA_EXPORT_FORMAT | Specifies the output format | string: checkstyle, console, diff, codeclimate or sarif or plain| "checkstyle"
+| SCA_EXPORT_FORMAT | Specifies the output format | string: checkstyle, console, diff, stat or sarif or plain| "checkstyle"
 | SCA_FILE_FILTER | List of glob-expression of file to skip for testing | space separated list | "tests/* test/* doc/* testsuite/* \*\*/tests/* \*\*/test/* \*\*/doc/* \*\*/testsuite/*"
 | SCA_FINDINGS_DIR | Local folder where to store sca findings | path | \${WORKDIR}/sca/
 | SCA_FORCE_RUN | Force running SCA every time, no matter if recipe code was changed  | string: "0" or "1" | "0"
