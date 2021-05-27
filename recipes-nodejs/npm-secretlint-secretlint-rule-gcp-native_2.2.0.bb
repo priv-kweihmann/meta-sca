@@ -9,9 +9,9 @@ DEPENDS = "npm-node-forge-native \
            npm-secretlint-types-native \
            npm-textlint-regexp-string-matcher-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-gcp/-/secretlint-rule-gcp-2.1.1.tgz"
-SRC_URI[md5sum] = "b8fd8dab1619b341031fcbbb942f4c6d"
-SRC_URI[sha256sum] = "28087fdb939c55f0f0d6e775f0ad4107c1a69e9f0ace9a170e5983da4026f868"
+SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-gcp/-/secretlint-rule-gcp-2.2.0.tgz"
+SRC_URI[md5sum] = "de9864080b4c7c7685f77c7016db3eea"
+SRC_URI[sha256sum] = "0302d4729bec6c824b70f95011475db0ce5843c8497264d6becdf12d86f621ea"
 
 NPM_PKGNAME = "@secretlint/secretlint-rule-gcp"
 
