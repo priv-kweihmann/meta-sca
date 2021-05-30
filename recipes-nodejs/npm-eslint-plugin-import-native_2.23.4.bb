@@ -21,9 +21,9 @@ DEPENDS = "npm-array-includes-native \
            npm-resolve-native \
            npm-tsconfig-paths-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.23.3.tgz"
-SRC_URI[md5sum] = "9f8125901e8030648ba81c888b556364"
-SRC_URI[sha256sum] = "8edd31ba79b8d067da616534c80bcee6e7307db9c1bb3a084f299e508c9b4188"
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.23.4.tgz"
+SRC_URI[md5sum] = "8716f45e3718ff801df38a2a43caaf82"
+SRC_URI[sha256sum] = "fbb96844635813f997b70da03f84b90a24503c5e44936a3778976c35cda27b0d"
 
 NPM_PKGNAME = "eslint-plugin-import"
 
