@@ -6,12 +6,11 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=402802be77c922cb018a8b5099208dab"
 
 DEPENDS = "npm-secretlint-types-native \
-           npm-string.prototype.matchall-native \
            npm-textlint-regexp-string-matcher-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-basicauth/-/secretlint-rule-basicauth-2.2.0.tgz"
-SRC_URI[md5sum] = "c53ba90e7ad62ac65c4ccfd5122a513e"
-SRC_URI[sha256sum] = "a71584ffd94f16170eca9266434819bdc15b9d79157a6253b7416450136077a9"
+SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-basicauth/-/secretlint-rule-basicauth-3.0.0.tgz"
+SRC_URI[md5sum] = "afd9514eb6350da069dddbb23b289204"
+SRC_URI[sha256sum] = "85240a75cf385ef2d6e19ad9484da743538dd0ecb096c3acae4ca2184b679c26"
 
 NPM_PKGNAME = "@secretlint/secretlint-rule-basicauth"
 
