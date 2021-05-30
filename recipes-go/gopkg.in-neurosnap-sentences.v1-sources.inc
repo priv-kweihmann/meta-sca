@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/gopkg.in/neurosnap/sentences.v1/@v/v1.0.6.zip;srcoutput=gopkg.in/neurosnap/sentences.v1;srcinput=gopkg.in/neurosnap/sentences.v1@v1.0.6;downloadfilename=gopkg-in-neurosnap-sentences-v1-1.0.6.zip;name=gopkg-in-neurosnap-sentences-v1"
-SRC_URI[gopkg-in-neurosnap-sentences-v1.sha256sum] = "e3df38d6fc6097f9d1d76ee13e24fec69103c43248ca6a7f3ade2afec5e85bdd"
+SRC_URI += "https://proxy.golang.org/gopkg.in/neurosnap/sentences.v1/@v/v1.0.7.zip;srcoutput=gopkg.in/neurosnap/sentences.v1;srcinput=gopkg.in/neurosnap/sentences.v1@v1.0.7;downloadfilename=gopkg-in-neurosnap-sentences-v1-1.0.7.zip;name=gopkg-in-neurosnap-sentences-v1"
+SRC_URI[gopkg-in-neurosnap-sentences-v1.sha256sum] = "f438078048ba5ef3595450f00c11fd2cc8b7baa10272f75fae03a8958e338181"
 
 GOSRC_LICENSE += "\
     MIT \
