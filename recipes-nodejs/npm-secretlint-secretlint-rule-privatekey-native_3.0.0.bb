@@ -5,12 +5,11 @@ HOMEPAGE = "https://github.com/secretlint/secretlint/tree/master/packages/@secre
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=402802be77c922cb018a8b5099208dab"
 
-DEPENDS = "npm-string.prototype.matchall-native \
-           npm-textlint-regexp-string-matcher-native"
+DEPENDS = "npm-textlint-regexp-string-matcher-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-privatekey/-/secretlint-rule-privatekey-2.2.0.tgz"
-SRC_URI[md5sum] = "15ac1594f7f4a2bed81263e2ff4b9505"
-SRC_URI[sha256sum] = "52dcc14c4fb631f7eb1d5948c1583931a5e4a950102829aee551c447d827bcae"
+SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-privatekey/-/secretlint-rule-privatekey-3.0.0.tgz"
+SRC_URI[md5sum] = "6ed2e1c906b3106af5f69c238ba86e28"
+SRC_URI[sha256sum] = "e5f2114865457327774a04e9c574e38a3fdd5b064827e2e8f6a8b9e109dc5e05"
 
 NPM_PKGNAME = "@secretlint/secretlint-rule-privatekey"
 
