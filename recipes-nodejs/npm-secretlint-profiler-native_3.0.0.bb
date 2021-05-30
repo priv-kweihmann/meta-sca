@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=402802be77c922cb018a8b5099208dab"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/profiler/-/profiler-2.2.0.tgz"
-SRC_URI[md5sum] = "913fef87857ae5716355e4e51abfe9b0"
-SRC_URI[sha256sum] = "2208a2142f99376a17de6a90e4e1c39804f9f57b9f40f9a0f04e56ed749c6b94"
+SRC_URI = "https://registry.npmjs.org/@secretlint/profiler/-/profiler-3.0.0.tgz"
+SRC_URI[md5sum] = "c198c82aa17f4a1fe4e0017d0a59070a"
+SRC_URI[sha256sum] = "1411761fb8328f9296c72e6033e26db162f251a9519f87aca6c9967c61333a95"
 
 NPM_PKGNAME = "@secretlint/profiler"
 
