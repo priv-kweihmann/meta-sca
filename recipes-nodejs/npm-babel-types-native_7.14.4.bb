@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b1d0cd283a346e919abb3beeb018279d"
 DEPENDS = "npm-babel-helper-validator-identifier-native \
            npm-to-fast-properties-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/types/-/types-7.14.2.tgz"
-SRC_URI[md5sum] = "973c37dfa68d055cd308cc2ad6bcc513"
-SRC_URI[sha256sum] = "f875d73b40f9c5ef7d46fd0d0fb173627c46a3d4216688356b0e5e642bd7196b"
+SRC_URI = "https://registry.npmjs.org/@babel/types/-/types-7.14.4.tgz"
+SRC_URI[md5sum] = "411d5ccf6c5c363eccc62d78b967afdf"
+SRC_URI[sha256sum] = "e21678bbe714e0d76c97a71c6843de52ee46235a0f0ee28bb45552c9425af264"
 
 NPM_PKGNAME = "@babel/types"
 
