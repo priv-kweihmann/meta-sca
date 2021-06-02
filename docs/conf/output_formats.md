@@ -8,6 +8,7 @@ Currently supported are
 * diff
 * stat
 * sarif
+* sonarqube
 * plain
 
 ## Checkstyle format
@@ -87,6 +88,10 @@ The complete format is described [here](https://github.com/fulldecent/structured
 
 This export format is compatible to [SARIF](https://sarifweb.azurewebsites.net/#Specification).
 It is a JSON file based on the this [json schema](https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json)
+
+## sonarqube format
+
+Exports the issues as a SonarQube generic import format as described on https://docs.sonarqube.org/latest/analysis/generic-issue/.
 
 ## plain format
 

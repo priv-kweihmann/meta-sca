@@ -30,6 +30,7 @@ SCA_EXPORT_FORMAT_SUFFIX_console = "txt"
 SCA_EXPORT_FORMAT_SUFFIX_diff = "txt"
 SCA_EXPORT_FORMAT_SUFFIX_stat = "json"
 SCA_EXPORT_FORMAT_SUFFIX_sarif = "sarif"
+SCA_EXPORT_FORMAT_SUFFIX_sonarqube = "json"
 SCA_EXPORT_FORMAT_SUFFIX_plain = "txt"
 # here for backward compatibility
 SCA_EXPORT_FORMAT_SUFFIX_codeclimate = "json"
