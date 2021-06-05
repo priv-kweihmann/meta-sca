@@ -11,7 +11,7 @@ EXTRA_DEPENDS += "\
     github.com-gogo-protobuf-native \
     github.com-lightstep-lightstep-tracer-common-golang-gogo-native \
     github.com-opentracing-opentracing-go-native \
-    github.com-shirou-gopsutil-native \
+    github.com-shirou-gopsutil-v3-native \
     go.opencensus.io-native \
     google.golang.org-grpc-native \
 "
