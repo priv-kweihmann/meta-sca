@@ -4,12 +4,12 @@ DESCRIPTION = "A carefully curated collection of Root Certificates for validatin
 HOMEPAGE = "https://github.com/certifi/python-certifi"
 
 LICENSE = "MPL-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=f77f61d14ee6feac4228d3ebd26cc1f1"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=67da0714c3f9471067b729eca6c9fbe8"
 
 PYPI_PACKAGE = "certifi"
 
-SRC_URI[md5sum] = "522f9abe26e5d603a668d812aa6accca"
-SRC_URI[sha256sum] = "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
+SRC_URI[md5sum] = "4b38238b7305fcb3ffbc4368be4e8845"
+SRC_URI[sha256sum] = "2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"
 
 inherit pypi
 inherit setuptools3
