@@ -18,13 +18,13 @@ EXTRA_DEPENDS += "\
     github.com-jstemmer-go-junit-report-native \
     go.opencensus.io-native \
     golang.org-x-lint-native \
-    golang.org-x-net-native \
     golang.org-x-oauth2-native \
     golang.org-x-text-native \
     golang.org-x-tools-native \
     google.golang.org-api-native \
     google.golang.org-genproto-native \
     google.golang.org-grpc-native \
+    google.golang.org-protobuf-native \
 "
 
 GO_IMPORT = "cloud.google.com/go"
