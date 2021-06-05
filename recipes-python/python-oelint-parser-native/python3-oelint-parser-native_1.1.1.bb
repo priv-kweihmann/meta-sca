@@ -8,8 +8,8 @@ PYPI_PACKAGE = "oelint_parser"
 
 UPSTREAM_CHECK_REGEX ?= "/oelint-parser/(?P<pver>(\d+[\.\-_]*)+)"
 
-SRC_URI[md5sum] = "5c4c3b4fb3af573347201e8bf4a542cb"
-SRC_URI[sha256sum] = "4bd1cd108022d48643486971716fa760d3dccb7e75d13eae77809a398e0e70d0"
+SRC_URI[md5sum] = "69d5146bc71d26ec40325ffb6aa2c858"
+SRC_URI[sha256sum] = "d192eb070439fd6e4ef7dd0e9a82fc246d96ac1e4323259c76e421b01e6ff713"
 
 inherit pypi
 inherit setuptools3
