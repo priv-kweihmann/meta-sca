@@ -19,9 +19,9 @@ DEPENDS = "npm-ci-info-native \
            npm-safe-regex-native \
            npm-semver-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-unicorn/-/eslint-plugin-unicorn-32.0.1.tgz"
-SRC_URI[md5sum] = "c02e2973234ccc493fa8025ce7043292"
-SRC_URI[sha256sum] = "647fbed36cb679f45386c1672fc2559c4ded3e86b6f6364b27d6564d16eec481"
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-unicorn/-/eslint-plugin-unicorn-33.0.1.tgz"
+SRC_URI[md5sum] = "87c10bd4efee1202fa91aa692a569c6a"
+SRC_URI[sha256sum] = "7a28a58af49417adfb9572dff87b5386ef429cb75e477493d455269434b52c02"
 
 NPM_PKGNAME = "eslint-plugin-unicorn"
 
