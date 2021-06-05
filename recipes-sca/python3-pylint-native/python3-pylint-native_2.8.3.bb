@@ -15,8 +15,8 @@ DEPENDS += "\
             "
 
 SRC_URI_append = " file://pylint.sca.description"
-SRC_URI[md5sum] = "2ce22566a99be4991b2a0d0849610412"
-SRC_URI[sha256sum] = "586d8fa9b1891f4b725f587ef267abe2a1bad89d6b184520c7f07a253dd6e217"
+SRC_URI[md5sum] = "43b0e30e9527511bb2e12d8a75e463ec"
+SRC_URI[sha256sum] = "0a049c5d47b629d9070c3932d13bff482b12119b6a241a93bc460b0be16953c8"
 
 PYPI_PACKAGE = "pylint"
 
@@ -26,6 +26,8 @@ inherit setuptools3
 inherit native
 
 do_install_append() {
+    find ${D} -type f -exec sed -i "s#astroid==2.5.6#astroid>=2.5.6#g" {} \;
+
     install -d ${D}${datadir}
     install ${WORKDIR}/pylint.sca.description ${D}${datadir}
 }
