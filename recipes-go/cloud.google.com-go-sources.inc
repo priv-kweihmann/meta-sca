@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/@v/v0.82.0.zip;srcoutput=cloud.google.com/go;srcinput=cloud.google.com/go@v0.82.0;downloadfilename=cloud-google-com-go-0.82.0.zip;name=cloud-google-com-go"
-SRC_URI[cloud-google-com-go.sha256sum] = "f2d66f79d9faf5ad52e267bc175b526197cfac4dd4d9732e387ae72eaf0b3229"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/@v/v0.83.0.zip;srcoutput=cloud.google.com/go;srcinput=cloud.google.com/go@v0.83.0;downloadfilename=cloud-google-com-go-0.83.0.zip;name=cloud-google-com-go"
+SRC_URI[cloud-google-com-go.sha256sum] = "5b7be6616064c45dd334c3d6a9eab465a589e125cb0e77ce34a657ff8fe974aa"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
@@ -22,10 +22,10 @@ require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-googleapis-gax-go
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-jstemmer-go-junit-report-sources.inc', '', 'github.com-jstemmer-go-junit-report-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'go.opencensus.io-sources.inc', '', 'go.opencensus.io-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-lint-sources.inc', '', 'golang.org-x-lint-sources.inc', d)}
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-net-sources.inc', '', 'golang.org-x-net-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-oauth2-sources.inc', '', 'golang.org-x-oauth2-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-text-sources.inc', '', 'golang.org-x-text-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-tools-sources.inc', '', 'golang.org-x-tools-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-api-sources.inc', '', 'google.golang.org-api-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-genproto-sources.inc', '', 'google.golang.org-genproto-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-grpc-sources.inc', '', 'google.golang.org-grpc-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-protobuf-sources.inc', '', 'google.golang.org-protobuf-sources.inc', d)}
