@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=4476c4be31402271e101d9a4a3430d52"
 
 PYPI_PACKAGE = "fasteners"
 
-SRC_URI[md5sum] = "df4cc1c2b81f81631ddde7de0582b630"
-SRC_URI[sha256sum] = "b6f488d0fc9a3591a32d779400a00c3ebfadd41f45eb024d66f15a6c4e1c4a72"
+SRC_URI[md5sum] = "dcc86737f47f7e8da4ec21f466fe90dd"
+SRC_URI[sha256sum] = "2fa2ca17a4fa0510ff63e0a091ab58fdd1bcdbab82e08d4e449b85ff086fa68e"
 
 inherit pypi
 inherit setuptools3
