@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/pelletier/go-toml/@v/v1.9.1.zip;srcoutput=github.com/pelletier/go-toml;srcinput=github.com/pelletier/go-toml@v1.9.1;downloadfilename=github-com-pelletier-go-toml-1.9.1.zip;name=github-com-pelletier-go-toml"
-SRC_URI[github-com-pelletier-go-toml.sha256sum] = "b69d0451b51bfd8dca287886a94015c27923192aa1a525d871aad19ee7cc0f5c"
+SRC_URI += "https://proxy.golang.org/github.com/pelletier/go-toml/@v/v1.9.2.zip;srcoutput=github.com/pelletier/go-toml;srcinput=github.com/pelletier/go-toml@v1.9.2;downloadfilename=github-com-pelletier-go-toml-1.9.2.zip;name=github-com-pelletier-go-toml"
+SRC_URI[github-com-pelletier-go-toml.sha256sum] = "41b802cfc93ebed8248b13c49632e7118e8bd46319bf493f98e9d17f1293fba1"
 
 GOSRC_LICENSE += "\
     MIT \
