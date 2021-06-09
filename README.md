@@ -357,6 +357,7 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
   - [Python code while developing](docs/conf/examples/python_inflight.md)
   - [Shell code while developing](docs/conf/examples/shell_inflight.md)
   - [Webapps while developing](docs/conf/examples/web_inflight.md)
+  - [Recommended tools for software integration](docs/conf/examples/integrators_favorites.md)
 - [Results](docs/conf/results.md)
 - Build system integration
   - [Control via command-line](docs/build/control_build_by_cmdline.md)
