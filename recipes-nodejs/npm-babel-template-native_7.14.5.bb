@@ -9,9 +9,9 @@ DEPENDS = "npm-babel-code-frame-native \
            npm-babel-parser-native \
            npm-babel-types-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/template/-/template-7.12.13.tgz"
-SRC_URI[md5sum] = "0326d436b3127e3419765111a116a58b"
-SRC_URI[sha256sum] = "36d2d87b053e91827083d0d94364c7f673536aa963add7a3c10129d816a2ef71"
+SRC_URI = "https://registry.npmjs.org/@babel/template/-/template-7.14.5.tgz"
+SRC_URI[md5sum] = "11f4be9d2a7d8e5eed3f60da266775db"
+SRC_URI[sha256sum] = "b9b59417d066942b01af3800f0fd953568dd250206c844e8e53a0a290cae39bb"
 
 NPM_PKGNAME = "@babel/template"
 
