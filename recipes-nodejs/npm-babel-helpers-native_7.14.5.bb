@@ -9,9 +9,9 @@ DEPENDS = "npm-babel-template-native \
            npm-babel-traverse-native \
            npm-babel-types-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/helpers/-/helpers-7.14.0.tgz"
-SRC_URI[md5sum] = "36a10fb630fcf39613e15ce1919405a3"
-SRC_URI[sha256sum] = "21deeeb69be08d9c28c2b11a7cec82ce794c7357d601497f82c9196515795d33"
+SRC_URI = "https://registry.npmjs.org/@babel/helpers/-/helpers-7.14.5.tgz"
+SRC_URI[md5sum] = "2f79c3d8ac3e513484f7784331d867ea"
+SRC_URI[sha256sum] = "843d4feda384c1ed83027d5578ac0fff7b778608cabb0afec8055ef0f0a37fa2"
 
 NPM_PKGNAME = "@babel/helpers"
 
