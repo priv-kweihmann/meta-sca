@@ -1,4 +1,4 @@
-SRC_URI += "https://github.com/gomodule/redigo/archive/refs/tags/v1.8.4.zip;srcoutput=github.com/gomodule/redigo/redis;srcinput=redigo-1.8.4;downloadfilename=github-com-gomodule-redigo-redis-1.8.4.zip;name=github-com-gomodule-redigo-redis"
+SRC_URI += "https://github.com/gomodule/redigo/archive/refs/tags/v1.8.4.zip;srcoutput=github.com/gomodule/redigo/redis;srcinput=redigo-1.8.4;downloadfilename=github-com-gomodule-redigo-redis-1.8.5.zip;name=github-com-gomodule-redigo-redis"
 SRC_URI[github-com-gomodule-redigo-redis.sha256sum] = "5f7308025def1dc467727e5f9a3af5a69bc68249341a36b31deb38b2d0881879"
 
 GOSRC_LICENSE += "\
