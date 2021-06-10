@@ -23,7 +23,8 @@ S = "${WORKDIR}/source"
 CUSTOM_VAR = "/dev/disk"
 
 do_configure() {
-    [ -e ${CUSTOM_VAR} ] && ls ${CUSTOM_VAR}
+    set +e
+    ls ${CUSTOM_VAR} || true
 }
 
 do_compile() {
