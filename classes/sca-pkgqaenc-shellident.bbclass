@@ -25,6 +25,10 @@ def do_sca_pkgqaenc_shelllist(d, package):
             used_bins[f] = set([x for x in exec_wrap_check_output(d, _args + _targs, [f]).split("\n") if x])
 
     _pkg_in_rdepends = clean_split(d, "RDEPENDS_{}".format(package))
+    if package != d.getVar("PN"):
+        # add implicit dependency on base package
+        _pkg_in_rdepends += [d.getVar("PN")]
+
     for file, bins in used_bins.items():
         for bin in bins:
             pkgs = do_sca_pkgqaenc_pkg_for_file(d, bin)
