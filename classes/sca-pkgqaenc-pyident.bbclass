@@ -82,6 +82,9 @@ def do_sca_pkgqaenc_pythonident(d, package):
                         _imports.add(name or n.name)
         except Exception as e:
             bb.warn(str(e))
+    
+    if not d.getVar("PYTHON_SITEPACKAGES_DIR"):
+        return ""
    
     # the modules code itself to the module list
     _gfull_path_base = os.path.join(_package_dir, d.getVar("PYTHON_SITEPACKAGES_DIR").lstrip("/"))
