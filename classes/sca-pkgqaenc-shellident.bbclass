@@ -12,6 +12,8 @@ SCA_PKGQAENC_SHELLIDENT_SHELLS[ksh] = ".*/ksh"
 DEPENDS += "python3-shellexeclist-native"
 
 def do_sca_pkgqaenc_shelllist(d, package):
+    import subprocess
+
     res = ""
     used_bins = {}
     _args = ["shellexeclist"]
@@ -22,16 +24,20 @@ def do_sca_pkgqaenc_shelllist(d, package):
                                       clean_split(d, "SCA_FILE_FILTER_EXTRA")))
         _targs = ["--forceshell", shell]
         for f in _files:
-            used_bins[f] = set([x for x in exec_wrap_check_output(d, _args + _targs, [f]).split("\n") if x])
+            used_bins[f] = set([x for x in exec_wrap_check_output(d, _args + _targs, [f], stderr=subprocess.DEVNULL).split("\n") if x and not x.startswith(d.getVar("TOPDIR"))])
 
     _pkg_in_rdepends = clean_split(d, "RDEPENDS_{}".format(package))
-    if package != d.getVar("PN"):
-        # add implicit dependency on base package
-        _pkg_in_rdepends += [d.getVar("PN")]
+    _pkg_in_rdepends += [d.getVar("PN")]
+    _pkg_in_rdepends += [d.getVar("PREFERRED_PROVIDER_virtual/base-utils")]
+    _pkg_in_rdepends += [d.getVar("VIRTUAL-RUNTIME_init_manager")]
 
     for file, bins in used_bins.items():
         for bin in bins:
+            if do_sca_pkgqaenc_is_provided_by_self(d, bin, package, isexec=False):
+                continue
             pkgs = do_sca_pkgqaenc_pkg_for_file(d, bin)
+            if any(x == package for x in pkgs):
+                continue
             if pkgs:
                 if not any(x in _pkg_in_rdepends for x in pkgs):
                     if len(pkgs) > 1:
