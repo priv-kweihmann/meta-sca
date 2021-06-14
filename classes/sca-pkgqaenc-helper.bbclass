@@ -13,22 +13,25 @@ def __do_sca_pkgqaenc_pkg_db_init(d):
 
     for item in glob.glob(os.path.join(d.getVar("PKGDATA_DIR"), "runtime", "*")):
         _package_name = os.path.basename(item)
-        pkgdata = oe.packagedata.read_subpkgdata_dict(_package_name, d)
+        try:
+            pkgdata = oe.packagedata.read_subpkgdata_dict(_package_name, d)
 
-        _map[_package_name] = set()
+            _map[_package_name] = set()
 
-        if "FILES_INFO" in pkgdata:
-            file_list = pkgdata["FILES_INFO"]
-            if isinstance(file_list, str):
-                import ast
-                file_list = ast.literal_eval(file_list)
-            _map[_package_name].update(file_list.keys())
-        for k, v in pkgdata.items():
-            if k.startswith("FILERPROVIDES"):
-                _list = v
-                if isinstance(_list, str):
-                    _list = _list.split(" ")
-                _map[_package_name].update(_list)
+            if "FILES_INFO" in pkgdata:
+                file_list = pkgdata["FILES_INFO"]
+                if isinstance(file_list, str):
+                    import ast
+                    file_list = ast.literal_eval(file_list)
+                _map[_package_name].update(file_list.keys())
+            for k, v in pkgdata.items():
+                if k.startswith("FILERPROVIDES"):
+                    _list = v
+                    if isinstance(_list, str):
+                        _list = _list.split(" ")
+                    _map[_package_name].update(_list)
+        except FileNotFoundError:
+            pass
     return _map
 
 def do_sca_pkgqaenc_get_pkg_executables(d, package, isexec=True):
@@ -41,7 +44,7 @@ def do_sca_pkgqaenc_get_pkg_executables(d, package, isexec=True):
             if not os.path.isfile(_filepath):
                 continue
             if os.access(_filepath, os.X_OK) or not isexec:
-                res.add(_filepath.replace(_basepath, "", 1))
+                res.add(_filepath.replace(_basepath, "", 1).lstrip("/"))
     return res
 
 def do_sca_pkgqaenc_is_provided_by_self(d, file, package, isexec=True, suffix=""):
