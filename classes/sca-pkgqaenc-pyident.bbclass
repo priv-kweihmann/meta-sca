@@ -81,7 +81,7 @@ def do_sca_pkgqaenc_pythonident(d, package):
                     for n in node.names:
                         _imports.add(name or n.name)
         except Exception as e:
-            bb.warn(str(e))
+            sca_log_note(d, str(e))
     
     if not d.getVar("PYTHON_SITEPACKAGES_DIR"):
         return ""
@@ -147,3 +147,5 @@ def do_sca_pkgqaenc_pythonident(d, package):
                                                     "Package {pkg} uses {imp}, but no provider for this file can be found".format(
                                                         imp=_imp, pkg=package))
     return res
+
+do_sca_pkgqaenc_core[depends] += "${@oe.utils.ifelse(d.getVar('PYTHON_SITEPACKAGES_DIR'), 'python3:do_package', '')}"
