@@ -2,12 +2,41 @@
 ## Copyright (c) 2021, Konrad Weihmann
 
 SCA_PKGQAENC_HASHDOG_CULP ?= "DATETIME"
-SCA_PKGQAENC_HASHDOG_EXCL ?= "${BB_HASHCONFIG_WHITELIST} ${BB_HASHBASE_WHITELIST} prefix prefix_native"
+SCA_PKGQAENC_HASHDOG_EXCL ?= "\
+    ${BB_HASHBASE_WHITELIST} \
+    ${BB_HASHCONFIG_WHITELIST} \
+    base_bindir_native \
+    base_bindir_nativesdk \
+    base_libdir_native \
+    base_libdir_nativesdk \
+    base_sbindir_native \
+    base_sbindir_nativesdk \
+    bindir_cross \
+    bindir_crossscripts \
+    bindir_native \
+    bindir_nativesdk \
+    datadir_native \
+    includedir_native \
+    includedir_nativesdk \
+    libdir_native \
+    libdir_nativesdk \
+    libexecdir_native \
+    localstatedir_nativesdk \
+    prefix \
+    prefix_native \
+    prefix_nativesdk \
+    sbindir_native \
+    sbindir_nativesdk \
+    sysconfdir_native \
+"
 
 inherit sca-pkgqaenc-helper
 
 def do_sca_pkgqaenc_hashdog_get_varset(d, varname, res={}):
     for x in d.expandWithRefs(d.getVar(varname, False), varname).references or set():
+        _flags = d.getVarFlags(varname) or {}
+        if "vardepsexclude" in _flags and x in (_flags["vardepsexclude"] or "").split(" "):
+            continue
         res[x] = d.getVar(x, False)
         do_sca_pkgqaenc_hashdog_get_varset(d, x, res=res)
     return res
