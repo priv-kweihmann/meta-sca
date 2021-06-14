@@ -1,7 +1,10 @@
 SUMMARY = "List all executables called by a shell script."
 HOMEPAGE = "https://github.com/priv-kweihmann/shellexeclist"
 
-DEPENDS += "python3-ply-native"
+DEPENDS += "\
+    python3-chardet-native \
+    python3-ply-native \
+"
 
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "\
@@ -10,7 +13,7 @@ LIC_FILES_CHKSUM = "\
 "
 
 SRC_URI = "git://github.com/priv-kweihmann/shellexeclist.git;protocol=https"
-SRCREV = "2f176c78874bc5c7e6669649ba5ee39a43021e25"
+SRCREV = "88a9391b55eaf96c768e7c834d080d1458cd4de3"
 
 S = "${WORKDIR}/git"
 
