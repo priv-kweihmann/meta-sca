@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/trim-newlines/-/trim-newlines-4.0.1.tgz"
-SRC_URI[md5sum] = "35253755aebee52a284a6d76d00efaaa"
-SRC_URI[sha256sum] = "5901f1d853b17dd8c5d7cc868230e1fe270b0250c089a36fb065fd3f43100505"
+SRC_URI = "https://registry.npmjs.org/trim-newlines/-/trim-newlines-4.0.2.tgz"
+SRC_URI[md5sum] = "29f61b2f0a6fae44858a4b2272e1f669"
+SRC_URI[sha256sum] = "2fb99e44d32c1d9065aa22b77f236a8faf18955d71ffdf53dd9f7dde6079739e"
 
 NPM_PKGNAME = "trim-newlines"
 
