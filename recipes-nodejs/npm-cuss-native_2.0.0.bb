@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/cuss/-/cuss-1.21.0.tgz"
-SRC_URI[md5sum] = "e74ada3e3642c7fdf2bc5fa10a2e183e"
-SRC_URI[sha256sum] = "a25dfc6684be46bb98b7085e77585df94a6e9b66cad7ea68c87a6a6c712906ee"
+SRC_URI = "https://registry.npmjs.org/cuss/-/cuss-2.0.0.tgz"
+SRC_URI[md5sum] = "39e9828f408cdcf46765c82283e7a598"
+SRC_URI[sha256sum] = "d7c21b24e682dd1cfdd226382d023f27a902cd3b40c6957c22499879923ea74e"
 
 NPM_PKGNAME = "cuss"
 
