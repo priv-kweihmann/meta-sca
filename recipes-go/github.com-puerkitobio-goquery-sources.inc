@@ -1,4 +1,4 @@
-SRC_URI += "https://github.com/PuerkitoBio/goquery/archive/refs/tags/v1.6.1.zip;srcoutput=github.com/PuerkitoBio/goquery;srcinput=goquery-1.6.1;downloadfilename=github-com-puerkitobio-goquery-1.6.1.zip;name=github-com-puerkitobio-goquery"
+SRC_URI += "https://github.com/PuerkitoBio/goquery/archive/refs/tags/v1.6.1.zip;srcoutput=github.com/PuerkitoBio/goquery;srcinput=goquery-1.6.1;downloadfilename=github-com-puerkitobio-goquery-1.7.0.zip;name=github-com-puerkitobio-goquery"
 SRC_URI[github-com-puerkitobio-goquery.sha256sum] = "5532fbdf7e4a94eaadd2c1712e84bea9b90c221609a82ac4fd591102f21997bf"
 
 GOSRC_LICENSE += "\
