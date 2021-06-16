@@ -3,14 +3,14 @@ DESCRIPTION = "Publish multiple editions for your JavaScript packages consistent
 HOMEPAGE = "https://github.com/bevry/editions"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.md;md5=1c9db38d8b92d7b0f3565a5a7fe66587"
+LIC_FILES_CHKSUM = "file://LICENSE.md;md5=62a99672615fb0faaabd018b4f05c3d1"
 
 DEPENDS = "npm-errlop-native \
            npm-version-range-native"
 
-SRC_URI = "https://registry.npmjs.org/editions/-/editions-6.1.0.tgz"
-SRC_URI[md5sum] = "ff68c4678befeff57a59bcd3b48e70f2"
-SRC_URI[sha256sum] = "86620984470757e92f129dafc536cec6f459c48b3bafe62ce4ff20fac6a2190a"
+SRC_URI = "https://registry.npmjs.org/editions/-/editions-6.2.0.tgz"
+SRC_URI[md5sum] = "f41a047b395eb7cb1723f40ad9319420"
+SRC_URI[sha256sum] = "92dd314388674e69a5576b4a184abda605bd0843b897187eccbbc26a5e58c425"
 
 NPM_PKGNAME = "editions"
 
