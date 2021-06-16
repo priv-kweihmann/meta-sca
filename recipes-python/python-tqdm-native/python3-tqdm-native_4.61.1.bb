@@ -12,8 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "tqdm"
 
-SRC_URI[md5sum] = "d210f42b795f8dc6ecd2f87046940471"
-SRC_URI[sha256sum] = "cd5791b5d7c3f2f1819efc81d36eb719a38e0906a7380365c556779f585ea042"
+SRC_URI[md5sum] = "e1ce1e151b669ffff03ffd37c904f338"
+SRC_URI[sha256sum] = "24be966933e942be5f074c29755a95b315c69a91f839a29139bf26ffffe2d3fd"
 
 inherit pypi
 inherit setuptools3
