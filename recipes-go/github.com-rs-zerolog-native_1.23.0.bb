@@ -8,7 +8,7 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require github.com-rs-zerolog-sources.inc
 
 EXTRA_DEPENDS += "\
-    github.com-coreos-go-systemd-native \
+    github.com-coreos-go-systemd-v22-native \
     github.com-pkg-errors-native \
     github.com-rs-xid-native \
     golang.org-x-tools-native \

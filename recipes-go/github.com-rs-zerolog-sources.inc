@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/rs/zerolog/@v/v1.22.0.zip;srcoutput=github.com/rs/zerolog;srcinput=github.com/rs/zerolog@v1.22.0;downloadfilename=github-com-rs-zerolog-1.22.0.zip;name=github-com-rs-zerolog"
-SRC_URI[github-com-rs-zerolog.sha256sum] = "263040f31e3a57fe9819c8489ac82d9e4cb2bce15186006766ec557f7220653c"
+SRC_URI += "https://proxy.golang.org/github.com/rs/zerolog/@v/v1.23.0.zip;srcoutput=github.com/rs/zerolog;srcinput=github.com/rs/zerolog@v1.23.0;downloadfilename=github-com-rs-zerolog-1.23.0.zip;name=github-com-rs-zerolog"
+SRC_URI[github-com-rs-zerolog.sha256sum] = "1149a591e1c90d045fbe544199b42fa397b656a7de938fbab2bfcb75f30dba9b"
 
 GOSRC_LICENSE += "\
     MIT \
@@ -11,7 +11,7 @@ LIC_FILES_CHKSUM += "\
 
 GOSRC_INCLUDEGUARD += "github.com-rs-zerolog-sources.inc"
 
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-coreos-go-systemd-sources.inc', '', 'github.com-coreos-go-systemd-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-coreos-go-systemd-v22-sources.inc', '', 'github.com-coreos-go-systemd-v22-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-pkg-errors-sources.inc', '', 'github.com-pkg-errors-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-rs-xid-sources.inc', '', 'github.com-rs-xid-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-tools-sources.inc', '', 'golang.org-x-tools-sources.inc', d)}
