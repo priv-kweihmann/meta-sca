@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/pkg/sftp/@v/v1.13.0.zip;srcoutput=github.com/pkg/sftp;srcinput=github.com/pkg/sftp@v1.13.0;downloadfilename=github-com-pkg-sftp-1.13.0.zip;name=github-com-pkg-sftp"
-SRC_URI[github-com-pkg-sftp.sha256sum] = "2292120b7a174493875109b85913928059917360aede24a3d17bd7c2465678dd"
+SRC_URI += "https://proxy.golang.org/github.com/pkg/sftp/@v/v1.13.1.zip;srcoutput=github.com/pkg/sftp;srcinput=github.com/pkg/sftp@v1.13.1;downloadfilename=github-com-pkg-sftp-1.13.1.zip;name=github-com-pkg-sftp"
+SRC_URI[github-com-pkg-sftp.sha256sum] = "8709c6556ed68fc9a9c25b4950e2dc70e688b5ec03f751c511feb4d44ff34904"
 
 GOSRC_LICENSE += "\
     BSD-2-Clause \
