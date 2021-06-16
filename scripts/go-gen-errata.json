@@ -229,15 +229,11 @@
             "Godeps/_workspace/*"
         ]
     },
-    "github.com/coreos/go-systemd": {
+    "github.com/coreos/go-systemd/v22": {
         "recipeextra": [
             "# recipe needs systemd header, which isn't available as a native recipe",
-            "do_compile[noexec] = \"1\"",
-            "UPSTREAM_CHECK_IMPORT_SUFFIX = \"/v22\""
-        ],
-        "striplevel": 1,
-        "url": "https://github.com/coreos/go-systemd/archive/refs/tags/v22.3.1.zip",
-        "version": "22.3.1"
+            "do_compile[noexec] = \"1\""
+        ]
     },
     "github.com/ekzhu/minhash-lsh": {
         "recipeextra": [
