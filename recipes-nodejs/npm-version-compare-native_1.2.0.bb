@@ -3,13 +3,13 @@ DESCRIPTION = "Comparator to determine if a version is less than, equivalent to,
 HOMEPAGE = "https://github.com/bevry/version-compare"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.md;md5=44539d46b91a76ee624d026c1869d233"
+LIC_FILES_CHKSUM = "file://LICENSE.md;md5=c39fac9d20b79ade99d052803b1960ad"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/version-compare/-/version-compare-1.1.0.tgz"
-SRC_URI[md5sum] = "304cd873718cf2ff960006849b8aa8c5"
-SRC_URI[sha256sum] = "8240dd7453f9f6930ee5b132eedccd1da061e123c784cbe8bce0a75bb27100ee"
+SRC_URI = "https://registry.npmjs.org/version-compare/-/version-compare-1.2.0.tgz"
+SRC_URI[md5sum] = "18c9cc2a181f764cc2b2071bd0463b20"
+SRC_URI[sha256sum] = "7d8010fb84249dd1c6a868a03b09067d3f2fb3c21cbcdc83810b554f3e8f70ba"
 
 NPM_PKGNAME = "version-compare"
 
