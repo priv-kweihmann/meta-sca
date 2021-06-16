@@ -20,8 +20,8 @@ DEPENDS += "\
             "
 
 SRC_URI_append = " file://reuse.sca.description"
-SRC_URI[md5sum] = "3a35455a7ad339b3ebd15c915f34c9bb"
-SRC_URI[sha256sum] = "4ed065f24c5fc929ebf8853663e14ca486fe4108d7aebceebf51e2c597ec2186"
+SRC_URI[md5sum] = "e9df72dd944e6b02e9c378141e4b43ae"
+SRC_URI[sha256sum] = "89c87bd49308c8059cc36f8116872d73dc6e5788a29af8869be6532202bff801"
 
 PYPI_PACKAGE = "reuse"
 
