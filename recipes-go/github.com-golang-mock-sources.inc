@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/golang/mock/@v/v1.5.0.zip;srcoutput=github.com/golang/mock;srcinput=github.com/golang/mock@v1.5.0;downloadfilename=github-com-golang-mock-1.5.0.zip;name=github-com-golang-mock"
-SRC_URI[github-com-golang-mock.sha256sum] = "87e7217adce199e9a3c2813174e221a4e06cde85b1423c7462b4fa422cbfbede"
+SRC_URI += "https://proxy.golang.org/github.com/golang/mock/@v/v1.6.0.zip;srcoutput=github.com/golang/mock;srcinput=github.com/golang/mock@v1.6.0;downloadfilename=github-com-golang-mock-1.6.0.zip;name=github-com-golang-mock"
+SRC_URI[github-com-golang-mock.sha256sum] = "fa25916b546f90da49418f436e3a61e4c5dae898cf3c82b0007b5a6fab74261b"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
