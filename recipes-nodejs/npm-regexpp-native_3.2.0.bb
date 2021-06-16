@@ -5,9 +5,11 @@ HOMEPAGE = "https://github.com/mysticatea/regexpp#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a8f21789009221b0b37faaa24544da54"
 
-SRC_URI = "https://registry.npmjs.org/regexpp/-/regexpp-3.1.0.tgz"
-SRC_URI[md5sum] = "d03ea17c193817fd0d316622bd38825a"
-SRC_URI[sha256sum] = "c5da33ee1ba6800c6e7bd7e703b5c97a1ca33f1946c03fd73d30605d0e1e107c"
+DEPENDS = ""
+
+SRC_URI = "https://registry.npmjs.org/regexpp/-/regexpp-3.2.0.tgz"
+SRC_URI[md5sum] = "57799c5267ba34569b8f63f1e4554ec5"
+SRC_URI[sha256sum] = "fa4c77eaaaf770fc07e5f834b9e3ff1ec39dca5e0e2f8f66a252c8c7eb840a7e"
 
 NPM_PKGNAME = "regexpp"
 
