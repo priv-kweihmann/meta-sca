@@ -17,8 +17,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=8f0e2cd40e05189ec81232da84bd6e1a"
 
 PYPI_PACKAGE = "ansible"
 
-SRC_URI[md5sum] = "2824f0cd25970f8da7e4c1794d01b496"
-SRC_URI[sha256sum] = "6f67ca5c634e4721d1f8e206dc71d60d1a114d147945355bfc902bd37eb07080"
+SRC_URI[md5sum] = "e89a1bcdd56f50c850737af754f2ff68"
+SRC_URI[sha256sum] = "f561cca7fbc4daa14d98e18cd0cb74bd8b173f1501b8fa11543f6ef002de3167"
 
 inherit pypi
 inherit setuptools3
