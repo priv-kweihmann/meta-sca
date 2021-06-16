@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/spf13/viper/@v/v1.7.1.zip;srcoutput=github.com/spf13/viper;srcinput=github.com/spf13/viper@v1.7.1;downloadfilename=github-com-spf13-viper-1.7.1.zip;name=github-com-spf13-viper"
-SRC_URI[github-com-spf13-viper.sha256sum] = "953c32ec758f811c63a28996f17bdc8428ced6a3d1a9ceebc744ae37b3b8e9e9"
+SRC_URI += "https://proxy.golang.org/github.com/spf13/viper/@v/v1.8.0.zip;srcoutput=github.com/spf13/viper;srcinput=github.com/spf13/viper@v1.8.0;downloadfilename=github-com-spf13-viper-1.8.0.zip;name=github-com-spf13-viper"
+SRC_URI[github-com-spf13-viper.sha256sum] = "bd7bf17f4859675af899cc5fa705c96dd8cec5a1207c8c31459b6e0415c0d5fa"
 
 GOSRC_LICENSE += "\
     MIT \
