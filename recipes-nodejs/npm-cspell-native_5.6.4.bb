@@ -14,11 +14,12 @@ DEPENDS = "npm-chalk-native \
            npm-fs-extra-native \
            npm-get-stdin-native \
            npm-glob-native \
-           npm-strip-ansi-native"
+           npm-strip-ansi-native \
+           npm-vscode-uri-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell/-/cspell-5.6.0.tgz"
-SRC_URI[md5sum] = "d2838efb5bfebfa048a853484aa36403"
-SRC_URI[sha256sum] = "dc03f83def083afc87784fe8661d6e9a11a80e95d28f1350280f57e86c89434e"
+SRC_URI = "https://registry.npmjs.org/cspell/-/cspell-5.6.4.tgz"
+SRC_URI[md5sum] = "6be892e605fd57dcb10d23fe754baf84"
+SRC_URI[sha256sum] = "6aa1003fbddbc19e7257fb4c96861b6c8487d59bb6fdfedd2a99e9b26da4faac"
 
 NPM_PKGNAME = "cspell"
 
