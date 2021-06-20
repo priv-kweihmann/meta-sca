@@ -8,7 +8,7 @@ DEPENDS += "python3-native"
 
 SRC_URI = "git://github.com/a13xp0p0v/kconfig-hardened-check.git;protocol=https;branch=master \
            file://kconfighard.sca.description"
-SRCREV = "2f8e7a4dc57a0e0e192dd303bd89f9be0e9240a4"
+SRCREV = "f5277e585c2cee7b1d58c67abb9577e827f672ab"
 S = "${WORKDIR}/git"
 
 inherit setuptools3
