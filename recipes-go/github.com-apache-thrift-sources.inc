@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/apache/thrift/@v/v0.14.1.zip;srcoutput=github.com/apache/thrift;srcinput=github.com/apache/thrift@v0.14.1;downloadfilename=github-com-apache-thrift-0.14.1.zip;name=github-com-apache-thrift"
-SRC_URI[github-com-apache-thrift.sha256sum] = "73ed84300f2d39999f2e45d834c92b69bbf4e0855859ae9b27489ab99c934218"
+SRC_URI += "https://proxy.golang.org/github.com/apache/thrift/@v/v0.14.2.zip;srcoutput=github.com/apache/thrift;srcinput=github.com/apache/thrift@v0.14.2;downloadfilename=github-com-apache-thrift-0.14.2.zip;name=github-com-apache-thrift"
+SRC_URI[github-com-apache-thrift.sha256sum] = "15834c51070f531c930822c03baeb4da479a2e4989d61471ac619678e9fc6153"
 GOSRC_REMOVEDIRS += "github.com/apache/thrift/tutorial"
 GOSRC_REMOVEDIRS += "github.com/apache/thrift/test"
 GOSRC_REMOVEDIRS += "github.com/apache/thrift/lib/go/test/tests"
