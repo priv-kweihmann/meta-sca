@@ -19,7 +19,7 @@ UPDATE_REGEX = r"Update\s+{}\s+to\s+.*"
 
 def create_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--blacklistfile", default=None, help="File with blacklisted packages")
+    parser.add_argument("--blacklistfile", default="", help="File with blacklisted packages")
     parser.add_argument("--dryrun", default=False, action="store_true", help="dry run")
     parser.add_argument("--filter", default=".*", help="additional recipe name filter")
     parser.add_argument("--backoff", default=60, type=int, help="backoff time after UNKNOWN_BROKEN finding. 0=disabled")
@@ -27,6 +27,33 @@ def create_parser():
     parser.add_argument("token", help="GitHub token")
     return parser.parse_args()
 
+def check_gh_prerelease(login, repo, version):
+    if not repo:
+        return ([], ['Postponed'])
+    _repo_chunks = repo.split("/")
+    _repo = login.repository(_repo_chunks[0], _repo_chunks[1])
+    for release in _repo.releases():
+        if release.name.endswith(version):
+            print("Found GH release {} -- prerelease {}".format(version, release.prerelease))
+            if release.prerelease:
+                return (['Postponed'], [])
+    return ([], ['Postponed'])
+
+def translate_to_gh_repo(recipe_name):
+    try:
+        devtool_out = subprocess.check_output(["bitbake", "-e"] + [recipe_name],
+                                                universal_newlines=True, 
+                                                stderr=subprocess.STDOUT)
+    except subprocess.CalledProcessError as e:
+        devtool_out = e.stdout or ""
+    for m in re.finditer(r"SRC_URI\s*=\s*\"(?P<value>.*)\"", devtool_out, re.MULTILINE):
+        for chunk in m.group("value").split(" "):
+            match = re.match(r".*://github.com/(?P<repo>.*)", chunk)
+            if match:
+                _repo = match.group("repo").split(";")[0]
+                print("{} points to GH repo {}".format(recipe_name, _repo))
+                return _repo
+    return ""
 
 def get_updates(_blacklist, _args):
     try:
@@ -77,9 +104,10 @@ def get_updates(_blacklist, _args):
     return res
 
 def get_blacklist(_file):
-    if os.path.exists(_file):
-        with open(_file) as i:
-            return [x.strip("\n") for x in i.readlines() if x]
+    if _file:
+        if os.path.exists(_file):
+            with open(_file) as i:
+                return [x.strip("\n") for x in i.readlines() if x]
     return []
 
 if __name__ == '__main__':
@@ -96,8 +124,17 @@ if __name__ == '__main__':
         # 1. no issue open found -> Create one
         # 2. issue found -> alter title, remove staging label (if present)
         matches = [x for x in issue_list if re.match(UPDATE_REGEX.format(up[0]), x.title)]
+
+        _label_add, _label_remove = check_gh_prerelease(login, translate_to_gh_repo(up[0]), up[1])
+
+        _open_list = [x for x in issue_list if x.title == UPDATE_FORMAT.format(up[0], up[1])]
         # if exact issue text found -> continue
-        if any([x for x in issue_list if x.title == UPDATE_FORMAT.format(up[0], up[1])]):
+        if any(_open_list):
+            _labels = [str(x) for x in _open_list[0].original_labels]
+            _labels += _label_add
+            _labels = [x for x in _labels if x not in _label_remove]
+            if not _args.dryrun:
+                _open_list[0].edit(labels=_labels)
             continue
         if any([x for x in issue_list_closed if x.title == UPDATE_FORMAT.format(up[0], up[1])]):
             continue
@@ -107,10 +144,14 @@ if __name__ == '__main__':
                   UPDATE_FORMAT.format(up[0], up[1]),
                   [str(x) for x in matches[0].original_labels if str(x) != "Staging"] + ["Update Bot"]))
             if not _args.dryrun:
+                _labels = [str(x) for x in _open_list[0].original_labels]  + ["Update Bot"]
+                _labels += _label_add
+                _labels = [x for x in _labels if x not in _label_remove]
                 matches[0].edit(title=UPDATE_FORMAT.format(up[0], up[1]), 
-                                labels=[str(x) for x in matches[0].original_labels if str(x) != "Staging"] + ["Update Bot"])
+                                labels=_labels)
         else:
             print("Create new issue {}:{}".format(UPDATE_FORMAT.format(
                 up[0], up[1]), ["Package Update", "Update Bot"]))
+            _labels = ["Package Update", "Update Bot"] + _label_add
             if not _args.dryrun:
-                repo.create_issue(title=UPDATE_FORMAT.format(up[0], up[1]), labels=["Package Update", "Update Bot"])
+                repo.create_issue(title=UPDATE_FORMAT.format(up[0], up[1]), labels=_labels)
