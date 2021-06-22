@@ -31,12 +31,15 @@ def check_gh_prerelease(login, repo, version):
     if not repo:
         return ([], ['Postponed'])
     _repo_chunks = repo.split("/")
-    _repo = login.repository(_repo_chunks[0], _repo_chunks[1])
-    for release in _repo.releases():
-        if release.name.endswith(version):
-            print("Found GH release {} -- prerelease {}".format(version, release.prerelease))
-            if release.prerelease:
-                return (['Postponed'], [])
+    try:
+        _repo = login.repository(_repo_chunks[0], _repo_chunks[1])
+        for release in _repo.releases():
+            if release.name.endswith(version):
+                print("Found GH release {} -- prerelease {}".format(version, release.prerelease))
+                if release.prerelease:
+                    return (['Postponed'], [])
+    except:
+        pass
     return ([], ['Postponed'])
 
 def translate_to_gh_repo(recipe_name):
