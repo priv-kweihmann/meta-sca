@@ -147,7 +147,7 @@ if __name__ == '__main__':
                   UPDATE_FORMAT.format(up[0], up[1]),
                   [str(x) for x in matches[0].original_labels if str(x) != "Staging"] + ["Update Bot"]))
             if not _args.dryrun:
-                _labels = [str(x) for x in _open_list[0].original_labels]  + ["Update Bot"]
+                _labels = [str(x) for x in matches[0].original_labels]  + ["Update Bot"]
                 _labels += _label_add
                 _labels = [x for x in _labels if x not in _label_remove]
                 matches[0].edit(title=UPDATE_FORMAT.format(up[0], up[1]), 
