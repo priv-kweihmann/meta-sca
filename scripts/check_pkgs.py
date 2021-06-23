@@ -34,7 +34,8 @@ def check_gh_prerelease(login, repo, version):
     try:
         _repo = login.repository(_repo_chunks[0], _repo_chunks[1])
         for release in _repo.releases():
-            if release.name.endswith(version):
+            _name = release.name.lstrip("v")
+            if _name.endswith(version) or _name.startswith(version):
                 print("Found GH release {} -- prerelease {}".format(version, release.prerelease))
                 if release.prerelease:
                     return (['Postponed'], [])
@@ -53,7 +54,7 @@ def translate_to_gh_repo(recipe_name):
         for chunk in m.group("value").split(" "):
             match = re.match(r".*://github.com/(?P<repo>.*)", chunk)
             if match:
-                _repo = match.group("repo").split(";")[0]
+                _repo = re.sub(r"(.*)\.git$", r"\1", match.group("repo").split(";")[0])
                 print("{} points to GH repo {}".format(recipe_name, _repo))
                 return _repo
     return ""
