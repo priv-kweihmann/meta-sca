@@ -5,11 +5,12 @@ HOMEPAGE = "https://github.com/syntax-tree/mdast-util-gfm-strikethrough#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=6a9c614ad8a32fcd51b47e458d620e48"
 
-DEPENDS = "npm-mdast-util-to-markdown-native"
+DEPENDS = "npm-mdast-util-to-markdown-native \
+           npm-types-mdast-native"
 
-SRC_URI = "https://registry.npmjs.org/mdast-util-gfm-strikethrough/-/mdast-util-gfm-strikethrough-0.2.3.tgz"
-SRC_URI[md5sum] = "140ca9b582c726cda2a5468533e0d564"
-SRC_URI[sha256sum] = "172a22b41e8a26352926d0c3c5b4f83c40872bc5b94cda1609335677a3af384a"
+SRC_URI = "https://registry.npmjs.org/mdast-util-gfm-strikethrough/-/mdast-util-gfm-strikethrough-1.0.0.tgz"
+SRC_URI[md5sum] = "2b4f151c04461428c01d528268b8aa87"
+SRC_URI[sha256sum] = "41f5f32a09e6d6b4a05ee4783b7a04abe2d5d842fcdb6162795b96aaa4e555d6"
 
 NPM_PKGNAME = "mdast-util-gfm-strikethrough"
 
