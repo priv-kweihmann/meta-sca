@@ -15,9 +15,9 @@ DEPENDS = "npm-babel-code-frame-native \
            npm-debug-native \
            npm-globals-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/traverse/-/traverse-7.14.5.tgz"
-SRC_URI[md5sum] = "b9054b16178e7259b242c6044633f13b"
-SRC_URI[sha256sum] = "143633ea0b22d1aa8f597fbcd8e9721137bb50f88ddc06b7bdf587702892d9a9"
+SRC_URI = "https://registry.npmjs.org/@babel/traverse/-/traverse-7.14.7.tgz"
+SRC_URI[md5sum] = "68aad57f8c3c7dc16ac4c86f27bcdf0e"
+SRC_URI[sha256sum] = "fbf9766d81c56e18a48bffaf3ef75865b45fd6914090394e5b599c5e9da17604"
 
 NPM_PKGNAME = "@babel/traverse"
 
