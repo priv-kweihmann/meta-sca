@@ -5,11 +5,11 @@ HOMEPAGE = "https://github.com/micromark/micromark-extension-gfm-tagfilter#readm
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=6a9c614ad8a32fcd51b47e458d620e48"
 
-DEPENDS = ""
+DEPENDS = "npm-micromark-util-types-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-tagfilter/-/micromark-extension-gfm-tagfilter-0.3.0.tgz"
-SRC_URI[md5sum] = "68e5c52aa90e0103833880410bb9e703"
-SRC_URI[sha256sum] = "606597f93113ba8a4ba78b016ba01b8e0f0b3a417692f6c74ebed5182882b529"
+SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-tagfilter/-/micromark-extension-gfm-tagfilter-1.0.0.tgz"
+SRC_URI[md5sum] = "79ae2c13784a905edc931fa36c502c54"
+SRC_URI[sha256sum] = "739f97ca82fff44da7cf68788b039085ffa5301a3045013d9cd30b353f47b5db"
 
 NPM_PKGNAME = "micromark-extension-gfm-tagfilter"
 
