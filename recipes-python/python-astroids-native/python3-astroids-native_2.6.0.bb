@@ -14,8 +14,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "astroid"
 
-SRC_URI[md5sum] = "365043dbd1fd6c53194ada419eac1860"
-SRC_URI[sha256sum] = "2476b7f0d6cec13f4c1f53b54bea2ce072310ac9fc7acb669d5270190c748042"
+SRC_URI[md5sum] = "b1933ac8d3b211617de9cc8e5ccf6d30"
+SRC_URI[sha256sum] = "09bdb456e02564731f8b5957cdd0c98a7f01d2db5e90eb1d794c353c28bfd705"
 
 inherit pypi
 inherit setuptools3
