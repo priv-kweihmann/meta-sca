@@ -8,13 +8,13 @@ LIC_FILES_CHKSUM = "file://license;md5=6a9c614ad8a32fcd51b47e458d620e48"
 DEPENDS = "npm-longest-streak-native \
            npm-mdast-util-to-string-native \
            npm-parse-entities-native \
-           npm-repeat-string-native \
+           npm-types-mdast-native \
            npm-types-unist-native \
            npm-zwitch-native"
 
-SRC_URI = "https://registry.npmjs.org/mdast-util-to-markdown/-/mdast-util-to-markdown-0.6.5.tgz"
-SRC_URI[md5sum] = "5e3c1b92824476d3b6e5e7095e209934"
-SRC_URI[sha256sum] = "7aaaef587b67c72c2df2c613c965e79c6906e30b72b0f1234ea8aed604c509a7"
+SRC_URI = "https://registry.npmjs.org/mdast-util-to-markdown/-/mdast-util-to-markdown-1.0.1.tgz"
+SRC_URI[md5sum] = "b9543c393698636cd7cba7819d17cfe0"
+SRC_URI[sha256sum] = "91fb91d053a6f51d14eed3ccd73ec18e045b15d8700305dcbabdba959d5c8ed9"
 
 NPM_PKGNAME = "mdast-util-to-markdown"
 
