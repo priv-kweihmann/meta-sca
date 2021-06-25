@@ -12,8 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "flake8-eradicate"
 
-SRC_URI[md5sum] = "b48ebfd77707032d2439eadeaa165ce8"
-SRC_URI[sha256sum] = "fe7167226676823d50cf540532302a6f576c5a398c5260692571a05ef72c5f5b"
+SRC_URI[md5sum] = "960da162e0bce61edb40697a68691b61"
+SRC_URI[sha256sum] = "f5917d6dbca352efcd10c15fdab9c55c48f0f26f6a8d47898b25d39101f170a8"
 
 inherit pypi
 inherit setuptools3
