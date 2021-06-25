@@ -8,12 +8,11 @@ LIC_FILES_CHKSUM = "file://license;md5=6a9c614ad8a32fcd51b47e458d620e48"
 DEPENDS = "npm-mdast-util-gfm-autolink-literal-native \
            npm-mdast-util-gfm-strikethrough-native \
            npm-mdast-util-gfm-table-native \
-           npm-mdast-util-gfm-task-list-item-native \
-           npm-mdast-util-to-markdown-native"
+           npm-mdast-util-gfm-task-list-item-native"
 
-SRC_URI = "https://registry.npmjs.org/mdast-util-gfm/-/mdast-util-gfm-0.1.2.tgz"
-SRC_URI[md5sum] = "a1ce33b3f8dee033c0773d00bf9c39bb"
-SRC_URI[sha256sum] = "5f76df22484ad34a10ffaca316a5b153b022a34803f3bad09428a69453d115aa"
+SRC_URI = "https://registry.npmjs.org/mdast-util-gfm/-/mdast-util-gfm-1.0.0.tgz"
+SRC_URI[md5sum] = "2686e9fd654d402f84b27774b3526ed1"
+SRC_URI[sha256sum] = "9b7ad5f0113c85529ff2eb4d090777da7dc443974ebccb668e8d059d3642ddf3"
 
 NPM_PKGNAME = "mdast-util-gfm"
 
