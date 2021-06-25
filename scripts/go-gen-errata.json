@@ -443,8 +443,8 @@
             "UPSTREAM_CHECK_GITHUB_TAGS = \"1\""
         ],
         "striplevel": 1,
-        "url": "https://github.com/pierrec/lz4/archive/refs/tags/v4.1.4.zip",
-        "version": "4.1.4"
+        "url": "https://github.com/pierrec/lz4/archive/refs/tags/v4.1.8.zip",
+        "version": "4.1.8"
     },
     "github.com/pseudomuto/protokit": {
         "extra": [
