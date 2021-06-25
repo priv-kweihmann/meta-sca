@@ -29,7 +29,7 @@ def create_parser():
 
 def check_gh_prerelease(login, repo, version):
     if not repo:
-        return ([], ['Postponed'])
+        return ([], [])
     _repo_chunks = repo.split("/")
     try:
         _repo = login.repository(_repo_chunks[0], _repo_chunks[1])
@@ -38,10 +38,10 @@ def check_gh_prerelease(login, repo, version):
             if _name.startswith(version) or _name.endswoth(version):
                 print("Found GH release {} -- prerelease {}".format(version, release.prerelease))
                 if release.prerelease:
-                    return (['Postponed'], [])
+                    return (['Prerelease'], [])
     except:
         pass
-    return ([], ['Postponed'])
+    return ([], ['Prerelease'])
 
 def translate_to_gh_repo(recipe_name):
     try:
@@ -143,14 +143,14 @@ if __name__ == '__main__':
         if any([x for x in issue_list_closed if x.title == UPDATE_FORMAT.format(up[0], up[1])]):
             continue
         if any(matches):
+            _labels = [str(x) for x in matches[0].original_labels]  + ["Update Bot"]
+            _labels += _label_add
+            _labels = [x for x in _labels if x not in _label_remove]
             print("Alter issue from {}:{} -> {}:{}".format(matches[0].title,
                   matches[0].original_labels,
                   UPDATE_FORMAT.format(up[0], up[1]),
-                  [str(x) for x in matches[0].original_labels if str(x) != "Staging"] + ["Update Bot"]))
+                  _labels))
             if not _args.dryrun:
-                _labels = [str(x) for x in matches[0].original_labels]  + ["Update Bot"]
-                _labels += _label_add
-                _labels = [x for x in _labels if x not in _label_remove]
                 matches[0].edit(title=UPDATE_FORMAT.format(up[0], up[1]), 
                                 labels=_labels)
         else:
