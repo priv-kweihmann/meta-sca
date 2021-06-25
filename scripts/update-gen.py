@@ -161,6 +161,8 @@ with urllib.request.urlopen("https://api.github.com/repos/priv-kweihmann/meta-sc
         if item["state"] == "open" and is_updateable(_args, item["title"]):
             if any(x["name"] == "Postponed" for x in item["labels"]):
                 continue
+            if any(x["name"] == "Prerelease" for x in item["labels"]):
+                continue
             print("Attempting {}".format(item["title"]))
             _updated_items += update_packages(_args,
                                               item["title"], item["number"])
