@@ -13,9 +13,9 @@ SRC_URI = "git://github.com/diffblue/cbmc.git;protocol=https;branch=develop \
            file://0001-diable-goto-gcc-regression-tests.patch \
            file://cbmc.sca.description"
 
-SRCREV = "c21dfd987056cce3b133b4a01e00f2260249ae98"
+SRCREV = "8e692ae7c6b22e2abeced16b76cba7a73f06e936"
 
-UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>cbmc-[\d\.a-f]+)"
+UPSTREAM_CHECK_GITTAGREGEX = "cbmc-(?P<pver>[\d\.a-f]+)"
 
 S = "${WORKDIR}/git"
 
@@ -25,7 +25,7 @@ inherit native
 
 EXTRA_OECMAKE += "-DWITH_JBMC=OFF -DWITH_MEMORY_ANALYZER=ON"
 CXXFLAGS += "-Wno-error=maybe-uninitialized"
-FILES_${PN} += "${bindir} ${datadir}"
+FILES_${PN} += "${datadir}"
 
 do_install() {
     install -d ${D}${datadir}
