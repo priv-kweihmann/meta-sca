@@ -35,7 +35,7 @@ def check_gh_prerelease(login, repo, version):
         _repo = login.repository(_repo_chunks[0], _repo_chunks[1])
         for release in _repo.releases():
             _name = release.tag_name.lstrip("v")
-            if _name.startswith(version) or _name.endswoth(version):
+            if version in _name:
                 print("Found GH release {} -- prerelease {}".format(version, release.prerelease))
                 if release.prerelease:
                     return (['Prerelease'], [])
