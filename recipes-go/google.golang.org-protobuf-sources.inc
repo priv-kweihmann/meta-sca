@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/google.golang.org/protobuf/@v/v1.26.0.zip;srcoutput=google.golang.org/protobuf;srcinput=google.golang.org/protobuf@v1.26.0;downloadfilename=google-golang-org-protobuf-1.26.0.zip;name=google-golang-org-protobuf"
-SRC_URI[google-golang-org-protobuf.sha256sum] = "d7bc5de329bd4e803f7a2acfcbe8f2eba4ef1579485056ef569a4b245bee1208"
+SRC_URI += "https://proxy.golang.org/google.golang.org/protobuf/@v/v1.27.0.zip;srcoutput=google.golang.org/protobuf;srcinput=google.golang.org/protobuf@v1.27.0;downloadfilename=google-golang-org-protobuf-1.27.0.zip;name=google-golang-org-protobuf"
+SRC_URI[google-golang-org-protobuf.sha256sum] = "16a9f6c912aa893fb48239f9994bf235b954df2e2a735fbfa8c413e3a7142bf0"
 GOSRC_REMOVEDIRS += "google.golang.org/protobuf/internal/benchmarks"
 GOSRC_REMOVEDIRS += "google.golang.org/protobuf/internal/weakdeps"
 GOSRC_REMOVEDIRS += "google.golang.org/protobuf/internal/conformance"
