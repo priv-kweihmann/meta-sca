@@ -2,7 +2,7 @@ SUMMARY = "Package requirements checker, plugin for flake8"
 HOMEPAGE = "https://github.com/Arkq/flake8-requirements"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=f6a7ebcbe234d94509bad74d466632ee"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=0ea7a8535b886b84749903b72bb23949"
 
 DEPENDS += "\
             python3-flake8-native \
@@ -10,7 +10,7 @@ DEPENDS += "\
             "
 
 SRC_URI = "git://github.com/Arkq/flake8-requirements.git;protocol=https"
-SRCREV = "569de73fe7d0f238c5017620e18db0247930b4ee"
+SRCREV = "c29f14c3170c71393cf4ab28d1c504448c11b2bf"
 
 S = "${WORKDIR}/git"
 
