@@ -23,17 +23,16 @@ SCA_SPARE_DIRS ?= ""
 # lead SCA to be invoked
 SCA_SPARE_IGNORE_BBAPPEND ?= "0"
 
-## Valid values are 'checkstyle' or 'console' or 'diff' or 'stat' or 'sarif' or 'plain'
+## Valid values are 'checkstyle' or 'console' or 'diff' or 'stat' or 'sarif' or 'plain' or 'codeclimate'
 SCA_EXPORT_FORMAT ?= "checkstyle"
 SCA_EXPORT_FORMAT_SUFFIX_checkstyle = "xml"
+SCA_EXPORT_FORMAT_SUFFIX_codeclimate = "json"
 SCA_EXPORT_FORMAT_SUFFIX_console = "txt"
 SCA_EXPORT_FORMAT_SUFFIX_diff = "txt"
-SCA_EXPORT_FORMAT_SUFFIX_stat = "json"
+SCA_EXPORT_FORMAT_SUFFIX_plain = "txt"
 SCA_EXPORT_FORMAT_SUFFIX_sarif = "sarif"
 SCA_EXPORT_FORMAT_SUFFIX_sonarqube = "json"
-SCA_EXPORT_FORMAT_SUFFIX_plain = "txt"
-# here for backward compatibility
-SCA_EXPORT_FORMAT_SUFFIX_codeclimate = "json"
+SCA_EXPORT_FORMAT_SUFFIX_stat = "json"
 
 SCA_AUTO_INH_ON_IMAGE ?= "1"
 SCA_AUTO_INH_ON_RECIPE ?= "1"
