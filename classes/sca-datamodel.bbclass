@@ -230,6 +230,22 @@ def sca_get_model_class(d, **kwargs):
             self.__fixupPaths()
             return os.path.join(exportPath or self.__BuildPath or "", self.__File)
 
+        def GetItemHash(self):
+            """Returns MD5 hash of the item without absolute paths
+            """
+            import hashlib
+            return hashlib.md5("{}{}{}{}{}{}{}{}{}".format(
+                                                         self.Column,
+                                                         self.File,
+                                                         self.ID,
+                                                         self.Line,
+                                                         self.Message,
+                                                         self.PackageName,
+                                                         self.Scope,
+                                                         self.Severity,
+                                                         self.Tool
+                                                         ).encode('utf-8')).hexdigest()
+
         def __repr__(self):
             return "{}:{}:{} [{}]: {} ({}) :: {}".format(self.GetPath(), self.__Line, self.__Column, self.__Severity, self.__Message, self.GetFormattedID(), self.__Scope)
 
