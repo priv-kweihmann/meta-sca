@@ -4,12 +4,13 @@ With the help of the variable __SCA_EXPORT_FORMAT__ you can specify the format o
 Currently supported are
 
 * checkstyle
+* codeclimate
 * console
 * diff
-* stat
+* plain
 * sarif
 * sonarqube
-* plain
+* stat
 
 ## Checkstyle format
 
@@ -92,6 +93,10 @@ It is a JSON file based on the this [json schema](https://raw.githubusercontent.
 ## sonarqube format
 
 Exports the issues as a SonarQube generic import format as described on https://docs.sonarqube.org/latest/analysis/generic-issue/.
+
+## codeclimate format
+
+Exports the issues as a SonarQube generic import format as described on https://docs.gitlab.com/ee/user/project/merge_requests/code_quality.html#implementing-a-custom-tool.
 
 ## plain format
 
