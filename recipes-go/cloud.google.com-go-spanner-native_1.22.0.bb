@@ -16,6 +16,7 @@ EXTRA_DEPENDS += "\
     google.golang.org-api-native \
     google.golang.org-genproto-native \
     google.golang.org-grpc-native \
+    google.golang.org-protobuf-native \
 "
 
 GO_IMPORT = "cloud.google.com/go/spanner"
