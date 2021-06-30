@@ -36,7 +36,8 @@ def sca_get_model_class(d, **kwargs):
     __SevTrans = sca_severity_transformation(d)
 
     class SCADataModel():
-        def __init__(self, *args, **kwargs):
+        def __init__(self, d, *args, **kwargs):
+            self.__d = d
             self.__File = ""
             self.__BuildPath = ""
             self.__Line = "1"
@@ -185,15 +186,19 @@ def sca_get_model_class(d, **kwargs):
         def __fixupPaths(self):
             if self.__File:
                 if self.__BuildPath:
-                    if self.__File.startswith(self.__BuildPath):
-                        self.__File = self.__File.replace(self.__BuildPath, "")
-                    if self.__File.startswith(self.__BuildPath[1:]):
-                        self.__File = self.__File.replace(self.__BuildPath[1:], "")
+                    _needles = [self.__BuildPath, self.__BuildPath[1:]]
+                    for n in _needles:
+                        if self.__File.startswith(n):
+                            self.__File = self.__File.replace(n, "", 1)
+                            break
                     if self.__File.startswith(".") and not \
                        os.path.exists(os.path.join(self.__BuildPath, self.__File)):
                         self.__File = self.__File.lstrip(".")
-                if self.__File.startswith("/"):
-                    self.__File = self.__File.lstrip("/")
+                _needles = [x for x in (self.__d.getVar("BBLAYERS") or "").split(" ") if x] + ["/"]
+                for n in _needles:
+                    if self.__File.startswith(n):
+                        self.__File = self.__File.replace(n, "", 1)
+                        break
 
         def __sev_transform(self):
             import re
@@ -259,17 +264,17 @@ def sca_get_model_class(d, **kwargs):
             return hash(self.__repr__())
 
         @staticmethod
-        def FromDict(_in):
-            return SCADataModel(**_in)
+        def FromDict(d, _in):
+            return SCADataModel(d, **_in)
 
         @staticmethod
-        def FromList(_in):
-            return [SCADataModel.FromDict(x) for x in _in]
+        def FromList(d, _in):
+            return [SCADataModel.FromDict(d, x) for x in _in]
 
         def ToDict(self):
             return {k:getattr(self,k) for k in ["File", "BBFiles", "BuildPath", "Line", "Column", "Severity", "Message", "ID", "PackageName", "Tool", "Scope"] if getattr(self,k)}
 
-    x = SCADataModel(SevTrans=__SevTrans, BBFiles=sca_datamodel_bbfiles(d), **kwargs)
+    x = SCADataModel(d, SevTrans=__SevTrans, BBFiles=sca_datamodel_bbfiles(d), **kwargs)
     x.AddDescription(d.getVar("STAGING_DATADIR_NATIVE"))
     return x
 
@@ -280,27 +285,27 @@ def sca_get_datamodel(d, path):
     import json
     with open(path, "r") as o:
         _m = sca_get_model_class(d)
-        return _m.FromList(json.load(o))
+        return _m.FromList(d, json.load(o))
     return []
 
 def sca_add_model_class(d, item):
     import json
     _m = sca_get_model_class(d)
-    _t = _m.FromList(json.loads(d.getVar("__SCA_DATAMODEL_STORAGE", False)))
+    _t = _m.FromList(d, json.loads(d.getVar("__SCA_DATAMODEL_STORAGE", False)))
     _t.append(item)
     d.setVar("__SCA_DATAMODEL_STORAGE", json.dumps(__sca_model_to_list(d, _t)))
 
 def sca_add_model_class_list(d, _list):
     import json
     _m = sca_get_model_class(d)
-    _t = _m.FromList(json.loads(d.getVar("__SCA_DATAMODEL_STORAGE", False)))
+    _t = _m.FromList(d, json.loads(d.getVar("__SCA_DATAMODEL_STORAGE", False)))
     _t += _list
     d.setVar("__SCA_DATAMODEL_STORAGE", json.dumps(__sca_model_to_list(d, _t)))
 
 def __sca_unique_model(d):
     import json
     _m = sca_get_model_class(d)
-    _t = _m.FromList(json.loads(d.getVar("__SCA_DATAMODEL_STORAGE", False)))
+    _t = _m.FromList(d, json.loads(d.getVar("__SCA_DATAMODEL_STORAGE", False)))
     _t = list(set(_t))
     return __sca_model_to_list(d, _t)
 
