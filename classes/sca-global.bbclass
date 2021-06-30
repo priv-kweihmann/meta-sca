@@ -23,7 +23,14 @@ SCA_SPARE_DIRS ?= ""
 # lead SCA to be invoked
 SCA_SPARE_IGNORE_BBAPPEND ?= "0"
 
-## Valid values are 'checkstyle' or 'console' or 'diff' or 'stat' or 'sarif' or 'plain' or 'codeclimate'
+## Valid values are 
+## 'checkstyle'
+## 'codeclimate'
+## 'console'
+## 'diff'
+## 'plain'
+## 'sarif'
+## 'stat'
 SCA_EXPORT_FORMAT ?= "checkstyle"
 SCA_EXPORT_FORMAT_SUFFIX_checkstyle = "xml"
 SCA_EXPORT_FORMAT_SUFFIX_codeclimate = "json"
