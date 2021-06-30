@@ -1,6 +1,6 @@
 # Output formats
 
-With the help of the variable __SCA_EXPORT_FORMAT__ you can specify the format of the output.
+With the help of the variable __SCA_EXPORT_FORMAT__ you can specify the format(s) of the output.
 Currently supported are
 
 * checkstyle
@@ -11,6 +11,8 @@ Currently supported are
 * sarif
 * sonarqube
 * stat
+
+to enable multiple formats separate the string with spaces
 
 ## Checkstyle format
 
