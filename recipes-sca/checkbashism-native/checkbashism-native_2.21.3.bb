@@ -9,7 +9,7 @@ DEPENDS += "perl-native"
 
 SRC_URI = "git://salsa.debian.org/debian/devscripts.git;protocol=https \
            file://checkbashism.sca.description"
-SRCREV = "1ff7c56d8ea6eb19ad157d4c9ab586cc76ee1376"
+SRCREV = "18077565df53e37262eb2691c4067175e90f7ec7"
 
 S = "${WORKDIR}/git"
 
