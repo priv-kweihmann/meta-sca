@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=76c1502273262a5e
 
 PYPI_PACKAGE = "bitarray"
 
-SRC_URI[md5sum] = "1230ee19501d82427a2b9ee773f7e124"
-SRC_URI[sha256sum] = "a24aff72a7f1b09571b5daf9dbfcffd98481be1fe085ae5ef662cf11452a97e0"
+SRC_URI[md5sum] = "c8621b41d5ae7fbad3c09284620b9c26"
+SRC_URI[sha256sum] = "c45eeefaa600f6f2f6843fc4699869ae5d7c1e8b8fb58ff380584ce9bc7a7082"
 
 inherit pypi
 inherit setuptools3
