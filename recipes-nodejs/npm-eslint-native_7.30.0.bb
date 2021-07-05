@@ -25,6 +25,7 @@ DEPENDS = "npm-ajv-native \
            npm-functional-red-black-tree-native \
            npm-glob-parent-native \
            npm-globals-native \
+           npm-humanwhocodes-config-array-native \
            npm-ignore-native \
            npm-import-fresh-native \
            npm-imurmurhash-native \
@@ -45,9 +46,9 @@ DEPENDS = "npm-ajv-native \
            npm-text-table-native \
            npm-v8-compile-cache-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint/-/eslint-7.29.0.tgz"
-SRC_URI[md5sum] = "1fc3afdb50dc1cfbbfd626c24f860d78"
-SRC_URI[sha256sum] = "c5986a1edd120dc173d3c3abae19200f12f2703c5bff0ec71c64bd2bee70eac2"
+SRC_URI = "https://registry.npmjs.org/eslint/-/eslint-7.30.0.tgz"
+SRC_URI[md5sum] = "21a9b0465dfbfde7292ea6b4ff953a9b"
+SRC_URI[sha256sum] = "63175a8581fa4ad2d28fe375f086b61066f30facabff83d0f76a4f8928455456"
 
 NPM_PKGNAME = "eslint"
 
