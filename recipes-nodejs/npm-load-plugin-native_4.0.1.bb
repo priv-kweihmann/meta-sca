@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 DEPENDS = "npm-import-meta-resolve-native \
            npm-libnpmconfig-native"
 
-SRC_URI = "https://registry.npmjs.org/load-plugin/-/load-plugin-4.0.0.tgz"
-SRC_URI[md5sum] = "643120513b8f6f14adc0e1ef30cce01b"
-SRC_URI[sha256sum] = "bd59efcb0dd60425c6ec4e0883e69431b14e90b5ea436c2a4457212145922192"
+SRC_URI = "https://registry.npmjs.org/load-plugin/-/load-plugin-4.0.1.tgz"
+SRC_URI[md5sum] = "f354d407ef6e2303f661f01f27c1b682"
+SRC_URI[sha256sum] = "bd9ed7eeb4fd9571779c55bca72417d9f8f8d0c790b6c7251d53c41c59074e22"
 
 NPM_PKGNAME = "load-plugin"
 
