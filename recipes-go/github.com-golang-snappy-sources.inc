@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/golang/snappy/@v/v0.0.3.zip;srcoutput=github.com/golang/snappy;srcinput=github.com/golang/snappy@v0.0.3;downloadfilename=github-com-golang-snappy-0.0.3.zip;name=github-com-golang-snappy"
-SRC_URI[github-com-golang-snappy.sha256sum] = "f6b5e35bd1e1d35b5a67c8a91bf76d403426ce3669783af82b66c0254e4e0da5"
+SRC_URI += "https://proxy.golang.org/github.com/golang/snappy/@v/v0.0.4.zip;srcoutput=github.com/golang/snappy;srcinput=github.com/golang/snappy@v0.0.4;downloadfilename=github-com-golang-snappy-0.0.4.zip;name=github-com-golang-snappy"
+SRC_URI[github-com-golang-snappy.sha256sum] = "ea4545ca44ee990554094df6de440386a440a5bd99106e048939409d63beb423"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
