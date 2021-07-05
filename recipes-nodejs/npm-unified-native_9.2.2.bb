@@ -12,9 +12,9 @@ DEPENDS = "npm-bail-native \
            npm-trough-native \
            npm-vfile-native"
 
-SRC_URI = "https://registry.npmjs.org/unified/-/unified-9.2.1.tgz"
-SRC_URI[md5sum] = "a14217333c080bbbea47128dcf78fd44"
-SRC_URI[sha256sum] = "e7ddf57de546b4c718611b1cc5ad321b43a76aff2244b1ad9d884845ed69dd3f"
+SRC_URI = "https://registry.npmjs.org/unified/-/unified-9.2.2.tgz"
+SRC_URI[md5sum] = "29a7752849e7ea27a93d782ab53c35a6"
+SRC_URI[sha256sum] = "af3a7e782c1c6869bf4ed2dd11c484a2d0ac56724fd85e7e71af4dc06fa59718"
 
 NPM_PKGNAME = "unified"
 
