@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=b280acbcf1c2e5ef4ceb6852568d9961"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/trough/-/trough-2.0.1.tgz"
-SRC_URI[md5sum] = "30a9dca8ca38b5e805e17fa35810b033"
-SRC_URI[sha256sum] = "8c18d0d550f346f24519fc20a7afb72ac60408f55bd36053e651e8c7af456a5f"
+SRC_URI = "https://registry.npmjs.org/trough/-/trough-2.0.2.tgz"
+SRC_URI[md5sum] = "aee71aeba0e7b4c3c57bd2cf268b70e8"
+SRC_URI[sha256sum] = "a25368fe7fe28be35a8ff0d134dd9c847a5ea60419f93f94bd187d1f489ec7ea"
 
 NPM_PKGNAME = "trough"
 
