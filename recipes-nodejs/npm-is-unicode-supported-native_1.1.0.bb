@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/is-unicode-supported/-/is-unicode-supported-1.0.0.tgz"
-SRC_URI[md5sum] = "528d0153c105c88ca29a0ee42db51a33"
-SRC_URI[sha256sum] = "f6127d094bb8911857b18074e8777cfeee6e7d79f313a9fdfd57037c9c44acd1"
+SRC_URI = "https://registry.npmjs.org/is-unicode-supported/-/is-unicode-supported-1.1.0.tgz"
+SRC_URI[md5sum] = "dbf4e1f9c1458a2163b57d2efc37c5b2"
+SRC_URI[sha256sum] = "e6028554fb7edaa0995e55078bad4d8321a3a45fbde6192d070ca7cd0ebd1c58"
 
 NPM_PKGNAME = "is-unicode-supported"
 
