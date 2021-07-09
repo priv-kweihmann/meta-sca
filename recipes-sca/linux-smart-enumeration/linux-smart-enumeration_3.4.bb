@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 SRC_URI = "git://github.com/diego-treitos/linux-smart-enumeration.git;protocol=https \
            file://lse.sca.description"
-SRCREV = "c795112ac530da18f7d357cab5c85650d61f4aeb"
+SRCREV = "53f10eadc60411d6149e4e92d8d6a5d6671207d7"
 
 S = "${WORKDIR}/git"
 
