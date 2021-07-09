@@ -7,12 +7,11 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=4c17ca18a648da5ade1f324b80ea4540"
 
 DEPENDS = "npm-json5-native \
            npm-minimist-native \
-           npm-strip-bom-native \
-           npm-types-json5-native"
+           npm-strip-bom-native"
 
-SRC_URI = "https://registry.npmjs.org/tsconfig-paths/-/tsconfig-paths-3.9.0.tgz"
-SRC_URI[md5sum] = "bef10b1886b06c7d8d397ed03f88bc67"
-SRC_URI[sha256sum] = "3eb552f2b22667f4507e4a06456299857153eb260cbf08636e821acc93d24304"
+SRC_URI = "https://registry.npmjs.org/tsconfig-paths/-/tsconfig-paths-3.10.1.tgz"
+SRC_URI[md5sum] = "d69405722e6c5f4c6a7f813bba501916"
+SRC_URI[sha256sum] = "d1fa7aafafe007ec1d8b4b298d5ff99d2af2829ad5ebf841e9a76d1532aa48f9"
 
 NPM_PKGNAME = "tsconfig-paths"
 
