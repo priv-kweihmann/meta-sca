@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=37549544f16ed84cd09a09af0e78977f"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/known-css-properties/-/known-css-properties-0.21.0.tgz"
-SRC_URI[md5sum] = "ce7dccbb25cd71a7e9f11e5471750069"
-SRC_URI[sha256sum] = "8503b73c5b9f692a96461e26da054ad5c35bbecf1bf4d9a6c4becf89fe6e024f"
+SRC_URI = "https://registry.npmjs.org/known-css-properties/-/known-css-properties-0.23.0.tgz"
+SRC_URI[md5sum] = "f62cbdad3370361d0245745ad14a53a8"
+SRC_URI[sha256sum] = "77928325474a5aab3ab8405b410c38899df997e29a56ac30dad76cbb9e2f506b"
 
 NPM_PKGNAME = "known-css-properties"
 
