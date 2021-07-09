@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=d31df94bc162bf7b3c8f6cc547294075"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-5.3.1.tgz"
-SRC_URI[md5sum] = "88e4219a414c44747e0cada380679f70"
-SRC_URI[sha256sum] = "d8125f8e16bfeaa810a0b6dc1dc3c932024b6fd6473636edfc53d58bf87152dd"
+SRC_URI = "https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-5.3.2.tgz"
+SRC_URI[md5sum] = "f3da43a75d174d2021262164aa77170a"
+SRC_URI[sha256sum] = "d967b05e40c5396a56d70e0d3150477b969cb6cc1058d68bc2b95ab0159158cc"
 
 NPM_PKGNAME = "acorn-jsx"
 
