@@ -26,6 +26,8 @@ NPM_PKGNAME = "{name}"
 
 inherit npmhelper
 inherit native
+
+{__S}
 """
 
 __seen_pkgs = []
@@ -75,6 +77,7 @@ def get_hashes(args, pkgname, url):
     tar = tarfile.open("/tmp/npmgen.tmp", 'r:gz')
     _tarcnt = tar.getnames()
     _potential_files = [x for x in tar.getnames() if re.match(r"^(.*/)*(license.*|copying.*|licence.*)", x, re.IGNORECASE)]
+    _basepath = set(x.split("/")[0] for x in tar.getnames())
     if _potential_files:
         try:
             _l = tar.extractfile(_potential_files[0])
@@ -98,7 +101,8 @@ def get_hashes(args, pkgname, url):
         for chunk in iter(lambda: f.read(4096), b""):
             hash_md5.update(chunk)
             hash_sha256.update(chunk)
-    return (hash_md5.hexdigest(), hash_sha256.hexdigest(), os.path.basename(_lic_path), _lic_hash)
+    _basepath = list(_basepath)[0] if any(_basepath) else "package"
+    return (hash_md5.hexdigest(), hash_sha256.hexdigest(), os.path.basename(_lic_path), _lic_hash, _basepath)
 
 def get_license(desc):
     if "license" not in desc:
@@ -151,12 +155,18 @@ def create_tpl(args, pkgname, version):
             "__version": _bestversion,
             "__license": get_license(_description)
         }
-        __calculated["__md5sum"], __calculated["__sha256sum"], __calculated["__licfile"], __calculated["__lichash"] = get_hashes(args, pkgname, __calculated["__disttarball"])
+        __calculated["__md5sum"], __calculated["__sha256sum"], __calculated["__licfile"], __calculated["__lichash"], _basepath = get_hashes(args, pkgname, __calculated["__disttarball"])
+        if _basepath != "package":
+            __calculated["__S"] = 'S = "${{WORKDIR}}/{}"'.format(_basepath)
+        else:
+            __calculated["__S"] = ""
         __tpl = copy.deepcopy(TPL)
         for k, v in _description.items():
             __tpl = __tpl.replace("{{{}}}".format(k), str(v))
         for k, v in __calculated.items():
             __tpl = __tpl.replace("{{{}}}".format(k), str(v))
+
+        __tpl = re.sub(r"\n{3,}", "\n", __tpl)
         
         if not os.path.exists(_respath):
             os.makedirs(os.path.dirname(_respath), exist_ok=True)
