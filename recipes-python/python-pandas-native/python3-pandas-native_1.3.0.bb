@@ -4,6 +4,7 @@ LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3f23c5c092b74d245d48eeef72bc3fd2"
 
 DEPENDS += "\
+    python3-cython-native \
     python3-numpy-native \
     python3-python-dateutil-native \
     python3-pytz-native \
