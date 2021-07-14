@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 DEPENDS = "npm-map-age-cleaner-native \
            npm-mimic-fn-native"
 
-SRC_URI = "https://registry.npmjs.org/mem/-/mem-8.1.1.tgz"
-SRC_URI[md5sum] = "8d1b57be845164ec9fca0501161ea920"
-SRC_URI[sha256sum] = "00ed5b41dafe48d20477ee2229d4dfa9132290c109ead1c9951df56068efc232"
+SRC_URI = "https://registry.npmjs.org/mem/-/mem-9.0.0.tgz"
+SRC_URI[md5sum] = "faca1984e7fd11fe7754c91e22ca2331"
+SRC_URI[sha256sum] = "31eb4836705e212bbc2d22d82cb84602751a435be5b619f654f731b0de5d2305"
 
 NPM_PKGNAME = "mem"
 
