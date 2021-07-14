@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://license;md5=91fb5297439b32d9cd49df8a2484d3eb"
 DEPENDS = "npm-is-buffer-native \
            npm-vfile-native"
 
-SRC_URI = "https://registry.npmjs.org/to-vfile/-/to-vfile-7.1.0.tgz"
-SRC_URI[md5sum] = "50aba9c4e1ddd32528d14abb7d34efd1"
-SRC_URI[sha256sum] = "0a2783f67e3033ca37b7222038e2f7eb10e04a8f742c3106eac063b1c6089cc9"
+SRC_URI = "https://registry.npmjs.org/to-vfile/-/to-vfile-7.2.0.tgz"
+SRC_URI[md5sum] = "1f07a3427033041eec1fc3484c87a53d"
+SRC_URI[sha256sum] = "50a8b8146058121e268af48cf9b8825e8f0cf8957449cd919c638a37bde1227a"
 
 NPM_PKGNAME = "to-vfile"
 
