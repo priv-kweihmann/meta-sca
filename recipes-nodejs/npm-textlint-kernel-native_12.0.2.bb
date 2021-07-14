@@ -7,7 +7,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e13f89c6c99507a95c450fa5e043b0cb"
 
 DEPENDS = "npm-debug-native \
            npm-deep-equal-native \
-           npm-map-like-native \
            npm-structured-source-native \
            npm-textlint-ast-node-types-native \
            npm-textlint-ast-tester-native \
@@ -17,9 +16,9 @@ DEPENDS = "npm-debug-native \
            npm-textlint-types-native \
            npm-textlint-utils-native"
 
-SRC_URI = "https://registry.npmjs.org/@textlint/kernel/-/kernel-12.0.0.tgz"
-SRC_URI[md5sum] = "7d17d0a007e86939c39d911346cf191a"
-SRC_URI[sha256sum] = "b88bd56cb0b223266812a610397e1537812ec554c3d88e24b454c29478e80b7e"
+SRC_URI = "https://registry.npmjs.org/@textlint/kernel/-/kernel-12.0.2.tgz"
+SRC_URI[md5sum] = "6518d29534a27239ccbf84f54c290420"
+SRC_URI[sha256sum] = "50420c090f2bf2864a428b32dbcccc23db87d573a9fc81fdfe27ea5d92e05131"
 
 NPM_PKGNAME = "@textlint/kernel"
 
