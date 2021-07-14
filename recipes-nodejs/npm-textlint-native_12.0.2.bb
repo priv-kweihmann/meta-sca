@@ -12,7 +12,6 @@ DEPENDS = "npm-debug-native \
            npm-glob-native \
            npm-is-file-native \
            npm-log-symbols-native \
-           npm-map-like-native \
            npm-md5-native \
            npm-mkdirp-native \
            npm-optionator-native \
@@ -35,9 +34,9 @@ DEPENDS = "npm-debug-native \
            npm-try-resolve-native \
            npm-unique-concat-native"
 
-SRC_URI = "https://registry.npmjs.org/textlint/-/textlint-12.0.0.tgz"
-SRC_URI[md5sum] = "9af8fca86c189057535e1dcaf3de0255"
-SRC_URI[sha256sum] = "58af04c5b5722dcc903fa7451d09d2beb748bcf92d5dc5bff0c18dade68768f7"
+SRC_URI = "https://registry.npmjs.org/textlint/-/textlint-12.0.2.tgz"
+SRC_URI[md5sum] = "15af44a9140d616cc35a4b6821b43930"
+SRC_URI[sha256sum] = "a6c30d9ddcd0021ffc59344ddff980f7dae9422855fc2bcee9689f7be854cdf6"
 
 NPM_PKGNAME = "textlint"
 
