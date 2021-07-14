@@ -22,9 +22,9 @@ DEPENDS = "npm-azu-format-text-native \
            npm-try-resolve-native \
            npm-xml-escape-native"
 
-SRC_URI = "https://registry.npmjs.org/@textlint/linter-formatter/-/linter-formatter-12.0.0.tgz"
-SRC_URI[md5sum] = "29bd2c96c121ef0c7220a188f8fb4a88"
-SRC_URI[sha256sum] = "31ff3ba32ca4fa572f6ddf4252a6b3988502bd9f0d304701328beab9dd8bbf7d"
+SRC_URI = "https://registry.npmjs.org/@textlint/linter-formatter/-/linter-formatter-12.0.2.tgz"
+SRC_URI[md5sum] = "6bd19029d37540010e571b600a33e65a"
+SRC_URI[sha256sum] = "70f01b9a9c4716f8767b66d1e73e8825abcad8a11e877a1fd5a28ec4fec496cd"
 
 NPM_PKGNAME = "@textlint/linter-formatter"
 
