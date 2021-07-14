@@ -9,7 +9,6 @@ require github.com-pkg-sftp-sources.inc
 
 EXTRA_DEPENDS += "\
     github.com-kr-fs-native \
-    github.com-pkg-errors-native \
     golang.org-x-crypto-native \
 "
 
