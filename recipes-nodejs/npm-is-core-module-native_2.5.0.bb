@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=02b0fb5ff4014a08fd4193bc3e2349e2"
 
 DEPENDS = "npm-has-native"
 
-SRC_URI = "https://registry.npmjs.org/is-core-module/-/is-core-module-2.4.0.tgz"
-SRC_URI[md5sum] = "230a47f6467cf05722f73d5073ab0610"
-SRC_URI[sha256sum] = "cdb309300e5897b1db36f8e609a15dc8a35ce909965350a1021ca0bde05e8f0c"
+SRC_URI = "https://registry.npmjs.org/is-core-module/-/is-core-module-2.5.0.tgz"
+SRC_URI[md5sum] = "81744ef9abaf3625f2578ccac76a0f3c"
+SRC_URI[sha256sum] = "cf03fd7c22bc4b4d3534447581ca54cd5523a1a151d6862bf46ee5a87fd507b7"
 
 NPM_PKGNAME = "is-core-module"
 
