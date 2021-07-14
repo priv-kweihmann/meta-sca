@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=78fd36a7284eb85369521bcb6e863186"
 
 DEPENDS = "npm-defer-to-connect-native"
 
-SRC_URI = "https://registry.npmjs.org/@szmarczak/http-timer/-/http-timer-4.0.5.tgz"
-SRC_URI[md5sum] = "78d78fb0b1f43c50200de20704f9142c"
-SRC_URI[sha256sum] = "be762874e1cad888c692762ee337e5a7cb6db472a6d3cb9e7ae12abd75716356"
+SRC_URI = "https://registry.npmjs.org/@szmarczak/http-timer/-/http-timer-4.0.6.tgz"
+SRC_URI[md5sum] = "9bbe0401908601b0e23a3ac34b4f9ca8"
+SRC_URI[sha256sum] = "fda7f8e825870d7beb55ed1539343b22bcec59c9851860899a386c02ea552b56"
 
 NPM_PKGNAME = "@szmarczak/http-timer"
 
