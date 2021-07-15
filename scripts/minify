@@ -1,0 +1,149 @@
+#!/usr/bin/env python3
+
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2021, Konrad Weihmann
+
+import argparse
+import logging
+import os
+import shutil
+import tempfile
+import textwrap
+
+import git
+from packaging import version
+
+MINIMUM_VERSION = "v1.24.0"
+
+_new_publish = []
+
+def cleanup_version(a):
+    return version.parse(a.split('_')[-1].lstrip("v"))
+
+_ignore_branches = ['krogoth', 'pyro', 'rocko', 'sumo', 'thud']
+_minimum_version = cleanup_version(MINIMUM_VERSION)
+
+
+def create_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--excludes", default=os.path.join(os.path.dirname(
+        __file__), "..", ".minifyexcludes"), help="Source checkout of meta-sca")
+    parser.add_argument("source", help="Source checkout of meta-sca")
+    parser.add_argument("target", help="Target checkout of meta-sca-minified")
+    return parser.parse_args()
+
+
+def get_excludes(excludefile):
+    _cnt = []
+    with open(excludefile) as i:
+        _cnt = [x.strip("\n") for x in i.readlines() if x]
+    return _cnt
+
+
+def create_release_map(source, target, excludefile):
+    _list = {}
+
+    for branch in source.references:
+        if isinstance(branch, git.refs.remote.RemoteReference):
+            if branch.name in _ignore_branches:
+                continue
+            _tags_on_branch = source.git.tag(
+                '--sort=v:refname', '--merged', branch.name).split('\n')
+            for i, v in enumerate(_tags_on_branch):
+                if i >= len(_tags_on_branch) - 1:
+                    continue
+                if cleanup_version(v) < _minimum_version:
+                    continue
+                if cleanup_version(v) == _minimum_version:
+                    v = MINIMUM_VERSION
+                _this_tag = v
+                _next_tag = _tags_on_branch[i+1]
+                _excludes = [':(exclude){}'.format(x)
+                             for x in get_excludes(excludefile) if x]
+                _args = [_this_tag, _next_tag, '--binary']
+                if _excludes:
+                    _args += ["--", *_excludes]
+                patch = source.git.diff(*_args)
+                if not patch.endswith("\n"):
+                    patch += "\n"
+                _branch = [x.strip() for x in source.git.branch(
+                    '--contains', _next_tag).split(' ') if x]
+                if len(_branch) > 1:
+                    _branch = 'master'
+                elif any(_branch):
+                    _branch = _branch[0]
+                else:
+                    _branch = branch.name
+                
+                _branch = _branch.replace("origin/", "", 1)
+
+                if _next_tag not in _list:
+                    print("Adding new diff {}..{} on {}".format(_this_tag, _next_tag, _branch))
+                    _list[_next_tag] = {
+                        'patch': patch,
+                        'branch': _branch,
+                        'before': _this_tag
+                    }
+    return _list
+
+
+def apply_branch(branch, list, source, target):
+    global _new_publish
+    _releases = sorted(list.keys(), key=lambda k: cleanup_version(k))
+    if not any(_releases):
+        return
+    _initial_fork = [v['before']
+                     for k, v in list.items() if k == _releases[0]][0]
+    if not any(x.name == branch for x in target.branches):
+        target.git.branch(branch, 'tags/' + _initial_fork)
+        _new_publish.append(branch)
+    target.git.checkout(branch)
+    for release in _releases:
+        _obj = [v for k, v in list.items() if k == release]
+        if any(_obj):
+            _obj = _obj[0]
+        else:
+            continue
+        _summary = "Release {rel}".format(rel=release)
+        _body = textwrap.dedent("""
+        {summary}
+
+        See https://github.com/priv-kweihmann/meta-sca/releases/tag/{rel} for details
+        """.format(summary=_summary, rel=release))
+
+        _commits = target.iter_commits(branch)
+        if not any(x.summary == _summary for x in _commits):
+            print("Applying release {} [{}..]".format(release, _obj['before']))
+            with tempfile.NamedTemporaryFile(mode="w") as o:
+                o.write(_obj["patch"])
+                o.flush()
+                shutil.copy(o.name, "/tmp/last.patch")
+                target.git.apply('--whitespace=nowarn', o.name)
+            target.git.add("*")
+            target.git.commit('-m', _body, author="kweihmann@outlook.com")
+            target.git.tag("-f", "-a", release, "-m", _summary)
+            _new_publish.append(release)
+
+
+try:
+    _args = create_parser()
+
+    _source_repo = git.Repo(path=_args.source)
+    _target_repo = git.Repo(path=_args.target)
+
+    print("Create release map")
+    _list = create_release_map(_source_repo, _target_repo, _args.excludes)
+    _branches = ['master'] + list(set([v['branch']
+                                    for x, v in _list.items() if v['branch'] != 'master']))
+    for branch in _branches:
+        print("Update branch {}".format(branch))
+        apply_branch(branch, {k: v for k, v in _list.items()
+                            if v['branch'] == branch}, _source_repo, _target_repo)
+
+    print("Publish new: {}".format(",".join(sorted(_new_publish))))
+    print("Update branches: {}".format(",".join(sorted(_branches))))
+
+    _target_repo.git.push('origin', *_new_publish)
+    _target_repo.git.push('origin', *_branches)
+except Exception as e:
+    logging.exception(msg="Something went wrong", exc_info=e)

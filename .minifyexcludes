@@ -1,0 +1,13 @@
+.github/*
+.gitignore
+.minifyexcludes
+.travis.yml
+.unusedignore
+CONTRIBUTING.md
+docs/*
+files/module_list.csv 
+LICENSE
+README.md
+scripts/*
+SECURITY.md
+test/*
