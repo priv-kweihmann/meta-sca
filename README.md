@@ -14,6 +14,7 @@ For the list of current findings from pipelines see [meta-sca report](https://pr
 - [Installation](#installation)
   - [Prerequisites](#prerequisites)
   - [Use of containers](#use-of-containers)
+  - [Use in CI](#use-in-ci)
   - [Setup](#setup)
   - [Optional layer](#optional-layer)
     - [meta-clang](#meta-clang)
@@ -58,6 +59,12 @@ To install clone the needed branch(es) to any path on your local system.
 
 It is recommended to use `privkweihmann/yocto-sca-minimal:latest` docker container for building, which has all necessary requirements already installed.
 
+### Use in CI
+
+When you're planing to use meta-sca in your CI/CD, it is advised to use the minified layer [meta-sca-minified](https://github.com/priv-kweihmann/meta-sca-minified) to save you from cloning this fairly large repository.
+
+**NOTE** [meta-sca-minified](https://github.com/priv-kweihmann/meta-sca-minified) only offer releases of this layer for releases made after 03/2020
+
 ### Setup
 
 In your __bblayers.conf__-file add the following line
@@ -81,7 +88,7 @@ To make the integration of clang (clang-tidy) work you need to add the [meta-cla
 #### meta-oe
 
 To enable the php/lua support you need to add the [meta-oe](http://cgit.openembedded.org/meta-openembedded) layer to your bblayer-file.
- 
+
 #### meta-rubygems
 
 To enable the ruby support you need to add the [meta-rubygems](https://github.com/priv-kweihmann/meta-rubygems) layer to your bblayer-file.
