@@ -12,8 +12,8 @@ DEPENDS += "\
            "
 
 SRC_URI_append = " file://proselint.sca.description"
-SRC_URI[md5sum] = "d9133e0c3e12169420a0d4aa26a1608e"
-SRC_URI[sha256sum] = "e92e68b8bbb24dbf535eac59ac69b8b4ae9a0610f4f0dc83c18732150c465abf"
+SRC_URI[md5sum] = "68b800b5df2b98b2759087749eb88660"
+SRC_URI[sha256sum] = "3a87eb393056d1bc77d898e4bcf8998f50e9ad84f7b9ff7cf2720509ac8ef904"
 
 PYPI_PACKAGE = "proselint"
 
