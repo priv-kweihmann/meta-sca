@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=a2a1e4d251b834bf3e0ceee69ab1d4c9"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/pyright/-/pyright-1.1.156.tgz"
-SRC_URI[md5sum] = "f695664db2db330787b778f1fd79366c"
-SRC_URI[sha256sum] = "07e15e9247180ea66f746fb30610ef4b0eccf0167b0860e8df42f7dc034df948"
+SRC_URI = "https://registry.npmjs.org/pyright/-/pyright-1.1.157.tgz"
+SRC_URI[md5sum] = "91041030ce84217ba4cef76c78700d3a"
+SRC_URI[sha256sum] = "004d3efe71855f1e5ebbaceb68ae76ca93497b93df8e921133add8b7d96143f8"
 
 NPM_PKGNAME = "pyright"
 
