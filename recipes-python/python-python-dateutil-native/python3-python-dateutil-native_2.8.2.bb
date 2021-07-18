@@ -11,7 +11,7 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "python-dateutil"
 
-SRC_URI[sha256sum] = "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
+SRC_URI[sha256sum] = "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
 
 inherit pypi
 inherit setuptools3
