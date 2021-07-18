@@ -209,6 +209,11 @@
             "UPSTREAM_CHECK_GITHUB_TAGS = \"1\""
         ]
     },
+    "github.com/clbanning/mxj": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/clbanning/mxj/examples\""
+        ]
+    },
     "github.com/clbanning/x2j": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/clbanning/x2j/examples\""
