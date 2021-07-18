@@ -10,11 +10,12 @@ DEPENDS = "npm-bail-native \
            npm-is-buffer-native \
            npm-is-plain-obj-native \
            npm-trough-native \
+           npm-types-unist-native \
            npm-vfile-native"
 
-SRC_URI = "https://registry.npmjs.org/unified/-/unified-9.2.2.tgz"
-SRC_URI[md5sum] = "29a7752849e7ea27a93d782ab53c35a6"
-SRC_URI[sha256sum] = "af3a7e782c1c6869bf4ed2dd11c484a2d0ac56724fd85e7e71af4dc06fa59718"
+SRC_URI = "https://registry.npmjs.org/unified/-/unified-10.0.0.tgz"
+SRC_URI[md5sum] = "1fe3460a62f71730b60c03dfa356f9d8"
+SRC_URI[sha256sum] = "7df551c72bd40a245f0213f0ea4837ea000eafa374aa3c50fac687afc1e4bd5d"
 
 NPM_PKGNAME = "unified"
 
