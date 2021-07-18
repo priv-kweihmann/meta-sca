@@ -8,8 +8,8 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require github.com-hudl-fargo-sources.inc
 
 EXTRA_DEPENDS += "\
-    github.com-cenkalti-backoff-native \
-    github.com-clbanning-x2j-native \
+    github.com-cenkalti-backoff-v4-native \
+    github.com-clbanning-mxj-native \
     github.com-franela-goreq-native \
     github.com-miekg-dns-native \
     github.com-op-go-logging-native \
