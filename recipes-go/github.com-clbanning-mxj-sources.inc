@@ -1,5 +1,6 @@
 SRC_URI += "https://proxy.golang.org/github.com/clbanning/mxj/@v/v1.8.4.zip;srcoutput=github.com/clbanning/mxj;srcinput=github.com/clbanning/mxj@v1.8.4;downloadfilename=github-com-clbanning-mxj-1.8.4.zip;name=github-com-clbanning-mxj"
 SRC_URI[github-com-clbanning-mxj.sha256sum] = "8947cf617bdd9efc62817c8ddb17bafe497f35abdf10a3c60f295e387f633f70"
+GOSRC_REMOVEDIRS += "github.com/clbanning/mxj/examples"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
