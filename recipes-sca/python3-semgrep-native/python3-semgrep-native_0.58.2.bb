@@ -13,6 +13,7 @@ DEPENDS += "\
             python3-ruamelyaml-native \
             python3-ruamelyamlcli-native \
             python3-tqdm-native \
+            python3-wcmatch-native \
             python3-wheel-native \
             semgrep-core-native \
            "
