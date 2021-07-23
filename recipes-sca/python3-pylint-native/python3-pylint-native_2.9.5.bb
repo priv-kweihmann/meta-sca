@@ -15,8 +15,8 @@ DEPENDS += "\
             "
 
 SRC_URI_append = " file://pylint.sca.description"
-SRC_URI[md5sum] = "b3105edf59bdec0dde1972248942c5da"
-SRC_URI[sha256sum] = "23a1dc8b30459d78e9ff25942c61bb936108ccbe29dd9e71c01dc8274961709a"
+SRC_URI[md5sum] = "af10eacb0c9e94d0067980d481a45d4f"
+SRC_URI[sha256sum] = "1f333dc72ef7f5ea166b3230936ebcfb1f3b722e76c980cb9fe6b9f95e8d3172"
 
 PYPI_PACKAGE = "pylint"
 
