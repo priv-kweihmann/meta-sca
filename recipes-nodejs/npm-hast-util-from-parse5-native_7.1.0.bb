@@ -14,9 +14,9 @@ DEPENDS = "npm-hastscript-native \
            npm-vfile-native \
            npm-web-namespaces-native"
 
-SRC_URI = "https://registry.npmjs.org/hast-util-from-parse5/-/hast-util-from-parse5-7.0.0.tgz"
-SRC_URI[md5sum] = "ccdd821540ec24efed0d9a247cfff528"
-SRC_URI[sha256sum] = "4e93e4faa717b0b3cc405c83f37bd3fb1d1471607172b0d54b729f84cea56c3d"
+SRC_URI = "https://registry.npmjs.org/hast-util-from-parse5/-/hast-util-from-parse5-7.1.0.tgz"
+SRC_URI[md5sum] = "f949a2127ef2f7c9dda16d68a7a5fb5e"
+SRC_URI[sha256sum] = "2ee961e736ca60aaa171bc625b9725211c7e3076f7a02f3bb4c91f8a683c053f"
 
 NPM_PKGNAME = "hast-util-from-parse5"
 
