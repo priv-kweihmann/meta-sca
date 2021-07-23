@@ -3,7 +3,7 @@ DESCRIPTION = "User-friendly glob matching"
 HOMEPAGE = "https://github.com/sindresorhus/globby#readme"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
+LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = "npm-array-union-native \
            npm-dir-glob-native \
@@ -12,9 +12,9 @@ DEPENDS = "npm-array-union-native \
            npm-merge2-native \
            npm-slash-native"
 
-SRC_URI = "https://registry.npmjs.org/globby/-/globby-11.0.4.tgz"
-SRC_URI[md5sum] = "582fca60453ce8dcb7887a8669e41aad"
-SRC_URI[sha256sum] = "8006c45c11709066ab144908f9a40da3b08660d88ece6db9f2623d417d9cc8d4"
+SRC_URI = "https://registry.npmjs.org/globby/-/globby-12.0.0.tgz"
+SRC_URI[md5sum] = "07b1144800de50bc041a009eb9b42834"
+SRC_URI[sha256sum] = "d0b754f9941870ce885403e4643000b42dd63d64d8945857d8e3332621afdff3"
 
 NPM_PKGNAME = "globby"
 
