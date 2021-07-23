@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=f3d086f7c83cdc609b9f5d6057d7c1e4"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/resolve-alpn/-/resolve-alpn-1.1.2.tgz"
-SRC_URI[md5sum] = "ed573a6a033a880d0c745c6d80b1280f"
-SRC_URI[sha256sum] = "6cf7dd498352e1d4c1b12d023cb756758cd108d3410809ec7225f80bbea2e8fe"
+SRC_URI = "https://registry.npmjs.org/resolve-alpn/-/resolve-alpn-1.2.0.tgz"
+SRC_URI[md5sum] = "a9bd0b6375fc58685d01a6692dc7df76"
+SRC_URI[sha256sum] = "7f9c035d2ce78a469c71b9b0e35250164402543b18f4489489dd37493f566e74"
 
 NPM_PKGNAME = "resolve-alpn"
 
