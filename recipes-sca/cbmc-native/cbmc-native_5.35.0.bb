@@ -13,7 +13,7 @@ SRC_URI = "git://github.com/diffblue/cbmc.git;protocol=https;branch=develop \
            file://0001-diable-goto-gcc-regression-tests.patch \
            file://cbmc.sca.description"
 
-SRCREV = "5b12b641019c9de253014295f8556d57a76e6b17"
+SRCREV = "7e291a5232bf0dcae9feba0281d371b83491d832"
 
 UPSTREAM_CHECK_GITTAGREGEX = "cbmc-(?P<pver>[\d\.a-f]+)"
 
