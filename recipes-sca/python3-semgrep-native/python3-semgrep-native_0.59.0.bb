@@ -9,6 +9,7 @@ DEPENDS += "\
             python3-colorama-native \
             python3-jsonschema-native \
             python3-packaging-native \
+            python3-peewee-native \
             python3-requests-native \
             python3-ruamelyaml-native \
             python3-ruamelyamlcli-native \
@@ -20,8 +21,8 @@ DEPENDS += "\
 
 SRC_URI_append = " file://semgrep.sca.description"
 
-SRC_URI[md5sum] = "fd8a05c97bc3100cc0a845411da1406b"
-SRC_URI[sha256sum] = "cf00757e4749eaea5b1e0753914d012e2b7a55ca2e05df6fa7a203315cca9789"
+SRC_URI[md5sum] = "4dc76780f1fb8ad7d2adbcbe5fb7ee76"
+SRC_URI[sha256sum] = "2d2a3e913ec779f53f5cb6db2ec10e949ed5b44996d5b185aab9c5dc5e2e5d58"
 
 PYPI_PACKAGE = "semgrep"
 
