@@ -11,9 +11,9 @@ DEPENDS = "npm-array-timsort-native \
            npm-has-own-prop-native \
            npm-repeat-string-native"
 
-SRC_URI = "https://registry.npmjs.org/comment-json/-/comment-json-4.1.0.tgz"
-SRC_URI[md5sum] = "6059cfc7a9b95603e088a51b93031032"
-SRC_URI[sha256sum] = "46ec154e730e02fae8d00294273b19106b0d0a640236c761c4e1b104d6b77ada"
+SRC_URI = "https://registry.npmjs.org/comment-json/-/comment-json-4.1.1.tgz"
+SRC_URI[md5sum] = "42196b0f75983a3c5267eb3f825644b5"
+SRC_URI[sha256sum] = "365e401b9838891fb6f7bbc663ec0162f6f540001592f16b6361d7d11414fb5a"
 
 NPM_PKGNAME = "comment-json"
 
