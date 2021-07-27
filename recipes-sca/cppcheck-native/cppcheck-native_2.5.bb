@@ -30,3 +30,5 @@ do_install() {
 }
 
 FILES_${PN} = "${bindir} ${datadir}"
+
+UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+(\.\d+)*)$"
