@@ -22,9 +22,9 @@ DEPENDS = "npm-debug-native \
            npm-parse-entities-native \
            npm-types-debug-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark/-/micromark-3.0.1.tgz"
-SRC_URI[md5sum] = "49c15a66fbcb4c5822d3ebaec500eb51"
-SRC_URI[sha256sum] = "9bb18130257335f9dc14e4aa79c0e38d05fc212483953fba79c796815c138efd"
+SRC_URI = "https://registry.npmjs.org/micromark/-/micromark-3.0.2.tgz"
+SRC_URI[md5sum] = "8fcfbc0d099bedbb065e402be42e2c4f"
+SRC_URI[sha256sum] = "e073208d7629630ad6ea5fed6c1f716223ba0a6f152bc7331534dbff3f48ef1c"
 
 NPM_PKGNAME = "micromark"
 
