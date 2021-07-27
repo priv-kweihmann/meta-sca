@@ -6,17 +6,15 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=91fb5297439b32d9cd49df8a2484d3eb"
 
 DEPENDS = "npm-nlcst-to-string-native \
-           npm-repeat-string-native \
            npm-types-mdast-native \
-           npm-types-repeat-string-native \
            npm-types-unist-native \
            npm-unist-util-position-native \
            npm-vfile-location-native \
            npm-vfile-native"
 
-SRC_URI = "https://registry.npmjs.org/mdast-util-to-nlcst/-/mdast-util-to-nlcst-5.0.2.tgz"
-SRC_URI[md5sum] = "09bf944f0e115902b9b09becf62a5c9e"
-SRC_URI[sha256sum] = "9babd2bd256c89b4010cdc9e47649cc129ccc4e37de18d0bc9fc625d14a06109"
+SRC_URI = "https://registry.npmjs.org/mdast-util-to-nlcst/-/mdast-util-to-nlcst-5.1.0.tgz"
+SRC_URI[md5sum] = "65464b0379a88702ec855958a07eba87"
+SRC_URI[sha256sum] = "886f8085bde10ae9ce2d13001a8641b72c9e1ad470c7d443ef9e97904909d5b7"
 
 NPM_PKGNAME = "mdast-util-to-nlcst"
 
