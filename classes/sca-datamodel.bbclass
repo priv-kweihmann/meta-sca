@@ -51,6 +51,8 @@ def sca_get_model_class(d, **kwargs):
             self.__Scope = ""
             self.__description = {}
             self.__bbfiles = []
+            self.__overridepkgname = ""
+            self.__packagenames = [x for x in (self.__d.getVar("PACKAGES") or "").split(" ") if x]
             for k,v in kwargs.items():
                 x = getattr(self, k)
                 if x is not None:
@@ -126,7 +128,7 @@ def sca_get_model_class(d, **kwargs):
 
         @property
         def PackageName(self):
-            return self.__PackageName
+            return self.__overridepkgname or self.__PackageName
 
         @PackageName.setter
         def PackageName(self, value):
@@ -199,6 +201,11 @@ def sca_get_model_class(d, **kwargs):
                     if self.__File.startswith(n):
                         self.__File = self.__File.replace(n, "", 1)
                         break
+            for pkg in self.__packagenames:
+                if self.__File.startswith(pkg + "/"):
+                    self.__overridepkgname = pkg
+                    self.__BuildPath = os.path.join(self.__BuildPath, pkg)
+                    self.__File = self.__File.replace(pkg, "", 1).lstrip("/")
 
         def __sev_transform(self):
             import re
@@ -219,7 +226,7 @@ def sca_get_model_class(d, **kwargs):
             return "_".join(_id)
 
         def GetFormattedMessage(self):
-            return "[Package:{} Tool:{}] {}".format(self.__PackageName, self.__Tool, self.__Message)
+            return "[Package:{} Tool:{}] {}".format(self.PackageName, self.__Tool, self.__Message)
 
         def GetFormattedID(self):
             res = self.GetPlainID()
