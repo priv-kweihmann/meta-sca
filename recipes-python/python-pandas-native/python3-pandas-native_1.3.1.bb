@@ -10,7 +10,9 @@ DEPENDS += "\
     python3-pytz-native \
 "
 
-SRC_URI[sha256sum] = "c554e6c9cf2d5ea1aba5979cc837b3649539ced0e18ece186f055450c86622e2"
+PYPI_PACKAGE = "pandas"
+
+SRC_URI[sha256sum] = "341935a594db24f3ff07d1b34d1d231786aa9adfa84b76eab10bf42907c8aed3"
 
 inherit pypi
 inherit setuptools3
