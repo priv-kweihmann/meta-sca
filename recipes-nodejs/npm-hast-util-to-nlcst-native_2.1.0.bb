@@ -17,9 +17,9 @@ DEPENDS = "npm-hast-util-embedded-native \
            npm-vfile-location-native \
            npm-vfile-native"
 
-SRC_URI = "https://registry.npmjs.org/hast-util-to-nlcst/-/hast-util-to-nlcst-2.0.0.tgz"
-SRC_URI[md5sum] = "a31165a9361c96b20cecfa0e67f6db97"
-SRC_URI[sha256sum] = "bc35687acf7da6fab37e0ee191d3ef901a6517c587ba0a70bb1acf58b4f88d05"
+SRC_URI = "https://registry.npmjs.org/hast-util-to-nlcst/-/hast-util-to-nlcst-2.1.0.tgz"
+SRC_URI[md5sum] = "e1be0a1a5b74d1d830c6e23422040f77"
+SRC_URI[sha256sum] = "6b5d3d334e7fc6ae63c279ae9094a31a80faa1738c1d662873d977ce0aa37ba0"
 
 NPM_PKGNAME = "hast-util-to-nlcst"
 
