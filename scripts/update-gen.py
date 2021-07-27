@@ -119,27 +119,42 @@ def update_packages(_args, _input, number):
         _update = None
         _allowed_changes = 0
         _recipe = m.group("recipe")
+        _skip = False
         if _recipe.startswith("npm-"):
-            _pkgname = get_real_package_name_npm(_args, _recipe)
-            if _pkgname:
-                _update, _allowed_changes = run_package_update_npm(
-                    _args, _pkgname, m.group("version"))
+            if os.environ.get("NO_NPM", ""):
+                _skip = True
+            else:
+                _pkgname = get_real_package_name_npm(_args, _recipe)
+                if _pkgname:
+                    _update, _allowed_changes = run_package_update_npm(
+                        _args, _pkgname, m.group("version"))
         elif _recipe.startswith("python3-"):
-            _update, _allowed_changes = run_package_update_pypi(
-                _args, _recipe, m.group("version"))
+            if os.environ.get("NO_PYTHON", ""):
+                _skip = True
+            else:
+                _update, _allowed_changes = run_package_update_pypi(
+                    _args, _recipe, m.group("version"))
         elif _recipe.startswith("perl-"):
-            _update, _allowed_changes = run_package_update_perl(
-                _args, _recipe, m.group("version"))
+            if os.environ.get("NO_PERL", ""):
+                _skip = True
+            else:
+                _update, _allowed_changes = run_package_update_perl(
+                    _args, _recipe, m.group("version"))
         elif is_go_package(_args, _input):
-            _pkgname = get_real_package_name_go(_args, _recipe)
-            if _pkgname:
-                _update, _allowed_changes = run_package_update_go(
-                    _args, _pkgname, m.group("version"))
+            if os.environ.get("NO_GO", ""):
+                _skip = True
+            else:
+                _pkgname = get_real_package_name_go(_args, _recipe)
+                if _pkgname:
+                    _update, _allowed_changes = run_package_update_go(
+                        _args, _pkgname, m.group("version"))
         if _update:
             if run_bitbake_test(_args, _recipe):
                 git_commit(_args, _recipe,
                            m.group("version"), number, _allowed_changes)
                 return 1
+        elif _skip:
+            print("Skipped {recipe}".format(recipe=_recipe))
         else:
             print(
                 "Failed to update {recipe} - skipping".format(recipe=_recipe))
