@@ -5,11 +5,11 @@ HOMEPAGE = "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d4a904ca135bb7bc912156fee12726f0"
 
-DEPENDS = ""
+DEPENDS = "npm-types-ms-native"
 
-SRC_URI = "https://registry.npmjs.org/@types/debug/-/debug-4.1.6.tgz"
-SRC_URI[md5sum] = "72635f812bbbacd9f139d6502e44387f"
-SRC_URI[sha256sum] = "e1ae1d137bae6fc63029313bab07b0271d30b1939cc1bf2993941b31ae41d82f"
+SRC_URI = "https://registry.npmjs.org/@types/debug/-/debug-4.1.7.tgz"
+SRC_URI[md5sum] = "7c59674e648a0eeb5b5640cf16355279"
+SRC_URI[sha256sum] = "5fd1a4c817ca3f593b45e216b06f75ecc2e716dc4f2b244a8e7c46e61be6a9db"
 
 NPM_PKGNAME = "@types/debug"
 
