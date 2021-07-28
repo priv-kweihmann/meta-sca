@@ -10,8 +10,6 @@ DEPENDS += "\
     python3-toml-native \
 "
 
-SRC_URI_append = " file://0001-override-paths-by-env-var.patch"
-
 PYPI_PACKAGE = "typecode_libmagic-system-provided"
 
 SRC_URI[md5sum] = "65522130a321cf2a821183a7202161c6"
