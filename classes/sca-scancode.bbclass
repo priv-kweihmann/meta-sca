@@ -21,9 +21,11 @@ inherit sca-suppress
 inherit sca-image-backtrack
 inherit sca-tracefiles
 
-export SCANCODE_SYSTEM_BINDIR = "${STAGING_BINDIR_NATIVE}"
-export SCANCODE_SYSTEM_LIBDIR = "${STAGING_LIBDIR_NATIVE}"
-export SCANCODE_SYSTEM_DATADIR = "${STAGING_DATADIR_NATIVE}"
+# FIXME
+export EXTRACTCODE_LIBARCHIVE_PATH = "${STAGING_LIBDIR_NATIVE}/libarchive.so"
+export EXTRACTCODE_7Z_PATH = "${STAGING_BINDIR_NATIVE}/7z"
+export TYPECODE_LIBMAGIC_PATH = "${STAGING_LIBDIR_NATIVE}/libmagic.so"
+export TYPECODE_LIBMAGIC_DB_PATH = "${STAGING_DATADIR_NATIVE}/magic.mgc"
 
 def do_sca_conv_scancode(d):
     import os

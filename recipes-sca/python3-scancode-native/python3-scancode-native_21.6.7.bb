@@ -18,7 +18,7 @@ DEPENDS += "\
             python3-commoncode-native \
             python3-contextlib2-native \
             python3-debian-inspector-native \
-            python3-dparse2-native \
+            python3-dparse-native \
             python3-extractcode-native \
             python3-fasteners-native \
             python3-fingerprints-native \
@@ -71,10 +71,8 @@ RDEPENDS_${PN} += "${DEPENDS}"
 
 SRC_URI = "git://github.com/nexB/scancode-toolkit.git;protocol=https;nobranch=1 \
            file://0001-lift-version-requirements.patch \
-           file://0001-config-proper-handling-of-DistributionNotFound.patch \
-           file://0001-jinja2-lift-upper-pkg-version-boundary.patch \
            file://scancode.sca.description"
-SRCREV = "fa3e3662868c331232f75a93d4b8a1797bc8ddb5"
+SRCREV = "e54118434943557d0de9c140f7c79ce4b997aa49"
 
 S = "${WORKDIR}/git"
 
