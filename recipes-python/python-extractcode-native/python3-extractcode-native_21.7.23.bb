@@ -13,12 +13,12 @@ DEPENDS += "\
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://apache-2.0.LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 
-SRC_URI_append = " file://0001-remove-hard-lib-dependencies.patch"
+SRC_URI_append = " file://0001-Remove-strict-versioning-of-plugins.patch"
 
 PYPI_PACKAGE = "extractcode"
 
-SRC_URI[md5sum] = "df08688646b57276b2b831a404d49fba"
-SRC_URI[sha256sum] = "f91638dbf523b80df90ac184c25d5cd1ea24cac53f67a6bb7d7b389867e0744b"
+SRC_URI[md5sum] = "3a0eb10ab2a57e470a00fa854fb58ec4"
+SRC_URI[sha256sum] = "58aa16d60cfcbd3695d7ea84a1e30d5ba9fa6f614b2ef4a6d0565b2ac5d4f757"
 
 inherit pypi
 inherit setuptools3
