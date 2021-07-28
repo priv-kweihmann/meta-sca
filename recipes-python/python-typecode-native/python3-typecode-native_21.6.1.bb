@@ -21,8 +21,8 @@ SRC_URI_append = " file://0001-Relax-typecode_libmagic-requirements.patch"
 
 PYPI_PACKAGE = "typecode"
 
-SRC_URI[md5sum] = "95bf6bda1679ea875645323d0af96389"
-SRC_URI[sha256sum] = "eaac8aee0b9c6142ad44671252ba00748202d218347d1c0451ce6cd76561e01b"
+SRC_URI[md5sum] = "da4c8e1fa8df7f4cb73514498142f8c8"
+SRC_URI[sha256sum] = "d3a82859df5607c900972e08e1bca31e3fe2daed37afd1b8231cad2ef613d8d6"
 
 inherit pypi
 inherit setuptools3
