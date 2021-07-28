@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=558baaefeb02113f2331ea2fd536fa86"
 
 DEPENDS += "\
             python3-click-native \
-            python3-dparse2-native \
+            python3-dparse-native \
             python3-packaging-native \
             python3-pyparsing-native \
             python3-requests-native \
