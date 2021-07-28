@@ -11,12 +11,10 @@ DEPENDS += "\
     p7zip-native \
 "
 
-SRC_URI_append = " file://0001-override-paths-by-env-var.patch"
-
 PYPI_PACKAGE = "extractcode_7z_system_provided"
 
-SRC_URI[md5sum] = "5b9e0cbecc86a3c7ab76dc77a8e39049"
-SRC_URI[sha256sum] = "0ac9dc361e5bab403963e21eca2003e3d2b893cb73dec73bbe1250809bd2b06a"
+SRC_URI[md5sum] = "e1b4f42e05c5a46941dbe390e66fc01b"
+SRC_URI[sha256sum] = "e26a8ca74737251a0380068ff5c2c5c94d65eae557281350104bd7198e1b6385"
 
 inherit pypi
 inherit setuptools3
