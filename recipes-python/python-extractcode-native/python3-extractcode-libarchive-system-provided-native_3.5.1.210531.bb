@@ -11,12 +11,10 @@ DEPENDS += "\
     libarchive-native \
 "
 
-SRC_URI_append = " file://0001-override-paths-by-env-var.patch"
-
 PYPI_PACKAGE = "extractcode_libarchive_system_provided"
 
-SRC_URI[md5sum] = "c750938fe4e1e082af891e2a285bf4f1"
-SRC_URI[sha256sum] = "3d66a0bade4b7c813af745bdb0bbbb4f506d9e889a0256f17b023134bcbe0fef"
+SRC_URI[md5sum] = "d4ec53e8e6038d991c87cd703df0f3c5"
+SRC_URI[sha256sum] = "10ba69bdcf0ff718ff2825546dafd43a9f6d6d9ea91987c671a510868940cff0"
 
 inherit pypi
 inherit setuptools3
