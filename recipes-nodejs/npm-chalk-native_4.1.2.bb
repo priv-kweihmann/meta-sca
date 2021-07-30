@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
 DEPENDS = "npm-ansi-styles-native \
            npm-supports-color-native"
 
-SRC_URI = "https://registry.npmjs.org/chalk/-/chalk-4.1.1.tgz"
-SRC_URI[md5sum] = "bf6bf6baddf0e04dda5f4c9c7fe4e0e6"
-SRC_URI[sha256sum] = "0f5b6589d2d5c57a46b3e9225b6fe4ee921debaa56ecb679d00e0919fc2e7e6f"
+SRC_URI = "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
+SRC_URI[md5sum] = "cf76e256de1debce9c7a21cd18df954d"
+SRC_URI[sha256sum] = "e84c643aa53e87ace6c3d368b3cddda24a2d1434a06b6dfbdb628ad2107df90a"
 
 NPM_PKGNAME = "chalk"
 
