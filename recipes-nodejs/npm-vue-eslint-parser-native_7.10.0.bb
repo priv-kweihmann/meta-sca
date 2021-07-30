@@ -13,9 +13,9 @@ DEPENDS = "npm-debug-native \
            npm-lodash-native \
            npm-semver-native"
 
-SRC_URI = "https://registry.npmjs.org/vue-eslint-parser/-/vue-eslint-parser-7.9.0.tgz"
-SRC_URI[md5sum] = "c03bcef9fdae4d9ea5e58a17e2f966a7"
-SRC_URI[sha256sum] = "99c86bfb59283da5177bea4685fd48e9b634b4a84ec9864663e03cd59bb55eca"
+SRC_URI = "https://registry.npmjs.org/vue-eslint-parser/-/vue-eslint-parser-7.10.0.tgz"
+SRC_URI[md5sum] = "d717096f4977008d2b5214b52523a6a4"
+SRC_URI[sha256sum] = "d0b64fd0c0eadfd2a655fb2f6f92f0df93479419b8fcd4a8904c8e552c7b5ba8"
 
 NPM_PKGNAME = "vue-eslint-parser"
 
