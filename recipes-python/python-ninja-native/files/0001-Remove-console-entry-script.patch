@@ -1,19 +1,20 @@
-From 1caf84f7eefcfbac2113b20d0e02dd8e899aa4a0 Mon Sep 17 00:00:00 2001
+From ac882a7ab4988a4cd80e81863c11cdad20374a91 Mon Sep 17 00:00:00 2001
 From: Konrad Weihmann <kweihmann@outlook.com>
 Date: Sun, 15 Nov 2020 13:35:39 +0100
 Subject: [PATCH] Remove console entry script
 
 Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+Upstream-Status: Pending
 ---
  setup.py | 6 ------
  1 file changed, 6 deletions(-)
 
 diff --git a/setup.py b/setup.py
-index 9765214..20de741 100755
+index 617f7bb..fa2064f 100755
 --- a/setup.py
 +++ b/setup.py
-@@ -40,12 +40,6 @@ setup(
- 
+@@ -41,12 +41,6 @@ setup(
+     package_dir={'': 'src'},
      packages=['ninja'],
  
 -    entry_points={
@@ -25,6 +26,3 @@ index 9765214..20de741 100755
      url=r'http://ninja-build.org/',
      download_url=r'https://github.com/ninja-build/ninja/releases',
  
--- 
-2.25.1
-
