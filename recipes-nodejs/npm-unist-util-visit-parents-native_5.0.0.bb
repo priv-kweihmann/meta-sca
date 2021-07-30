@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 DEPENDS = "npm-types-unist-native \
            npm-unist-util-is-native"
 
-SRC_URI = "https://registry.npmjs.org/unist-util-visit-parents/-/unist-util-visit-parents-4.1.1.tgz"
-SRC_URI[md5sum] = "76cd5fb8c45dd245f5cc9f1301cf8f13"
-SRC_URI[sha256sum] = "68c2de50b2a1b98e1ca8c89541455ad8c6508be479e847ab90d3c7acd08aec0c"
+SRC_URI = "https://registry.npmjs.org/unist-util-visit-parents/-/unist-util-visit-parents-5.0.0.tgz"
+SRC_URI[md5sum] = "7b6673cd4d3bcd4e2eb69954214052a0"
+SRC_URI[sha256sum] = "b9fdbf0af1011d59c140fb11f09b39ff678c13cc861c6800c206899c9adfbcae"
 
 NPM_PKGNAME = "unist-util-visit-parents"
 
