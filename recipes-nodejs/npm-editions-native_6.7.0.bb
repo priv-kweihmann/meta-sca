@@ -5,12 +5,11 @@ HOMEPAGE = "https://github.com/bevry/editions"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=62a99672615fb0faaabd018b4f05c3d1"
 
-DEPENDS = "npm-errlop-native \
-           npm-version-range-native"
+DEPENDS = "npm-version-range-native"
 
-SRC_URI = "https://registry.npmjs.org/editions/-/editions-6.2.0.tgz"
-SRC_URI[md5sum] = "f41a047b395eb7cb1723f40ad9319420"
-SRC_URI[sha256sum] = "92dd314388674e69a5576b4a184abda605bd0843b897187eccbbc26a5e58c425"
+SRC_URI = "https://registry.npmjs.org/editions/-/editions-6.7.0.tgz"
+SRC_URI[md5sum] = "35dfc7338f2e2ee887295eba645cdbd7"
+SRC_URI[sha256sum] = "b343b0d15d663ca3dbf4840d54cfdebc14028ad884469724321b9633dd3ff9f7"
 
 NPM_PKGNAME = "editions"
 
