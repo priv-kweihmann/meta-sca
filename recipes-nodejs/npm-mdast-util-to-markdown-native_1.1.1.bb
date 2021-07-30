@@ -12,9 +12,9 @@ DEPENDS = "npm-longest-streak-native \
            npm-types-unist-native \
            npm-zwitch-native"
 
-SRC_URI = "https://registry.npmjs.org/mdast-util-to-markdown/-/mdast-util-to-markdown-1.1.0.tgz"
-SRC_URI[md5sum] = "535c0bd5060226be5a4354658f78bc76"
-SRC_URI[sha256sum] = "1014e4cfe5b80d2dccd9973bac2f07ff163018a9853895d4d1f79851bd0340ba"
+SRC_URI = "https://registry.npmjs.org/mdast-util-to-markdown/-/mdast-util-to-markdown-1.1.1.tgz"
+SRC_URI[md5sum] = "a0bb49670421bd198f56b52dd81937cf"
+SRC_URI[sha256sum] = "39331048f6bfa79c025a1566053334ea17a257ce74f76c135760cf8544748c46"
 
 NPM_PKGNAME = "mdast-util-to-markdown"
 
