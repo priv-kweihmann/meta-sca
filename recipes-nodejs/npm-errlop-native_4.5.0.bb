@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=df4a02626bf4d96ee484e99c638afb71"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/errlop/-/errlop-4.2.0.tgz"
-SRC_URI[md5sum] = "43cd7ec92eebd7a95395f95dff888fd2"
-SRC_URI[sha256sum] = "0f1827c200db8dfe0a5da37265427cce07d0cb1688ac7799ead67705a3923ed2"
+SRC_URI = "https://registry.npmjs.org/errlop/-/errlop-4.5.0.tgz"
+SRC_URI[md5sum] = "2b86812b95748c0e978580627a3e7689"
+SRC_URI[sha256sum] = "fe934b7781033960a74a80b2353c49c5c6754c7eb27671664227e6d123ed20b5"
 
 NPM_PKGNAME = "errlop"
 
