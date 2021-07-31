@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/google/pprof/@v/v0.0.0-20210715191844-86eeefc3e471.zip;srcoutput=github.com/google/pprof;srcinput=github.com/google/pprof@v0.0.0-20210715191844-86eeefc3e471;downloadfilename=github-com-google-pprof-0.0.0-20210715191844-86eeefc3e471.zip;name=github-com-google-pprof"
-SRC_URI[github-com-google-pprof.sha256sum] = "2670ce8d9c6f07d6ee2feb0d6aab9b7af500cfcc12befd0d5627758d28811da6"
+SRC_URI += "https://proxy.golang.org/github.com/google/pprof/@v/v0.0.0-20210726183535-c50bf4fe5303.zip;srcoutput=github.com/google/pprof;srcinput=github.com/google/pprof@v0.0.0-20210726183535-c50bf4fe5303;downloadfilename=github-com-google-pprof-0.0.0-20210726183535-c50bf4fe5303.zip;name=github-com-google-pprof"
+SRC_URI[github-com-google-pprof.sha256sum] = "1035477422380f2563612735277e06b3be7f65de2d578cf86e3fcc2be7edff0a"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
