@@ -9,6 +9,7 @@ require github.com-kr-pretty-sources.inc
 
 EXTRA_DEPENDS += "\
     github.com-kr-text-native \
+    github.com-rogpeppe-go-internal-native \
 "
 
 GO_IMPORT = "github.com/kr/pretty"
