@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/go-playground/validator/v10/@v/v10.7.0.zip;srcoutput=github.com/go-playground/validator/v10;srcinput=github.com/go-playground/validator/v10@v10.7.0;downloadfilename=github-com-go-playground-validator-v10-10.7.0.zip;name=github-com-go-playground-validator-v10"
-SRC_URI[github-com-go-playground-validator-v10.sha256sum] = "896dd4caba72c1cbc3841489c9744b4fc982d17762bd7a2bfd0f700b898eb8aa"
+SRC_URI += "https://proxy.golang.org/github.com/go-playground/validator/v10/@v/v10.8.0.zip;srcoutput=github.com/go-playground/validator/v10;srcinput=github.com/go-playground/validator/v10@v10.8.0;downloadfilename=github-com-go-playground-validator-v10-10.8.0.zip;name=github-com-go-playground-validator-v10"
+SRC_URI[github-com-go-playground-validator-v10.sha256sum] = "95acf3fb95342536294ae89eddca19693c631b9361056597c102deb835c6e5cc"
 
 GOSRC_LICENSE += "\
     MIT \
