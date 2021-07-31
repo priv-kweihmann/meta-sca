@@ -525,7 +525,7 @@
     },
     "google.golang.org/api": {
         "extra": [
-            "GOSRC_REMOVEDIRS += \"google.golang.org/api/integration-tests/byoid\""
+            "GOSRC_REMOVEDIRS += \"google.golang.org/api/integration-tests/byoid google.golang.org/api/integration-tests/downscope\""
         ]
     },
     "google.golang.org/grpc": {
