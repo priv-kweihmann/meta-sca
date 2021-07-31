@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/alexkohler/dogsled/@v/v0.0.0-20181108112831-dad318941ed2.zip;srcoutput=github.com/alexkohler/dogsled;srcinput=github.com/alexkohler/dogsled@v0.0.0-20181108112831-dad318941ed2;downloadfilename=github-com-alexkohler-dogsled-0.0.0-20181108112831-dad318941ed2.zip;name=github-com-alexkohler-dogsled"
-SRC_URI[github-com-alexkohler-dogsled.sha256sum] = "d2b1c95b0c6a22e27ce47316a017aea6f20fa82b4f4caecec67f8e77cd35293e"
+SRC_URI += "https://proxy.golang.org/github.com/alexkohler/dogsled/@v/v0.0.0-20210716154023-34d2ab9edb3d.zip;srcoutput=github.com/alexkohler/dogsled;srcinput=github.com/alexkohler/dogsled@v0.0.0-20210716154023-34d2ab9edb3d;downloadfilename=github-com-alexkohler-dogsled-0.0.0-20210716154023-34d2ab9edb3d.zip;name=github-com-alexkohler-dogsled"
+SRC_URI[github-com-alexkohler-dogsled.sha256sum] = "01523db2e7d5f34364dbccc47842f9532a0307e8a8b17c2483b65c927e34fae1"
 
 GOSRC_LICENSE += "\
     MIT \
