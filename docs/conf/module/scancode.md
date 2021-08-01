@@ -9,9 +9,11 @@
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_BLACKLIST_scancode | Blacklist filter for this tool | space-separated-list | ""
+| SCA_SCANCODE_BAD_CRHOLDER |  Discouraged copyright holders | comma separated regex list | ""
 | SCA_SCANCODE_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
 | SCA_SCANCODE_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
-| SCA_SCANCODE_BAD_CRHOLDER |  Discouraged copyright holders | comma separated regex list | ""s
+| SCA_SCANCODE_LICENSE_FILE_EXCEPTIONS | Files that should be ignored for license info check | comma separated regex list | see `sca-scancode.bbclass` for details
+| SCA_SCANCODE_LICENSE_FILE_MINLENGTH | Minimum length of license info | int | "2"
 
 ## Supports
 
@@ -27,8 +29,9 @@
 
 ## Known error-IDs
 
-* scancode.scancode.license - A non matching LICENSE setting was detected
 * scancode.scancode.copyright - A discouraged copyright holder was identified
+* scancode.scancode.license - A non matching LICENSE setting was detected
+* scancode.scancode.missinglicfile - A file wasn't listed in LIC_FILES_CHKSUM
 * scancode.scancode.noinfo - A file without copyright information was found
 
 ## Checking scope

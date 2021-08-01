@@ -8,6 +8,14 @@ SCA_SCANCODE_EXTRA_FATAL ?= ""
 ## Discouraged copyright holders, comma separated regex list
 SCA_SCANCODE_BAD_CRHOLDER ?= ""
 
+SCA_SCANCODE_LICENSE_FILE_EXCEPTIONS ?= "\
+    Makefile.* \
+    configure.* \
+    m4/.* \
+"
+
+SCA_SCANCODE_LICENSE_FILE_MINLENGTH ?= "2"
+
 SCA_RAW_RESULT_FILE[scancode] = "txt"
 SCA_RAW_RESULT_FILE[scancode_raw] = "json"
 
@@ -21,7 +29,6 @@ inherit sca-suppress
 inherit sca-image-backtrack
 inherit sca-tracefiles
 
-# FIXME
 export EXTRACTCODE_LIBARCHIVE_PATH = "${STAGING_LIBDIR_NATIVE}/libarchive.so"
 export EXTRACTCODE_7Z_PATH = "${STAGING_BINDIR_NATIVE}/7z"
 export TYPECODE_LIBMAGIC_PATH = "${STAGING_LIBDIR_NATIVE}/libmagic.so"
@@ -104,15 +111,23 @@ python do_sca_scancode_report() {
 
     cmd_output = ""
 
+    _license_files_listed = ["--licfiles={}".format(x.split(";")[0].replace("file://", "", 1)) for x in clean_split(d, "LIC_FILES_CHKSUM")]
+    _license_file_exceptions = ["--ignorelicfiles={}".format(x) for x in clean_split(d, "SCA_SCANCODE_LICENSE_FILE_EXCEPTIONS")]
+
     if os.path.exists(d.getVar("SCA_TRACEFILES_LIST") or "/does/not/exist"):
         with open(d.getVar("SCA_TRACEFILES_LIST")) as i:
             _jobj = json.load(i)
             for key, val in _jobj.items():
                 _args = ["licensecheck",
                          "--badcrholders", d.getVar("SCA_SCANCODE_BAD_CRHOLDER"),
+                         "--rootpath={}".format(d.getVar("SCA_SOURCES_DIR")),
+                         "--licfileminlength={}".format(d.getVar("SCA_SCANCODE_LICENSE_FILE_MINLENGTH")),
+                         *_license_files_listed, *_license_file_exceptions,
+                         "--sources={}".format(d.getVar("SCA_SOURCECHECKSUM")),
                          scancode_get_license(d, key),
                          "scancode",
                          sca_raw_result_file(d, "scancode_raw")]
+                
                 _tmp = exec_wrap_check_output(d, _args, val)
                 cmd_output += "\n".join(["{}:{}".format(key, x) for x in _tmp.split("\n") if x]) + "\n"
     with open(sca_raw_result_file(d, "scancode"), "w") as o:

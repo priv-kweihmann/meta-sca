@@ -57,7 +57,6 @@ def explode_plus_modifier(prefix, version):
         res.append("{}{}".format(prefix, i))
     return "( {} )".format(" OR ".join(res))
 
-
 def create_parser():
     parser = argparse.ArgumentParser(description='License check')
     parser.add_argument("--noassertdefault", default="CLOSED",
@@ -65,7 +64,11 @@ def create_parser():
     parser.add_argument("--badcrholders", default="",
                         help="comma separate list of bad copyright holders - works only with scancode")
     parser.add_argument("--rootpath", default="", help="root path of all findings")
-    parser.add_argument("--sanitized", default="", help=argparse.SUPPRESS) 
+    parser.add_argument("--sanitized", default="", help=argparse.SUPPRESS)
+    parser.add_argument("--sources", help="path to used source files")
+    parser.add_argument("--licfiles", default=[], nargs='*', help="Used license files")
+    parser.add_argument("--ignorelicfiles", default=[], nargs='*', help="License files to ignore")
+    parser.add_argument("--licfileminlength", type=int, default=2, help="Minimum lenght of license")
     parser.add_argument("license", help="Currently set license")
     parser.add_argument("resulttype", choices=[
                         "lc", "scancode", "reuse", "golicensecheck"], help="type of result")
@@ -110,6 +113,9 @@ def crholders_from_lc(args):
 def missingcr_from_lc(args):
     return []
 
+def license_files_from_lc(args):
+    return []
+
 def version_from_golicensecheck(args):
     res = set()
     with open(args.result) as i:
@@ -124,6 +130,9 @@ def crholders_from_golicensecheck(args):
     return []
 
 def missingcr_from_golicensecheck(args):
+    return []
+
+def license_files_from_golicensecheck(args):
     return []
 
 # scancode specific part
@@ -160,6 +169,32 @@ def crholders_from_scancode(args):
 
 def missingcr_from_scancode(args):
     return []
+
+def get_source_files(args):
+    res = []
+    if args.sources:
+        with open(args.sources) as i:
+            res = [x.split(" ")[-1].rstrip("\n").replace(args.rootpath, "", 1).lstrip("/") for x in i.readlines()]
+    return res
+
+def license_files_from_scancode(args):
+    _sources = get_source_files(args)
+    res = set()
+    with open(args.result) as i:
+        reader = json.load(i)
+        for f in reader["files"]:
+            if f["type"] != "file":
+                continue
+            _path = f["path"]
+            if _path not in _sources:
+                continue
+            for lic in f.get("licenses", []):
+                if lic.get("end_line", 0) - lic.get("start_line", 0) < args.licfileminlength:
+                    continue
+                if any(re.match(x, _path) for x in _args.ignorelicfiles):
+                    continue
+                res.add(_path)
+    return res
 
 # reuse part
 def __resue_to_map(args):
@@ -202,6 +237,9 @@ def missingcr_from_reuse(args):
     _map = __resue_to_map(args)
     return [k for k,v in _map.items() if k in args.files and not v["copyright"]]
 
+def license_files_from_reuse(args):
+    return []
+
 def bitbake_comp_expression(_in):
     for k, v in {" AND ": " & ", " OR ": " | "}.items():
         _in = _in.replace(k, v)
@@ -214,7 +252,7 @@ def interal_comp_expression(_in):
     return _in
 
 
-def evaluate(args, _raw_license, _raw_crholders, _raw_missingcr):
+def evaluate(args, _raw_license, _raw_crholders, _raw_missingcr, _license_files):
     # License part
     _set = Licensing().parse(args.sanitized)
     try:
@@ -255,6 +293,9 @@ def evaluate(args, _raw_license, _raw_crholders, _raw_missingcr):
     for _cr in _raw_missing_cr:
         print("[nocopyright] '{}' has no copyright information set".format(_cr))
 
+    for _file in _license_files:
+        if _file not in _args.licfiles:
+            print("[missinglicfile] '{}' holds license information, but is not listed".format(_file))
 
 if __name__ == '__main__':
     _args = create_parser()
@@ -262,16 +303,20 @@ if __name__ == '__main__':
         _raw_license = version_from_lc(_args)
         _raw_cr_holders = crholders_from_lc(_args)
         _raw_missing_cr = missingcr_from_lc(_args)
+        _license_files = license_files_from_lc(_args)
     elif _args.resulttype == "scancode":
         _raw_license = version_from_scancode(_args)
         _raw_cr_holders = crholders_from_scancode(_args)
         _raw_missing_cr = missingcr_from_scancode(_args)
+        _license_files = license_files_from_scancode(_args)
     elif _args.resulttype == "reuse":
         _raw_license = version_from_reuse(_args)
         _raw_cr_holders = crholders_from_reuse(_args)
         _raw_missing_cr = missingcr_from_reuse(_args)
+        _license_files = license_files_from_reuse(_args)
     elif _args.resulttype == "golicensecheck":
         _raw_license = version_from_golicensecheck(_args)
         _raw_cr_holders = crholders_from_golicensecheck(_args)
         _raw_missing_cr = missingcr_from_golicensecheck(_args)
-    evaluate(_args, _raw_license, _raw_cr_holders, _raw_missing_cr)
+        _license_files = license_files_from_golicensecheck(_args)
+    evaluate(_args, _raw_license, _raw_cr_holders, _raw_missing_cr, _license_files)
