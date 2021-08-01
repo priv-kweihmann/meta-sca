@@ -332,3 +332,14 @@ def sca_module_applicable(d, module):
         if missing_req:
             bb.fatal("SCA module {} requires {} layer(s) to be present".format(module, ','.join(missing_req)))
     return True
+
+SCA_SOURCECHECKSUM ?= "${T}/sca_seen_sources.txt"
+
+do_sca_get_sources() {
+    echo "" > ${SCA_SOURCECHECKSUM}
+    find ${S} -type f -exec md5sum {} >> ${SCA_SOURCECHECKSUM} \;
+}
+
+do_sca_get_sources[doc] = "Get all source files of the workspace"
+do_sca_get_sources[dirs] = "${S}"
+addtask do_sca_get_sources before do_configure after do_patch
