@@ -31,4 +31,4 @@ do_install() {
     install ${WORKDIR}/ansible.sca.description ${D}${datadir}/
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

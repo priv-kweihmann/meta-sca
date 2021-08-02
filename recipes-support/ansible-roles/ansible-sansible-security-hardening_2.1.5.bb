@@ -28,20 +28,20 @@ do_install () {
     chown root:root ${D}/${datadir}/ansible/roles/${ROLE_NAME}
 }
 
-do_install_append() {
+do_install:append() {
     install -d ${D}/${datadir}/ansible/roles/
     install -m 0444 ${WORKDIR}/${ROLE_NAME}.json ${D}/${datadir}/ansible/roles/${ROLE_NAME}.json
     nativepython3 ${STAGING_BINDIR_NATIVE}/ansible-role-merger ${D}/${datadir}/ansible/roles/${ROLE_NAME}.json > \
         ${D}/${datadir}/ansible/rolebook-${ROLE_NAME}.yaml
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"
 
-RDEPENDS_${PN}_class-target += "\
+RDEPENDS:${PN}:class-target += "\
                                 perl \
                                 python3-ansible \
                                "
-RDEPENDS_${PN}_class-native += "\
+RDEPENDS:${PN}:class-native += "\
                                 perl-native \
                                 python3-ansible-native \
                                "

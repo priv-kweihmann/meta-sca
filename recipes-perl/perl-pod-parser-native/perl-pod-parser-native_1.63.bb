@@ -15,7 +15,7 @@ inherit cpan
 inherit cpan-upgrade-check
 inherit native
 
-do_install_append() {
+do_install:append() {
     # remove as it's supplied by perl itself
     rm ${D}${bindir}/podselect
 }

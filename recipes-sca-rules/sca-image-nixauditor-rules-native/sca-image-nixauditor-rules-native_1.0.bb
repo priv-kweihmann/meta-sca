@@ -17,4 +17,4 @@ do_install() {
     install "${WORKDIR}/fatal" "${D}${datadir}/nixauditor-image-fatal"
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

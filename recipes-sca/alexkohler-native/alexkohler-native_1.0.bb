@@ -27,4 +27,4 @@ do_install() {
     install ${WORKDIR}/alexkohler.sca.description ${D}${datadir}/
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

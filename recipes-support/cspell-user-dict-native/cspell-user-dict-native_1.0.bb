@@ -16,7 +16,7 @@ do_compile() {
 #
 # In this recipe insert the following function
 #
-# do_compile_append() {
+# do_compile:append() {
 #   echo "<your word for the dict>" >> "${WORKDIR}/cspell_user.txt"
 # }
 #
@@ -26,4 +26,4 @@ do_install() {
     install "${WORKDIR}/cspell_user.txt" "${D}${datadir}/cspell-user/"
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

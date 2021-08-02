@@ -16,11 +16,11 @@ inherit native
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/pkgqaenc.sca.description ${D}${datadir}/
     install -d ${D}${bindir}
     install -m 0755 ${WORKDIR}/pkgqaenc.py ${D}${bindir}/pkgqaenc
 }
 
-FILES_${PN} = "${bindir} ${datadir}"
+FILES:${PN} = "${bindir} ${datadir}"

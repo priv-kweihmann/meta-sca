@@ -28,7 +28,7 @@ create a recipe called **cspell-user-dict-native_%.bbappend** in your layer
 In this recipe insert the following function
 
 ```bitbake
-do_compile_append() {
+do_compile:append() {
   echo "<your word for the dict>" >> "${WORKDIR}/spell_user.txt"
 }
 ```

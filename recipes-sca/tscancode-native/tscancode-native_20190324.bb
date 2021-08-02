@@ -27,4 +27,4 @@ do_install() {
     install ${WORKDIR}/tscancode.sca.description ${D}${datadir}/
 }
 
-FILES_${PN} = "${bindir} ${datadir}"
+FILES:${PN} = "${bindir} ${datadir}"

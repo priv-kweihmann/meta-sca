@@ -23,23 +23,23 @@ EXTRA_OECONF += "--with-tigerhome=${datadir}/tiger \
                  --with-tigerlog=${datadir}/tiger \
                  --with-tigerbin=${bindir} \
                  "
-do_install_prepend() {
+do_install:prepend() {
     install -d ${D}${datadir}/tiger
     install -d ${D}${bindir}
     install -d ${D}${mandir}
 }
 
-do_install_append_class-target() {
+do_install:append:class-target() {
     chown -R root:root ${D}${datadir}/tiger
 }
 
-do_install_append_class-native () {
+do_install:append:class-native () {
     install -d ${D}/${datadir}
     install ${WORKDIR}/tiger.sca.description ${D}${datadir}
 }
 
-FILES_${PN}_class-native += "${datadir}"
+FILES:${PN}:class-native += "${datadir}"
 
-INSANE_SKIP_${PN} += "ldflags file-rdeps"
+INSANE_SKIP:${PN} += "ldflags file-rdeps"
 
 BBCLASSEXTEND = "native"

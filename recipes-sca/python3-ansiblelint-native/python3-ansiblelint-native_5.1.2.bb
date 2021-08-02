@@ -28,7 +28,7 @@ DEPENDS += "\
             "
 
 # wheel-files are just zip-files, so we can threat them like that
-SRC_URI_append = " file://ansiblelint.sca.description"
+SRC_URI:append = " file://ansiblelint.sca.description"
 SRC_URI[sha256sum] = "7f7bbe924ae4f070aac93bb70ed036649f3e5fbe6b9b243e2021b9a60b8bdc45"
 
 PYPI_PACKAGE = "ansible-lint"
@@ -38,9 +38,9 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/ansiblelint.sca.description ${D}${datadir}
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

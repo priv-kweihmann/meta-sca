@@ -22,9 +22,9 @@ inherit native
 
 EXTRA_OECONF += "--disable-static"
 
-do_install_append () {
+do_install:append () {
     install -d ${D}/${datadir}
     install ${WORKDIR}/yara.sca.description ${D}${datadir}
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

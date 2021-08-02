@@ -11,19 +11,19 @@ S = "${WORKDIR}/git"
 
 inherit sca-description
 
-do_install_class-target() {
+do_install:class-target() {
     install -d ${D}${bindir}
     install -m 0755 "${S}/nixauditor 2.0" ${D}${bindir}/nixauditor
 }
 
-do_install_class-native () {
+do_install:class-native () {
     install -d ${D}/${datadir}
     install ${WORKDIR}/nixauditor.sca.description ${D}${datadir}
 }
 
-FILES_${PN}_class-target = "${bindir}"
-FILES_${PN}_class-native = "${datadir}"
+FILES:${PN}:class-target = "${bindir}"
+FILES:${PN}:class-native = "${datadir}"
 
-RDEPENDS_${PN}_class-target += "bash"
+RDEPENDS:${PN}:class-target += "bash"
 
 BBCLASSEXTEND = "native"

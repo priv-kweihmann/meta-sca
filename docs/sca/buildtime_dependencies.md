@@ -22,7 +22,7 @@ Now SCA can also access the code from module **bar** and could check if your mod
 When you're using devtool to create your Python recipes, it typically creates by default only RDEPENDS, since runtime dependencies is all Python typically cares about:
 
 ```bitbake
-RDEPENDS_${PN} += "..."
+RDEPENDS:${PN} += "..."
 ```
 
 Make sure to add the relevant build time dependencies as well. You typically don't need to add "standard" Python imports to your DEPENDS:

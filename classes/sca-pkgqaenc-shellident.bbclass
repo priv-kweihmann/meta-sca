@@ -26,7 +26,7 @@ def do_sca_pkgqaenc_shelllist(d, package):
         for f in _files:
             used_bins[f] = set([x for x in exec_wrap_check_output(d, _args + _targs, [f], stderr=subprocess.DEVNULL).split("\n") if x and not x.startswith(d.getVar("TOPDIR"))])
 
-    _pkg_in_rdepends = clean_split(d, "RDEPENDS_{}".format(package))
+    _pkg_in_rdepends = clean_split(d, "RDEPENDS:{}".format(package))
     _pkg_in_rdepends += [d.getVar("PN")]
     _pkg_in_rdepends += [d.getVar("PREFERRED_PROVIDER_virtual/base-utils")]
     _pkg_in_rdepends += [d.getVar("VIRTUAL-RUNTIME_init_manager")]
@@ -45,7 +45,7 @@ def do_sca_pkgqaenc_shelllist(d, package):
                     else:
                         prov_string = ",".join(pkgs)
                     res += do_sca_pkgqaenc_warning("pkgqaenc.pkgqaenc.missingprodiver", file, 
-                                                "Package {pkg} uses {bin}, that requires {prov} set in RDEPENDS_{pkg}".format(
+                                                "Package {pkg} uses {bin}, that requires {prov} set in RDEPENDS:{pkg}".format(
                                                     bin=bin, pkg=package, prov=prov_string))
             elif not do_sca_pkgqaenc_is_provided_by_self(d, bin, package):
                 res += do_sca_pkgqaenc_warning("pkgqaenc.pkgqaenc.missingprodiver", file, 

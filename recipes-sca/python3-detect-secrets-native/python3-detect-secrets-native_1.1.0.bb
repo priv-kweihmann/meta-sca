@@ -19,7 +19,7 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/detectsecrets.sca.description ${D}${datadir}
 
@@ -28,4 +28,4 @@ do_install_append() {
     find ${D} -name "requires.txt" -exec sed -i "/requests/d" {} +
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

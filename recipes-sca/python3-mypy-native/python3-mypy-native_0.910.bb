@@ -11,7 +11,7 @@ DEPENDS += "\
             python3-typing-extensions-native \
             "
 
-SRC_URI_append = " file://mypy.sca.description"
+SRC_URI:append = " file://mypy.sca.description"
 SRC_URI[md5sum] = "cb65b89ecc36f0b01f264b424154fb46"
 SRC_URI[sha256sum] = "704098302473cb31a218f1775a873b376b30b4c18229421e9e9dc8916fd16150"
 
@@ -22,9 +22,9 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/mypy.sca.description ${D}${datadir}
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

@@ -21,9 +21,9 @@ Then add the following code blocks into your tool recipe
 
 ```bitbake
 SRC_URI += "file://myfoolint.sca.description"
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/myfoolint.sca.description ${D}${datadir}/
 }
@@ -186,7 +186,7 @@ do_install() {
     install "${WORKDIR}/suppress" "${D}${datadir}/myfoolint-recipe-suppress"
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"
 ```
 
 **NOTE**: you could apply any different `LICENSE` if you like, but contributing the final implementation back to `meta-sca` would only work if it's licensed `BSD-2-Clause`
