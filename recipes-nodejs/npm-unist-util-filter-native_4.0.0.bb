@@ -6,11 +6,12 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=a320e5b1aa9084c9b52db096dc5eee7f"
 
 DEPENDS = "npm-types-unist-native \
-           npm-unist-util-is-native"
+           npm-unist-util-is-native \
+           npm-unist-util-visit-parents-native"
 
-SRC_URI = "https://registry.npmjs.org/unist-util-filter/-/unist-util-filter-3.0.0.tgz"
-SRC_URI[md5sum] = "2e699ab9a2e82d86b482fa8d144fb14a"
-SRC_URI[sha256sum] = "152fcbe2845ceae7d462b10de62b2f55de220a9dee3d9a68a04c68d12852e3c6"
+SRC_URI = "https://registry.npmjs.org/unist-util-filter/-/unist-util-filter-4.0.0.tgz"
+SRC_URI[md5sum] = "13ecabee103b2d6b9a1eef4f814bba81"
+SRC_URI[sha256sum] = "aebe8ab259f984fd0f4e814983228395a0d99cb5579d8a59e22c873df4cf4a17"
 
 NPM_PKGNAME = "unist-util-filter"
 
