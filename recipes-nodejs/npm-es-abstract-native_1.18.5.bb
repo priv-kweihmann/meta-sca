@@ -23,9 +23,9 @@ DEPENDS = "npm-call-bind-native \
            npm-string.prototype.trimstart-native \
            npm-unbox-primitive-native"
 
-SRC_URI = "https://registry.npmjs.org/es-abstract/-/es-abstract-1.18.4.tgz"
-SRC_URI[md5sum] = "24ac70fb08fe085d5a714cc51497c9b9"
-SRC_URI[sha256sum] = "4e90d270487ebb19368f9287145fd5dd45bc227ec977dad7cd574e6e998ceb14"
+SRC_URI = "https://registry.npmjs.org/es-abstract/-/es-abstract-1.18.5.tgz"
+SRC_URI[md5sum] = "56094ad382dbf27af1db8cbdaf90f1bc"
+SRC_URI[sha256sum] = "5558d736afe02c13399e0fab60ad1ef62d173c2244aa3337ef6f4c64e09cde5a"
 
 NPM_PKGNAME = "es-abstract"
 
