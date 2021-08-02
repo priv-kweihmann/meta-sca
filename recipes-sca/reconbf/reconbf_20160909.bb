@@ -17,14 +17,14 @@ S = "${WORKDIR}/git"
 inherit setuptools3
 inherit sca-description
 
-do_install_append_class-native () {
+do_install:append:class-native () {
     install -d ${D}/${datadir}
     install ${WORKDIR}/reconbf.sca.description ${D}${datadir}
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"
 
-RDEPENDS_${PN}_class-target += "\
+RDEPENDS:${PN}:class-target += "\
                                 python3-compression \
                                 python3-core \
                                 python3-json \

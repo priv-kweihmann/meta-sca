@@ -15,4 +15,4 @@ do_install() {
     install "${WORKDIR}/suppress" "${D}${datadir}/rats-recipe-suppress"
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

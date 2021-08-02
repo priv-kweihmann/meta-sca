@@ -15,4 +15,4 @@ do_install() {
     install "${WORKDIR}/fatal" "${D}${datadir}/yara-image-fatal"
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

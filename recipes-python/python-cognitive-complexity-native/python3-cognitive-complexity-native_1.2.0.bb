@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/${PN}-LICENSE;md5=535dcde9d395e0ffc8bea1b3
 
 PYPI_PACKAGE = "cognitive_complexity"
 
-SRC_URI_append = " https://raw.githubusercontent.com/Melevir/cognitive_complexity/master/LICENSE;name=license;downloadfilename=${PN}-LICENSE"
+SRC_URI:append = " https://raw.githubusercontent.com/Melevir/cognitive_complexity/master/LICENSE;name=license;downloadfilename=${PN}-LICENSE"
 
 SRC_URI[md5sum] = "637d3616db0d617396b1490040930905"
 SRC_URI[sha256sum] = "3c2b433a9e41502932f6aa629e1f57a5e8f145956c54facbb5241a9492af6fb7"

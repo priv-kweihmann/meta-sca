@@ -7,7 +7,7 @@ PACKAGES = "\
     packagegroup-sca-test \
     "
 
-RDEPENDS_packagegroup-sca-test = "\
+RDEPENDS:packagegroup-sca-test = "\
     bad-javascript \
     bad-bitbake \
 "

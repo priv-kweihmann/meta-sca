@@ -20,4 +20,4 @@ do_install() {
     install ${WORKDIR}/wotan.sca.description ${D}${datadir}
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

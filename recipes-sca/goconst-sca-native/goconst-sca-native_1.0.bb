@@ -10,9 +10,9 @@ SRC_URI = "file://goconst.sca.description"
 inherit sca-description
 inherit native
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/goconst.sca.description ${D}${datadir}/
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

@@ -12,7 +12,7 @@ DEPENDS += "\
             python3-wheel-native \
            "
 
-SRC_URI_append = " file://0001-Remove-console-entry-script.patch"
+SRC_URI:append = " file://0001-Remove-console-entry-script.patch"
 
 SRC_URI[md5sum] = "21f26d7001bad4bb3e8167115ed3e1ee"
 SRC_URI[sha256sum] = "bb5e54b9a7343b3a8fc6532ae2c169af387a45b0d4dd5b72c2803e21658c5791"
@@ -25,4 +25,4 @@ inherit pypi
 inherit setuptools3
 inherit native
 
-INSANE_SKIP_${PN} += "already-stripped"
+INSANE_SKIP:${PN} += "already-stripped"

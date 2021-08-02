@@ -20,11 +20,11 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
-do_configure_prepend() {
+do_configure:prepend() {
     sed -i "s#pytest-runner==5.2#pytest-runner>=5.2#g" ${S}/setup.py
 }
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/cpplint.sca.description ${D}${datadir}/
 
@@ -33,4 +33,4 @@ do_install_append() {
     fi
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

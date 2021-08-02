@@ -15,24 +15,24 @@ S = "${WORKDIR}/git"
 
 inherit sca-description
 
-do_install_class-target() {
+do_install:class-target() {
     install -d ${D}${bindir}
     install -m 0755 ${S}/checksec ${D}${bindir}
 }
 
-do_install_class-native () {
+do_install:class-native () {
     install -d ${D}/${datadir}
     install ${WORKDIR}/checksec.sca.description ${D}${datadir}
 }
 
-RDEPENDS_${PN}_class-target += "\
+RDEPENDS:${PN}:class-target += "\
     bash \
     binutils \
     file \
     openssl-bin \
 "
 
-FILES_${PN} += "${bindir}"
-FILES_${PN}_class-native += "${datadir}"
+FILES:${PN} += "${bindir}"
+FILES:${PN}:class-native += "${datadir}"
 
 BBCLASSEXTEND = "native"

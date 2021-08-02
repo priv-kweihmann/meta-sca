@@ -35,4 +35,4 @@ do_install() {
     install ${WORKDIR}/rats.sca.description ${D}${datadir}/
 }
 
-FILES_${PN} = "${bindir} ${incdir} ${datadir} ${libdir}"
+FILES:${PN} = "${bindir} ${incdir} ${datadir} ${libdir}"

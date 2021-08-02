@@ -2,7 +2,7 @@ SUMMARY = "Packagegroup for ansible security roles"
 
 inherit packagegroup
 
-RDEPENDS_${PN} += "\
+RDEPENDS:${PN} += "\
                     ansible-dev-sec-ansible-mysql-hardening \
                     ansible-dev-sec-ansible-nginx-hardening \
                     ansible-dev-sec-ansible-os-hardening \

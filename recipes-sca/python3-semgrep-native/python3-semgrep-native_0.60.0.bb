@@ -19,7 +19,7 @@ DEPENDS += "\
             semgrep-core-native \
            "
 
-SRC_URI_append = " file://semgrep.sca.description"
+SRC_URI:append = " file://semgrep.sca.description"
 
 SRC_URI[md5sum] = "d8de0c593fd793062ed9e10745a97ec5"
 SRC_URI[sha256sum] = "9e7a30233ece8d2942de4cff73085846fd2bdc3f6f56cdafed6c7a7616a0a68d"
@@ -33,7 +33,7 @@ inherit native
 
 export SEMGREP_SKIP_BIN = "1"
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/semgrep.sca.description ${D}${datadir}
 
@@ -41,4 +41,4 @@ do_install_append() {
     rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/tests
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

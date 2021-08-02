@@ -15,4 +15,4 @@ do_install() {
     install "${WORKDIR}/suppress" "${D}${datadir}/pylint-image-suppress"
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

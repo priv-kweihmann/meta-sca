@@ -32,4 +32,4 @@ do_install() {
     install ${WORKDIR}/flint.sca.description ${D}${datadir}/
 }
 
-FILES_${PN} = "${bindir} ${datadir}"
+FILES:${PN} = "${bindir} ${datadir}"

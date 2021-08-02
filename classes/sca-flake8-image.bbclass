@@ -84,7 +84,7 @@ def _sca_flake8_get_python3_stdlib_files(d):
             file_list = ast.literal_eval(file_list)
         res.update(file_list.keys())
 
-SCA_FILE_FILTER_EXTRA_append = " ${@_sca_flake8_get_python3_stdlib_files(d)}"
+SCA_FILE_FILTER_EXTRA:append = " ${@_sca_flake8_get_python3_stdlib_files(d)}"
 do_sca_flake8_core[doc] = "Lint python code with flake8 in image"
 do_sca_deploy_flake8_image[doc] = "Deploy results of do_sca_flake8_core"
 addtask do_sca_flake8_core before do_image_complete after do_image

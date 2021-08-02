@@ -15,15 +15,15 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
-do_install_prepend() {
+do_install:prepend() {
     # Remove the data_files section from setup, as
     # it isn't really needed
     sed -i "/data_files/d" ${S}/setup.py
 }
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/flawfinder.sca.description ${D}${datadir}
 }
 
-FILES_${PN} += "${prefix}"
+FILES:${PN} += "${prefix}"

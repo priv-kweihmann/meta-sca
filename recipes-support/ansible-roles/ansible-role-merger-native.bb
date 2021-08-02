@@ -16,4 +16,4 @@ do_install() {
     install -m 0755 ${WORKDIR}/ansible-role-merger ${D}/${bindir}
 }
 
-FILES_${PN} = "${bindir}"
+FILES:${PN} = "${bindir}"

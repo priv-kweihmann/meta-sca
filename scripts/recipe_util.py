@@ -16,7 +16,7 @@ def __get_info_from_stash(_filepath):
     _stash = Stash(quiet=True)
     _stash.AddFile(_filepath)
            
-    for item in _stash.GetItemsFor(attribute=Variable.ATTR_VAR, attributeValue="RDEPENDS_${PN}"):
+    for item in _stash.GetItemsFor(attribute=Variable.ATTR_VAR, attributeValue="RDEPENDS:${PN}"):
         _rdepends.update([expand_term(_stash, _filepath, y)
                             for y in item.get_items()])
 

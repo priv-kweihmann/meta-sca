@@ -17,12 +17,12 @@ inherit sca-description
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
-do_install_class-native () {
+do_install:class-native () {
     install -d ${D}/${datadir}
     install ${WORKDIR}/lynis.sca.description ${D}${datadir}
 }
 
-do_install_class-target () {
+do_install:class-target () {
     install -d ${D}/${bindir}
     install -d ${D}/${sysconfdir}/lynis
     install -m 555 ${S}/lynis ${D}/${bindir}
@@ -39,9 +39,9 @@ do_install_class-target () {
     cp ${S}/*.prf ${D}/${sysconfdir}/lynis
 }
 
-FILES_${PN}_class-native = "${datadir}"
-FILES_${PN}_class-target = "${datadir} ${sysconfdir} ${bindir}"
+FILES:${PN}:class-native = "${datadir}"
+FILES:${PN}:class-target = "${datadir} ${sysconfdir} ${bindir}"
 
-RDEPENDS_${PN}_class-target += "procps"
+RDEPENDS:${PN}:class-target += "procps"
 
 BBCLASSEXTEND = "native"

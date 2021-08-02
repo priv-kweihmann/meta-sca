@@ -30,7 +30,7 @@ SRC_URI[blob_x86_64.sha256sum] = "70423609f27b504d6c0c47e340f33652aea975e45f3123
 SRC_URI[blob_aarch64.sha256sum] = "a12bdfe0f95811ad6c0a091006b919b2834b0619b460cfa596f557edd62e45ab"
 SRC_URI[blob_armv6hf.sha256sum] = "29c7291985ad391fc8af930ba89c7441d5764aa3415ef1d77171aea0b34d35b9"
 
-SRC_URI_append = " file://shellcheck.sca.description"
+SRC_URI:append = " file://shellcheck.sca.description"
 
 S = "${WORKDIR}/shellcheck-v${PV}"
 
@@ -60,10 +60,10 @@ EOF
     chmod 0755 ${D}${bindir}/shellcheck-wrapper
 }
 
-FILES_${PN} = "${bindir} ${datadir}"
+FILES:${PN} = "${bindir} ${datadir}"
 
 UPSTREAM_CHECK_URI = "https://github.com/koalaman/shellcheck/tags"
 UPSTREAM_CHECK_REGEX = "releases/tag/v(?P<pver>\d+\.\d+\.\d+)"
 
 ## We know it's already stripped - because we're using prebuild things
-INSANE_SKIP_${PN} += "already-stripped arch"
+INSANE_SKIP:${PN} += "already-stripped arch"

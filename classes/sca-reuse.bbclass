@@ -9,7 +9,7 @@ SCA_REUSE_EXTRA_FATAL ?= ""
 SCA_RAW_RESULT_FILE[reuse] = "txt"
 SCA_RAW_RESULT_FILE[reuse_raw] = "txt"
 
-SCA_ACTIVE_MODULES_append = " reuse_raw"
+SCA_ACTIVE_MODULES:append = " reuse_raw"
 
 inherit sca-conv-to-export
 inherit sca-datamodel
@@ -75,9 +75,9 @@ python do_sca_reuse() {
 def reuse_get_license(d, _in):
     import re
     _pn = d.getVar("PN")
-    x = d.getVar("LICENSE_{}".format(_in))
+    x = d.getVar("LICENSE:{}".format(_in))
     if not x:
-        x = d.getVar("LICENSE_${{PN}}{}".format(_in.replace(_pn, "")))
+        x = d.getVar("LICENSE:${{PN}}{}".format(_in.replace(_pn, "")))
     if not x:
         x = d.getVar("LICENSE")
     if not x:

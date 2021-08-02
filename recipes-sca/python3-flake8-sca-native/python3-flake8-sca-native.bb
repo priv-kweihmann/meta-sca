@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=a4a2bbea1db029f21b3a328c7
 
 DEPENDS += "python3-flake8-native"
 
-SRC_URI_append = " file://flake8.sca.description"
+SRC_URI:append = " file://flake8.sca.description"
 
 inherit sca-description
 inherit python3-dir
@@ -49,9 +49,9 @@ PACKAGECONFIG[wemake-python] = ",,python3-wemake-python-styleguide-native"
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/flake8.sca.description ${D}${datadir}
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

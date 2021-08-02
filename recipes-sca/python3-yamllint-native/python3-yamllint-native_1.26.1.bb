@@ -9,7 +9,7 @@ DEPENDS += "\
             python3-pyyaml-native \
            "
 
-SRC_URI_append = " file://yamllint.sca.description"
+SRC_URI:append = " file://yamllint.sca.description"
 SRC_URI[md5sum] = "644b4658ce34dce545f01a4169a0604d"
 SRC_URI[sha256sum] = "87d9462b3ed7e9dfa19caa177f7a77cd9888b3dc4044447d6ae0ab233bcd1324"
 
@@ -20,9 +20,9 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/yamllint.sca.description ${D}${datadir}
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

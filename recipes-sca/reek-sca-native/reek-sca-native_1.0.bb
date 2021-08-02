@@ -19,4 +19,4 @@ do_install() {
     install ${WORKDIR}/reek.sca.description ${D}${datadir}/
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

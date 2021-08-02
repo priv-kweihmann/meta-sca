@@ -18,4 +18,4 @@ do_install() {
     install ${WORKDIR}/clang.sca.description ${D}${datadir}/
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"
