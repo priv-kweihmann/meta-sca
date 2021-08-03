@@ -18,6 +18,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             cbmc \
                             checkbashism \
                             clang \
+                            cmake \
                             cppcheck \
                             cpplint \
                             cspell \
