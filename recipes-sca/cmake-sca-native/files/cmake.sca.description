@@ -1,0 +1,23 @@
+{
+    "buildspeed": 10,
+    "execspeed": 10,
+    "languages": [
+        "cmake"
+    ],
+    "uses": [
+    ],
+    "quality": 10,
+    "scope": [
+        "functional"
+    ],
+    "score": {
+        "functional": [
+            "cmake.cmake..*"
+        ]
+    },
+    "test": {
+        "no-findings": [
+            "bad-html"
+        ]
+    }
+}

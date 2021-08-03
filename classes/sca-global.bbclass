@@ -95,6 +95,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           cbmc \
                           checkbashism \
                           checksec \
+                          cmake \
                           configcheck \
                           cppcheck \
                           cpplint \
