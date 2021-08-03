@@ -123,39 +123,44 @@ if __name__ == '__main__':
     issue_list = repo.issues(state="open")
     issue_list_closed = repo.issues(state="closed")
     for up in updates:
-        if up[0] in _blacklist:
-            continue
-        # 1. no issue open found -> Create one
-        # 2. issue found -> alter title, remove staging label (if present)
-        matches = [x for x in issue_list if re.match(UPDATE_REGEX.format(up[0]), x.title)]
+        for _ in range(0, 3):
+            try:
+                if up[0] in _blacklist:
+                    continue
+                # 1. no issue open found -> Create one
+                # 2. issue found -> alter title, remove staging label (if present)
+                matches = [x for x in issue_list if re.match(UPDATE_REGEX.format(up[0]), x.title)]
 
-        _label_add, _label_remove = check_gh_prerelease(login, translate_to_gh_repo(up[0]), up[1])
+                _label_add, _label_remove = check_gh_prerelease(login, translate_to_gh_repo(up[0]), up[1])
 
-        _open_list = [x for x in issue_list if x.title == UPDATE_FORMAT.format(up[0], up[1])]
-        # if exact issue text found -> continue
-        if any(_open_list):
-            _labels = [str(x) for x in _open_list[0].original_labels]
-            _labels += _label_add
-            _labels = [x for x in _labels if x not in _label_remove]
-            if not _args.dryrun:
-                _open_list[0].edit(labels=_labels)
-            continue
-        if any([x for x in issue_list_closed if x.title == UPDATE_FORMAT.format(up[0], up[1])]):
-            continue
-        if any(matches):
-            _labels = [str(x) for x in matches[0].original_labels]  + ["Update Bot"]
-            _labels += _label_add
-            _labels = [x for x in _labels if x not in _label_remove]
-            print("Alter issue from {}:{} -> {}:{}".format(matches[0].title,
-                  matches[0].original_labels,
-                  UPDATE_FORMAT.format(up[0], up[1]),
-                  _labels))
-            if not _args.dryrun:
-                matches[0].edit(title=UPDATE_FORMAT.format(up[0], up[1]), 
-                                labels=_labels)
-        else:
-            print("Create new issue {}:{}".format(UPDATE_FORMAT.format(
-                up[0], up[1]), ["Package Update", "Update Bot"]))
-            _labels = ["Package Update", "Update Bot"] + _label_add
-            if not _args.dryrun:
-                repo.create_issue(title=UPDATE_FORMAT.format(up[0], up[1]), labels=_labels)
+                _open_list = [x for x in issue_list if x.title == UPDATE_FORMAT.format(up[0], up[1])]
+                # if exact issue text found -> continue
+                if any(_open_list):
+                    _labels = [str(x) for x in _open_list[0].original_labels]
+                    _labels += _label_add
+                    _labels = [x for x in _labels if x not in _label_remove]
+                    if not _args.dryrun:
+                        _open_list[0].edit(labels=_labels)
+                    continue
+                if any([x for x in issue_list_closed if x.title == UPDATE_FORMAT.format(up[0], up[1])]):
+                    continue
+                if any(matches):
+                    _labels = [str(x) for x in matches[0].original_labels]  + ["Update Bot"]
+                    _labels += _label_add
+                    _labels = [x for x in _labels if x not in _label_remove]
+                    print("Alter issue from {}:{} -> {}:{}".format(matches[0].title,
+                          matches[0].original_labels,
+                          UPDATE_FORMAT.format(up[0], up[1]),
+                          _labels))
+                    if not _args.dryrun:
+                        matches[0].edit(title=UPDATE_FORMAT.format(up[0], up[1]), 
+                                        labels=_labels)
+                else:
+                    print("Create new issue {}:{}".format(UPDATE_FORMAT.format(
+                        up[0], up[1]), ["Package Update", "Update Bot"]))
+                    _labels = ["Package Update", "Update Bot"] + _label_add
+                    if not _args.dryrun:
+                        repo.create_issue(title=UPDATE_FORMAT.format(up[0], up[1]), labels=_labels)
+                break
+            except github3.exceptions.ConnectionError:
+                time.sleep(10)
