@@ -1,10 +1,10 @@
-PACKAGECONFIG_class-native = "mbstring openssl zip"
+PACKAGECONFIG:class-native = "mbstring openssl zip"
 PACKAGECONFIG[zip] = "--with-zip --with-zlib-dir=${STAGING_EXECPREFIXDIR},,libzip"
 PACKAGECONFIG[mbstring] = "--enable-mbstring,,"
 
-FILES_${PN}_class-native += "${sysconfdir}"
+FILES:${PN}:class-native += "${sysconfdir}"
 
-do_install_append_class-native() {
+do_install:append:class-native() {
     install -d ${D}${sysconfdir}/php
     extdir=$(${D}${bindir}/php-config --extension-dir)
     cat ${S}/php.ini-production | \

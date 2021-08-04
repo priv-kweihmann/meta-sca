@@ -16,4 +16,4 @@ do_install() {
     install ${WORKDIR}/gcc.sca.description ${D}${datadir}/
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

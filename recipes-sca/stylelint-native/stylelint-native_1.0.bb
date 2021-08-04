@@ -18,4 +18,4 @@ do_install() {
     install ${WORKDIR}/stylelint.sca.description ${D}${datadir}
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

@@ -18,9 +18,9 @@ inherit native
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/kconfighard.sca.description ${D}${datadir}/
 }
 
-FILES_${PN} = "${bindir} ${datadir}"
+FILES:${PN} = "${bindir} ${datadir}"

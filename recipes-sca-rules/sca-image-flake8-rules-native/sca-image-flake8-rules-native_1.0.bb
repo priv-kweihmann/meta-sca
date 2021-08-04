@@ -15,4 +15,4 @@ do_install() {
     install "${WORKDIR}/suppress" "${D}${datadir}/flake8-image-suppress"
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

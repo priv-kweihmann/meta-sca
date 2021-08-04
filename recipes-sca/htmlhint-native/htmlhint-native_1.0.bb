@@ -15,4 +15,4 @@ do_install() {
     install ${WORKDIR}/htmlhint.sca.description ${D}${datadir}
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

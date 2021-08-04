@@ -28,7 +28,7 @@ def sca_get_pkg_files(d):
         _seen = set()
         if not x:
             continue
-        _x = d.getVar("FILES_{}".format(x))
+        _x = d.getVar("FILES:{}".format(x))
         if not _x:
             continue
         for y in _x.split(" "):

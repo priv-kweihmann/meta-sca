@@ -9,7 +9,7 @@ DEPENDS += "\
             libffi-native \
            "
 
-RDEPENDS_${PN}_class-target += "\
+RDEPENDS:${PN}:class-target += "\
                                 python3-pycparser \
                                 libffi \
                                "

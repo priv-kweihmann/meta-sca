@@ -24,4 +24,4 @@ do_install() {
     install ${WORKDIR}/sparse.sca.description ${D}${datadir}
 }
 
-FILES_${PN} = "${bindir} ${datadir}"
+FILES:${PN} = "${bindir} ${datadir}"

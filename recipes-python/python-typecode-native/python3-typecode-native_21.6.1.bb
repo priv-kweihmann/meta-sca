@@ -17,7 +17,7 @@ DEPENDS += "\
              python3-wheel-native \
             "
 
-SRC_URI_append = " file://0001-Relax-typecode_libmagic-requirements.patch"
+SRC_URI:append = " file://0001-Relax-typecode_libmagic-requirements.patch"
 
 PYPI_PACKAGE = "typecode"
 

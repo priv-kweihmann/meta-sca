@@ -13,4 +13,4 @@ do_install() {
     install "${WORKDIR}/fatal" "${D}${datadir}/jsonlint-recipe-fatal"
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

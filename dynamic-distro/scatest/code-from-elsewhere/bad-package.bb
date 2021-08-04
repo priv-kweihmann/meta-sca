@@ -51,12 +51,12 @@ do_install() {
 
 PACKAGES =. "${PN}-strangepath ${PN}-hidden ${PN}-script "
 
-FILES_${PN} = "${bindir}/curl.ermine"
-FILES_${PN}-hidden = "${datadir} ${PYTHON_SITEPACKAGES_DIR}"
-RDEPENDS_${PN}-hidden += "python3-core"
-FILES_${PN}-script = "${bindir}/test-1.sh"
-FILES_${PN}-strangepath = "/opt/bin/"
-RDEPENDS_${PN}-strangepath += "\
+FILES:${PN} = "${bindir}/curl.ermine"
+FILES:${PN}-hidden = "${datadir} ${PYTHON_SITEPACKAGES_DIR}"
+RDEPENDS:${PN}-hidden += "python3-core"
+FILES:${PN}-script = "${bindir}/test-1.sh"
+FILES:${PN}-strangepath = "/opt/bin/"
+RDEPENDS:${PN}-strangepath += "\
     python3-asyncio \
     python3-audio \
     python3-codecs \
@@ -110,7 +110,7 @@ RDEPENDS_${PN}-strangepath += "\
     python3-xmlrpc \
 "
 
-INSANE_SKIP_${PN} += "already-stripped arch"
+INSANE_SKIP:${PN} += "already-stripped arch"
 
 inherit sca
 inherit python3-dir

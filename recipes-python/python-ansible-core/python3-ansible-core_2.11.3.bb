@@ -6,7 +6,7 @@ SECTION = "devel/python"
 LICENSE = "GPL-3.0"
 LIC_FILES_CHKSUM = "file://COPYING;md5=8f0e2cd40e05189ec81232da84bd6e1a"
 
-DEPENDS_class-native += "\
+DEPENDS:class-native += "\
     python3-cryptography-native \
     python3-jinja2-native \
     python3-packaging-native \
@@ -22,7 +22,7 @@ SRC_URI[sha256sum] = "0ced1b4f67197edb27b50934c95d4cb644c6d635d72c7f826c4425dfe4
 inherit pypi
 inherit setuptools3
 
-RDEPENDS_${PN}_class-target += "\
+RDEPENDS:${PN}:class-target += "\
     bash \
     python3-cryptography \
     python3-jinja2 \

@@ -81,8 +81,8 @@ CVE_CHECK_WHITELIST += "CVE-2007-0998"
 # https://bugzilla.redhat.com/show_bug.cgi?id=1609015#c11
 CVE_CHECK_WHITELIST += "CVE-2018-18438"
 
-COMPATIBLE_HOST_mipsarchn32 = "null"
-COMPATIBLE_HOST_mipsarchn64 = "null"
+COMPATIBLE_HOST:mipsarchn32 = "null"
+COMPATIBLE_HOST:mipsarchn64 = "null"
 
 # Per https://lists.nongnu.org/archive/html/qemu-devel/2020-09/msg03873.html
 # upstream states qemu doesn't work without optimization
@@ -93,8 +93,8 @@ inherit pkgconfig
 inherit native
 
 # Disable kvm/virgl/mesa on targets that do not support it
-PACKAGECONFIG_remove_darwin = "kvm virglrenderer glx gtk+"
-PACKAGECONFIG_remove_mingw32 = "kvm virglrenderer glx gtk+"
+PACKAGECONFIG:remove:darwin = "kvm virglrenderer glx gtk+"
+PACKAGECONFIG:remove:mingw32 = "kvm virglrenderer glx gtk+"
 
 PACKAGECONFIG[sdl] = "--enable-sdl,--disable-sdl,libsdl2"
 PACKAGECONFIG[virtfs] = "--enable-virtfs --enable-attr --enable-cap-ng,--disable-virtfs,libcap-ng attr,"
@@ -143,7 +143,7 @@ PACKAGECONFIG[seccomp] = "--enable-seccomp,--disable-seccomp,libseccomp"
 PACKAGECONFIG ??= ""
 
 # Handle distros such as CentOS 5 32-bit that do not have kvm support
-PACKAGECONFIG_remove = "${@'kvm' if not os.path.exists('/usr/include/linux/kvm.h') else ''}"
+PACKAGECONFIG:remove = "${@'kvm' if not os.path.exists('/usr/include/linux/kvm.h') else ''}"
 
 # QEMU_TARGETS is overridable variable
 QEMU_TARGETS ?= "\
@@ -212,11 +212,11 @@ EXTRA_OECONF = "\
     ${PACKAGECONFIG_CONFARGS} \
     --target-list=${@get_qemu_usermode_target_list(d)} \
     "
-EXTRA_OECONF_remove = "--disable-static"
+EXTRA_OECONF:remove = "--disable-static"
 
 export LIBTOOL="${HOST_SYS}-libtool"
-EXTRA_OEMAKE_append = " LD='${LD}' AR='${AR}' OBJCOPY='${OBJCOPY}' LDFLAGS='${LDFLAGS}'"
-LDFLAGS_append = " -fuse-ld=bfd"
+EXTRA_OEMAKE:append = " LD='${LD}' AR='${AR}' OBJCOPY='${OBJCOPY}' LDFLAGS='${LDFLAGS}'"
+LDFLAGS:append = " -fuse-ld=bfd"
 
 B = "${WORKDIR}/build"
 
@@ -243,6 +243,6 @@ do_install () {
     find ${D} -executable -type f -exec mv {} {}-static \;
 }
 
-FILES_${PN} = "${bindir}"
+FILES:${PN} = "${bindir}"
 
-INSANE_SKIP_${PN} = "arch"
+INSANE_SKIP:${PN} = "arch"

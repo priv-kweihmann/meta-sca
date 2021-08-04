@@ -7,7 +7,7 @@ SRC_URI = "file://bad.service;subdir=source"
 S = "${WORKDIR}/source"
 B = "${WORKDIR}/source"
 
-FILES_${PN} += "${sysconfdir}"
+FILES:${PN} += "${sysconfdir}"
 
 inherit sca
 

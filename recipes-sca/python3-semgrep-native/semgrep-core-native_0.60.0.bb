@@ -6,7 +6,7 @@ COMPATIBLE_HOST = "^x86_64-linux"
 LICENSE = "LGPL-2.1"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/LICENSE;md5=650b869bd8ff2aed59c62bad2a22a821"
 
-SRC_URI_append = "https://github.com/returntocorp/semgrep/releases/download/v${PV}/semgrep-v${PV}-ubuntu-16.04.tgz;name=app \
+SRC_URI:append = "https://github.com/returntocorp/semgrep/releases/download/v${PV}/semgrep-v${PV}-ubuntu-16.04.tgz;name=app \
                   https://raw.githubusercontent.com/returntocorp/semgrep/v${PV}/LICENSE;name=license;downloadname=${BPN}-LICENSE\
                  "
 
@@ -30,4 +30,4 @@ do_install() {
     install -m 0755 ${WORKDIR}/semgrep-files/spacegrep ${D}${bindir}/spacegrep
 }
 
-FILES_${PN} += "${bindir}"
+FILES:${PN} += "${bindir}"

@@ -3,7 +3,7 @@ DESCRIPTION = "Ansible is a simple IT automation platform that makes your applic
 HOMEPAGE = "https://github.com/ansible/ansible/"
 SECTION = "devel/python"
 
-DEPENDS_class-native += "\
+DEPENDS:class-native += "\
     python3-ansible-core-native \
     python3-cryptography-native \
     python3-jinja2-native \
@@ -23,7 +23,7 @@ SRC_URI[sha256sum] = "aeb0007a18e8914dd3ffe0acb2c4377f2d1f25e01c39e845c6cb8b16bd
 inherit pypi
 inherit setuptools3
 
-do_install_append() {
+do_install:append() {
     # replace hardcoded python shebang
     find ${D} -type f -exec sed -i -e '1s,#\!.*python3,#! /usr/bin/env python3,' {} \;
     # remove blanks from filename
@@ -31,7 +31,7 @@ do_install_append() {
        "${D}${PYTHON_SITEPACKAGES_DIR}/ansible_collections/community/network/tests/integration/targets/ce_is_is_view/tests/netconf/test_ce_is_is_view_entity.yaml"
 }
 
-RDEPENDS_${PN}_class-target += "\
+RDEPENDS:${PN}:class-target += "\
     bash \
     python3-ansible-core \
     python3-cryptography \

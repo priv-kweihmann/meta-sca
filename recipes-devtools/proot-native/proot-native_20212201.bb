@@ -25,7 +25,7 @@ do_compile() {
     oe_runmake PREFIX=${prefix} BINDIR=${bindir}
 }
 
-FILES_${PN} = "${bindir}"
+FILES:${PN} = "${bindir}"
 
 
 do_install() {
