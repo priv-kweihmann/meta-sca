@@ -34,14 +34,14 @@ do_install() {
     install -m 0755 ${S}/upc.sh ${D}${bindir}/upc/
 }
 
-do_install_append_class-native () {
+do_install:append:class-native () {
     install -d ${D}/${datadir}
     install ${WORKDIR}/upc.sca.description ${D}${datadir}
 }
 
-FILES_${PN} = "${bindir}"
-FILES_${PN}_class-native += "${datadir}"
+FILES:${PN} = "${bindir}"
+FILES:${PN}:class-native += "${datadir}"
 
-INSANE_SKIP_${PN} += "file-rdeps"
+INSANE_SKIP:${PN} += "file-rdeps"
 
 BBCLASSEXTEND = "native"

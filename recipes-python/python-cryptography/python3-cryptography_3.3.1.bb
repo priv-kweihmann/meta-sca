@@ -11,7 +11,7 @@ DEPENDS += "\
             python3-six-native \
            "
 
-RDEPENDS_${PN}_class-target += "\
+RDEPENDS:${PN}:class-target += "\
                                 python3-asn1crypto \
                                 python3-cffi \
                                 python3-six \

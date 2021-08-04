@@ -14,7 +14,7 @@ DEPENDS += "\
             python3-toml-native \
             "
 
-SRC_URI_append = " file://pylint.sca.description"
+SRC_URI:append = " file://pylint.sca.description"
 SRC_URI[md5sum] = "7af6933458f80e286fbc5ef553a1bda7"
 SRC_URI[sha256sum] = "8b838c8983ee1904b2de66cce9d0b96649a91901350e956d78f289c3bc87b48e"
 
@@ -25,15 +25,15 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
-do_install_append() {
+do_install:append() {
     find ${D} -type f -exec sed -i "s#astroid==2.5.6#astroid>=2.5.6#g" {} \;
 
     install -d ${D}${datadir}
     install ${WORKDIR}/pylint.sca.description ${D}${datadir}
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"
 
 ## A python file with /usr/bin/python-shebang is
 ## used - ignore this error
-INSANE_SKIP_${PN} += "file-rdeps"
+INSANE_SKIP:${PN} += "file-rdeps"

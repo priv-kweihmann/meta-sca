@@ -21,4 +21,4 @@ do_install() {
     install ${WORKDIR}/golicensecheck.sca.description ${D}${datadir}/
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

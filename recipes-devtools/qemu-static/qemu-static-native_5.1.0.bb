@@ -75,7 +75,7 @@ do_compile() {
     oe_runmake
 }
 
-FILES_${PN} = "${bindir}"
+FILES:${PN} = "${bindir}"
 
 do_install () {
     export STRIP=""
@@ -88,4 +88,4 @@ do_install () {
     find ${D} -executable -type f -exec mv {} {}-static \;
 }
 
-INSANE_SKIP_${PN} = "arch"
+INSANE_SKIP:${PN} = "arch"

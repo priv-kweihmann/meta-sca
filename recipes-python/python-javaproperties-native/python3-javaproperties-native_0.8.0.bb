@@ -27,4 +27,4 @@ do_install() {
     install -m 644 ${S}/javaproperties-${PV}.dist-info/* ${D}${libdir}/${PYTHON_DIR}/site-packages/javaproperties-${PV}.dist-info/
 }
 
-FILES_${PN} += "${PYTHON_SITEPACKAGES_DIR}"
+FILES:${PN} += "${PYTHON_SITEPACKAGES_DIR}"

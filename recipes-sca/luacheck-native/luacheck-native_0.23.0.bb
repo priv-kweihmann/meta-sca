@@ -14,7 +14,7 @@ inherit luarocks
 inherit sca-description
 inherit native
 
-do_install_append() {
+do_install:append() {
     ## We need to tweak some hardcoded paths in the luacheck wrapper
     sed -i "s#${D}##g" ${D}${bindir}/luacheck
     ## Install tool description

@@ -19,7 +19,7 @@ SCA_SCANCODE_LICENSE_FILE_MINLENGTH ?= "2"
 SCA_RAW_RESULT_FILE[scancode] = "txt"
 SCA_RAW_RESULT_FILE[scancode_raw] = "json"
 
-SCA_ACTIVE_MODULES_append = " scancode_raw"
+SCA_ACTIVE_MODULES:append = " scancode_raw"
 
 inherit sca-conv-to-export
 inherit sca-datamodel
@@ -93,9 +93,9 @@ python do_sca_scancode() {
 def scancode_get_license(d, _in):
     import re
     _pn = d.getVar("PN")
-    x = d.getVar("LICENSE_{}".format(_in))
+    x = d.getVar("LICENSE:{}".format(_in))
     if not x:
-        x = d.getVar("LICENSE_${{PN}}{}".format(_in.replace(_pn, "")))
+        x = d.getVar("LICENSE:${{PN}}{}".format(_in.replace(_pn, "")))
     if not x:
         x = d.getVar("LICENSE")
     if not x:

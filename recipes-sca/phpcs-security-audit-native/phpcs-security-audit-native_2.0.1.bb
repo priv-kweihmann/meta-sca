@@ -18,11 +18,11 @@ inherit phpcomposer
 inherit sca-description
 inherit native
 
-do_compile_prepend() {
+do_compile:prepend() {
     rm -f ${S}/composer.json ${S}/composer.lock
 }
 
-do_install_append() {
+do_install:append() {
     ## We need to move the ruleset so it gets recognized by phpcodesniffer
     mv ${D}${bindir}/phpcs-security-audit/vendor/pheromone/phpcs-security-audit/Security \
         ${D}${bindir}/phpcs-security-audit/vendor/squizlabs/php_codesniffer/src/Standards/
@@ -30,4 +30,4 @@ do_install_append() {
     install ${WORKDIR}/phpsecaudit.sca.description ${D}${datadir}/
 }
 
-FILES_${PN} = "${bindir} ${datadir}"
+FILES:${PN} = "${bindir} ${datadir}"

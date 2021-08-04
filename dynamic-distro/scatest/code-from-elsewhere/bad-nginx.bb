@@ -7,7 +7,7 @@ SRC_URI = "file://nginx.conf;subdir=source"
 S = "${WORKDIR}/source"
 B = "${WORKDIR}/source"
 
-FILES_${PN} += "${sysconfdir}"
+FILES:${PN} += "${sysconfdir}"
 
 do_install() {
     mkdir -p ${D}${sysconfdir}/nginx

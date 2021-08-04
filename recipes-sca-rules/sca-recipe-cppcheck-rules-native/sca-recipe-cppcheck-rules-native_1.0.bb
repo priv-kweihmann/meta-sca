@@ -34,4 +34,4 @@ do_install() {
     install "${WORKDIR}/user-rules.xml" "${D}${datadir}/cppcheck-user-rules.xml"
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

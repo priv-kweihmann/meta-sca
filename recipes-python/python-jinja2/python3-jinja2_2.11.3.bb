@@ -14,6 +14,6 @@ PYPI_PACKAGE = "Jinja2"
 inherit setuptools3
 inherit pypi
 
-RDEPENDS_${PN} += "python3-markupsafe"
+RDEPENDS:${PN} += "python3-markupsafe"
 
 BBCLASSEXTEND = "native"

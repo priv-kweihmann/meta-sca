@@ -25,7 +25,7 @@ inherit native
 
 EXTRA_OECMAKE += "-DWITH_JBMC=OFF -DWITH_MEMORY_ANALYZER=ON"
 CXXFLAGS += "-Wno-error=maybe-uninitialized"
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"
 
 do_install() {
     install -d ${D}${datadir}

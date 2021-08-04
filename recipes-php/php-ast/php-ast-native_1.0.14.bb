@@ -14,7 +14,7 @@ S = "${WORKDIR}/git"
 inherit autotools-brokensep
 inherit native
 
-do_configure_prepend() {
+do_configure:prepend() {
     phpize
 }
 
@@ -22,5 +22,5 @@ do_install() {
     oe_runmake install INSTALL_ROOT=${D}
 }
 
-FILES_${PN} += "${libdir}/php*/extensions/*/*.so"
-FILES_${PN}-dbg += "${libdir}/php*/extensions/*/.debug"
+FILES:${PN} += "${libdir}/php*/extensions/*/*.so"
+FILES:${PN}-dbg += "${libdir}/php*/extensions/*/.debug"

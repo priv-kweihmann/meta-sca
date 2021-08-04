@@ -27,15 +27,15 @@ do_install() {
     chown -R root:root ${D}${bindir}/sudokiller/
 }
 
-do_install_append_class-native () {
+do_install:append:class-native () {
     install -d ${D}/${datadir}
     install ${WORKDIR}/sudokiller.sca.description ${D}${datadir}
 }
 
-FILES_${PN} = "${bindir}"
-FILES_${PN}_class-native += "${datadir}"
+FILES:${PN} = "${bindir}"
+FILES:${PN}:class-native += "${datadir}"
 
-RDEPENDS_${PN} += "bash"
+RDEPENDS:${PN} += "bash"
 
 # We don't really care about debug package for this one
 # also because of the issue mentioned below
@@ -44,6 +44,6 @@ INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 # Package contains exploit sample from (maybe) not matching arch
 # plus all the dependencies from that arch
 # Ignore that while packaging
-INSANE_SKIP_${PN} += "file-rdeps arch already-stripped"
+INSANE_SKIP:${PN} += "file-rdeps arch already-stripped"
 
 BBCLASSEXTEND = "native"

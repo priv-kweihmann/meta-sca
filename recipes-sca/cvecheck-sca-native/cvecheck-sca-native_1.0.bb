@@ -16,4 +16,4 @@ do_install() {
     install ${WORKDIR}/cvecheck.sca.description ${D}${datadir}/
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

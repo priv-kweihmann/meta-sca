@@ -24,4 +24,4 @@ do_install() {
     php ${S}/web/installer --version=${PV} --install-dir=${D}${bindir}
 }
 
-FILES_${PN} += "${bindir} ${datadir}"
+FILES:${PN} += "${bindir} ${datadir}"
