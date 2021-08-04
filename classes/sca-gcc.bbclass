@@ -25,7 +25,7 @@ def sca_can_run_gcc_analyzer(d):
     _gcc_version = _gcc_version.replace("%", "0")
     return d.getVar('SCA_GCC_ANALYZER') == '1' and float(_gcc_version) >= 10.0
 
-TARGET_CFLAGS_append = "${@oe.utils.ifelse(sca_can_run_gcc_analyzer(d), ' -fanalyzer', '')}"
+TARGET_CFLAGS:append = "${@oe.utils.ifelse(sca_can_run_gcc_analyzer(d), ' -fanalyzer', '')}"
 
 def sca_gcc_hardening(d):
     import os

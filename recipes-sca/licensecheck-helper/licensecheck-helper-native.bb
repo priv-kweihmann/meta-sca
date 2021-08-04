@@ -17,9 +17,9 @@ inherit native
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${bindir}
     install -m 0755 ${WORKDIR}/licensecheck ${D}${bindir}/licensecheck
 }
 
-FILES_${PN} = "${bindir}"
+FILES:${PN} = "${bindir}"

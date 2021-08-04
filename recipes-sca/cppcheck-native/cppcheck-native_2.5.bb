@@ -29,6 +29,6 @@ do_install() {
     install ${WORKDIR}/cppcheck.sca.description ${D}${datadir}
 }
 
-FILES_${PN} = "${bindir} ${datadir}"
+FILES:${PN} = "${bindir} ${datadir}"
 
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+(\.\d+)*)$"

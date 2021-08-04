@@ -12,7 +12,7 @@ DEPENDS += "\
             python3-stevedore-native \
            "
 
-SRC_URI_append = " file://bandit.sca.description"
+SRC_URI:append = " file://bandit.sca.description"
 
 SRC_URI[md5sum] = "24965f102dc62129d3fafe4fe596a3b8"
 SRC_URI[sha256sum] = "8a4c7415254d75df8ff3c3b15cfe9042ecee628a1e40b44c15a98890fbfc2608"
@@ -24,9 +24,9 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/bandit.sca.description ${D}${datadir}
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

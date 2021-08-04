@@ -19,6 +19,6 @@ inherit pypi
 inherit setuptools3
 inherit native
 
-do_configure_prepend() {
+do_configure:prepend() {
     sed -i "s#name='pytest-runner',#name='pytest-runner',version='${PV}',#g" ${S}/setup.py
 }

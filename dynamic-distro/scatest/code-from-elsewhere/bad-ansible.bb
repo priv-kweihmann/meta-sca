@@ -17,4 +17,4 @@ do_install() {
     install -m 0644 ${S}/1.yaml ${D}${datadir}
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

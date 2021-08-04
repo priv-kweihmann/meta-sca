@@ -67,7 +67,7 @@ DEPENDS += "\
             python3-zc-lockfile-native \
         "
 
-RDEPENDS_${PN} += "${DEPENDS}"
+RDEPENDS:${PN} += "${DEPENDS}"
 
 SRC_URI = "git://github.com/nexB/scancode-toolkit.git;protocol=https;nobranch=1 \
            file://0001-lift-version-requirements.patch \
@@ -80,9 +80,9 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/scancode.sca.description ${D}${datadir}
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

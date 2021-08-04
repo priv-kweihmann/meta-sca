@@ -21,7 +21,7 @@ inherit pypi
 inherit setuptools3
 inherit native
 
-do_install_append() {
+do_install:append() {
   # delete pydoc reference
   find ${D} -type f -exec sed -i '/import pydoc/d' {} \;
 }

@@ -13,4 +13,4 @@ do_install() {
     install "${WORKDIR}/fatal" "${D}${datadir}/vulture-image-fatal"
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

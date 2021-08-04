@@ -49,9 +49,9 @@ do_compile () {
     perl Build verbose=1
 }
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/perlcritic.sca.description ${D}${datadir}/
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

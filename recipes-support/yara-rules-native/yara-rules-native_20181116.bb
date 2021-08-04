@@ -33,4 +33,4 @@ do_install () {
     cd -
 }
 
-RDEPENDS_${PN} += "bash-native perl-native"
+RDEPENDS:${PN} += "bash-native perl-native"

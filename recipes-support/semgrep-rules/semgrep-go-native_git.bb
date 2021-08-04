@@ -20,4 +20,4 @@ do_install() {
     install -m 0644 ${S}/*.yml ${D}${datadir}/semgrep/semgrep-go/
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

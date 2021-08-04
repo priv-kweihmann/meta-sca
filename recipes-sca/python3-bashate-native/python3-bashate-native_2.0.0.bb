@@ -10,7 +10,7 @@ DEPENDS += "\
             python3-pbr-native \
            "
 
-SRC_URI_append = " file://bashate.sca.description"
+SRC_URI:append = " file://bashate.sca.description"
 SRC_URI[md5sum] = "8143df66c83808ab25a59319da236fb1"
 SRC_URI[sha256sum] = "eb990cf07c0ca09ee06f3b7eff79232a2d6eff9d2bdf141e8126efebb0521a17"
 
@@ -21,9 +21,9 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/bashate.sca.description ${D}${datadir}
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

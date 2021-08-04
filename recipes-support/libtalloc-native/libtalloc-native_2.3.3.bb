@@ -132,12 +132,12 @@ do_install() {
 
 PACKAGES += "pytalloc pytalloc-dev"
 
-RDEPENDS_pytalloc = "python3"
+RDEPENDS:pytalloc = "python3"
 
-RPROVIDES_${PN}-dbg += "pytalloc-dbg"
+RPROVIDES:${PN}-dbg += "pytalloc-dbg"
 
-FILES_pytalloc = "${libdir}/python${PYTHON_BASEVERSION}/site-packages \
+FILES:pytalloc = "${libdir}/python${PYTHON_BASEVERSION}/site-packages \
                   ${libdir}/libpytalloc-util.so.2 \
                   ${libdir}/libpytalloc-util.so.2.1.1 \
                  "
-FILES_pytalloc-dev = "${libdir}/libpytalloc-util.so"
+FILES:pytalloc-dev = "${libdir}/libpytalloc-util.so"

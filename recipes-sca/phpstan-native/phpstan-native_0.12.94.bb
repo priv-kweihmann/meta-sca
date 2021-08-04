@@ -15,13 +15,13 @@ inherit phpcomposer
 inherit sca-description
 inherit native
 
-do_compile_prepend() {
+do_compile:prepend() {
     rm -f ${S}/composer.json ${S}/composer.lock
 }
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/phpstan.sca.description ${D}${datadir}/
 }
 
-FILES_${PN} = "${bindir} ${datadir}"
+FILES:${PN} = "${bindir} ${datadir}"

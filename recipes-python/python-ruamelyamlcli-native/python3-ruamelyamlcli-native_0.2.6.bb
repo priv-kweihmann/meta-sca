@@ -15,6 +15,6 @@ inherit pypi
 inherit setuptools3
 inherit native
 
-do_install_prepend() {
+do_install:prepend() {
     export RUAMEL_NO_PIP_INSTALL_CHECK=1
 }
