@@ -1,4 +1,4 @@
-CONF_VERSION = "1"
+CONF_VERSION = "2"
 
 MACHINE = "qemux86-64"
 
