@@ -19,4 +19,4 @@ do_install() {
     install ${WORKDIR}/rubycritic.sca.description ${D}${datadir}/
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

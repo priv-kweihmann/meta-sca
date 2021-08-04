@@ -15,4 +15,4 @@ do_install() {
     install "${WORKDIR}/fatal" "${D}${datadir}/standard-recipe-fatal"
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

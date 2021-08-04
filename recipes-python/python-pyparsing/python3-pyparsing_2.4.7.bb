@@ -12,7 +12,7 @@ S = "${WORKDIR}/git"
 
 inherit setuptools3
 
-RDEPENDS_${PN}_class-target += "\
+RDEPENDS:${PN}:class-target += "\
     ${PYTHON_PN}-datetime \
     ${PYTHON_PN}-debugger \
     ${PYTHON_PN}-json \

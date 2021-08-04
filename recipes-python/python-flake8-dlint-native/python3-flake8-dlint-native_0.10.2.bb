@@ -15,7 +15,7 @@ S = "${WORKDIR}/git"
 inherit setuptools3
 inherit native
 
-do_install_append() {
+do_install:append() {
     ## This otherwise collides with other modules
     rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/tests/
 }

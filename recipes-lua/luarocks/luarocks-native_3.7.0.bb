@@ -30,4 +30,4 @@ do_install() {
     oe_runmake install DESTDIR=${D}
 }
 
-FILES_${PN} += "${sysconfdir} ${bindir} ${datadir} ${libdir}"
+FILES:${PN} += "${sysconfdir} ${bindir} ${datadir} ${libdir}"

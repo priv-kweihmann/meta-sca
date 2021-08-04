@@ -90,7 +90,7 @@ python do_sca_oelint_core() {
         "known_vars": clean_split(d, "SCA_OELINT_EXTRA_KNOWN_VARS"),
         "mandatory_vars": clean_split(d, "SCA_OELINT_EXTRA_MANDATORY_VARS"),
         "protected_vars": clean_split(d, "SCA_OELINT_EXTRA_PROTECTED_VARS"),
-        "protected_append_vars": clean_split(d, "SCA_OELINT_EXTRA_PROTECTED_APPEND_VARS"),
+        "protected:append_vars": clean_split(d, "SCA_OELINT_EXTRA_PROTECTED_APPEND_VARS"),
         "protected_vars": clean_split(d, "SCA_OELINT_EXTRA_SUGGESTED_VARS"),
         "known_mirrors": {}
     }

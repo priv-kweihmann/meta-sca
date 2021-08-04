@@ -11,7 +11,7 @@ SCA_GOLICENSECHECK_MIN_CONFIDENCE ?= "0.9"
 SCA_RAW_RESULT_FILE[golicensecheck] = "txt"
 SCA_RAW_RESULT_FILE[golicensecheck_raw] = "json"
 
-SCA_ACTIVE_MODULES_append = " golicensecheck_raw"
+SCA_ACTIVE_MODULES:append = " golicensecheck_raw"
 
 inherit sca-conv-to-export
 inherit sca-datamodel
@@ -91,9 +91,9 @@ python do_sca_golicensecheck() {
 def golicensecheck_get_license(d, _in):
     import re
     _pn = d.getVar("PN")
-    x = d.getVar("LICENSE_{}".format(_in))
+    x = d.getVar("LICENSE:{}".format(_in))
     if not x:
-        x = d.getVar("LICENSE_${{PN}}{}".format(_in.replace(_pn, "")))
+        x = d.getVar("LICENSE:${{PN}}{}".format(_in.replace(_pn, "")))
     if not x:
         x = d.getVar("LICENSE")
     if not x:

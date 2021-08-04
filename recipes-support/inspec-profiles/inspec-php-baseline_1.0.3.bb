@@ -25,6 +25,6 @@ do_install () {
     chown root:root ${D}/${datadir}/inspec/profiles/${ROLE_NAME}
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"
 
-RDEPENDS_${PN} += "rubygems-inspec-bin"
+RDEPENDS:${PN} += "rubygems-inspec-bin"

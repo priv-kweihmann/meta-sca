@@ -15,4 +15,4 @@ do_install() {
     install "${WORKDIR}/fatal" "${D}${datadir}/stylelint-image-fatal"
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

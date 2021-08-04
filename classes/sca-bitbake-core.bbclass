@@ -42,7 +42,7 @@ def do_sca_bitbake_hardening(d):
                     _findings += sca_backtrack_findings(d, g)
     if "insane_skip" in _modules:
         ## INSANE_SKIP isn't used anywhere
-        if clean_split(d, "INSANE_SKIP_{}".format(d.getVar("PN"))):
+        if clean_split(d, "INSANE_SKIP:{}".format(d.getVar("PN"))):
             g = sca_get_model_class(d,
                                     PackageName=package_name,
                                     Tool="bitbake",

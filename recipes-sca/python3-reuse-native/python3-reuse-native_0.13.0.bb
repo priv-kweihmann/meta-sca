@@ -19,7 +19,7 @@ DEPENDS += "\
             python3-setuptools-scm-native \
             "
 
-SRC_URI_append = " file://reuse.sca.description"
+SRC_URI:append = " file://reuse.sca.description"
 SRC_URI[md5sum] = "e9df72dd944e6b02e9c378141e4b43ae"
 SRC_URI[sha256sum] = "89c87bd49308c8059cc36f8116872d73dc6e5788a29af8869be6532202bff801"
 
@@ -30,9 +30,9 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/reuse.sca.description ${D}${datadir}
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

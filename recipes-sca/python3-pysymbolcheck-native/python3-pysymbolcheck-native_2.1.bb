@@ -19,10 +19,10 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}/pysymbolcheck
     install ${WORKDIR}/pysymcheck.sca.description ${D}${datadir}
     install ${WORKDIR}/git/basic_rules.json ${D}${datadir}/pysymbolcheck
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

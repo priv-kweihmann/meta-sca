@@ -31,4 +31,4 @@ do_install() {
     install ${WORKDIR}/checkbashism.sca.description ${D}${datadir}
 }
 
-FILES_${PN} = "${bindir} ${datadir}"
+FILES:${PN} = "${bindir} ${datadir}"

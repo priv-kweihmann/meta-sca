@@ -16,4 +16,4 @@ do_install() {
     install ${WORKDIR}/inspec.sca.description ${D}${datadir}/
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

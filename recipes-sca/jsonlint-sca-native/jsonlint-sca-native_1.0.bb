@@ -16,4 +16,4 @@ do_install() {
     install ${WORKDIR}/jsonlint.sca.description ${D}${datadir}/
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"

@@ -14,8 +14,8 @@ LUAROCKS_INSTALL_PKG_NAME ?= "${BPN}"
 ## Package version
 LUAROCKS_INSTALL_PKG_VERSION ?= "${PV}"
 
-LUAROCKS_INCDIR_class-native ?= "${STAGING_INCDIR_NATIVE}"
-LUAROCKS_INCDIR_class-target ?= "${STAGING_INCDIR}"
+LUAROCKS_INCDIR:class-native ?= "${STAGING_INCDIR_NATIVE}"
+LUAROCKS_INCDIR:class-target ?= "${STAGING_INCDIR}"
 
 luarocks_do_configure() {
     :
@@ -36,6 +36,6 @@ luarocks_do_install() {
         ${LUAROCKS_INSTALL_PKG_NAME} ${LUAROCKS_INSTALL_PKG_VERSION}
 }
 
-FILES_${PN} = "${prefix}"
+FILES:${PN} = "${prefix}"
 
 EXPORT_FUNCTIONS do_install do_configure do_compile
