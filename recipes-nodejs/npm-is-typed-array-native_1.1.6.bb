@@ -9,11 +9,11 @@ DEPENDS = "npm-available-typed-arrays-native \
            npm-call-bind-native \
            npm-es-abstract-native \
            npm-foreach-native \
-           npm-has-symbols-native"
+           npm-has-tostringtag-native"
 
-SRC_URI = "https://registry.npmjs.org/is-typed-array/-/is-typed-array-1.1.5.tgz"
-SRC_URI[md5sum] = "f154238efe870be9f2b50400ac72013f"
-SRC_URI[sha256sum] = "534a4b0ff440ba0ebdce1734a2b4b24a8cf8ad028be058e87770d3293da64453"
+SRC_URI = "https://registry.npmjs.org/is-typed-array/-/is-typed-array-1.1.6.tgz"
+SRC_URI[md5sum] = "3fa723a03b2ddab37a38c5c7a710ec8e"
+SRC_URI[sha256sum] = "f353e7037c59399e714a9fef3e7b0ac5ae6955aad125d62908499043c81c4f10"
 
 NPM_PKGNAME = "is-typed-array"
 
