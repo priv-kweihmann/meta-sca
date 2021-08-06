@@ -169,13 +169,15 @@ def do_sca_pkgqaenc_core(d, package):
     except subprocess.CalledProcessError as e:
         return e.stdout or ""
 
+def do_sca_pkgqaenc_pkg_process(p, d):
+    cmd_output = do_sca_pkgqaenc_core(d, p)
+    cmd_output += do_sca_pkgqaenc_shelllist(d, p)
+    cmd_output += do_sca_pkgqaenc_pythonident(d, p)
+    return cmd_output
+
 python do_sca_pkgqaenc() {
-    cmd_output = ""
-    
-    for p in clean_split(d, "PACKAGES"):
-        cmd_output += do_sca_pkgqaenc_core(d, p)
-        cmd_output += do_sca_pkgqaenc_shelllist(d, p)
-        cmd_output += do_sca_pkgqaenc_pythonident(d, p)
+    results = oe.utils.multiprocess_launch(do_sca_pkgqaenc_pkg_process, clean_split(d, "PACKAGES"), d, extraargs=(d,))
+    cmd_output = "\n".join(results)
     cmd_output += do_sca_pkgqaenc_hashdog(d)
 
     with open(sca_raw_result_file(d, "pkgqaenc"), "w") as o:
