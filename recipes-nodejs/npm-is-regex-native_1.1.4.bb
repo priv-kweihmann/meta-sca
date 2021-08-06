@@ -6,11 +6,11 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d22b3eb619d81197fd4f3ca47c2c1ea5"
 
 DEPENDS = "npm-call-bind-native \
-           npm-has-symbols-native"
+           npm-has-tostringtag-native"
 
-SRC_URI = "https://registry.npmjs.org/is-regex/-/is-regex-1.1.3.tgz"
-SRC_URI[md5sum] = "8b20db6abd2a879b150e28a7e7426305"
-SRC_URI[sha256sum] = "2a49c548d73bc7a54fe68963871e20551317e009aee90bf742b1917117f3128f"
+SRC_URI = "https://registry.npmjs.org/is-regex/-/is-regex-1.1.4.tgz"
+SRC_URI[md5sum] = "13a02d0abc63ff0093ca592e999f713c"
+SRC_URI[sha256sum] = "2791dd704e8ad3e7ec22e03c68fd8ae82dcc640a8592696fbf6c940691a3303c"
 
 NPM_PKGNAME = "is-regex"
 
