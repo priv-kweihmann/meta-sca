@@ -21,9 +21,9 @@ DEPENDS = "npm-babel-code-frame-native \
            npm-semver-native \
            npm-source-map-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/core/-/core-7.14.8.tgz"
-SRC_URI[md5sum] = "dc421e5dcf83204f4bc2a0da6460c850"
-SRC_URI[sha256sum] = "4108207337ea32c33d597a148d2db0cfe1a0a1bf5c95043a97cf7fa241738f48"
+SRC_URI = "https://registry.npmjs.org/@babel/core/-/core-7.15.0.tgz"
+SRC_URI[md5sum] = "ac787f2debaab7afa289b11ef9f7984e"
+SRC_URI[sha256sum] = "ebd86ef86c1bf844a2f7abdf7cfd300dde29537dd427eed6049f059f3c31d0c2"
 
 NPM_PKGNAME = "@babel/core"
 
