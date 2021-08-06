@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/xanzy/ssh-agent/@v/v0.3.0.zip;srcoutput=github.com/xanzy/ssh-agent;srcinput=github.com/xanzy/ssh-agent@v0.3.0;downloadfilename=github-com-xanzy-ssh-agent-0.3.0.zip;name=github-com-xanzy-ssh-agent"
-SRC_URI[github-com-xanzy-ssh-agent.sha256sum] = "cb1c4b88e82b3ad1da28268d0b3f9da9d909ad2166d8edfe818a12722904c5f0"
+SRC_URI += "https://proxy.golang.org/github.com/xanzy/ssh-agent/@v/v0.3.1.zip;srcoutput=github.com/xanzy/ssh-agent;srcinput=github.com/xanzy/ssh-agent@v0.3.1;downloadfilename=github-com-xanzy-ssh-agent-0.3.1.zip;name=github-com-xanzy-ssh-agent"
+SRC_URI[github-com-xanzy-ssh-agent.sha256sum] = "87254c1148dcd3c8c9ad91ee4616dab668d48ddd63f71b682bfd50978191b712"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
