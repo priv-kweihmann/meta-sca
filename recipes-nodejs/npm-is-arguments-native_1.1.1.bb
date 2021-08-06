@@ -5,11 +5,12 @@ HOMEPAGE = "https://github.com/inspect-js/is-arguments"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d22b3eb619d81197fd4f3ca47c2c1ea5"
 
-DEPENDS = "npm-call-bind-native"
+DEPENDS = "npm-call-bind-native \
+           npm-has-tostringtag-native"
 
-SRC_URI = "https://registry.npmjs.org/is-arguments/-/is-arguments-1.1.0.tgz"
-SRC_URI[md5sum] = "8aadd1559ed29753e058b7bb48a96829"
-SRC_URI[sha256sum] = "b175a429320ba6dd7a347c24ce64c1b9744aae2a334912efab13415700d0ff4e"
+SRC_URI = "https://registry.npmjs.org/is-arguments/-/is-arguments-1.1.1.tgz"
+SRC_URI[md5sum] = "d40e4542c611a965f9b867e0eb9b5a99"
+SRC_URI[sha256sum] = "22037916d1c9ade7067f00c7dc750e73775d18276d556f79707e1ba80296fadf"
 
 NPM_PKGNAME = "is-arguments"
 
