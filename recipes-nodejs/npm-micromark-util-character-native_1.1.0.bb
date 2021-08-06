@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://readme.md;beginline=230;endline=231;md5=511f6768a0948
 DEPENDS = "npm-micromark-util-symbol-native \
            npm-micromark-util-types-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark-util-character/-/micromark-util-character-1.0.0.tgz"
-SRC_URI[md5sum] = "f3fe500c85aaa827adfbbe0ea96c0e7e"
-SRC_URI[sha256sum] = "f5bc61e948d02e6dc0513baf14d81e2780e701ab2f08685bcf398fe0efe81032"
+SRC_URI = "https://registry.npmjs.org/micromark-util-character/-/micromark-util-character-1.1.0.tgz"
+SRC_URI[md5sum] = "5d15d0802788daf5473ee17a802657d8"
+SRC_URI[sha256sum] = "3bef7bc306ad22abd0f500fd3cdaaa910355a8105fb4b16b188203581ff699d3"
 
 NPM_PKGNAME = "micromark-util-character"
 
