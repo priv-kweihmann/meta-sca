@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=fd63805fd8e3797063b247781e5ee6e4"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.6.tgz"
-SRC_URI[md5sum] = "daa4c01f4d01fa7976a43c17cf2f9454"
-SRC_URI[sha256sum] = "25334251eddf26a85b59b6c7c994b954cbae4831640881fba46bef3f26cbe537"
+SRC_URI = "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.8.tgz"
+SRC_URI[md5sum] = "4dfb16244f19c3d1f75e118d0f9e0cd4"
+SRC_URI[sha256sum] = "e56a11aa13f860beabdf64560c026e9272605e3288e12689134fb835dfb56da6"
 
 NPM_PKGNAME = "graceful-fs"
 
