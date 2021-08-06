@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/xdg-basedir/-/xdg-basedir-5.0.1.tgz"
-SRC_URI[md5sum] = "5d9b4802fe2e7107b615f233b3f79cd4"
-SRC_URI[sha256sum] = "3f048a811d8ffce495546006c97e6b57b9715c12eefbba37d8ff5628dd7e1e70"
+SRC_URI = "https://registry.npmjs.org/xdg-basedir/-/xdg-basedir-5.1.0.tgz"
+SRC_URI[md5sum] = "c3b0b267fca177e07eed5558df35dc12"
+SRC_URI[sha256sum] = "5efa29c81b3fa106d3fb74d009df4aa9d946dcc957bfcc8ab0a635eeebffac73"
 
 NPM_PKGNAME = "xdg-basedir"
 
