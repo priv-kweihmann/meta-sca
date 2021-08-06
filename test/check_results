@@ -51,7 +51,7 @@ def test_results(tmppath, recipe, tool, name):
             with open(f) as i:
                 cnt = json.load(i)
                 if cnt:
-                    hits += sum(1 for x in cnt if x["PackageName"] == finding)
+                    hits += sum(1 for x in cnt if x["PackageName"].startswith(finding))
                     
         if not hits:
             sys.stderr.write("[ERROR] No results found for {}@{}\n".format(name, finding))
@@ -72,7 +72,7 @@ def test_inv_results(tmppath, recipe, tool, name):
             with open(f) as i:
                 cnt = json.load(i)
                 if cnt:
-                    hits += sum(1 for x in cnt if x["PackageName"] == finding)
+                    hits += sum(1 for x in cnt if x["PackageName"].startswith(finding))
                     
         if hits:
             sys.stderr.write("[ERROR] {} results found for {}@{}\n".format(hits, name, finding))
