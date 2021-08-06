@@ -20,12 +20,26 @@ DEPENDS += "python3-ropgadget-native"
 
 PACKAGE_DEBUG_SPLIT_STYLE = '.debug'
 
+def translate_address(tuples, bin, d):
+    import subprocess
+    import re
+    import os
+
+    _addr2line = os.environ.get("AS", "-as").replace("-as", "-addr2line").strip()
+    _args = [_addr2line, "-e", bin, tuples[0]]
+    output = ""
+    try:
+        _out = subprocess.check_output(_args, universal_newlines=True)
+        for im in re.finditer(r"(?P<file>.*):(?P<line>\d+)", _out):
+            _file = os.path.abspath(im.group("file"))
+            output += "{} - {}:{} - {}\n".format(bin, _file, im.group("line"), tuples[1])
+    except Exception as e:
+        sca_log_note(d, str(e))
+    return output
+
 def convert_veryraw(d, bin, content):
     import os
     import re
-    import subprocess
-    _addr2line = os.environ.get("AS", "-as").replace("-as", "-addr2line").strip()
-    _args = [_addr2line]
     ## Find debug symbol file
     _relpath = os.path.relpath(bin,
                                os.path.join(d.getVar("WORKDIR"), "packages-split", d.getVar("PN")))
@@ -33,15 +47,13 @@ def convert_veryraw(d, bin, content):
             "{}-dbg".format(d.getVar("PN")), os.path.dirname(_relpath), ".debug", os.path.basename(bin)))
     output = ""
     if os.path.isfile(_dbg):
+        _map = []
+
         for m in re.finditer(r"^(?P<addr>0x\w+)\s+:\s+(?P<msg>.*)", content, re.MULTILINE):
-            _t_args = _args + ["-e", _dbg, m.group("addr")]
-            try:
-                _out = subprocess.check_output(_t_args, universal_newlines=True)
-                for im in re.finditer(r"(?P<file>.*):(?P<line>\d+)", _out):
-                    _file = os.path.abspath(im.group("file"))
-                    output += "{} - {}:{} - {}\n".format(bin, _file, im.group("line"), m.group("msg"))
-            except Exception as e:
-                sca_log_note(d, str(e))
+            _map.append((m.group("addr"), m.group("msg")))
+
+        results = oe.utils.multiprocess_launch(translate_address, _map, d, extraargs=(_dbg, d,))
+        output = "".join(results)
     return output
 
 def do_sca_conv_ropgadget(d):
