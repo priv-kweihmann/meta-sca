@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b1d0cd283a346e919abb3beeb018279d"
 
 DEPENDS = "npm-babel-types-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/helper-member-expression-to-functions/-/helper-member-expression-to-functions-7.14.7.tgz"
-SRC_URI[md5sum] = "686f2362f3285cd8888aad8f069b7386"
-SRC_URI[sha256sum] = "860193a022a6003566c39cf09a4289a0336302c05319928c2fdd5d8f14fa15a1"
+SRC_URI = "https://registry.npmjs.org/@babel/helper-member-expression-to-functions/-/helper-member-expression-to-functions-7.15.0.tgz"
+SRC_URI[md5sum] = "1729d0d3baa6e25e4de8aa891ef51dfc"
+SRC_URI[sha256sum] = "80f9ae8ca06ae7ad45829f686b3bf0b3102f36c91305fccd628c337ab0e5767e"
 
 NPM_PKGNAME = "@babel/helper-member-expression-to-functions"
 
