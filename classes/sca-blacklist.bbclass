@@ -111,11 +111,12 @@ def _intersect_lists_rpl(d, l1, l2):
         l2 = [x for x in l2.split(" ") if x]
     return sorted(list(set(l1).intersection(l2)))
 
-def sca_is_module_blacklisted(d, tool):
+def sca_is_module_blacklisted(d, tool=None):
     import re
     pn = d.getVar("PN")
     matches = [x for x in (d.getVar("SCA_BLACKLIST") or "").split(" ") if x]
-    matches += [x for x in (d.getVar("SCA_BLACKLIST_{}".format(tool.replace("-", "_"))) or "").split(" ") if x]
+    if tool:
+        matches += [x for x in (d.getVar("SCA_BLACKLIST_{}".format(tool.replace("-", "_"))) or "").split(" ") if x]
     _pns = [re.match(x, pn) for x in matches]
     _def_deps = [x for x in d.getVar("BASE_DEFAULT_DEPS").split(" ")]
     _prov = [x for x in d.getVar("PROVIDES").split(" ")]
