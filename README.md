@@ -370,6 +370,7 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
 - [Results](docs/conf/results.md)
 - Build system integration
   - [Control via command-line](docs/build/control_build_by_cmdline.md)
+  - [SCA bot](docs/build/scabot.md)
   - Jenkins integration
     - [Basic jenkins integration](docs/build/jenkins/integration_basic.md)
     - [Parameterized jenkins build](docs/build/jenkins/integration_parameter.md)
