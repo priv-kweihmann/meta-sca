@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/tklauser/go-sysconf/@v/v0.3.7.zip;srcoutput=github.com/tklauser/go-sysconf;srcinput=github.com/tklauser/go-sysconf@v0.3.7;downloadfilename=github-com-tklauser-go-sysconf-0.3.7.zip;name=github-com-tklauser-go-sysconf"
-SRC_URI[github-com-tklauser-go-sysconf.sha256sum] = "e47b47f78a8c2db425679f1811470876d36f31d63d447efab4daffc0a816415e"
+SRC_URI += "https://proxy.golang.org/github.com/tklauser/go-sysconf/@v/v0.3.8.zip;srcoutput=github.com/tklauser/go-sysconf;srcinput=github.com/tklauser/go-sysconf@v0.3.8;downloadfilename=github-com-tklauser-go-sysconf-0.3.8.zip;name=github-com-tklauser-go-sysconf"
+SRC_URI[github-com-tklauser-go-sysconf.sha256sum] = "87548e90799ce3bdbc2ad2267a6496eceffe8cf94e22c7ed0ba1c57ce645594c"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
