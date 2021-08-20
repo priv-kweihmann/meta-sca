@@ -15,9 +15,9 @@ DEPENDS = "npm-nlcst-normalize-native \
            npm-unist-util-visit-native \
            npm-vfile-native"
 
-SRC_URI = "https://registry.npmjs.org/retext-equality/-/retext-equality-6.0.0.tgz"
-SRC_URI[md5sum] = "9629f43a6f50b07053310988f6b354e9"
-SRC_URI[sha256sum] = "e1a646d8555a31706f4759c4f4cbb5a70d48e27a480fb848bc6fbc75b7c833d6"
+SRC_URI = "https://registry.npmjs.org/retext-equality/-/retext-equality-6.1.0.tgz"
+SRC_URI[md5sum] = "cc8ac8432dc8cf08323ed97c32fd8e34"
+SRC_URI[sha256sum] = "87df063f7173ec1b39159ef012b63ff78d6e0941c1727f2757dc2cfab2e01dcc"
 
 NPM_PKGNAME = "retext-equality"
 
