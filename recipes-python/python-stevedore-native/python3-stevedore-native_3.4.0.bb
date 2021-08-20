@@ -8,8 +8,8 @@ DEPENDS += "python3-pbr-native"
 
 PYPI_PACKAGE = "stevedore"
 
-SRC_URI[md5sum] = "99602f0b2c5507ae87090575b444fe32"
-SRC_URI[sha256sum] = "3a5bbd0652bf552748871eaa73a4a8dc2899786bc497a2aa1fcb4dcdb0debeee"
+SRC_URI[md5sum] = "f421249b9f371e2e519b3a53d045a0d8"
+SRC_URI[sha256sum] = "59b58edb7f57b11897f150475e7bc0c39c5381f0b8e3fa9f5c20ce6c89ec4aa1"
 
 inherit pypi
 inherit setuptools3
