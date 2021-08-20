@@ -8,8 +8,8 @@ DEPENDS += "python3-flake8-native"
 
 PYPI_PACKAGE = "flake8-comprehensions"
 
-SRC_URI[md5sum] = "743b370426d141f89963f64e3604c051"
-SRC_URI[sha256sum] = "f24be9032587127f7a5bc6d066bf755b6e66834f694383adb8a673e229c1f559"
+SRC_URI[md5sum] = "bd88e3eff67a19633da665e0fba21748"
+SRC_URI[sha256sum] = "4888de89248b7f7535159189ff693c77f8354f6d37a02619fa28c9921a913aa0"
 
 inherit pypi
 inherit setuptools3
