@@ -29,9 +29,9 @@ DEPENDS = "npm-concat-stream-native \
            npm-vfile-reporter-native \
            npm-vfile-statistics-native"
 
-SRC_URI = "https://registry.npmjs.org/unified-engine/-/unified-engine-9.0.2.tgz"
-SRC_URI[md5sum] = "feaf8022d3c80a6d76334823ad038983"
-SRC_URI[sha256sum] = "cd4e8da5d47e70dd960133d95744e66928d72881ad4cb53441893eb0555cfaa6"
+SRC_URI = "https://registry.npmjs.org/unified-engine/-/unified-engine-9.0.3.tgz"
+SRC_URI[md5sum] = "a06aedbe48a6247bbb505ee0a61fd12a"
+SRC_URI[sha256sum] = "5128bf045909ddc349135097003228b2b0c4d475ac04bf6cec77c80a9713db42"
 
 NPM_PKGNAME = "unified-engine"
 
