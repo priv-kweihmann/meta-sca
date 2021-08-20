@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/mimic-response/-/mimic-response-3.1.0.tgz"
-SRC_URI[md5sum] = "f36e6c8ca66f3adff9739988552f7e76"
-SRC_URI[sha256sum] = "321e9b7c155cd47183de9d9cdbd6c37bca8187e15b11a42443883330c063dd54"
+SRC_URI = "https://registry.npmjs.org/mimic-response/-/mimic-response-4.0.0.tgz"
+SRC_URI[md5sum] = "975fd2e02f6c8944cd9499f72921a89c"
+SRC_URI[sha256sum] = "0d930f4d7e6aaef418ba89732b8bddd1c31992c224e593a811d5b77494074ceb"
 
 NPM_PKGNAME = "mimic-response"
 
