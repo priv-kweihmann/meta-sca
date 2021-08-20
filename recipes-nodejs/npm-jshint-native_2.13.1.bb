@@ -14,9 +14,9 @@ DEPENDS = "npm-cli-native \
            npm-shelljs-native \
            npm-strip-json-comments-native"
 
-SRC_URI = "https://registry.npmjs.org/jshint/-/jshint-2.13.0.tgz"
-SRC_URI[md5sum] = "9981c2f8800280376cdd24b626ebe4cd"
-SRC_URI[sha256sum] = "94c400d53a7247b6408bf26e22a809496f3677cce2b6a9c40528a5639e535c2d"
+SRC_URI = "https://registry.npmjs.org/jshint/-/jshint-2.13.1.tgz"
+SRC_URI[md5sum] = "f7a429714e92c8ec8fb048499fc50531"
+SRC_URI[sha256sum] = "ae1fc6b530186ae38d46f69d1c171d02616ab12fb0bf6986f50443ac1f5df12b"
 
 NPM_PKGNAME = "jshint"
 
