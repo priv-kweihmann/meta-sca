@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = "npm-yocto-queue-native"
 
-SRC_URI = "https://registry.npmjs.org/p-limit/-/p-limit-3.1.0.tgz"
-SRC_URI[md5sum] = "1362f362e00b9e967f1f922cf1a0a872"
-SRC_URI[sha256sum] = "36e6519736cafaa158dc1bca8137683f5bf1bc1c476d40519028b3f3a96bc9e0"
+SRC_URI = "https://registry.npmjs.org/p-limit/-/p-limit-4.0.0.tgz"
+SRC_URI[md5sum] = "ead17445bdd5e0de78d7d97635e358eb"
+SRC_URI[sha256sum] = "89fec0c479eaa1ac35b8b2f9820efb8cb32a5d5f2bf9b9a235c7fb45550f36bd"
 
 NPM_PKGNAME = "p-limit"
 
