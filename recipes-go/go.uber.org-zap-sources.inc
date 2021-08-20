@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/go.uber.org/zap/@v/v1.18.1.zip;srcoutput=go.uber.org/zap;srcinput=go.uber.org/zap@v1.18.1;downloadfilename=go-uber-org-zap-1.18.1.zip;name=go-uber-org-zap"
-SRC_URI[go-uber-org-zap.sha256sum] = "db413b242e76f0d8b8bc0a16d6108763c2ff6b2bec325edadbaf5bf13ae2d5aa"
+SRC_URI += "https://proxy.golang.org/go.uber.org/zap/@v/v1.19.0.zip;srcoutput=go.uber.org/zap;srcinput=go.uber.org/zap@v1.19.0;downloadfilename=go-uber-org-zap-1.19.0.zip;name=go-uber-org-zap"
+SRC_URI[go-uber-org-zap.sha256sum] = "6437824258873fed421b7975b8e4cafd1be80cdc15e553beaa887b499dd01420"
 
 GOSRC_LICENSE += "\
     MIT \
