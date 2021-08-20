@@ -80,7 +80,7 @@ python sca_bot_comment() {
         _args += [d.getVar("SCA_BOT_PROVIDER")] + _files
 
         try:
-            subprocess.check_output(_args, stdout=subprocess.STDOUT)
+            subprocess.check_output(_args, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as exp:
             bb.warn("SCA comment bot failes: {}".format(e.stdout or ""))
 }
