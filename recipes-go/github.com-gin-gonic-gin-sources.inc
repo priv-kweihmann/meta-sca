@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/gin-gonic/gin/@v/v1.7.3.zip;srcoutput=github.com/gin-gonic/gin;srcinput=github.com/gin-gonic/gin@v1.7.3;downloadfilename=github-com-gin-gonic-gin-1.7.3.zip;name=github-com-gin-gonic-gin"
-SRC_URI[github-com-gin-gonic-gin.sha256sum] = "fb2633eec1468303d0393c3767ff62073305b4d3df11e1e86126f8f262b09f9c"
+SRC_URI += "https://proxy.golang.org/github.com/gin-gonic/gin/@v/v1.7.4.zip;srcoutput=github.com/gin-gonic/gin;srcinput=github.com/gin-gonic/gin@v1.7.4;downloadfilename=github-com-gin-gonic-gin-1.7.4.zip;name=github-com-gin-gonic-gin"
+SRC_URI[github-com-gin-gonic-gin.sha256sum] = "1a69e288dc03d6f5e072767ec38fd24cf44d569168e9cdca65633629248b1571"
 
 GOSRC_LICENSE += "\
     MIT \
