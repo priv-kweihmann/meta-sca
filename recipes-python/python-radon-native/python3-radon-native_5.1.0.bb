@@ -13,8 +13,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "radon"
 
-SRC_URI[md5sum] = "9c982494a12ae36727296dbc6dd21cfa"
-SRC_URI[sha256sum] = "9d6637fb026d63e7a3a65539976461f81a6d4e2b20c420615d0ce4cff73614a7"
+SRC_URI[md5sum] = "1998534eb6382576fda336a3d22786f9"
+SRC_URI[sha256sum] = "cb1d8752e5f862fb9e20d82b5f758cbc4fb1237c92c9a66450ea0ea7bf29aeee"
 
 inherit pypi
 inherit setuptools3
