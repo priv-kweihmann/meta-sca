@@ -169,7 +169,7 @@ def is_updateable(_args, title):
 
 
 _args = create_parser()
-with urllib.request.urlopen("https://api.github.com/repos/priv-kweihmann/meta-sca/issues?state=open&per_page=1000") as url:
+with urllib.request.urlopen("https://api.github.com/repos/priv-kweihmann/meta-sca/issues?state=open&per_page=1000&sort=created-asc") as url:
     data = json.loads(url.read().decode())
     _updated_items = 0
     for item in data:
