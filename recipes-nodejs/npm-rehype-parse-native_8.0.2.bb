@@ -10,9 +10,9 @@ DEPENDS = "npm-hast-util-from-parse5-native \
            npm-types-hast-native \
            npm-unified-native"
 
-SRC_URI = "https://registry.npmjs.org/rehype-parse/-/rehype-parse-8.0.1.tgz"
-SRC_URI[md5sum] = "7c81b8824f0a9b33143c6d80908ee498"
-SRC_URI[sha256sum] = "c7c26a8678272d90a4b6f518887c03831fdb77e807c14a50c56f4213faebf190"
+SRC_URI = "https://registry.npmjs.org/rehype-parse/-/rehype-parse-8.0.2.tgz"
+SRC_URI[md5sum] = "0aef91526ca8c494ea6b57bf09f1a97d"
+SRC_URI[sha256sum] = "bcb1e4067a6fdb8e430548ac4161b47e03d6371c1f250342fef320577b02d6e1"
 
 NPM_PKGNAME = "rehype-parse"
 
