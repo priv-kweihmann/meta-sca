@@ -12,9 +12,9 @@ DEPENDS = "npm-array-union-native \
            npm-merge2-native \
            npm-slash-native"
 
-SRC_URI = "https://registry.npmjs.org/globby/-/globby-12.0.0.tgz"
-SRC_URI[md5sum] = "07b1144800de50bc041a009eb9b42834"
-SRC_URI[sha256sum] = "d0b754f9941870ce885403e4643000b42dd63d64d8945857d8e3332621afdff3"
+SRC_URI = "https://registry.npmjs.org/globby/-/globby-12.0.1.tgz"
+SRC_URI[md5sum] = "6624eb3fc3e8d73bb1e8d6bce238506d"
+SRC_URI[sha256sum] = "5c512f78fe317ae5f44c4ae16ec5bacf5858841a8b8a107ba822e471158e30f3"
 
 NPM_PKGNAME = "globby"
 
