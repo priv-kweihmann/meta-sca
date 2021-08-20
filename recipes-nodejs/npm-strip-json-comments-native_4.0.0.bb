@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-3.1.1.tgz"
-SRC_URI[md5sum] = "58e65c07bc47365a2acc9129b810130c"
-SRC_URI[sha256sum] = "0213fe6b1c1c470cf5c60ffca0d362142117c8e303ffbcabbd9a4c4700b6ceed"
+SRC_URI = "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-4.0.0.tgz"
+SRC_URI[md5sum] = "648f4267150a9e9496d9733c299ec4d9"
+SRC_URI[sha256sum] = "6adceada9136414c2fc3bc301713ab9c610c4cf3122baa8e01affd5c59b8e435"
 
 NPM_PKGNAME = "strip-json-comments"
 
