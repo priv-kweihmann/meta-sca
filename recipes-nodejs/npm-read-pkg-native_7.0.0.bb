@@ -10,9 +10,9 @@ DEPENDS = "npm-normalize-package-data-native \
            npm-type-fest-native \
            npm-types-normalize-package-data-native"
 
-SRC_URI = "https://registry.npmjs.org/read-pkg/-/read-pkg-6.0.0.tgz"
-SRC_URI[md5sum] = "64c717250ec597397a2a9409120ee222"
-SRC_URI[sha256sum] = "ff58eedde464f5f94d7c6405676cbc50ece1d6d7f14e6f8b14171a7cbc2f59c1"
+SRC_URI = "https://registry.npmjs.org/read-pkg/-/read-pkg-7.0.0.tgz"
+SRC_URI[md5sum] = "b6453757e41b2a1e9f5a29db3d8f0f29"
+SRC_URI[sha256sum] = "2ce133a97cef495c295e6a696130f1a6801a685aaaaba6fe03d1a3820f85cf57"
 
 NPM_PKGNAME = "read-pkg"
 
