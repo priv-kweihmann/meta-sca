@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=d4a904ca135bb7bc912156fee12726f0"
 
 DEPENDS = "npm-types-unist-native"
 
-SRC_URI = "https://registry.npmjs.org/@types/mdast/-/mdast-3.0.7.tgz"
-SRC_URI[md5sum] = "aa90c63e1c9495524b6552f4fa376ca1"
-SRC_URI[sha256sum] = "7c0b998d59393ac67ac286a41c92395c3c1ed7eebcd0b225d0be8ddfc2ec2331"
+SRC_URI = "https://registry.npmjs.org/@types/mdast/-/mdast-3.0.8.tgz"
+SRC_URI[md5sum] = "03c07018962fcd94f9adc44de25b423c"
+SRC_URI[sha256sum] = "ab87c5aeb7d7fd5016bb04172756acea121ff4391366853b841dc20e61eeae55"
 
 NPM_PKGNAME = "@types/mdast"
 
