@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/pseudomuto/protoc-gen-doc/@v/v1.4.1.zip;srcoutput=github.com/pseudomuto/protoc-gen-doc;srcinput=github.com/pseudomuto/protoc-gen-doc@v1.4.1;downloadfilename=github-com-pseudomuto-protoc-gen-doc-1.4.1.zip;name=github-com-pseudomuto-protoc-gen-doc"
-SRC_URI[github-com-pseudomuto-protoc-gen-doc.sha256sum] = "0f5fb7a2ca32fd2945299677bcdef433073edea8c0e2e42bcad593275ae4a5a4"
+SRC_URI += "https://proxy.golang.org/github.com/pseudomuto/protoc-gen-doc/@v/v1.5.0.zip;srcoutput=github.com/pseudomuto/protoc-gen-doc;srcinput=github.com/pseudomuto/protoc-gen-doc@v1.5.0;downloadfilename=github-com-pseudomuto-protoc-gen-doc-1.5.0.zip;name=github-com-pseudomuto-protoc-gen-doc"
+SRC_URI[github-com-pseudomuto-protoc-gen-doc.sha256sum] = "5fbf9eb35a70a67401ba65f0fc54ab0d5150c65c6eed24f16ea82f5eb10fdec7"
 
 GOSRC_LICENSE += "\
     MIT \
