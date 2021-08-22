@@ -11,9 +11,9 @@ DEPENDS = "npm-import-fresh-native \
            npm-types-parse-json-native \
            npm-yaml-native"
 
-SRC_URI = "https://registry.npmjs.org/cosmiconfig/-/cosmiconfig-7.0.0.tgz"
-SRC_URI[md5sum] = "b4478a77634a418c0135a198ab56b977"
-SRC_URI[sha256sum] = "e8c9489c9450e044af37dfb869f7609727a825e592af254532182fff9c8e18f8"
+SRC_URI = "https://registry.npmjs.org/cosmiconfig/-/cosmiconfig-7.0.1.tgz"
+SRC_URI[md5sum] = "fd5d087eaf59550a824fb03c83f8a191"
+SRC_URI[sha256sum] = "1b9f862930284ec9842c7f236555b900cf0d26280a24cf634acf7f134176c109"
 
 NPM_PKGNAME = "cosmiconfig"
 
