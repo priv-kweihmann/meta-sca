@@ -9,6 +9,7 @@ DEPENDS += "\
             python3-isort-native \
             python3-mccabe-native \
             python3-native \
+            python3-platformdirs-native \
             python3-pytest-runner-native \
             python3-six-native \
             python3-toml-native \
