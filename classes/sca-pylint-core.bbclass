@@ -69,6 +69,8 @@ python do_sca_pylint_core() {
         _args += d.getVar("SCA_PYLINT_EXTRA").split(" ")
     _args += ["-j", d.getVar("BB_NUMBER_THREADS")]
 
+    os.environ["PYLINTHOME"] = d.getVar("T")
+
     ## Run
     cur_dir = os.getcwd()
     os.chdir(d.getVar("SCA_SOURCES_DIR", True))
