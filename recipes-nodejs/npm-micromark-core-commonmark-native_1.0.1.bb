@@ -21,9 +21,9 @@ DEPENDS = "npm-micromark-factory-destination-native \
            npm-micromark-util-types-native \
            npm-parse-entities-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark-core-commonmark/-/micromark-core-commonmark-1.0.0.tgz"
-SRC_URI[md5sum] = "e9039b80d84f25e8345e8de6b8ecb720"
-SRC_URI[sha256sum] = "4af6a7d6e5577b1ea02c2c700cea44150b0288948b6474c1c1e730f470b2b553"
+SRC_URI = "https://registry.npmjs.org/micromark-core-commonmark/-/micromark-core-commonmark-1.0.1.tgz"
+SRC_URI[md5sum] = "246f82a01788d467abfbf25a7dd38b7e"
+SRC_URI[sha256sum] = "8133d4db619b7dc9a5985528624545a6d210b69580b33bdcea84fa29d6f469f7"
 
 NPM_PKGNAME = "micromark-core-commonmark"
 
