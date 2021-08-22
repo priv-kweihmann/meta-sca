@@ -8,6 +8,7 @@ DEPENDS += "\
             cmake-native \
             python3-attrs-native \
             python3-importlab-native \
+            python3-libcst-native \
             python3-ninja-native \
             python3-pybind11-native \
             python3-pylint-native \
