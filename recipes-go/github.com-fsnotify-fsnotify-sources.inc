@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/fsnotify/fsnotify/@v/v1.5.0.zip;srcoutput=github.com/fsnotify/fsnotify;srcinput=github.com/fsnotify/fsnotify@v1.5.0;downloadfilename=github-com-fsnotify-fsnotify-1.5.0.zip;name=github-com-fsnotify-fsnotify"
-SRC_URI[github-com-fsnotify-fsnotify.sha256sum] = "bf02ba07ac940b4eb30759c0be3beda7d3ad923e7c0a2485439ed19a7f5028b2"
+SRC_URI += "https://proxy.golang.org/github.com/fsnotify/fsnotify/@v/v1.5.1.zip;srcoutput=github.com/fsnotify/fsnotify;srcinput=github.com/fsnotify/fsnotify@v1.5.1;downloadfilename=github-com-fsnotify-fsnotify-1.5.1.zip;name=github-com-fsnotify-fsnotify"
+SRC_URI[github-com-fsnotify-fsnotify.sha256sum] = "f38d7e395bc45f08a34e9591c9c4900031f81c1ddc7d761a785cbbb9aaee0db0"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
