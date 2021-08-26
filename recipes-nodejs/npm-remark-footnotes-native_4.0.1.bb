@@ -10,9 +10,9 @@ DEPENDS = "npm-mdast-util-footnote-native \
            npm-types-mdast-native \
            npm-unified-native"
 
-SRC_URI = "https://registry.npmjs.org/remark-footnotes/-/remark-footnotes-4.0.0.tgz"
-SRC_URI[md5sum] = "e12e0d1e6cab7b341d1b5066d56f3051"
-SRC_URI[sha256sum] = "b9dd61b60675e1b8be09f912dca4b914125f9771546dbaf36908979048b87c0d"
+SRC_URI = "https://registry.npmjs.org/remark-footnotes/-/remark-footnotes-4.0.1.tgz"
+SRC_URI[md5sum] = "eec279e3b7cf442fda4369f54d7b307b"
+SRC_URI[sha256sum] = "aa10273c82826c3f0d3f1fef0e12c8c4b044f342cd75e8b54fb151bdc90eea31"
 
 NPM_PKGNAME = "remark-footnotes"
 
