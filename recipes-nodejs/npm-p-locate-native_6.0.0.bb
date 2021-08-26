@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = "npm-p-limit-native"
 
-SRC_URI = "https://registry.npmjs.org/p-locate/-/p-locate-5.0.0.tgz"
-SRC_URI[md5sum] = "f179aa668706b232c29cb580eea96619"
-SRC_URI[sha256sum] = "2ec11480a90965a753b141be5432d24f4ca98860b844fd1b10cab0a1023423fc"
+SRC_URI = "https://registry.npmjs.org/p-locate/-/p-locate-6.0.0.tgz"
+SRC_URI[md5sum] = "5057ecf6618f4e7b8135d5f83d53e484"
+SRC_URI[sha256sum] = "02779148d39ed9c11805e42ea013c42e83e83e9c5c5dd1a9176ca28c873dd588"
 
 NPM_PKGNAME = "p-locate"
 
