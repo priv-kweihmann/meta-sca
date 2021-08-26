@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 DEPENDS = "npm-locate-path-native \
            npm-path-exists-native"
 
-SRC_URI = "https://registry.npmjs.org/find-up/-/find-up-5.0.0.tgz"
-SRC_URI[md5sum] = "f30df2388d75158c7361f549edfe9bef"
-SRC_URI[sha256sum] = "f4a64efb583769c09638d81963fd3f7aa883b632f9992a256de3fbe962ca75b4"
+SRC_URI = "https://registry.npmjs.org/find-up/-/find-up-6.0.0.tgz"
+SRC_URI[md5sum] = "4b72d11e3d5b6fb85da3a3e44b712e55"
+SRC_URI[sha256sum] = "72b673e4e2786ace12463973e701e5efc694168944f1ad94e9a24a5a1aca329d"
 
 NPM_PKGNAME = "find-up"
 
