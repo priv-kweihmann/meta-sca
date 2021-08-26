@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=0492ef29a9d558a3e9660e7accc9ca6a"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/node-addon-api/-/node-addon-api-4.0.0.tgz"
-SRC_URI[md5sum] = "0e60232d48193f4dcb29a0ff51c3066b"
-SRC_URI[sha256sum] = "d189a561a10e7baed9feb7b54e396419f1c20d13511cb644efedfb898396b6a0"
+SRC_URI = "https://registry.npmjs.org/node-addon-api/-/node-addon-api-4.1.0.tgz"
+SRC_URI[md5sum] = "6273d0d85f249da10ef12dc1266c4c49"
+SRC_URI[sha256sum] = "8e24c6cda2dc33b50bdf8fd3972b421cb010370daf95c6ac220b9a9c3c2c1b2a"
 
 NPM_PKGNAME = "node-addon-api"
 
