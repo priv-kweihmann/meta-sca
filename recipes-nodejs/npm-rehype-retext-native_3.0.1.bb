@@ -10,9 +10,9 @@ DEPENDS = "npm-hast-util-to-nlcst-native \
            npm-types-unist-native \
            npm-unified-native"
 
-SRC_URI = "https://registry.npmjs.org/rehype-retext/-/rehype-retext-3.0.0.tgz"
-SRC_URI[md5sum] = "71df2e726aea10efe0da6cba863a1df5"
-SRC_URI[sha256sum] = "51e693441b048a0e1b3c2ec4d3389459c0d4aece2a03fe16f5be3c3b8b783553"
+SRC_URI = "https://registry.npmjs.org/rehype-retext/-/rehype-retext-3.0.1.tgz"
+SRC_URI[md5sum] = "bb056d1b08f8835061e802421b1476a0"
+SRC_URI[sha256sum] = "52906d31b26eea21de5f18c9356e65ae6c17a696de7f6a0f266a8da2b61ab955"
 
 NPM_PKGNAME = "rehype-retext"
 
