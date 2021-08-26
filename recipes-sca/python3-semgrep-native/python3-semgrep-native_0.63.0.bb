@@ -21,8 +21,8 @@ DEPENDS += "\
 
 SRC_URI:append = " file://semgrep.sca.description"
 
-SRC_URI[md5sum] = "44bbc4c4922e7ea8413a7cabff1e2c62"
-SRC_URI[sha256sum] = "5b04fde7fdc880b541200c071ad00d26192494448cea812899b89a32e31518db"
+SRC_URI[md5sum] = "f2b6c5beef1030df00442fcd429a615e"
+SRC_URI[sha256sum] = "777322ce3bbe07a43cc5e8d9ad23691441d3af9785e942134ceb5bdad1eb4902"
 
 PYPI_PACKAGE = "semgrep"
 
