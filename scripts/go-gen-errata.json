@@ -4,6 +4,11 @@
             "GOSRC_REMOVEDIRS += \"cloud.google.com/go/pubsub/internal/longtest\""
         ]
     },
+    "cloud.google.com/go": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"cloud.google.com/go/analytics/admin/apiv1alpha/\""
+        ]
+    },
     "dmitri.shuralyov.com/gpu/mtl": {
         "recipeextra": [
             "# not a compileable package",
@@ -43,7 +48,7 @@
     "github.com/BurntSushi/toml": {
         "striplevel": 1,
         "url": "https://github.com/BurntSushi/toml/archive/refs/tags/v%VERSION%.zip",
-        "version": "0.3.1"
+        "version": "0.4.1"
     },
     "github.com/BurntSushi/xgb": {
         "extra": [
@@ -203,6 +208,12 @@
         "striplevel": 1,
         "url": "https://github.com/cactus/go-statsd-client/archive/refs/tags/v%VERSION%.zip",
         "version": "5.0.0"
+    },
+    "github.com/cespare/xxhash/v2": {
+        "recipeextra": [
+            "# needs CGO",
+            "do_compile[noexec] = \"1\""
+        ]
     },
     "github.com/circonus-labs/circonusllhist": {
         "recipeextra": [
