@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=d5b9cb3bc7f6ffd7bea8661f30447c11"
 
 DEPENDS = "npm-domelementtype-native"
 
-SRC_URI = "https://registry.npmjs.org/domhandler/-/domhandler-4.2.0.tgz"
-SRC_URI[md5sum] = "08090db85693498934635e5e6b794423"
-SRC_URI[sha256sum] = "7d6127eb7f3a8d0127076070135d4b58d042dcf870d28996831ccfc15d84c863"
+SRC_URI = "https://registry.npmjs.org/domhandler/-/domhandler-4.2.2.tgz"
+SRC_URI[md5sum] = "83075b91322a0696623b94f1fb6c5977"
+SRC_URI[sha256sum] = "93923fd8333d875d0af9adbe5f32feec6bad78553abf454b23f7257341c17e60"
 
 NPM_PKGNAME = "domhandler"
 
