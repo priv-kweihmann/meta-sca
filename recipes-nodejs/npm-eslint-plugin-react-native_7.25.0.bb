@@ -8,6 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=1dbc7fedfc1975d32106f930116d0082"
 DEPENDS = "npm-array-includes-native \
            npm-array.prototype.flatmap-native \
            npm-doctrine-native \
+           npm-estraverse-native \
            npm-has-native \
            npm-jsx-ast-utils-native \
            npm-minimatch-native \
@@ -18,9 +19,9 @@ DEPENDS = "npm-array-includes-native \
            npm-resolve-native \
            npm-string.prototype.matchall-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.24.0.tgz"
-SRC_URI[md5sum] = "4b70375c393e8ba620f9668396f9c59c"
-SRC_URI[sha256sum] = "07dd9dcb232bae13273f104c0def85681186c2c4ca0a5296a624cd273f9d77e5"
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.25.0.tgz"
+SRC_URI[md5sum] = "80d32dc9893553b0b9fd8eaf6e338da3"
+SRC_URI[sha256sum] = "b84e733f07923878a962d8838e9131b9526c1028237b190d09ff2c438bf3bf81"
 
 NPM_PKGNAME = "eslint-plugin-react"
 
