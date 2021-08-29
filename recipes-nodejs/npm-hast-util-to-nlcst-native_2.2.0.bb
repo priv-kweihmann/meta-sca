@@ -12,14 +12,15 @@ DEPENDS = "npm-hast-util-embedded-native \
            npm-hast-util-whitespace-native \
            npm-nlcst-to-string-native \
            npm-types-hast-native \
+           npm-types-nlcst-native \
            npm-types-unist-native \
            npm-unist-util-position-native \
            npm-vfile-location-native \
            npm-vfile-native"
 
-SRC_URI = "https://registry.npmjs.org/hast-util-to-nlcst/-/hast-util-to-nlcst-2.1.0.tgz"
-SRC_URI[md5sum] = "e1be0a1a5b74d1d830c6e23422040f77"
-SRC_URI[sha256sum] = "6b5d3d334e7fc6ae63c279ae9094a31a80faa1738c1d662873d977ce0aa37ba0"
+SRC_URI = "https://registry.npmjs.org/hast-util-to-nlcst/-/hast-util-to-nlcst-2.2.0.tgz"
+SRC_URI[md5sum] = "7a04c3a21044f2f2afdbcbb9881e9bc3"
+SRC_URI[sha256sum] = "1a03c2a73e67716dfa4816d27f66b872a28433bd7a1129b4777820e605088106"
 
 NPM_PKGNAME = "hast-util-to-nlcst"
 
