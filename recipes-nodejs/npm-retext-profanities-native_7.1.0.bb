@@ -10,12 +10,13 @@ DEPENDS = "npm-cuss-native \
            npm-nlcst-to-string-native \
            npm-pluralize-native \
            npm-quotation-native \
+           npm-types-nlcst-native \
            npm-unified-native \
            npm-unist-util-position-native"
 
-SRC_URI = "https://registry.npmjs.org/retext-profanities/-/retext-profanities-7.0.0.tgz"
-SRC_URI[md5sum] = "a4a0d033b949368b14392548a4e662b7"
-SRC_URI[sha256sum] = "7d7061d99da7269bef83d020f73edb7eb104f0dcfaab407cf56aa3a0d57ef09e"
+SRC_URI = "https://registry.npmjs.org/retext-profanities/-/retext-profanities-7.1.0.tgz"
+SRC_URI[md5sum] = "3e35ba69535f73bf48d7fb6a02989920"
+SRC_URI[sha256sum] = "096a08433b247d77ad8ec2d361137dbae26fc55a3b3b993989847cc12c448e41"
 
 NPM_PKGNAME = "retext-profanities"
 
