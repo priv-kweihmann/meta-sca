@@ -16,9 +16,9 @@ DEPENDS = "npm-chalk-native \
            npm-strip-ansi-native \
            npm-vscode-uri-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell/-/cspell-5.8.2.tgz"
-SRC_URI[md5sum] = "68589778001dee3000bd54b9021342a6"
-SRC_URI[sha256sum] = "91157914ed7117f1e65e41f87e4bd8852d9fe71b8bf2c9e228b47794df320552"
+SRC_URI = "https://registry.npmjs.org/cspell/-/cspell-5.9.0.tgz"
+SRC_URI[md5sum] = "f703fffa5b453c7c3a327d1d6d5d8fb5"
+SRC_URI[sha256sum] = "3da2b209e09b85f7551acc0a2905237924c471086fb2a236a386e0e9c46cc1e8"
 
 NPM_PKGNAME = "cspell"
 
