@@ -16,9 +16,9 @@ DEPENDS = "npm-ccount-native \
            npm-types-hast-native \
            npm-unist-util-is-native"
 
-SRC_URI = "https://registry.npmjs.org/hast-util-to-html/-/hast-util-to-html-8.0.1.tgz"
-SRC_URI[md5sum] = "434b6ba1974c03bb42d2d4b1c7301467"
-SRC_URI[sha256sum] = "167bc458e00c605c83c10cf090d6a039d65ede120be624ab8b77c957e9a3b8b7"
+SRC_URI = "https://registry.npmjs.org/hast-util-to-html/-/hast-util-to-html-8.0.2.tgz"
+SRC_URI[md5sum] = "9da2768c690cf758f044aae7e6a9d001"
+SRC_URI[sha256sum] = "90e9dca71ed217a3e5ae205eac2d0db872a812be82e677a3b47f018f8e13df71"
 
 NPM_PKGNAME = "hast-util-to-html"
 
