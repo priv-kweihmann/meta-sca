@@ -5,11 +5,11 @@ HOMEPAGE = "https://github.com/isaacs/core-util-is#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=6126e36127d20ec0e2f637204a5c68ff"
 
-SRC_URI = "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz"
-SRC_URI[md5sum] = "36dbf1e4e5f3cbec553c074cbd5939fd"
-SRC_URI[sha256sum] = "a4a44dab6579ede3e06ade58d26f8fd642eae09153fd59c608fcb7951a499398"
+DEPENDS = ""
 
-S = "${WORKDIR}/package"
+SRC_URI = "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.3.tgz"
+SRC_URI[md5sum] = "b1d6a20c5b4105190dd24baaa65b43b7"
+SRC_URI[sha256sum] = "4430fdc71f2cf3b5e297113b9a692da2d6cff96cf84da00f0ecef5e5a6e74d0c"
 
 NPM_PKGNAME = "core-util-is"
 
