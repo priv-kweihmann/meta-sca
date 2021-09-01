@@ -41,9 +41,9 @@ DEPENDS = "npm-cspell-dict-ada-native \
            npm-cspell-dict-software-terms-native \
            npm-cspell-dict-typescript-native"
 
-SRC_URI = "https://registry.npmjs.org/@cspell/cspell-bundled-dicts/-/cspell-bundled-dicts-5.8.2.tgz"
-SRC_URI[md5sum] = "a4e0cbbffabd88caaa1fc8ba41035ab8"
-SRC_URI[sha256sum] = "ae08ccb61af8d33f4043d25d677944836bbba58702b2e3b8fb8a4e46abc0839c"
+SRC_URI = "https://registry.npmjs.org/@cspell/cspell-bundled-dicts/-/cspell-bundled-dicts-5.9.0.tgz"
+SRC_URI[md5sum] = "3a6f3cdd12ee3c8bb4712090b5a740a0"
+SRC_URI[sha256sum] = "7b1faabf8e42ac54be5fd46040e90fcb5a8db8c1c44911bf66f7271a9290b955"
 
 NPM_PKGNAME = "@cspell/cspell-bundled-dicts"
 
