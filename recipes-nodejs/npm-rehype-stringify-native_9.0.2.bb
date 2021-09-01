@@ -9,9 +9,9 @@ DEPENDS = "npm-hast-util-to-html-native \
            npm-types-hast-native \
            npm-unified-native"
 
-SRC_URI = "https://registry.npmjs.org/rehype-stringify/-/rehype-stringify-9.0.1.tgz"
-SRC_URI[md5sum] = "c1d69b27a49cddc0cc273ecbe3c8b1a8"
-SRC_URI[sha256sum] = "16416768454ef7274b0b5945634e1b5468669eecc2e8e0ed816452a8ea94efce"
+SRC_URI = "https://registry.npmjs.org/rehype-stringify/-/rehype-stringify-9.0.2.tgz"
+SRC_URI[md5sum] = "3616ea794c98c421ac7870da51fdaf99"
+SRC_URI[sha256sum] = "6d09775f9f43e219c1d30574a41d216e730d47418b29d934a07eb3414e3b81fb"
 
 NPM_PKGNAME = "rehype-stringify"
 
