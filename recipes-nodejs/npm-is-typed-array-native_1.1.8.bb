@@ -11,9 +11,9 @@ DEPENDS = "npm-available-typed-arrays-native \
            npm-foreach-native \
            npm-has-tostringtag-native"
 
-SRC_URI = "https://registry.npmjs.org/is-typed-array/-/is-typed-array-1.1.7.tgz"
-SRC_URI[md5sum] = "39a4817bac5ab283ea905ad1b5fb67de"
-SRC_URI[sha256sum] = "eed94d26af2b16cca998dce31d4f30e2b80efa0309e622d06e51d22d27d9dd99"
+SRC_URI = "https://registry.npmjs.org/is-typed-array/-/is-typed-array-1.1.8.tgz"
+SRC_URI[md5sum] = "2ee77101b9e35f9ec766b2168b3a3113"
+SRC_URI[sha256sum] = "65836005150490e35d9cb19c6f6a3818de311177f60f3a9040b458ee1bb4177e"
 
 NPM_PKGNAME = "is-typed-array"
 
