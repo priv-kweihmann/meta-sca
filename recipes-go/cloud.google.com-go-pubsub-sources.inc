@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/pubsub/@v/v1.15.0.zip;srcoutput=cloud.google.com/go/pubsub;srcinput=cloud.google.com/go/pubsub@v1.15.0;downloadfilename=cloud-google-com-go-pubsub-1.15.0.zip;name=cloud-google-com-go-pubsub"
-SRC_URI[cloud-google-com-go-pubsub.sha256sum] = "df7dd217253991d86f3a0f5e43454ff1c70bc71588863089dcc807f0e6eae31c"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/pubsub/@v/v1.16.0.zip;srcoutput=cloud.google.com/go/pubsub;srcinput=cloud.google.com/go/pubsub@v1.16.0;downloadfilename=cloud-google-com-go-pubsub-1.16.0.zip;name=cloud-google-com-go-pubsub"
+SRC_URI[cloud-google-com-go-pubsub.sha256sum] = "98134d072e18ee03b96eaf208934bd0fc9431a747a2d62181b86b89c9beceafd"
 GOSRC_REMOVEDIRS += "cloud.google.com/go/pubsub/internal/longtest"
 
 GOSRC_LICENSE += "\
