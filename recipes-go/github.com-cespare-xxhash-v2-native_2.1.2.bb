@@ -9,5 +9,8 @@ require github.com-cespare-xxhash-v2-sources.inc
 
 GO_IMPORT = "github.com/cespare/xxhash/v2"
 
+# needs CGO
+do_compile[noexec] = "1"
+
 inherit gosrc
 inherit native
