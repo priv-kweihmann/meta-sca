@@ -111,11 +111,12 @@ def run_bitbake_test(_args, recipe):
         _base = os.path.basename(_f)
         if _base.endswith(".bb"):
             _recipes.append("_".join(_base.split("_")[:-1]))
-    try:
-        subprocess.check_call(["bitbake"] + _recipes, universal_newlines=True)
-    except:
-        input("Build failed - check and press enter when okay")
-        run_bitbake_test(_args, recipe)
+    if any(_recipes):
+        try:
+            subprocess.check_call(["bitbake"] + _recipes, universal_newlines=True)
+        except:
+            input("Build failed - check and press enter when okay")
+            run_bitbake_test(_args, recipe)
     return True
 
 
