@@ -8,7 +8,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require github.com-googleapis-gax-go-v2-sources.inc
 
 EXTRA_DEPENDS += "\
+    google.golang.org-api-native \
+    google.golang.org-genproto-native \
     google.golang.org-grpc-native \
+    google.golang.org-protobuf-native \
 "
 
 GO_IMPORT = "github.com/googleapis/gax-go/v2"
