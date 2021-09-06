@@ -4,8 +4,10 @@ HOMEPAGE = "https://github.com/best-doctor/flake8-annotations-complexity"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=352fd8fef192c98968c70971a80f959c"
 
+PV = "0.0.6+${SRCREV}"
+
 SRC_URI = "git://github.com/best-doctor/flake8-annotations-complexity.git;protocol=https"
-SRCREV = "fe032cd60d42724660ce9129f6bc5d4114a31a2f"
+SRCREV = "e8c51b6fae2a4f911aa05c2bc45fbea1f633fc96"
 
 UPSTREAM_CHECK_COMMITS = "1"
 
