@@ -9,9 +9,9 @@ DEPENDS = "npm-eslint-scope-native \
            npm-eslint-visitor-keys-native \
            npm-semver-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/eslint-parser/-/eslint-parser-7.15.0.tgz"
-SRC_URI[md5sum] = "a5e100b226036a10ff5ea706f4ca60a9"
-SRC_URI[sha256sum] = "b47f085371f1ae533214d55d0110e3df0dc0282f1dd1bf43901da150ebbcc8b3"
+SRC_URI = "https://registry.npmjs.org/@babel/eslint-parser/-/eslint-parser-7.15.4.tgz"
+SRC_URI[md5sum] = "a61ab2a3255f5125709d427ec5a3a8df"
+SRC_URI[sha256sum] = "80c0147b5c67f1cefe055bbc238e974aa3c9b6f2c7b10d02cc040cc4c2ad2590"
 
 NPM_PKGNAME = "@babel/eslint-parser"
 
