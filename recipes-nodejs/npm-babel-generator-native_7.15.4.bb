@@ -9,9 +9,9 @@ DEPENDS = "npm-babel-types-native \
            npm-jsesc-native \
            npm-source-map-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/generator/-/generator-7.15.0.tgz"
-SRC_URI[md5sum] = "ff20e1b18eff4b3158d6eb4f3050725e"
-SRC_URI[sha256sum] = "66e557d900f7578db9ee030f7afb1b7176603eecd0ac54f665fa4c690a805b88"
+SRC_URI = "https://registry.npmjs.org/@babel/generator/-/generator-7.15.4.tgz"
+SRC_URI[md5sum] = "8d4c665ec0e977979b52514ba22e580c"
+SRC_URI[sha256sum] = "1fa5e5da2a769c705fb1793f677dd31f84625a0bf96ddbcece7de7b98c4c0aeb"
 
 NPM_PKGNAME = "@babel/generator"
 
