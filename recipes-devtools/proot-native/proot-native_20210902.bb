@@ -9,10 +9,13 @@ LICENSE = "GPL-2.0"
 
 LIC_FILES_CHKSUM = "file://../COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
-DEPENDS += "libtalloc-native libarchive-native"
+DEPENDS += "\
+    libarchive-native \
+    libtalloc-native \
+"
 
 SRC_URI = "git://github.com/proot-me/proot.git;protocol=https"
-SRCREV = "8c0ccf7db18b5d5ca2f47e1afba7897fb1bb39c0"
+SRCREV = "58cfd864910a60135afdf477e943ac03de382eed"
 
 S = "${WORKDIR}/git/src"
 
@@ -24,9 +27,6 @@ inherit native
 do_compile() {
     oe_runmake PREFIX=${prefix} BINDIR=${bindir}
 }
-
-FILES:${PN} = "${bindir}"
-
 
 do_install() {
     oe_runmake install DESTDIR=${D} PREFIX=$prefix BINDIR=${bindir}
