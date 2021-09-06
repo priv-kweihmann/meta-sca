@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/lyft/protoc-gen-star/@v/v0.5.3.zip;srcoutput=github.com/lyft/protoc-gen-star;srcinput=github.com/lyft/protoc-gen-star@v0.5.3;downloadfilename=github-com-lyft-protoc-gen-star-0.5.3.zip;name=github-com-lyft-protoc-gen-star"
-SRC_URI[github-com-lyft-protoc-gen-star.sha256sum] = "dabbc4c4e579794053260cdebc105e2f6d3c57002ee5fc3abbc03d5109c477cc"
+SRC_URI += "https://proxy.golang.org/github.com/lyft/protoc-gen-star/@v/v0.6.0.zip;srcoutput=github.com/lyft/protoc-gen-star;srcinput=github.com/lyft/protoc-gen-star@v0.6.0;downloadfilename=github-com-lyft-protoc-gen-star-0.6.0.zip;name=github-com-lyft-protoc-gen-star"
+SRC_URI[github-com-lyft-protoc-gen-star.sha256sum] = "9e334803f2312539ce1e7d600e378fa9cf7589683798823c69280786ce0f1a79"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
