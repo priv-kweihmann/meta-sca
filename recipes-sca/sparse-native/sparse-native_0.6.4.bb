@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=69a9605316748b9e191e454efc2235b1"
 
 SRC_URI = "git://git.kernel.org/pub/scm/devel/sparse/sparse.git;protocol=https \
            file://sparse.sca.description"
-SRCREV = "c3b7facda6adfdbf56c1c158a04a3a648fac6f3f"
+SRCREV = "c4706aa764f3ae68258ba60be6325a5662900362"
 S = "${WORKDIR}/git"
 
 inherit pkgconfig
