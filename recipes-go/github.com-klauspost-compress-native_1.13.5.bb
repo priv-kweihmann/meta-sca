@@ -7,10 +7,6 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-klauspost-compress-sources.inc
 
-EXTRA_DEPENDS += "\
-    github.com-golang-snappy-native \
-"
-
 GO_IMPORT = "github.com/klauspost/compress"
 
 inherit gosrc
