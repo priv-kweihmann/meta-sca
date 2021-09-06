@@ -105,8 +105,14 @@ Closes #{}
 
 
 def run_bitbake_test(_args, recipe):
+    __git = git.Repo(path=_args.repo)
+    _recipes = []
+    for _f in __git.untracked_files:
+        _base = os.path.basename(_f)
+        if _base.endswith(".bb"):
+            _recipes.append("_".join(_base.split("_")[:-1]))
     try:
-        subprocess.check_call(["bitbake", recipe], universal_newlines=True)
+        subprocess.check_call(["bitbake"] + _recipes, universal_newlines=True)
     except:
         input("Build failed - check and press enter when okay")
         run_bitbake_test(_args, recipe)
