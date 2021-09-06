@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b1d0cd283a346e919abb3beeb018279d"
 
 DEPENDS = "npm-babel-types-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/helper-split-export-declaration/-/helper-split-export-declaration-7.14.5.tgz"
-SRC_URI[md5sum] = "67f48b94b6d7d0cdf498bfbec6f247d4"
-SRC_URI[sha256sum] = "a3ca9fba2e31171a5e367886f61f0a418fd43f1174e29a48ef6f46e6d9868a36"
+SRC_URI = "https://registry.npmjs.org/@babel/helper-split-export-declaration/-/helper-split-export-declaration-7.15.4.tgz"
+SRC_URI[md5sum] = "be5f6233d17468e5a9eca1cd218d715b"
+SRC_URI[sha256sum] = "44c844b26be84f4f926a113124ad238b63173c27b0a0d1ff1a01ad14665e1e5f"
 
 NPM_PKGNAME = "@babel/helper-split-export-declaration"
 
