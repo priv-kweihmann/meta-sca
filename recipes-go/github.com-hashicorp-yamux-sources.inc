@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/hashicorp/yamux/@v/v0.0.0-20210707203944-259a57b3608c.zip;srcoutput=github.com/hashicorp/yamux;srcinput=github.com/hashicorp/yamux@v0.0.0-20210707203944-259a57b3608c;downloadfilename=github-com-hashicorp-yamux-0.0.0-20210707203944-259a57b3608c.zip;name=github-com-hashicorp-yamux"
-SRC_URI[github-com-hashicorp-yamux.sha256sum] = "ec3301f9f91fc9af4bb9811d297a8e8cfdcae92fdb00d845d47da49add4d2f8b"
+SRC_URI += "https://proxy.golang.org/github.com/hashicorp/yamux/@v/v0.0.0-20210826001029-26ff87cf9493.zip;srcoutput=github.com/hashicorp/yamux;srcinput=github.com/hashicorp/yamux@v0.0.0-20210826001029-26ff87cf9493;downloadfilename=github-com-hashicorp-yamux-0.0.0-20210826001029-26ff87cf9493.zip;name=github-com-hashicorp-yamux"
+SRC_URI[github-com-hashicorp-yamux.sha256sum] = "faa3854fadf87c31ab52ed01f251fd01a7c8a41fe72371d9774ae7e8f5d54bae"
 
 GOSRC_LICENSE += "\
     MPL-2.0 \
