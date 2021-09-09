@@ -25,6 +25,9 @@ EXTRA_DEPENDS += "\
     honnef.co-go-tools-native \
 "
 
+# version is too far behind on cloud APIs - disable the compile
+do_compile[noexec] = "1"
+
 GO_IMPORT = "contrib.go.opencensus.io/exporter/stackdriver"
 
 inherit gosrc
