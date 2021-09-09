@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/hashicorp/go-plugin/@v/v1.4.2.zip;srcoutput=github.com/hashicorp/go-plugin;srcinput=github.com/hashicorp/go-plugin@v1.4.2;downloadfilename=github-com-hashicorp-go-plugin-1.4.2.zip;name=github-com-hashicorp-go-plugin"
-SRC_URI[github-com-hashicorp-go-plugin.sha256sum] = "78c58c09f0d595d82fe929f575b15751f45de1737a0f3f959f49da9695f39fbd"
+SRC_URI += "https://proxy.golang.org/github.com/hashicorp/go-plugin/@v/v1.4.3.zip;srcoutput=github.com/hashicorp/go-plugin;srcinput=github.com/hashicorp/go-plugin@v1.4.3;downloadfilename=github-com-hashicorp-go-plugin-1.4.3.zip;name=github-com-hashicorp-go-plugin"
+SRC_URI[github-com-hashicorp-go-plugin.sha256sum] = "cde7cd18c1fce4c49481b9c9bb39eed2af260c30f7d82eb2adae5d02700986d9"
 
 GOSRC_LICENSE += "\
     MPL-2.0 \
