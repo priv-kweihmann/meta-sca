@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=d4a904ca135bb7bc912156fee12726f0"
 
 DEPENDS = "npm-types-node-native"
 
-SRC_URI = "https://registry.npmjs.org/@types/keyv/-/keyv-3.1.2.tgz"
-SRC_URI[md5sum] = "1622a11d060d54f2b72b967eed30cc0c"
-SRC_URI[sha256sum] = "31bb43fd7a33bbea96791dc11f0557287062260448f3f16f0e10fcfaaf5fa6f6"
+SRC_URI = "https://registry.npmjs.org/@types/keyv/-/keyv-3.1.3.tgz"
+SRC_URI[md5sum] = "6990fe09e2642923192925f199e41a42"
+SRC_URI[sha256sum] = "5e9552649143b4e545909a3d217bcb049f1dab738ccb1fd7ec40f8d638a7aa78"
 
 NPM_PKGNAME = "@types/keyv"
 
