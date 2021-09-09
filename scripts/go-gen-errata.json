@@ -1,12 +1,18 @@
 {
+    "cloud.google.com/go": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"cloud.google.com/go/analytics/admin/apiv1alpha/\""
+        ]
+    },
     "cloud.google.com/go/pubsub": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"cloud.google.com/go/pubsub/internal/longtest\""
         ]
     },
-    "cloud.google.com/go": {
-        "extra": [
-            "GOSRC_REMOVEDIRS += \"cloud.google.com/go/analytics/admin/apiv1alpha/\""
+    "contrib.go.opencensus.io/exporter/stackdriver": {
+        "recipeextra": [
+            "# version is too far behind on cloud APIs - disable the compile",
+            "do_compile[noexec] = \"1\""
         ]
     },
     "dmitri.shuralyov.com/gpu/mtl": {
@@ -443,6 +449,11 @@
     "github.com/nats-io/nats.go": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/nats-io/nats.go/test\""
+        ]
+    },
+    "github.com/onsi/gomega": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/onsi/gomega/internal/testingtsupport\""
         ]
     },
     "github.com/pborman/getopt/v2": {
