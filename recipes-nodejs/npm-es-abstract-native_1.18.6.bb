@@ -9,6 +9,7 @@ DEPENDS = "npm-call-bind-native \
            npm-es-to-primitive-native \
            npm-function-bind-native \
            npm-get-intrinsic-native \
+           npm-get-symbol-description-native \
            npm-has-native \
            npm-has-symbols-native \
            npm-internal-slot-native \
@@ -23,9 +24,9 @@ DEPENDS = "npm-call-bind-native \
            npm-string.prototype.trimstart-native \
            npm-unbox-primitive-native"
 
-SRC_URI = "https://registry.npmjs.org/es-abstract/-/es-abstract-1.18.5.tgz"
-SRC_URI[md5sum] = "56094ad382dbf27af1db8cbdaf90f1bc"
-SRC_URI[sha256sum] = "5558d736afe02c13399e0fab60ad1ef62d173c2244aa3337ef6f4c64e09cde5a"
+SRC_URI = "https://registry.npmjs.org/es-abstract/-/es-abstract-1.18.6.tgz"
+SRC_URI[md5sum] = "6943c7806796f2c74c995c94fd1e5c19"
+SRC_URI[sha256sum] = "750a4c720ed8f9c537572cff9e9cb46861936f106fe7322354049ee59134231a"
 
 NPM_PKGNAME = "es-abstract"
 
