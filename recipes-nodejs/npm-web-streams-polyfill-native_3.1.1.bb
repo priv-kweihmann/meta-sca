@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=f386ec07283033a802d3be56cae4a3c8"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/web-streams-polyfill/-/web-streams-polyfill-3.1.0.tgz"
-SRC_URI[md5sum] = "0bf35750cdf2c82f8b985f298dff1af8"
-SRC_URI[sha256sum] = "b729e864ea5829814f20fc790ea28369af683ff0207d739c5ffe0e051bfe0d80"
+SRC_URI = "https://registry.npmjs.org/web-streams-polyfill/-/web-streams-polyfill-3.1.1.tgz"
+SRC_URI[md5sum] = "83e7eb760f1a16909ec85784228fa67a"
+SRC_URI[sha256sum] = "7f2f66a70c41f9d1c8638014b2a01adeaa498c344759eb35fb2ea7d53e0e94cd"
 
 NPM_PKGNAME = "web-streams-polyfill"
 
