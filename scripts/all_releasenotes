@@ -3,6 +3,8 @@ import argparse
 import os
 import subprocess
 
+import git
+
 class ExtendAction(argparse.Action):
 
     def __call__(self, parser, namespace, values, option_string=None):
@@ -15,6 +17,8 @@ def create_parser():
     parser.register('action', 'extend', ExtendAction)
 
     parser.add_argument("--main", default=[], action="extend", nargs="*", help="add a main section entry")
+    parser.add_argument("--git_user", default=os.environ.get("GIT_USER"))
+    parser.add_argument("--git_mail", default=os.environ.get("GIT_MAIL"))
     parser.add_argument("tag", help="tag to query from")
     parser.add_argument("username", help="GitHub username")
     parser.add_argument("token", help="GitHub token")
@@ -25,8 +29,20 @@ _map = {
     "master": "v{tag}"
 }
 
+def git_commit(args, _git, summary, body):
+    _git.git.add("*")
+    user = git.Actor(args.git_user, args.git_mail)
+    _git.index.commit("{}\n\n{}".format(
+        summary, body), author=user, committer=user)
+
 def main():
     _args = create_parser()
+    _rootdir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    _releasenotedir = os.path.join(_rootdir, "docs", "releasenotes")
+    _newtag = "{:.02f}".format(float(_args.tag) + 0.01)
+    os.makedirs(_releasenotedir, exist_ok=True)
+    _git = git.Repo(path=_rootdir)
+    _currenbranch = _git.active_branch.name
     for b in _args.branch:
         _sagrs = [os.path.join(os.path.dirname(__file__), "releasenotes")]
         if _args.main:
@@ -38,8 +54,11 @@ def main():
                   ]
         try:
             out = subprocess.check_output(_sagrs, universal_newlines=True)
-            with open(b + ".md", "w") as o:
+            _git.git.checkout(b)
+            with open(os.path.join(_releasenotedir, "{}-{}.md".format(b, _newtag)), "w") as o:
                 o.write(out)
+            git_commit(_args, _git, "Add release notes for {}".format(_newtag), "")
+            _git.git.checkout(_currenbranch)
         except:
             pass
 
