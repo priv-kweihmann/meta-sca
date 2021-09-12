@@ -7,10 +7,6 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-modern-go-reflect2-sources.inc
 
-EXTRA_DEPENDS += "\
-    github.com-modern-go-concurrent-native \
-"
-
 GO_IMPORT = "github.com/modern-go/reflect2"
 
 inherit gosrc
