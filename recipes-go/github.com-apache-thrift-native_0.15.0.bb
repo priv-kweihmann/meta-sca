@@ -7,6 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-apache-thrift-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-golang-mock-native \
+"
+
 GO_IMPORT = "github.com/apache/thrift"
 
 inherit gosrc
