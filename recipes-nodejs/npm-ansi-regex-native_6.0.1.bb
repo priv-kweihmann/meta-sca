@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/ansi-regex/-/ansi-regex-6.0.0.tgz"
-SRC_URI[md5sum] = "989495fe972e52b24cb1041d097e4614"
-SRC_URI[sha256sum] = "22ffc64d165371e3f534af1618354744cd408d559b5a85ada10e12234748938d"
+SRC_URI = "https://registry.npmjs.org/ansi-regex/-/ansi-regex-6.0.1.tgz"
+SRC_URI[md5sum] = "b80ed484d3d7d2c4ea7400110bd97994"
+SRC_URI[sha256sum] = "3486b885693287a048462cc12cb88d699b608085fcd95ab84dc3a275f2ae14a8"
 
 NPM_PKGNAME = "ansi-regex"
 
