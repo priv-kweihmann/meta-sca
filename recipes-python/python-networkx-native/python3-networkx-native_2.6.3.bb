@@ -8,8 +8,8 @@ DEPENDS += "python3-pandas-native"
 
 PYPI_PACKAGE = "networkx"
 
-SRC_URI[md5sum] = "ac9cf192fc525bb877a042a684091d72"
-SRC_URI[sha256sum] = "2306f1950ce772c5a59a57f5486d59bb9cab98497c45fc49cbc45ac0dec119bb"
+SRC_URI[md5sum] = "407eb28c54e08725559754ca7ab185e0"
+SRC_URI[sha256sum] = "c0946ed31d71f1b732b5aaa6da5a0388a345019af232ce2f49c766e2d6795c51"
 
 inherit pypi
 inherit setuptools3
