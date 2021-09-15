@@ -11,8 +11,8 @@ DEPENDS += "\
            "
 
 SRC_URI:append = " file://bashate.sca.description"
-SRC_URI[md5sum] = "8143df66c83808ab25a59319da236fb1"
-SRC_URI[sha256sum] = "eb990cf07c0ca09ee06f3b7eff79232a2d6eff9d2bdf141e8126efebb0521a17"
+SRC_URI[md5sum] = "e910cde1c80a2518eec647a6110bae2e"
+SRC_URI[sha256sum] = "a0df143639715dc2fb6cf9aa6907e4a372d6f0a43afeffc55c5fb3ecfe3523c8"
 
 PYPI_PACKAGE = "bashate"
 
