@@ -13,9 +13,9 @@ DEPENDS = "npm-debug-native \
            npm-secretlint-profiler-native \
            npm-secretlint-source-creator-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/node/-/node-3.3.0.tgz"
-SRC_URI[md5sum] = "1c5a2afb9cb2c5e138858387208f3350"
-SRC_URI[sha256sum] = "2c93eea1b059874f040fd2ab9f1170b0ee3b979d8ea4a65084d82b00735ff8f8"
+SRC_URI = "https://registry.npmjs.org/@secretlint/node/-/node-4.0.0.tgz"
+SRC_URI[md5sum] = "d04ca2d7ec9583cdea39c22b5c5c125c"
+SRC_URI[sha256sum] = "21551d672baf8e82a1e305177ca0a1e01ce34b913599e50157f127be8159098b"
 
 NPM_PKGNAME = "@secretlint/node"
 
