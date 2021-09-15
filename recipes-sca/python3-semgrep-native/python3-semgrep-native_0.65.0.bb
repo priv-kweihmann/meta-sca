@@ -6,6 +6,8 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/LGPL-2.1-only;md5=1a6d268fd2186
 
 DEPENDS += "\
             python3-attrs-native \
+            python3-click-native \
+            python3-click-option-group-native \
             python3-colorama-native \
             python3-jsonschema-native \
             python3-packaging-native \
