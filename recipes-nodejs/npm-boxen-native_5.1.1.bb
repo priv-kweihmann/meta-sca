@@ -14,9 +14,9 @@ DEPENDS = "npm-ansi-align-native \
            npm-widest-line-native \
            npm-wrap-ansi-native"
 
-SRC_URI = "https://registry.npmjs.org/boxen/-/boxen-5.1.0.tgz"
-SRC_URI[md5sum] = "e73a61ecd11782f954fe7d968f80907d"
-SRC_URI[sha256sum] = "4688a8e35ca4c0720d8864d4811b072c4db283906fc88e87d024a8e451cdebca"
+SRC_URI = "https://registry.npmjs.org/boxen/-/boxen-5.1.1.tgz"
+SRC_URI[md5sum] = "f22787fea117e2149bef33627e62413e"
+SRC_URI[sha256sum] = "c12b809e16175b7b34b00303c4d637133ab709b2e37de354a39033b01f3ec149"
 
 NPM_PKGNAME = "boxen"
 
