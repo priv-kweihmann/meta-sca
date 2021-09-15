@@ -9,9 +9,9 @@ DEPENDS = "npm-ansi-styles-native \
            npm-string-width-native \
            npm-strip-ansi-native"
 
-SRC_URI = "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-8.0.0.tgz"
-SRC_URI[md5sum] = "c4ef71d333e8b925a4869ef202a94567"
-SRC_URI[sha256sum] = "759d70283d38173e5800f2b6b8fadd0af0b6b49f74196aa59bfc5a50a5e853d6"
+SRC_URI = "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-8.0.1.tgz"
+SRC_URI[md5sum] = "f6574110fb4a9cfdf927015e9335fbe6"
+SRC_URI[sha256sum] = "255c233d0938a60143cc556e8fe3b19a8382d18595ccbf2ab923942e99a6b9c7"
 
 NPM_PKGNAME = "wrap-ansi"
 
