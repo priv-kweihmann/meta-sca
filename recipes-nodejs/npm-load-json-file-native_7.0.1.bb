@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/load-json-file/-/load-json-file-7.0.0.tgz"
-SRC_URI[md5sum] = "b7311a53deddc4fd351a98e8e14d3fa9"
-SRC_URI[sha256sum] = "0d37708bb0ee71dace8ea5480c560a11c0894459f17b04e5958c56cb2585b169"
+SRC_URI = "https://registry.npmjs.org/load-json-file/-/load-json-file-7.0.1.tgz"
+SRC_URI[md5sum] = "1379bdb610acf984f74a4469150358cf"
+SRC_URI[sha256sum] = "b314e8dc84b31e0c36e8f1a2956dc3716cbbf2758e92db29cea8931c73296ab2"
 
 NPM_PKGNAME = "load-json-file"
 
