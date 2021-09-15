@@ -10,12 +10,11 @@ DEPENDS = "npm-debug-native \
            npm-secretlint-config-validator-native \
            npm-secretlint-profiler-native \
            npm-secretlint-types-native \
-           npm-textlint-module-interop-native \
            npm-try-resolve-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/config-loader/-/config-loader-3.3.0.tgz"
-SRC_URI[md5sum] = "ad2afc8cc2a23e2ec6807332fa56948c"
-SRC_URI[sha256sum] = "2a56140ed6f681c1f5411782e56e1285e70f4283dfccba4b84796839eebc42d2"
+SRC_URI = "https://registry.npmjs.org/@secretlint/config-loader/-/config-loader-4.0.0.tgz"
+SRC_URI[md5sum] = "78db1a3c436c448b3d9525ec0391c79e"
+SRC_URI[sha256sum] = "640df23bc895ae98e250fec500e6c75ce6fca2045dfa33ab262b088455f47049"
 
 NPM_PKGNAME = "@secretlint/config-loader"
 
