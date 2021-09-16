@@ -6,6 +6,7 @@ darglint
 dennis
 detectsecrets
 flake8
+it
 jsonlint
 looong
 msgcheck
