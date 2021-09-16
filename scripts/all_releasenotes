@@ -35,11 +35,16 @@ def git_commit(args, _git, summary, body):
     _git.index.commit("{}\n\n{}".format(
         summary, body), author=user, committer=user)
 
+def inc_version(ver):
+    _chunks = ver.split(".")
+    _chunks[1] = str(int(_chunks[1]) + 1)
+    return ".".join(_chunks)
+
 def main():
     _args = create_parser()
     _rootdir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
     _releasenotedir = os.path.join(_rootdir, "docs", "releasenotes")
-    _newtag = "{:.02f}".format(float(_args.tag) + 0.01)
+    _newtag = inc_version(_args.tag)
     os.makedirs(_releasenotedir, exist_ok=True)
     _git = git.Repo(path=_rootdir)
     _currenbranch = _git.active_branch.name
