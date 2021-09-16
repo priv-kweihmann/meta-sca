@@ -37,6 +37,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             golint \
                             gosec \
                             htmlhint \
+                            it \
                             jshint \
                             jsonlint \
                             kconfighard \
