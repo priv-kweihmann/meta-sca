@@ -1,7 +1,6 @@
 cspell
 eslint
 htmlhint
-inspec
 jshint
 luacheck
 phan
@@ -11,9 +10,7 @@ phpmd
 phpsecaudit
 phpstan
 progpilot
-reek
 retire
-rubycritic
 standard
 textlint
 wotan
