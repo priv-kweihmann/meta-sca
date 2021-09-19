@@ -24,7 +24,7 @@ jobs:
 
     strategy:
       matrix:
-        testset: [standard_01, standard_02, standard_03, metaoe, metaclang, globalinherit]
+        testset: [standard_01, standard_02, standard_03, metaoe, metaclang, metaruby, globalinherit]
         include:
         - testset: standard_01
           SCM_LAYER_ENABLE_CLANG: 0
@@ -47,7 +47,7 @@ jobs:
         - testset: metaoe
           SCM_LAYER_ENABLE_CLANG: 0
           SCM_LAYER_ENABLE_METAOE: 1
-          SCA_LAYER_ENABLE_RUBYGEMS: 1
+          SCA_LAYER_ENABLE_RUBYGEMS: 0
           BUILD_PARAMFILE: metaoe
           BUILD_QEMUSYSTEM: 0
           BUILD_GLOBALINHERIT: 0
@@ -56,6 +56,12 @@ jobs:
           SCM_LAYER_ENABLE_METAOE: 0
           SCA_LAYER_ENABLE_RUBYGEMS: 0
           BUILD_PARAMFILE: metaclang
+          BUILD_GLOBALINHERIT: 0
+        - testset: metaruby
+          SCM_LAYER_ENABLE_CLANG: 0
+          SCM_LAYER_ENABLE_METAOE: 1
+          SCA_LAYER_ENABLE_RUBYGEMS: 1
+          BUILD_PARAMFILE: metaruby
           BUILD_GLOBALINHERIT: 0
         - testset: globalinherit
           SCM_LAYER_ENABLE_CLANG: 1
