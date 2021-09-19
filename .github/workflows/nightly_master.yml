@@ -26,7 +26,7 @@ jobs:
 
     strategy:
       matrix:
-        testset: [standard_01, standard_02, standard_03, metaoe, metaclang]
+        testset: [standard_01, standard_02, standard_03, metaoe, metaclang, metaruby]
         include:
         - testset: standard_01
           SCM_LAYER_ENABLE_CLANG: 0
@@ -49,7 +49,7 @@ jobs:
         - testset: metaoe
           SCM_LAYER_ENABLE_CLANG: 0
           SCM_LAYER_ENABLE_METAOE: 1
-          SCA_LAYER_ENABLE_RUBYGEMS: 1
+          SCA_LAYER_ENABLE_RUBYGEMS: 0
           BUILD_PARAMFILE: metaoe
           BUILD_QEMUSYSTEM: 0
         - testset: metaclang
@@ -57,7 +57,12 @@ jobs:
           SCM_LAYER_ENABLE_METAOE: 0
           SCA_LAYER_ENABLE_RUBYGEMS: 0
           BUILD_PARAMFILE: metaclang
-          BUILD_QEMUSYSTEM: 0
+        - testset: metaruby
+          SCM_LAYER_ENABLE_CLANG: 0
+          SCM_LAYER_ENABLE_METAOE: 1
+          SCA_LAYER_ENABLE_RUBYGEMS: 1
+          BUILD_QEMUSYSTEM: 1
+          BUILD_PARAMFILE: metaruby
 
     container:
       image: privkweihmann/yocto-sca-minimal:latest
