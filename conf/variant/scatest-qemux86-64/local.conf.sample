@@ -13,6 +13,3 @@ SCA_VERBOSE_OUTPUT = "1"
 USER_CLASSES = "image-prelink"
 
 INHERIT += "rm_work"
-
-SSTATE_MIRRORS ?= "file://.* http://sstate.yoctoproject.org/dev/PATH;downloadfilename=PATH"
-BB_HASHSERVE_UPSTREAM = "typhoon.yocto.io:8687"
