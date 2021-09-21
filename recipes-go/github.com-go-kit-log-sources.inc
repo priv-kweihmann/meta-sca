@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/go-kit/log/@v/v0.1.0.zip;srcoutput=github.com/go-kit/log;srcinput=github.com/go-kit/log@v0.1.0;downloadfilename=github-com-go-kit-log-0.1.0.zip;name=github-com-go-kit-log"
-SRC_URI[github-com-go-kit-log.sha256sum] = "e0676df7357654a000008dfad3b6b211cba3595f32d3e220edd63a4c9d0d9254"
+SRC_URI += "https://proxy.golang.org/github.com/go-kit/log/@v/v0.2.0.zip;srcoutput=github.com/go-kit/log;srcinput=github.com/go-kit/log@v0.2.0;downloadfilename=github-com-go-kit-log-0.2.0.zip;name=github-com-go-kit-log"
+SRC_URI[github-com-go-kit-log.sha256sum] = "b88e09ff7e769ea9d73998f5ef4e03e3678b87ecc8df28ce31e5173ea0be6290"
 
 GOSRC_LICENSE += "\
     MIT \
