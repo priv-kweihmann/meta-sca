@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=5d06bd44b61726e8ad570f35d48bf36a"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/regexp-tree/-/regexp-tree-0.1.23.tgz"
-SRC_URI[md5sum] = "e23d486f334cbb25a887943b8b3d13a6"
-SRC_URI[sha256sum] = "45ddb8b8bce5a1798859ee1600d11c259a10479d4b1a478a9f38a0463f14e147"
+SRC_URI = "https://registry.npmjs.org/regexp-tree/-/regexp-tree-0.1.24.tgz"
+SRC_URI[md5sum] = "7014ce6bcf0e2ed9c0fef6e4513a2b7d"
+SRC_URI[sha256sum] = "ccbc7b17ff77273bfa936148a69e3425d56699f30c61fdd3fb787d7349f1c07d"
 
 NPM_PKGNAME = "regexp-tree"
 
