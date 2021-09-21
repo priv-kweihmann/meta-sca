@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=85a25fb9d1ed987d1a805e467bd53f02"
 
 DEPENDS = "npm-htmlparser2-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-html/-/eslint-plugin-html-6.1.2.tgz"
-SRC_URI[md5sum] = "60571b5d4715cbf09bc1b20ecd370f51"
-SRC_URI[sha256sum] = "2b1ec92687fa961d9de9387221a4ed78327dd692df65f21d2783fb23edc6b6ec"
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-html/-/eslint-plugin-html-6.2.0.tgz"
+SRC_URI[md5sum] = "ddf074bb1eb9547d9f685d8930ca1c41"
+SRC_URI[sha256sum] = "2f52650354ad1430edf7421f02a9c60cc7391875afc3f9658b2bbdf08a90047d"
 
 NPM_PKGNAME = "eslint-plugin-html"
 
