@@ -5,11 +5,11 @@ HOMEPAGE = "https://github.com/tapjs/signal-exit"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=e29e20260a1c78dba16a233048565cde"
 
-SRC_URI = "https://registry.npmjs.org/signal-exit/-/signal-exit-3.0.3.tgz"
-SRC_URI[md5sum] = "ae863f6e95a6a6050bc0e70c9ddb0688"
-SRC_URI[sha256sum] = "15efc9bad612c82f7bea7037c0ae575d015452ae383df94424d489b0f67101c7"
+DEPENDS = ""
 
-S = "${WORKDIR}/package"
+SRC_URI = "https://registry.npmjs.org/signal-exit/-/signal-exit-3.0.4.tgz"
+SRC_URI[md5sum] = "d15a7ba9c816de39794daf81b60f3d43"
+SRC_URI[sha256sum] = "04e452c4f1b1bdc1e893809c7159f1d8697958c63ab31b708557ac37c150cf13"
 
 NPM_PKGNAME = "signal-exit"
 
