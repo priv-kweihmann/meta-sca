@@ -5,12 +5,13 @@ LICENSE = "LGPLv2"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a70cf540abf41acb644ac3b621b2fad1"
 
 DEPENDS += "\
-            python3-native \
-            python3-pylazy-object-proxy-native \
-            python3-pytest-runner-native \
-            python3-typed-ast-native \
-            python3-wrapt-native \
-            "
+    python3-native \
+    python3-pylazy-object-proxy-native \
+    python3-pytest-runner-native \
+    python3-typed-ast-native \
+    python3-typing-extensions-native \
+    python3-wrapt-native \
+"
 
 PYPI_PACKAGE = "astroid"
 
