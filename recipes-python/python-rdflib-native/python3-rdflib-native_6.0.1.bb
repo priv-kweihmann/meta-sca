@@ -2,7 +2,7 @@ SUMMARY = "RDFLib is a Python library for working with RDF"
 HOMEPAGE = "https://github.com/RDFLib/rdflib"
 
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=89aa9a14f80a6ac70e1d5da763a309ed"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=b6cde159c801514e0e45a40cf0a9d3d9"
 
 DEPENDS += "\
              python3-html5lib-native \
@@ -12,8 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "rdflib"
 
-SRC_URI[md5sum] = "d539085e793601e93047e5715e0c1c3f"
-SRC_URI[sha256sum] = "7ce4d757eb26f4dd43205ec340d8c097f29e5adfe45d6ea20238c731dc679879"
+SRC_URI[md5sum] = "a6a72e42d6df50dab85f6bfd101664fe"
+SRC_URI[sha256sum] = "f071caff0b68634e4a7bd1d66ea3416ac98f1cc3b915938147ea899c32608728"
 
 inherit pypi
 inherit setuptools3
