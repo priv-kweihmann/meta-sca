@@ -2,7 +2,7 @@ SUMMARY = "Fast, Extensible Progress Meter"
 HOMEPAGE = "https://github.com/tqdm/tqdm"
 
 LICENSE = "MIT & MPL-2.0"
-LIC_FILES_CHKSUM = "file://LICENCE;md5=59e4271a933d33edfe60237db377a14b"
+LIC_FILES_CHKSUM = "file://LICENCE;md5=1672e2674934fd93a31c09cf17f34100"
 
 DEPENDS += "\
             python3-setuptools-scm-native \
@@ -12,8 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "tqdm"
 
-SRC_URI[md5sum] = "33b29c38daf6a4df3c9303283cde3865"
-SRC_URI[sha256sum] = "a4d6d112e507ef98513ac119ead1159d286deab17dffedd96921412c2d236ff5"
+SRC_URI[md5sum] = "1984d0badda9c67e53e5f4248cca5abf"
+SRC_URI[sha256sum] = "d359de7217506c9851b7869f3708d8ee53ed70a1b8edbba4dbcb47442592920d"
 
 inherit pypi
 inherit setuptools3
