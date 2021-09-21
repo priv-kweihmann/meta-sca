@@ -9,8 +9,6 @@ require google.golang.org-genproto-sources.inc
 
 EXTRA_DEPENDS += "\
     github.com-golang-protobuf-native \
-    golang.org-x-lint-native \
-    golang.org-x-tools-native \
     google.golang.org-grpc-native \
     google.golang.org-protobuf-native \
 "
