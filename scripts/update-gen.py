@@ -174,24 +174,33 @@ def is_updateable(_args, title):
         return True
     return is_go_package(_args, title)
 
+def get_issues(_args):
+    res = []
+    for i in range(1, 100, 1):
+        with urllib.request.urlopen("https://api.github.com/repos/priv-kweihmann/meta-sca/issues?state=open&sort=created-asc&page={}".format(i)) as url: 
+            data = json.loads(url.read().decode())
+            if data:
+                res += data
+            else:
+                break
+    return res
 
 _args = create_parser()
-with urllib.request.urlopen("https://api.github.com/repos/priv-kweihmann/meta-sca/issues?state=open&per_page=1000&sort=created-asc") as url:
-    data = json.loads(url.read().decode())
-    _updated_items = 0
-    for item in data:
-        if item["state"] == "open" and is_updateable(_args, item["title"]):
-            if any(x["name"] == "Postponed" for x in item["labels"]):
-                continue
-            if any(x["name"] == "Prerelease" for x in item["labels"]):
-                continue
-            print("Attempting {}".format(item["title"]))
-            _updated_items += update_packages(_args,
-                                              item["title"], item["number"])
-    if _updated_items > 0:
-        try:
-            _pargs = [os.path.join(_args.repo, "..", "meta-buildutils", "scripts", "unused"),
-                      "--remove", _args.repo]
-            subprocess.check_call(_pargs, universal_newlines=True)
-        except:
-            pass
+data = get_issues(_args)
+_updated_items = 0
+for item in data:
+    if item["state"] == "open" and is_updateable(_args, item["title"]):
+        if any(x["name"] == "Postponed" for x in item["labels"]):
+            continue
+        if any(x["name"] == "Prerelease" for x in item["labels"]):
+            continue
+        print("Attempting {}".format(item["title"]))
+        _updated_items += update_packages(_args,
+                                        item["title"], item["number"])
+if _updated_items > 0:
+    try:
+        _pargs = [os.path.join(_args.repo, "..", "meta-buildutils", "scripts", "unused"),
+                "--remove", _args.repo]
+        subprocess.check_call(_pargs, universal_newlines=True)
+    except:
+        pass
