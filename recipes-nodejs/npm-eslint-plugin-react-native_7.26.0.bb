@@ -9,19 +9,20 @@ DEPENDS = "npm-array-includes-native \
            npm-array.prototype.flatmap-native \
            npm-doctrine-native \
            npm-estraverse-native \
-           npm-has-native \
            npm-jsx-ast-utils-native \
            npm-minimatch-native \
            npm-object.entries-native \
            npm-object.fromentries-native \
+           npm-object.hasown-native \
            npm-object.values-native \
            npm-prop-types-native \
            npm-resolve-native \
+           npm-semver-native \
            npm-string.prototype.matchall-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.25.1.tgz"
-SRC_URI[md5sum] = "7fc4ca5584b147db370be53036e51ffb"
-SRC_URI[sha256sum] = "5ca231bb46882c9876fbca925a28f5c42432846a22c08c5185e150e2484963de"
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.26.0.tgz"
+SRC_URI[md5sum] = "cc71ff87039cd3e918fe37eb870ff113"
+SRC_URI[sha256sum] = "ae2826693ea93ab27b89a0287fdadeef7d5ff2c6fb161e1a3d53042665707467"
 
 NPM_PKGNAME = "eslint-plugin-react"
 
