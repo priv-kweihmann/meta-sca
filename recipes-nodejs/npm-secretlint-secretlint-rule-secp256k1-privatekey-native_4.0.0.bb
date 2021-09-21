@@ -11,9 +11,9 @@ DEPENDS = "npm-bn.js-native \
            npm-types-bn.js-native \
            npm-types-secp256k1-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-secp256k1-privatekey/-/secretlint-rule-secp256k1-privatekey-3.3.0.tgz"
-SRC_URI[md5sum] = "1da79745cea8be7da4c1d465cab954a3"
-SRC_URI[sha256sum] = "6ce52d785045bc8e9a3674ae6565cd316641161e195d2a8c3c5eaa0952f40b70"
+SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-secp256k1-privatekey/-/secretlint-rule-secp256k1-privatekey-4.0.0.tgz"
+SRC_URI[md5sum] = "11b432ccc272e465fb0ecec8772bb14d"
+SRC_URI[sha256sum] = "91381f89b6596136879143b3b1f2c84791413e709135db57f2fb5a19612cc58d"
 
 NPM_PKGNAME = "@secretlint/secretlint-rule-secp256k1-privatekey"
 
