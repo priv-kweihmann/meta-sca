@@ -7,6 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=402802be77c922cb018a8b5099208dab"
 
 DEPENDS = "npm-secretlint-secretlint-rule-aws-native \
            npm-secretlint-secretlint-rule-basicauth-native \
+           npm-secretlint-secretlint-rule-filter-comments-native \
            npm-secretlint-secretlint-rule-gcp-native \
            npm-secretlint-secretlint-rule-github-native \
            npm-secretlint-secretlint-rule-npm-native \
@@ -14,9 +15,9 @@ DEPENDS = "npm-secretlint-secretlint-rule-aws-native \
            npm-secretlint-secretlint-rule-sendgrid-native \
            npm-secretlint-secretlint-rule-slack-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-preset-recommend/-/secretlint-rule-preset-recommend-3.3.0.tgz"
-SRC_URI[md5sum] = "bf251d43d1d7fc4a098166b3d0181c73"
-SRC_URI[sha256sum] = "2794a78f3ed985c4ade837ddddbd451be78d17cce0d02b4478735a92fd440165"
+SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-preset-recommend/-/secretlint-rule-preset-recommend-4.0.0.tgz"
+SRC_URI[md5sum] = "b47807df9eaa3a17008a42b458d5ea1f"
+SRC_URI[sha256sum] = "0383d16081261c8e5994ffca1da00b9da6bf348448b232f965a523a1df9558e1"
 
 NPM_PKGNAME = "@secretlint/secretlint-rule-preset-recommend"
 
