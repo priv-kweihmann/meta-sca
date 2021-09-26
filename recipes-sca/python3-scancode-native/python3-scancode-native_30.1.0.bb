@@ -37,6 +37,7 @@ DEPENDS += "\
             python3-more-itertools-native \
             python3-nltk-native \
             python3-packageurl-python-native \
+            python3-parameter-expansion-patched-native \
             python3-pdfminer-six-native \
             python3-pefile-native \
             python3-pkginfo-native \
@@ -45,6 +46,7 @@ DEPENDS += "\
             python3-publicsuffix2-native \
             python3-pyahocorasick-native \
             python3-pycryptodome-native \
+            python3-pygmars-native \
             python3-pygments-native \
             python3-pymaven-patch-native \
             python3-python-magic-native \
@@ -72,7 +74,7 @@ RDEPENDS:${PN} += "${DEPENDS}"
 SRC_URI = "git://github.com/nexB/scancode-toolkit.git;protocol=https;nobranch=1 \
            file://0001-lift-version-requirements.patch \
            file://scancode.sca.description"
-SRCREV = "e54118434943557d0de9c140f7c79ce4b997aa49"
+SRCREV = "c53e81298eecc1cdf0da23b3d57962a85c323afb"
 
 S = "${WORKDIR}/git"
 
