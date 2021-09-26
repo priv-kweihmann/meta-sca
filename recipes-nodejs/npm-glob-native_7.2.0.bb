@@ -12,9 +12,9 @@ DEPENDS = "npm-fs.realpath-native \
            npm-once-native \
            npm-path-is-absolute-native"
 
-SRC_URI = "https://registry.npmjs.org/glob/-/glob-7.1.7.tgz"
-SRC_URI[md5sum] = "b76e2faffe41be9df3f1ff4605ee1a63"
-SRC_URI[sha256sum] = "0504b3ddde68d1a93b4b9ef150cdff61e033df5f17cf7858c0d9fe1b412e9bee"
+SRC_URI = "https://registry.npmjs.org/glob/-/glob-7.2.0.tgz"
+SRC_URI[md5sum] = "05f5ea4a12aecafd90fe04c32385ce80"
+SRC_URI[sha256sum] = "f6ee73de2fedc6931cbe3df9f8a7d8fd34e8a869ca2e8c8b624e9ea2647a051b"
 
 NPM_PKGNAME = "glob"
 
