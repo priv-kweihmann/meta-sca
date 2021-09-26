@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/markbates/refresh/@v/v1.11.1.zip;srcoutput=github.com/markbates/refresh;srcinput=github.com/markbates/refresh@v1.11.1;downloadfilename=github-com-markbates-refresh-1.11.1.zip;name=github-com-markbates-refresh"
-SRC_URI[github-com-markbates-refresh.sha256sum] = "e0aa9b2c7cee58985901bd993aebb67b793cbfc59d3f37ff638b3a237da337a1"
+SRC_URI += "https://proxy.golang.org/github.com/markbates/refresh/@v/v1.12.0.zip;srcoutput=github.com/markbates/refresh;srcinput=github.com/markbates/refresh@v1.12.0;downloadfilename=github-com-markbates-refresh-1.12.0.zip;name=github-com-markbates-refresh"
+SRC_URI[github-com-markbates-refresh.sha256sum] = "5a9c0cc18da6787d15b1094ad0169dad3b2e6650e4a9ff360263347e80bd6e11"
 
 GOSRC_LICENSE += "\
     MIT \
