@@ -8,8 +8,8 @@ DEPENDS += "python3-importlib-metadata-native"
 
 PYPI_PACKAGE = "pluggy"
 
-SRC_URI[md5sum] = "7f610e28b8b34487336b585a3dfb803d"
-SRC_URI[sha256sum] = "15b2acde666561e1298d71b523007ed7364de07029219b604cf808bfa1c765b0"
+SRC_URI[md5sum] = "daa6fddfb6cd364f3c82e52098911e4b"
+SRC_URI[sha256sum] = "4224373bacce55f955a878bf9cfa763c1e360858e330072059e10bad68531159"
 
 inherit pypi
 inherit setuptools3
