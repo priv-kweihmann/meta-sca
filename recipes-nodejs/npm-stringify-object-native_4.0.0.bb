@@ -9,9 +9,9 @@ DEPENDS = "npm-get-own-enumerable-property-symbols-native \
            npm-is-obj-native \
            npm-is-regexp-native"
 
-SRC_URI = "https://registry.npmjs.org/stringify-object/-/stringify-object-3.3.0.tgz"
-SRC_URI[md5sum] = "c8bc7e775646ac284de0256deea1c657"
-SRC_URI[sha256sum] = "f6d24fe8a127756544ff4131f48b88bee3c2edc7dbe7eccc2b08d8ba8e4e731d"
+SRC_URI = "https://registry.npmjs.org/stringify-object/-/stringify-object-4.0.0.tgz"
+SRC_URI[md5sum] = "619cd0a862d2352d67a56a0c9a39703c"
+SRC_URI[sha256sum] = "7df4357f8246893ff12cdc6a40d9fd0891bd8c8e93d18e5fdc65ae57a0e42ce0"
 
 NPM_PKGNAME = "stringify-object"
 
