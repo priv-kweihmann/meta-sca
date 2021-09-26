@@ -5,15 +5,16 @@ LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=acf9a070872c4bc6e8cffc2e9fbd4b8e"
 
 DEPENDS += "\
+            python3-pyyaml-native \
+            python3-setuptools-scm-native \
             python3-typing-extensions-native \
             python3-typing-inspect-native \
-            python3-pyyaml-native \
            "
 
 PYPI_PACKAGE = "libcst"
 
-SRC_URI[md5sum] = "257622cd6928e2a52f1a1306c589009f"
-SRC_URI[sha256sum] = "9d50d4eab28b570e254cc63287ce3009b945be4114c7a29662b67204cfc18060"
+SRC_URI[md5sum] = "3214491317d732cf3492fa4798987bdc"
+SRC_URI[sha256sum] = "4302a8f09cd9e5ab5962f8e126d032bba98541893dd38cce6b4770969fed059d"
 
 inherit pypi
 inherit setuptools3
