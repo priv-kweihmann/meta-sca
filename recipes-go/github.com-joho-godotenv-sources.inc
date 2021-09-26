@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/joho/godotenv/@v/v1.3.0.zip;srcoutput=github.com/joho/godotenv;srcinput=github.com/joho/godotenv@v1.3.0;downloadfilename=github-com-joho-godotenv-1.3.0.zip;name=github-com-joho-godotenv"
-SRC_URI[github-com-joho-godotenv.sha256sum] = "acef5a394fbd1193f52d0d19690b0bfe82728d18dd3bf67730dc5031c22d563f"
+SRC_URI += "https://proxy.golang.org/github.com/joho/godotenv/@v/v1.4.0.zip;srcoutput=github.com/joho/godotenv;srcinput=github.com/joho/godotenv@v1.4.0;downloadfilename=github-com-joho-godotenv-1.4.0.zip;name=github-com-joho-godotenv"
+SRC_URI[github-com-joho-godotenv.sha256sum] = "6c6d2f6c2a9d2ee8608e4acd7ba7035d31b1f0da3c7d9537a32928b8eed4e3cd"
 
 GOSRC_LICENSE += "\
     MIT \
