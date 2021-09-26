@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/andybalholm/cascadia/@v/v1.2.0.zip;srcoutput=github.com/andybalholm/cascadia;srcinput=github.com/andybalholm/cascadia@v1.2.0;downloadfilename=github-com-andybalholm-cascadia-1.2.0.zip;name=github-com-andybalholm-cascadia"
-SRC_URI[github-com-andybalholm-cascadia.sha256sum] = "8cc5679e5070e2076369e2f7a24341cf0ccb139f49cccf153f72902f24876d81"
+SRC_URI += "https://proxy.golang.org/github.com/andybalholm/cascadia/@v/v1.3.1.zip;srcoutput=github.com/andybalholm/cascadia;srcinput=github.com/andybalholm/cascadia@v1.3.1;downloadfilename=github-com-andybalholm-cascadia-1.3.1.zip;name=github-com-andybalholm-cascadia"
+SRC_URI[github-com-andybalholm-cascadia.sha256sum] = "735e7163f7774254cd4f96ad380b5ea8ccf702dac5399dbe30dd0387172c5a51"
 
 GOSRC_LICENSE += "\
     BSD-2-Clause \
