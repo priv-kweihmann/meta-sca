@@ -3,14 +3,14 @@ DESCRIPTION = "Gracefully restore the CLI cursor on exit"
 HOMEPAGE = "https://github.com/sindresorhus/restore-cursor#readme"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
+LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = "npm-onetime-native \
            npm-signal-exit-native"
 
-SRC_URI = "https://registry.npmjs.org/restore-cursor/-/restore-cursor-3.1.0.tgz"
-SRC_URI[md5sum] = "058736e2d721ba0c99b5be09283ae59b"
-SRC_URI[sha256sum] = "0948716bb31f4cb02857a37b539cbe2aad249d5182f114a27404716064e3ec29"
+SRC_URI = "https://registry.npmjs.org/restore-cursor/-/restore-cursor-4.0.0.tgz"
+SRC_URI[md5sum] = "c962cb2351f41f79e58d4e9abe2e65ba"
+SRC_URI[sha256sum] = "d99ad65a7798d2ee0fa1c80d3c4b4502c11c75215180390c345dc385988af607"
 
 NPM_PKGNAME = "restore-cursor"
 
