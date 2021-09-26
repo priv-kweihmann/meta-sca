@@ -10,9 +10,9 @@ DEPENDS = "npm-ccount-native \
            npm-micromark-util-character-native \
            npm-types-mdast-native"
 
-SRC_URI = "https://registry.npmjs.org/mdast-util-gfm-autolink-literal/-/mdast-util-gfm-autolink-literal-1.0.1.tgz"
-SRC_URI[md5sum] = "d01de2845d660472f909001024c820b8"
-SRC_URI[sha256sum] = "d1729ab79b859a75c843222abca366e5db811854c16fdf2bcb23c3d0a1cb4101"
+SRC_URI = "https://registry.npmjs.org/mdast-util-gfm-autolink-literal/-/mdast-util-gfm-autolink-literal-1.0.2.tgz"
+SRC_URI[md5sum] = "062721601bab1a5692fcfbaa18126ab0"
+SRC_URI[sha256sum] = "bba085b80c9d55851f9a5f629e92e3c865faa5b1343cd4726c752d1e1901d314"
 
 NPM_PKGNAME = "mdast-util-gfm-autolink-literal"
 
