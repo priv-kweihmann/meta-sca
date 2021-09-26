@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/golang/glog/@v/v0.0.0-20210429001901-424d2337a529.zip;srcoutput=github.com/golang/glog;srcinput=github.com/golang/glog@v0.0.0-20210429001901-424d2337a529;downloadfilename=github-com-golang-glog-0.0.0-20210429001901-424d2337a529.zip;name=github-com-golang-glog"
-SRC_URI[github-com-golang-glog.sha256sum] = "677f7912d32cb417cfb59cbab9b9e924224a53679aa384b0526df2eda96d8775"
+SRC_URI += "https://proxy.golang.org/github.com/golang/glog/@v/v1.0.0.zip;srcoutput=github.com/golang/glog;srcinput=github.com/golang/glog@v1.0.0;downloadfilename=github-com-golang-glog-1.0.0.zip;name=github-com-golang-glog"
+SRC_URI[github-com-golang-glog.sha256sum] = "ae8dfead198447a555409e4e942bd4aae2210b18bc90ff8f032ab09a9940e8f8"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
