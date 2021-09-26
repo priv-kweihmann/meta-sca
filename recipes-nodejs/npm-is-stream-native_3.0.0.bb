@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/is-stream/-/is-stream-2.0.1.tgz"
-SRC_URI[md5sum] = "c3a1ab9ba58463f1dead35dc9d5aba9a"
-SRC_URI[sha256sum] = "3501ff72a20b78f1a2170a4982d82d9a71d16b99a935bec9787f1c486d61b6d7"
+SRC_URI = "https://registry.npmjs.org/is-stream/-/is-stream-3.0.0.tgz"
+SRC_URI[md5sum] = "a737829921cef374cae820dbe09ddb46"
+SRC_URI[sha256sum] = "dd2f394069eca660f0138e340d6d93a3dd93a0fcad0a8bda0234088454f3b9f3"
 
 NPM_PKGNAME = "is-stream"
 
