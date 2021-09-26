@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/mgechev/dots/@v/v0.0.0-20190921121421-c36f7dcfbb81.zip;srcoutput=github.com/mgechev/dots;srcinput=github.com/mgechev/dots@v0.0.0-20190921121421-c36f7dcfbb81;downloadfilename=github-com-mgechev-dots-0.0.0-20190921121421-c36f7dcfbb81.zip;name=github-com-mgechev-dots"
-SRC_URI[github-com-mgechev-dots.sha256sum] = "702fe332de9c4c0bc4bd1a2d248250c00c1c2f59e076258c11ae2cb38c103ed3"
+SRC_URI += "https://proxy.golang.org/github.com/mgechev/dots/@v/v0.0.0-20210922191527-e955255bf517.zip;srcoutput=github.com/mgechev/dots;srcinput=github.com/mgechev/dots@v0.0.0-20210922191527-e955255bf517;downloadfilename=github-com-mgechev-dots-0.0.0-20210922191527-e955255bf517.zip;name=github-com-mgechev-dots"
+SRC_URI[github-com-mgechev-dots.sha256sum] = "4c7dd3e110685eb3e5955032bf2beaa0b062bcebaaa06a1d4a097c3aef83af17"
 
 GOSRC_LICENSE += "\
     MIT \
