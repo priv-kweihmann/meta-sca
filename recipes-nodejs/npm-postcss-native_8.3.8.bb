@@ -5,13 +5,13 @@ HOMEPAGE = "https://postcss.org/"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e0ef868fdaaba6859dcbab082c20439b"
 
-DEPENDS = "npm-colorette-native \
+DEPENDS = "npm-nanocolors-native \
            npm-nanoid-native \
            npm-source-map-js-native"
 
-SRC_URI = "https://registry.npmjs.org/postcss/-/postcss-8.3.6.tgz"
-SRC_URI[md5sum] = "7af226b6be415c5b3fb229f6e66ac828"
-SRC_URI[sha256sum] = "fa0f05740816ee1eb7416c7fbc48d36bdf26be6e315f2f0a6e9ded12c7f53c38"
+SRC_URI = "https://registry.npmjs.org/postcss/-/postcss-8.3.8.tgz"
+SRC_URI[md5sum] = "151950566770b90e58b107a5ff5a8c7f"
+SRC_URI[sha256sum] = "d4aa0396144e44ec4dbb1ef5c5f3fee148b43af22bfc3a1d5e47a52170f19e50"
 
 NPM_PKGNAME = "postcss"
 
