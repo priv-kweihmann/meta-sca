@@ -20,7 +20,7 @@ DEPENDS += "\
 SRC_URI = "\
            git://github.com/nexB/commoncode.git;protocol=https;branch=main \
           "
-SRCREV = "a1744eb4f4308598ea166e4ff1025356533f6054"
+SRCREV = "653225d58dcf5d1f75dbe572cac13f6d84ae755b"
 
 S = "${WORKDIR}/git"
 
