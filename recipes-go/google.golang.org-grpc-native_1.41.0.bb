@@ -8,7 +8,7 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require google.golang.org-grpc-sources.inc
 
 EXTRA_DEPENDS += "\
-    github.com-cespare-xxhash-native \
+    github.com-cespare-xxhash-v2-native \
     github.com-cncf-udpa-go-native \
     github.com-envoyproxy-go-control-plane-native \
     github.com-golang-glog-native \
