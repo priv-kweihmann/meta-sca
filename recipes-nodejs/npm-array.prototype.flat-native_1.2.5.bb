@@ -9,9 +9,9 @@ DEPENDS = "npm-call-bind-native \
            npm-define-properties-native \
            npm-es-abstract-native"
 
-SRC_URI = "https://registry.npmjs.org/array.prototype.flat/-/array.prototype.flat-1.2.4.tgz"
-SRC_URI[md5sum] = "7bc631c5846de85e0b0fc02353220e99"
-SRC_URI[sha256sum] = "1b56d0034e43c75fc205059ffdfacf71239fb2382f8329afe43763c819b15301"
+SRC_URI = "https://registry.npmjs.org/array.prototype.flat/-/array.prototype.flat-1.2.5.tgz"
+SRC_URI[md5sum] = "97648174e504c24169cf0eda8f034788"
+SRC_URI[sha256sum] = "846fec18a5be9e6f972b366954db8b98812ee8b8873592b364a7a3e54dcb19bb"
 
 NPM_PKGNAME = "array.prototype.flat"
 
