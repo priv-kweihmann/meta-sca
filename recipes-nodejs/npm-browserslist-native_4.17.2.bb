@@ -11,9 +11,9 @@ DEPENDS = "npm-caniuse-lite-native \
            npm-nanocolors-native \
            npm-node-releases-native"
 
-SRC_URI = "https://registry.npmjs.org/browserslist/-/browserslist-4.17.1.tgz"
-SRC_URI[md5sum] = "b6562d2c05c6e3d5e1a4e8da1dc8c6cc"
-SRC_URI[sha256sum] = "7418d5dc866f2d26ce51940b0f6bccfaa80eff2ecefdceb314b309e71d5d1c14"
+SRC_URI = "https://registry.npmjs.org/browserslist/-/browserslist-4.17.2.tgz"
+SRC_URI[md5sum] = "fb5b5057b051ea69941c9050e25726b8"
+SRC_URI[sha256sum] = "04bc8a5c82cb8cb97a6ae0f34382fae5602a22affc04a2d25234ec840156b29c"
 
 NPM_PKGNAME = "browserslist"
 
