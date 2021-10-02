@@ -8,9 +8,7 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require github.com-cncf-udpa-go-sources.inc
 
 EXTRA_DEPENDS += "\
-    github.com-envoyproxy-protoc-gen-validate-native \
-    github.com-golang-protobuf-native \
-    google.golang.org-grpc-native \
+    github.com-cncf-xds-go-native \
 "
 
 GO_IMPORT = "github.com/cncf/udpa/go"
