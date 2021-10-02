@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/mattn/go-colorable/@v/v0.1.10.zip;srcoutput=github.com/mattn/go-colorable;srcinput=github.com/mattn/go-colorable@v0.1.10;downloadfilename=github-com-mattn-go-colorable-0.1.10.zip;name=github-com-mattn-go-colorable"
-SRC_URI[github-com-mattn-go-colorable.sha256sum] = "30810ee2f9b5378be10807d33440724ac3b9010fc450d24ae68bdd4b3d25e5fc"
+SRC_URI += "https://proxy.golang.org/github.com/mattn/go-colorable/@v/v0.1.11.zip;srcoutput=github.com/mattn/go-colorable;srcinput=github.com/mattn/go-colorable@v0.1.11;downloadfilename=github-com-mattn-go-colorable-0.1.11.zip;name=github-com-mattn-go-colorable"
+SRC_URI[github-com-mattn-go-colorable.sha256sum] = "2a78bab4fa8a66b3ae48fcd50fc5970db4011a8cee0a3ad7c13da0fb624c95e5"
 
 GOSRC_LICENSE += "\
     MIT \
