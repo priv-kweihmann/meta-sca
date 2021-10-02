@@ -16,7 +16,9 @@ DEPENDS = "npm-call-bind-native \
            npm-is-callable-native \
            npm-is-negative-zero-native \
            npm-is-regex-native \
+           npm-is-shared-array-buffer-native \
            npm-is-string-native \
+           npm-is-weakref-native \
            npm-object-inspect-native \
            npm-object-keys-native \
            npm-object.assign-native \
@@ -24,9 +26,9 @@ DEPENDS = "npm-call-bind-native \
            npm-string.prototype.trimstart-native \
            npm-unbox-primitive-native"
 
-SRC_URI = "https://registry.npmjs.org/es-abstract/-/es-abstract-1.18.6.tgz"
-SRC_URI[md5sum] = "6943c7806796f2c74c995c94fd1e5c19"
-SRC_URI[sha256sum] = "750a4c720ed8f9c537572cff9e9cb46861936f106fe7322354049ee59134231a"
+SRC_URI = "https://registry.npmjs.org/es-abstract/-/es-abstract-1.19.0.tgz"
+SRC_URI[md5sum] = "14dc45a77d91c620ebc125f64083fd4f"
+SRC_URI[sha256sum] = "63650783719f93c36e75cddfb8677ba31a20f453ad48984d5d0b75a7baba8ca8"
 
 NPM_PKGNAME = "es-abstract"
 
