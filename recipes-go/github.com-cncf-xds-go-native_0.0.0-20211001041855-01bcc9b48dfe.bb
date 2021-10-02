@@ -11,6 +11,7 @@ EXTRA_DEPENDS += "\
     github.com-envoyproxy-protoc-gen-validate-native \
     github.com-golang-protobuf-native \
     google.golang.org-grpc-native \
+    google.golang.org-protobuf-native \
 "
 
 GO_IMPORT = "github.com/cncf/xds/go"
