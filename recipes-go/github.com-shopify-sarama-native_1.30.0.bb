@@ -12,11 +12,12 @@ EXTRA_DEPENDS += "\
     github.com-eapache-go-resiliency-native \
     github.com-eapache-go-xerial-snappy-native \
     github.com-eapache-queue-native \
+    github.com-jcmturner-gofork-native \
     github.com-jcmturner-gokrb5-v8-native \
     github.com-klauspost-compress-native \
     github.com-pierrec-lz4-native \
     github.com-rcrowley-go-metrics-native \
-    github.com-xdg-scram-native \
+    github.com-xdg-go-scram-native \
     golang.org-x-net-native \
 "
 
