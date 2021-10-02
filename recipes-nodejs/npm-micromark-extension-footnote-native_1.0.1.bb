@@ -11,11 +11,12 @@ DEPENDS = "npm-micromark-core-commonmark-native \
            npm-micromark-util-chunked-native \
            npm-micromark-util-normalize-identifier-native \
            npm-micromark-util-resolve-all-native \
-           npm-micromark-util-symbol-native"
+           npm-micromark-util-symbol-native \
+           npm-power-assert-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark-extension-footnote/-/micromark-extension-footnote-1.0.0.tgz"
-SRC_URI[md5sum] = "3e32d281c1b1b0c76cf4a1531f1dc884"
-SRC_URI[sha256sum] = "e01b2bbff8501e70bba89fb0ca43b28352b0b30879387b70834724919095be76"
+SRC_URI = "https://registry.npmjs.org/micromark-extension-footnote/-/micromark-extension-footnote-1.0.1.tgz"
+SRC_URI[md5sum] = "3c1aa349da28974f004cad91b7c230f1"
+SRC_URI[sha256sum] = "0c87977ffd5707e62a3afa86fb117e17bb5d950988b2486c394577c9a7a7c513"
 
 NPM_PKGNAME = "micromark-extension-footnote"
 
