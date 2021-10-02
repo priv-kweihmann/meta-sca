@@ -8,11 +8,12 @@ LIC_FILES_CHKSUM = "file://readme.md;beginline=119;endline=120;md5=511f6768a0948
 DEPENDS = "npm-micromark-factory-space-native \
            npm-micromark-util-character-native \
            npm-micromark-util-symbol-native \
-           npm-micromark-util-types-native"
+           npm-micromark-util-types-native \
+           npm-power-assert-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark-factory-title/-/micromark-factory-title-1.0.0.tgz"
-SRC_URI[md5sum] = "491e9bc1148160e127b3efda63149028"
-SRC_URI[sha256sum] = "c731767842565bd4ebce954593eb71ef7b4c3321a1d78cb7f2d214affd651fb2"
+SRC_URI = "https://registry.npmjs.org/micromark-factory-title/-/micromark-factory-title-1.0.1.tgz"
+SRC_URI[md5sum] = "e61e9be398933aebee049febe861b7ad"
+SRC_URI[sha256sum] = "a234b36ace9b99c3ab512232403641fadbb71f58835676035cec51619d067d60"
 
 NPM_PKGNAME = "micromark-factory-title"
 
