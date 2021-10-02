@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=e45dd216c3fe7c3ca8f67f20bcd5dadc"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/colorette/-/colorette-2.0.11.tgz"
-SRC_URI[md5sum] = "c09037b695fa5503fc579c72fa8d0965"
-SRC_URI[sha256sum] = "309ee0fef87501d94d11b71819b31c76e5011ca777ad854a34c6f534ecb5b2f8"
+SRC_URI = "https://registry.npmjs.org/colorette/-/colorette-2.0.13.tgz"
+SRC_URI[md5sum] = "b28c124fc65233a159be983a92ac3a99"
+SRC_URI[sha256sum] = "8b9cef73af510cab44c6d1de94db372a4b556ffc8fd080cd0e6ab03afcedffac"
 
 NPM_PKGNAME = "colorette"
 
