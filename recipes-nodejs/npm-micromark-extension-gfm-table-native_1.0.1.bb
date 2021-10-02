@@ -8,11 +8,12 @@ LIC_FILES_CHKSUM = "file://license;md5=6a9c614ad8a32fcd51b47e458d620e48"
 DEPENDS = "npm-micromark-factory-space-native \
            npm-micromark-util-character-native \
            npm-micromark-util-symbol-native \
-           npm-micromark-util-types-native"
+           npm-micromark-util-types-native \
+           npm-power-assert-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-table/-/micromark-extension-gfm-table-1.0.0.tgz"
-SRC_URI[md5sum] = "e32f07f426df52fe1c4bcd52a21c866b"
-SRC_URI[sha256sum] = "0b01533ffebb418cd1d253a35ba200bd871cd2051c8e123c75f9d120e49570f6"
+SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-table/-/micromark-extension-gfm-table-1.0.1.tgz"
+SRC_URI[md5sum] = "be0cf6683b5a93c6bc1a84038b4ac99f"
+SRC_URI[sha256sum] = "4447bda9a92a7c73fdd1b001413486b6e17a88bdfd57d00d0138c485262d6937"
 
 NPM_PKGNAME = "micromark-extension-gfm-table"
 
