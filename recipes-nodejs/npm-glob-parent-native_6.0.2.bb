@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=741e38024be3bd65f6d836f460f4445f"
 
 DEPENDS = "npm-is-glob-native"
 
-SRC_URI = "https://registry.npmjs.org/glob-parent/-/glob-parent-6.0.1.tgz"
-SRC_URI[md5sum] = "dc1352fa220b9455dc8cb734fe61db85"
-SRC_URI[sha256sum] = "95c82f29bb7683a58c0119f322711d689856e49c57e1011dd8673b1ffca4f889"
+SRC_URI = "https://registry.npmjs.org/glob-parent/-/glob-parent-6.0.2.tgz"
+SRC_URI[md5sum] = "aeda0bbc70a86d88a91a6f8f2167df37"
+SRC_URI[sha256sum] = "345bb942f3be1fe234cab09ddc1df2c443cb2e84aaf5743c1862cf2b4e8d5066"
 
 NPM_PKGNAME = "glob-parent"
 
