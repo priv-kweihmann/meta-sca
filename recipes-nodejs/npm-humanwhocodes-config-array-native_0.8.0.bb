@@ -9,9 +9,9 @@ DEPENDS = "npm-debug-native \
            npm-humanwhocodes-object-schema-native \
            npm-minimatch-native"
 
-SRC_URI = "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.6.0.tgz"
-SRC_URI[md5sum] = "92d8b2fb0f91381ba01dc42e7d6fc661"
-SRC_URI[sha256sum] = "9269847fe237721322d19be17c7d1c419c026c649a12a4908ad6ba7fc3cb1ec6"
+SRC_URI = "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.8.0.tgz"
+SRC_URI[md5sum] = "6a8eab71956ed8a64ce67077a150f1dd"
+SRC_URI[sha256sum] = "77adabad35469f6cde81d2a18356016d78c96bbe92d3db6cfdbd6bda7efa7a4d"
 
 NPM_PKGNAME = "@humanwhocodes/config-array"
 
