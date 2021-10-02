@@ -3,13 +3,13 @@ DESCRIPTION = "Convert a camelized string into a lowercased one with a custom se
 HOMEPAGE = "https://github.com/sindresorhus/decamelize#readme"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
+LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/decamelize/-/decamelize-5.0.0.tgz"
-SRC_URI[md5sum] = "3fbf6fd01fc146f295399968a0b71955"
-SRC_URI[sha256sum] = "fe7781063651a8bb7460161d9db096417b72d8dc8ba6971aa7fd1dcbb01f5b43"
+SRC_URI = "https://registry.npmjs.org/decamelize/-/decamelize-6.0.0.tgz"
+SRC_URI[md5sum] = "5ebb258236a7ac0326727c9c8ed83442"
+SRC_URI[sha256sum] = "ef264448fe275577f422b5af1ac8084d5589600760f79f0f1dc5487a006ed3c3"
 
 NPM_PKGNAME = "decamelize"
 
