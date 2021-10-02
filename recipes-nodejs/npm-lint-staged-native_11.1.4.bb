@@ -20,9 +20,9 @@ DEPENDS = "npm-chalk-native \
            npm-string-argv-native \
            npm-stringify-object-native"
 
-SRC_URI = "https://registry.npmjs.org/lint-staged/-/lint-staged-11.1.2.tgz"
-SRC_URI[md5sum] = "3641050e45103f54262fdd18ff899157"
-SRC_URI[sha256sum] = "4f5c6d6db716579991588875e7e7b29d4da9ed67f93d981145a6e7c99d7adcb5"
+SRC_URI = "https://registry.npmjs.org/lint-staged/-/lint-staged-11.1.4.tgz"
+SRC_URI[md5sum] = "079af08ba825291122c11b3e7084f158"
+SRC_URI[sha256sum] = "9cd6c9c2878e69764ce63ab4612c787c57b30e2db296f8019657087f1f5e998c"
 
 NPM_PKGNAME = "lint-staged"
 
