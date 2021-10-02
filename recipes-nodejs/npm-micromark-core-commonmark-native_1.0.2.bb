@@ -19,11 +19,12 @@ DEPENDS = "npm-micromark-factory-destination-native \
            npm-micromark-util-subtokenize-native \
            npm-micromark-util-symbol-native \
            npm-micromark-util-types-native \
-           npm-parse-entities-native"
+           npm-parse-entities-native \
+           npm-power-assert-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark-core-commonmark/-/micromark-core-commonmark-1.0.1.tgz"
-SRC_URI[md5sum] = "246f82a01788d467abfbf25a7dd38b7e"
-SRC_URI[sha256sum] = "8133d4db619b7dc9a5985528624545a6d210b69580b33bdcea84fa29d6f469f7"
+SRC_URI = "https://registry.npmjs.org/micromark-core-commonmark/-/micromark-core-commonmark-1.0.2.tgz"
+SRC_URI[md5sum] = "d5e1caac869fe98d0fc83dc557dab3de"
+SRC_URI[sha256sum] = "10509c267b9eafc1c15061f30a9d10530444102949f7bce137275694cdd0a702"
 
 NPM_PKGNAME = "micromark-core-commonmark"
 
