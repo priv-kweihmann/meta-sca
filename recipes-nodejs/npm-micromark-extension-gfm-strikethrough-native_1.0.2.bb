@@ -9,11 +9,12 @@ DEPENDS = "npm-micromark-util-chunked-native \
            npm-micromark-util-classify-character-native \
            npm-micromark-util-resolve-all-native \
            npm-micromark-util-symbol-native \
-           npm-micromark-util-types-native"
+           npm-micromark-util-types-native \
+           npm-power-assert-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-strikethrough/-/micromark-extension-gfm-strikethrough-1.0.1.tgz"
-SRC_URI[md5sum] = "a06d0f81d40ff70080d60ecbe2243786"
-SRC_URI[sha256sum] = "b74f146eb89cb68c652a668c07399b6e08c60525e935f9da5dabebe43ff8748a"
+SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-strikethrough/-/micromark-extension-gfm-strikethrough-1.0.2.tgz"
+SRC_URI[md5sum] = "f666b616dc1083029935f2a43fb41715"
+SRC_URI[sha256sum] = "92c9717fafb56eb92d7f53c6923d011d400b37a827ad7d82c463ad95965ffcf0"
 
 NPM_PKGNAME = "micromark-extension-gfm-strikethrough"
 
