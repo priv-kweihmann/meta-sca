@@ -7,11 +7,12 @@ LIC_FILES_CHKSUM = "file://readme.md;beginline=81;endline=82;md5=511f6768a0948d4
 
 DEPENDS = "npm-micromark-util-chunked-native \
            npm-micromark-util-symbol-native \
-           npm-micromark-util-types-native"
+           npm-micromark-util-types-native \
+           npm-power-assert-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark-util-subtokenize/-/micromark-util-subtokenize-1.0.0.tgz"
-SRC_URI[md5sum] = "61986f42938fbe6c71761d3f4e6327ae"
-SRC_URI[sha256sum] = "e7459b3da6ae03eb11661f3063e92fe42a05be1bd03fb06079c07b96a40462ef"
+SRC_URI = "https://registry.npmjs.org/micromark-util-subtokenize/-/micromark-util-subtokenize-1.0.1.tgz"
+SRC_URI[md5sum] = "4dbb225e2b5768e41c8624c86bb92e8a"
+SRC_URI[sha256sum] = "c4a060c1d179d0a3182af5321cfa167749637ab5e396cefa9abf883afcee5140"
 
 NPM_PKGNAME = "micromark-util-subtokenize"
 
