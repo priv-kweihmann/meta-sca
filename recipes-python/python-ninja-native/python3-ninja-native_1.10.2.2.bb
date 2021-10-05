@@ -14,8 +14,8 @@ DEPENDS += "\
 
 SRC_URI:append = " file://0001-Remove-console-entry-script.patch"
 
-SRC_URI[md5sum] = "4e61b32317581e898e0499ef188cc41f"
-SRC_URI[sha256sum] = "719ab357f5dc822711c1151d1b9517c5543340e23f6cc4e8508f793848a48bb1"
+SRC_URI[md5sum] = "015ebb8cb5c4e8ac22552a112f283dfe"
+SRC_URI[sha256sum] = "3f8a75acd929abb9f003d3aa5bc299cea30b9db0dfa18669877e9c02ddcf530d"
 
 PYPI_PACKAGE = "ninja"
 
