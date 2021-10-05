@@ -14,9 +14,9 @@ DEPENDS = "npm-call-bind-native \
            npm-regexp.prototype.flags-native \
            npm-side-channel-native"
 
-SRC_URI = "https://registry.npmjs.org/string.prototype.matchall/-/string.prototype.matchall-4.0.5.tgz"
-SRC_URI[md5sum] = "4073feb60aea229848fc2474126f7017"
-SRC_URI[sha256sum] = "31afbcaea10a6010ab95a8a93035bc86edfe383b4599f178c1c6fcbbdc72c524"
+SRC_URI = "https://registry.npmjs.org/string.prototype.matchall/-/string.prototype.matchall-4.0.6.tgz"
+SRC_URI[md5sum] = "0dd7d7e84ce80babca65f0039022aa49"
+SRC_URI[sha256sum] = "61b7acbf07ba29554253806871663a21e6a3b6b295f2937518aab16d3617e36f"
 
 NPM_PKGNAME = "string.prototype.matchall"
 
