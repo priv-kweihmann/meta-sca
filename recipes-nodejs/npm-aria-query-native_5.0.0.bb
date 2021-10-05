@@ -5,12 +5,11 @@ HOMEPAGE = "https://github.com/A11yance/aria-query#readme"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=cadce3caaeb4d7ea5e8c0e57d5f3d1e7"
 
-DEPENDS = "npm-babel-runtime-corejs3-native \
-           npm-babel-runtime-native"
+DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/aria-query/-/aria-query-4.2.2.tgz"
-SRC_URI[md5sum] = "abb409e5e0118ee2c00a196cc7654750"
-SRC_URI[sha256sum] = "570ee1a670279e49a0f9a6c95560004acf2f6da00f9c9b7dfebe691c46a88030"
+SRC_URI = "https://registry.npmjs.org/aria-query/-/aria-query-5.0.0.tgz"
+SRC_URI[md5sum] = "b37a5b3b02eca6f99e4b9e23bd22b54b"
+SRC_URI[sha256sum] = "bee97a938deb100a949ab7087e4437b236ba0b39ccb98668f4f0056b823db59f"
 
 NPM_PKGNAME = "aria-query"
 
