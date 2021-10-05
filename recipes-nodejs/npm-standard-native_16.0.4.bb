@@ -14,9 +14,9 @@ DEPENDS = "npm-eslint-config-standard-jsx-native \
            npm-eslint-plugin-react-native \
            npm-standard-engine-native"
 
-SRC_URI = "https://registry.npmjs.org/standard/-/standard-16.0.3.tgz"
-SRC_URI[md5sum] = "bcd0932892bf9babbda7f5ac03df7602"
-SRC_URI[sha256sum] = "de6b46fa05f308f7d819f08eb3eb927e403d3f6422d225d0aac88ef0b3ae0df1"
+SRC_URI = "https://registry.npmjs.org/standard/-/standard-16.0.4.tgz"
+SRC_URI[md5sum] = "a67fd53c88f197ecf5ad15f8f045b290"
+SRC_URI[sha256sum] = "e66121a9d06ef94b473b0e802e4bb68baa0c5a3cacf5d06cda935f3962f0334c"
 
 NPM_PKGNAME = "standard"
 
