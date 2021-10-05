@@ -8,6 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b1befbdcbeb73a7fd9b944d31f0fee64"
 DEPENDS = "npm-chalk-native \
            npm-commander-native \
            npm-comment-json-native \
+           npm-cspell-gitignore-native \
            npm-cspell-glob-native \
            npm-cspell-lib-native \
            npm-fast-json-stable-stringify-native \
@@ -19,9 +20,9 @@ DEPENDS = "npm-chalk-native \
            npm-strip-ansi-native \
            npm-vscode-uri-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell/-/cspell-5.11.1.tgz"
-SRC_URI[md5sum] = "06721479aff42586ae7947dc96c0cc81"
-SRC_URI[sha256sum] = "c78b0ccd8db86575e91a7531b328f33b4e2cac70b62a2035385484432b2561f6"
+SRC_URI = "https://registry.npmjs.org/cspell/-/cspell-5.12.0.tgz"
+SRC_URI[md5sum] = "24b27c6a820d3983005d2302aec02b28"
+SRC_URI[sha256sum] = "535f8e1642ba338a331ebdbe955c09d38329a3109636ea0ab26acaffb160c35b"
 
 NPM_PKGNAME = "cspell"
 
