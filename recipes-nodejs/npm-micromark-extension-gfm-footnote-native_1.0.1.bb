@@ -13,9 +13,9 @@ DEPENDS = "npm-micromark-core-commonmark-native \
            npm-micromark-util-symbol-native \
            npm-power-assert-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-footnote/-/micromark-extension-gfm-footnote-1.0.0.tgz"
-SRC_URI[md5sum] = "720c31568044dba1af2152b0cfb00c37"
-SRC_URI[sha256sum] = "33ec394ea3ea853dcf540281281be2c94f51ae02c47e2d053116e6ab7b8cab58"
+SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-footnote/-/micromark-extension-gfm-footnote-1.0.1.tgz"
+SRC_URI[md5sum] = "055ef27e08112642c6d8146b19c65b79"
+SRC_URI[sha256sum] = "db7477d39ebe186f1e93aa16fa504f2fecbc6d67efdecd10c1ed371a22e3b45f"
 
 NPM_PKGNAME = "micromark-extension-gfm-footnote"
 
