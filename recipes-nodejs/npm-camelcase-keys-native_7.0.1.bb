@@ -10,9 +10,9 @@ DEPENDS = "npm-camelcase-native \
            npm-quick-lru-native \
            npm-type-fest-native"
 
-SRC_URI = "https://registry.npmjs.org/camelcase-keys/-/camelcase-keys-7.0.0.tgz"
-SRC_URI[md5sum] = "c13c426e7fffb5aa2e9952ce83b36b1f"
-SRC_URI[sha256sum] = "38f87eb933c28d9fe4012b3ceb6b2de5b3f4966301a76d4581ce40b98d380e16"
+SRC_URI = "https://registry.npmjs.org/camelcase-keys/-/camelcase-keys-7.0.1.tgz"
+SRC_URI[md5sum] = "e9e217c871567f10f579d7afaddd9cf2"
+SRC_URI[sha256sum] = "c4b980e69e8befab9c10016852a8ad90a7c3b71a981f79e2ad7bf5c7fddd75d6"
 
 NPM_PKGNAME = "camelcase-keys"
 
