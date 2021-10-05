@@ -13,13 +13,14 @@ DEPENDS = "npm-mdast-util-to-string-native \
            npm-micromark-util-symbol-native \
            npm-micromark-util-types-native \
            npm-parse-entities-native \
+           npm-power-assert-native \
            npm-types-mdast-native \
            npm-types-unist-native \
            npm-unist-util-stringify-position-native"
 
-SRC_URI = "https://registry.npmjs.org/mdast-util-from-markdown/-/mdast-util-from-markdown-1.0.2.tgz"
-SRC_URI[md5sum] = "48add16cb958c0a298fb86cfc1729c49"
-SRC_URI[sha256sum] = "ef27396cd04c7130e66ffd7d93eb084a2110cdbb5658ec19aadb086bdbe31a9c"
+SRC_URI = "https://registry.npmjs.org/mdast-util-from-markdown/-/mdast-util-from-markdown-1.0.3.tgz"
+SRC_URI[md5sum] = "911f6909d1d31493f25cee2fc60b1146"
+SRC_URI[sha256sum] = "6de20d1e7698883ba72dd3be38abfa4192a76f9566646f3486cb08bbef5d96f8"
 
 NPM_PKGNAME = "mdast-util-from-markdown"
 
