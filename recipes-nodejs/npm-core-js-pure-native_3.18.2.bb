@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=ef7af8b9d7db144cf9cd7c58bd6ba553"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.18.1.tgz"
-SRC_URI[md5sum] = "a854c5d8ae7c1fc31cd96fa069809eda"
-SRC_URI[sha256sum] = "35465eb3ceb0d4fb05332f4666dd1b400f0b7c9522b59f47e1fc7d55bb9ec6d0"
+SRC_URI = "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.18.2.tgz"
+SRC_URI[md5sum] = "db80b6aec44730c27db3c646cb012176"
+SRC_URI[sha256sum] = "1ef79c7034bee19cb7cd63a17148da79e9915625f0325d9e1dab61f94544704d"
 
 NPM_PKGNAME = "core-js-pure"
 
