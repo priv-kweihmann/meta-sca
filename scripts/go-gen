@@ -48,6 +48,9 @@ class ExtendAction(argparse.Action):
 
 def create_parser():
     parser = argparse.ArgumentParser(description='go-recipe generator')
+
+    parser.register('action', 'extend', ExtendAction)
+
     parser.add_argument("--version", default="",
                         help="explicit version to chose")
     parser.add_argument("--tmpdir", default=tempfile.gettempdir(),
