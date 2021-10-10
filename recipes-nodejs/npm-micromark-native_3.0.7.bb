@@ -20,11 +20,12 @@ DEPENDS = "npm-debug-native \
            npm-micromark-util-symbol-native \
            npm-micromark-util-types-native \
            npm-parse-entities-native \
-           npm-types-debug-native"
+           npm-types-debug-native \
+           npm-uvu-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark/-/micromark-3.0.6.tgz"
-SRC_URI[md5sum] = "5cf8d84ca3796ded752c05268b270064"
-SRC_URI[sha256sum] = "83ab3439457c3521320e8bc091f286fce3a07d634d76ee35e68cd80e4860652f"
+SRC_URI = "https://registry.npmjs.org/micromark/-/micromark-3.0.7.tgz"
+SRC_URI[md5sum] = "8aa2cf340807554b9a68b491315b50ef"
+SRC_URI[sha256sum] = "6a2e9aa48761e30366fac3171e88d0a6da4e424d1b677541180697a3a8008df3"
 
 NPM_PKGNAME = "micromark"
 
