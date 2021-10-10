@@ -9,11 +9,11 @@ DEPENDS = "npm-micromark-factory-space-native \
            npm-micromark-util-character-native \
            npm-micromark-util-symbol-native \
            npm-micromark-util-types-native \
-           npm-power-assert-native"
+           npm-uvu-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-table/-/micromark-extension-gfm-table-1.0.1.tgz"
-SRC_URI[md5sum] = "be0cf6683b5a93c6bc1a84038b4ac99f"
-SRC_URI[sha256sum] = "4447bda9a92a7c73fdd1b001413486b6e17a88bdfd57d00d0138c485262d6937"
+SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-table/-/micromark-extension-gfm-table-1.0.2.tgz"
+SRC_URI[md5sum] = "c46225182380f579961d75b4b39c9a16"
+SRC_URI[sha256sum] = "be21c359e85100fc822d60b86c685b9bcbde8b0ced8c8d0c2033493911f36504"
 
 NPM_PKGNAME = "micromark-extension-gfm-table"
 
