@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/fullstorydev/grpcurl/@v/v1.8.2.zip;srcoutput=github.com/fullstorydev/grpcurl;srcinput=github.com/fullstorydev/grpcurl@v1.8.2;downloadfilename=github-com-fullstorydev-grpcurl-1.8.2.zip;name=github-com-fullstorydev-grpcurl"
-SRC_URI[github-com-fullstorydev-grpcurl.sha256sum] = "4d24d70033239c7257280b60bc8ed6b6aec28088c97885dceb68f607a5e09dfc"
+SRC_URI += "https://proxy.golang.org/github.com/fullstorydev/grpcurl/@v/v1.8.5.zip;srcoutput=github.com/fullstorydev/grpcurl;srcinput=github.com/fullstorydev/grpcurl@v1.8.5;downloadfilename=github-com-fullstorydev-grpcurl-1.8.5.zip;name=github-com-fullstorydev-grpcurl"
+SRC_URI[github-com-fullstorydev-grpcurl.sha256sum] = "b77ab7747f9bfcce34c3e35d633064e489064b8eef822951a7adabdefac7f527"
 GOSRC_REMOVEDIRS += "github.com/fullstorydev/grpcurl/cmd"
 
 GOSRC_LICENSE += "\
