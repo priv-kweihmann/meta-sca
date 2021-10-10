@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=78e1c0248051c32a38a7f820c30bd7a5"
 
 PYPI_PACKAGE = "resolvelib"
 
-SRC_URI[md5sum] = "361554590957f23e0b3953e2b47adfd9"
-SRC_URI[sha256sum] = "c526cda7f080d908846262d86c738231d9bfb556eb02d77167b685d65d85ace9"
+SRC_URI[md5sum] = "6874ec7ba01a8a1398b0db7c45e15afd"
+SRC_URI[sha256sum] = "bb644702b0322b9ee5557e314d96148ca56a0f37a6ddf59ba0fbe27af684f4b9"
 
 inherit pypi
 inherit setuptools3
