@@ -11,7 +11,7 @@ DEPENDS += "\
 
 SRC_URI = "git://github.com/priv-kweihmann/tlv.git;protocol=https;branch=master \
            file://tlv.sca.description"
-SRCREV = "e3741efb1b00406cbee2f9b2d4ad242dd7aba77b"
+SRCREV = "de68986f7306061031e117efb93ee044425e554f"
 S = "${WORKDIR}/git"
 
 inherit sca-description
