@@ -20,11 +20,11 @@ DEPENDS = "npm-micromark-factory-destination-native \
            npm-micromark-util-symbol-native \
            npm-micromark-util-types-native \
            npm-parse-entities-native \
-           npm-power-assert-native"
+           npm-uvu-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark-core-commonmark/-/micromark-core-commonmark-1.0.2.tgz"
-SRC_URI[md5sum] = "d5e1caac869fe98d0fc83dc557dab3de"
-SRC_URI[sha256sum] = "10509c267b9eafc1c15061f30a9d10530444102949f7bce137275694cdd0a702"
+SRC_URI = "https://registry.npmjs.org/micromark-core-commonmark/-/micromark-core-commonmark-1.0.3.tgz"
+SRC_URI[md5sum] = "14d96ae5f779637e12fdb2a38182da7e"
+SRC_URI[sha256sum] = "2d74c03dcf0b5179e87131fb007ea74225f8f31135f27f85c0a8d971481c7f5d"
 
 NPM_PKGNAME = "micromark-core-commonmark"
 
