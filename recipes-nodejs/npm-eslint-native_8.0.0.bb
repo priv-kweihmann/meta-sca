@@ -3,10 +3,9 @@ DESCRIPTION = "An AST-based pattern checker for JavaScript."
 HOMEPAGE = "https://eslint.org"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=04d32f89e7aa1677f8a860eb0b6adb83"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=8b58aa052648f366fd94c13b91b417d5"
 
 DEPENDS = "npm-ajv-native \
-           npm-babel-code-frame-native \
            npm-chalk-native \
            npm-cross-spawn-native \
            npm-debug-native \
@@ -42,13 +41,12 @@ DEPENDS = "npm-ajv-native \
            npm-semver-native \
            npm-strip-ansi-native \
            npm-strip-json-comments-native \
-           npm-table-native \
            npm-text-table-native \
            npm-v8-compile-cache-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint/-/eslint-7.32.0.tgz"
-SRC_URI[md5sum] = "a501ba46f027d7a1cb32c795176a35d8"
-SRC_URI[sha256sum] = "ff6d4d582ed2f9c6333a794a1e8aef737c0a26b17b2a4de3d39a8c75295fc4a5"
+SRC_URI = "https://registry.npmjs.org/eslint/-/eslint-8.0.0.tgz"
+SRC_URI[md5sum] = "bee0d175d7faaf6275e189e939830bdf"
+SRC_URI[sha256sum] = "7d68c103198fb568a49ca1310c0c5ed728d18e0e8ed588999e4cfc54663fc834"
 
 NPM_PKGNAME = "eslint"
 
