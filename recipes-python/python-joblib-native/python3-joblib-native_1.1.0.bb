@@ -2,12 +2,12 @@ SUMMARY = "Lightweight pipelining: using Python functions as pipeline jobs"
 HOMEPAGE = "https://github.com/joblib/joblib"
 
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=32b289008fb813a27c9025f02b59d03d"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=2e481820abf0a70a18011a30153df066"
 
 PYPI_PACKAGE = "joblib"
 
-SRC_URI[md5sum] = "9914b330916395c0a1feca54949867a3"
-SRC_URI[sha256sum] = "9c17567692206d2f3fb9ecf5e991084254fe631665c450b443761c4186a613f7"
+SRC_URI[md5sum] = "d8fb897e6cbb1359738ed7b1739be389"
+SRC_URI[sha256sum] = "4158fcecd13733f8be669be0683b96ebdbbd38d23559f54dca7205aea1bf1e35"
 
 inherit pypi
 inherit setuptools3
