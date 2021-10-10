@@ -12,7 +12,7 @@ DEPENDS += "\
 
 SRC_URI = "git://github.com/priv-kweihmann/pysymbolcheck.git;protocol=https;branch=master \
            file://pysymcheck.sca.description"
-SRCREV = "dffc515d53c54d4dc8b6fdef52766decefe99526"
+SRCREV = "a12e3ee6c64ec8d411bc2411fef3c670821db4a0"
 S = "${WORKDIR}/git"
 
 inherit sca-description
