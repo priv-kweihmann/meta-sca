@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 DEPENDS = "npm-slice-ansi-native \
            npm-string-width-native"
 
-SRC_URI = "https://registry.npmjs.org/cli-truncate/-/cli-truncate-3.0.0.tgz"
-SRC_URI[md5sum] = "83e5726751e655358fb756d558dd108a"
-SRC_URI[sha256sum] = "ce5060625856d5233ea11fcc14f21cb95b79a41502cf7865ff393cf998a3ea89"
+SRC_URI = "https://registry.npmjs.org/cli-truncate/-/cli-truncate-3.1.0.tgz"
+SRC_URI[md5sum] = "c2d7fda41d021ba089da0c48e6e01f94"
+SRC_URI[sha256sum] = "3931eb6043d9f5b7b1dba60931ff3b48d2ac25c98cec5cbb94433265e133f1e2"
 
 NPM_PKGNAME = "cli-truncate"
 
