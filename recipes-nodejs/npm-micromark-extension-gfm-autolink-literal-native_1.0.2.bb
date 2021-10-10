@@ -9,11 +9,11 @@ DEPENDS = "npm-micromark-util-character-native \
            npm-micromark-util-sanitize-uri-native \
            npm-micromark-util-symbol-native \
            npm-micromark-util-types-native \
-           npm-power-assert-native"
+           npm-uvu-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-autolink-literal/-/micromark-extension-gfm-autolink-literal-1.0.1.tgz"
-SRC_URI[md5sum] = "fd5868a7993257978a25d608d1fe30d9"
-SRC_URI[sha256sum] = "d9fce12b1eca2dc910228a2111901aaada58026e74dc04f2a881707af28ba57f"
+SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-autolink-literal/-/micromark-extension-gfm-autolink-literal-1.0.2.tgz"
+SRC_URI[md5sum] = "59d84693e36bad59d45c932a26c0e672"
+SRC_URI[sha256sum] = "08f1c16c20ca535a2c39693ebade4488b6eb45c081a505513515f903941b4a82"
 
 NPM_PKGNAME = "micromark-extension-gfm-autolink-literal"
 
