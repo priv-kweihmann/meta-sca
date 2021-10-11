@@ -162,5 +162,7 @@ if __name__ == '__main__':
                     if not _args.dryrun:
                         repo.create_issue(title=UPDATE_FORMAT.format(up[0], up[1]), labels=_labels)
                 break
+            except (github3.exceptions.ForbiddenError):
+                time.sleep(60)
             except (github3.exceptions.ConnectionError, github3.exceptions.ServerError):
                 time.sleep(10)
