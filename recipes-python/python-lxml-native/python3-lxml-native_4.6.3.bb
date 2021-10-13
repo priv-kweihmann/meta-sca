@@ -15,6 +15,7 @@ PYPI_PACKAGE = "lxml"
 SRC_URI[md5sum] = "017f94473dcec0f9b2e9b03524398fa5"
 SRC_URI[sha256sum] = "39b78571b3b30645ac77b95f7c69d1bffc4cf8c3b157c435a34da72e78c82468"
 
+inherit pkgconfig
 inherit pypi
 inherit setuptools3
 inherit native
