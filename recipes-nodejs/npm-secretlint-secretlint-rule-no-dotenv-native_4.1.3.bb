@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b4e96f84d6d9f19f8529455faa018754"
 
 DEPENDS = "npm-secretlint-types-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-no-dotenv/-/secretlint-rule-no-dotenv-4.0.0.tgz"
-SRC_URI[md5sum] = "28e1f27ada7ee1a85652ccbdbab65bef"
-SRC_URI[sha256sum] = "da47f00ba3d7faf3de447b1d97e3def0bd48a5f165652e2bf9f7e5b5a849adf9"
+SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-no-dotenv/-/secretlint-rule-no-dotenv-4.1.3.tgz"
+SRC_URI[md5sum] = "b0a268e02d06882124ead3520ad85c15"
+SRC_URI[sha256sum] = "23597953e1d53bf60e62c6aeb49f65790265bcd01fca179d34bd8441fd7897d8"
 
 NPM_PKGNAME = "@secretlint/secretlint-rule-no-dotenv"
 
