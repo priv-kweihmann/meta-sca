@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=402802be77c922cb018a8b5099208dab"
 DEPENDS = "npm-js-yaml-native \
            npm-secretlint-types-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-no-k8s-kind-secret/-/secretlint-rule-no-k8s-kind-secret-4.0.0.tgz"
-SRC_URI[md5sum] = "45a151cd502a52e162f297759c4d3cd4"
-SRC_URI[sha256sum] = "4fe79e0307c81d26551c68c120018a985eee084ecfc964a2672b65c1884d4266"
+SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-no-k8s-kind-secret/-/secretlint-rule-no-k8s-kind-secret-4.1.3.tgz"
+SRC_URI[md5sum] = "419ef0b91cc1e9b0dcfaaf82a1a96775"
+SRC_URI[sha256sum] = "187f43b7843e9523a87663f4fa641f487087fac25631a87948b66bfa81c1de03"
 
 NPM_PKGNAME = "@secretlint/secretlint-rule-no-k8s-kind-secret"
 
