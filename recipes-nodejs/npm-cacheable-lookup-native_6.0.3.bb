@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=23a0ab677f942ddc394168925c5a9328"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/cacheable-lookup/-/cacheable-lookup-6.0.2.tgz"
-SRC_URI[md5sum] = "5763204ef62d638795370ccda07e2810"
-SRC_URI[sha256sum] = "a08e124fd2492cca19f6f629472229d7485b7f16dc3334ca07bbe6af4b134d96"
+SRC_URI = "https://registry.npmjs.org/cacheable-lookup/-/cacheable-lookup-6.0.3.tgz"
+SRC_URI[md5sum] = "0b9690be0f81cbad617c9c5bb3a94116"
+SRC_URI[sha256sum] = "aa8d5bc3df5b7b52d9b13f8f2584d93bea690794d6c1b1fe72b6939721cf9e26"
 
 NPM_PKGNAME = "cacheable-lookup"
 
