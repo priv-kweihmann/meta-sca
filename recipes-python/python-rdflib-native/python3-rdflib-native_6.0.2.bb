@@ -12,8 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "rdflib"
 
-SRC_URI[md5sum] = "a6a72e42d6df50dab85f6bfd101664fe"
-SRC_URI[sha256sum] = "f071caff0b68634e4a7bd1d66ea3416ac98f1cc3b915938147ea899c32608728"
+SRC_URI[md5sum] = "2cef20c7552fcffd9251823496e5f751"
+SRC_URI[sha256sum] = "6136ae056001474ee2aff5fc5b956e62a11c3a9c66bb0f3d9c0aaa5fbb56854e"
 
 inherit pypi
 inherit setuptools3
