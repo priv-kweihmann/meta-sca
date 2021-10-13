@@ -20,9 +20,9 @@ DEPENDS = "npm-cli-truncate-native \
            npm-stringify-object-native \
            npm-supports-color-native"
 
-SRC_URI = "https://registry.npmjs.org/lint-staged/-/lint-staged-11.2.2.tgz"
-SRC_URI[md5sum] = "36233bd203c97c4b02fc9f23ae6d637d"
-SRC_URI[sha256sum] = "2335d1bbf8020883eab19c4ac1a027618b7eb5a77160a2cd6b0a7bd1fceb88f9"
+SRC_URI = "https://registry.npmjs.org/lint-staged/-/lint-staged-11.2.3.tgz"
+SRC_URI[md5sum] = "1ecccf4156cc65dc8c1f36088dea5ac5"
+SRC_URI[sha256sum] = "a53fae28c577bc6569194c5859225d7cc11939f9bea2754d43e63b35db4a77f9"
 
 NPM_PKGNAME = "lint-staged"
 
