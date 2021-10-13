@@ -3,11 +3,11 @@ DESCRIPTION = "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detec
 HOMEPAGE = "https://github.com/squizlabs/PHP_CodeSniffer"
 
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://licence.txt;md5=562f463f305c4d32b4fad9a4b03ad678"
+LIC_FILES_CHKSUM = "file://licence.txt;md5=f21955da1cd3e318b7472e2f6f131c68"
 
 SRC_URI = "git://github.com/squizlabs/PHP_CodeSniffer.git;protocol=https \
            file://phpcodesniffer.sca.description"
-SRCREV = "ffced0d2c8fa8e6cdc4d695a743271fab6c38625"
+SRCREV = "f268ca40d54617c6e06757f83f699775c9b3ff2e"
 PHPCOMPOSER_PKGS_NAME = "squizlabs/php_codesniffer=${PV}"
 
 S = "${WORKDIR}/git"
