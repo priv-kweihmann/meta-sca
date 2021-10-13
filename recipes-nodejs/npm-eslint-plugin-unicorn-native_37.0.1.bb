@@ -10,17 +10,20 @@ DEPENDS = "npm-babel-helper-validator-identifier-native \
            npm-clean-regexp-native \
            npm-eslint-template-visitor-native \
            npm-eslint-utils-native \
+           npm-esquery-native \
+           npm-indent-string-native \
            npm-is-builtin-module-native \
            npm-lodash-native \
            npm-pluralize-native \
            npm-read-pkg-up-native \
            npm-regexp-tree-native \
            npm-safe-regex-native \
-           npm-semver-native"
+           npm-semver-native \
+           npm-strip-indent-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-unicorn/-/eslint-plugin-unicorn-36.0.0.tgz"
-SRC_URI[md5sum] = "ba3f73a7b4d3d834025773c98d7e5ae6"
-SRC_URI[sha256sum] = "0a35246dc834e6fdafbf08d3250f4d591e58f70247b0d988134ac3e29b84433d"
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-unicorn/-/eslint-plugin-unicorn-37.0.1.tgz"
+SRC_URI[md5sum] = "514bcf185a548a91892b46ba32c63615"
+SRC_URI[sha256sum] = "c376afb42709e61195f91bb649c89986727c58857fbbfb2cacfe2405740ea997"
 
 NPM_PKGNAME = "eslint-plugin-unicorn"
 
