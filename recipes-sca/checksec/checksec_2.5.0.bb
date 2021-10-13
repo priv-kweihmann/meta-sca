@@ -3,13 +3,13 @@ DESCRIPTION = "script to check the properties of executables (like PIE, RELRO, P
 HOMEPAGE = "https://github.com/slimm609/checksec.sh"
 
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=8d90285f711cf1f378e2c024457066d8"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5bb0d06223ae3b075dbcf2247a3eb9ff"
 
 SRC_URI = "\
     git://github.com/slimm609/checksec.sh \
     file://checksec.sca.description \
 "
-SRCREV = "c3754e45e04f9104db93b2048afd094427102d48"
+SRCREV = "70c94213fa5c62e6dfcf6f6c721346977112acb4"
 
 S = "${WORKDIR}/git"
 
