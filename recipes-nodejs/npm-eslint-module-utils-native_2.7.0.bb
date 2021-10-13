@@ -6,11 +6,12 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e012cdf02fc1d8b17c6c65424a590feb"
 
 DEPENDS = "npm-debug-native \
+           npm-find-up-native \
            npm-pkg-dir-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-module-utils/-/eslint-module-utils-2.6.2.tgz"
-SRC_URI[md5sum] = "06d10ef4318597aff69e1d2e237c65c8"
-SRC_URI[sha256sum] = "c6769f6c2bfbf0a5363f9999b4271c4c6ed09d2eb55ee839062d65bd7765a94a"
+SRC_URI = "https://registry.npmjs.org/eslint-module-utils/-/eslint-module-utils-2.7.0.tgz"
+SRC_URI[md5sum] = "ea3e664d95a4ff8cca109161e97c66bd"
+SRC_URI[sha256sum] = "b756f04a447138de73eb681674a9825782ffb95167c80591eaa25017b7b923a9"
 
 NPM_PKGNAME = "eslint-module-utils"
 
