@@ -47,14 +47,15 @@ class ExtendAction(argparse.Action):
 
 
 def create_parser():
-    parser = argparse.ArgumentParser(description='go-recipe generator')
+    parser = argparse.ArgumentParser(description='go-recipe generator', 
+                                     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.register('action', 'extend', ExtendAction)
 
     parser.add_argument("--version", default="",
                         help="explicit version to chose")
     parser.add_argument("--tmpdir", default=tempfile.gettempdir(),
-                        help="explicit version to chose")
+                        help="explicit temporary directory to chose")
     parser.add_argument("--errata", default=os.path.join(os.path.dirname(__file__),
                                                          "go-gen-errata.json"), help="errata file for this tool")
     parser.add_argument("--erratadict", help=argparse.SUPPRESS)
