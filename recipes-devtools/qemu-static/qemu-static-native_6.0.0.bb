@@ -43,6 +43,8 @@ LIC_FILES_CHKSUM = "\
 DEPENDS += "\
     bison-native \
     glib-2.0-native \
+    meson-native \
+    ninja-native \
     pixman-native \
     qemu-native \
     zlib-native \
