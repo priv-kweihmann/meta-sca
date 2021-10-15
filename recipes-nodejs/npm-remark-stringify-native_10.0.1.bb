@@ -9,9 +9,9 @@ DEPENDS = "npm-mdast-util-to-markdown-native \
            npm-types-mdast-native \
            npm-unified-native"
 
-SRC_URI = "https://registry.npmjs.org/remark-stringify/-/remark-stringify-10.0.0.tgz"
-SRC_URI[md5sum] = "957e9ee27605829e03dcfe74e87875db"
-SRC_URI[sha256sum] = "7686cfd7dbc659ccec16b3419f55633d9a7f4c18784061b37296d89353a1a567"
+SRC_URI = "https://registry.npmjs.org/remark-stringify/-/remark-stringify-10.0.1.tgz"
+SRC_URI[md5sum] = "a5077e3fbab95d469c7efe210450fc2c"
+SRC_URI[sha256sum] = "695cc56b0cd1597088fcadf7b5228079f4f31ea720f18248997567c3e4a11cf6"
 
 NPM_PKGNAME = "remark-stringify"
 
