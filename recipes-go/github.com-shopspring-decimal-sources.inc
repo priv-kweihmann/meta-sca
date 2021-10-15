@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/shopspring/decimal/@v/v1.2.0.zip;srcoutput=github.com/shopspring/decimal;srcinput=github.com/shopspring/decimal@v1.2.0;downloadfilename=github-com-shopspring-decimal-1.2.0.zip;name=github-com-shopspring-decimal"
-SRC_URI[github-com-shopspring-decimal.sha256sum] = "65c34c248e7f736cadf03a7caa0c0870d15499eb593f933fe106c96c2b7699a7"
+SRC_URI += "https://proxy.golang.org/github.com/shopspring/decimal/@v/v1.3.0.zip;srcoutput=github.com/shopspring/decimal;srcinput=github.com/shopspring/decimal@v1.3.0;downloadfilename=github-com-shopspring-decimal-1.3.0.zip;name=github-com-shopspring-decimal"
+SRC_URI[github-com-shopspring-decimal.sha256sum] = "50e6ff6e3ccc13b134bb282f4bd0490a2a9b4a8795e6c36ac4646b838d3e3277"
 
 GOSRC_LICENSE += "\
     MIT \
