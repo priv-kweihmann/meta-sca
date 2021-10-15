@@ -9,9 +9,9 @@ DEPENDS = "npm-debug-native \
            npm-find-up-native \
            npm-pkg-dir-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-module-utils/-/eslint-module-utils-2.7.0.tgz"
-SRC_URI[md5sum] = "ea3e664d95a4ff8cca109161e97c66bd"
-SRC_URI[sha256sum] = "b756f04a447138de73eb681674a9825782ffb95167c80591eaa25017b7b923a9"
+SRC_URI = "https://registry.npmjs.org/eslint-module-utils/-/eslint-module-utils-2.7.1.tgz"
+SRC_URI[md5sum] = "a6766be0141e3a9ac35a5757c966e455"
+SRC_URI[sha256sum] = "222fb4c220f3a1995669a47a164e3dbf11bf7231b2289691ecbdf66380a1d626"
 
 NPM_PKGNAME = "eslint-module-utils"
 
