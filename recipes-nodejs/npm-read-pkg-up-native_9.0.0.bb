@@ -9,9 +9,9 @@ DEPENDS = "npm-find-up-native \
            npm-read-pkg-native \
            npm-type-fest-native"
 
-SRC_URI = "https://registry.npmjs.org/read-pkg-up/-/read-pkg-up-8.0.0.tgz"
-SRC_URI[md5sum] = "bd5d6d70c006ec3d91b906158b28c191"
-SRC_URI[sha256sum] = "ce7bcdc4eebcf0a56960a668725358e86c56dea0b5e83b1da5ee6bd7990aa310"
+SRC_URI = "https://registry.npmjs.org/read-pkg-up/-/read-pkg-up-9.0.0.tgz"
+SRC_URI[md5sum] = "7ceba28d6469d00ebb4cdec8a9078bc6"
+SRC_URI[sha256sum] = "f66247e888ca27dac1a3d74cf30b9476a5f3649f1ee2c8ebd7031a95aa99b326"
 
 NPM_PKGNAME = "read-pkg-up"
 
