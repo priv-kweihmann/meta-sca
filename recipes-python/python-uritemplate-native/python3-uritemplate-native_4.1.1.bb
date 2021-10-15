@@ -9,8 +9,8 @@ LIC_FILES_CHKSUM = "\
 
 PYPI_PACKAGE = "uritemplate"
 
-SRC_URI[md5sum] = "41a7400594e165838423ebf24f79cf0e"
-SRC_URI[sha256sum] = "69387b2f904692c61e01acf38b72211fbe8a01d93ec9d5e6fd215c1346393b8d"
+SRC_URI[md5sum] = "6a40709eb966d0a57fea08c3f11ff325"
+SRC_URI[sha256sum] = "4346edfc5c3b79f694bccd6d6099a322bbeb628dbf2cd86eea55a456ce5124f0"
 
 inherit pypi
 inherit setuptools3
