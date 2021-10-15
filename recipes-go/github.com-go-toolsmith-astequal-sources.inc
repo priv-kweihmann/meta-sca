@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/go-toolsmith/astequal/@v/v1.0.0.zip;srcoutput=github.com/go-toolsmith/astequal;srcinput=github.com/go-toolsmith/astequal@v1.0.0;downloadfilename=github-com-go-toolsmith-astequal-1.0.0.zip;name=github-com-go-toolsmith-astequal"
-SRC_URI[github-com-go-toolsmith-astequal.sha256sum] = "27a4a5e202ca18362425987c9ac37d3729549b5818ffdd3dde26ffb715df96a1"
+SRC_URI += "https://proxy.golang.org/github.com/go-toolsmith/astequal/@v/v1.0.1.zip;srcoutput=github.com/go-toolsmith/astequal;srcinput=github.com/go-toolsmith/astequal@v1.0.1;downloadfilename=github-com-go-toolsmith-astequal-1.0.1.zip;name=github-com-go-toolsmith-astequal"
+SRC_URI[github-com-go-toolsmith-astequal.sha256sum] = "dc44f26de7a9c3c9a92a122b6ed63885bf61fad56240cf3ab3b258173253f512"
 
 GOSRC_LICENSE += "\
     MIT \
