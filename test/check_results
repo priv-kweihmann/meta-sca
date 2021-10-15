@@ -92,12 +92,16 @@ else:
     _mods = sys.argv[2:]
 ret = 0
 for mod in _mods:
-    try:
-        for recipe, desc, name in get_tool_description(mod):
+    for recipe, desc, name in get_tool_description(mod):
+        try:
             test_integration(sys.argv[1], recipe, desc, name)
+        except Exception as e:
+            sys.stderr.write(str(e) + "\n")
+            ret = -1
+        try:
             test_results(sys.argv[1], recipe, desc, name)
             test_inv_results(sys.argv[1], recipe, desc, name)
-    except Exception as e:
-        sys.stderr.write(str(e) + "\n")
-        ret = -1
+        except Exception as e:
+            sys.stderr.write(str(e) + "\n")
+            ret = -1
 sys.exit(ret)
