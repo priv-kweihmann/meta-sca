@@ -79,25 +79,25 @@ def gosrc_version_pattern(d):
         return "releases/tag/v(?P<pver>\\d+\\.\\d+\\.\\d+)"
     import re
     _map = {
-        r"0.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>0.0.0-\d+-[a-f0-9]+)$",
-        r"1.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>1.0.0-\d+-[a-f0-9]+)$",
-        r"2.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>2.0.0-\d+-[a-f0-9]+)$",
-        r"3.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>3.0.0-\d+-[a-f0-9]+)$",
-        r"4.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>4.0.0-\d+-[a-f0-9]+)$",
-        r"5.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>5.0.0-\d+-[a-f0-9]+)$",
-        r"6.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>6.0.0-\d+-[a-f0-9]+)$",
-        r"7.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>7.0.0-\d+-[a-f0-9]+)$",
-        r"8.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>8.0.0-\d+-[a-f0-9]+)$",
-        r"9.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>9.0.0-\d+-[a-f0-9]+)$",
-        r"10.0.0-\d+-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>10.0.0-\d+-[a-f0-9]+)$",
-        r"\d+\.\d+\.\d+\+incompatible": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>\d+\.\d+\.\d+\+incompatible)$",
-        r"\d+\.\d+\.\d+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>\d+\.\d+\.\d+)$",
+        r"0.0.0-(\d+)-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>0.0.0-\\d+-[a-f0-9]+)$",
+        r"1.0.0-(\d+)-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>1.0.0-\\d+-[a-f0-9]+)$",
+        r"2.0.0-(\d+)-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>2.0.0-\\d+-[a-f0-9]+)$",
+        r"3.0.0-(\d+)-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>3.0.0-\\d+-[a-f0-9]+)$",
+        r"4.0.0-(\d+)-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>4.0.0-\\d+-[a-f0-9]+)$",
+        r"5.0.0-(\d+)-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>5.0.0-\\d+-[a-f0-9]+)$",
+        r"6.0.0-(\d+)-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>6.0.0-\\d+-[a-f0-9]+)$",
+        r"7.0.0-(\d+)-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>7.0.0-\\d+-[a-f0-9]+)$",
+        r"8.0.0-(\d+)-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>8.0.0-\\d+-[a-f0-9]+)$",
+        r"9.0.0-(\d+)-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>9.0.0-\\d+-[a-f0-9]+)$",
+        r"10.0.0-(\d+)-[a-f0-9]+": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>10.0.0-\\d+-[a-f0-9]+)$",
+        r"(\d+)\.(\d+)\.(\d+)\+incompatible": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>\\d+\.\\d+\.\\d+\+incompatible)$",
+        r"(\d+)\.(\d+)\.(\d+)": "/${GO_IMPORT}${UPSTREAM_CHECK_IMPORT_SUFFIX}@v(?P<pver>\\d+\.\\d+\.\\d+)$",
     }
     for pattern, value in _map.items():
         if re.match(pattern, d.getVar("PV")):
             bb.warn("Using {}".format(value))
             return value
-    return "/${GO_IMPORT}@v(?P<pver>\d+[\.\-_a-f0-9]+)"
+    return "/${GO_IMPORT}@v(?P<pver>\\d+[\.\-_a-f0-9]+)"
 
 UPSTREAM_CHECK_URI ?= "${@gosrc_upstream_url(d)}"
 UPSTREAM_CHECK_REGEX ?= "${@gosrc_version_pattern(d)}"
