@@ -12,8 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "bracex"
 
-SRC_URI[md5sum] = "43d4fc88823550525fdedbbacfa2ddcf"
-SRC_URI[sha256sum] = "01f715cd0ed7a622ec8b32322e715813f7574de531f09b70f6f3b2c10f682425"
+SRC_URI[md5sum] = "ef704c05bf12467e93fdc0ec63c995f3"
+SRC_URI[sha256sum] = "8230f3a03f1f76c192a7844377124300fbaec83870a728b629dfabd9be9e83d0"
 
 inherit pypi
 inherit setuptools3
