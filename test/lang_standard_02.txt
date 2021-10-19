@@ -12,7 +12,6 @@ looong
 msgcheck
 multimetric
 mypy
-npmaudit
 oelint
 proselint
 pyfindinjection
