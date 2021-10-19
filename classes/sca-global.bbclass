@@ -99,11 +99,9 @@ SCA_AVAILABLE_MODULES ?= "\
                           configcheck \
                           cppcheck \
                           cpplint \
-                          cspell \
                           darglint \
                           dennis \
                           detectsecrets \
-                          eslint \
                           flake8 \
                           flawfinder \
                           flint \
@@ -114,9 +112,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           golicensecheck \
                           golint \
                           gosec \
-                          htmlhint \
                           it \
-                          jshint \
                           jsonlint \
                           kconfighard \
                           looong \
@@ -135,39 +131,36 @@ SCA_AVAILABLE_MODULES ?= "\
                           pscan \
                           pyfindinjection \
                           pylint \
-                          pyright \
                           pysymcheck \
                           pytype \
                           rats \
                           reconbf \
-                          retire \
                           reuse \
                           revive \
                           safety \
-                          secretlint \
                           semgrep \
                           setuptoolslint \
                           shellcheck \
                           slick \
                           sparse \
-                          standard \
                           stank \
-                          stylelint \
                           sudokiller \
                           systemdlint \
-                          textlint \
                           tiger \
                           tscancode \
                           upc \
                           vulture \
-                          wotan \
                           xmllint \
                           yamllint \
                           yara \
                         "
 # additional layer requirements
 SCA_AVAILABLE_MODULES[clang] = "clang-layer"
+SCA_AVAILABLE_MODULES[cspell] = "openembedded-layer"
+SCA_AVAILABLE_MODULES[eslint] = "openembedded-layer"
+SCA_AVAILABLE_MODULES[htmlhint] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[inspec] = "openembedded-layer rubygems"
+SCA_AVAILABLE_MODULES[jshint] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[luacheck] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[phan] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[phpcodefixer] = "openembedded-layer"
@@ -176,8 +169,15 @@ SCA_AVAILABLE_MODULES[phpmd] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[phpsecaudit] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[phpstan] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[progpilot] = "openembedded-layer"
+SCA_AVAILABLE_MODULES[pyright] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[reek] = "rubygems"
+SCA_AVAILABLE_MODULES[retire] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[rubycritic] = "rubygems"
+SCA_AVAILABLE_MODULES[secretlint] = "openembedded-layer"
+SCA_AVAILABLE_MODULES[standard] = "openembedded-layer"
+SCA_AVAILABLE_MODULES[stylelint] = "openembedded-layer"
+SCA_AVAILABLE_MODULES[textlint] = "openembedded-layer"
+SCA_AVAILABLE_MODULES[wotan] = "openembedded-layer"
 
 # Modules using crossemu support, because they need some extra "love"
 _SCA_CROSSEMU_MODULES = "\

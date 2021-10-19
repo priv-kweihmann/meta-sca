@@ -10,7 +10,10 @@ phpmd
 phpsecaudit
 phpstan
 progpilot
+pyright
 retire
+secretlint
 standard
+stylelint
 textlint
 wotan
