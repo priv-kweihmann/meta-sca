@@ -5,6 +5,7 @@
         "npm"
     ],
     "uses": [
+        "@npm"
     ],
     "online": true,
     "quality": 10,

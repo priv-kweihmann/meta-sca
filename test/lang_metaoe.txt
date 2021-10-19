@@ -3,6 +3,7 @@ eslint
 htmlhint
 jshint
 luacheck
+npmaudit
 phan
 phpcodefixer
 phpcodesniffer
