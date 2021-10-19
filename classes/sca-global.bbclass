@@ -121,7 +121,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           msgcheck \
                           mypy \
                           nixauditor \
-                          npmaudit \
                           oelint \
                           perl \
                           perlcritic \
@@ -162,6 +161,7 @@ SCA_AVAILABLE_MODULES[htmlhint] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[inspec] = "openembedded-layer rubygems"
 SCA_AVAILABLE_MODULES[jshint] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[luacheck] = "openembedded-layer"
+SCA_AVAILABLE_MODULES[npmaudit] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[phan] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[phpcodefixer] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[phpcodesniffer] = "openembedded-layer"
