@@ -17,12 +17,9 @@ oelint
 proselint
 pyfindinjection
 pylint
-pyright
 pysymcheck
 safety
-secretlint
 setuptoolslint
-stylelint
 vulture
 xmllint
 yamllint
