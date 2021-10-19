@@ -17,13 +17,10 @@ oelint
 proselint
 pyfindinjection
 pylint
-pyright
 pysymcheck
 pytype
 safety
-secretlint
 setuptoolslint
-stylelint
 vulture
 xmllint
 yamllint
