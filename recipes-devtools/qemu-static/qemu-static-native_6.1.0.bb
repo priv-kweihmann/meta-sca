@@ -57,20 +57,17 @@ SRC_URI = "\
     file://powerpc_rom.bin \
     file://0001-qemu-Add-missing-wacom-HID-descriptor.patch \
     file://0003-qemu-Add-addition-environment-space-to-boot-loader-q.patch \
-    file://0004-qemu-disable-Valgrind.patch \
     file://0006-chardev-connect-socket-to-a-spawned-command.patch \
     file://0007-apic-fixup-fallthrough-to-PIC.patch \
     file://0010-configure-Add-pkg-config-handling-for-libgcrypt.patch \
-    file://0001-Add-enable-disable-udev.patch \
     file://0001-qemu-Do-not-include-file-if-not-exists.patch \
     file://mmap2.patch \
     file://determinism.patch \
     file://0001-tests-meson.build-use-relative-path-to-refer-to-file.patch \
-    file://0001-configure-fix-detection-of-gdbus-codegen.patch \
 "
 UPSTREAM_CHECK_REGEX = "qemu-(?P<pver>\d+(\.\d+)+)\.tar"
 
-SRC_URI[sha256sum] = "87bc1a471ca24b97e7005711066007d443423d19aacda3d442558ae032fa30b9"
+SRC_URI[sha256sum] = "eebc089db3414bbeedf1e464beda0a7515aad30f73261abc246c9b27503a3c96"
 
 # Applies against virglrender < 0.6.0 and not qemu itself
 CVE_CHECK_WHITELIST += "CVE-2017-5957"
