@@ -8,12 +8,12 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require github.com-spf13-viper-sources.inc
 
 EXTRA_DEPENDS += "\
-    github.com-bketelsen-crypt-native \
     github.com-fsnotify-fsnotify-native \
     github.com-hashicorp-hcl-native \
     github.com-magiconair-properties-native \
     github.com-mitchellh-mapstructure-native \
     github.com-pelletier-go-toml-native \
+    github.com-sagikazarmark-crypt-native \
     github.com-spf13-afero-native \
     github.com-spf13-cast-native \
     github.com-spf13-jwalterweatherman-native \
