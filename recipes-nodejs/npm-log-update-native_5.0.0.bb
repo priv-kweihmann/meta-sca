@@ -3,16 +3,16 @@ DESCRIPTION = "Log by overwriting the previous output in the terminal. Useful fo
 HOMEPAGE = "https://github.com/sindresorhus/log-update#readme"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
+LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = "npm-ansi-escapes-native \
            npm-cli-cursor-native \
            npm-slice-ansi-native \
            npm-wrap-ansi-native"
 
-SRC_URI = "https://registry.npmjs.org/log-update/-/log-update-4.0.0.tgz"
-SRC_URI[md5sum] = "b9cb96ab1578d62c8e3e97755019e45e"
-SRC_URI[sha256sum] = "b13f1d14d4071ec99af9dd00c6ebaa9dd0c239adda1fb815b950568c42eb6e89"
+SRC_URI = "https://registry.npmjs.org/log-update/-/log-update-5.0.0.tgz"
+SRC_URI[md5sum] = "1f255f56955e1bc89863f7ddc4f0e437"
+SRC_URI[sha256sum] = "45a41ed9a172bc1f6479488589a28abf85a76a945e8d56e26914953c4e0fee8f"
 
 NPM_PKGNAME = "log-update"
 
