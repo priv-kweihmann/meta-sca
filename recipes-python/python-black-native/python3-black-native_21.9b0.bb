@@ -8,6 +8,7 @@ DEPENDS += "\
             python3-appdirs-native \
             python3-attrs-native \
             python3-click-native \
+            python3-packaging-native \
             python3-setuptools-scm-native \
             python3-toml-native \
             python3-typed-ast-native \
@@ -15,8 +16,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "black"
 
-SRC_URI[md5sum] = "112af1794be1592ec34f36a7507685bf"
-SRC_URI[sha256sum] = "570608d28aa3af1792b98c4a337dbac6367877b47b12b88ab42095cfc1a627c2"
+SRC_URI[md5sum] = "898555875ee1993d0a31f83b2675d956"
+SRC_URI[sha256sum] = "7de4cfc7eb6b710de325712d40125689101d21d25283eed7e9998722cf10eb91"
 
 UPSTREAM_CHECK_REGEX ?= "/${PYPI_PACKAGE}/(?P<pver>(\d+[a-z0-9\.\-_]*)+)"
 
