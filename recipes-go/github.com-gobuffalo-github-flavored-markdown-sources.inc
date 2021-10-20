@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/github_flavored_markdown/@v/v1.1.0.zip;srcoutput=github.com/gobuffalo/github_flavored_markdown;srcinput=github.com/gobuffalo/github_flavored_markdown@v1.1.0;downloadfilename=github-com-gobuffalo-github-flavored-markdown-1.1.0.zip;name=github-com-gobuffalo-github-flavored-markdown"
-SRC_URI[github-com-gobuffalo-github-flavored-markdown.sha256sum] = "2d73a2baad09dc0d0f0c01549c35e83ab0c18c97f859191e54a632c2fb0eaad2"
+SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/github_flavored_markdown/@v/v1.1.1.zip;srcoutput=github.com/gobuffalo/github_flavored_markdown;srcinput=github.com/gobuffalo/github_flavored_markdown@v1.1.1;downloadfilename=github-com-gobuffalo-github-flavored-markdown-1.1.1.zip;name=github-com-gobuffalo-github-flavored-markdown"
+SRC_URI[github-com-gobuffalo-github-flavored-markdown.sha256sum] = "1d8e9375452db7fea878fa3bbf7b7526b091f719d93d9054de568f6b2063e7f3"
 
 GOSRC_LICENSE += "\
     BSD-2-Clause \
