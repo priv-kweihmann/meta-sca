@@ -9,7 +9,6 @@ DEPENDS += "\
             npm-textlint-plugin-html-native \
             npm-textlint-plugin-rst-native \
             npm-textlint-rule-abbr-within-parentheses-native \
-            npm-textlint-rule-alex-native \
             npm-textlint-rule-apostrophe-native \
             npm-textlint-rule-common-misspellings-native \
             npm-textlint-rule-date-weekday-mismatch-native \
