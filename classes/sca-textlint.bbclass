@@ -12,7 +12,6 @@ SCA_TEXTLINT_RULES ?= "\
                         textlint-rule-diacritics \
                         textlint-rule-en-max-word-count \
                         textlint-rule-max-comma \
-                        textlint-rule-alex \
                         textlint-rule-max-number-of-lines \
                         textlint-rule-ng-word \
                         textlint-rule-no-dead-link \
