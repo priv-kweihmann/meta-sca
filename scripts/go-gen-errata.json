@@ -515,6 +515,17 @@
             "do_compile[noexec] = \"1\""
         ]
     },
+    "go.etcd.io/etcd/client/v2": {
+        "extramods": [
+            "go.etcd.io/etcd/client/v3"
+        ]
+    },
+    "go.etcd.io/etcd/client/v3": {
+        "extramods": [
+            "go.etcd.io/etcd/api/v3",
+            "go.etcd.io/etcd/client/pkg/v3"
+        ]
+    },
     "golang.org/x/crypto": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"golang.org/x/crypto/internal/wycheproof\""
