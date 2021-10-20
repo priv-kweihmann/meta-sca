@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/map-obj/-/map-obj-4.3.0.tgz"
-SRC_URI[md5sum] = "82f7b45508107d760a1e386135996d80"
-SRC_URI[sha256sum] = "2ccabecf48bf09bb017850126176215e29102bbdee05c6d5adc06fd98c78414b"
+SRC_URI = "https://registry.npmjs.org/map-obj/-/map-obj-5.0.0.tgz"
+SRC_URI[md5sum] = "3547247a57f5fa65edb108331ebbe60a"
+SRC_URI[sha256sum] = "fd11bf4b963a59d32492c501156a774bbabf503b8286ce9ee5e113aa34e6ebc1"
 
 NPM_PKGNAME = "map-obj"
 
