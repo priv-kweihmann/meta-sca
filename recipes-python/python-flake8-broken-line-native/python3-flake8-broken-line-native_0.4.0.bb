@@ -13,8 +13,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "flake8-broken-line"
 
-SRC_URI[md5sum] = "075939d2756ca63cbb2af541ac1d01ec"
-SRC_URI[sha256sum] = "f74e052833324a9e5f0055032f7ccc54b23faabafe5a26241c2f977e70b10b50"
+SRC_URI[md5sum] = "0f6a4b83ae91cede2a6b42b1d6041582"
+SRC_URI[sha256sum] = "771aab5aa0997666796fed249d0e48e6c01cdfeca8c95521eea28a38b7ced4c7"
 
 inherit pypi
 inherit setuptools3
