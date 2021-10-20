@@ -4,14 +4,17 @@ HOMEPAGE = "https://github.com/pypa/setuptools_scm"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=8227180126797a0148f94f483f3e1489"
 
-DEPENDS += "python3-setuptools-native"
+DEPENDS += "\
+    python3-packaging-native \
+    python3-setuptools-native \
+    python3-tomli-native \
+"
 
 PYPI_PACKAGE = "setuptools_scm"
 
 UPSTREAM_CHECK_REGEX ?= "/setuptools-scm/(?P<pver>(\d+[\.\-_]*)+)"
 
-SRC_URI[md5sum] = "aa7f0efbbf46c5576db5994dd1ce3f8d"
-SRC_URI[sha256sum] = "d1925a69cb07e9b29416a275b9fadb009a23c148ace905b2fb220649a6c18e92"
+SRC_URI[sha256sum] = "a49aa8081eeb3514eb9728fa5040f2eaa962d6c6f4ec9c32f6c1fba88f88a0f2"
 
 inherit pypi
 inherit setuptools3
