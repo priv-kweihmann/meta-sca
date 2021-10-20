@@ -9,8 +9,9 @@ require github.com-bketelsen-crypt-sources.inc
 
 EXTRA_DEPENDS += "\
     cloud.google.com-go-firestore-native \
-    github.com-coreos-etcd-native \
     github.com-hashicorp-consul-api-native \
+    go.etcd.io-etcd-client-v2-native \
+    go.etcd.io-etcd-client-v3-native \
     golang.org-x-crypto-native \
     google.golang.org-api-native \
     google.golang.org-grpc-native \
