@@ -22,6 +22,6 @@ inherit native
 do_configure:prepend() {
 cat > ${S}/setup.py <<-EOF
 from setuptools import setup
-setup(name="jsonschema", version="${PV}", packages=["jsonschema"], package_data={"": ["*"]})
+setup(name="jsonschema", version="${PV}", packages=["jsonschema"], package_data={"jsonschema": ["schemas/*.json", "schemas/*/*.json"]})
 EOF
 }
