@@ -3,14 +3,12 @@ DESCRIPTION = "Python HTTP library with thread-safe connection pooling, file pos
 HOMEPAGE = "https://github.com/urllib3/urllib3"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=ea114851ad9a8c311aac8728a681a067"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=c2823cb995439c984fd62a973d79815c"
 
 PYPI_PACKAGE = "urllib3"
 
-UPSTREAM_CHECK_REGEX = "/${PYPI_PACKAGE}/(?P<pver>1\.21\.\d+)"
-
-SRC_URI[md5sum] = "ef6c72c79b9c6bcd68c204f9b92abc86"
-SRC_URI[sha256sum] = "b14486978518ca0901a76ba973d7821047409d7f726f22156b24e83fd71382a5"
+SRC_URI[md5sum] = "e0051a87a956e618a6bb514a07fa7773"
+SRC_URI[sha256sum] = "4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"
 
 inherit pypi
 inherit setuptools3
