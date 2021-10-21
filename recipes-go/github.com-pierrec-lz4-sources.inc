@@ -1,5 +1,5 @@
-SRC_URI += "https://github.com/pierrec/lz4/archive/refs/tags/v4.1.8.zip;srcoutput=github.com/pierrec/lz4;srcinput=lz4-4.1.8;downloadfilename=github-com-pierrec-lz4-4.1.8.zip;name=github-com-pierrec-lz4"
-SRC_URI[github-com-pierrec-lz4.sha256sum] = "4a92ad5709aa2bedf929dafcee6e86c276fcff65ba6ba1e47184a3989b40810c"
+SRC_URI += "https://github.com/pierrec/lz4/archive/refs/tags/v4.1.9.zip;srcoutput=github.com/pierrec/lz4;srcinput=lz4-4.1.9;downloadfilename=github-com-pierrec-lz4-4.1.9.zip;name=github-com-pierrec-lz4"
+SRC_URI[github-com-pierrec-lz4.sha256sum] = "143c2e5748b3d96d0d73b736edfb9fd2a482917b418237ee059149070b4da8db"
 GOSRC_REMOVEDIRS += "github.com/pierrec/lz4/cmd"
 
 GOSRC_LICENSE += "\
