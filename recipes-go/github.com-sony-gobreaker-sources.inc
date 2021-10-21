@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/sony/gobreaker/@v/v0.4.1.zip;srcoutput=github.com/sony/gobreaker;srcinput=github.com/sony/gobreaker@v0.4.1;downloadfilename=github-com-sony-gobreaker-0.4.1.zip;name=github-com-sony-gobreaker"
-SRC_URI[github-com-sony-gobreaker.sha256sum] = "eab9bf8f98b16b051d7d13c4f5c70d6d1039347e380e0a12cb9ff6e33200d784"
+SRC_URI += "https://proxy.golang.org/github.com/sony/gobreaker/@v/v0.5.0.zip;srcoutput=github.com/sony/gobreaker;srcinput=github.com/sony/gobreaker@v0.5.0;downloadfilename=github-com-sony-gobreaker-0.5.0.zip;name=github-com-sony-gobreaker"
+SRC_URI[github-com-sony-gobreaker.sha256sum] = "9b4fe3991963f409116289a0d9830896096da7dd8a090bf404348904737ba833"
 
 GOSRC_LICENSE += "\
     MIT \
