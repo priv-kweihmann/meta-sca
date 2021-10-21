@@ -35,6 +35,11 @@ inherit native
 
 export SEMGREP_SKIP_BIN = "1"
 
+do_configure:prepend() {
+    # Remove the version pinning
+    sed -i "s#jsonschema~=3.2.0#jsonschema>=3.2.0#g" "${S}/setup.py"
+}
+
 do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/semgrep.sca.description ${D}${datadir}
