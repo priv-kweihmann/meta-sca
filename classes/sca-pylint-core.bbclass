@@ -73,7 +73,7 @@ python do_sca_pylint_core() {
 
     ## Run
     cur_dir = os.getcwd()
-    os.chdir(d.getVar("SCA_SOURCES_DIR", True))
+    os.chdir(d.getVar("SCA_SOURCES_DIR"))
 
     os.environ["STAGING_LIBDIR"] = d.getVar("STAGING_LIBDIR")
 

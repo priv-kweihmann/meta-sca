@@ -30,7 +30,7 @@ def do_sca_conv_oelint(d, _files):
     import os
     import re
 
-    package_name = d.getVar("PN", True)
+    package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     items = []

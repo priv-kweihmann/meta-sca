@@ -104,8 +104,8 @@ python do_sca_cppcheck() {
     import os
     import subprocess
 
-    _user_rules = os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "cppcheck-user-rules.xml")
-    _add_include = d.getVar("SCA_CPPCHECK_ADD_INCLUDES", True).split(" ")
+    _user_rules = os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "cppcheck-user-rules.xml")
+    _add_include = d.getVar("SCA_CPPCHECK_ADD_INCLUDES").split(" ")
 
     # Copy configurations into special dir
     subprocess.check_call(["ln", "-sf", d.expand("${STAGING_DATADIR_NATIVE}/cfg"), d.expand("${T}/cfg")])
@@ -123,7 +123,7 @@ python do_sca_cppcheck() {
         _args += ["--enable=warning,style,performance,portability,information"]
         _args += ["-j", d.getVar("BB_NUMBER_THREADS")]
     _args += ["--inline-suppr"]
-    _args += ["-I", d.getVar("STAGING_INCDIR", True)]
+    _args += ["-I", d.getVar("STAGING_INCDIR")]
     for item in _add_include:
         _args += ["-I", item]
     _args += ["--xml-version=2"]
