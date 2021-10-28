@@ -79,7 +79,7 @@ python do_sca_clang() {
     import glob
 
 
-    _add_include = d.getVar("SCA_CLANG_ADD_INCLUDES", True).split(" ")
+    _add_include = d.getVar("SCA_CLANG_ADD_INCLUDES").split(" ")
 
     inc_dirs = [d.getVar("SCA_SOURCES_DIR"),
                 os.path.join(d.getVar("SCA_SOURCES_DIR"), "include"),
@@ -128,7 +128,7 @@ python do_sca_clang_report() {
         o.write(dm_output)
 
     sca_task_aftermath(d, "clang", get_fatal_entries(d, "SCA_CLANG_EXTRA_FATAL",
-                        os.path.join(d.getVar("STAGING_DATADIR_NATIVE", True), "clang-{}-fatal".format(d.getVar("SCA_MODE")))))
+                        os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "clang-{}-fatal".format(d.getVar("SCA_MODE")))))
 }
 
 do_sca_clang[doc] = "Run scan of clang-tidy on recipe"

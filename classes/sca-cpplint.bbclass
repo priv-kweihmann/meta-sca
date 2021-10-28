@@ -73,7 +73,7 @@ python do_sca_cpplint() {
     _args += ["--jobs={}".format(d.getVar("BB_NUMBER_THREADS"))]
     _args += ["--output=emacs"]
     _args += ["--quiet"]
-    _args += ["--root={}".format(d.getVar("B", True))]
+    _args += ["--root={}".format(d.getVar("B"))]
 
     _files = get_files_by_extention(d,
                                     d.getVar("SCA_SOURCES_DIR"),
