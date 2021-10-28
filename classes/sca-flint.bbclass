@@ -78,7 +78,7 @@ python do_sca_flint() {
 
     ## Run
     cur_dir = os.getcwd()
-    os.chdir(d.getVar("B", True))
+    os.chdir(d.getVar("B"))
 
     cmd_output = exec_wrap_check_output(d, _args, _files)
 
