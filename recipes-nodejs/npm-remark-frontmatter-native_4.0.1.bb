@@ -10,9 +10,9 @@ DEPENDS = "npm-mdast-util-frontmatter-native \
            npm-types-mdast-native \
            npm-unified-native"
 
-SRC_URI = "https://registry.npmjs.org/remark-frontmatter/-/remark-frontmatter-4.0.0.tgz"
-SRC_URI[md5sum] = "03c2908fa6a3454383ae68441a296b08"
-SRC_URI[sha256sum] = "36469367edb17a6f4b2abe1f95c032d1143ae9a3fb3fe7d1c60c10838947df35"
+SRC_URI = "https://registry.npmjs.org/remark-frontmatter/-/remark-frontmatter-4.0.1.tgz"
+SRC_URI[md5sum] = "14a2dae82e91ec77025d79dea76720d7"
+SRC_URI[sha256sum] = "89485afd464acd3afb13c00a8c66c2fcdbc9d196129e2f32711ae4fa2d706534"
 
 NPM_PKGNAME = "remark-frontmatter"
 
