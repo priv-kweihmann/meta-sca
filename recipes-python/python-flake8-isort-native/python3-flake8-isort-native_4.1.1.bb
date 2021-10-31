@@ -11,7 +11,7 @@ DEPENDS += "\
             python3-testfixtures-native \
             "
 
-SRC_URI = "git://github.com/gforcada/flake8-isort.git;protocol=https"
+SRC_URI = "git://github.com/gforcada/flake8-isort.git;branch=master;protocol=https"
 SRCREV = "8d25aab33c972ca362f35e74e3d4bb1d1f670cec"
 
 S = "${WORKDIR}/git"

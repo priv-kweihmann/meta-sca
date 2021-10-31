@@ -14,7 +14,7 @@ DEPENDS += "\
     libtalloc-native \
 "
 
-SRC_URI = "git://github.com/proot-me/proot.git;protocol=https"
+SRC_URI = "git://github.com/proot-me/proot.git;branch=master;protocol=https"
 SRCREV = "ba3cb343fa4edf7bdfd68827c18e44b01d0d6ba0"
 
 S = "${WORKDIR}/git/src"

@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/dev-sec/php-baseline"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=34400b68072d710fecd0a2940a0d1658"
 
-SRC_URI = "git://github.com/dev-sec/php-baseline.git;protocol=https"
+SRC_URI = "git://github.com/dev-sec/php-baseline.git;branch=master;protocol=https"
 SRCREV = "36344df05200513d16ef17330f3e50c55be110cf"
 S = "${WORKDIR}/git"
 
