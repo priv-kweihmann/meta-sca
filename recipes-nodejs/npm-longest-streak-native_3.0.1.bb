@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=7e5307a85144ae88c8ce8eb803918a97"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/longest-streak/-/longest-streak-3.0.0.tgz"
-SRC_URI[md5sum] = "0e36b20704224a3128e5be9cc4ac8a68"
-SRC_URI[sha256sum] = "f0e3cf49d3b33d7a4c44654f0d31c413024234c5e211d9c4923ab2a2b3ac5807"
+SRC_URI = "https://registry.npmjs.org/longest-streak/-/longest-streak-3.0.1.tgz"
+SRC_URI[md5sum] = "1e57fc901c9b53ab162dbff1a9213cf1"
+SRC_URI[sha256sum] = "180bf171d7f1915d3b97833dbd42cdd63a1eab25a692be60196ae95077cf2980"
 
 NPM_PKGNAME = "longest-streak"
 
