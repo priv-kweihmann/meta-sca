@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 SRC_URI = "git://github.com/danmar/cppcheck.git;protocol=https;nobranch=1 \
            file://0001-Makefile-fixes.patch \
            file://cppcheck.sca.description"
-SRCREV = "d873b8e77189cf6b974fc9d403df8e8500eded7b"
+SRCREV = "d1d60999ad91193a0186983c71a2fcfbb9c9dd1b"
 
 S = "${WORKDIR}/git"
 
