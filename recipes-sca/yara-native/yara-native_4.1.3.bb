@@ -12,7 +12,7 @@ SRC_URI = "git://github.com/VirusTotal/yara.git;protocol=https;branch=4.1.x \
            file://0001-remove-protobuf-requirement.patch \
            "
 
-SRCREV = "8206dc6f728fe50e21af92cb40e454b68ef6af05"
+SRCREV = "b99a808cf9955090b909c72d6a0da5295c3cbc7c"
 
 S = "${WORKDIR}/git"
 
