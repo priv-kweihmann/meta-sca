@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b1d0cd283a346e919abb3beeb018279d"
 
 DEPENDS = "npm-babel-highlight-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.15.8.tgz"
-SRC_URI[md5sum] = "4419cb80f9d8fbdad87f715862949dc5"
-SRC_URI[sha256sum] = "17d8c21ced16ed60b55c6276317db7408ef70b0c55c29dec37be2578ade8bd69"
+SRC_URI = "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.16.0.tgz"
+SRC_URI[md5sum] = "31b6e7e1b090d2b1fb04bffc41fae92a"
+SRC_URI[sha256sum] = "284003838b007ee74da4aa87abb283a64ea59a1a2f8b3dbdb2d772bd2839fd6a"
 
 NPM_PKGNAME = "@babel/code-frame"
 
