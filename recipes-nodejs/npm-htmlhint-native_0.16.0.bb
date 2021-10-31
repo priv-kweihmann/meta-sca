@@ -15,9 +15,9 @@ DEPENDS = "npm-async-native \
            npm-types-node-fetch-native \
            npm-xml-native"
 
-SRC_URI = "https://registry.npmjs.org/htmlhint/-/htmlhint-0.15.2.tgz"
-SRC_URI[md5sum] = "d99218ccedaaed12d09111e707d8fa47"
-SRC_URI[sha256sum] = "f1971d9047394422ac16fe3e8d369c28f0105315183c3d3f950b12504f04d6cd"
+SRC_URI = "https://registry.npmjs.org/htmlhint/-/htmlhint-0.16.0.tgz"
+SRC_URI[md5sum] = "7ce2c68de3b3babc0d4544892399890a"
+SRC_URI[sha256sum] = "fe2a0fbbc63766edf20b564ba92bef5e8fb0478f8d0eff6b38b2acc55dbc3436"
 
 NPM_PKGNAME = "htmlhint"
 
