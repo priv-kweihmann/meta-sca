@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/envoyproxy/go-control-plane/@v/v0.9.9.zip;srcoutput=github.com/envoyproxy/go-control-plane;srcinput=github.com/envoyproxy/go-control-plane@v0.9.9;downloadfilename=github-com-envoyproxy-go-control-plane-0.9.9.zip;name=github-com-envoyproxy-go-control-plane"
-SRC_URI[github-com-envoyproxy-go-control-plane.sha256sum] = "84485d8571164b23d0cf34ef8872d028fda7781d24523f9f49c6de093b25e9a2"
+SRC_URI += "https://proxy.golang.org/github.com/envoyproxy/go-control-plane/@v/v0.10.0.zip;srcoutput=github.com/envoyproxy/go-control-plane;srcinput=github.com/envoyproxy/go-control-plane@v0.10.0;downloadfilename=github-com-envoyproxy-go-control-plane-0.10.0.zip;name=github-com-envoyproxy-go-control-plane"
+SRC_URI[github-com-envoyproxy-go-control-plane.sha256sum] = "90a076e6d1609eb50fa7186de83c6d722001e813eaed29b713a4c02a15463e0e"
 GOSRC_REMOVEDIRS += "github.com/envoyproxy/go-control-plane/pkg/integration"
 
 GOSRC_LICENSE += "\
