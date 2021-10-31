@@ -8,7 +8,9 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require contrib.go.opencensus.io-exporter-stackdriver-sources.inc
 
 EXTRA_DEPENDS += "\
+    cloud.google.com-go-monitoring-native \
     cloud.google.com-go-native \
+    cloud.google.com-go-trace-native \
     github.com-aws-aws-sdk-go-native \
     github.com-census-instrumentation-opencensus-proto-native \
     github.com-golang-protobuf-native \
@@ -25,10 +27,10 @@ EXTRA_DEPENDS += "\
     honnef.co-go-tools-native \
 "
 
+GO_IMPORT = "contrib.go.opencensus.io/exporter/stackdriver"
+
 # version is too far behind on cloud APIs - disable the compile
 do_compile[noexec] = "1"
-
-GO_IMPORT = "contrib.go.opencensus.io/exporter/stackdriver"
 
 inherit gosrc
 inherit native
