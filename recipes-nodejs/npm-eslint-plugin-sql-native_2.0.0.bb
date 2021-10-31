@@ -11,9 +11,9 @@ DEPENDS = "npm-astring-native \
            npm-pg-formatter-native \
            npm-sql-parse-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-sql/-/eslint-plugin-sql-1.2.1.tgz"
-SRC_URI[md5sum] = "ad07b411ed89aae935b2bd99f37e29e6"
-SRC_URI[sha256sum] = "4e67983db705570cd25f1216f522267d51f97a0f4c5ec1283108d4d31917df26"
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-sql/-/eslint-plugin-sql-2.0.0.tgz"
+SRC_URI[md5sum] = "8a1631c51f630e3e13f38acb935592cb"
+SRC_URI[sha256sum] = "ad951346636481cade0eb02c970bb0057b851a58628fe5eb82f5748c302f2088"
 
 NPM_PKGNAME = "eslint-plugin-sql"
 
