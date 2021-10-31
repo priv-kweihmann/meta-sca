@@ -14,9 +14,9 @@ DEPENDS = "npm-babel-helper-module-imports-native \
            npm-babel-traverse-native \
            npm-babel-types-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/helper-module-transforms/-/helper-module-transforms-7.15.8.tgz"
-SRC_URI[md5sum] = "7bb48faeb8693408ff81b7da9839486a"
-SRC_URI[sha256sum] = "6178a7fbaba46257110102eff307ee50fa57feb68633bca4474300333562c611"
+SRC_URI = "https://registry.npmjs.org/@babel/helper-module-transforms/-/helper-module-transforms-7.16.0.tgz"
+SRC_URI[md5sum] = "6d490e3871bd62791cd26e6b597d62a4"
+SRC_URI[sha256sum] = "3b9472974dba65b8b1c4cdca0e0722fe3d7cdd5e0e29d36101a36aeaa2f36670"
 
 NPM_PKGNAME = "@babel/helper-module-transforms"
 
