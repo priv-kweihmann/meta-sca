@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/firestore/@v/v1.6.0.zip;srcoutput=cloud.google.com/go/firestore;srcinput=cloud.google.com/go/firestore@v1.6.0;downloadfilename=cloud-google-com-go-firestore-1.6.0.zip;name=cloud-google-com-go-firestore"
-SRC_URI[cloud-google-com-go-firestore.sha256sum] = "f79341227214085b826602588d3e6e4b78d4ac0c017b29ca4012e1089c94d16a"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/firestore/@v/v1.6.1.zip;srcoutput=cloud.google.com/go/firestore;srcinput=cloud.google.com/go/firestore@v1.6.1;downloadfilename=cloud-google-com-go-firestore-1.6.1.zip;name=cloud-google-com-go-firestore"
+SRC_URI[cloud-google-com-go-firestore.sha256sum] = "c54b44dfd448854faa577de12a71c90916fee9076c5e935d9e6c973b026ec086"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
