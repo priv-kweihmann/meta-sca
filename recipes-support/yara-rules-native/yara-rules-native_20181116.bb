@@ -4,7 +4,7 @@ LICENSE = "Unlicense"
 
 LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/files/licenses/Unlicense;md5=1d267ceb3a8d8f75f1be3011ee4cbf53"
 
-SRC_URI = "git://github.com/mikesxrs/Open-Source-YARA-rules.git;protocol=https"
+SRC_URI = "git://github.com/mikesxrs/Open-Source-YARA-rules.git;branch=master;protocol=https"
 SRCREV = "3ab2b7ffb42c587943ae0bd36b91520f74df26b6"
 UPSTREAM_CHECK_COMMITS = "1"
 

@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/luarocks/luacheck"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=78c1d9d1063a2e3c98965716ac8494f0"
 
-SRC_URI = "git://github.com/luarocks/luacheck.git;protocol=https \
+SRC_URI = "git://github.com/luarocks/luacheck.git;branch=master;protocol=https \
            file://luacheck.sca.description"
 SRCREV = "abf7386a892df4ce566fef9e4640ddbf9af78411"
 

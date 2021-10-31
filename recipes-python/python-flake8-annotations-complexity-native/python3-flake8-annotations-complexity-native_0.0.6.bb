@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=352fd8fef192c98968c70971a80f959c"
 
 PV = "0.0.6+${SRCREV}"
 
-SRC_URI = "git://github.com/best-doctor/flake8-annotations-complexity.git;protocol=https"
+SRC_URI = "git://github.com/best-doctor/flake8-annotations-complexity.git;branch=master;protocol=https"
 SRCREV = "e8c51b6fae2a4f911aa05c2bc45fbea1f633fc96"
 
 UPSTREAM_CHECK_COMMITS = "1"

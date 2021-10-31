@@ -10,7 +10,7 @@ DEPENDS += "\
             python3-requests-native \
            "
 
-SRC_URI = "git://github.com/Yelp/detect-secrets.git;protocol=https"
+SRC_URI = "git://github.com/Yelp/detect-secrets.git;branch=master;protocol=https"
 SRC_URI += "file://detectsecrets.sca.description"
 SRCREV = "d7803997edac16c09d8cfe7a9c30305dada392ff"
 S = "${WORKDIR}/git"

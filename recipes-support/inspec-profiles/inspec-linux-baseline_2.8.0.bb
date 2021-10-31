@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/dev-sec/linux-baseline"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=34400b68072d710fecd0a2940a0d1658"
 
-SRC_URI = "git://github.com/dev-sec/linux-baseline.git;protocol=https"
+SRC_URI = "git://github.com/dev-sec/linux-baseline.git;branch=master;protocol=https"
 SRCREV = "2735730e7f063878beecce987a35d2c0a29421fd"
 S = "${WORKDIR}/git"
 

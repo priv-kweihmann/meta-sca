@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/dev-sec/ansible-mysql-hardening"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://README.md;beginline=102;endline=116;md5=b0fb70f60608f0cc14daa7d3f72aed35"
 
-SRC_URI = "git://github.com/dev-sec/ansible-mysql-hardening.git;protocol=https \
+SRC_URI = "git://github.com/dev-sec/ansible-mysql-hardening.git;branch=master;protocol=https \
            file://${ROLE_NAME}.json"
 SRCREV = "e9782fb2c15d853826a91ca5640edbf0fca6cfcc"
 S = "${WORKDIR}/git"

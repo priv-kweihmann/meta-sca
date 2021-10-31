@@ -5,7 +5,7 @@ HOMEPAGE = "https://github.com/dev-sec/ansible-ssh-hardening"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://README.md;beginline=212;md5=b156ab02bcca4cc0b1ad712e991868da"
 
-SRC_URI = "git://github.com/dev-sec/ansible-ssh-hardening.git;protocol=https \
+SRC_URI = "git://github.com/dev-sec/ansible-ssh-hardening.git;branch=master;protocol=https \
            file://${ROLE_NAME}.json"
 SRCREV = "aaece07fe0cc862b137bf70980a5d912fe3195a4"
 S = "${WORKDIR}/git"
