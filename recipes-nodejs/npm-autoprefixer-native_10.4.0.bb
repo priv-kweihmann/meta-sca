@@ -12,9 +12,9 @@ DEPENDS = "npm-browserslist-native \
            npm-picocolors-native \
            npm-postcss-value-parser-native"
 
-SRC_URI = "https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.3.7.tgz"
-SRC_URI[md5sum] = "0900175f3d997481c0c59d6cdbb9af6a"
-SRC_URI[sha256sum] = "c15014654f6a06bef1474ad92d00657a413cb4ae3c31b0ed5d581e063eaeda1c"
+SRC_URI = "https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.4.0.tgz"
+SRC_URI[md5sum] = "e7fadcfe824eb44d8017ea4108a17a01"
+SRC_URI[sha256sum] = "f195747da2fbb2bcd66fa0720b38ff3d36daa79ce1a992726f52132b7429baef"
 
 NPM_PKGNAME = "autoprefixer"
 
