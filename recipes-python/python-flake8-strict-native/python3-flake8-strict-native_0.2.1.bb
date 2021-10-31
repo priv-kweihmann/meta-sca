@@ -10,7 +10,7 @@ DEPENDS += "\
             python3-flake8-native \
            "
 
-SRC_URI = "git://github.com/smarkets/flake8-strict.git;protocol=https"
+SRC_URI = "git://github.com/smarkets/flake8-strict.git;branch=master;protocol=https"
 SRCREV = "7c40ad30ecb6d8a31ac384ed49bb8107cfd5023e"
 UPSTREAM_CHECK_COMMITS = "1"
 

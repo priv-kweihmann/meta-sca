@@ -9,7 +9,7 @@ DEPENDS += "\
             python3-pytest-native \
             python3-setuptools-native \
             "
-SRC_URI += "git://github.com/best-doctor/flake8-functions.git;protocol=https"
+SRC_URI += "git://github.com/best-doctor/flake8-functions.git;branch=master;protocol=https"
 SRCREV = "567b922d4fecf92fb6680669c08b861e178ba689"
 
 UPSTREAM_CHECK_COMMITS = "1"
