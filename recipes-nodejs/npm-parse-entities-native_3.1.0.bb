@@ -1,5 +1,5 @@
 SUMMARY = "NPM: parse-entities"
-DESCRIPTION = "Parse HTML character references: fast, spec-compliant, positional information"
+DESCRIPTION = "Parse HTML character references"
 HOMEPAGE = "https://github.com/wooorm/parse-entities#readme"
 
 LICENSE = "MIT"
@@ -10,11 +10,12 @@ DEPENDS = "npm-character-entities-legacy-native \
            npm-character-reference-invalid-native \
            npm-is-alphanumerical-native \
            npm-is-decimal-native \
-           npm-is-hexadecimal-native"
+           npm-is-hexadecimal-native \
+           npm-types-unist-native"
 
-SRC_URI = "https://registry.npmjs.org/parse-entities/-/parse-entities-3.0.0.tgz"
-SRC_URI[md5sum] = "f2a69a80cd12e822877d8e66d9255df2"
-SRC_URI[sha256sum] = "b94598387ea056619c0e30acdbb59d15a1ae12f389786916a8cbd6c30bd6ec0b"
+SRC_URI = "https://registry.npmjs.org/parse-entities/-/parse-entities-3.1.0.tgz"
+SRC_URI[md5sum] = "552abc0521aa967697531b00840f33d4"
+SRC_URI[sha256sum] = "d43a63a456fb660536d29279392f4796ef3a625d242b58e70abcb6656c648810"
 
 NPM_PKGNAME = "parse-entities"
 
