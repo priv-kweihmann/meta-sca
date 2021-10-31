@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/p-timeout/-/p-timeout-5.0.1.tgz"
-SRC_URI[md5sum] = "41a78c19a65a2c8ba444995a7dff38e8"
-SRC_URI[sha256sum] = "136cd6281af6f5437a4db3984f205e7d35c0100d8149e93132689466e4388bc4"
+SRC_URI = "https://registry.npmjs.org/p-timeout/-/p-timeout-5.0.2.tgz"
+SRC_URI[md5sum] = "202adf6981cdd4604f6ac5ee83f2b528"
+SRC_URI[sha256sum] = "de253d5811084baccf978776f79d10f35de7b0431c59d582036ed2f30104ef3e"
 
 NPM_PKGNAME = "p-timeout"
 
