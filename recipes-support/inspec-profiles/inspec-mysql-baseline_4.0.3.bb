@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/dev-sec/mysql-baseline"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://README.md;beginline=25;md5=c82165669c804457a5124013cb24171c"
 
-SRC_URI = "git://github.com/dev-sec/mysql-baseline.git;protocol=https"
+SRC_URI = "git://github.com/dev-sec/mysql-baseline.git;branch=master;protocol=https"
 SRCREV = "fc8340813847d55ac60447f30ffd8b4ca767c187"
 S = "${WORKDIR}/git"
 

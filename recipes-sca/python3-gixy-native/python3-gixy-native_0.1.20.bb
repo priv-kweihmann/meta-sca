@@ -13,7 +13,7 @@ DEPENDS += "\
             python3-six-native \
            "
 
-SRC_URI = "git://github.com/yandex/gixy.git;protocol=https"
+SRC_URI = "git://github.com/yandex/gixy.git;branch=master;protocol=https"
 SRC_URI += "file://gixy.sca.description \
             file://0001-No-argparse-needed.patch \
             file://0002-Add-root_dir-support.patch"

@@ -34,7 +34,7 @@ DEPENDS += "\
             perl-text-parsewords-native \
             "
 
-SRC_URI = "git://github.com/Perl-Critic/Perl-Critic.git;protocol=https \
+SRC_URI = "git://github.com/Perl-Critic/Perl-Critic.git;branch=master;protocol=https \
            file://perlcritic.sca.description"
 SRCREV = "47c8115b82f47bd27cba1af2f200694e69a1ef14"
 S = "${WORKDIR}/git"

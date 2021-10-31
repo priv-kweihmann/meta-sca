@@ -12,7 +12,7 @@ LIC_FILES_CHKSUM = "\
         file://shellexeclist/bb/LICENSE;md5=7e4cfe1c8dee5c6fe34c79c38d7b6b52 \
 "
 
-SRC_URI = "git://github.com/priv-kweihmann/shellexeclist.git;protocol=https"
+SRC_URI = "git://github.com/priv-kweihmann/shellexeclist.git;branch=master;protocol=https"
 SRCREV = "e09449a4cbf134567f9b89bf19c5f06f16688cd8"
 
 S = "${WORKDIR}/git"
