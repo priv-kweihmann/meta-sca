@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/sourcegraph.com/sourcegraph/appdash/@v/v0.0.0-20210831040556-ec77a7fbcadc.zip;srcoutput=sourcegraph.com/sourcegraph/appdash;srcinput=sourcegraph.com/sourcegraph/appdash@v0.0.0-20210831040556-ec77a7fbcadc;downloadfilename=sourcegraph-com-sourcegraph-appdash-0.0.0-20210831040556-ec77a7fbcadc.zip;name=sourcegraph-com-sourcegraph-appdash"
-SRC_URI[sourcegraph-com-sourcegraph-appdash.sha256sum] = "f68fa1ea9b704550547a10fa0af1de46b0cb64f648422916e85c910c529690aa"
+SRC_URI += "https://proxy.golang.org/sourcegraph.com/sourcegraph/appdash/@v/v0.0.0-20211028080628-e2786a622600.zip;srcoutput=sourcegraph.com/sourcegraph/appdash;srcinput=sourcegraph.com/sourcegraph/appdash@v0.0.0-20211028080628-e2786a622600;downloadfilename=sourcegraph-com-sourcegraph-appdash-0.0.0-20211028080628-e2786a622600.zip;name=sourcegraph-com-sourcegraph-appdash"
+SRC_URI[sourcegraph-com-sourcegraph-appdash.sha256sum] = "02c23b0a2ef528cf30c087650de2fb5f13814f855c14d44fd9677b180bd95962"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
