@@ -12,8 +12,8 @@ DEPENDS:class-native += "\
 
 PYPI_PACKAGE = "packaging"
 
-SRC_URI[md5sum] = "240ba5823ed31051a1254e74c9d18d55"
-SRC_URI[sha256sum] = "7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7"
+SRC_URI[md5sum] = "15576de4a5b2bf4f0e4928d05fdf2351"
+SRC_URI[sha256sum] = "096d689d78ca690e4cd8a89568ba06d07ca097e3306a4381635073ca91479966"
 
 inherit pypi
 inherit setuptools3
