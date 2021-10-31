@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/godbus/dbus/v5/@v/v5.0.5.zip;srcoutput=github.com/godbus/dbus/v5;srcinput=github.com/godbus/dbus/v5@v5.0.5;downloadfilename=github-com-godbus-dbus-v5-5.0.5.zip;name=github-com-godbus-dbus-v5"
-SRC_URI[github-com-godbus-dbus-v5.sha256sum] = "b197d56c9fa51536b1f8d3e698d6e0b78595aa6aa9cbea9a8735dc8906addaa0"
+SRC_URI += "https://proxy.golang.org/github.com/godbus/dbus/v5/@v/v5.0.6.zip;srcoutput=github.com/godbus/dbus/v5;srcinput=github.com/godbus/dbus/v5@v5.0.6;downloadfilename=github-com-godbus-dbus-v5-5.0.6.zip;name=github-com-godbus-dbus-v5"
+SRC_URI[github-com-godbus-dbus-v5.sha256sum] = "0097f9b4608dc4bf5ca63cd3a9f3334e5cff6be2cab6170cdef075ef97075d89"
 
 GOSRC_LICENSE += "\
     BSD-2-Clause \
