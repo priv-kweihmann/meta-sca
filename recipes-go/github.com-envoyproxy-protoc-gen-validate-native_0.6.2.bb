@@ -8,12 +8,14 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require github.com-envoyproxy-protoc-gen-validate-sources.inc
 
 EXTRA_DEPENDS += "\
-    github.com-golang-protobuf-native \
     github.com-iancoleman-strcase-native \
     github.com-lyft-protoc-gen-star-native \
     github.com-spf13-afero-native \
     golang.org-x-lint-native \
+    golang.org-x-mod-native \
     golang.org-x-net-native \
+    golang.org-x-sys-native \
+    golang.org-x-text-native \
     golang.org-x-tools-native \
     google.golang.org-protobuf-native \
 "
