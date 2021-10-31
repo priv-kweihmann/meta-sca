@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE.BSD;md5=e74cede38e957fe3e525b0e53a510bcf"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/estraverse/-/estraverse-5.2.0.tgz"
-SRC_URI[md5sum] = "d77fc6a5c30fb0661c219d8a93a60dc6"
-SRC_URI[sha256sum] = "9b8607646676c6f3cc06cdb04af32198a7f5e3b271502def087c4561627de001"
+SRC_URI = "https://registry.npmjs.org/estraverse/-/estraverse-5.3.0.tgz"
+SRC_URI[md5sum] = "ac5d5752d7928d448689899477f994b0"
+SRC_URI[sha256sum] = "3e8d45da5b8085a4a8d51368ffead5b551a502c286978962a05d5c8e0d72fda6"
 
 NPM_PKGNAME = "estraverse"
 
