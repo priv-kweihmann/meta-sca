@@ -1,5 +1,5 @@
 SUMMARY = "NPM: stylelint-config-recommended"
-DESCRIPTION = "Recommended shareable config for stylelint"
+DESCRIPTION = "Recommended shareable config for Stylelint"
 HOMEPAGE = "https://github.com/stylelint/stylelint-config-recommended#readme"
 
 LICENSE = "MIT"
@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=f692ad1565ee66c108b2d13b6f5e1575"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/stylelint-config-recommended/-/stylelint-config-recommended-5.0.0.tgz"
-SRC_URI[md5sum] = "383feb8068cb57b792efafb6e7e636d0"
-SRC_URI[sha256sum] = "7233fdd34b540f333bac2840a89dd60d35f250f14f3c4ce00d3ce3e81112c6cc"
+SRC_URI = "https://registry.npmjs.org/stylelint-config-recommended/-/stylelint-config-recommended-6.0.0.tgz"
+SRC_URI[md5sum] = "caa154f13b688754d3b47f070fee7f38"
+SRC_URI[sha256sum] = "15a52e57fb64a0e3dd94aadd35abab1fe7735c3582b5d70bf1639b146020f251"
 
 NPM_PKGNAME = "stylelint-config-recommended"
 
