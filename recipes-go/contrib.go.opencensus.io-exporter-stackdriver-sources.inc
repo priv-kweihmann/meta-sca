@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/contrib.go.opencensus.io/exporter/stackdriver/@v/v0.13.8.zip;srcoutput=contrib.go.opencensus.io/exporter/stackdriver;srcinput=contrib.go.opencensus.io/exporter/stackdriver@v0.13.8;downloadfilename=contrib-go-opencensus-io-exporter-stackdriver-0.13.8.zip;name=contrib-go-opencensus-io-exporter-stackdriver"
-SRC_URI[contrib-go-opencensus-io-exporter-stackdriver.sha256sum] = "8f636dce49d38a4b7923f2e1fbc9d6db5c53380e1c2c250c3d7957ce2f06a3ab"
+SRC_URI += "https://proxy.golang.org/contrib.go.opencensus.io/exporter/stackdriver/@v/v0.13.10.zip;srcoutput=contrib.go.opencensus.io/exporter/stackdriver;srcinput=contrib.go.opencensus.io/exporter/stackdriver@v0.13.10;downloadfilename=contrib-go-opencensus-io-exporter-stackdriver-0.13.10.zip;name=contrib-go-opencensus-io-exporter-stackdriver"
+SRC_URI[contrib-go-opencensus-io-exporter-stackdriver.sha256sum] = "fea84438402c3e85860726f2dd9a30414fd88c8b43cda61a862a606ebca03599"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
@@ -10,7 +10,9 @@ LIC_FILES_CHKSUM += "\
 
 GOSRC_INCLUDEGUARD += "contrib.go.opencensus.io-exporter-stackdriver-sources.inc"
 
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-monitoring-sources.inc', '', 'cloud.google.com-go-monitoring-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-sources.inc', '', 'cloud.google.com-go-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-trace-sources.inc', '', 'cloud.google.com-go-trace-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-aws-aws-sdk-go-sources.inc', '', 'github.com-aws-aws-sdk-go-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-census-instrumentation-opencensus-proto-sources.inc', '', 'github.com-census-instrumentation-opencensus-proto-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-golang-protobuf-sources.inc', '', 'github.com-golang-protobuf-sources.inc', d)}
