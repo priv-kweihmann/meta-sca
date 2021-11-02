@@ -11,11 +11,12 @@ size of the changeset, as package updates can occur very frequently.
 
 Following branches are actively maintained.
 
-| Branch     | Integration with poky | Integration with meta-oe | Integration with meta-clang | Support ends | Release tag           |
-| ---------- | --------------------- | ------------------------ | --------------------------- | ------------ | --------------------- |
-| master     | daily                 | daily                    | daily                       | never        | v[VERSION]            |
-| hardknott  | daily                 | daily                    | daily                       | Q2 2022      | vhardknott_[VERSION]  |
-| dunfell    | daily                 | daily                    | daily                       | Q2 2022      | vdunfell_[VERSION]    |
+| Branch    | Integration with poky | Integration with meta-oe | Integration with meta-clang | Support ends | Release tag          |
+| --------- | --------------------- | ------------------------ | --------------------------- | ------------ | -------------------- |
+| master    | daily                 | daily                    | daily                       | never        | v[VERSION]           |
+| honister  | daily                 | daily                    | daily                       | Q4 2022      | vhonister_[VERSION]  |
+| hardknott | daily                 | daily                    | daily                       | Q2 2022      | vhardknott_[VERSION] |
+| dunfell   | daily                 | daily                    | daily                       | Q2 2022      | vdunfell_[VERSION]   |
 
 ## Other branches
 
