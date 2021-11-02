@@ -1,8 +1,9 @@
-name: "[hardknott]-nightly"
+name: "[honister]-push"
 
 on:
-  schedule:
-    - cron: "30 6 * * *"
+  push:
+    branches:
+      - honister
 
 jobs:
   qemux86:
@@ -13,56 +14,61 @@ jobs:
       LC_ALL: en_US.UTF-8
       LANG: en_US.UTF-8
       LANGUAGE: en_US.UTF-8
-      BUILD_EXPORT: 1
-      SCM_BRANCH: hardknott
-      SCM_BRANCH_META_CLANG: hardknott
-      SCM_BRANCH_META_OE: hardknott
-      SCM_BRANCH_RUBYGEMS: master
-      BUILD_GLIBC: 1
-      BUILD_KERNEL: 1
-      BUILD_MAXRUNTIME: 21000
+      SCM_BRANCH: honister
+      SCM_BRANCH_META_CLANG: honister
+      SCM_BRANCH_META_OE: honister
+      SCM_BRANCH_RUBYGEMS: honister
+      BUILD_MAXRUNTIME: 600
 
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        testset: [standard_01, standard_02, standard_03, metaoe, metaclang, metaruby]
+        testset: [standard_01, standard_02, standard_03, metaoe, metaclang, metaruby, globalinherit]
         include:
         - testset: standard_01
           SCM_LAYER_ENABLE_CLANG: 0
           SCM_LAYER_ENABLE_METAOE: 0
           SCA_LAYER_ENABLE_RUBYGEMS: 0
           BUILD_PARAMFILE: standard_01
-          BUILD_QEMUSYSTEM: 0
+          BUILD_GLOBALINHERIT: 0
         - testset: standard_02
           SCM_LAYER_ENABLE_CLANG: 0
           SCM_LAYER_ENABLE_METAOE: 0
           SCA_LAYER_ENABLE_RUBYGEMS: 0
           BUILD_PARAMFILE: standard_02
-          BUILD_QEMUSYSTEM: 0
+          BUILD_GLOBALINHERIT: 0
         - testset: standard_03
           SCM_LAYER_ENABLE_CLANG: 0
           SCM_LAYER_ENABLE_METAOE: 0
           SCA_LAYER_ENABLE_RUBYGEMS: 0
           BUILD_PARAMFILE: standard_03
-          BUILD_QEMUSYSTEM: 1
+          BUILD_GLOBALINHERIT: 0
         - testset: metaoe
           SCM_LAYER_ENABLE_CLANG: 0
           SCM_LAYER_ENABLE_METAOE: 1
           SCA_LAYER_ENABLE_RUBYGEMS: 0
           BUILD_PARAMFILE: metaoe
           BUILD_QEMUSYSTEM: 0
+          BUILD_GLOBALINHERIT: 0
         - testset: metaclang
           SCM_LAYER_ENABLE_CLANG: 1
           SCM_LAYER_ENABLE_METAOE: 0
           SCA_LAYER_ENABLE_RUBYGEMS: 0
           BUILD_PARAMFILE: metaclang
+          BUILD_GLOBALINHERIT: 0
         - testset: metaruby
           SCM_LAYER_ENABLE_CLANG: 0
           SCM_LAYER_ENABLE_METAOE: 1
           SCA_LAYER_ENABLE_RUBYGEMS: 1
-          BUILD_QEMUSYSTEM: 1
           BUILD_PARAMFILE: metaruby
+          BUILD_GLOBALINHERIT: 0
+        - testset: globalinherit
+          SCM_LAYER_ENABLE_CLANG: 1
+          SCM_LAYER_ENABLE_METAOE: 1
+          SCA_LAYER_ENABLE_RUBYGEMS: 1
+          BUILD_PARAMFILE: metaclang
+          BUILD_GLOBALINHERIT: 1
 
     container:
       image: privkweihmann/yocto-sca-minimal:latest
@@ -107,57 +113,21 @@ jobs:
         with:
           repo: https://github.com/priv-kweihmann/meta-rubygems.git
           branch: ${{ env.SCM_BRANCH_RUBYGEMS }}
-      - name: setup (bitbake config)
-        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
-        with:
-          variable: SCA_AVAILABLE_MODULES
-          value: /opt/build/sources/meta-sca/test/lang_${{ matrix.BUILD_PARAMFILE }}.txt
-      - if: env.BUILD_GLIBC == '1'
-        name: build (glibc)
-        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
-        with:
-          target: glibc
-      - if: env.BUILD_KERNEL == '1'
-        name: build (kernel)
-        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
-        with:
-          target: linux-yocto
-      - if: matrix.SCM_LAYER_ENABLE_CLANG == '1'
-        name: build (clang)
-        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
-        with:
-          target: clang-native
-      - if: matrix.BUILD_QEMUSYSTEM == '1'
-        name: build (qemu-system)
-        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
-        with:
-          target: qemu-system-native
-      - name: setup (rm_work_and_downloads)
+      - if: matrix.BUILD_GLOBALINHERIT == '1'
+        name: setup (bitbake global inherit)
         uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
         with:
           variable: INHERIT
           operation: " += "
-          value: rm_work_and_downloads
+          value: sca
+      - if: matrix.BUILD_GLOBALINHERIT != '1'
+        name: setup (bitbake config)
+        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
+        with:
+          variable: SCA_AVAILABLE_MODULES
+          value: /opt/build/sources/meta-sca/test/lang_${{ matrix.BUILD_PARAMFILE }}.txt
       - name: build (sca-modules)
-        uses: priv-kweihmann/meta-sca-ci-utils/buildmodules@latest
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
-          parameter-file: ${{ matrix.BUILD_PARAMFILE }}
-      - name: test (sca results)
-        uses: priv-kweihmann/meta-sca-ci-utils/testresults@latest
-        with:
-          parameter-file: ${{ matrix.BUILD_PARAMFILE }}
-      - if: env.BUILD_EXPORT == '1'
-        name: checkout (webpage)
-        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
-        with:
-          repo: https://github.com/priv-kweihmann/priv-kweihmann.github.io.git
-          branch: master
-          add-layer: "0"
-          remove-git: "0"
-      - if: env.BUILD_EXPORT == '1'
-        name: build (webpage)
-        uses: priv-kweihmann/meta-sca-ci-utils/exportresults@latest
-        with:
-          parameter-file: ${{ matrix.BUILD_PARAMFILE }}
-          branch: ${{ env.SCM_BRANCH }}
-          deploy-token: ${{ secrets.WEBDEPLOY }}
+          target: core-image-minimal-scatest
+          ignore-exit-codes: "124"
