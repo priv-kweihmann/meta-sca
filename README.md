@@ -9,6 +9,7 @@ For the list of current findings from pipelines see [meta-sca report](https://pr
 
 ## Table of content <!-- omit in toc -->
 
+- [Notice](#notice)
 - [Purpose](#purpose)
 - [Getting started](#getting-started)
 - [Installation](#installation)
@@ -33,6 +34,12 @@ For the list of current findings from pipelines see [meta-sca report](https://pr
 - [Contributing](#contributing)
   - [Get involved](#get-involved)
   - [Security Policy](#security-policy)
+
+## Notice
+
+This is the release branch for YOCTO `gatesgarth`.
+As this branch **ran out of support** by YOCTO, **don't expect updates here as well**.
+You can also contribute package updates by pull request.
 
 ## Purpose
 
