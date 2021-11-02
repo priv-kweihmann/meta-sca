@@ -39,21 +39,36 @@ def do_sca_conv_npmaudit(d):
     if os.path.exists(sca_raw_result_file(d, "npmaudit")):
         io = {}
         with open(sca_raw_result_file(d, "npmaudit")) as i:
+            _version = 1
             try:
                 io = json.load(i)
-                io = io["advisories"]
+                if "vulnerabilities" in io:
+                    _version = 2
+                    io = io["vulnerabilities"]
+                else:
+                    io = io["advisories"]
             except:
                 io = {}
         for k,v in io.items():
             try:
-                g = sca_get_model_class(d,
-                                        PackageName=package_name,
-                                        Tool="npmaudit",
-                                        BuildPath=sca_get_layer_path_for_file(d, d.getVar("FILE")),
-                                        File=d.getVar("FILE"),
-                                        Message=v["title"],
-                                        ID=str(v["id"]),
-                                        Severity=severity_map[v["severity"]])
+                if _version == 1:
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            Tool="npmaudit",
+                                            BuildPath=sca_get_layer_path_for_file(d, d.getVar("FILE")),
+                                            File=d.getVar("FILE"),
+                                            Message=v["title"],
+                                            ID=str(v["id"]),
+                                            Severity=severity_map[v["severity"]])
+                else:
+                    g = sca_get_model_class(d,
+                                            PackageName=package_name,
+                                            Tool="npmaudit",
+                                            BuildPath=sca_get_layer_path_for_file(d, d.getVar("FILE")),
+                                            File=d.getVar("FILE"),
+                                            Message=v["via"][0]["title"],
+                                            ID=str(v["via"][0]["source"]),
+                                            Severity=severity_map[v["severity"]])
                 if _suppress.Suppressed(g):
                     continue
                 if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
