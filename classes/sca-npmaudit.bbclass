@@ -100,6 +100,8 @@ python do_sca_npmaudit() {
             cmd_output = subprocess.check_output(_args, universal_newlines=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             cmd_output = e.stdout or "{}"
+            # remove trailing extra data
+            cmd_output = "}".join(cmd_output.split("}")[:-1]) + "}"
         os.chdir(cur_dir)
 
     with open(sca_raw_result_file(d, "npmaudit"), "w") as o:
