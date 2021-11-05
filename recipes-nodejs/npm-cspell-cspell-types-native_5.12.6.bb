@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b1befbdcbeb73a7fd9b944d31f0fee64"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/@cspell/cspell-types/-/cspell-types-5.12.4.tgz"
-SRC_URI[md5sum] = "1a160d157046fac5bb9ae77fef64f0db"
-SRC_URI[sha256sum] = "3e6eda327f83fbaec7a1027ee6f1ccac9a790d35d7d180958a0ad86e6311b6fc"
+SRC_URI = "https://registry.npmjs.org/@cspell/cspell-types/-/cspell-types-5.12.6.tgz"
+SRC_URI[md5sum] = "0862201a46a77a6a0d4f7ce2cc69d5d8"
+SRC_URI[sha256sum] = "6d97bc253ac80adc7f21bf3effb6e0959f64a656302f5795e318135cc5ce4bee"
 
 NPM_PKGNAME = "@cspell/cspell-types"
 
