@@ -10,9 +10,9 @@ DEPENDS = "npm-assert-plus-native \
            npm-json-schema-native \
            npm-verror-native"
 
-SRC_URI = "https://registry.npmjs.org/jsprim/-/jsprim-2.0.0.tgz"
-SRC_URI[md5sum] = "5ee92fbf3d75f06252c1a252e45081ca"
-SRC_URI[sha256sum] = "f7ad90fe3dfe87174b09d3840a83d7b4d0e730bcb1422008ec6dc9aa88205cd8"
+SRC_URI = "https://registry.npmjs.org/jsprim/-/jsprim-2.0.1.tgz"
+SRC_URI[md5sum] = "0a9410b87af1c0c2067a91d3a5c710e0"
+SRC_URI[sha256sum] = "22418a40ca228bdd4197ff4f53a1eb50c007c83407d7697149830c4e626d6e19"
 
 NPM_PKGNAME = "jsprim"
 
