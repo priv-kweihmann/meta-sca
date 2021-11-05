@@ -8,8 +8,8 @@ DEPENDS += "python3-cryptography-native"
 
 PYPI_PACKAGE = "ruamel.yaml"
 
-SRC_URI[md5sum] = "ef2af87b5f265163700b12165a541406"
-SRC_URI[sha256sum] = "1a771fc92d3823682b7f0893ad56cb5a5c87c48e62b5399d6f42c8759a583b33"
+SRC_URI[md5sum] = "0e7f1f14664e974f995477fc229a89c2"
+SRC_URI[sha256sum] = "9751de4cbb57d4bfbf8fc394e125ed4a2f170fbff3dc3d78abf50be85924f8be"
 
 inherit pypi
 inherit setuptools3
