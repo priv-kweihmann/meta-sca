@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE-MIT;md5=df4fe86855c0c73f4a52d5e556826c48"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/ignore/-/ignore-5.1.8.tgz"
-SRC_URI[md5sum] = "e383857e3056df8d2bafccace0aa0dc9"
-SRC_URI[sha256sum] = "2f8ece8e090874d6bfc7c5f6c410aa09284db78c7d490b7671d01fade35d7ddc"
+SRC_URI = "https://registry.npmjs.org/ignore/-/ignore-5.1.9.tgz"
+SRC_URI[md5sum] = "bc0cf0f3cb21e4722e699698d7934852"
+SRC_URI[sha256sum] = "b3ca2ddf693d745de3300628d8d22f263189e0d574cd1780542b04dc4f747fe3"
 
 NPM_PKGNAME = "ignore"
 
