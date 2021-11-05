@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/envy/@v/v1.9.0.zip;srcoutput=github.com/gobuffalo/envy;srcinput=github.com/gobuffalo/envy@v1.9.0;downloadfilename=github-com-gobuffalo-envy-1.9.0.zip;name=github-com-gobuffalo-envy"
-SRC_URI[github-com-gobuffalo-envy.sha256sum] = "e275fcd4d2b3a1d72f1ba4d05e0a2c882ceeb78907c54637946058f45deb9b31"
+SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/envy/@v/v1.10.1.zip;srcoutput=github.com/gobuffalo/envy;srcinput=github.com/gobuffalo/envy@v1.10.1;downloadfilename=github-com-gobuffalo-envy-1.10.1.zip;name=github-com-gobuffalo-envy"
+SRC_URI[github-com-gobuffalo-envy.sha256sum] = "93b51ace3e09592881a7d613bd9d1275535fc8cc5115f41621f1872850970567"
 
 GOSRC_LICENSE += "\
     MIT \
