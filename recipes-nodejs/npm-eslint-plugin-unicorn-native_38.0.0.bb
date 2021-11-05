@@ -21,9 +21,9 @@ DEPENDS = "npm-babel-helper-validator-identifier-native \
            npm-semver-native \
            npm-strip-indent-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-unicorn/-/eslint-plugin-unicorn-37.0.1.tgz"
-SRC_URI[md5sum] = "514bcf185a548a91892b46ba32c63615"
-SRC_URI[sha256sum] = "c376afb42709e61195f91bb649c89986727c58857fbbfb2cacfe2405740ea997"
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-unicorn/-/eslint-plugin-unicorn-38.0.0.tgz"
+SRC_URI[md5sum] = "8c562d0d8ed8a2d838215f4c64e68133"
+SRC_URI[sha256sum] = "b251e456f3197bc59f4570642e4dc0af59f3b03177899a140a09d1190065d73c"
 
 NPM_PKGNAME = "eslint-plugin-unicorn"
 
