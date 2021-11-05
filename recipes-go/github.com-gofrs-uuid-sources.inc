@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/gofrs/uuid/@v/v4.0.0+incompatible.zip;srcoutput=github.com/gofrs/uuid;srcinput=github.com/gofrs/uuid@v4.0.0+incompatible;downloadfilename=github-com-gofrs-uuid-4.0.0+incompatible.zip;name=github-com-gofrs-uuid"
-SRC_URI[github-com-gofrs-uuid.sha256sum] = "8cadafda9aea197d34898d6945692173ac1d8abf3b559c4e5a59a577fc60f55e"
+SRC_URI += "https://proxy.golang.org/github.com/gofrs/uuid/@v/v4.1.0+incompatible.zip;srcoutput=github.com/gofrs/uuid;srcinput=github.com/gofrs/uuid@v4.1.0+incompatible;downloadfilename=github-com-gofrs-uuid-4.1.0+incompatible.zip;name=github-com-gofrs-uuid"
+SRC_URI[github-com-gofrs-uuid.sha256sum] = "530ea4c470dc8b985a16f2d384e65143d9cf7ef849e942f8a2e5d4530b4d3a4a"
 
 GOSRC_LICENSE += "\
     MIT \
