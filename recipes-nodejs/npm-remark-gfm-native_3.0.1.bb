@@ -10,9 +10,9 @@ DEPENDS = "npm-mdast-util-gfm-native \
            npm-types-mdast-native \
            npm-unified-native"
 
-SRC_URI = "https://registry.npmjs.org/remark-gfm/-/remark-gfm-3.0.0.tgz"
-SRC_URI[md5sum] = "b62b266a7f2a25c00d72cf0a0a1174de"
-SRC_URI[sha256sum] = "158d8da2e4a448725f981733158cee1dd57c41930393763ff8c2cda76fd6493f"
+SRC_URI = "https://registry.npmjs.org/remark-gfm/-/remark-gfm-3.0.1.tgz"
+SRC_URI[md5sum] = "b9b039e136f8ef273646a979f5c8edfd"
+SRC_URI[sha256sum] = "ed8f3a40d79558949b1aa99490883ed54278e107cd30ec66b05df6fa93358540"
 
 NPM_PKGNAME = "remark-gfm"
 
