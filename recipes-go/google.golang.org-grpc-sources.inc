@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/google.golang.org/grpc/@v/v1.41.0.zip;srcoutput=google.golang.org/grpc;srcinput=google.golang.org/grpc@v1.41.0;downloadfilename=google-golang-org-grpc-1.41.0.zip;name=google-golang-org-grpc"
-SRC_URI[google-golang-org-grpc.sha256sum] = "09854102e439ae1ef88f2b9bd5488a88ceb7a0ad7abf33bd3db680c7ef076e83"
+SRC_URI += "https://proxy.golang.org/google.golang.org/grpc/@v/v1.42.0.zip;srcoutput=google.golang.org/grpc;srcinput=google.golang.org/grpc@v1.42.0;downloadfilename=google-golang-org-grpc-1.42.0.zip;name=google-golang-org-grpc"
+SRC_URI[google-golang-org-grpc.sha256sum] = "6efd301376be1dfca0429e8a01b15a9780fb99db1ee3b152f8026088e784f847"
 GOSRC_REMOVEDIRS += "google.golang.org/grpc/xds"
 
 GOSRC_LICENSE += "\
@@ -13,6 +13,7 @@ GOSRC_INCLUDEGUARD += "google.golang.org-grpc-sources.inc"
 
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-cespare-xxhash-v2-sources.inc', '', 'github.com-cespare-xxhash-v2-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-cncf-udpa-go-sources.inc', '', 'github.com-cncf-udpa-go-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-cncf-xds-go-sources.inc', '', 'github.com-cncf-xds-go-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-envoyproxy-go-control-plane-sources.inc', '', 'github.com-envoyproxy-go-control-plane-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-golang-glog-sources.inc', '', 'github.com-golang-glog-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-golang-protobuf-sources.inc', '', 'github.com-golang-protobuf-sources.inc', d)}

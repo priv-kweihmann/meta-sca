@@ -10,6 +10,7 @@ require google.golang.org-grpc-sources.inc
 EXTRA_DEPENDS += "\
     github.com-cespare-xxhash-v2-native \
     github.com-cncf-udpa-go-native \
+    github.com-cncf-xds-go-native \
     github.com-envoyproxy-go-control-plane-native \
     github.com-golang-glog-native \
     github.com-golang-protobuf-native \
