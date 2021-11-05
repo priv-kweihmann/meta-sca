@@ -11,9 +11,9 @@ DEPENDS = "npm-caniuse-lite-native \
            npm-node-releases-native \
            npm-picocolors-native"
 
-SRC_URI = "https://registry.npmjs.org/browserslist/-/browserslist-4.17.5.tgz"
-SRC_URI[md5sum] = "b492ca1f4fd1931eae73b00d2a69db5a"
-SRC_URI[sha256sum] = "668493f799865b399571e31eba3db0760ede662cc2032750ee13a10d1bc52cf4"
+SRC_URI = "https://registry.npmjs.org/browserslist/-/browserslist-4.17.6.tgz"
+SRC_URI[md5sum] = "0451608c6dface669a07397d06b40bf0"
+SRC_URI[sha256sum] = "9604937e0f75b74e268b8f86d8338e7054a46a163235d8258f139039f7907003"
 
 NPM_PKGNAME = "browserslist"
 
