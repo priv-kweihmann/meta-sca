@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=33c3a77def9b3ad83e01c65bdcc1af67"
 
 PYPI_PACKAGE = "soupsieve"
 
-SRC_URI[md5sum] = "73ff6ce22ba973fe2d47197834e0f728"
-SRC_URI[sha256sum] = "052774848f448cf19c7e959adf5566904d525f33a3f8b6ba6f6f8f26ec7de0cc"
+SRC_URI[md5sum] = "a4e0593fd4e1042ece918e2a4c878ac6"
+SRC_URI[sha256sum] = "e4860f889dfa88774c07da0b276b70c073b6470fa1a4a8350800bb7bce3dcc76"
 
 inherit pypi
 inherit setuptools3
