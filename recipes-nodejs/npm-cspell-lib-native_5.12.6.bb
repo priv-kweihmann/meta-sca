@@ -22,9 +22,9 @@ DEPENDS = "npm-clear-module-native \
            npm-resolve-global-native \
            npm-vscode-uri-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-lib/-/cspell-lib-5.12.4.tgz"
-SRC_URI[md5sum] = "f176e44700f9342a5466021d7b5bfd06"
-SRC_URI[sha256sum] = "7a44a02b18761887fd8b1278b6720527a22e3354f345d055dc8d8e1e0bb92c92"
+SRC_URI = "https://registry.npmjs.org/cspell-lib/-/cspell-lib-5.12.6.tgz"
+SRC_URI[md5sum] = "c9f117663f7e6e2f18b78db406d0c53d"
+SRC_URI[sha256sum] = "0f1f73551d5006c4e182ca72605f7bd241f6d9e27f9adbb903d702fa2ee75b61"
 
 NPM_PKGNAME = "cspell-lib"
 
