@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 DEPENDS = "npm-parent-module-native \
            npm-resolve-from-native"
 
-SRC_URI = "https://registry.npmjs.org/clear-module/-/clear-module-4.1.1.tgz"
-SRC_URI[md5sum] = "14e16d2707f1f41f699ce7f84809164e"
-SRC_URI[sha256sum] = "6f69e5a617005a45e6228f3b117e6727265ffae7020f3f283c2a682bce6172bd"
+SRC_URI = "https://registry.npmjs.org/clear-module/-/clear-module-4.1.2.tgz"
+SRC_URI[md5sum] = "df65c2f439c93adc49d3574be6ab3584"
+SRC_URI[sha256sum] = "576c2ffcd4b0bba2eae487a808dfcdd8dd5b9a2657ec36749af198a7fdd13c18"
 
 NPM_PKGNAME = "clear-module"
 
