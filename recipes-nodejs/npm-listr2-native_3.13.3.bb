@@ -6,6 +6,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=04c495203ab16a62384075f5ef0477d4"
 
 DEPENDS = "npm-cli-truncate-native \
+           npm-clone-native \
            npm-colorette-native \
            npm-log-update-native \
            npm-p-map-native \
@@ -13,9 +14,9 @@ DEPENDS = "npm-cli-truncate-native \
            npm-through-native \
            npm-wrap-ansi-native"
 
-SRC_URI = "https://registry.npmjs.org/listr2/-/listr2-3.13.1.tgz"
-SRC_URI[md5sum] = "237119b99905a04718ade915a689c988"
-SRC_URI[sha256sum] = "61e72ea8e087ae8869fc6eb0958a54a8431646fb850e915ca0e7e9b035b3ca11"
+SRC_URI = "https://registry.npmjs.org/listr2/-/listr2-3.13.3.tgz"
+SRC_URI[md5sum] = "30e870dd956d536f77114fe2fe0931d7"
+SRC_URI[sha256sum] = "ff742e2700e7ece519cd84b6c0dd3a3e6cff92b908ea8ebf05000620893f5321"
 
 NPM_PKGNAME = "listr2"
 
