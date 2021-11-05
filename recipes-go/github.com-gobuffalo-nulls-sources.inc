@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/nulls/@v/v0.4.0.zip;srcoutput=github.com/gobuffalo/nulls;srcinput=github.com/gobuffalo/nulls@v0.4.0;downloadfilename=github-com-gobuffalo-nulls-0.4.0.zip;name=github-com-gobuffalo-nulls"
-SRC_URI[github-com-gobuffalo-nulls.sha256sum] = "cfd609219d1ae0671016913355de32f170b604695d15521854c2b1529377be39"
+SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/nulls/@v/v0.4.1.zip;srcoutput=github.com/gobuffalo/nulls;srcinput=github.com/gobuffalo/nulls@v0.4.1;downloadfilename=github-com-gobuffalo-nulls-0.4.1.zip;name=github-com-gobuffalo-nulls"
+SRC_URI[github-com-gobuffalo-nulls.sha256sum] = "306ee27bf207c7da4ee792163e43637dce122d864b8663d2a9a56da306ee4b73"
 
 GOSRC_LICENSE += "\
     MIT \
