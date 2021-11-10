@@ -6,11 +6,12 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=b5d9c535657b1650d66a58538d99acc8"
 
 DEPENDS = "npm-data-uri-to-buffer-native \
-           npm-fetch-blob-native"
+           npm-fetch-blob-native \
+           npm-formdata-polyfill-native"
 
-SRC_URI = "https://registry.npmjs.org/node-fetch/-/node-fetch-3.0.0.tgz"
-SRC_URI[md5sum] = "590012a70dacef1cfed336cac4d3fd98"
-SRC_URI[sha256sum] = "f5bceaaeaf12d09e883c122264b4eaefad0d50d456970bf9a929ca714342c69f"
+SRC_URI = "https://registry.npmjs.org/node-fetch/-/node-fetch-3.1.0.tgz"
+SRC_URI[md5sum] = "e37018406706a810b3787e07eed1157f"
+SRC_URI[sha256sum] = "9ddc77b1e3f425b90942010c90ebc580093dca1d5e555beeee7071412568f29e"
 
 NPM_PKGNAME = "node-fetch"
 
