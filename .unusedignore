@@ -1,6 +1,8 @@
 [
     "dynamic-distro/",
-    "recipes-support/inspec-profiles/",
     "recipes-devtools/ruby/",
-    "recipes-python/python-scabot-native/python3-scabot-native_git.bb"
+    "recipes-python/python-scabot-native/python3-scabot-native_git.bb",
+    "recipes-sca-rules/sca-recipe-npmaudit-rules-native/",
+    "recipes-sca/npmaudit-sca-native/",
+    "recipes-support/inspec-profiles/"
 ]
