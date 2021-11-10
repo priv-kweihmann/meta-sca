@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/sourcegraph/annotate/@v/v0.0.0-20160123013949-f4cad6c6324d.zip;srcoutput=github.com/sourcegraph/annotate;srcinput=github.com/sourcegraph/annotate@v0.0.0-20160123013949-f4cad6c6324d;downloadfilename=github-com-sourcegraph-annotate-0.0.0-20160123013949-f4cad6c6324d.zip;name=github-com-sourcegraph-annotate"
-SRC_URI[github-com-sourcegraph-annotate.sha256sum] = "2a58cbf2485b2e97e49d7c3e83e81385d1418bfbab2b846dabec041a3d402b3e"
+SRC_URI += "https://proxy.golang.org/github.com/sourcegraph/annotate/@v/v0.0.0-20210331123347-c8a81f7e2fbe.zip;srcoutput=github.com/sourcegraph/annotate;srcinput=github.com/sourcegraph/annotate@v0.0.0-20210331123347-c8a81f7e2fbe;downloadfilename=github-com-sourcegraph-annotate-0.0.0-20210331123347-c8a81f7e2fbe.zip;name=github-com-sourcegraph-annotate"
+SRC_URI[github-com-sourcegraph-annotate.sha256sum] = "c65ba37fcb2cbe5b4e0e9525b88083b0940778ede0bb7dcd64f149c83f8be0ef"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
