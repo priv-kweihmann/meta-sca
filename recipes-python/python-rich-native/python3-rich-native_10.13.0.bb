@@ -2,7 +2,7 @@ SUMMARY = "Render rich text, tables, progress bars, syntax highlighting"
 HOMEPAGE = "https://github.com/willmcgugan/rich"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=d0d35d5357392e5bfeb0d0a7e6ba4d83"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=b5f0b94fbc94f5ad9ae4efcf8a778303"
 
 DEPENDS += "\
             python3-colorama-native \
@@ -13,8 +13,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "rich"
 
-SRC_URI[md5sum] = "4e25f70bf532349f80b9171316651a9d"
-SRC_URI[sha256sum] = "83fb3eff778beec3c55201455c17cccde1ccdf66d5b4dade8ef28f56b50c4bd4"
+SRC_URI[md5sum] = "78964a8ec5df33ebb82aec797e06c5ee"
+SRC_URI[sha256sum] = "d80fc76f34d819c481a48f73ec9ac396bed3bd6a16ecd57f9e0654cd89a8fb56"
 
 inherit pypi
 inherit setuptools3
