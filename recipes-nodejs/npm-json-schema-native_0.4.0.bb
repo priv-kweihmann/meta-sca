@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=cd1c1e0d7bf9f0594f023e0e3a62838b"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/json-schema/-/json-schema-0.3.0.tgz"
-SRC_URI[md5sum] = "18848c2bccbf952564f28a8280f5f9e4"
-SRC_URI[sha256sum] = "f13dd5cb555d242ccf23c3df0b3557bf4d1087acf50fc188e4db7708769fba7e"
+SRC_URI = "https://registry.npmjs.org/json-schema/-/json-schema-0.4.0.tgz"
+SRC_URI[md5sum] = "a717cdacb987a4234abefa71ab4b831e"
+SRC_URI[sha256sum] = "2b28fff2ff3ac4907c78c0012b43a93dd46395b43f3a55084c119f62e375b349"
 
 NPM_PKGNAME = "json-schema"
 
