@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/onsi/gomega/@v/v1.16.0.zip;srcoutput=github.com/onsi/gomega;srcinput=github.com/onsi/gomega@v1.16.0;downloadfilename=github-com-onsi-gomega-1.16.0.zip;name=github-com-onsi-gomega"
-SRC_URI[github-com-onsi-gomega.sha256sum] = "cea55d8daea40a4065e62176a4066f374f2a545fdc63f6d8ca7a98479c622e35"
+SRC_URI += "https://proxy.golang.org/github.com/onsi/gomega/@v/v1.17.0.zip;srcoutput=github.com/onsi/gomega;srcinput=github.com/onsi/gomega@v1.17.0;downloadfilename=github-com-onsi-gomega-1.17.0.zip;name=github-com-onsi-gomega"
+SRC_URI[github-com-onsi-gomega.sha256sum] = "6bec944e42dbc11c498c5185d03db1bf6953c5f0aa64bfcd9a6b94793883f3c1"
 GOSRC_REMOVEDIRS += "github.com/onsi/gomega/internal/testingtsupport"
 
 GOSRC_LICENSE += "\
