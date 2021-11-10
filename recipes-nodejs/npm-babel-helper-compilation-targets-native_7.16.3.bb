@@ -10,9 +10,9 @@ DEPENDS = "npm-babel-compat-data-native \
            npm-browserslist-native \
            npm-semver-native"
 
-SRC_URI = "https://registry.npmjs.org/@babel/helper-compilation-targets/-/helper-compilation-targets-7.16.0.tgz"
-SRC_URI[md5sum] = "f8462a193dee721ac166dfe7b6aedf22"
-SRC_URI[sha256sum] = "efb27e995aa225350da186ee0f989f2edaa73c2dde94afca8c406e1d6aa38c43"
+SRC_URI = "https://registry.npmjs.org/@babel/helper-compilation-targets/-/helper-compilation-targets-7.16.3.tgz"
+SRC_URI[md5sum] = "2f56f0a7aac6bef11abb9833a6cc2aff"
+SRC_URI[sha256sum] = "42f5053c042487b8d38801f9e527b5339f94cbf08f8b6f2b7d638b46b6e3f645"
 
 NPM_PKGNAME = "@babel/helper-compilation-targets"
 
