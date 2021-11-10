@@ -12,8 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "normality"
 
-SRC_URI[md5sum] = "9c31adeda3605cb99161dc073372bafb"
-SRC_URI[sha256sum] = "cb7ff88348f090b8f5517baeda3d7cced94cebf6ae3e6756689a73d18b1bc041"
+SRC_URI[md5sum] = "594ded145c200f47d316767c9854035d"
+SRC_URI[sha256sum] = "b27d8c9b79efa7a6a7e90253b56ccb448b4873dfc3803a669e72159b2038625a"
 
 inherit pypi
 inherit setuptools3
