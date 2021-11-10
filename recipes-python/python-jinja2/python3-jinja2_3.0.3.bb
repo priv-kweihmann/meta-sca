@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.rst;md5=5dc88300786f1c214c1e9827a5229462"
 
 DEPENDS += "python3-markupsafe"
 
-SRC_URI[md5sum] = "059f89375d7ea60eb7013f341f0b89e7"
-SRC_URI[sha256sum] = "827a0e32839ab1600d4eb1c4c33ec5a8edfbc5cb42dafa13b81f182f97784b45"
+SRC_URI[md5sum] = "b76ae2f0647abebc81e7c03f5fb7b00f"
+SRC_URI[sha256sum] = "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
 
 PYPI_PACKAGE = "Jinja2"
 
