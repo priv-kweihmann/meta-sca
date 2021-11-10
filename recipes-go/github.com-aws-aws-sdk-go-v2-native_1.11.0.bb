@@ -9,6 +9,7 @@ require github.com-aws-aws-sdk-go-v2-sources.inc
 
 EXTRA_DEPENDS += "\
     github.com-aws-smithy-go-native \
+    github.com-google-go-cmp-native \
     github.com-jmespath-go-jmespath-native \
 "
 
