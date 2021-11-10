@@ -5,7 +5,7 @@ BUGTRACKER = "https://github.com/koalaman/shellcheck/issues"
 COMPATIBLE_HOST = "^x86_64-linux|^aarch64-linux|^arm-linux"
 
 LICENSE = "GPLv3"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=e1bef773207728bc05e072ab8b7c1f9f"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=4961609c03284904eb67ff03e2a87042"
 
 DEPENDS += "\
     dpkg-native \
@@ -26,9 +26,9 @@ def shellcheck_arch_map(d):
 
 SRC_URI = "https://github.com/koalaman/shellcheck/releases/download/v${PV}/shellcheck-v${PV}.linux.${@shellcheck_arch_map(d)}.tar.xz;name=blob_${@shellcheck_arch_map(d)}"
 
-SRC_URI[blob_x86_64.sha256sum] = "70423609f27b504d6c0c47e340f33652aea975e45f312324f2dbf91c95a3b188"
-SRC_URI[blob_aarch64.sha256sum] = "a12bdfe0f95811ad6c0a091006b919b2834b0619b460cfa596f557edd62e45ab"
-SRC_URI[blob_armv6hf.sha256sum] = "29c7291985ad391fc8af930ba89c7441d5764aa3415ef1d77171aea0b34d35b9"
+SRC_URI[blob_x86_64.sha256sum] = "ab6ee1b178f014d1b86d1e24da20d1139656c8b0ed34d2867fbb834dad02bf0a"
+SRC_URI[blob_aarch64.sha256sum] = "9f47bbff5624babfa712eb9d64ece14c6c46327122d0c54983f627ae3a30a4ac"
+SRC_URI[blob_armv6hf.sha256sum] = "17857c8a0a8f4001aa9638732991cbb6e85c4a410500b11e2e0a98d9858afca8"
 
 SRC_URI:append = " file://shellcheck.sca.description"
 
