@@ -15,7 +15,7 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "jsonschema"
 
-SRC_URI[sha256sum] = "e2d3601321ac74d38214e2853300ae740cd07e53d919a15862b8c71f9d840574"
+SRC_URI[sha256sum] = "390713469ae64b8a58698bb3cbc3859abe6925b565a973f87323ef21b09a27a8"
 
 inherit pypi
 inherit setuptools3
