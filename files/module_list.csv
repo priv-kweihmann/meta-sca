@@ -2,7 +2,6 @@ Module,Description,Homepage,Requires,Requires inet,Run on image,Run on recipe,C,
 alexkohler,Suite of GO analysis tools,https://github.com/alexkohler,,,,x,,,,,,,x,,,,,,,,,,x
 ansible,Hardening of images with ansible,,,,x,,,,,,,,,x,,,,,,,x,,
 ansiblelint,Linter for ansible playbooks,https://github.com/ansible/ansible-lint,,,x,x,,,,,,,,,,,,,,x,x,x,x
-ansibleroles,Hardening of images with 3rd party ansible roles,e.g. https://github.com/dev-sec,,,x,,,,,,,,,x,,,,,,,x,,
 bandit,Scan python code for insecurities,https://github.com/PyCQA/bandit,,,x,x,,,x,,,,,,,,,,,,x,,
 bashate,Shell script linter,http://docs.openstack.org/developer/bashate/,,,x,x,,,,x,,,,,,,,,,,,x,x
 bitbake,Bitbake issue handling,,,,x,x,,,,,,,,,,,,,x,,,x,x
