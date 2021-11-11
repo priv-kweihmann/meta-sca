@@ -13,7 +13,6 @@ SCA_PACKAGE_LICENSE_FILTER = "CLOSED"
 SCA_ENABLED_MODULES_IMAGE ?= "\
                             ansible \
                             ansiblelint \
-                            ansibleroles \
                             bandit \
                             bashate \
                             bitbake \
