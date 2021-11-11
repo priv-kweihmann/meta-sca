@@ -1,5 +1,4 @@
 ansible
-ansibleroles
 checksec
 configcheck
 gixy
