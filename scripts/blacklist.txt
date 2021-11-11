@@ -1,7 +1,6 @@
 
 ansible-role-merger-native
 ansible-sca-native
-ansibleroles-sca-native
 bad-ansible
 bad-bitbake
 bad-css
