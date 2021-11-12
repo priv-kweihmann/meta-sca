@@ -1,6 +1,6 @@
 SUMMARY = "NPM: eslint-plugin-jsx-a11y"
 DESCRIPTION = "Static AST checker for accessibility rules on JSX elements."
-HOMEPAGE = "https://github.com/evcohen/eslint-plugin-jsx-a11y#readme"
+HOMEPAGE = "https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#readme"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=8a54d70af8daeb4ac38a9b28b2f24dee"
@@ -15,11 +15,12 @@ DEPENDS = "npm-aria-query-native \
            npm-emoji-regex-native \
            npm-has-native \
            npm-jsx-ast-utils-native \
-           npm-language-tags-native"
+           npm-language-tags-native \
+           npm-minimatch-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-6.4.1.tgz"
-SRC_URI[md5sum] = "4e97edfaa3cb1d0cb2052bfcbecc0efc"
-SRC_URI[sha256sum] = "d26a9a8e243798a2399aa19549417260be3c95d012c0082c4428d2c565df7faa"
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-6.5.1.tgz"
+SRC_URI[md5sum] = "427337683b1bea29d6c05d98c4589829"
+SRC_URI[sha256sum] = "66d9ead6f8fc4c204491cd8ce2408007edf817a2277b1f3fc2d1f7f62ca42cba"
 
 NPM_PKGNAME = "eslint-plugin-jsx-a11y"
 
