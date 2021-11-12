@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/go.opentelemetry.io/proto/otlp/@v/v0.10.0.zip;srcoutput=go.opentelemetry.io/proto/otlp;srcinput=go.opentelemetry.io/proto/otlp@v0.10.0;downloadfilename=go-opentelemetry-io-proto-otlp-0.10.0.zip;name=go-opentelemetry-io-proto-otlp"
-SRC_URI[go-opentelemetry-io-proto-otlp.sha256sum] = "a0666ee303f2ba357889c4eb9bfd13de1963b122f5f199fc9af6c1822f71eb49"
+SRC_URI += "https://proxy.golang.org/go.opentelemetry.io/proto/otlp/@v/v0.11.0.zip;srcoutput=go.opentelemetry.io/proto/otlp;srcinput=go.opentelemetry.io/proto/otlp@v0.11.0;downloadfilename=go-opentelemetry-io-proto-otlp-0.11.0.zip;name=go-opentelemetry-io-proto-otlp"
+SRC_URI[go-opentelemetry-io-proto-otlp.sha256sum] = "f22d677bc272c65f45ca31b1ca80a28d1bdb922858e86fbd1579e1852fdb51d8"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
