@@ -18,7 +18,6 @@
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
 | SCA_BLACKLIST_semgrep | Blacklist filter for this tool | space-separated-list | ""
-| SCA_SEMGREP_ALLOW_ARBITRARY_CODE | Allow more in-depth testing with code execution | int 0 = no, 1 = yes| "1"
 | SCA_SEMGREP_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
 | SCA_SEMGREP_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_SEMGREP_RULESETS | Rule directories to use | comma separated regex list | see `sca-semgrep.bbclass`
