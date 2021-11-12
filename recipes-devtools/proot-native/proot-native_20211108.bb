@@ -15,7 +15,7 @@ DEPENDS += "\
 "
 
 SRC_URI = "git://github.com/proot-me/proot.git;branch=master;protocol=https"
-SRCREV = "ba3cb343fa4edf7bdfd68827c18e44b01d0d6ba0"
+SRCREV = "f6f43005c021e706416ccae83553e7a0da2b98c3"
 
 S = "${WORKDIR}/git/src"
 
