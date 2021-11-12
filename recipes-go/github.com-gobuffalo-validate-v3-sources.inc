@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/validate/v3/@v/v3.3.0.zip;srcoutput=github.com/gobuffalo/validate/v3;srcinput=github.com/gobuffalo/validate/v3@v3.3.0;downloadfilename=github-com-gobuffalo-validate-v3-3.3.0.zip;name=github-com-gobuffalo-validate-v3"
-SRC_URI[github-com-gobuffalo-validate-v3.sha256sum] = "d80652527a2f159725b8e8be58d6ca8a6149ffb98a793caac4390c414d08611b"
+SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/validate/v3/@v/v3.3.1.zip;srcoutput=github.com/gobuffalo/validate/v3;srcinput=github.com/gobuffalo/validate/v3@v3.3.1;downloadfilename=github-com-gobuffalo-validate-v3-3.3.1.zip;name=github-com-gobuffalo-validate-v3"
+SRC_URI[github-com-gobuffalo-validate-v3.sha256sum] = "0f3a44b03f21140995f1239a1debd6dc838f6144fa3562d5a63a826be4648622"
 
 GOSRC_LICENSE += "\
     MIT \
