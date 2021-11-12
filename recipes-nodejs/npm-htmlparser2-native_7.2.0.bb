@@ -10,9 +10,9 @@ DEPENDS = "npm-domelementtype-native \
            npm-domutils-native \
            npm-entities-native"
 
-SRC_URI = "https://registry.npmjs.org/htmlparser2/-/htmlparser2-7.1.2.tgz"
-SRC_URI[md5sum] = "5a479dd85f9a00552b3ec12a5d0b7405"
-SRC_URI[sha256sum] = "6de09a6f6991f6a86f2727ea68ab96d9ce340cff30ab3804f06d7aed096c7832"
+SRC_URI = "https://registry.npmjs.org/htmlparser2/-/htmlparser2-7.2.0.tgz"
+SRC_URI[md5sum] = "81944a6800f0b025b78130b1ebfbfa12"
+SRC_URI[sha256sum] = "e682e978245845266080f633d9d00303a78cc4e460ba8742d5c213e5d32bdd8a"
 
 NPM_PKGNAME = "htmlparser2"
 
