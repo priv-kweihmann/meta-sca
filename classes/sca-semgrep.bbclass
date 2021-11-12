@@ -10,8 +10,6 @@ SCA_SEMGREP_RULESETS ?= "\
     ${STAGING_DATADIR_NATIVE}/semgrep/semgrep-go \
 "
 
-SCA_SEMGREP_ALLOW_ARBITRARY_CODE ?= "1"
-
 SCA_SEMGREP_USER_RULES_RECIPES ?= ""
 
 SCA_RAW_RESULT_FILE[semgrep] = "json"
@@ -80,8 +78,6 @@ python do_sca_semgrep() {
     import subprocess
 
     _args = ["semgrep", "--json", "--quiet"]
-    if d.getVar("SCA_SEMGREP_ALLOW_ARBITRARY_CODE") == "1":
-        _args += ["--dangerously-allow-arbitrary-code-execution-from-rules"]
     cmd_output = ""
     for ruleset in clean_split(d, "SCA_SEMGREP_RULESETS"):
         _tmp = exec_wrap_check_output(d, _args + ["-c", ruleset], [d.getVar("SCA_SOURCES_DIR")],
