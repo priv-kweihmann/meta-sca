@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/attrs/@v/v1.0.0.zip;srcoutput=github.com/gobuffalo/attrs;srcinput=github.com/gobuffalo/attrs@v1.0.0;downloadfilename=github-com-gobuffalo-attrs-1.0.0.zip;name=github-com-gobuffalo-attrs"
-SRC_URI[github-com-gobuffalo-attrs.sha256sum] = "bb7f84037cfb03b5ffe8bd1aaaada9f1c5addc3b42e8f68989963aa6a29a1cff"
+SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/attrs/@v/v1.0.1.zip;srcoutput=github.com/gobuffalo/attrs;srcinput=github.com/gobuffalo/attrs@v1.0.1;downloadfilename=github-com-gobuffalo-attrs-1.0.1.zip;name=github-com-gobuffalo-attrs"
+SRC_URI[github-com-gobuffalo-attrs.sha256sum] = "1b0d26f23c32e1c611e6886a6f417b15e378952e782227cba93ff7f6d71a1063"
 
 GOSRC_LICENSE += "\
     MIT \
