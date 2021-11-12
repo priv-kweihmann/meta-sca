@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/cenkalti/backoff/v4/@v/v4.1.1.zip;srcoutput=github.com/cenkalti/backoff/v4;srcinput=github.com/cenkalti/backoff/v4@v4.1.1;downloadfilename=github-com-cenkalti-backoff-v4-4.1.1.zip;name=github-com-cenkalti-backoff-v4"
-SRC_URI[github-com-cenkalti-backoff-v4.sha256sum] = "de69f5db190ee0f2c441e50e4bf607853ab99512a183a5713803888ced502dde"
+SRC_URI += "https://proxy.golang.org/github.com/cenkalti/backoff/v4/@v/v4.1.2.zip;srcoutput=github.com/cenkalti/backoff/v4;srcinput=github.com/cenkalti/backoff/v4@v4.1.2;downloadfilename=github-com-cenkalti-backoff-v4-4.1.2.zip;name=github-com-cenkalti-backoff-v4"
+SRC_URI[github-com-cenkalti-backoff-v4.sha256sum] = "079f531ecefaf6e9b9dd6600218979d83d9e64d0677553184ba412f10c88f820"
 
 GOSRC_LICENSE += "\
     MIT \
