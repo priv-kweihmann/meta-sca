@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/httptest/@v/v1.5.0.zip;srcoutput=github.com/gobuffalo/httptest;srcinput=github.com/gobuffalo/httptest@v1.5.0;downloadfilename=github-com-gobuffalo-httptest-1.5.0.zip;name=github-com-gobuffalo-httptest"
-SRC_URI[github-com-gobuffalo-httptest.sha256sum] = "85f9ac952177a9a8334419b8158a58c097f8cb4a3d8c0c04fb645b62a0564bed"
+SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/httptest/@v/v1.5.1.zip;srcoutput=github.com/gobuffalo/httptest;srcinput=github.com/gobuffalo/httptest@v1.5.1;downloadfilename=github-com-gobuffalo-httptest-1.5.1.zip;name=github-com-gobuffalo-httptest"
+SRC_URI[github-com-gobuffalo-httptest.sha256sum] = "d39166d3232806f9dd587bbaa92c100407efd3b100b61914b593793a2eb59c3d"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
