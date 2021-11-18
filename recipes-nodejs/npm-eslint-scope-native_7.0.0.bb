@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=ea6adf57b10b6fe7db502260e0beab6a"
 DEPENDS = "npm-esrecurse-native \
            npm-estraverse-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-scope/-/eslint-scope-6.0.0.tgz"
-SRC_URI[md5sum] = "f67b6e2125267724a48e9048d2f1d421"
-SRC_URI[sha256sum] = "c5dd35082f824a9a853fb6e2efe0ce9dce056d5cefc4b7e949ad8a8662a72ffb"
+SRC_URI = "https://registry.npmjs.org/eslint-scope/-/eslint-scope-7.0.0.tgz"
+SRC_URI[md5sum] = "4c8de2f8756042d5d04aa0f2ef447be8"
+SRC_URI[sha256sum] = "ea82b22ee8976bd79358f54708f83fbafdb111aa17a63b00365ed65bf3435c16"
 
 NPM_PKGNAME = "eslint-scope"
 
