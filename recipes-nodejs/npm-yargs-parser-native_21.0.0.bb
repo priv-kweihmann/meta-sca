@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=8fd106383180f7bbb8f534414fdf7d35"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/yargs-parser/-/yargs-parser-20.2.9.tgz"
-SRC_URI[md5sum] = "759083d720771857f0836b41e48fd6c3"
-SRC_URI[sha256sum] = "994046f2e604573b22425e39a926f60fc53f778020144de461d3b2b6a8ac1105"
+SRC_URI = "https://registry.npmjs.org/yargs-parser/-/yargs-parser-21.0.0.tgz"
+SRC_URI[md5sum] = "81fee5ad98d3f834f6034853b0ca60f3"
+SRC_URI[sha256sum] = "2027e6d85e69acc003762f992f2ef7f431a38fc4f558851493532b61beb3a495"
 
 NPM_PKGNAME = "yargs-parser"
 
