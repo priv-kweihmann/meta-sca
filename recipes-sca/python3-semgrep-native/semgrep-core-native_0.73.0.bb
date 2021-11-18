@@ -13,7 +13,7 @@ SRC_URI:append = "https://github.com/returntocorp/semgrep/releases/download/v${P
 UPSTREAM_CHECK_URI = "https://github.com/returntocorp/semgrep/tags"
 UPSTREAM_CHECK_REGEX = "releases/tag/v(?P<pver>\d+\.\d+\.\d+)"
 
-SRC_URI[app.sha256sum] = "a2a60a00921ca511e44c0d476b8b77ac53bbb07bc96c5baf89bc3f8e03d9f02e"
+SRC_URI[app.sha256sum] = "a9365acfbdccd19a2285bf0ac5dc219833bf8c83c782e5e6fa4eba9107d769d5"
 SRC_URI[license.sha256sum] = "7c34d28e784b202aa4998f477fd0aa9773146952d7f6fa5971369fcdda59cf48"
 
 inherit native
