@@ -10,8 +10,8 @@ LIC_FILES_CHKSUM = "file://../git/COPYING;md5=2750797da77c1d784e7626b3f7d7ff3e"
 # requires go, java a.s.o. to build
 SRC_URI += "git://github.com/snowballstem/snowball.git;branch=master;protocol=https;name=upstream"
 
-SRC_URI[md5sum] = "fad6a525534b2da052d1fa820a615100"
-SRC_URI[sha256sum] = "e997baa4f2e9139951b6f4c631bad912dfd3c792467e2f03d7239464af90e914"
+SRC_URI[md5sum] = "4332ddc7bbee0f344a03915b2ad59a54"
+SRC_URI[sha256sum] = "09b16deb8547d3412ad7b590689584cd0fe25ec8db3be37788be3810cbf19cb1"
 
 SRCREV = "c70ed64f9d41c1032fba4e962b054f8e9d489a74"
 
