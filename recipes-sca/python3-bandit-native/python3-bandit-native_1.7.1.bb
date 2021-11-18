@@ -14,8 +14,8 @@ DEPENDS += "\
 
 SRC_URI:append = " file://bandit.sca.description"
 
-SRC_URI[md5sum] = "24965f102dc62129d3fafe4fe596a3b8"
-SRC_URI[sha256sum] = "8a4c7415254d75df8ff3c3b15cfe9042ecee628a1e40b44c15a98890fbfc2608"
+SRC_URI[md5sum] = "d071febf76e2a85f540eddd113bcd6b0"
+SRC_URI[sha256sum] = "a81b00b5436e6880fa8ad6799bc830e02032047713cbb143a12939ac67eb756c"
 
 PYPI_PACKAGE = "bandit"
 
