@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/rabbitmq/amqp091-go/@v/v1.1.0.zip;srcoutput=github.com/rabbitmq/amqp091-go;srcinput=github.com/rabbitmq/amqp091-go@v1.1.0;downloadfilename=github-com-rabbitmq-amqp091-go-1.1.0.zip;name=github-com-rabbitmq-amqp091-go"
-SRC_URI[github-com-rabbitmq-amqp091-go.sha256sum] = "69b92ccc30ddad3c31df3c99767e9bdaa7daab81c07f07f0f3b29c4a8b02c403"
+SRC_URI += "https://proxy.golang.org/github.com/rabbitmq/amqp091-go/@v/v1.2.0.zip;srcoutput=github.com/rabbitmq/amqp091-go;srcinput=github.com/rabbitmq/amqp091-go@v1.2.0;downloadfilename=github-com-rabbitmq-amqp091-go-1.2.0.zip;name=github-com-rabbitmq-amqp091-go"
+SRC_URI[github-com-rabbitmq-amqp091-go.sha256sum] = "66b45f78037c0626e775cb0b559aadeedec8f9281ad630173074044eceb0926c"
 
 GOSRC_LICENSE += "\
     BSD-2-Clause \
