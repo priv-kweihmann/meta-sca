@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://README.md;beginline=52;md5=21f0b36191d4379feb6bc72f1a
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/spdx-license-ids/-/spdx-license-ids-3.0.10.tgz"
-SRC_URI[md5sum] = "0cb52e7493ebe9dab5f77316339b0034"
-SRC_URI[sha256sum] = "0399b22568b1f8ecf797e04d6db2570495d0e226d6e597f398ee06e6e997f8b6"
+SRC_URI = "https://registry.npmjs.org/spdx-license-ids/-/spdx-license-ids-3.0.11.tgz"
+SRC_URI[md5sum] = "f23bcef1dddee8c6adde84ee5d2532f1"
+SRC_URI[sha256sum] = "e0c164edbde4c2f68009c409caa439a1cdc2c19ba53a16910e7ad3db55e60913"
 
 NPM_PKGNAME = "spdx-license-ids"
 
