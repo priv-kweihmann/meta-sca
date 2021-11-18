@@ -593,11 +593,11 @@
     "mvdan.cc/sh": {
         "recipeextra": [
             "UPSTREAM_CHECK_URI = \"https://github.com/mvdan/sh/tags\"",
-            "UPSTREAM_CHECK_REGEX = \"releases/tag/v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_REGEX = \"releases/tag/v(?P<pver>\\d+\\.\\d+\\.\\d+)$\""
         ],
         "striplevel": 1,
         "url": "https://github.com/mvdan/sh/archive/refs/tags/v%VERSION%.zip",
-        "version": "3.2.4"
+        "version": "3.4.0"
     },
     "sourcegraph.com/sourcegraph/appdash": {
         "extramods": [
