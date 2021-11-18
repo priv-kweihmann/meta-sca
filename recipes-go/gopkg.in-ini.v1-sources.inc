@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/gopkg.in/ini.v1/@v/v1.63.2.zip;srcoutput=gopkg.in/ini.v1;srcinput=gopkg.in/ini.v1@v1.63.2;downloadfilename=gopkg-in-ini-v1-1.63.2.zip;name=gopkg-in-ini-v1"
-SRC_URI[gopkg-in-ini-v1.sha256sum] = "b63ce2896ad1a3c993012b3ac8e88e5832f4fbe8288f20b8663e80c6c584b45d"
+SRC_URI += "https://proxy.golang.org/gopkg.in/ini.v1/@v/v1.64.0.zip;srcoutput=gopkg.in/ini.v1;srcinput=gopkg.in/ini.v1@v1.64.0;downloadfilename=gopkg-in-ini-v1-1.64.0.zip;name=gopkg-in-ini-v1"
+SRC_URI[gopkg-in-ini-v1.sha256sum] = "fb95c4b5add927e3ea0a7cc479efcc86f98ae7dcc78f6194b423b5ad37c3041d"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
