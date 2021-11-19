@@ -1,6 +1,7 @@
 [
     "dynamic-distro/",
     "recipes-devtools/ruby/",
+    "recipes-python/python-ansible/",
     "recipes-python/python-scabot-native/python3-scabot-native_git.bb",
     "recipes-sca-rules/sca-recipe-npmaudit-rules-native/",
     "recipes-sca/npmaudit-sca-native/",
