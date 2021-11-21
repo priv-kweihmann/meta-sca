@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/packr/v2/@v/v2.8.1.zip;srcoutput=github.com/gobuffalo/packr/v2;srcinput=github.com/gobuffalo/packr/v2@v2.8.1;downloadfilename=github-com-gobuffalo-packr-v2-2.8.1.zip;name=github-com-gobuffalo-packr-v2"
-SRC_URI[github-com-gobuffalo-packr-v2.sha256sum] = "75fd46fd40d732d1aa5516e87dd5aec7cdf6889d0553252effc34c1e28f6b17e"
+SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/packr/v2/@v/v2.8.2.zip;srcoutput=github.com/gobuffalo/packr/v2;srcinput=github.com/gobuffalo/packr/v2@v2.8.2;downloadfilename=github-com-gobuffalo-packr-v2-2.8.2.zip;name=github-com-gobuffalo-packr-v2"
+SRC_URI[github-com-gobuffalo-packr-v2.sha256sum] = "1ecfae90bf9196eb3ace2459347498632b356e41adae25ea31926de180fe442a"
 
 GOSRC_LICENSE += "\
     MIT \
