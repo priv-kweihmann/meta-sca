@@ -23,9 +23,9 @@ DEPENDS = "npm-debug-native \
            npm-types-debug-native \
            npm-uvu-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark/-/micromark-3.0.7.tgz"
-SRC_URI[md5sum] = "8aa2cf340807554b9a68b491315b50ef"
-SRC_URI[sha256sum] = "6a2e9aa48761e30366fac3171e88d0a6da4e424d1b677541180697a3a8008df3"
+SRC_URI = "https://registry.npmjs.org/micromark/-/micromark-3.0.8.tgz"
+SRC_URI[md5sum] = "4bf0e88c50699eab1d1e4b26d06dabe3"
+SRC_URI[sha256sum] = "77b9506f52662dd926cf427baf00ad3b606dc8d7cc5f4fb47ade9cb85d47694c"
 
 NPM_PKGNAME = "micromark"
 
