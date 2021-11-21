@@ -9,9 +9,9 @@ DEPENDS = "npm-acorn-jsx-native \
            npm-acorn-native \
            npm-eslint-visitor-keys-native"
 
-SRC_URI = "https://registry.npmjs.org/espree/-/espree-9.0.0.tgz"
-SRC_URI[md5sum] = "c8fac271575a841caa8bc864135b63f2"
-SRC_URI[sha256sum] = "ba232df89dad4eb0a9ae169ea775c0d8be250babb6d38a6f606705a1eac47284"
+SRC_URI = "https://registry.npmjs.org/espree/-/espree-9.1.0.tgz"
+SRC_URI[md5sum] = "13e85b18eed736d24650ce5eafaf5397"
+SRC_URI[sha256sum] = "c2c41548be4e36182c5f88a5661486ba97542eeee237cbc402049515a064ff8b"
 
 NPM_PKGNAME = "espree"
 
