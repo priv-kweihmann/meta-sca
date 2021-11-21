@@ -18,9 +18,9 @@ DEPENDS = "npm-mdast-util-to-string-native \
            npm-unist-util-stringify-position-native \
            npm-uvu-native"
 
-SRC_URI = "https://registry.npmjs.org/mdast-util-from-markdown/-/mdast-util-from-markdown-1.1.0.tgz"
-SRC_URI[md5sum] = "2d2f167bbb809a77a360d62eaa3af122"
-SRC_URI[sha256sum] = "e98fb7b96c9c2731d901151ce6650b7c1968420314545d125bdfb16d12175147"
+SRC_URI = "https://registry.npmjs.org/mdast-util-from-markdown/-/mdast-util-from-markdown-1.1.1.tgz"
+SRC_URI[md5sum] = "9df4550cfc639101ee87fbff3ddd27ba"
+SRC_URI[sha256sum] = "5895532abfc3369af6ec00684187ac5f3d0003bde3f131fdd32e720f7f53af23"
 
 NPM_PKGNAME = "mdast-util-from-markdown"
 
