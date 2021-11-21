@@ -5,9 +5,11 @@ HOMEPAGE = "https://github.com/eventualbuddha/lines-and-columns#readme"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ccca5bd3aeb53dd27037cf30f01b379f"
 
-SRC_URI = "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.1.6.tgz"
-SRC_URI[md5sum] = "be695863ed46527bed1456f8ff7fd230"
-SRC_URI[sha256sum] = "752025d01ee1b1aec9c92be71dd57feb725241539b5854c997e8383e630ee626"
+DEPENDS = ""
+
+SRC_URI = "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-2.0.2.tgz"
+SRC_URI[md5sum] = "84da707043931643cec0ea0c35bb7d1e"
+SRC_URI[sha256sum] = "4df395930eb55eee37bb90048478b6df5776e458d9d3b98fb85729f5c1269aa6"
 
 NPM_PKGNAME = "lines-and-columns"
 
