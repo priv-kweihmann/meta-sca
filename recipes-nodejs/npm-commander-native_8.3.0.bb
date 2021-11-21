@@ -2,6 +2,7 @@ SUMMARY = "NPM: commander"
 DESCRIPTION = "the complete solution for node.js command-line programs"
 HOMEPAGE = "https://github.com/tj/commander.js#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=25851d4d10d6611a12d5571dab945a00"
 

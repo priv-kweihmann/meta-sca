@@ -1,6 +1,7 @@
 SUMMARY = "Python docstring reStructuredText (RST) validator"
 HOMEPAGE = "https://github.com/peterjc/flake8-rst-docstrings"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.rst;md5=647e2c41944e325227c84555a6bced85"
 

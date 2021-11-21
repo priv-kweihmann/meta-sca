@@ -1,6 +1,7 @@
 SUMMARY = "Parse, Analyze and Manipulate Perl (without perl)"
 HOMEPAGE = "https://metacpan.org/pod/PPI"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://README;beginline=21;md5=d41d8cd98f00b204e9800998ecf8427e"
 

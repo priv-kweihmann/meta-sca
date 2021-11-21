@@ -1,6 +1,7 @@
 SUMMARY = "Fast, Extensible Progress Meter"
 HOMEPAGE = "https://github.com/tqdm/tqdm"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT & MPL-2.0"
 LIC_FILES_CHKSUM = "file://LICENCE;md5=1672e2674934fd93a31c09cf17f34100"
 

@@ -2,6 +2,7 @@ SUMMARY = "NPM: v8-compile-cache"
 DESCRIPTION = "Require hook for automatic V8 compile cache persistence"
 HOMEPAGE = "https://github.com/zertosh/v8-compile-cache#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=dfd25c36f69a5eb33bd7338e42a726c8"
 

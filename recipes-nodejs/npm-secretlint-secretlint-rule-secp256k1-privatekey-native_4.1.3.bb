@@ -2,6 +2,7 @@ SUMMARY = "NPM: @secretlint/secretlint-rule-secp256k1-privatekey"
 DESCRIPTION = "A secretlint rule that checks for secp256k1 private keys."
 HOMEPAGE = "https://github.com/secretlint/secretlint/tree/master/packages/@secretlint/secretlint-rule-secp256k1-privatekey/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e83bae4ac4028a692e5b926c82a6d860"
 

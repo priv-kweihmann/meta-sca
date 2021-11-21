@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/finnlp/en-pos#readme"
 
 DEPENDS = "npm-cities-list-native npm-en-inflectors-native npm-en-lexicon-native npm-humannames-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 # does not provide a license file
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"

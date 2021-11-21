@@ -2,6 +2,7 @@ SUMMARY = "NPM: @textlint/fixer-formatter"
 DESCRIPTION = "textlint output formatter for fixer"
 HOMEPAGE = "https://github.com/textlint/textlint#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f3452a94937d21f84bc38880f636e3ba"
 

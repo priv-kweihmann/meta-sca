@@ -2,6 +2,7 @@ SUMMARY = "NPM: json-parse-even-better-errors"
 DESCRIPTION = "JSON.parse with context information on error"
 HOMEPAGE = "https://github.com/npm/json-parse-even-better-errors#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=16d4ff0e774195fa8cee4940a14e99d6"
 

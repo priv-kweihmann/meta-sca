@@ -2,6 +2,7 @@ SUMMARY = "NPM: gingerbread"
 DESCRIPTION = "A wrapper around Ginger proofreader."
 HOMEPAGE = "https://github.com/robinvdvleuten/gingerbread#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=40873acaa3b5535833ef3aeea8fc025c"
 

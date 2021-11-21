@@ -2,6 +2,7 @@ SUMMARY = "NPM: p-timeout"
 DESCRIPTION = "Timeout a promise after a specified amount of time"
 HOMEPAGE = "https://github.com/sindresorhus/p-timeout#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 

@@ -2,6 +2,7 @@ SUMMARY = "NPM: unique-concat"
 DESCRIPTION = "Concatenates two arrays, removing duplicates in the process and returns one array with unique values."
 HOMEPAGE = "https://github.com/thlorenz/unique-concat"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=bf595075ff556bc46c43e08f142fa4f5"
 

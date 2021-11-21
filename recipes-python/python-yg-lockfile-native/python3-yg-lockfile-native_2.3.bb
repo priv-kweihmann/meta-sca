@@ -1,6 +1,7 @@
 SUMMARY = "Lockfile object with timeouts and context manager"
 HOMEPAGE = "https://github.com/yougov/yg.lockfile"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 # https://github.com/jaraco/skeleton/issues/1
 # Author refuses to ship a license file

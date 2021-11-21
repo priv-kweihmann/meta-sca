@@ -2,6 +2,7 @@ SUMMARY = "NPM: kind-of"
 DESCRIPTION = "Get the native type of a value."
 HOMEPAGE = "https://github.com/jonschlinkert/kind-of"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3d83ea4c8ec9b31d9ff2c82fa29beabb"
 

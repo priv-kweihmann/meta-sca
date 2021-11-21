@@ -1,6 +1,7 @@
 SUMMARY = "Alex Kohler static go analyzer tools"
 HOMEPAGE = "https://github.com/alexkohler"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=a4a2bbea1db029f21b3a328c7a059172"
 

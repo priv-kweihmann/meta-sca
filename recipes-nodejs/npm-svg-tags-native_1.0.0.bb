@@ -2,6 +2,7 @@ SUMMARY = "NPM: svg-tags"
 DESCRIPTION = "List of standard SVG tags."
 HOMEPAGE = "https://github.com/element-io/svg-tags"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=cea94a994f97253585d633ff6c32bdcb"
 

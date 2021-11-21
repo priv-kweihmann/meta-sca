@@ -2,6 +2,7 @@ SUMMARY = "NPM: is-negated-glob"
 DESCRIPTION = "Returns an object with a `negated` boolean and the `!` stripped from negation patterns. Also respects extglobs."
 HOMEPAGE = "https://github.com/jonschlinkert/is-negated-glob"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d5d7b190ec11a5e3199c3b3b45cde690"
 

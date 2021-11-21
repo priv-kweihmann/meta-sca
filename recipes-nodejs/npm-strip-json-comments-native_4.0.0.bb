@@ -2,6 +2,7 @@ SUMMARY = "NPM: strip-json-comments"
 DESCRIPTION = "Strip comments from JSON. Lets you use comments in your JSON files!"
 HOMEPAGE = "https://github.com/sindresorhus/strip-json-comments#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 

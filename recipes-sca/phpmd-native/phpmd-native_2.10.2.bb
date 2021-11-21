@@ -2,6 +2,7 @@ SUMMARY = "PHP code metrics"
 DESCRIPTION = "PHPMD can be seen as an user friendly frontend application for the raw metrics stream measured by PHP Depend"
 HOMEPAGE = "https://github.com/phpmd/phpmd"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=102189a3104d17e4cdd01198fef36372"
 

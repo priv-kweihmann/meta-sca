@@ -2,6 +2,7 @@ SUMMARY = "NPM: eslint-plugin-promise"
 DESCRIPTION = "Enforce best practices for JavaScript promises"
 HOMEPAGE = "https://github.com/xjamundx/eslint-plugin-promise"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=362b9d88b78e56bc0f88ccac53b5588c"
 

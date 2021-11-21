@@ -2,6 +2,7 @@ SUMMARY = "NPM: is-dotfile"
 DESCRIPTION = "Return true if a file path is (or has) a dotfile. Returns false if the path is a dot directory."
 HOMEPAGE = "https://github.com/jonschlinkert/is-dotfile"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f6db0829782d67e30695686ebb45970a"
 

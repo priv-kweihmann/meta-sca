@@ -2,6 +2,7 @@ SUMMARY = "NPM: postcss"
 DESCRIPTION = "Tool for transforming styles with JS plugins"
 HOMEPAGE = "https://postcss.org/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e0ef868fdaaba6859dcbab082c20439b"
 

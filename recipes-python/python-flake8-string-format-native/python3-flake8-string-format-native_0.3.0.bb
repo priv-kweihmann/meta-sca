@@ -1,6 +1,7 @@
 SUMMARY = "Check that indexed parameters are used in strings"
 HOMEPAGE = "https://github.com/xZise/flake8-string-format"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=251fb17d242c0c87600c78fa66192abf"
 

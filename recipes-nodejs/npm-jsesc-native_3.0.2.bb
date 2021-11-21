@@ -2,6 +2,7 @@ SUMMARY = "NPM: jsesc"
 DESCRIPTION = "Given some data, jsesc returns the shortest possible stringified & ASCII-safe representation of that data."
 HOMEPAGE = "https://mths.be/jsesc"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE-MIT.txt;md5=ee9bd8b835cfcd512dd644540dd96987"
 

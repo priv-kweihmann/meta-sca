@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/joyent/node-bcrypt-pbkdf#readme"
 
 DEPENDS = "npm-tweetnacl-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=aaf6ebb9d1b815768d32661e72bdd761"
 

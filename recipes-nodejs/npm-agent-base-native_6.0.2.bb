@@ -2,6 +2,7 @@ SUMMARY = "NPM: agent-base"
 DESCRIPTION = "Turn a function into an `http.Agent` instance"
 HOMEPAGE = "https://github.com/TooTallNate/node-agent-base#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=120;md5=b0b8c014cd7a5f51ad9564f75c0b4432"
 

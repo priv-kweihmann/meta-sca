@@ -1,6 +1,7 @@
 SUMMARY = "Docutils -- Python Documentation Utilities"
 HOMEPAGE = "http://docutils.sourceforge.net/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-2-Clause & GPLv3 & Python-2.0"
 LIC_FILES_CHKSUM = "file://COPYING.txt;md5=01aec8e28f975e3f369e06b5eb2af9b9"
 

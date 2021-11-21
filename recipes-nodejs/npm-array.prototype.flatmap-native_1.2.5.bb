@@ -2,6 +2,7 @@ SUMMARY = "NPM: array.prototype.flatmap"
 DESCRIPTION = "An ES2019 spec-compliant `Array.prototype.flatMap` shim/polyfill/replacement that works as far down as ES3."
 HOMEPAGE = "https://github.com/es-shims/Array.prototype.flatMap#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=611be9089fb65d181b08c36971830ef8"
 

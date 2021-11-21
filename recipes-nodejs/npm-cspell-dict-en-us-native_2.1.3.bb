@@ -2,6 +2,7 @@ SUMMARY = "NPM: @cspell/dict-en_us"
 DESCRIPTION = "English dictionary for cspell."
 HOMEPAGE = "https://github.com/streetsidesoftware/cspell-dicts/blob/main/dictionaries/en_US#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7dd826ae5afc5000681f6b6d35538cfd"
 

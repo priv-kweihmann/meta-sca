@@ -2,6 +2,7 @@ SUMMARY = "NPM: has-symbols"
 DESCRIPTION = "Determine if the JS environment has Symbol support. Supports spec, or shams."
 HOMEPAGE = "https://github.com/inspect-js/has-symbols#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=afee57a289508ed4df3456667778aaf6"
 

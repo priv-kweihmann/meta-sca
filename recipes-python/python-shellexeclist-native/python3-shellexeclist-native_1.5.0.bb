@@ -6,6 +6,7 @@ DEPENDS += "\
     python3-ply-native \
 "
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "\
         file://LICENSE;md5=90965308112d84114d3d0db5134a9725 \

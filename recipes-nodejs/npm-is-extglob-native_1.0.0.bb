@@ -2,6 +2,7 @@ SUMMARY = "NPM: is-extglob"
 DESCRIPTION = "Returns true if a string has an extglob."
 HOMEPAGE = "https://github.com/jonschlinkert/is-extglob"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=360e60c9b7aa16428ee600ff20935e1f"
 

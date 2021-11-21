@@ -2,6 +2,7 @@ SUMMARY = "NPM: is-arrayish"
 DESCRIPTION = "Determines if an object can be used as an array"
 HOMEPAGE = "https://github.com/qix-/node-is-arrayish#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e67c75e89656b80fd99cb7d30fb43102"
 

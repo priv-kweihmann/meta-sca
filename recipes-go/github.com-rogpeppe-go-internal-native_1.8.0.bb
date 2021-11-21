@@ -2,6 +2,7 @@ SUMMARY = "go.mod: github.com/rogpeppe/go-internal"
 HOMEPAGE = "https://pkg.go.dev/github.com/rogpeppe/go-internal"
 
 # License is determined by the modules included and will be therefore computed
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '').split(' ') if x)))}"
 
 # inject the needed sources

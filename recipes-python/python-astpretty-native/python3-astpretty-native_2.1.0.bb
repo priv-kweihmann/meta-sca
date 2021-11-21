@@ -1,6 +1,7 @@
 SUMMARY = "Pretty print the output of python stdlib ast.parse"
 HOMEPAGE = "https://github.com/asottile/astpretty"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5fd324061c581b8d45b8cb18c560a543"
 

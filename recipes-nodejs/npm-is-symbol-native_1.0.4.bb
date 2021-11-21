@@ -2,6 +2,7 @@ SUMMARY = "NPM: is-symbol"
 DESCRIPTION = "Determine if a value is an ES6 Symbol or not."
 HOMEPAGE = "https://github.com/inspect-js/is-symbol#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5db8fa3e421a3211e6a3dc68544da455"
 

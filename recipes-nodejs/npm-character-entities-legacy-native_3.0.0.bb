@@ -2,6 +2,7 @@ SUMMARY = "NPM: character-entities-legacy"
 DESCRIPTION = "List of legacy HTML named character references that don’t need a trailing semicolon"
 HOMEPAGE = "https://github.com/wooorm/character-entities-legacy#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=91fb5297439b32d9cd49df8a2484d3eb"
 

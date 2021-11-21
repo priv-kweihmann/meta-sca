@@ -1,6 +1,7 @@
 SUMMARY = "Internationalization utilities"
 HOMEPAGE = "http://babel.pocoo.org/en/latest/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=05fb707293a85504aa67afc8ea34d747"
 

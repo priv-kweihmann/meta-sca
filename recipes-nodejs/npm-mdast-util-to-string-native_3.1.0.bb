@@ -2,6 +2,7 @@ SUMMARY = "NPM: mdast-util-to-string"
 DESCRIPTION = "mdast utility to get the plain text content of a node"
 HOMEPAGE = "https://github.com/syntax-tree/mdast-util-to-string#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=91fb5297439b32d9cd49df8a2484d3eb"
 

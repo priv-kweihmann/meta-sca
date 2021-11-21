@@ -2,6 +2,7 @@ SUMMARY = "NPM: vfile"
 DESCRIPTION = "Virtual file format for text processing"
 HOMEPAGE = "https://github.com/vfile/vfile#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=82fd7b0a70b89a370d3bcef312cfd54d"
 

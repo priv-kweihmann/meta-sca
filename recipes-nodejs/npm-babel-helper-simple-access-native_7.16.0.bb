@@ -2,6 +2,7 @@ SUMMARY = "NPM: @babel/helper-simple-access"
 DESCRIPTION = "Babel helper for ensuring that access to a given value is performed through simple accesses"
 HOMEPAGE = "https://babel.dev/docs/en/next/babel-helper-simple-access"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b1d0cd283a346e919abb3beeb018279d"
 

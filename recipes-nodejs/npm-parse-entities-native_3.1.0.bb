@@ -2,6 +2,7 @@ SUMMARY = "NPM: parse-entities"
 DESCRIPTION = "Parse HTML character references"
 HOMEPAGE = "https://github.com/wooorm/parse-entities#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=7e5307a85144ae88c8ce8eb803918a97"
 

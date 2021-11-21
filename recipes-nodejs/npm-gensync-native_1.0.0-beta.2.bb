@@ -2,6 +2,7 @@ SUMMARY = "NPM: gensync"
 DESCRIPTION = "Allows users to use generators in order to write common functions that can be both sync or async."
 HOMEPAGE = "https://github.com/loganfsmyth/gensync"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4edef26a9728782f6e6a4ca612cfc1fb"
 

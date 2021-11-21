@@ -2,6 +2,7 @@ SUMMARY = "NPM: lower-case"
 DESCRIPTION = "Transforms the string to lower case"
 HOMEPAGE = "https://github.com/blakeembrey/change-case/tree/master/packages/lower-case#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=44088ba57cb871a58add36ce51b8de08"
 

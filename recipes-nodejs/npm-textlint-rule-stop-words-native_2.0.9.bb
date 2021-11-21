@@ -2,6 +2,7 @@ SUMMARY = "NPM: textlint-rule-stop-words"
 DESCRIPTION = "Textlint rule to find filler words, buzzwords and chiches"
 HOMEPAGE = "https://github.com/sapegin/textlint-rule-stop-words"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://License.md;md5=881ad1927df541e492a0674722d840dd"
 

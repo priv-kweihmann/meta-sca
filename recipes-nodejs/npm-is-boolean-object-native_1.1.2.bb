@@ -2,6 +2,7 @@ SUMMARY = "NPM: is-boolean-object"
 DESCRIPTION = "Is this value a JS Boolean? This module works cross-realm/iframe, and despite ES6 @@toStringTag."
 HOMEPAGE = "https://github.com/inspect-js/is-boolean-object#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5db8fa3e421a3211e6a3dc68544da455"
 

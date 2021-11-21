@@ -2,6 +2,7 @@ SUMMARY = "NPM: charenc"
 DESCRIPTION = "character encoding utilities"
 HOMEPAGE = "https://github.com/pvorb/node-charenc#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.mkd;md5=b8024dcec94c3e11ece8465dd3c94c2a"
 

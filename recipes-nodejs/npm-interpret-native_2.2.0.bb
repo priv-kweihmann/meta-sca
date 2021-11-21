@@ -2,6 +2,7 @@ SUMMARY = "NPM: interpret"
 DESCRIPTION = "A dictionary of file extensions and associated module loaders."
 HOMEPAGE = "https://github.com/gulpjs/interpret#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=48fa72a2fa812dd4ebc86cf02c4b3b77"
 

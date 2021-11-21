@@ -2,6 +2,7 @@ SUMMARY = "NPM: base64-js"
 DESCRIPTION = "Base64 encoding/decoding in pure JS"
 HOMEPAGE = "https://github.com/beatgammit/base64-js"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ea9187ca93cdc4f71219d1675712e908"
 

@@ -2,6 +2,7 @@ SUMMARY = "NPM: req-all"
 DESCRIPTION = "Require all files in a directory"
 HOMEPAGE = "https://github.com/sindresorhus/req-all#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=a12ebca0510a773644101a99a867d210"
 

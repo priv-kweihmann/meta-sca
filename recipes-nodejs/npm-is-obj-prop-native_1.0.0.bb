@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/dustinspecker/is-obj-prop#readme"
 
 DEPENDS = "npm-lowercase-keys-native npm-obj-props-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=512b547cdbdb32ef8bcbd275eb09a8bd"
 

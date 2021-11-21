@@ -1,6 +1,7 @@
 SUMMARY = "Safety checks your installed dependencies for known security vulnerabilities"
 HOMEPAGE = "https://github.com/pyupio/safety"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=558baaefeb02113f2331ea2fd536fa86"
 

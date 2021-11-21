@@ -2,6 +2,7 @@ SUMMARY = "NPM: functional-red-black-tree"
 DESCRIPTION = "A fully persistent balanced binary search tree"
 HOMEPAGE = "https://github.com/mikolalysenko/functional-red-black-tree"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=34aed54d1454553d81a843e946b173a0"
 

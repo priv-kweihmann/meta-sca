@@ -2,6 +2,7 @@ SUMMARY = "NPM: cspell-glob"
 DESCRIPTION = "Glob matcher for cspell"
 HOMEPAGE = "https://github.com/streetsidesoftware/cspell/tree/master/packages/cspell-glob#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b1befbdcbeb73a7fd9b944d31f0fee64"
 

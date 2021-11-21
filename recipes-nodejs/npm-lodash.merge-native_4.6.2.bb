@@ -2,6 +2,7 @@ SUMMARY = "NPM: lodash.merge"
 DESCRIPTION = "The Lodash method `_.merge` exported as a module."
 HOMEPAGE = "https://lodash.com/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=8e2fca844c70b3833d7228885447c026"
 

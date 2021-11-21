@@ -1,4 +1,5 @@
 SUMMARY = "A really bad package"
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "CLOSED& GPLv2+ |MIT-style"
 
 SRC_URI += "\

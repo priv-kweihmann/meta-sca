@@ -2,6 +2,7 @@ SUMMARY = "NPM: jsx-ast-utils"
 DESCRIPTION = "AST utility module for statically analyzing JSX"
 HOMEPAGE = "https://github.com/jsx-eslint/jsx-ast-utils#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=8a54d70af8daeb4ac38a9b28b2f24dee"
 

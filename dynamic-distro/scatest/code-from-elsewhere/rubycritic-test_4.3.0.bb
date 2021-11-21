@@ -1,4 +1,5 @@
 SUMMARY = "Ruby critic test code"
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE.txt;md5=ebcb01890999ed287441ae4afce9a346"
 

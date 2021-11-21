@@ -3,6 +3,7 @@ DESCRIPTION = "testfixtures is a collection of helpers and mock objects that \
                are useful when writing automated tests in Python"
 HOMEPAGE = "https://github.com/Simplistix/testfixtures"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=c4021af699354173a4f2c1e1039eeffc"
 

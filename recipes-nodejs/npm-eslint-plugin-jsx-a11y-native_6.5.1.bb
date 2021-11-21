@@ -2,6 +2,7 @@ SUMMARY = "NPM: eslint-plugin-jsx-a11y"
 DESCRIPTION = "Static AST checker for accessibility rules on JSX elements."
 HOMEPAGE = "https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=8a54d70af8daeb4ac38a9b28b2f24dee"
 

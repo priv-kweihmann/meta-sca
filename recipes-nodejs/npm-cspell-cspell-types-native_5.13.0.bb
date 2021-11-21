@@ -2,6 +2,7 @@ SUMMARY = "NPM: @cspell/cspell-types"
 DESCRIPTION = "Types for cspell and cspell-lib"
 HOMEPAGE = "https://github.com/streetsidesoftware/cspell#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b1befbdcbeb73a7fd9b944d31f0fee64"
 

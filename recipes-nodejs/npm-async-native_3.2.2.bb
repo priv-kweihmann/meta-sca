@@ -2,6 +2,7 @@ SUMMARY = "NPM: async"
 DESCRIPTION = "Higher-order functions and common patterns for asynchronous code"
 HOMEPAGE = "https://caolan.github.io/async/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=73f63c1fa4541b2f2f34d77140ebe89d"
 

@@ -1,6 +1,7 @@
 SUMMARY = "setuptools_scm plugin for git archives"
 HOMEPAGE = "https://github.com/Changaco/setuptools_scm_git_archive/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=838c366f69b72c5df05c96dff79b35f2"
 

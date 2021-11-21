@@ -2,6 +2,7 @@ SUMMARY = "NPM: configstore"
 DESCRIPTION = "Easily load and save config without having to think about where and how"
 HOMEPAGE = "https://github.com/yeoman/configstore#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://license;md5=2838f6acc24e1d83ccb791d68f311c29"
 

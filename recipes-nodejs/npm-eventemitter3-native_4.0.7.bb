@@ -2,6 +2,7 @@ SUMMARY = "NPM: eventemitter3"
 DESCRIPTION = "EventEmitter3 focuses on performance while maintaining a Node.js AND browser compatible interface."
 HOMEPAGE = "https://github.com/primus/eventemitter3#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4089df5313a98fce4a7ff1738a3e4f1a"
 

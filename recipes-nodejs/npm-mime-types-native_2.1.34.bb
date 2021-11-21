@@ -2,6 +2,7 @@ SUMMARY = "NPM: mime-types"
 DESCRIPTION = "The ultimate javascript content-type utility."
 HOMEPAGE = "https://github.com/jshttp/mime-types#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=bf1f9ad1e2e1d507aef4883fff7103de"
 

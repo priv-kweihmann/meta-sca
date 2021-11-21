@@ -2,6 +2,7 @@ SUMMARY = "NPM: glob"
 DESCRIPTION = "a little globber"
 HOMEPAGE = "https://github.com/isaacs/node-glob#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c727d36f28f2762b1011dd483aa1a191"
 

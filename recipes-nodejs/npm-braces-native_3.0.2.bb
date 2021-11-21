@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/micromatch/braces"
 
 DEPENDS = "npm-fill-range-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ccdc0959f67943eb090f7e7c299621af"
 
