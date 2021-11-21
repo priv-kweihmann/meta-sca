@@ -2,6 +2,7 @@ SUMMARY = "NPM: punycode"
 DESCRIPTION = "A robust Punycode converter that fully complies to RFC 3492 and RFC 5891, and works on nearly all JavaScript platforms."
 HOMEPAGE = "https://mths.be/punycode"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE-MIT.txt;md5=ee9bd8b835cfcd512dd644540dd96987"
 

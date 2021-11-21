@@ -2,6 +2,7 @@ SUMMARY = "NPM: void-elements"
 DESCRIPTION = "Array of "void elements" defined by the HTML specification."
 HOMEPAGE = "https://github.com/jadejs/void-elements"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=59fd674729486594752aefa0ff5a385d"
 

@@ -1,6 +1,7 @@
 SUMMARY = "Simple cross-platform colored terminal text in Python"
 HOMEPAGE = "https://github.com/tartley/colorama"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=b4936429a56a652b84c5c01280dcaa26"
 

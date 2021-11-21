@@ -2,6 +2,7 @@ SUMMARY = "NPM: mime-db"
 DESCRIPTION = "Media Type Database"
 HOMEPAGE = "https://github.com/jshttp/mime-db#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c8d3a30332ecb31cfaf4c0a06da18f5c"
 

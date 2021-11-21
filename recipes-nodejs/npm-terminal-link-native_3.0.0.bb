@@ -2,6 +2,7 @@ SUMMARY = "NPM: terminal-link"
 DESCRIPTION = "Create clickable links in the terminal"
 HOMEPAGE = "https://github.com/sindresorhus/terminal-link#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 

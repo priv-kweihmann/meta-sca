@@ -2,6 +2,7 @@ SUMMARY = "NPM: write-good"
 DESCRIPTION = "Naive linter for English prose"
 HOMEPAGE = "https://github.com/btford/write-good#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=8a09bed7470d4595fa7fe082d71715f2"
 

@@ -1,6 +1,7 @@
 SUMMARY = "Better directory iterator and faster os.walk()"
 HOMEPAGE = "https://github.com/benhoyt/scandir"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=482ee62da51806409d432a80eed4e3ea"
 

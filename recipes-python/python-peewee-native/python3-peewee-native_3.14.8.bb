@@ -1,6 +1,7 @@
 SUMMARY = "a little orm"
 HOMEPAGE = "https://github.com/coleifer/peewee/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=8a68e3ec7a6e09a43370f0a3fbc48660"
 

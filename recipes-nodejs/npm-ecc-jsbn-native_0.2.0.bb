@@ -2,6 +2,7 @@ SUMMARY = "NPM: ecc-jsbn"
 DESCRIPTION = "ECC JS code based on JSBN"
 HOMEPAGE = "https://github.com/quartzjer/ecc-jsbn"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=0d289b6d63cbcc18e4b2af9a5bd28b54"
 

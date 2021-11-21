@@ -2,6 +2,7 @@ SUMMARY = "NPM: standard-engine"
 DESCRIPTION = "Wrap your standards in a tortilla and cover it in special sauce."
 HOMEPAGE = "https://github.com/standard/standard-engine#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4a91a0b113362abf408bfcb6ad188645"
 

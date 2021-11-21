@@ -2,6 +2,7 @@ SUMMARY = "NPM: minimist-options"
 DESCRIPTION = "Pretty options for minimist"
 HOMEPAGE = "https://github.com/vadimdemedes/minimist-options#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=15b6437d981b9d2425ae4255a58865c1"
 

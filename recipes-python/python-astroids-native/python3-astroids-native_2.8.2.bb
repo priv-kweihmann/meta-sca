@@ -1,6 +1,7 @@
 SUMMARY = "A common base representation of python source code for pylint and other projects"
 HOMEPAGE = "https://github.com/PyCQA/astroid"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "LGPLv2"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a70cf540abf41acb644ac3b621b2fad1"
 

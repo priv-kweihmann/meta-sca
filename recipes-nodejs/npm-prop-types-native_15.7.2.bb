@@ -4,6 +4,7 @@ HOMEPAGE = "https://facebook.github.io/react/"
 
 DEPENDS = "npm-loose-envify-native npm-object-assign-native npm-react-is-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=94f0d486b3ba1dd568004dc5cccd32bc"
 

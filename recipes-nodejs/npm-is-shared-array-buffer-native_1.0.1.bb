@@ -2,6 +2,7 @@ SUMMARY = "NPM: is-shared-array-buffer"
 DESCRIPTION = "Is this value a JS SharedArrayBuffer?"
 HOMEPAGE = "https://github.com/inspect-js/is-shared-array-buffer#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a026b78b6909aa5e21d77709fb6b5156"
 

@@ -1,6 +1,7 @@
 SUMMARY = "PHP Static Analysis Tool - discover bugs in your code without running it!"
 HOMEPAGE = "https://github.com/phpstan/phpstan"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=bd7d90c38753ff54df51817ac7d4e5ff"
 

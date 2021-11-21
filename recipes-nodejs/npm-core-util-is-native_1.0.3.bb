@@ -2,6 +2,7 @@ SUMMARY = "NPM: core-util-is"
 DESCRIPTION = "The `util.is*` functions introduced in Node v0.12."
 HOMEPAGE = "https://github.com/isaacs/core-util-is#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=6126e36127d20ec0e2f637204a5c68ff"
 

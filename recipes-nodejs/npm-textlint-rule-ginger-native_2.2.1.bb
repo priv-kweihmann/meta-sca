@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/textlint-rule/textlint-rule-ginger"
 
 DEPENDS = "npm-es6-promisify-native npm-gingerbread-native npm-textlint-regexp-string-matcher-native npm-textlint-rule-helper-native npm-textlint-util-to-string-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://ReadMe.md;beginline=60;md5=355b64b34f8b0e8810c4e72a77859cc2"
 

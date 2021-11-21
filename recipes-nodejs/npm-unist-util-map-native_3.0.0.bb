@@ -2,6 +2,7 @@ SUMMARY = "NPM: unist-util-map"
 DESCRIPTION = "unist utility to create a new tree by mapping all nodes"
 HOMEPAGE = "https://github.com/syntax-tree/unist-util-map#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=bc9a2bae21f2f74984d4a43e24285986"
 

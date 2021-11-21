@@ -2,6 +2,7 @@ SUMMARY = "NPM: npm-normalize-package-bin"
 DESCRIPTION = "Turn any flavor of allowable package.json bin into a normalized object"
 HOMEPAGE = "https://github.com/npm/npm-normalize-package-bin#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=89966567781ee3dc29aeca2d18a59501"
 

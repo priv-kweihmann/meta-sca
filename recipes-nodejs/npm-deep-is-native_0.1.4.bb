@@ -2,6 +2,7 @@ SUMMARY = "NPM: deep-is"
 DESCRIPTION = "node's assert.deepEqual algorithm except for NaN being equal to NaN"
 HOMEPAGE = "https://github.com/thlorenz/deep-is#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fb19b42ee6322a4b61b6277fb9e13d89"
 

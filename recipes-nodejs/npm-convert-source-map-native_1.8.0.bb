@@ -2,6 +2,7 @@ SUMMARY = "NPM: convert-source-map"
 DESCRIPTION = "Converts a source-map from/to  different formats and allows adding/changing properties."
 HOMEPAGE = "https://github.com/thlorenz/convert-source-map"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=bf595075ff556bc46c43e08f142fa4f5"
 

@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/davisjam/safe-regex"
 
 DEPENDS = "npm-regexp-tree-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b4892988a3e2880e1d9b240a220187a1"
 

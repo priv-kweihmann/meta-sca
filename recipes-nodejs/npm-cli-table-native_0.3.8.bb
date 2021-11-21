@@ -2,6 +2,7 @@ SUMMARY = "NPM: cli-table"
 DESCRIPTION = "Pretty unicode tables for the CLI"
 HOMEPAGE = "https://github.com/Automattic/cli-table#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7426c3e07cd555a7113d8e4740f8bf6a"
 

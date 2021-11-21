@@ -1,6 +1,7 @@
 SUMMARY = "configparser extension for systemd files"
 HOMEPAGE = "https://github.com/sgallagher/systemdunitparser"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "GPL-3.0"
 ## This modules doesn't offer an explicit license file
 ## Info taken from pypi-PKGINFO

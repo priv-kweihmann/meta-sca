@@ -2,6 +2,7 @@ SUMMARY = "NPM: eslint-plugin-react"
 DESCRIPTION = "React specific linting rules for ESLint"
 HOMEPAGE = "https://github.com/yannickcr/eslint-plugin-react"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1dbc7fedfc1975d32106f930116d0082"
 

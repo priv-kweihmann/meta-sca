@@ -2,6 +2,7 @@ SUMMARY = "NPM: @secretlint/secretlint-rule-no-dotenv"
 DESCRIPTION = "A secretlint rule for dotenv"
 HOMEPAGE = "https://github.com/secretlint/secretlint/tree/master/packages/@secretlint/secretlint-rule-no-dotenv/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b4e96f84d6d9f19f8529455faa018754"
 

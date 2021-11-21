@@ -2,6 +2,7 @@ SUMMARY = "NPM: is-alphanumerical"
 DESCRIPTION = "Check if a character is alphanumerical"
 HOMEPAGE = "https://github.com/wooorm/is-alphanumerical#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 

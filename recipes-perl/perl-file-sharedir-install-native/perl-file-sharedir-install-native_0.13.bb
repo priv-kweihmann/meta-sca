@@ -1,6 +1,7 @@
 SUMMARY = "Install shared files"
 HOMEPAGE = "https://metacpan.org/pod/File::ShareDir::Install"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=96eaea1ab124e0ef3335eb99cadc5bae"
 

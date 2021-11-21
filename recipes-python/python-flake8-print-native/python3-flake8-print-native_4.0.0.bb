@@ -1,6 +1,7 @@
 SUMMARY = "print statement checker plugin for flake8"
 HOMEPAGE = "https://github.com/jbkahn/flake8-print"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 # does not provide a license file
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"

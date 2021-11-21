@@ -2,6 +2,7 @@ SUMMARY = "NPM: which-typed-array"
 DESCRIPTION = "Which kind of Typed Array is this JavaScript value? Works cross-realm, without `instanceof`, and despite Symbol.toStringTag."
 HOMEPAGE = "https://github.com/inspect-js/which-typed-array#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5db8fa3e421a3211e6a3dc68544da455"
 

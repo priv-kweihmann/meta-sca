@@ -1,6 +1,7 @@
 SUMMARY = "Objects and routines pertaining to date and time"
 HOMEPAGE = "https://github.com/jaraco/tempora"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7a7126e068206290f3fe9f8d6c713ea6"
 

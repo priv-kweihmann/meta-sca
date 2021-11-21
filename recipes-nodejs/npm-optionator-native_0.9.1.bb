@@ -2,6 +2,7 @@ SUMMARY = "NPM: optionator"
 DESCRIPTION = "option parsing and help generation"
 HOMEPAGE = "https://github.com/gkz/optionator"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7733af876e78a187f3a51e7c276ae883"
 

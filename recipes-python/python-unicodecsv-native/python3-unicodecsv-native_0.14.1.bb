@@ -1,6 +1,7 @@
 SUMMARY = "unicodecsv is a drop-in replacement for Python 2.7’s csv module"
 HOMEPAGE = "https://github.com/jdunck/python-unicodecsv"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-2-Clause"
 # does not provide a license file
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=cb641bc04cda31daea161b1bc15da69f"

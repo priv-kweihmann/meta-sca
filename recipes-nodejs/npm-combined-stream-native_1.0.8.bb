@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/felixge/node-combined-stream"
 
 DEPENDS = "npm-delayed-stream-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://License;md5=5270b4ddb6700d0a820e6d066744589c"
 

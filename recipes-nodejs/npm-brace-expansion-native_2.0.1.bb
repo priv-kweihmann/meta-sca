@@ -2,6 +2,7 @@ SUMMARY = "NPM: brace-expansion"
 DESCRIPTION = "Brace expansion as known from sh/bash"
 HOMEPAGE = "https://github.com/juliangruber/brace-expansion"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a5df515ef062cc3affd8c0ae59c059ec"
 

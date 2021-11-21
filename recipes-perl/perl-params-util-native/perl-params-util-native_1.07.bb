@@ -1,6 +1,7 @@
 SUMMARY = "Simple, compact and correct param-checking functions"
 HOMEPAGE = "https://metacpan.org/pod/Params::Util"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b41a38c91c3e99543225495ccf83895d"
 

@@ -6,6 +6,7 @@ DEPENDS += " \
     python3-toml-native \
 "
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=282c970bb844954c8535dd6e9733db7f"
 

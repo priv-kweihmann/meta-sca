@@ -2,6 +2,7 @@ SUMMARY = "NPM: shell-quote"
 DESCRIPTION = "quote and parse shell commands"
 HOMEPAGE = "https://github.com/substack/node-shell-quote"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=31f6d70a3b756797901b2aff55cc7d7a"
 

@@ -1,6 +1,7 @@
 SUMMARY = "Flake8 extension for checking quotes in python"
 HOMEPAGE = "https://github.com/zheller/flake8-quotes"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=838c366f69b72c5df05c96dff79b35f2"
 

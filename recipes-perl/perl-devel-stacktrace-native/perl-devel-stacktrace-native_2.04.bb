@@ -1,6 +1,7 @@
 SUMMARY = "An object representing a stack trace"
 HOMEPAGE = "https://metacpan.org/pod/Devel::StackTrace"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=413b72969e7a18b96018abbdfd52e35e"
 

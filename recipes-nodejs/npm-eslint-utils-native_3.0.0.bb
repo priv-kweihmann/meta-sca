@@ -2,6 +2,7 @@ SUMMARY = "NPM: eslint-utils"
 DESCRIPTION = "Utilities for ESLint plugins."
 HOMEPAGE = "https://github.com/mysticatea/eslint-utils#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a8f21789009221b0b37faaa24544da54"
 

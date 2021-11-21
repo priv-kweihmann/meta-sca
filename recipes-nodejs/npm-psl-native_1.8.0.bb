@@ -2,6 +2,7 @@ SUMMARY = "NPM: psl"
 DESCRIPTION = "Domain name parser based on the Public Suffix List"
 HOMEPAGE = "https://github.com/lupomontero/psl#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2425d288296fae32e27553694ff40294"
 

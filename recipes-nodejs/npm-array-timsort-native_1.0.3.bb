@@ -2,6 +2,7 @@ SUMMARY = "NPM: array-timsort"
 DESCRIPTION = "Fast JavaScript array sorting by implementing Python's Timsort algorithm"
 HOMEPAGE = "https://github.com/kaelzhang/node-array-timsort"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1a4424c73be0822c92e2c175d58f1d23"
 

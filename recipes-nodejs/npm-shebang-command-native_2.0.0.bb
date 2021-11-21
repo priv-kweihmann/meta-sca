@@ -2,6 +2,7 @@ SUMMARY = "NPM: shebang-command"
 DESCRIPTION = "Get the command from a shebang"
 HOMEPAGE = "https://github.com/kevva/shebang-command#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=05240cd20679544d6e90fcff746425bc"
 

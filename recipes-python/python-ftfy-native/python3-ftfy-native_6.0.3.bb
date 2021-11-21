@@ -1,6 +1,7 @@
 SUMMARY = "fixes text for you"
 HOMEPAGE = "http://github.com/LuminosoInsight/python-ftfy"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=49e07a5dd7a24f453625e67c4f9ac59d"
 

@@ -2,6 +2,7 @@ SUMMARY = "NPM: acorn"
 DESCRIPTION = "ECMAScript parser"
 HOMEPAGE = "https://github.com/acornjs/acorn"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=33e8b86a084578431a31c72608f226b8"
 

@@ -2,6 +2,7 @@ SUMMARY = "NPM: postcss-resolve-nested-selector"
 DESCRIPTION = "Resolve a nested selector in a PostCSS AST"
 
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e3648d1ce2efd21d8baeee8f5538f405"
 

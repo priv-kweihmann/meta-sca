@@ -2,6 +2,7 @@ SUMMARY = "NPM: typedarray"
 DESCRIPTION = "TypedArray polyfill for old browsers"
 HOMEPAGE = "https://github.com/substack/typedarray"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=6085b70b74c7dcf7df4e955725e3153d"
 

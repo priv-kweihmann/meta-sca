@@ -1,6 +1,7 @@
 SUMMARY = "alternative parser for bitbake recipes"
 HOMEPAGE = "https://github.com/priv-kweihmann/oelint-parser"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=297280a76099d6470990f30683c459d4"
 

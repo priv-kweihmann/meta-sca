@@ -2,6 +2,7 @@ SUMMARY = "NPM: fastq"
 DESCRIPTION = "Fast, in memory work queue"
 HOMEPAGE = "https://github.com/mcollina/fastq#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=78523ef0bd3eb9fefc799bbe84780631"
 

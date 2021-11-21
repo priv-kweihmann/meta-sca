@@ -2,6 +2,7 @@ SUMMARY = "NPM: minimist"
 DESCRIPTION = "parse argument options"
 HOMEPAGE = "https://github.com/substack/minimist"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=aea1cde69645f4b99be4ff7ca9abcce1"
 

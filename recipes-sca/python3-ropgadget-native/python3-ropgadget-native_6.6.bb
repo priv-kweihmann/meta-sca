@@ -2,6 +2,7 @@ SUMMARY = "Find ROP exploitation pattern"
 DESCRIPTION = "This tool lets you search your gadgets on your binaries to facilitate your ROP exploitation"
 HOMEPAGE = "https://github.com/JonathanSalwan/ROPgadget"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE_BSD.txt;md5=e8b383a8cb935c894fbf61ff6c5d5121"
 

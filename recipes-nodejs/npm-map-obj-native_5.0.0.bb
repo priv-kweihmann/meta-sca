@@ -2,6 +2,7 @@ SUMMARY = "NPM: map-obj"
 DESCRIPTION = "Map object keys and values into a new object"
 HOMEPAGE = "https://github.com/sindresorhus/map-obj#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 

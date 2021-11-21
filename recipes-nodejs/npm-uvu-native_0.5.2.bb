@@ -2,6 +2,7 @@ SUMMARY = "NPM: uvu"
 DESCRIPTION = "uvu is an extremely fast and lightweight test runner for Node.js and the browser"
 HOMEPAGE = "https://github.com/lukeed/uvu#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=75a8a6449fca39883a2bcfd1d6ddac5a"
 

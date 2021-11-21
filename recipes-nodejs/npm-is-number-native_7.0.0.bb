@@ -2,6 +2,7 @@ SUMMARY = "NPM: is-number"
 DESCRIPTION = "Returns true if a number or string value is a finite number. Useful for regex matches, parsing, user input, etc."
 HOMEPAGE = "https://github.com/jonschlinkert/is-number"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=0f64900f8f30e53054962c9f1fc3205b"
 
