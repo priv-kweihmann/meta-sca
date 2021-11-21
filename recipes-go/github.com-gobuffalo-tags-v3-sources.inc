@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/tags/v3/@v/v3.1.1.zip;srcoutput=github.com/gobuffalo/tags/v3;srcinput=github.com/gobuffalo/tags/v3@v3.1.1;downloadfilename=github-com-gobuffalo-tags-v3-3.1.1.zip;name=github-com-gobuffalo-tags-v3"
-SRC_URI[github-com-gobuffalo-tags-v3.sha256sum] = "ac854347e49ef381a23f4affc630045d5bbbd3659fb69ca056584891818e0a6e"
+SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/tags/v3/@v/v3.1.2.zip;srcoutput=github.com/gobuffalo/tags/v3;srcinput=github.com/gobuffalo/tags/v3@v3.1.2;downloadfilename=github-com-gobuffalo-tags-v3-3.1.2.zip;name=github-com-gobuffalo-tags-v3"
+SRC_URI[github-com-gobuffalo-tags-v3.sha256sum] = "8279dbd78e4d431f7c490ef65893a2dc3864d6069dd718415c826b3e0d6fc35c"
 
 GOSRC_LICENSE += "\
     MIT \
