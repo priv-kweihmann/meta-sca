@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/golang.org/x/net/@v/v0.0.0-20211116231205-47ca1ff31462.zip;srcoutput=golang.org/x/net;srcinput=golang.org/x/net@v0.0.0-20211116231205-47ca1ff31462;downloadfilename=golang-org-x-net-0.0.0-20211116231205-47ca1ff31462.zip;name=golang-org-x-net"
-SRC_URI[golang-org-x-net.sha256sum] = "9d098cb0fefb8b44216db21468702d34ada1dc7d95044bf86617f39e118a2637"
+SRC_URI += "https://proxy.golang.org/golang.org/x/net/@v/v0.0.0-20211118161319-6a13c67c3ce4.zip;srcoutput=golang.org/x/net;srcinput=golang.org/x/net@v0.0.0-20211118161319-6a13c67c3ce4;downloadfilename=golang-org-x-net-0.0.0-20211118161319-6a13c67c3ce4.zip;name=golang-org-x-net"
+SRC_URI[golang-org-x-net.sha256sum] = "18bbebd8cef154ebcfab5f74a814502506021b496827fc9e0bec1a226604c742"
 GOSRC_REMOVEDIRS += "golang.org/x/net/http2/h2demo"
 
 GOSRC_LICENSE += "\
