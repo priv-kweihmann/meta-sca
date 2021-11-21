@@ -11,9 +11,9 @@ DEPENDS = "npm-micromark-factory-space-native \
            npm-micromark-util-types-native \
            npm-uvu-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-table/-/micromark-extension-gfm-table-1.0.3.tgz"
-SRC_URI[md5sum] = "374995db78debbaeb89f31ffb3667849"
-SRC_URI[sha256sum] = "cda7086faf2591ddae4486b7d610a4f09e76ece271432e32ade836d60536c23f"
+SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-table/-/micromark-extension-gfm-table-1.0.4.tgz"
+SRC_URI[md5sum] = "475f0135314f04fe3e1eb8e6e4dbdc3a"
+SRC_URI[sha256sum] = "225d3ebf47321a28973d46d9ddf4b2ffcb7260d11ffa22c56c65ac016dde63e7"
 
 NPM_PKGNAME = "micromark-extension-gfm-table"
 
