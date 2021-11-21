@@ -12,7 +12,7 @@ from semantic_version import Version, NpmSpec
 TPL = """SUMMARY = "NPM: {name}"
 DESCRIPTION = "{description}"
 HOMEPAGE = "{homepage}"
-
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "{__license}"
 LIC_FILES_CHKSUM = "file://{__licfile};md5={__lichash}"
 
