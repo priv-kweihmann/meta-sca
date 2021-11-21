@@ -114,6 +114,8 @@ python do_sca_oelint_core() {
         _args += ["--customrules={}".format(x)]
     _files = [x.strip() for x in d.getVar("BBINCLUDED").split(" ") if x.strip().endswith(".bb") or x.strip().endswith(".bbappend")]
 
+    # Prevent loading of user config
+    os.environ["HOME"] = d.getVar("T")
     cmd_output = exec_wrap_check_output(d, _args, _files)
 
     with open(sca_raw_result_file(d, "oelint"), "w") as o:
