@@ -2,6 +2,7 @@ SUMMARY = "NPM: micromark-extension-gfm-strikethrough"
 DESCRIPTION = "micromark extension to support GFM strikethrough"
 HOMEPAGE = "https://github.com/micromark/micromark-extension-gfm-strikethrough#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=6a9c614ad8a32fcd51b47e458d620e48"
 

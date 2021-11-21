@@ -2,6 +2,7 @@ SUMMARY = "NPM: is-file"
 DESCRIPTION = "Tests if a given path resolves to a file."
 HOMEPAGE = "https://github.com/jsdevel/node-is-file"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=197e48c8ba984fbb8525e009c2e9085d"
 

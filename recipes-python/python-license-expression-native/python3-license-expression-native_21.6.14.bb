@@ -1,6 +1,7 @@
 SUMMARY = "Utility library to parse, normalize and compare License expressions"
 HOMEPAGE = "https://github.com/nexB/license-expression"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://apache-2.0.LICENSE;md5=9429839cdc4b292ff46e88b524c6e0c9"
 

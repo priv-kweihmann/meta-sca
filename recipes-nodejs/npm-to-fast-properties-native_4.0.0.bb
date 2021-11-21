@@ -2,6 +2,7 @@ SUMMARY = "NPM: to-fast-properties"
 DESCRIPTION = "Force V8 to use fast properties for an object"
 HOMEPAGE = "https://github.com/sindresorhus/to-fast-properties#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=e45fa4fe9e865fa9c8d03c7630983122"
 

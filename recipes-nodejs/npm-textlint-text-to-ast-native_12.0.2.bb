@@ -2,6 +2,7 @@ SUMMARY = "NPM: @textlint/text-to-ast"
 DESCRIPTION = "Parse plain text to AST with location info."
 HOMEPAGE = "https://github.com/textlint/textlint/tree/master/packages/@textlint/text-to-ast/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e13f89c6c99507a95c450fa5e043b0cb"
 

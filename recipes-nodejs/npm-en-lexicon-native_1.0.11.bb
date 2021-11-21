@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/finnlp/en-lexicon#readme"
 
 DEPENDS = "npm-en-inflectors-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=7c5dbe3099281e1c0d0416911c6371ed"
 

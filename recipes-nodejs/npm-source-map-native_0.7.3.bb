@@ -2,6 +2,7 @@ SUMMARY = "NPM: source-map"
 DESCRIPTION = "Generates and consumes source maps"
 HOMEPAGE = "https://github.com/mozilla/source-map"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b1ca6dbc0075d56cbd9931a75566cd44"
 

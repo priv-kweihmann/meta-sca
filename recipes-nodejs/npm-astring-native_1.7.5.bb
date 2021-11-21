@@ -2,6 +2,7 @@ SUMMARY = "NPM: astring"
 DESCRIPTION = "JavaScript code generator from an ESTree-compliant AST."
 HOMEPAGE = "https://github.com/davidbonnet/astring#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=092cf85092a220afe2c99f78ddcb7343"
 

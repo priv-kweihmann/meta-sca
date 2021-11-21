@@ -1,6 +1,7 @@
 SUMMARY = "portably perform operations on file names"
 HOMEPAGE = "https://metacpan.org/pod/File::Spec"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 # module doesn't ship an explicit LICENSE file
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-or-later;md5=fed54355545ffd980b814dab4a3b312c"

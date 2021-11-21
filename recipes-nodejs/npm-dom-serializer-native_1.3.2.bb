@@ -2,6 +2,7 @@ SUMMARY = "NPM: dom-serializer"
 DESCRIPTION = "render domhandler DOM nodes to a string"
 HOMEPAGE = "https://github.com/cheeriojs/dom-renderer#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ba3390a22fe1d127f3522ac8ef1bd1a0"
 

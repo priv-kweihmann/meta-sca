@@ -1,6 +1,7 @@
 SUMMARY = "Build.PL install path logic made easy"
 HOMEPAGE = "https://metacpan.org/pod/ExtUtils::InstallPaths"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b6fa54d873ce6bcf4809ea88bdf97769"
 

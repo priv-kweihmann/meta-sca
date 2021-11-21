@@ -2,6 +2,7 @@ SUMMARY = "NPM: qs"
 DESCRIPTION = "A querystring parser that supports nesting and arrays, with a depth limit"
 HOMEPAGE = "https://github.com/ljharb/qs"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=b289135779dd930509ae81e6041690c0"
 

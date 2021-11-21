@@ -2,6 +2,7 @@ SUMMARY = "NPM: sade"
 DESCRIPTION = "Smooth (CLI) operator 🎶"
 HOMEPAGE = "https://github.com/lukeed/sade#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=a1892d5a0eed5aae41e3df6a732d5ca3"
 

@@ -2,6 +2,7 @@ SUMMARY = "NPM: end-with"
 DESCRIPTION = "Determines whether a string ends with the characters of another string."
 HOMEPAGE = "https://github.com/gearcase/end-with#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3c405c5cf3e7cd5f856be25608ea5def"
 

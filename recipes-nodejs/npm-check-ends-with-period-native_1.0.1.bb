@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/azu/check-ends-with-period"
 
 DEPENDS = "npm-array.prototype.find-native npm-emoji-regex-native npm-end-with-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e13f89c6c99507a95c450fa5e043b0cb"
 

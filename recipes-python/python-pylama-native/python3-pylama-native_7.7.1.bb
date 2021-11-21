@@ -1,6 +1,7 @@
 SUMMARY = "Simple Python style checker in one Python file"
 HOMEPAGE = "https://github.com/PyCQA/pycodestyle"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "EXPAT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e6a600fd5e1d9cbde2d983680233ad02"
 

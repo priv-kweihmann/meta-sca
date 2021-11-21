@@ -2,6 +2,7 @@ SUMMARY = "NPM: bn.js"
 DESCRIPTION = "Big number implementation in pure javascript"
 HOMEPAGE = "https://github.com/indutny/bn.js"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7dc11970b13299ee35569bc29a78d95b"
 

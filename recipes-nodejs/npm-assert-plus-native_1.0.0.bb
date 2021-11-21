@@ -2,6 +2,7 @@ SUMMARY = "NPM: assert-plus"
 DESCRIPTION = "Extra assertions on top of node's assert module"
 HOMEPAGE = "https://github.com/mcavage/node-assert-plus#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=139;endline=159;md5=0eab02dc12b94c2944df2892e803a288"
 

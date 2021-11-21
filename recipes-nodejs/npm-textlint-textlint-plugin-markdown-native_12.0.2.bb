@@ -2,6 +2,7 @@ SUMMARY = "NPM: @textlint/textlint-plugin-markdown"
 DESCRIPTION = "Markdown support for textlint."
 HOMEPAGE = "https://github.com/textlint/textlint/tree/master/packages/@textlint/textlint-plugin-markdown"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b858910af2bca39133b1536464b54f49"
 

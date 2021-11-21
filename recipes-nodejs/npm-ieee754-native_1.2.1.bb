@@ -2,6 +2,7 @@ SUMMARY = "NPM: ieee754"
 DESCRIPTION = "Read/write IEEE754 floating point numbers from/to a Buffer or array-like object"
 HOMEPAGE = "https://github.com/feross/ieee754#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=56c3be003027d64d24ca6b69a2612f2f"
 

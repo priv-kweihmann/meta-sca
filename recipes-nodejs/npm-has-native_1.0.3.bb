@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/tarruda/has"
 
 DEPENDS = "npm-function-bind-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE-MIT;md5=d000afc3c9ff3501a5610197db76a246"
 

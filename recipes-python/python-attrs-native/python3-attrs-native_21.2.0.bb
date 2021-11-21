@@ -1,6 +1,7 @@
 SUMMARY = "Classes Without Boilerplate"
 HOMEPAGE = "https://github.com/python-attrs/attrs"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d4ab25949a73fe7d4fdee93bcbdbf8ff"
 

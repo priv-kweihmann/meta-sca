@@ -2,6 +2,7 @@ SUMMARY = "NPM: spdx-license-ids"
 DESCRIPTION = "A list of SPDX license identifiers"
 HOMEPAGE = "https://github.com/jslicense/spdx-license-ids#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "CC0-1.0"
 LIC_FILES_CHKSUM = "file://README.md;beginline=52;md5=21f0b36191d4379feb6bc72f1ad40255"
 

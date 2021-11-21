@@ -2,6 +2,7 @@ SUMMARY = "NPM: htmlparser2"
 DESCRIPTION = "Fast & forgiving HTML/XML parser"
 HOMEPAGE = "https://github.com/fb55/htmlparser2#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=10e03952c97f225d4229d7524619eb7f"
 

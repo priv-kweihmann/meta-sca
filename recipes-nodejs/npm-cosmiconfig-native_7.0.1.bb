@@ -2,6 +2,7 @@ SUMMARY = "NPM: cosmiconfig"
 DESCRIPTION = "Find and load configuration from a package.json property, rc file, or CommonJS module"
 HOMEPAGE = "https://github.com/davidtheclark/cosmiconfig#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=faf65be8f439b913bb5e892b7684a729"
 

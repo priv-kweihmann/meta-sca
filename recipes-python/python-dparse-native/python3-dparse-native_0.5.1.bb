@@ -1,6 +1,7 @@
 SUMMARY = "A parser for Python dependency files"
 HOMEPAGE = "https://github.com/pyupio/dparse"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=220d28dc5d30a15667788003c931221c"
 

@@ -2,6 +2,7 @@ SUMMARY = "NPM: mkdirp"
 DESCRIPTION = "Recursively mkdir, like `mkdir -p`"
 HOMEPAGE = "https://github.com/isaacs/node-mkdirp#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f653359cc2be3ff55aa601d58d84c808"
 

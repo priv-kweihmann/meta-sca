@@ -1,6 +1,7 @@
 SUMMARY = "micro-package that contains a small set of text normalization"
 HOMEPAGE = "http://github.com/pudo/normality"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ac24567f92cb0c2380157fd45299ceb3"
 

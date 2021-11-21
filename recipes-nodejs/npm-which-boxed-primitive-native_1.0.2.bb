@@ -2,6 +2,7 @@ SUMMARY = "NPM: which-boxed-primitive"
 DESCRIPTION = "Which kind of boxed JS primitive is this?"
 HOMEPAGE = "https://github.com/inspect-js/which-boxed-primitive#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=375dc7ca936a14e9c29418d5263bd066"
 

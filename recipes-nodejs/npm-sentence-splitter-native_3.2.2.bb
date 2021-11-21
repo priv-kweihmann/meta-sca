@@ -2,6 +2,7 @@ SUMMARY = "NPM: sentence-splitter"
 DESCRIPTION = "split {japanese, english} text into sentences."
 HOMEPAGE = "https://github.com/azu/sentence-splitter"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b858910af2bca39133b1536464b54f49"
 

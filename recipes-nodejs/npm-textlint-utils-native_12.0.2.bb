@@ -2,6 +2,7 @@ SUMMARY = "NPM: @textlint/utils"
 DESCRIPTION = "textlint internal utils."
 HOMEPAGE = "https://github.com/textlint/textlint/tree/master/packages/utils/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fdf16298bf702d1ba5d61988dfe70c9f"
 

@@ -2,6 +2,7 @@ SUMMARY = "NPM: @types/structured-source"
 DESCRIPTION = "TypeScript definitions for structured-source"
 HOMEPAGE = "{homepage}"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b98fddd052bb2f5ddbcdbd417ffb26a8"
 

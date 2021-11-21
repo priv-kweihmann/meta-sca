@@ -2,6 +2,7 @@ SUMMARY = "NPM: decamelize"
 DESCRIPTION = "Convert a camelized string into a lowercased one with a custom separator: unicornRainbow → unicorn_rainbow"
 HOMEPAGE = "https://github.com/sindresorhus/decamelize#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 

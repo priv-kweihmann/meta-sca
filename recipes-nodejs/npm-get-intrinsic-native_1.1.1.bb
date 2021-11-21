@@ -2,6 +2,7 @@ SUMMARY = "NPM: get-intrinsic"
 DESCRIPTION = "Get and robustly cache all JS language-level intrinsics at first require time"
 HOMEPAGE = "https://github.com/ljharb/get-intrinsic#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=0eb2c73daa0ecf037cbdf3d0bb0c98d5"
 

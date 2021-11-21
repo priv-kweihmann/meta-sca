@@ -1,6 +1,7 @@
 SUMMARY = "Polyfill package for Flake8 plugins"
 HOMEPAGE = "https://gitlab.com/pycqa/flake8-polyfill"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4638d28f0c4a8f3900ce3e309d204b73"
 

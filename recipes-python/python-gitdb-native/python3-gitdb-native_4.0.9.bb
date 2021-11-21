@@ -1,6 +1,7 @@
 SUMMARY = "IO of git-style object databases"
 HOMEPAGE = "https://github.com/gitpython-developers/gitdb"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=59e5ecb13339a936eedf83282eaf4528"
 

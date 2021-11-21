@@ -2,6 +2,7 @@ SUMMARY = "NPM: sql-parse"
 DESCRIPTION = "SQL parsing utility"
 
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=10ef0afc90b1033fd8579bb21673e2ac"
 

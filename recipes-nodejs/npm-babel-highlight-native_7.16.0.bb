@@ -2,6 +2,7 @@ SUMMARY = "NPM: @babel/highlight"
 DESCRIPTION = "Syntax highlight JavaScript strings for output in terminals."
 HOMEPAGE = "https://babel.dev/docs/en/next/babel-highlight"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b1d0cd283a346e919abb3beeb018279d"
 

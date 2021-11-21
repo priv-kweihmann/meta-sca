@@ -1,6 +1,7 @@
 SUMMARY = "PyYAML is a YAML parser and emitter for Python"
 HOMEPAGE = "https://pyyaml.org"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=6d8242660a8371add5fe547adf083079"
 

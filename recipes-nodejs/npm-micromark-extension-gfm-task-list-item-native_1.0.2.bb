@@ -2,6 +2,7 @@ SUMMARY = "NPM: micromark-extension-gfm-task-list-item"
 DESCRIPTION = "micromark extension to support GFM task list items"
 HOMEPAGE = "https://github.com/micromark/micromark-extension-gfm-task-list-item#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=6a9c614ad8a32fcd51b47e458d620e48"
 

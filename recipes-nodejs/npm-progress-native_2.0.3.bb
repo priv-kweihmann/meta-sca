@@ -2,6 +2,7 @@ SUMMARY = "NPM: progress"
 DESCRIPTION = "Flexible ascii progress bar"
 HOMEPAGE = "https://github.com/visionmedia/node-progress#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ffa62cafbdaae1000b3aae767914db9b"
 

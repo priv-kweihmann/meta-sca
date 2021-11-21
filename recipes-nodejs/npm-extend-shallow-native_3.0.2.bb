@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/jonschlinkert/extend-shallow"
 
 DEPENDS = "npm-assign-symbols-native npm-is-extendable-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4e0921625c33cf4e6990a6416848a6e5"
 

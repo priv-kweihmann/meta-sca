@@ -1,6 +1,7 @@
 SUMMARY = "Python binding to the Networking and Cryptography (NaCl) library"
 HOMEPAGE = "https://github.com/pyca/pynacl"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=8cc789b082b3d97e1ccc5261f8594d3f"
 

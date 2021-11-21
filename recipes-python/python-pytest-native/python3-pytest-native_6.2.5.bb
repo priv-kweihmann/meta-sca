@@ -1,6 +1,7 @@
 SUMMARY = "Easy to write small tests"
 DESCRIPTION = "The pytest framework makes it easy to write small tests, yet scales to support complex functional testing"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=81eb9f71d006c6b268cf4388e3c98f7b"
 

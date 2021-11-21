@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/Constellation/structured-source"
 
 DEPENDS = "npm-boundary-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=44;md5=9c6942b190be713b724358bcd4f8a08c"
 

@@ -2,6 +2,7 @@ SUMMARY = "Static code analyzer for C/C++"
 HOMEPAGE = "https://github.com/danmar/cppcheck"
 BUGTRACKER = "https://trac.cppcheck.net/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 

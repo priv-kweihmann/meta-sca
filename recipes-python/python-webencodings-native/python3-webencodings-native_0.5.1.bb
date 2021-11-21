@@ -1,6 +1,7 @@
 SUMMARY = "Python implementation of the WHATWG Encoding standard"
 HOMEPAGE = "https://github.com/SimonSapin/python-webencodings"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause"
 # does not provide a license file
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=550794465ba0ec5312d6919e203a55f9"

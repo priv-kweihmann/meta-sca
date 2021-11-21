@@ -2,6 +2,7 @@ SUMMARY = "NPM: escape-html"
 DESCRIPTION = "Escape string for use in HTML"
 HOMEPAGE = "https://github.com/component/escape-html"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f8746101546eeb9e4f6de64bb8bdf595"
 

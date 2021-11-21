@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/mysticatea/eslint-plugin-node#readme"
 
 DEPENDS = "npm-eslint-plugin-es-native npm-eslint-utils-native npm-ignore-native npm-minimatch-native npm-resolve-native npm-semver-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=893385a31dda2493704bc7f39bc976a0"
 

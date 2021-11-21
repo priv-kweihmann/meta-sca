@@ -1,6 +1,7 @@
 SUMMARY = "Systemd Linter"
 HOMEPAGE = "https://github.com/priv-kweihmann/systemdlint"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=1e0b805e34c99594e846fa46c20d8b9b"
 

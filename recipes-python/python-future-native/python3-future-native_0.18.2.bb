@@ -1,6 +1,7 @@
 SUMMARY = "Clean single-source support for Python 3 and 2"
 HOMEPAGE = "https://github.com/PythonCharmers/python-future"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=a253924061f8ecc41ad7a2ba1560e8e7"
 

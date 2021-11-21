@@ -2,6 +2,7 @@ SUMMARY = "NPM: array.prototype.find"
 DESCRIPTION = "Array.prototype.find ES6 polyfill."
 HOMEPAGE = "https://github.com/paulmillr/Array.prototype.find#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b73ae65ff9513a76f206f931ac1685d3"
 

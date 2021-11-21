@@ -1,6 +1,7 @@
 SUMMARY = "Facility for creating read-only scalars, arrays, hashes"
 HOMEPAGE = "https://metacpan.org/pod/Readonly"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e8c884908ae9d75a4adb8a3f746f04e6"
 

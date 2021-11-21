@@ -2,6 +2,7 @@ SUMMARY = "NPM: eslint-plugin-sql"
 DESCRIPTION = "SQL linting rules for ESLint."
 HOMEPAGE = "https://github.com/gajus/eslint-plugin-sql#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4bb3b4cf3aad3c70d9709d211ad30c41"
 

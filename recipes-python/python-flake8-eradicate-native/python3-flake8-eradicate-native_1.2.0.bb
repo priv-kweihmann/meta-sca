@@ -1,6 +1,7 @@
 SUMMARY = "Flake8 plugin to find commented out or dead code"
 HOMEPAGE = "https://github.com/sobolevn/flake8-eradicate"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=268c5fd9e64a788932af10a988ab35c4"
 

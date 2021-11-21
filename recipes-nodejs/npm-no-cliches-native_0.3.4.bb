@@ -2,6 +2,7 @@ SUMMARY = "NPM: no-cliches"
 DESCRIPTION = "Find clichés in your writings"
 HOMEPAGE = "https://github.com/duereg/no-cliches"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fb98331e7034b98598f6123ab09dd002"
 

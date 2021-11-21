@@ -2,6 +2,7 @@ SUMMARY = "NPM: levn"
 DESCRIPTION = "Light ECMAScript (JavaScript) Value Notation - human written, concise, typed, flexible"
 HOMEPAGE = "https://github.com/gkz/levn"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7733af876e78a187f3a51e7c276ae883"
 

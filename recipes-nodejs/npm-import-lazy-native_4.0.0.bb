@@ -2,6 +2,7 @@ SUMMARY = "NPM: import-lazy"
 DESCRIPTION = "Import a module lazily"
 HOMEPAGE = "https://github.com/sindresorhus/import-lazy#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
 

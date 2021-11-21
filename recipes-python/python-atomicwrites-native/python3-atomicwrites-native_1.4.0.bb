@@ -1,6 +1,7 @@
 SUMMARY = "Powerful Python library for atomic file writes"
 HOMEPAGE = "https://github.com/untitaker/python-atomicwrites"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=91cc36cfafeefb7863673bcfcb1d4da4"
 

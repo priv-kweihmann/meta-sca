@@ -2,6 +2,7 @@ SUMMARY = "NPM: adverb-where"
 DESCRIPTION = "Find adverbs in your writings"
 HOMEPAGE = "https://github.com/duereg/adverb-where"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ad1ea741b5c8f9d521103277c196d2dd"
 

@@ -1,6 +1,7 @@
 SUMMARY = "ruamel.yaml is a YAML parser/emitter that support comment preservation"
 HOMEPAGE = "https://sourceforge.net/p/ruamel-yaml/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fa0a51dfb461e2f803969e0f3fa71dfe"
 

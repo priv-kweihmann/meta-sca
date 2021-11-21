@@ -2,6 +2,7 @@ SUMMARY = "NPM: textlint-rule-apostrophe"
 DESCRIPTION = "Textlint rule to check correct apostrophe usage"
 HOMEPAGE = "https://github.com/sapegin/textlint-rule-apostrophe"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://License.md;md5=d1058b1fef8f032328c145f0982bcdef"
 
