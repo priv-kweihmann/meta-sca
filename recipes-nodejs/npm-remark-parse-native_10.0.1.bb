@@ -1,5 +1,5 @@
 SUMMARY = "NPM: remark-parse"
-DESCRIPTION = "remark plugin to parse markdown"
+DESCRIPTION = "remark plugin to add support for parsing markdown input"
 HOMEPAGE = "https://remark.js.org"
 
 LICENSE = "MIT"
@@ -9,9 +9,9 @@ DEPENDS = "npm-mdast-util-from-markdown-native \
            npm-types-mdast-native \
            npm-unified-native"
 
-SRC_URI = "https://registry.npmjs.org/remark-parse/-/remark-parse-10.0.0.tgz"
-SRC_URI[md5sum] = "faab76cfe28ac205925c64b24fd398dd"
-SRC_URI[sha256sum] = "9385ebcd1f2cbf003b8098d0d335dd5ad35fb8e03c4df50b29845d4d6812da08"
+SRC_URI = "https://registry.npmjs.org/remark-parse/-/remark-parse-10.0.1.tgz"
+SRC_URI[md5sum] = "828800316e70fb98fb8c527deff6849c"
+SRC_URI[sha256sum] = "5178fee61f1c2c2fa1c09932dad9e425abcfc2708d8050fa66cfb5f7d16e6fcb"
 
 NPM_PKGNAME = "remark-parse"
 
