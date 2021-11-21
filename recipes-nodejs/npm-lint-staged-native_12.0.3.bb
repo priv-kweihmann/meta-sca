@@ -10,6 +10,7 @@ DEPENDS = "npm-cli-truncate-native \
            npm-commander-native \
            npm-cosmiconfig-native \
            npm-debug-native \
+           npm-enquirer-native \
            npm-execa-native \
            npm-listr2-native \
            npm-micromatch-native \
@@ -18,9 +19,9 @@ DEPENDS = "npm-cli-truncate-native \
            npm-string-argv-native \
            npm-supports-color-native"
 
-SRC_URI = "https://registry.npmjs.org/lint-staged/-/lint-staged-12.0.2.tgz"
-SRC_URI[md5sum] = "f8ea95dd6245844451c5b1b44fa217ae"
-SRC_URI[sha256sum] = "10f2fe1c14b0f032df8ec86611c071fa74e21cf8226d2e74efeb6751fa484add"
+SRC_URI = "https://registry.npmjs.org/lint-staged/-/lint-staged-12.0.3.tgz"
+SRC_URI[md5sum] = "cbbddfa5fc9411f44e1eb84cc231c7e5"
+SRC_URI[sha256sum] = "4253055e8dcec2c71f14f0fe716a63bad436d92aa6be0406674e6f417b22dabb"
 
 NPM_PKGNAME = "lint-staged"
 
