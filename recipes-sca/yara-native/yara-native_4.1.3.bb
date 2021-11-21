@@ -1,6 +1,7 @@
 SUMMARY = "The pattern matching swiss knife"
 HOMEPAGE = "https://github.com/VirusTotal/yara"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://COPYING;md5=541962f9dacf27c928f57e3a7ba9e1f2"
 

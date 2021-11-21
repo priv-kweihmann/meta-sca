@@ -2,6 +2,7 @@ SUMMARY = "NPM: dayjs"
 DESCRIPTION = "2KB immutable date time library alternative to Moment.js with the same modern API "
 HOMEPAGE = "https://day.js.org"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=928913777077eb4559660390651e482e"
 

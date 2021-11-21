@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/azu/textlint-rule-max-number-of-lines"
 
 DEPENDS = "npm-object-assign-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b858910af2bca39133b1536464b54f49"
 

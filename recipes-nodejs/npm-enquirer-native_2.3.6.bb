@@ -2,6 +2,7 @@ SUMMARY = "NPM: enquirer"
 DESCRIPTION = "Stylish, intuitive and user-friendly prompt system. Fast and lightweight enough for small projects, powerful and extensible enough for the most advanced use cases."
 HOMEPAGE = "https://github.com/enquirer/enquirer"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=62927f9e287cbc1dbddd9c8f208b7cdb"
 

@@ -2,6 +2,7 @@ SUMMARY = "NPM: esutils"
 DESCRIPTION = "utility box for ECMAScript language tools"
 HOMEPAGE = "https://github.com/estools/esutils"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.BSD;md5=e74cede38e957fe3e525b0e53a510bcf"
 

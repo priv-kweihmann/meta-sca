@@ -2,6 +2,7 @@ SUMMARY = "NPM: eslint-plugin-import"
 DESCRIPTION = "Import with sanity."
 HOMEPAGE = "https://github.com/import-js/eslint-plugin-import"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e012cdf02fc1d8b17c6c65424a590feb"
 

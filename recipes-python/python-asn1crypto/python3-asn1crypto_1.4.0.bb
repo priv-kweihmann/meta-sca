@@ -1,6 +1,7 @@
 SUMMARY = "Python ASN.1 library with a focus on performance and a pythonic API"
 HOMEPAGE = "https://github.com/wbond/asn1crypto"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7439e38f5e04ff62fae436184786b7ca"
 

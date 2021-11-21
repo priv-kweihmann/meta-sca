@@ -2,6 +2,7 @@ SUMMARY = "NPM: mdast-util-gfm-table"
 DESCRIPTION = "mdast extension to parse and serialize GFM tables"
 HOMEPAGE = "https://github.com/syntax-tree/mdast-util-gfm-table#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=6a9c614ad8a32fcd51b47e458d620e48"
 

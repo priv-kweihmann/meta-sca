@@ -1,6 +1,7 @@
 SUMMARY = "Package requirements checker, plugin for flake8"
 HOMEPAGE = "https://github.com/Arkq/flake8-requirements"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=0ea7a8535b886b84749903b72bb23949"
 

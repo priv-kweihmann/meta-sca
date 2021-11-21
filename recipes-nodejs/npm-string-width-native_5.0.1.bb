@@ -2,6 +2,7 @@ SUMMARY = "NPM: string-width"
 DESCRIPTION = "Get the visual width of a string - the number of columns required to display it"
 HOMEPAGE = "https://github.com/sindresorhus/string-width#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 

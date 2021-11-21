@@ -1,6 +1,7 @@
 SUMMARY = "Module for decorators, wrappers and monkey patching"
 HOMEPAGE = "http://wrapt.readthedocs.org/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fdfc019b57affbe1d7a32e3d34e83db4"
 

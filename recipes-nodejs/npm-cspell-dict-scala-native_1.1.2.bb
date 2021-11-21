@@ -2,6 +2,7 @@ SUMMARY = "NPM: cspell-dict-scala"
 DESCRIPTION = "Scala dictionary for cspell."
 HOMEPAGE = "https://github.com/streetsidesoftware/cspell-dicts/blob/master/packages/scala#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=62f84db3eea2ff0da5510fedd081ea0c"
 

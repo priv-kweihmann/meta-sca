@@ -2,6 +2,7 @@ SUMMARY = "NPM: merge-stream"
 DESCRIPTION = "Create a stream that emits events from multiple other streams"
 HOMEPAGE = "https://github.com/grncdr/merge-stream#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b896e0cd5ef85a8c54bd2a7dd56e0e96"
 

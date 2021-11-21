@@ -2,6 +2,7 @@ SUMMARY = "NPM: eslint-config-standard-jsx"
 DESCRIPTION = "JavaScript Standard Style JSX support - ESLint Shareable Config"
 HOMEPAGE = "https://github.com/standard/eslint-config-standard-jsx"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fb42e5aa12bb9e365d38b4b5691d6984"
 

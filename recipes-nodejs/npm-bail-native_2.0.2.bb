@@ -2,6 +2,7 @@ SUMMARY = "NPM: bail"
 DESCRIPTION = "Throw a given error"
 HOMEPAGE = "https://github.com/wooorm/bail#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=91fb5297439b32d9cd49df8a2484d3eb"
 

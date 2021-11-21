@@ -2,6 +2,7 @@ SUMMARY = "NPM: type-fest"
 DESCRIPTION = "A collection of essential TypeScript types"
 HOMEPAGE = "https://github.com/sindresorhus/type-fest#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT | CC0-1.0"
 LIC_FILES_CHKSUM = "file://license;md5=3e06173a93caec684ac1dbab40aec199"
 

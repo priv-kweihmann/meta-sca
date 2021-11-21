@@ -2,6 +2,7 @@ SUMMARY = "NPM: @cspell/dict-companies"
 DESCRIPTION = "Company names dictionary for cspell."
 HOMEPAGE = "https://github.com/streetsidesoftware/cspell-dicts/blob/main/dictionaries/companies#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=62f84db3eea2ff0da5510fedd081ea0c"
 

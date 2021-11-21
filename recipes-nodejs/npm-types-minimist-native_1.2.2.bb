@@ -2,6 +2,7 @@ SUMMARY = "NPM: @types/minimist"
 DESCRIPTION = "TypeScript definitions for minimist"
 HOMEPAGE = "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/minimist"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d4a904ca135bb7bc912156fee12726f0"
 

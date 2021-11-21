@@ -1,6 +1,7 @@
 SUMMARY = "plugincode is a library that provides plugin functionality for ScanCode toolkit"
 HOMEPAGE = "https://github.com/nexB/plugincode"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://apache-2.0.LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 

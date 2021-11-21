@@ -2,6 +2,7 @@ SUMMARY = "NPM: space-separated-tokens"
 DESCRIPTION = "Parse and stringify space separated tokens"
 HOMEPAGE = "https://github.com/wooorm/space-separated-tokens#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 

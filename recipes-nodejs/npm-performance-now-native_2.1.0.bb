@@ -2,6 +2,7 @@ SUMMARY = "NPM: performance-now"
 DESCRIPTION = "Implements performance.now (based on process.hrtime)."
 HOMEPAGE = "https://github.com/braveg1rl/performance-now"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license.txt;md5=a07ae1b6dc33215d89a1281ee71c863c"
 

@@ -1,6 +1,7 @@
 SUMMARY = "Read & write Java .properties files"
 HOMEPAGE = "https://github.com/jwodder/javaproperties"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=731e3f36ccd931c8aa8b40c94ad267af"
 

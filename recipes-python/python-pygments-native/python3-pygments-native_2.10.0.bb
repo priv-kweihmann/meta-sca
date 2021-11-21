@@ -1,6 +1,7 @@
 SUMMARY = "Pygments is a syntax highlighting package written in Python"
 HOMEPAGE = "http://pygments.org/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=98419e351433ac106a24e3ad435930bc"
 

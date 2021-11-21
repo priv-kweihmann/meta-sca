@@ -1,6 +1,7 @@
 SUMMARY = "A static code analyzer for C++, Lua"
 HOMEPAGE = "https://github.com/Tencent/TscanCode"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=17f3d09aae7e567139cf4c67db039584"
 

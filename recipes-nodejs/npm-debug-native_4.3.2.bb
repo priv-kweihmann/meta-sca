@@ -2,6 +2,7 @@ SUMMARY = "NPM: debug"
 DESCRIPTION = "small debugging utility"
 HOMEPAGE = "https://github.com/visionmedia/debug#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ddd815a475e7338b0be7a14d8ee35a99"
 

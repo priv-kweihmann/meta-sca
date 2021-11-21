@@ -1,6 +1,7 @@
 SUMMARY = "library that makes it easy to scrape information from web pages"
 HOMEPAGE = "http://www.crummy.com/software/BeautifulSoup/bs4/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d50c7af08b5e78653a504bfbfb80bf22"
 

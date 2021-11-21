@@ -2,6 +2,7 @@ SUMMARY = "NPM: node-addon-api"
 DESCRIPTION = "Node.js API (Node-API)"
 HOMEPAGE = "https://github.com/nodejs/node-addon-api"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=0492ef29a9d558a3e9660e7accc9ca6a"
 

@@ -1,6 +1,7 @@
 SUMMARY = "The uncompromising Python code formatter"
 HOMEPAGE = "https://github.com/python/black"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d3465a2a183908c9cb95bf490bd1e7ab"
 

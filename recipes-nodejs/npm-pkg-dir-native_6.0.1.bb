@@ -2,6 +2,7 @@ SUMMARY = "NPM: pkg-dir"
 DESCRIPTION = "Find the root directory of a Node.js project or npm package"
 HOMEPAGE = "https://github.com/sindresorhus/pkg-dir#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 

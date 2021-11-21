@@ -2,6 +2,7 @@ SUMMARY = "NPM: is-set"
 DESCRIPTION = "Is this value a JS Set? This module works cross-realm/iframe, and despite ES6 @@toStringTag."
 HOMEPAGE = "https://github.com/inspect-js/is-set#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c18cc44449ec61c93b216bf74e6c4fa4"
 

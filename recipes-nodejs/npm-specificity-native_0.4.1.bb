@@ -2,6 +2,7 @@ SUMMARY = "NPM: specificity"
 DESCRIPTION = "Calculate the specificity of a CSS selector"
 HOMEPAGE = "https://github.com/keeganstreet/specificity"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5bf029afd53c04c00055892f494d35c2"
 

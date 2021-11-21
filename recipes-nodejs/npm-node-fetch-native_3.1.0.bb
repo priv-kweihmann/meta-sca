@@ -2,6 +2,7 @@ SUMMARY = "NPM: node-fetch"
 DESCRIPTION = "A light-weight module that brings Fetch API to node.js"
 HOMEPAGE = "https://github.com/node-fetch/node-fetch"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=b5d9c535657b1650d66a58538d99acc8"
 

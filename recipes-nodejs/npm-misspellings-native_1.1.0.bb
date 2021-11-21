@@ -2,6 +2,7 @@ SUMMARY = "NPM: misspellings"
 DESCRIPTION = "List of common misspellings from Wikipedia"
 HOMEPAGE = "https://github.com/io-monad/misspellings#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "GPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d32239bcb673463ab874e80d47fae504"
 

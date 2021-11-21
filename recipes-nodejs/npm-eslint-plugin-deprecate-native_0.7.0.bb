@@ -2,6 +2,7 @@ SUMMARY = "NPM: eslint-plugin-deprecate"
 DESCRIPTION = "[![NPM version](http://img.shields.io/npm/v/eslint-plugin-deprecate.svg)](https://www.npmjs.com/package/eslint-plugin-deprecate)"
 HOMEPAGE = "https://github.com/AlexMost/eslint-plugin-deprecate#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a9ffaaac1eaf685acfe8512de46342e6"
 

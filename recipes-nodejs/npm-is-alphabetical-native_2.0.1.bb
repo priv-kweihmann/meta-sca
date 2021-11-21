@@ -2,6 +2,7 @@ SUMMARY = "NPM: is-alphabetical"
 DESCRIPTION = "Check if a character is alphabetical"
 HOMEPAGE = "https://github.com/wooorm/is-alphabetical#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 

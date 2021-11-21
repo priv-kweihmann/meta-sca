@@ -1,6 +1,7 @@
 SUMMARY = "A decorator for caching properties in classes"
 HOMEPAGE = "https://github.com/pydanny/cached-property"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=db7ff60c4e14f58534201242803d8abc"
 

@@ -2,6 +2,7 @@ SUMMARY = "NPM: textlint-rule-no-surrogate-pair"
 DESCRIPTION = "Detects surrogate pairs in sentences."
 HOMEPAGE = "https://github.com/lostandfound/textlint-rule-no-surrogate-pair#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=49;md5=2d8f0aacddb225e30f066034c7de3059"
 

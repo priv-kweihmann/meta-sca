@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/jonschlinkert/global-prefix"
 
 DEPENDS = "npm-ini-native npm-kind-of-native npm-which-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b561e0a423bedc9d9ca9c8c67d40abb9"
 

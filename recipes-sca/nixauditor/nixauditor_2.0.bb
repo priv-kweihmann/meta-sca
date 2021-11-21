@@ -1,5 +1,6 @@
 SUMMARY = "The Unix security audit and intrusion detection tool"
 HOMEPAGE = "https://github.com/XalfiE/Nix-Auditor"
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "Unlicense"
 LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/files/licenses/Unlicense;md5=1d267ceb3a8d8f75f1be3011ee4cbf53"
 

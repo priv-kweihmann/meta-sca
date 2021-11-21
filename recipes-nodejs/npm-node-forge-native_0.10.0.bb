@@ -2,6 +2,7 @@ SUMMARY = "NPM: node-forge"
 DESCRIPTION = "JavaScript implementations of network transports, cryptography, ciphers, PKI, message digests, and various utilities."
 HOMEPAGE = "https://github.com/digitalbazaar/forge"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause | GPL-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3468e584d830bfb0ffd2d0af6e129136"
 

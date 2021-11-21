@@ -2,6 +2,7 @@ SUMMARY = "go.mod: contrib.go.opencensus.io/exporter/stackdriver"
 HOMEPAGE = "https://pkg.go.dev/contrib.go.opencensus.io/exporter/stackdriver"
 
 # License is determined by the modules included and will be therefore computed
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '').split(' ') if x)))}"
 
 # inject the needed sources

@@ -2,6 +2,7 @@ SUMMARY = "NPM: yocto-queue"
 DESCRIPTION = "Tiny queue data structure"
 HOMEPAGE = "https://github.com/sindresorhus/yocto-queue#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 

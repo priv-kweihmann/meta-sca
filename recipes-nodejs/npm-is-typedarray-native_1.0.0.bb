@@ -2,6 +2,7 @@ SUMMARY = "NPM: is-typedarray"
 DESCRIPTION = "Detect whether or not an object is a Typed Array"
 HOMEPAGE = "https://github.com/hughsk/is-typedarray"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=aea1cde69645f4b99be4ff7ca9abcce1"
 

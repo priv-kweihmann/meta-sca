@@ -2,6 +2,7 @@ SUMMARY = "NPM: clone"
 DESCRIPTION = "deep cloning of objects and arrays"
 HOMEPAGE = "https://github.com/pvorb/node-clone#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=411e33109fa516d190d232100fdc7f8e"
 

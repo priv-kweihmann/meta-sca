@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/jfmengels/eslint-plugin-fp#readme"
 
 DEPENDS = "npm-create-eslint-index-native npm-eslint-ast-utils-native npm-lodash-native npm-req-all-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=1e5b333790e6b59d4d4d223304b5e80d"
 

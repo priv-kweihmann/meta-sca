@@ -2,6 +2,7 @@ SUMMARY = "NPM: es6-promisify"
 DESCRIPTION = "Converts callback-based functions to ES6 Promises"
 HOMEPAGE = "https://github.com/mikehall314/es6-promisify#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=51033e76f9792283c8985624ba2694e8"
 

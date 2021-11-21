@@ -1,6 +1,7 @@
 SUMMARY = "A fast and thorough lazy object proxy for Python"
 HOMEPAGE = "https://python-lazy-object-proxy.readthedocs.io/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=9c5c2c74370826468065c5702b8a1fcf"
 

@@ -1,6 +1,7 @@
 SUMMARY = "Get information about a class and its structure"
 HOMEPAGE = "https://metacpan.org/pod/Class::Inspector"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a7c9eabf506fa8737d9971cc308b473"
 
