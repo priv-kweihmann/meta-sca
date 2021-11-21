@@ -2,6 +2,7 @@ SUMMARY = "NPM: object.fromentries"
 DESCRIPTION = "ES proposal-spec-compliant Object.fromEntries shim."
 HOMEPAGE = "https://github.com/es-shims/Object.fromEntries#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=291be6f19f64188a89ffd5180aea06f7"
 

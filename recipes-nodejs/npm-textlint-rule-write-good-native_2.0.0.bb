@@ -2,6 +2,7 @@ SUMMARY = "NPM: textlint-rule-write-good"
 DESCRIPTION = "textlint rule to check your English style with write good"
 HOMEPAGE = "https://github.com/textlint-rule/textlint-rule-write-good"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://ReadMe.md;beginline=59;md5=355b64b34f8b0e8810c4e72a77859cc2"
 

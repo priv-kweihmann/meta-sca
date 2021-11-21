@@ -1,6 +1,7 @@
 SUMMARY = "Python @deprecated decorator to deprecate old classes, functions or methods"
 HOMEPAGE = "https://github.com/tantale/deprecated"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.rst;md5=44288e26f4896bdab14072d4fa35ff01"
 

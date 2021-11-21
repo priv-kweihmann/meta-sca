@@ -2,6 +2,7 @@ SUMMARY = "NPM: e-prime"
 DESCRIPTION = "detect various forms of 'to be' inside of sentences"
 HOMEPAGE = "https://github.com/Vorror/e-prime#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=111fd89a01cf7b4537c42811bc3f6ed0"
 

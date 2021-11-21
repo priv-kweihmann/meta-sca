@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/jonschlinkert/is-extendable"
 
 DEPENDS = "npm-is-plain-object-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=78c705080a639d3bb4085a9d1bb22987"
 

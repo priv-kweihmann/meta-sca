@@ -1,6 +1,7 @@
 SUMMARY = "Emulate file interface for in-core strings"
 HOMEPAGE = "https://metacpan.org/pod/IO::String"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://README;beginline=16;md5=9ec31d28c1f3dbb643ce3ca6f890a0b0"
 

@@ -1,6 +1,7 @@
 SUMMARY = "backport of Python standard library importlib.resources module"
 HOMEPAGE = "https://github.com/python/importlib_resources"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e81780ac4c0888aaef94a7cb49b55edc"
 

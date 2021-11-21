@@ -1,6 +1,7 @@
 SUMMARY = "docstring style checker"
 HOMEPAGE = "https://github.com/PyCQA/pydocstyle/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE-MIT;md5=e759cd67def347876897f64931fd6065"
 

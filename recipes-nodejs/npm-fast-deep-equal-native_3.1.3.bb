@@ -2,6 +2,7 @@ SUMMARY = "NPM: fast-deep-equal"
 DESCRIPTION = "Fast deep equal"
 HOMEPAGE = "https://github.com/epoberezkin/fast-deep-equal#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ea87ade09b9e6da4f2e47904a4ee137b"
 

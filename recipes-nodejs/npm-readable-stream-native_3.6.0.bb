@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/nodejs/readable-stream#readme"
 
 DEPENDS = "npm-inherits-native npm-string-decoder-native npm-util-deprecate-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a67a7926e54316d90c14f74f71080977"
 

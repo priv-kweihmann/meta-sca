@@ -2,6 +2,7 @@ SUMMARY = "NPM: @babel/helpers"
 DESCRIPTION = "Collection of helper functions used by Babel transforms."
 HOMEPAGE = "https://babel.dev/docs/en/next/babel-helpers"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b1d0cd283a346e919abb3beeb018279d"
 

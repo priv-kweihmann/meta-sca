@@ -2,6 +2,7 @@ SUMMARY = "NPM: remark-frontmatter"
 DESCRIPTION = "remark plugin to support frontmatter (yaml, toml, and more)"
 HOMEPAGE = "https://github.com/remarkjs/remark-frontmatter#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=0bbc76ececabc0216b618cfbe4d0c0e3"
 

@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/textlint-rule/textlint-rule-rousseau"
 
 DEPENDS = "npm-rousseau-native npm-textlint-rule-helper-native npm-textlint-util-to-string-native npm-unist-util-map-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=bc9a2bae21f2f74984d4a43e24285986"
 

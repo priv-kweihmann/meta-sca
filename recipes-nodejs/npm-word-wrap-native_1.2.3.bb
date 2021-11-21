@@ -2,6 +2,7 @@ SUMMARY = "NPM: word-wrap"
 DESCRIPTION = "Wrap words to a specified length."
 HOMEPAGE = "https://github.com/jonschlinkert/word-wrap"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c8f80ed52c9074414e8a69541cdc1587"
 

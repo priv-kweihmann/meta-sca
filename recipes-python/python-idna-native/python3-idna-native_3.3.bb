@@ -1,6 +1,7 @@
 SUMMARY = "Internationalized Domain Names for Python"
 HOMEPAGE = "https://github.com/kjd/idna"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause"
 # does not provide a license file
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/BSD-3-Clause;md5=550794465ba0ec5312d6919e203a55f9"

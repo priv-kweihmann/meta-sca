@@ -2,6 +2,7 @@ SUMMARY = "NPM: textlint-plugin-rst"
 DESCRIPTION = "reStructuredText support for textlint"
 DEPENDS = "npm-debug-native npm-structured-source-native npm-traverse-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2d8734ecfbfadcc8766ec274ecbd569e"
 

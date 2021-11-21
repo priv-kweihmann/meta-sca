@@ -4,6 +4,7 @@ HOMEPAGE = "http://github.com/node-js-libs/cli"
 
 DEPENDS = "npm-exit-native npm-glob-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=180;md5=aae8a435482962c8f785f79ef63db481"
 

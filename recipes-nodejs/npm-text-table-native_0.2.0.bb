@@ -2,6 +2,7 @@ SUMMARY = "NPM: text-table"
 DESCRIPTION = "borderless text tables with alignment"
 HOMEPAGE = "https://github.com/substack/text-table"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=aea1cde69645f4b99be4ff7ca9abcce1"
 

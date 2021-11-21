@@ -2,6 +2,7 @@ SUMMARY = "NPM: remark-parse"
 DESCRIPTION = "remark plugin to add support for parsing markdown input"
 HOMEPAGE = "https://remark.js.org"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=11edd66fd34c2e93c27d1e7a4f248ee3"
 

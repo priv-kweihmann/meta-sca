@@ -6,6 +6,7 @@ DEPENDS += "\
     python3-toml-native \
 "
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://apache-2.0.LICENSE;md5=3aad7c78ef152e6bc38d780822c26188"
 

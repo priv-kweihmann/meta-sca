@@ -2,6 +2,7 @@ SUMMARY = "NPM: regexp.prototype.flags"
 DESCRIPTION = "ES6 spec-compliant RegExp.prototype.flags shim."
 HOMEPAGE = "https://github.com/es-shims/RegExp.prototype.flags#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=de214a0e2991ba4bb802f96348cbb1ce"
 

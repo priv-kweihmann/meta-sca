@@ -2,6 +2,7 @@ SUMMARY = "NPM: json-stable-stringify-without-jsonify"
 DESCRIPTION = "deterministic JSON.stringify() with custom sorting to get deterministic hashes from stringified results, with no public domain dependencies"
 HOMEPAGE = "https://github.com/samn/json-stable-stringify"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=aea1cde69645f4b99be4ff7ca9abcce1"
 

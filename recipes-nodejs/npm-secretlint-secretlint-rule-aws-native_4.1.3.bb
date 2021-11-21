@@ -2,6 +2,7 @@ SUMMARY = "NPM: @secretlint/secretlint-rule-aws"
 DESCRIPTION = "A secretlint rule for AWS."
 HOMEPAGE = "https://github.com/secretlint/secretlint/tree/master/packages/@secretlint/secretlint-rule-aws/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=402802be77c922cb018a8b5099208dab"
 

@@ -2,6 +2,7 @@ SUMMARY = "NPM: moment"
 DESCRIPTION = "Parse, validate, manipulate, and display dates"
 HOMEPAGE = "https://momentjs.com"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=397bb5fedab22612d8d69f1458a9321e"
 

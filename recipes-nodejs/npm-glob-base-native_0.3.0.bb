@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/jonschlinkert/glob-base"
 
 DEPENDS = "npm-glob-parent-native npm-is-glob-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e060235353cb686ae1695ec7db63cfbc"
 

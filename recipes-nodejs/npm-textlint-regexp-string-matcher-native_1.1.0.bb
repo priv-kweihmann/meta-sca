@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/textlint/regexp-string-matcher"
 
 DEPENDS = "npm-escape-string-regexp-native npm-execall-native npm-lodash.sortby-native npm-lodash.uniq-native npm-lodash.uniqwith-native npm-to-regex-native"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=46ad0c4fd3586dd75b2ed7a332e35acb"
 

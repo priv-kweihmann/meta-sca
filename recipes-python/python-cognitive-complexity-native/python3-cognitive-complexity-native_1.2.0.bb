@@ -1,6 +1,7 @@
 SUMMARY = "Library to calculate Python functions cognitive complexity via code"
 HOMEPAGE = "https://github.com/Melevir/cognitive_complexity"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/${PN}-LICENSE;md5=535dcde9d395e0ffc8bea1b3e738bed0"
 

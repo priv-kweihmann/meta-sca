@@ -2,6 +2,7 @@ SUMMARY = "NPM: minimalistic-assert"
 DESCRIPTION = "minimalistic-assert ==="
 HOMEPAGE = "https://github.com/calvinmetcalf/minimalistic-assert"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d4e9cb27a3915b014b1f4c9c7d21912b"
 

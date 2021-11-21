@@ -2,6 +2,7 @@ SUMMARY = "NPM: which-collection"
 DESCRIPTION = "Which kind of Collection (Map, Set, WeakMap, WeakSet) is this JavaScript value? Works cross-realm, without `instanceof`, and despite Symbol.toStringTag."
 HOMEPAGE = "https://github.com/inspect-js/which-collection#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c18cc44449ec61c93b216bf74e6c4fa4"
 

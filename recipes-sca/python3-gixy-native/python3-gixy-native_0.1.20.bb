@@ -1,6 +1,7 @@
 SUMMARY = "Nginx configuration static analyzer"
 HOMEPAGE = "https://github.com/yandex/gixy"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MPL-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b3085af66f9d2f2bd50055c8d52ddb55"
 

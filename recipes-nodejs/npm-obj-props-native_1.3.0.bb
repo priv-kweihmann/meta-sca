@@ -2,6 +2,7 @@ SUMMARY = "NPM: obj-props"
 DESCRIPTION = "List of properties for JavaScript objects"
 HOMEPAGE = "https://github.com/dustinspecker/obj-props#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=d8beadf9a6499a20c088624cd844e547"
 

@@ -1,6 +1,7 @@
 SUMMARY = "html5lib is a pure-python library for parsing HTML"
 HOMEPAGE = "https://github.com/html5lib/html5lib-python"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ba5ada9e6fead1fdc32f43c9f10ba7c"
 

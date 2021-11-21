@@ -2,6 +2,7 @@ SUMMARY = "NPM: picomatch"
 DESCRIPTION = "Blazing fast and accurate glob matcher written in JavaScript, with no dependencies and full support for standard and extended Bash glob features, including braces, extglobs, POSIX brackets, and regular expressions."
 HOMEPAGE = "https://github.com/micromatch/picomatch"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=abd0e25891525eb13d5a794f550a6ee4"
 

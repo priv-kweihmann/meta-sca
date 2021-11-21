@@ -2,6 +2,7 @@ SUMMARY = "NPM: regenerator-runtime"
 DESCRIPTION = "Runtime for Regenerator-compiled generator and async functions."
 HOMEPAGE = "{homepage}"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=57a79768a3b1e4d0f3a3787048a96356"
 

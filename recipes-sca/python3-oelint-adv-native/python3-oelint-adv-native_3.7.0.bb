@@ -3,6 +3,7 @@ DESCRIPTION = "Based on the OpenEmbedded Styleguide and work done by oe-stylize-
                this module offers a (nearly) complete linter for bitbake-recipes."
 HOMEPAGE = "https://github.com/priv-kweihmann/oelint-adv"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e926c89aceef6c1a4247d5df08f94533"
 

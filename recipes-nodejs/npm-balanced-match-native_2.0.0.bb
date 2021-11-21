@@ -2,6 +2,7 @@ SUMMARY = "NPM: balanced-match"
 DESCRIPTION = "Match balanced character pairs, like "{" and "}""
 HOMEPAGE = "https://github.com/juliangruber/balanced-match"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=7fa99ddc3424107350ca6e9a24552085"
 

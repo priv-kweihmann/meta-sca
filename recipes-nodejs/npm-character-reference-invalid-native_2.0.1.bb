@@ -2,6 +2,7 @@ SUMMARY = "NPM: character-reference-invalid"
 DESCRIPTION = "Map of invalid numeric character references to their replacements, according to HTML"
 HOMEPAGE = "https://github.com/wooorm/character-reference-invalid#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=91fb5297439b32d9cd49df8a2484d3eb"
 

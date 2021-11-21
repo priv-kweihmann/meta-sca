@@ -1,6 +1,7 @@
 SUMMARY = "Python AST read/write"
 HOMEPAGE = "https://github.com/berkerpeksag/astor"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=561205fdabc3ec52cae2d30815b8ade7"
 

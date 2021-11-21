@@ -2,6 +2,7 @@ SUMMARY = "NPM: vue-eslint-parser"
 DESCRIPTION = "The ESLint custom parser for `.vue` files."
 HOMEPAGE = "https://github.com/vuejs/vue-eslint-parser#readme"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7a97f9a1783ce81158d7f11f98073ce5"
 

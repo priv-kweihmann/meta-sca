@@ -2,6 +2,7 @@ SUMMARY = "NPM: buffer"
 DESCRIPTION = "Node.js Buffer API, for the browser"
 HOMEPAGE = "https://github.com/feross/buffer"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e49e579dbcc02cf1f699deec85fd96f0"
 

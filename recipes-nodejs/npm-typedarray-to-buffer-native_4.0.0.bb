@@ -2,6 +2,7 @@ SUMMARY = "NPM: typedarray-to-buffer"
 DESCRIPTION = "Convert a typed array to a Buffer without a copy"
 HOMEPAGE = "http://feross.org"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=badd5e91c737e7ffdf10b40c1f907761"
 

@@ -2,6 +2,7 @@ SUMMARY = "NPM: normalize-selector"
 DESCRIPTION = "Normalize CSS Selectors"
 HOMEPAGE = "http://github.com/getify/normalize-selector"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=32;md5=3a4f8994bcdf41287ba4a107872f9bb5"
 

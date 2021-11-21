@@ -3,6 +3,7 @@ DESCRIPTION = "Ansible is a simple IT automation platform that makes your applic
 HOMEPAGE = "https://github.com/ansible/ansible/"
 SECTION = "devel/python"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "GPL-3.0"
 LIC_FILES_CHKSUM = "file://COPYING;md5=8f0e2cd40e05189ec81232da84bd6e1a"
 

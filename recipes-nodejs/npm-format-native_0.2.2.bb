@@ -2,6 +2,7 @@ SUMMARY = "NPM: format"
 DESCRIPTION = "printf, sprintf, and vsprintf for JavaScript"
 HOMEPAGE = "http://samhuri.net/proj/format"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://Readme.md;beginline=43;md5=4feb6f89c4a4849acbc98f694cf325ea"
 

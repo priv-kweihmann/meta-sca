@@ -2,6 +2,7 @@ SUMMARY = "NPM: json5"
 DESCRIPTION = "JSON for humans."
 HOMEPAGE = "http://json5.org/"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=d80f2808a405d641840b50a06f80e93c"
 

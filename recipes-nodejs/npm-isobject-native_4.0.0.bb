@@ -2,6 +2,7 @@ SUMMARY = "NPM: isobject"
 DESCRIPTION = "Returns true if the value is an object and not an array or null."
 HOMEPAGE = "https://github.com/jonschlinkert/isobject"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2f5638b0557426da0c3bd67e00a0ebde"
 

@@ -2,6 +2,7 @@ SUMMARY = "NPM: @types/parse-json"
 DESCRIPTION = "TypeScript definitions for parse-json"
 
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=27e94c0280987ab296b0b8dd02ab9fe5"
 

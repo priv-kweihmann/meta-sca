@@ -2,6 +2,7 @@ SUMMARY = "NPM: @babel/helper-get-function-arity"
 DESCRIPTION = "Helper function to get function arity"
 HOMEPAGE = "https://babel.dev/docs/en/next/babel-helper-get-function-arity"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b1d0cd283a346e919abb3beeb018279d"
 

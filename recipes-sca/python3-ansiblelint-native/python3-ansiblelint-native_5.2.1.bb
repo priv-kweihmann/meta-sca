@@ -1,6 +1,7 @@
 SUMMARY = "Checks playbooks for practices and behaviour that could potentially be improved"
 HOMEPAGE = "https://github.com/ansible/ansible-lint"
 
+DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=27006a41205763794866943ed14d2493"
 
