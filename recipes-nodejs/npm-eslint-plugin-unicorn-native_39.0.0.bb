@@ -1,7 +1,6 @@
 SUMMARY = "NPM: eslint-plugin-unicorn"
 DESCRIPTION = "Various awesome ESLint rules"
 HOMEPAGE = "https://github.com/sindresorhus/eslint-plugin-unicorn#readme"
-
 DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
@@ -22,9 +21,9 @@ DEPENDS = "npm-babel-helper-validator-identifier-native \
            npm-semver-native \
            npm-strip-indent-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-unicorn/-/eslint-plugin-unicorn-38.0.1.tgz"
-SRC_URI[md5sum] = "3b3713ab1a7b5e1f17aa1c9227043226"
-SRC_URI[sha256sum] = "4b8e049004b80c37f30d3926baf6afd9262d21625af542e127273efe50c880e5"
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-unicorn/-/eslint-plugin-unicorn-39.0.0.tgz"
+SRC_URI[md5sum] = "1b99c18221e9a788903c9290df00c72a"
+SRC_URI[sha256sum] = "e374916c2fea8aa131f96ea44a6f50a3ee62cc6ab89a112378104d3e0c95c16a"
 
 NPM_PKGNAME = "eslint-plugin-unicorn"
 
