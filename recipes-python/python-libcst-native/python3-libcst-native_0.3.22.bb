@@ -14,8 +14,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "libcst"
 
-SRC_URI[md5sum] = "3214491317d732cf3492fa4798987bdc"
-SRC_URI[sha256sum] = "4302a8f09cd9e5ab5962f8e126d032bba98541893dd38cce6b4770969fed059d"
+SRC_URI[md5sum] = "76c70e723e74848ce928c293dca0a40c"
+SRC_URI[sha256sum] = "0dcfc4c050ec4474f3406e4f92862678eeca97a9a2ad62261ade01c1438bd7ce"
 
 inherit pypi
 inherit setuptools3
