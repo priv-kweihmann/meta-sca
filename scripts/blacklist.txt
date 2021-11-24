@@ -44,7 +44,6 @@ sca-image-configcheck-rules-native
 sca-image-detectsecrets-rules-native
 sca-image-eslint-rules-native
 sca-image-flake8-rules-native
-sca-image-gixy-rules-native
 sca-image-htmlhint-rules-native
 sca-image-jshint-rules-native
 sca-image-jsonlint-rules-native
