@@ -27,7 +27,6 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             bandit \
                             bitbake \
                             detectsecrets \
-                            gixy \
                             jsonlint \
                             lynis \
                             pyfindinjection \
