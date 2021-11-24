@@ -105,7 +105,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           flawfinder \
                           flint \
                           gcc \
-                          gixy \
                           goconsistent \
                           goconst \
                           golicensecheck \
