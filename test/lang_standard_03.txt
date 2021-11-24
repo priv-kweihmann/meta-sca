@@ -1,7 +1,6 @@
 ansible
 checksec
 configcheck
-gixy
 lse
 lynis
 nixauditor
