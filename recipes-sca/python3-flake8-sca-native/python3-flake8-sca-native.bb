@@ -25,6 +25,7 @@ PACKAGECONFIG ??= "\
                    mutable \
                    quotes \
                    requirements \
+                   strict \
                    string-format \
                    variables-names \
                    wemake-python \
