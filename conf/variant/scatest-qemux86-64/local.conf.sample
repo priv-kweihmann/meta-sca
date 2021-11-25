@@ -13,3 +13,6 @@ SCA_VERBOSE_OUTPUT = "1"
 USER_CLASSES = "image-prelink"
 
 INHERIT += "rm_work"
+
+# Add some preferred versions but for native only
+PREFERRED_VERSION_python3-setuptools-scm-native = "6.3.%"
