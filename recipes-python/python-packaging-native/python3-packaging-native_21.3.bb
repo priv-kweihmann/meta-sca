@@ -5,9 +5,9 @@ DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.BSD;md5=7bef9bf4a8e4263634d0597e7ba100b8"
 
-DEPENDS += "python3-setuptools-scm-native"
-DEPENDS:class-native += "\
+DEPENDS += "\
     python3-pyparsing-native \
+    python3-setuptools-scm-native \
     python3-six-native \
 "
 
@@ -18,10 +18,4 @@ SRC_URI[sha256sum] = "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b
 
 inherit pypi
 inherit setuptools3
-
-RDEPENDS:${PN}:class-target += "\
-    python3-pyparsing \
-    python3-six \
-"
-
-BBCLASSEXTEND = "native"
+inherit native
