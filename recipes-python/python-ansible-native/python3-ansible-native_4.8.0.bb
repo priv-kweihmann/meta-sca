@@ -3,7 +3,7 @@ DESCRIPTION = "Ansible is a simple IT automation platform that makes your applic
 HOMEPAGE = "https://github.com/ansible/ansible/"
 SECTION = "devel/python"
 
-DEPENDS:class-native += "\
+DEPENDS += "\
     python3-ansible-core-native \
     python3-cryptography-native \
     python3-jinja2-native \
@@ -23,6 +23,7 @@ SRC_URI[sha256sum] = "1345fa61c9ac2edcc6c16e0d3f872a73303a61b799a7f16236ca6279e0
 
 inherit pypi
 inherit setuptools3
+inherit native
 
 do_install:append() {
     # replace hardcoded python shebang
@@ -32,15 +33,3 @@ do_install:append() {
        "${D}${PYTHON_SITEPACKAGES_DIR}/ansible_collections/community/network/tests/integration/targets/ce_is_is_view/tests/netconf/test_ce_is_is_view_entity.yaml"
 }
 
-RDEPENDS:${PN}:class-target += "\
-    bash \
-    python3-ansible-core \
-    python3-cryptography \
-    python3-jinja2 \
-    python3-modules \
-    python3-packaging \
-    python3-pyyaml \
-    python3-resolvelib \
-"
-
-BBCLASSEXTEND = "native"
