@@ -14,12 +14,6 @@ DEPENDS += "\
             python3-six-native \
            "
 
-RDEPENDS:${PN}:class-target += "\
-                                python3-asn1crypto \
-                                python3-cffi \
-                                python3-six \
-                               "
-
 PYPI_PACKAGE = "cryptography"
 
 SRC_URI[md5sum] = "e8b3e233556690acdc026b432a57c3fa"
@@ -29,5 +23,4 @@ export CRYPTOGRAPHY_DONT_BUILD_RUST="1"
 
 inherit pypi
 inherit setuptools3
-
-BBCLASSEXTEND = "native"
+inherit native
