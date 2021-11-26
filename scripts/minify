@@ -11,6 +11,7 @@ import tempfile
 import textwrap
 
 import git
+from git.exc import GitCommandError
 from packaging import version
 
 MINIMUM_VERSION = "v1.24.0"
@@ -118,12 +119,14 @@ def apply_branch(branch, list, source, target):
                 o.write(_obj["patch"])
                 o.flush()
                 shutil.copy(o.name, "/tmp/last.patch")
-                target.git.apply('--whitespace=nowarn', o.name)
-            target.git.add("*")
-            target.git.commit('-m', _body, author="kweihmann@outlook.com")
-            target.git.tag("-f", "-a", release, "-m", _summary)
-            _new_publish.append(release)
-
+                try:
+                    target.git.apply('--whitespace=nowarn', o.name)
+                    target.git.add("*")
+                    target.git.commit('-m', _body, author="kweihmann@outlook.com")
+                    target.git.tag("-f", "-a", release, "-m", _summary)
+                    _new_publish.append(release)
+                except GitCommandError as e:
+                    print('Something went wrong: {}\n\nPatch saved at /tmp/last.patch'.format(e))
 
 try:
     _args = create_parser()
