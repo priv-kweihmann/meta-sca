@@ -1,7 +1,6 @@
 SUMMARY = "NPM: cspell-lib"
 DESCRIPTION = "A library of useful functions used across various cspell tools."
 HOMEPAGE = "https://github.com/streetsidesoftware/cspell#readme"
-
 DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b1befbdcbeb73a7fd9b944d31f0fee64"
@@ -23,9 +22,9 @@ DEPENDS = "npm-clear-module-native \
            npm-resolve-global-native \
            npm-vscode-uri-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-lib/-/cspell-lib-5.13.0.tgz"
-SRC_URI[md5sum] = "01764f5e13171a94165fea6cda47e3b1"
-SRC_URI[sha256sum] = "88da02caa893198a136ff9a49cd7be54ad4e7b54e181c6ea77ca49d94039f541"
+SRC_URI = "https://registry.npmjs.org/cspell-lib/-/cspell-lib-5.13.1.tgz"
+SRC_URI[md5sum] = "747dceba2796f47615b1c2f6875b347f"
+SRC_URI[sha256sum] = "df0a677c9012c2104f7e3293df8ad4a650c17fdd98c78e5368ee12209f52c824"
 
 NPM_PKGNAME = "cspell-lib"
 
