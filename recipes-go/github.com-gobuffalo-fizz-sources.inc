@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/fizz/@v/v1.13.1.zip;srcoutput=github.com/gobuffalo/fizz;srcinput=github.com/gobuffalo/fizz@v1.13.1;downloadfilename=github-com-gobuffalo-fizz-1.13.1.zip;name=github-com-gobuffalo-fizz"
-SRC_URI[github-com-gobuffalo-fizz.sha256sum] = "0d4f98f3de24d22e36b3dabec72c1cdefb66977c5523fe4966ff3d57775aec0c"
+SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/fizz/@v/v1.14.0.zip;srcoutput=github.com/gobuffalo/fizz;srcinput=github.com/gobuffalo/fizz@v1.14.0;downloadfilename=github-com-gobuffalo-fizz-1.14.0.zip;name=github-com-gobuffalo-fizz"
+SRC_URI[github-com-gobuffalo-fizz.sha256sum] = "3ea95dd0fc56f18e74051a601f4728850f0759edbf78da5cf1d3febf0b0ff70a"
 GOSRC_REMOVEDIRS += "github.com/gobuffalo/fizz/internal/e2e"
 
 GOSRC_LICENSE += "\
