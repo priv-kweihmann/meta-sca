@@ -1,7 +1,6 @@
 SUMMARY = "NPM: postcss"
 DESCRIPTION = "Tool for transforming styles with JS plugins"
 HOMEPAGE = "https://postcss.org/"
-
 DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e0ef868fdaaba6859dcbab082c20439b"
@@ -10,9 +9,9 @@ DEPENDS = "npm-nanoid-native \
            npm-picocolors-native \
            npm-source-map-js-native"
 
-SRC_URI = "https://registry.npmjs.org/postcss/-/postcss-8.3.11.tgz"
-SRC_URI[md5sum] = "5bafe4a024221dc8d030b2a7409a3bed"
-SRC_URI[sha256sum] = "354a6d79a146a44b1a28437a98c702d0b5cc06c7b61a17ddc6bcf8a8ee521a18"
+SRC_URI = "https://registry.npmjs.org/postcss/-/postcss-8.4.4.tgz"
+SRC_URI[md5sum] = "b4b5013b333b5f5d221c267774679282"
+SRC_URI[sha256sum] = "e3b42a33f4064d8f8eff206448c70601bf0387ed9fde4945d06660ebed7cba39"
 
 NPM_PKGNAME = "postcss"
 
