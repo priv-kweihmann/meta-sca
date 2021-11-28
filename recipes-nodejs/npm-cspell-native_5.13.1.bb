@@ -1,7 +1,6 @@
 SUMMARY = "NPM: cspell"
 DESCRIPTION = "A Spelling Checker for Code!"
 HOMEPAGE = "https://streetsidesoftware.github.io/cspell/"
-
 DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b1befbdcbeb73a7fd9b944d31f0fee64"
@@ -21,9 +20,9 @@ DEPENDS = "npm-chalk-native \
            npm-strip-ansi-native \
            npm-vscode-uri-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell/-/cspell-5.13.0.tgz"
-SRC_URI[md5sum] = "7f969a007bd88b3d67d250db9148bfdf"
-SRC_URI[sha256sum] = "2cf22e853d1620eb6f622d3b4310df60e38397e4e11b96b6a30c1ef337959338"
+SRC_URI = "https://registry.npmjs.org/cspell/-/cspell-5.13.1.tgz"
+SRC_URI[md5sum] = "8f57816735a53cb25bf000f34ade663b"
+SRC_URI[sha256sum] = "c2b9249b33e422dc72919fec735ebf1212cbfff068bda2329959e9902b119b8a"
 
 NPM_PKGNAME = "cspell"
 
