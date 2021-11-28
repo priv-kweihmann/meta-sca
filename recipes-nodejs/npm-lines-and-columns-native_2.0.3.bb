@@ -1,16 +1,15 @@
 SUMMARY = "NPM: lines-and-columns"
 DESCRIPTION = "Maps lines and columns to character offsets and back."
 HOMEPAGE = "https://github.com/eventualbuddha/lines-and-columns#readme"
-
 DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ccca5bd3aeb53dd27037cf30f01b379f"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-2.0.2.tgz"
-SRC_URI[md5sum] = "84da707043931643cec0ea0c35bb7d1e"
-SRC_URI[sha256sum] = "4df395930eb55eee37bb90048478b6df5776e458d9d3b98fb85729f5c1269aa6"
+SRC_URI = "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-2.0.3.tgz"
+SRC_URI[md5sum] = "b8fcd5fb8025d18bd9a2d1eb9c21bd65"
+SRC_URI[sha256sum] = "3420bbaec741b92888f61bec1f837524f73dffe0314d2dd94bedc62164c8e1a7"
 
 NPM_PKGNAME = "lines-and-columns"
 
