@@ -1,7 +1,6 @@
 SUMMARY = "NPM: @cspell/cspell-bundled-dicts"
 DESCRIPTION = "Dictionaries bundled with cspell"
 HOMEPAGE = "https://github.com/streetsidesoftware/cspell#readme"
-
 DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b1befbdcbeb73a7fd9b944d31f0fee64"
@@ -44,9 +43,9 @@ DEPENDS = "npm-cspell-dict-ada-native \
            npm-cspell-dict-typescript-native \
            npm-cspell-dict-vue-native"
 
-SRC_URI = "https://registry.npmjs.org/@cspell/cspell-bundled-dicts/-/cspell-bundled-dicts-5.13.0.tgz"
-SRC_URI[md5sum] = "bde6351e941d34985b17877e02e376cf"
-SRC_URI[sha256sum] = "cd886dac7aadec635ef170699e147f57d09b343b5d56d9bb97ca2a5f1ce6c309"
+SRC_URI = "https://registry.npmjs.org/@cspell/cspell-bundled-dicts/-/cspell-bundled-dicts-5.13.1.tgz"
+SRC_URI[md5sum] = "e2fe898f30181ae5c27bacc0077906d0"
+SRC_URI[sha256sum] = "86bd80ab9c3f1f4e5839108a060c7d0faf4d0f342ebbe9944a36a7659d6ccf27"
 
 NPM_PKGNAME = "@cspell/cspell-bundled-dicts"
 
