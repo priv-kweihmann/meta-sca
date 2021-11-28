@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/PyCQA/pycodestyle"
 
 DEFAULT_PREFERENCE = "-1"
 LICENSE = "EXPAT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=e6a600fd5e1d9cbde2d983680233ad02"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=4e21c6f4c612498422aedaf3dd409de0"
 
 DEPENDS += "\
             python3-mccabe-native \
@@ -14,8 +14,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "pylama"
 
-SRC_URI[md5sum] = "d25f86fd0cc66a03c76b96dfcca360c3"
-SRC_URI[sha256sum] = "9bae53ef9c1a431371d6a8dca406816a60d547147b60a4934721898f553b7d8f"
+SRC_URI[md5sum] = "c3ec230fee4b4246c4186090e0b90cbe"
+SRC_URI[sha256sum] = "b920198cd3d22b7a3f288eca3e937258670561139cbb3400d29c28060bc489d0"
 
 inherit pypi
 inherit setuptools3
