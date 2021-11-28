@@ -1,8 +1,7 @@
 SUMMARY = "go.mod: github.com/gobuffalo/clara/v2"
 HOMEPAGE = "https://pkg.go.dev/github.com/gobuffalo/clara/v2"
-
-# License is determined by the modules included and will be therefore computed
 DEFAULT_PREFERENCE = "-1"
+# License is determined by the modules included and will be therefore computed
 LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '').split(' ') if x)))}"
 
 # inject the needed sources
@@ -14,7 +13,6 @@ EXTRA_DEPENDS += "\
     github.com-gobuffalo-here-native \
     github.com-gobuffalo-logger-native \
     github.com-gobuffalo-meta-native \
-    github.com-gobuffalo-packr-v2-native \
     github.com-gobuffalo-plush-v4-native \
     github.com-masterminds-semver-native \
     github.com-spf13-pflag-native \
