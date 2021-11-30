@@ -12,7 +12,7 @@ DEPENDS += "\
             python3-attrs-native \
             python3-beautifulsoup4-native \
             python3-bitarray-native \
-            python3-boolean.py-native \
+            python3-booleanpy-native \
             python3-chardet-native \
             python3-click-native \
             python3-colorama-native \
