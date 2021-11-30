@@ -6,7 +6,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://apache-2.0.LICENSE;md5=9429839cdc4b292ff46e88b524c6e0c9"
 
 DEPENDS += "\
-    python3-boolean.py-native \
+    python3-booleanpy-native \
     python3-setuptools-scm-native \
     python3-toml-native \
 "

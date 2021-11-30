@@ -12,7 +12,7 @@ LIC_FILES_CHKSUM = "\
 
 DEPENDS += "\
             python3-binaryornot-native \
-            python3-boolean.py-native \
+            python3-booleanpy-native \
             python3-debian-native \
             python3-jinja2-native \
             python3-license-expression-native \
