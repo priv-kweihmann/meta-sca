@@ -1,7 +1,6 @@
 SUMMARY = "NPM: yargs"
 DESCRIPTION = "yargs the modern, pirate-themed, successor to optimist."
 HOMEPAGE = "https://yargs.js.org/"
-
 DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ec88e65c7bb01732069f3ad6b09ac90d"
@@ -14,9 +13,9 @@ DEPENDS = "npm-cliui-native \
            npm-y18n-native \
            npm-yargs-parser-native"
 
-SRC_URI = "https://registry.npmjs.org/yargs/-/yargs-17.2.1.tgz"
-SRC_URI[md5sum] = "9debd17773480e9f92f59e26d41f5a92"
-SRC_URI[sha256sum] = "6d26dad5c9071663d7fec0289ec2a52d2ebdfe8f4a216f32d1fa7945a9dd0a59"
+SRC_URI = "https://registry.npmjs.org/yargs/-/yargs-17.3.0.tgz"
+SRC_URI[md5sum] = "82d1c1410a297bd7263d2f31eb58cf50"
+SRC_URI[sha256sum] = "07ce4c2bc67f20b8693a1dc0007534b2945c7d2bb107b04e7c99f6a935fb1bbb"
 
 NPM_PKGNAME = "yargs"
 
