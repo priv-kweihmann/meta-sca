@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/jackc/puddle/@v/v1.2.0.zip;srcoutput=github.com/jackc/puddle;srcinput=github.com/jackc/puddle@v1.2.0;downloadfilename=github-com-jackc-puddle-1.2.0.zip;name=github-com-jackc-puddle"
-SRC_URI[github-com-jackc-puddle.sha256sum] = "9482e1b4f4d31b5e758eef6114325bfb2ae7aa9c5bd7da903f0990d9cb93efa3"
+SRC_URI += "https://proxy.golang.org/github.com/jackc/puddle/@v/v1.2.1.zip;srcoutput=github.com/jackc/puddle;srcinput=github.com/jackc/puddle@v1.2.1;downloadfilename=github-com-jackc-puddle-1.2.1.zip;name=github-com-jackc-puddle"
+SRC_URI[github-com-jackc-puddle.sha256sum] = "40d73550686666eb1f6df02b65008b2a4c98cfed1254dc4866e6ebe95fbc5c95"
 
 GOSRC_LICENSE += "\
     MIT \
