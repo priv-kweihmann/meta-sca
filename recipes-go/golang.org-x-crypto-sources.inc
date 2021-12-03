@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/golang.org/x/crypto/@v/v0.0.0-20211117183948-ae814b36b871.zip;srcoutput=golang.org/x/crypto;srcinput=golang.org/x/crypto@v0.0.0-20211117183948-ae814b36b871;downloadfilename=golang-org-x-crypto-0.0.0-20211117183948-ae814b36b871.zip;name=golang-org-x-crypto"
-SRC_URI[golang-org-x-crypto.sha256sum] = "bf52e57940a57ceee012192fce198ebec78d4d3093ff3971088078fc12b16116"
+SRC_URI += "https://proxy.golang.org/golang.org/x/crypto/@v/v0.0.0-20211202192323-5770296d904e.zip;srcoutput=golang.org/x/crypto;srcinput=golang.org/x/crypto@v0.0.0-20211202192323-5770296d904e;downloadfilename=golang-org-x-crypto-0.0.0-20211202192323-5770296d904e.zip;name=golang-org-x-crypto"
+SRC_URI[golang-org-x-crypto.sha256sum] = "287219564d3a7c50e096af234a4f2026689874bea48a7db776c44650334415e7"
 GOSRC_REMOVEDIRS += "golang.org/x/crypto/internal/wycheproof"
 
 GOSRC_LICENSE += "\
