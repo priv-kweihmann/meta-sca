@@ -1,7 +1,6 @@
 SUMMARY = "NPM: textlint"
 DESCRIPTION = "The pluggable linting tool for text and markdown."
 HOMEPAGE = "https://github.com/textlint/textlint/"
-
 DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f3452a94937d21f84bc38880f636e3ba"
@@ -35,9 +34,9 @@ DEPENDS = "npm-debug-native \
            npm-try-resolve-native \
            npm-unique-concat-native"
 
-SRC_URI = "https://registry.npmjs.org/textlint/-/textlint-12.0.2.tgz"
-SRC_URI[md5sum] = "15af44a9140d616cc35a4b6821b43930"
-SRC_URI[sha256sum] = "a6c30d9ddcd0021ffc59344ddff980f7dae9422855fc2bcee9689f7be854cdf6"
+SRC_URI = "https://registry.npmjs.org/textlint/-/textlint-12.1.0.tgz"
+SRC_URI[md5sum] = "a6fed9f7d4022c1a84f1a7e49eda7c8b"
+SRC_URI[sha256sum] = "548d419e120aa720ad32e42c33f60f14661abe356d53f007cee9d7f5a888b69a"
 
 NPM_PKGNAME = "textlint"
 
