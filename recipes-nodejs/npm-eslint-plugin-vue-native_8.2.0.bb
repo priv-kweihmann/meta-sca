@@ -1,7 +1,6 @@
 SUMMARY = "NPM: eslint-plugin-vue"
 DESCRIPTION = "Official ESLint plugin for Vue.js"
 HOMEPAGE = "https://eslint.vuejs.org"
-
 DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86a65c5c19c672ee4cd52492495f1d16"
@@ -11,9 +10,9 @@ DEPENDS = "npm-eslint-utils-native \
            npm-semver-native \
            npm-vue-eslint-parser-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-vue/-/eslint-plugin-vue-8.1.1.tgz"
-SRC_URI[md5sum] = "f9705cb0fea4b27cdf8dbe871555c433"
-SRC_URI[sha256sum] = "4ed1c956e8659c84386b48ad321c83786d1ff143a1f3fb280113e743a4b9d9a7"
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-vue/-/eslint-plugin-vue-8.2.0.tgz"
+SRC_URI[md5sum] = "cdb28fc6e8ad6491f45f293e9f763962"
+SRC_URI[sha256sum] = "a252d82660775d5f9d174083343b31f0ab1383538ca0e5637966cecdb5041b63"
 
 NPM_PKGNAME = "eslint-plugin-vue"
 
