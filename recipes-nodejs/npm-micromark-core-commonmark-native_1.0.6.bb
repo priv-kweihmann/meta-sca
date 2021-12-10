@@ -22,9 +22,9 @@ DEPENDS = "npm-decode-named-character-reference-native \
            npm-micromark-util-types-native \
            npm-uvu-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark-core-commonmark/-/micromark-core-commonmark-1.0.5.tgz"
-SRC_URI[md5sum] = "c4c4aff4ea5e7aeab0d7318af65e7b5d"
-SRC_URI[sha256sum] = "bb65aef198d255e2c3c7cf675b0896e1a5ec1000cb4a46d619fd68bc8780facf"
+SRC_URI = "https://registry.npmjs.org/micromark-core-commonmark/-/micromark-core-commonmark-1.0.6.tgz"
+SRC_URI[md5sum] = "2639b8a9dae7124612759ff4763afd0b"
+SRC_URI[sha256sum] = "f04fdfd6587a3487f479705032c83ec7755f6e687183ee370b9271eb03686723"
 
 NPM_PKGNAME = "micromark-core-commonmark"
 
