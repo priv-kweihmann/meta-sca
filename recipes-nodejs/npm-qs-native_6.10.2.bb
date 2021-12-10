@@ -1,16 +1,15 @@
 SUMMARY = "NPM: qs"
 DESCRIPTION = "A querystring parser that supports nesting and arrays, with a depth limit"
 HOMEPAGE = "https://github.com/ljharb/qs"
-
 DEFAULT_PREFERENCE = "-1"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=b289135779dd930509ae81e6041690c0"
 
 DEPENDS = "npm-side-channel-native"
 
-SRC_URI = "https://registry.npmjs.org/qs/-/qs-6.10.1.tgz"
-SRC_URI[md5sum] = "cc3c3da7e8c180084ea48c5b7d21b441"
-SRC_URI[sha256sum] = "48ff71ae029bdc028e6b26955edf93d811a212d46c8ed4d0d5454c18182a889a"
+SRC_URI = "https://registry.npmjs.org/qs/-/qs-6.10.2.tgz"
+SRC_URI[md5sum] = "c6a5e65bfb1893f719af9cac09157cc0"
+SRC_URI[sha256sum] = "02094e21dbd238fd54ade4e287b683c5518f19bc1519f542c6a3a1f38bbe5487"
 
 NPM_PKGNAME = "qs"
 
