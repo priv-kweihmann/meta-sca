@@ -1,7 +1,6 @@
 SUMMARY = "NPM: micromark-extension-gfm-footnote"
 DESCRIPTION = "micromark extension to support GFM footnotes"
 HOMEPAGE = "https://github.com/micromark/micromark-extension-gfm-footnote#readme"
-
 DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=23d8001628ed74be839cbeff9bdbe7dc"
@@ -14,9 +13,9 @@ DEPENDS = "npm-micromark-core-commonmark-native \
            npm-micromark-util-symbol-native \
            npm-uvu-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-footnote/-/micromark-extension-gfm-footnote-1.0.2.tgz"
-SRC_URI[md5sum] = "f7c57f5de111bfab2305b835c75fb652"
-SRC_URI[sha256sum] = "7c2cb0d1f2a08694f4a5e8f1b7737cf35b04e3fefc45e4ee156f9b43e015188d"
+SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-footnote/-/micromark-extension-gfm-footnote-1.0.3.tgz"
+SRC_URI[md5sum] = "c334f9f98274fd877015f86e8bc25eaa"
+SRC_URI[sha256sum] = "1c1a1544d3f2505d30818ae8220cc5af67558f433567711e5fa77fa7d0190667"
 
 NPM_PKGNAME = "micromark-extension-gfm-footnote"
 
