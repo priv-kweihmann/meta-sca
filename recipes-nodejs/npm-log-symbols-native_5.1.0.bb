@@ -1,7 +1,6 @@
 SUMMARY = "NPM: log-symbols"
 DESCRIPTION = "Colored symbols for various log levels. Example: `✔︎ Success`"
 HOMEPAGE = "https://github.com/sindresorhus/log-symbols#readme"
-
 DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
@@ -9,9 +8,9 @@ LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 DEPENDS = "npm-chalk-native \
            npm-is-unicode-supported-native"
 
-SRC_URI = "https://registry.npmjs.org/log-symbols/-/log-symbols-5.0.0.tgz"
-SRC_URI[md5sum] = "23382b7b80de8d1cb659dbd0a1dec900"
-SRC_URI[sha256sum] = "723abd04e0ea2812edaa63dda1941becbe399d07b7edd0e73f6329669a913daf"
+SRC_URI = "https://registry.npmjs.org/log-symbols/-/log-symbols-5.1.0.tgz"
+SRC_URI[md5sum] = "6e697ed939cb74db8beae80b7aff944e"
+SRC_URI[sha256sum] = "0c4d6f6343b6770e5ed44da381280e737db79196b8fb6dfdb7732e2dbb5fc728"
 
 NPM_PKGNAME = "log-symbols"
 
