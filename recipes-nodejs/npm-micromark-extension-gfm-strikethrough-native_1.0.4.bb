@@ -1,7 +1,6 @@
 SUMMARY = "NPM: micromark-extension-gfm-strikethrough"
 DESCRIPTION = "micromark extension to support GFM strikethrough"
 HOMEPAGE = "https://github.com/micromark/micromark-extension-gfm-strikethrough#readme"
-
 DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=6a9c614ad8a32fcd51b47e458d620e48"
@@ -13,9 +12,9 @@ DEPENDS = "npm-micromark-util-chunked-native \
            npm-micromark-util-types-native \
            npm-uvu-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-strikethrough/-/micromark-extension-gfm-strikethrough-1.0.3.tgz"
-SRC_URI[md5sum] = "85a8bc30f3536741eb06af2da6577e54"
-SRC_URI[sha256sum] = "e21c2066441773e841ff4242599cf27324da60a360647bb7f212cc6ed3ed9262"
+SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-strikethrough/-/micromark-extension-gfm-strikethrough-1.0.4.tgz"
+SRC_URI[md5sum] = "96d362d0953dfd98afa675aec7e46df1"
+SRC_URI[sha256sum] = "d3cfb6436c7e24ac5692b3e2382f1c808d428ad6affe200d9e864ca0b218e34d"
 
 NPM_PKGNAME = "micromark-extension-gfm-strikethrough"
 
