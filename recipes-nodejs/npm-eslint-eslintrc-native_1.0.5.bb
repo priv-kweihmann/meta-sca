@@ -1,7 +1,6 @@
 SUMMARY = "NPM: @eslint/eslintrc"
 DESCRIPTION = "The legacy ESLintRC config file format for ESLint"
 HOMEPAGE = "https://github.com/eslint/eslintrc#readme"
-
 DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1f0f520c61625b7338d0a038d6bb8e34"
@@ -16,9 +15,9 @@ DEPENDS = "npm-ajv-native \
            npm-minimatch-native \
            npm-strip-json-comments-native"
 
-SRC_URI = "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-1.0.4.tgz"
-SRC_URI[md5sum] = "4ad4b40c876064c444f52bf2590bc959"
-SRC_URI[sha256sum] = "0cf33b2037daa760848a04756f73879f0ff3b50c2dec6de83b23372ff08bcbcf"
+SRC_URI = "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-1.0.5.tgz"
+SRC_URI[md5sum] = "451254e23699495f513d5398f02ff6aa"
+SRC_URI[sha256sum] = "4ddb0c08b3c1d66c9adad85ab0c5fd59c952861adcf1cd2c6b3d075c7152a006"
 
 NPM_PKGNAME = "@eslint/eslintrc"
 
