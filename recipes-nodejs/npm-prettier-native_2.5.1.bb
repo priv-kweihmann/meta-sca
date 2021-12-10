@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e0b7377e8ff45f6d15cb82b02e64d11d"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/prettier/-/prettier-2.5.0.tgz"
-SRC_URI[md5sum] = "01f1356559f91b5f0cbc5e393a31469a"
-SRC_URI[sha256sum] = "21faa55daf1ea29fb1c021689808d44f7d57a297a9b73cd092bf58faed53aee1"
+SRC_URI = "https://registry.npmjs.org/prettier/-/prettier-2.5.1.tgz"
+SRC_URI[md5sum] = "bcab94dca007dd6b24be6ab194d86fc6"
+SRC_URI[sha256sum] = "2db9110490a01474032b198cca7e279866bb6dd8bcab3ed81eccfd1478164e6c"
 
 NPM_PKGNAME = "prettier"
 
