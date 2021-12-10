@@ -1,7 +1,6 @@
 SUMMARY = "NPM: eslint"
 DESCRIPTION = "An AST-based pattern checker for JavaScript."
 HOMEPAGE = "https://eslint.org"
-
 DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=8b58aa052648f366fd94c13b91b417d5"
@@ -45,9 +44,9 @@ DEPENDS = "npm-ajv-native \
            npm-text-table-native \
            npm-v8-compile-cache-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint/-/eslint-8.3.0.tgz"
-SRC_URI[md5sum] = "2bf41a21d9578fdda3074d4393c8868d"
-SRC_URI[sha256sum] = "c82ba7a1bff44b2e250811b4b60a8f5fd0fa6ec689744d03733f7d60e8fea693"
+SRC_URI = "https://registry.npmjs.org/eslint/-/eslint-8.4.1.tgz"
+SRC_URI[md5sum] = "87517b05865afbc9900575baa9a018ef"
+SRC_URI[sha256sum] = "d75751e92d4d5b96d981ab902d667fe1b5bb31521c8155fa51dfad1553336ce8"
 
 NPM_PKGNAME = "eslint"
 
