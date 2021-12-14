@@ -19,6 +19,14 @@ inherit native
 
 BUILD_CXXFLAGS += "-std=c++11"
 
+do_configure:prepend() {
+    # SIGSTKSZ isn't a constant in newer gcc's so we override
+    # the value here
+    # it should be done as a patch, but due to line ending
+    # messed up in the project a sed call is more convenient
+    sed -i "s#SIGSTKSZ;#8192;#g" ${S}/cli/tscexecutor.cpp
+}
+
 do_install() {
     install -d ${D}/${bindir}
     install -d ${D}/${datadir}/tscancode
