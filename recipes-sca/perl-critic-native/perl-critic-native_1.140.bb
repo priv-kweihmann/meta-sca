@@ -53,6 +53,8 @@ do_compile () {
 do_install:append() {
     install -d ${D}${datadir}
     install ${WORKDIR}/perlcritic.sca.description ${D}${datadir}/
+
+    sed -i "s#/usr/bin/perl#/usr/bin/env perl#g" ${D}${bindir}/perlcritic
 }
 
 FILES:${PN} += "${datadir}"
