@@ -1,0 +1,48 @@
+From 836785f8050ed69420860ad5712c7e3010138e68 Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Tue, 14 Dec 2021 11:16:12 +0100
+Subject: [PATCH] Makefile.in: respect datarootdir
+
+this fixes warnings like
+WARNING:  'Makefile.in' seems to ignore the --datarootdir setting
+
+Upstream-Status: Inactive-Upstream [lastcommit: 2018]
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+---
+ Makefile.in  | 2 ++
+ configure.ac | 6 +++---
+ 2 files changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/Makefile.in b/Makefile.in
+index f50cb8c..6117b8c 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -10,6 +10,8 @@ exec_prefix	= @exec_prefix@
+ BINDIR		= @bindir@
+ LIBDIR		= @libdir@
+ MANDIR		= @mandir@
++datarootdir = $(prefix)/share
++datadir     = $(datarootdir)
+ SHAREDIR	= @datadir@
+ INSTALL		= @INSTALL@
+ INSTALL_PROGRAM	= @INSTALL_PROGRAM@
+diff --git a/configure.ac b/configure.ac
+index 0a25ca8..e9770c8 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -2,9 +2,9 @@ AC_INIT(rats-c.xml)
+ AC_PROG_CC()
+ AC_PROG_LEX()
+ AC_PROG_INSTALL
+-LDFLAGS="$LDFLAGS -L/usr/local/lib"
+-CFLAGS="$CFLAGS -I/usr/local/include"
+-CPPFLAGS="$CPPFLAGS -I/usr/local/include"
++LDFLAGS="$LDFLAGS"
++CFLAGS="$CFLAGS"
++CPPFLAGS="$CPPFLAGS"
+ 
+ AC_ARG_WITH(expat-lib,
+     [  --with-expat-lib[=path] ],
+-- 
+2.25.1
+
