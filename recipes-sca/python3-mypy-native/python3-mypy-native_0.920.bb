@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=17b7180fcfc43c4e70c07c71588604c4"
 
 DEPENDS += "\
             python3-mypy-extensions-native \
-            python3-toml-native \
+            python3-tomli-native \
             python3-typed-ast-native \
             python3-typing-extensions-native \
             "
