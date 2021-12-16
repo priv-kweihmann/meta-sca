@@ -14,8 +14,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "pylama"
 
-SRC_URI[md5sum] = "92e766572042e08293c5ba033985e64c"
-SRC_URI[sha256sum] = "0566eb150cc92a676cfa119cd98e8b8ab88da3f7ff8d34a5c6d2f3ad3ca92962"
+SRC_URI[md5sum] = "2100daf6608a14b160cf1f95fef902a4"
+SRC_URI[sha256sum] = "c8465cf992efb772026bbe9a435ce90f2890f627cc43992500395490dc400fb1"
 
 inherit pypi
 inherit setuptools3
