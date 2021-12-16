@@ -13,7 +13,7 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "pandas"
 
-SRC_URI[sha256sum] = "a2aa18d3f0b7d538e21932f637fbfe8518d085238b429e4790a35e1e44a96ffc"
+SRC_URI[sha256sum] = "1e4285f5de1012de20ca46b188ccf33521bff61ba5c5ebd78b4fb28e5416a9f1"
 
 inherit pypi
 inherit setuptools3
