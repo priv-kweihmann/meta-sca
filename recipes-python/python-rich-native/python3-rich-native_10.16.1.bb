@@ -14,8 +14,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "rich"
 
-SRC_URI[md5sum] = "53b65442b47c27dc174a4099feb9ccfa"
-SRC_URI[sha256sum] = "1dded089b79dd042b3ab5cd63439a338e16652001f0c16e73acdcf4997ad772d"
+SRC_URI[md5sum] = "d3cd3b90e82c9ffc3a9c83eee8a384d0"
+SRC_URI[sha256sum] = "4949e73de321784ef6664ebbc854ac82b20ff60b2865097b93f3b9b41e30da27"
 
 inherit pypi
 inherit setuptools3
