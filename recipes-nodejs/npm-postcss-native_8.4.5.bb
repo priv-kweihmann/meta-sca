@@ -9,9 +9,9 @@ DEPENDS = "npm-nanoid-native \
            npm-picocolors-native \
            npm-source-map-js-native"
 
-SRC_URI = "https://registry.npmjs.org/postcss/-/postcss-8.4.4.tgz"
-SRC_URI[md5sum] = "b4b5013b333b5f5d221c267774679282"
-SRC_URI[sha256sum] = "e3b42a33f4064d8f8eff206448c70601bf0387ed9fde4945d06660ebed7cba39"
+SRC_URI = "https://registry.npmjs.org/postcss/-/postcss-8.4.5.tgz"
+SRC_URI[md5sum] = "bb76e4e69e59626ca940b325b727ea1b"
+SRC_URI[sha256sum] = "572bfcfcc0606e4657f9052e78de0cc3f5b2e11672b54446be4aa3904d659626"
 
 NPM_PKGNAME = "postcss"
 
