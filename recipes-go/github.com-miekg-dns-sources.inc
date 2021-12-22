@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/miekg/dns/@v/v1.1.43.zip;srcoutput=github.com/miekg/dns;srcinput=github.com/miekg/dns@v1.1.43;downloadfilename=github-com-miekg-dns-1.1.43.zip;name=github-com-miekg-dns"
-SRC_URI[github-com-miekg-dns.sha256sum] = "98eaddff5c30e475850f8f9c170bfb1adf33f0aaeeb280f71e77808a1dd902aa"
+SRC_URI += "https://proxy.golang.org/github.com/miekg/dns/@v/v1.1.44.zip;srcoutput=github.com/miekg/dns;srcinput=github.com/miekg/dns@v1.1.44;downloadfilename=github-com-miekg-dns-1.1.44.zip;name=github-com-miekg-dns"
+SRC_URI[github-com-miekg-dns.sha256sum] = "04b0d8ffec3d382603f26d3dfc98ed4332c54c9b1e96f3341149bc0c15dccf0a"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
@@ -12,3 +12,4 @@ GOSRC_INCLUDEGUARD += "github.com-miekg-dns-sources.inc"
 
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-net-sources.inc', '', 'golang.org-x-net-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-sys-sources.inc', '', 'golang.org-x-sys-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-tools-sources.inc', '', 'golang.org-x-tools-sources.inc', d)}
