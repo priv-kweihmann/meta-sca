@@ -20,11 +20,5 @@ SRC_URI[sha256sum] = "390713469ae64b8a58698bb3cbc3859abe6925b565a973f87323ef21b0
 
 inherit pypi
 inherit setuptools3
+inherit sca-setuptools-legacy
 inherit native
-
-do_configure:prepend() {
-cat > ${S}/setup.py <<-EOF
-from setuptools import setup
-setup(name="jsonschema", version="${PV}", packages=["jsonschema"], package_data={"jsonschema": ["schemas/*.json", "schemas/*/*.json"]})
-EOF
-}
