@@ -36,6 +36,7 @@ PYPI_PACKAGE = "ansible-lint"
 
 inherit pypi
 inherit sca-description
+inherit sca-setuptools-legacy
 inherit setuptools3
 inherit native
 
