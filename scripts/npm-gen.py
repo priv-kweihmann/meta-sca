@@ -75,8 +75,8 @@ def get_hashes(args, pkgname, url):
     _lic_hash = ""
     _lic_path = "TODO"
     tar = tarfile.open("/tmp/npmgen.tmp", 'r:gz')
-    _tarcnt = tar.getnames()
     _potential_files = [x for x in tar.getnames() if re.match(r"^(.*/)*(license.*|copying.*|licence.*)", x, re.IGNORECASE)]
+    _potential_files = sorted(_potential_files, key=lambda x: len(x)) # sorted by shortest path
     _basepath = set(x.split("/")[0] for x in tar.getnames())
     if _potential_files:
         try:
