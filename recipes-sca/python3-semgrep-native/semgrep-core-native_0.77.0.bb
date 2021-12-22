@@ -14,7 +14,7 @@ SRC_URI:append = "https://github.com/returntocorp/semgrep/releases/download/v${P
 UPSTREAM_CHECK_URI = "https://github.com/returntocorp/semgrep/tags"
 UPSTREAM_CHECK_REGEX = "releases/tag/v(?P<pver>\d+\.\d+\.\d+)"
 
-SRC_URI[app.sha256sum] = "99f592b75faa7be1cb60c735b56ddb213d00e83073094b9cefa957cb3b4a6a7c"
+SRC_URI[app.sha256sum] = "e05e477729376c6eea8b1cb8c22b2399446a1d7ccb3c2d3f792ac41d56b7ea07"
 SRC_URI[license.sha256sum] = "7c34d28e784b202aa4998f477fd0aa9773146952d7f6fa5971369fcdda59cf48"
 
 inherit native
@@ -28,7 +28,6 @@ do_compile[noexec] = "1"
 do_install() {
     install -d ${D}${bindir}
     install -m 0755 ${WORKDIR}/semgrep-files/semgrep-core ${D}${bindir}/semgrep-core
-    install -m 0755 ${WORKDIR}/semgrep-files/spacegrep ${D}${bindir}/spacegrep
 }
 
 FILES:${PN} += "${bindir}"
