@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b1befbdcbeb73a7fd9b944d31f0fee64"
 
 DEPENDS = "npm-micromatch-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-glob/-/cspell-glob-5.13.3.tgz"
-SRC_URI[md5sum] = "768b951d5e24c111d664bc99e5777091"
-SRC_URI[sha256sum] = "3fa024ee191c4421f19a14e4c42c140de404c4b4a72ecfac3aa4e0b0460dcfc9"
+SRC_URI = "https://registry.npmjs.org/cspell-glob/-/cspell-glob-5.13.4.tgz"
+SRC_URI[md5sum] = "4c1e7058659fa77bc5e6a719bdd072f7"
+SRC_URI[sha256sum] = "9167ab3693c1cff3715298a0a78d5bc12f4262aaa01103907a2cc4b5bf2843c4"
 
 NPM_PKGNAME = "cspell-glob"
 
