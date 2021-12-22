@@ -1,12 +1,12 @@
 SUMMARY = "NPM: stylelint"
 DESCRIPTION = "A mighty, modern CSS linter."
 HOMEPAGE = "https://stylelint.io"
-
 DEFAULT_PREFERENCE = "-1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=0e0ecf49fffcf64b1f3fa0a956ea44a0"
 
 DEPENDS = "npm-balanced-match-native \
+           npm-colord-native \
            npm-cosmiconfig-native \
            npm-debug-native \
            npm-execall-native \
@@ -45,9 +45,9 @@ DEPENDS = "npm-balanced-match-native \
            npm-v8-compile-cache-native \
            npm-write-file-atomic-native"
 
-SRC_URI = "https://registry.npmjs.org/stylelint/-/stylelint-14.1.0.tgz"
-SRC_URI[md5sum] = "0ec1f845485ef7680914e7397a20ed85"
-SRC_URI[sha256sum] = "79d72e75830a29507e38bad50755ecf263e2e7030ac8dc2c081d0d113b922e9c"
+SRC_URI = "https://registry.npmjs.org/stylelint/-/stylelint-14.2.0.tgz"
+SRC_URI[md5sum] = "b88e226f11c4c7dd157038b811c5cd15"
+SRC_URI[sha256sum] = "e9ddd0a64d439ef632cb706a470be4fbf954fe907d64ad6b8c944ce19c7884ce"
 
 NPM_PKGNAME = "stylelint"
 
