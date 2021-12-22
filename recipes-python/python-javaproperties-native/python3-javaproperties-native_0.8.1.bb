@@ -11,12 +11,5 @@ PYPI_PACKAGE = "javaproperties"
 
 inherit pypi
 inherit setuptools3
+inherit sca-setuptools-legacy
 inherit native
-
-do_configure:prepend() {
-cat > ${S}/setup.py <<-EOF
-from setuptools import setup
-setup(name="javaproperties", version="${PV}", packages=["javaproperties"], package_data={"": ["*"]})
-EOF
-}
-
