@@ -64,6 +64,16 @@ jobs:
         with:
           variable: BB_DANGLINGAPPENDS_WARNONLY
           value: 1
+      - name: setup layer prio (bitbake config)
+        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
+        with:
+          variable: BBFILE_PRIORITY_meta-sca
+          value: 100
+      - name: setup layer preference (bitbake config)
+        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
+        with:
+          variable: SCA_DEFAULT_PREFERENCE
+          value: 0
       - name: check (packages)
         uses: priv-kweihmann/meta-sca-ci-utils/packagecheck@latest
         with:
