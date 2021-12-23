@@ -12,7 +12,8 @@ DISTUTILS_LEGACY_VERSION ?= "${PV}"
 DISTUTILS_LEGACY_NAME ?= "${@distutils_legacy_package_name(d)}"
 
 python do_create_setup_py_legacy() {
-    import os 
+    import os
+    import glob
 
     if os.path.exists(os.path.join(d.getVar("DISTUTILS_SETUP_PATH"), "setup.py")):
         return
@@ -73,7 +74,14 @@ python do_create_setup_py_legacy() {
         return [_strip(x) for x in _listitems]
 
     def quote(x):
-        return '"%s"' % x
+        return '"%s"' % x.strip('"')
+
+    def find_packages(top):
+        res = set()
+        for p in glob.glob(os.path.join(top, "**", "__init__.py"), recursive=True):
+            res.add(os.path.relpath(os.path.dirname(p), top).strip("/").replace("/", "."))
+        return list(res)
+
 
     _pkginfo = {
         "entry_points": extract_dict_vallist("options.entry_points", {}),
@@ -94,8 +102,7 @@ python do_create_setup_py_legacy() {
     if _pkginfo["packages"] == ["find:"]:
         # top level search dir can be adjusted by options.packages.find option
         _path = extract_str("options.packages.find", "where", "")
-        _pkginfo["packages"] = set(x.name for x in os.scandir(os.path.join(
-            d.getVar("DISTUTILS_SETUP_PATH"), _path)) if os.path.isdir(x) and os.path.exists(os.path.join(x, "__init__.py")))
+        _pkginfo["packages"] = find_packages(os.path.join(d.getVar("DISTUTILS_SETUP_PATH"), _path))
 
     with open(os.path.join(d.getVar("DISTUTILS_SETUP_PATH"), "setup.py"), "w") as o:
         o.write("import setuptools\n")
