@@ -1,7 +1,7 @@
 SUMMARY = "A selection of general-utility list subroutines"
 HOMEPAGE = "https://metacpan.org/pod/List::Util"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://README;beginline=21;md5=21c3aed4474bc6fbe084cb3c7b497482"
 

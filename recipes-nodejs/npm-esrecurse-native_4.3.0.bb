@@ -2,7 +2,7 @@ SUMMARY = "NPM: esrecurse"
 DESCRIPTION = "ECMAScript AST recursive visitor"
 HOMEPAGE = "https://github.com/estools/esrecurse"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://README.md;beginline=149;md5=38eeb2ba26f714e95547013f8d87242c"
 

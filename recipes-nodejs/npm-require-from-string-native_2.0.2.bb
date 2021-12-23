@@ -2,7 +2,7 @@ SUMMARY = "NPM: require-from-string"
 DESCRIPTION = "Require module from string"
 HOMEPAGE = "https://github.com/floatdrop/require-from-string#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=be72c3ad86c1c4e9578a1945b082b17d"
 

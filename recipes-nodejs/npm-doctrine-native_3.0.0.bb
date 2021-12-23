@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/eslint/doctrine"
 
 DEPENDS = "npm-esutils-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d337c2208d119a8ec5ac4a485aa9cb5d"
 

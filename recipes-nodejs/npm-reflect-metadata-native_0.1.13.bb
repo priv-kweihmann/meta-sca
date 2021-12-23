@@ -2,7 +2,7 @@ SUMMARY = "NPM: reflect-metadata"
 DESCRIPTION = "Polyfill for Metadata Reflection API"
 HOMEPAGE = "http://rbuckton.github.io/reflect-metadata"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=28f81e70113a2a2bd0fc671463a263b1"
 

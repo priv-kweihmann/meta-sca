@@ -2,7 +2,7 @@ SUMMARY = "NPM: bash-color"
 DESCRIPTION = "a simple tool for wrapping strings in bash color codes. Used to color console output."
 HOMEPAGE = "https://github.com/mbilokonsky/bash-color#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=0a52afb4c2761a306a74d05fc6856a63"
 

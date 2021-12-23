@@ -1,7 +1,7 @@
 SUMMARY = "World timezone definitions, modern and historical"
 HOMEPAGE = "https://pythonhosted.org/pytz/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=1a67fc46c1b596cce5d21209bbe75999"
 

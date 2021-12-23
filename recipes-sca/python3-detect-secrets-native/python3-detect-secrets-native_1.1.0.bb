@@ -1,7 +1,7 @@
 SUMMARY = "An enterprise friendly way of detecting and preventing secrets in code"
 HOMEPAGE = "https://github.com/Yelp/detect-secrets"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7c3c8615794b2f159ecd80b4c32f2f8f"
 

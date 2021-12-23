@@ -2,7 +2,7 @@ SUMMARY = "NPM: jsonfile"
 DESCRIPTION = "Easily read/write JSON files."
 HOMEPAGE = "https://github.com/jprichardson/node-jsonfile#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=423f377ade95936f6fe009b1c137bfdb"
 

@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/click-contrib/click-option-group"
 
 DEPENDS += "python3-click-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f10e5cf198b01ce7c7ed725a55d3b39d"
 

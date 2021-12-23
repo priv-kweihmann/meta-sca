@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/textlint-rule/textlint-rule-period-in-list-item"
 
 DEPENDS = "npm-check-ends-with-period-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e13f89c6c99507a95c450fa5e043b0cb"
 

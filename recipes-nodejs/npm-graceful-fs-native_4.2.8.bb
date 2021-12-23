@@ -2,7 +2,7 @@ SUMMARY = "NPM: graceful-fs"
 DESCRIPTION = "A drop-in replacement for fs, making various improvements."
 HOMEPAGE = "https://github.com/isaacs/node-graceful-fs#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fd63805fd8e3797063b247781e5ee6e4"
 

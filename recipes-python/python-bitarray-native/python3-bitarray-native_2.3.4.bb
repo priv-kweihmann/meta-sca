@@ -1,7 +1,7 @@
 SUMMARY = "provides an object type which efficiently represents an array of booleans"
 HOMEPAGE = "https://github.com/ilanschnell/bitarray"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "PSF-2.0"
 # Doesn't provide a LICENSE in the pypi package
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=76c1502273262a5ebefb50dfb20d7c4f"

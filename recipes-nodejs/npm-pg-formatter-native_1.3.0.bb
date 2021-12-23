@@ -2,7 +2,7 @@ SUMMARY = "NPM: pg-formatter"
 DESCRIPTION = "PostgreSQL SQL syntax beautifier."
 HOMEPAGE = "https://github.com/gajus/pg-formatter#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=8517dd2c21499c923c69fdca10d63d87"
 

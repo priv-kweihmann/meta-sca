@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/returntocorp/semgrep"
 
 COMPATIBLE_HOST = "^x86_64-linux"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "LGPL-2.1"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/LICENSE;md5=650b869bd8ff2aed59c62bad2a22a821"
 

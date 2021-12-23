@@ -2,7 +2,7 @@ SUMMARY = "NPM: bind-decorator"
 DESCRIPTION = "The fastest automatic method.bind(this) decorator"
 HOMEPAGE = "https://github.com/NoHomey/bind-decorator#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5015d8872d092147348c347928ab10cb"
 

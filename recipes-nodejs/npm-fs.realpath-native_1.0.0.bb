@@ -2,7 +2,7 @@ SUMMARY = "NPM: fs.realpath"
 DESCRIPTION = "Use node's fs.realpath, but fall back to the JS implementation if the native one fails"
 HOMEPAGE = "https://github.com/isaacs/fs.realpath#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=062470525c8e380f8567f665ef554d11"
 

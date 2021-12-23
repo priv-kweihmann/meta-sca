@@ -1,7 +1,7 @@
 SUMMARY = "Flake8 plugin that checks import order against various Python Style Guides"
 HOMEPAGE = "https://github.com/PyCQA/flake8-import-order"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=e6a600fd5e1d9cbde2d983680233ad02"
 

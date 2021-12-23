@@ -1,7 +1,7 @@
 SUMMARY = "This Compliance Profile ensures that all hardening quality"
 HOMEPAGE = "https://github.com/dev-sec/mysql-baseline"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://README.md;beginline=25;md5=c82165669c804457a5124013cb24171c"
 

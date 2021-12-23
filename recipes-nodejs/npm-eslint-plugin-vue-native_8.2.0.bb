@@ -1,7 +1,7 @@
 SUMMARY = "NPM: eslint-plugin-vue"
 DESCRIPTION = "Official ESLint plugin for Vue.js"
 HOMEPAGE = "https://eslint.vuejs.org"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86a65c5c19c672ee4cd52492495f1d16"
 

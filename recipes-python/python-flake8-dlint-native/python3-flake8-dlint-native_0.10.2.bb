@@ -2,7 +2,7 @@ SUMMARY = "encouraging best coding practices for python code"
 DESCRIPTION = "Dlint is a tool for encouraging best coding practices and helping ensure we're writing secure Python code"
 HOMEPAGE = "https://github.com/duo-labs/dlint"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fe4ea50135cd6b033f509f16a8d2b96b"
 

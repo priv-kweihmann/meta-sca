@@ -2,7 +2,7 @@ SUMMARY = "NPM: hast-util-parse-selector"
 DESCRIPTION = "hast utility to create an element from a simple CSS selector"
 HOMEPAGE = "https://github.com/syntax-tree/hast-util-parse-selector#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 

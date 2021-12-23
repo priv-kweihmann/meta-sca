@@ -1,7 +1,7 @@
 SUMMARY = "C Bounded Model Checker"
 HOMEPAGE = "https://github.com/diffblue/cbmc"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-4-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3326e2b1998e90a97f31e58341552600"
 

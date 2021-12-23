@@ -2,7 +2,7 @@ SUMMARY = "NPM: data-uri-to-buffer"
 DESCRIPTION = "Generate a Buffer instance from a Data URI string"
 HOMEPAGE = "https://github.com/TooTallNate/node-data-uri-to-buffer"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=65;md5=a448c2725100d39d73e324e98955397d"
 

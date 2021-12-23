@@ -1,7 +1,7 @@
 SUMMARY = "A flake8 plugin to help you write better list/set/dict comprehensions"
 HOMEPAGE = "https://github.com/adamchainz/flake8-comprehensions"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=0699983c8f8199c37bee38509aacbbc6"
 

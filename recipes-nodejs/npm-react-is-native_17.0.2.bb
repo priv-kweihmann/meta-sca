@@ -2,7 +2,7 @@ SUMMARY = "NPM: react-is"
 DESCRIPTION = "Brand checking of React Elements."
 HOMEPAGE = "https://reactjs.org/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=901f6cd9846257b3a9c69dbd0a49caf1"
 

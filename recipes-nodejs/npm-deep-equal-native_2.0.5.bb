@@ -2,7 +2,7 @@ SUMMARY = "NPM: deep-equal"
 DESCRIPTION = "node's assert.deepEqual algorithm"
 HOMEPAGE = "https://github.com/inspect-js/node-deep-equal#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ec4e94fe7abda03e2e44a713b0908a07"
 

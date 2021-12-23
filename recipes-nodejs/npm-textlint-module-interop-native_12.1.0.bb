@@ -1,7 +1,7 @@
 SUMMARY = "NPM: @textlint/module-interop"
 DESCRIPTION = "ECMAScript module interop library"
 HOMEPAGE = "https://github.com/textlint/textlint/tree/master/packages/@textlint/module-interop/"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fdf16298bf702d1ba5d61988dfe70c9f"
 

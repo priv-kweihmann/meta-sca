@@ -1,7 +1,7 @@
 SUMMARY = "Lightweight static analysis for many languages"
 HOMEPAGE = "https://github.com/returntocorp/semgrep"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "LGPL-2.1"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/LGPL-2.1-only;md5=1a6d268fd218675ffea8be556788b780"
 

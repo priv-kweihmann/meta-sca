@@ -3,7 +3,7 @@ DESCRIPTION = "A carefully curated collection of Root Certificates for validatin
                of SSL certificates while verifying the identity of TLS hosts"
 HOMEPAGE = "https://github.com/certifi/python-certifi"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MPL-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=67da0714c3f9471067b729eca6c9fbe8"
 

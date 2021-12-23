@@ -1,7 +1,7 @@
 SUMMARY = "LuaRocks is the package manager for the Lua programming language"
 HOMEPAGE = "https://github.com/luarocks/luarocks"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://COPYING;md5=5a26c606953a58c545aa194713fcdfc8"
 

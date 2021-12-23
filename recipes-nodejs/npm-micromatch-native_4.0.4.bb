@@ -2,7 +2,7 @@ SUMMARY = "NPM: micromatch"
 DESCRIPTION = "Glob matching for javascript/node.js. A replacement and faster alternative to minimatch and multimatch."
 HOMEPAGE = "https://github.com/micromatch/micromatch"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=0f64900f8f30e53054962c9f1fc3205b"
 

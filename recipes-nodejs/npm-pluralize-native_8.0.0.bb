@@ -2,7 +2,7 @@ SUMMARY = "NPM: pluralize"
 DESCRIPTION = "Pluralize and singularize any word"
 HOMEPAGE = "https://github.com/blakeembrey/pluralize#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7eeeb5a4f2ac933c251575809e29300c"
 

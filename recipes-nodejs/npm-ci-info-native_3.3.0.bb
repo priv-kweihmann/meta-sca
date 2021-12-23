@@ -1,7 +1,7 @@
 SUMMARY = "NPM: ci-info"
 DESCRIPTION = "Get details about the current Continuous Integration environment"
 HOMEPAGE = "https://github.com/watson/ci-info"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=69386bc3e18d6a71ce25b9aa39ecf076"
 

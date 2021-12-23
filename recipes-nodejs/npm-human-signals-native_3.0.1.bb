@@ -2,7 +2,7 @@ SUMMARY = "NPM: human-signals"
 DESCRIPTION = "Human-friendly process signals"
 HOMEPAGE = "https://git.io/JeluP"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b6fe9ae6620c5a32b7def6338cd47e3a"
 

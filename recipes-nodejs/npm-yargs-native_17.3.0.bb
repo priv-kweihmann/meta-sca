@@ -1,7 +1,7 @@
 SUMMARY = "NPM: yargs"
 DESCRIPTION = "yargs the modern, pirate-themed, successor to optimist."
 HOMEPAGE = "https://yargs.js.org/"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ec88e65c7bb01732069f3ad6b09ac90d"
 

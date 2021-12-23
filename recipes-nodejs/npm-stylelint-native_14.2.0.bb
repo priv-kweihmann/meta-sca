@@ -1,7 +1,7 @@
 SUMMARY = "NPM: stylelint"
 DESCRIPTION = "A mighty, modern CSS linter."
 HOMEPAGE = "https://stylelint.io"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=0e0ecf49fffcf64b1f3fa0a956ea44a0"
 

@@ -1,7 +1,7 @@
 SUMMARY = "flake8 plugin for validation of function parameters (length, complexity, etc)"
 HOMEPAGE = "https://github.com/best-doctor/flake8-functions"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=352fd8fef192c98968c70971a80f959c"
 

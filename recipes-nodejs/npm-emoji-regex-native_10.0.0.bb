@@ -2,7 +2,7 @@ SUMMARY = "NPM: emoji-regex"
 DESCRIPTION = "A regular expression to match all Emoji-only symbols as per the Unicode Standard."
 HOMEPAGE = "https://mths.be/emoji-regex"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE-MIT.txt;md5=ee9bd8b835cfcd512dd644540dd96987"
 

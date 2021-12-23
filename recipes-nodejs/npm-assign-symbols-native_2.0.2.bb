@@ -2,7 +2,7 @@ SUMMARY = "NPM: assign-symbols"
 DESCRIPTION = "Assign the enumerable es6 Symbol properties from one or more objects to the first object passed on the arguments. Can be used as a supplement to other extend, assign or merge methods as a polyfill for the Symbols part of the es6 Object.assign method."
 HOMEPAGE = "https://github.com/jonschlinkert/assign-symbols"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b561e0a423bedc9d9ca9c8c67d40abb9"
 

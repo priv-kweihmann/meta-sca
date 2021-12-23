@@ -2,7 +2,7 @@ SUMMARY = "NPM: unified"
 DESCRIPTION = "Interface for parsing, inspecting, transforming, and serializing content through syntax trees"
 HOMEPAGE = "https://unifiedjs.com"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=82fd7b0a70b89a370d3bcef312cfd54d"
 

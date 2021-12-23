@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/wooorm/hast#readme"
 
 DEPENDS = "npm-bail-native npm-camelcase-native npm-ent-native npm-escape-html-native npm-htmlparser2-native npm-param-case-native npm-property-information-native npm-trim-native npm-unified-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7e5307a85144ae88c8ce8eb803918a97"
 

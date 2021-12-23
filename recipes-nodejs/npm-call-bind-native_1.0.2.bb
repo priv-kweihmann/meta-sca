@@ -2,7 +2,7 @@ SUMMARY = "NPM: call-bind"
 DESCRIPTION = "Robustly `.call.bind()` a function"
 HOMEPAGE = "https://github.com/ljharb/call-bind#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=0eb2c73daa0ecf037cbdf3d0bb0c98d5"
 

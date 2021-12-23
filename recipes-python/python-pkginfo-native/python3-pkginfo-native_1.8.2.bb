@@ -1,7 +1,7 @@
 SUMMARY = "Query metadatdata from sdists / bdists / installed packages"
 HOMEPAGE = "https://bazaar.launchpad.net/~tseaver/pkginfo/trunk/files"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=6fc86b61c6077306ca1f5edc8edcc490"
 

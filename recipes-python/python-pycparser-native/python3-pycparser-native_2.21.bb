@@ -1,7 +1,7 @@
 SUMMARY = "C parser in Python"
 HOMEPAGE = "https://github.com/eliben/pycparser"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2c28cdeabcb88f5843d934381b4b4fea"
 

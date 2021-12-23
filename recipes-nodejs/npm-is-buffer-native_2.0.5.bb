@@ -2,7 +2,7 @@ SUMMARY = "NPM: is-buffer"
 DESCRIPTION = "Determine if an object is a Buffer"
 HOMEPAGE = "https://github.com/feross/is-buffer#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=badd5e91c737e7ffdf10b40c1f907761"
 

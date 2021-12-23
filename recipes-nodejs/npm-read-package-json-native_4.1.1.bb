@@ -2,7 +2,7 @@ SUMMARY = "NPM: read-package-json"
 DESCRIPTION = "The thing npm uses to read package.json files with semantics and defaults and validation"
 HOMEPAGE = "https://github.com/npm/read-package-json#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=6392dc4522c189c9616b2ec1ab763bec"
 

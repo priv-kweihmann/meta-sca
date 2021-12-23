@@ -1,7 +1,7 @@
 SUMMARY = "NPM: @eslint/eslintrc"
 DESCRIPTION = "The legacy ESLintRC config file format for ESLint"
 HOMEPAGE = "https://github.com/eslint/eslintrc#readme"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1f0f520c61625b7338d0a038d6bb8e34"
 

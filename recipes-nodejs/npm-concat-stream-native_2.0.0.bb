@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/maxogden/concat-stream#readme"
 
 DEPENDS = "npm-buffer-from-native npm-inherits-native npm-readable-stream-native npm-typedarray-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3ad90c134f824ddfcea611ee1fa567a8"
 

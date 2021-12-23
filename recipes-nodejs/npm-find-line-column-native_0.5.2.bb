@@ -2,7 +2,7 @@ SUMMARY = "NPM: find-line-column"
 DESCRIPTION = "Given string and position, return line and column of position"
 HOMEPAGE = "https://github.com/duereg/find-line-column"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=24;md5=477dfa54ede28e2f361e7db05941d7a7"
 

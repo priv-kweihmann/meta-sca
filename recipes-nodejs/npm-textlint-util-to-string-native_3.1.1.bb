@@ -2,7 +2,7 @@ SUMMARY = "NPM: textlint-util-to-string"
 DESCRIPTION = "textlint util convert Paragraph Node to text with SourceMap."
 HOMEPAGE = "https://github.com/textlint/textlint-util-to-string"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b858910af2bca39133b1536464b54f49"
 

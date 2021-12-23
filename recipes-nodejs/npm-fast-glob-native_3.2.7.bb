@@ -2,7 +2,7 @@ SUMMARY = "NPM: fast-glob"
 DESCRIPTION = "It's a very fast and efficient glob library for Node.js"
 HOMEPAGE = "https://github.com/mrmlnc/fast-glob#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=580f1c3c6765fecfdb93bdf4e068d952"
 

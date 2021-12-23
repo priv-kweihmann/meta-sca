@@ -4,7 +4,7 @@ AUTHOR = "Google Inc."
 HOMEPAGE = "https://github.com/cpplint/cpplint"
 BUGTRACKER = "https://github.com/cpplint/cpplint/issues"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a58572e3501e262ddd5da01be644887d"
 

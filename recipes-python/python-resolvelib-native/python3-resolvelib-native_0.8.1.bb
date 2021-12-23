@@ -1,7 +1,7 @@
 SUMMARY = "Resolve abstract dependencies into concrete ones"
 HOMEPAGE = "https://github.com/sarugaku/resolvelib"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=78e1c0248051c32a38a7f820c30bd7a5"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: oauth-sign"
 DESCRIPTION = "OAuth 1 signing. Formerly a vendor lib in mikeal/request, now a standalone module."
 HOMEPAGE = "https://github.com/mikeal/oauth-sign#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f3f8ead5440d1c311b45be065d135d90"
 

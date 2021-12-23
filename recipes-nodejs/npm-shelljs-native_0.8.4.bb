@@ -2,7 +2,7 @@ SUMMARY = "NPM: shelljs"
 DESCRIPTION = "Portable Unix shell commands for Node.js"
 HOMEPAGE = "http://github.com/shelljs/shelljs"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=984c31fdd47cf012f52739542dd857c4"
 

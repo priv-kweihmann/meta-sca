@@ -2,7 +2,7 @@ SUMMARY = "NPM: cities-list"
 DESCRIPTION = "A list, huge one, (~80K) of cities."
 HOMEPAGE = "https://github.com/finnlp/cities-list.git#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=7c5dbe3099281e1c0d0416911c6371ed"
 

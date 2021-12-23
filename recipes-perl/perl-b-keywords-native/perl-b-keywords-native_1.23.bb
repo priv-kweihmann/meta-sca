@@ -1,7 +1,7 @@
 SUMMARY = "Lists of reserved barewords and symbol names"
 HOMEPAGE = "https://metacpan.org/pod/B::Keywords"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d4036f260a45870203aaf8c730d179d0"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: eslint-plugin-array-func"
 DESCRIPTION = "Rules dealing with Array functions and methods."
 HOMEPAGE = "https://github.com/freaktechnik/eslint-plugin-array-func#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a21b38275e7647340357b8e707f61495"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: node-gyp-build"
 DESCRIPTION = "Build tool and bindings loader for node-gyp that supports prebuilds"
 HOMEPAGE = "https://github.com/prebuild/node-gyp-build"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=bb7eae1c2fbb280c72665db9a1efc896"
 

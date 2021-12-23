@@ -2,7 +2,7 @@ SUMMARY = "NPM: textlint-rule-max-comma"
 DESCRIPTION = "textlint rule that limit maxinum comma(,) count of sentence."
 HOMEPAGE = "https://github.com/azu/textlint-rule-max-comma#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=bc9a2bae21f2f74984d4a43e24285986"
 

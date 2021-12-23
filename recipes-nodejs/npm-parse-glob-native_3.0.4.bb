@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/jonschlinkert/parse-glob"
 
 DEPENDS = "npm-glob-base-native npm-is-dotfile-native npm-is-extglob-native npm-is-glob-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e060235353cb686ae1695ec7db63cfbc"
 

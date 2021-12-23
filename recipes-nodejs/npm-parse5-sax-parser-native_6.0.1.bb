@@ -2,7 +2,7 @@ SUMMARY = "NPM: parse5-sax-parser"
 DESCRIPTION = "Streaming SAX-style HTML parser."
 HOMEPAGE = "https://github.com/inikulin/parse5"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=179850e04995d6fceaf64f2dd2a851b0"
 

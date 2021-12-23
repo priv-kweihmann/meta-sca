@@ -2,7 +2,7 @@ SUMMARY = "NPM: delayed-stream"
 DESCRIPTION = "Buffers events from a stream until you are ready to handle them."
 HOMEPAGE = "https://github.com/felixge/node-delayed-stream"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://License;md5=5270b4ddb6700d0a820e6d066744589c"
 

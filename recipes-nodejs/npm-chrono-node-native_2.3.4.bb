@@ -1,7 +1,7 @@
 SUMMARY = "NPM: chrono-node"
 DESCRIPTION = "A natural language date parser in Javascript"
 HOMEPAGE = "http://github.com/wanasit/chrono"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=8e0bb9fdc6803a6d8b47b24d0673c684"
 

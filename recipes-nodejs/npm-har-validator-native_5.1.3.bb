@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/ahmadnassri/node-har-validator"
 
 DEPENDS = "npm-ajv-native npm-har-schema-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=6f7daec5e5143ffeb21745646b425ab2"
 

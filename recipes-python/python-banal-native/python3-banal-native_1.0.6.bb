@@ -1,7 +1,7 @@
 SUMMARY = "Commons of banal micro-functions for Python"
 HOMEPAGE = "http://github.com/pudo/banal"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c6864b0f90b7b849410f1b22ea10ae44"
 

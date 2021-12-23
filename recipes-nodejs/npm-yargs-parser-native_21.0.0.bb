@@ -2,7 +2,7 @@ SUMMARY = "NPM: yargs-parser"
 DESCRIPTION = "the mighty option parser used by yargs"
 HOMEPAGE = "https://github.com/yargs/yargs-parser#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=8fd106383180f7bbb8f534414fdf7d35"
 

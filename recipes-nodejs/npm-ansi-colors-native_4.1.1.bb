@@ -2,7 +2,7 @@ SUMMARY = "NPM: ansi-colors"
 DESCRIPTION = "Easily add ANSI colors to your text and symbols in the terminal. A faster drop-in replacement for chalk, kleur and turbocolor (without the dependencies and rendering bugs)."
 HOMEPAGE = "https://github.com/doowb/ansi-colors"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=442b5b961878bc805832d1d24572f62d"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: retire"
 DESCRIPTION = "Retire is a tool for detecting use of vulnerable libraries"
 HOMEPAGE = "https://github.com/RetireJS/retire.js#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 # does not provide a license
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/Apache-2.0;md5=89aea4e17d99a7cacdbeed46a0096b10"

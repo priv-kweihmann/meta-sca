@@ -2,7 +2,7 @@ SUMMARY = "NPM: exit"
 DESCRIPTION = "A replacement for process.exit that ensures stdio are fully drained before exiting."
 HOMEPAGE = "https://github.com/cowboy/node-exit"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE-MIT;md5=159111132f87941857a4f42d60c880c8"
 

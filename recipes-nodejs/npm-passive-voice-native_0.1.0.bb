@@ -2,7 +2,7 @@ SUMMARY = "NPM: passive-voice"
 DESCRIPTION = "detect passive voice"
 
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=63;md5=477dfa54ede28e2f361e7db05941d7a7"
 

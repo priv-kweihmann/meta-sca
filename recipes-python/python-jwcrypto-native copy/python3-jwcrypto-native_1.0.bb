@@ -1,7 +1,7 @@
 SUMMARY = "Implementation of JOSE Web standards"
 HOMEPAGE = "https://github.com/latchset/jwcrypto"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "LGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e6a600fd5e1d9cbde2d983680233ad02"
 

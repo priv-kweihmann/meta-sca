@@ -2,7 +2,7 @@ SUMMARY = "NPM: picocolors"
 DESCRIPTION = "The tiniest and the fastest library for terminal output formatting with ANSI colors"
 HOMEPAGE = "https://github.com/alexeyraspopov/picocolors#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=8aabd5d21f92335888d962fb6ca980f8"
 

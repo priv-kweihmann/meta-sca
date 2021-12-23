@@ -2,7 +2,7 @@ SUMMARY = "NPM: xml-escape"
 DESCRIPTION = "Escape XML "
 HOMEPAGE = "https://github.com/miketheprogrammer/xml-escape"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=bf446564f113cb820c94a7ceaea01fea"
 

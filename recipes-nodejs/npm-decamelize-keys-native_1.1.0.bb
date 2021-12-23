@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/dsblv/decamelize-keys#readme"
 
 DEPENDS = "npm-decamelize-native npm-map-obj-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=ef5033eb270a4d6e859a3cd602513b14"
 

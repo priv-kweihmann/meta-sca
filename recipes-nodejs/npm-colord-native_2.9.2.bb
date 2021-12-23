@@ -1,7 +1,7 @@
 SUMMARY = "NPM: colord"
 DESCRIPTION = "👑 A tiny yet powerful tool for high-performance color manipulations and conversions"
 HOMEPAGE = "https://github.com/omgovich/colord#readme"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=903bd2f7f1b4db3cd376010ef4d87040"
 

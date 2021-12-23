@@ -1,7 +1,7 @@
 SUMMARY = "Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API"
 HOMEPAGE = "https://github.com/lxml/lxml"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSES.txt;md5=e4c045ebad958ead4b48008f70838403"
 

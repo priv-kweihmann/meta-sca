@@ -2,7 +2,7 @@ SUMMARY = "Enriched extends rich library functionality"
 DESCRIPTION = "Enriched extends rich library functionality with a set of changes that were not accepted to rich itself."
 HOMEPAGE = "https://github.com/pycontribs/enrich"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d9a054ecfbccd5e9a2c26e29e92c14d2"
 
