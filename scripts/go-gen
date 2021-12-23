@@ -389,7 +389,7 @@ def __create_recipe_native(args, desc):
     _tpl = """
 SUMMARY = "go.mod: %name%"
 HOMEPAGE = "https://pkg.go.dev/%name%"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 # License is determined by the modules included and will be therefore computed
 LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '').split(' ') if x)))}"
 
