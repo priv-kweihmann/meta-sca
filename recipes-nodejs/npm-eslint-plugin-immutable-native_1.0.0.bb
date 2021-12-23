@@ -2,7 +2,7 @@ SUMMARY = "NPM: eslint-plugin-immutable"
 DESCRIPTION = "ESLint plugin to disable all mutation in JavaScript."
 HOMEPAGE = "https://github.com/jhusain/eslint-plugin-immutable#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e"
 

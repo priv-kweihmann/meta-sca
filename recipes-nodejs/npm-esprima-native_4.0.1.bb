@@ -2,7 +2,7 @@ SUMMARY = "NPM: esprima"
 DESCRIPTION = "ECMAScript parsing infrastructure for multipurpose analysis"
 HOMEPAGE = "http://esprima.org"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.BSD;md5=e3c825c932a984958bafbac21e21f984"
 

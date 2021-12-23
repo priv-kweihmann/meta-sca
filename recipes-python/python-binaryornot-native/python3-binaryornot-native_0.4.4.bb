@@ -1,7 +1,7 @@
 SUMMARY = "Ultra-lightweight pure Python package to check if a file is binary or text"
 HOMEPAGE = "https://github.com/audreyr/binaryornot"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 # Doesn't provide a LICENSE in the pypi package
 LIC_FILES_CHKSUM = "file://LICENSE;md5=883bfd76e31e48fac50f9ab457d0a131"

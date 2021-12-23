@@ -2,7 +2,7 @@ SUMMARY = "NPM: is-core-module"
 DESCRIPTION = "Is this specifier a node.js core module?"
 HOMEPAGE = "https://github.com/inspect-js/is-core-module"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=02b0fb5ff4014a08fd4193bc3e2349e2"
 

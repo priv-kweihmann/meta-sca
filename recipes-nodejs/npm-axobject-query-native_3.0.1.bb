@@ -2,7 +2,7 @@ SUMMARY = "NPM: axobject-query"
 DESCRIPTION = "Programmatic access to information about the AXObject Model"
 HOMEPAGE = "https://github.com/A11yance/axobject-query#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=cadce3caaeb4d7ea5e8c0e57d5f3d1e7"
 

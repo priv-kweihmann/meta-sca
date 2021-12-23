@@ -1,7 +1,7 @@
 SUMMARY = "Simple URL parsing, canonicalization and equivalence"
 HOMEPAGE = "http://github.com/nexB/urlpy"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2cb2cc4130a20de8c1c89ef07b8e238d"
 

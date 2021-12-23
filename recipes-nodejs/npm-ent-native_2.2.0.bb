@@ -2,7 +2,7 @@ SUMMARY = "NPM: ent"
 DESCRIPTION = "Encode and decode HTML entities"
 HOMEPAGE = "https://github.com/substack/node-ent"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=aea1cde69645f4b99be4ff7ca9abcce1"
 

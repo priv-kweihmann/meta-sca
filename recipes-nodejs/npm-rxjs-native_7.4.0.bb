@@ -2,7 +2,7 @@ SUMMARY = "NPM: rxjs"
 DESCRIPTION = "Reactive Extensions for modern JavaScript"
 HOMEPAGE = "https://rxjs.dev"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=80ca6de0630df9d3c3faee86819caa57"
 

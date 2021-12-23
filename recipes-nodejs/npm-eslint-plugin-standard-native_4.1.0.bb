@@ -2,7 +2,7 @@ SUMMARY = "NPM: eslint-plugin-standard"
 DESCRIPTION = "ESlint Plugin for the Standard Linter"
 HOMEPAGE = "https://github.com/standard/eslint-plugin-standard#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=775a0e2f7c1351de15da279fe577da15"
 

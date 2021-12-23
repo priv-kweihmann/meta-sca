@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/nodesecurity/eslint-plugin-security#readme"
 
 DEPENDS = "npm-safe-regex-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=0951aaf8fe866ea9c9b60e3e1d882fc0"
 

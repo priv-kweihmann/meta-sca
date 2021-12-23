@@ -2,7 +2,7 @@ SUMMARY = "Improved build system generator for CPython"
 DESCRIPTION = "Improved build system generator for CPython C, C++, Cython and Fortran extensions"
 HOMEPAGE = "https://github.com/scikit-build/scikit-build"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7c96d2b08b3cec6d3c67fb864d1fd8cc"
 

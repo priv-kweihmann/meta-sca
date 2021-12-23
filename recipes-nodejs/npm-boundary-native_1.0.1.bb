@@ -2,7 +2,7 @@ SUMMARY = "NPM: boundary"
 DESCRIPTION = "Provides boundary functions, (upper-bound and lower-bound)."
 HOMEPAGE = "https://github.com/Constellation/boundary"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=52;md5=9c6942b190be713b724358bcd4f8a08c"
 

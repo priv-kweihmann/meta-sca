@@ -2,7 +2,7 @@ SUMMARY = "NPM: util-deprecate"
 DESCRIPTION = "The Node.js `util.deprecate()` function with browser support"
 HOMEPAGE = "https://github.com/TooTallNate/util-deprecate"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b7c99ef4b0f3ad9911a52219947f8cf0"
 

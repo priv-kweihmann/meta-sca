@@ -2,7 +2,7 @@ SUMMARY = "NPM: https-proxy-agent"
 DESCRIPTION = "An HTTP(s) proxy `http.Agent` implementation for HTTPS"
 HOMEPAGE = "https://github.com/TooTallNate/node-https-proxy-agent#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=116;md5=f6b326f8dd7323be93eb2b14eeb1899c"
 

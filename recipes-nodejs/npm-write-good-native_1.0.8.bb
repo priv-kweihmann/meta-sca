@@ -2,7 +2,7 @@ SUMMARY = "NPM: write-good"
 DESCRIPTION = "Naive linter for English prose"
 HOMEPAGE = "https://github.com/btford/write-good#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=8a09bed7470d4595fa7fe082d71715f2"
 

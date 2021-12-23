@@ -2,7 +2,7 @@ SUMMARY = "NPM: fetch-blob"
 DESCRIPTION = "Blob & File implementation in Node.js, originally from node-fetch."
 HOMEPAGE = "https://github.com/node-fetch/fetch-blob#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=db6bf2cba86c6207f4c83860e373aba1"
 

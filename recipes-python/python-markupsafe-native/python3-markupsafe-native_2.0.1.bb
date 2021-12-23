@@ -1,7 +1,7 @@
 SUMMARY = "Safely add untrusted strings to HTML/XML markup"
 HOMEPAGE = "https://github.com/pallets/markupsafe"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.rst;md5=ffeffa59c90c9c4a033c7574f8f3fb75"
 

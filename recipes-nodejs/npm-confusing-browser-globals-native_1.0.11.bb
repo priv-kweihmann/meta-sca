@@ -1,7 +1,7 @@
 SUMMARY = "NPM: confusing-browser-globals"
 DESCRIPTION = "A list of browser globals that are often used by mistake instead of local variables"
 HOMEPAGE = "https://github.com/facebook/create-react-app#readme"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=94f0d486b3ba1dd568004dc5cccd32bc"
 

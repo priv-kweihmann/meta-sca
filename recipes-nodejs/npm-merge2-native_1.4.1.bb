@@ -2,7 +2,7 @@ SUMMARY = "NPM: merge2"
 DESCRIPTION = "Merge multiple streams into one stream in sequence or parallel."
 HOMEPAGE = "https://github.com/teambition/merge2"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d8aa1e0b760adbfc8e07a9a6eb24a60e"
 

@@ -1,7 +1,7 @@
 SUMMARY = "Discover and load entry points from installed packages"
 HOMEPAGE = "https://github.com/takluyver/entrypoints"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b6f7f5bd22a5dc0397c806c4e5f8cbd3"
 

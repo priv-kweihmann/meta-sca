@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/jfmengels/create-eslint-index#readme"
 
 DEPENDS = "npm-lodash.get-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=1e5b333790e6b59d4d4d223304b5e80d"
 

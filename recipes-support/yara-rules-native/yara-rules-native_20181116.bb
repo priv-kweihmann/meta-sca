@@ -1,6 +1,6 @@
 SUMMARY = "mikesxrs YARA Rules Collection"
 HOMEPAGE = "https://github.com/mikesxrs/Open-Source-YARA-rules"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Unlicense"
 
 LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/files/licenses/Unlicense;md5=1d267ceb3a8d8f75f1be3011ee4cbf53"

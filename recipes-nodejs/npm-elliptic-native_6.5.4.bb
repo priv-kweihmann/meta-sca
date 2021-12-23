@@ -2,7 +2,7 @@ SUMMARY = "NPM: elliptic"
 DESCRIPTION = "EC cryptography"
 HOMEPAGE = "https://github.com/indutny/elliptic"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=211;md5=42a070570f54c5a10aa6a3aa16a967e3"
 

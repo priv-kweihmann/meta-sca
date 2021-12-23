@@ -2,7 +2,7 @@ SUMMARY = "NPM: @getify/eslint-plugin-proper-arrows"
 DESCRIPTION = "ESLint rules to ensure proper arrow function definitions"
 HOMEPAGE = "https://github.com/getify/eslint-plugin-proper-arrows"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=f4c73255c3265e56b09fabfd64badbbc"
 

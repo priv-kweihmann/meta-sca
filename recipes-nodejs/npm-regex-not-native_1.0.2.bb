@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/jonschlinkert/regex-not"
 
 DEPENDS = "npm-extend-shallow-native npm-safe-regex-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=6c5e341361a86b6253a8e81978cbb67e"
 

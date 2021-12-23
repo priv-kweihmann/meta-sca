@@ -2,7 +2,7 @@ SUMMARY = "NPM: multimap"
 DESCRIPTION = "multi-map which allow multiple values for the same key"
 HOMEPAGE = "https://github.com/villadora/multi-map#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=135;md5=14d091e50ba87d8225d90a4c2b678064"
 

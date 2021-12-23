@@ -2,7 +2,7 @@ SUMMARY = "NPM: textlint-rule-helper"
 DESCRIPTION = "A helper library for textlint rule."
 HOMEPAGE = "https://github.com/textlint/textlint-rule-helper/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b858910af2bca39133b1536464b54f49"
 

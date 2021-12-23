@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/micromatch/to-regex-range"
 
 DEPENDS = "npm-is-number-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b561e0a423bedc9d9ca9c8c67d40abb9"
 

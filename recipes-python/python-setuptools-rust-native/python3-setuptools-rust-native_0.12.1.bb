@@ -1,7 +1,7 @@
 SUMMARY = "Setuptools rust extension plugin"
 HOMEPAGE = "https://github.com/PyO3/setuptools-rust"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=011cd92e702dd9e6b1a26157b6fd53f5"
 

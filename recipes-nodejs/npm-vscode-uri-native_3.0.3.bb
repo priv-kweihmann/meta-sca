@@ -1,7 +1,7 @@
 SUMMARY = "NPM: vscode-uri"
 DESCRIPTION = "The URI implementation that is used by VS Code and its extensions"
 HOMEPAGE = "https://github.com/microsoft/vscode-uri#readme"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=3f8a83a05bc59c7a6122980df91bdd1c"
 

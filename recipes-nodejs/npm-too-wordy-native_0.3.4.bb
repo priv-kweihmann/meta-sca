@@ -2,7 +2,7 @@ SUMMARY = "NPM: too-wordy"
 DESCRIPTION = "Find wordy or unnecessary passages in your writing"
 HOMEPAGE = "https://github.com/duereg/too-wordy"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ad1ea741b5c8f9d521103277c196d2dd"
 

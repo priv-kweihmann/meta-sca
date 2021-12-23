@@ -2,7 +2,7 @@ SUMMARY = "NPM: glob-parent"
 DESCRIPTION = "Extract the non-magic parent path from a glob string."
 HOMEPAGE = "https://github.com/gulpjs/glob-parent#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=741e38024be3bd65f6d836f460f4445f"
 

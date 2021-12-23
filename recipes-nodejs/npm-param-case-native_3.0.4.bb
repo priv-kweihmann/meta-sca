@@ -2,7 +2,7 @@ SUMMARY = "NPM: param-case"
 DESCRIPTION = "Transform into a lower cased string with dashes between words"
 HOMEPAGE = "https://github.com/blakeembrey/change-case/tree/master/packages/param-case#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=44088ba57cb871a58add36ce51b8de08"
 

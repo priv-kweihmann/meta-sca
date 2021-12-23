@@ -1,7 +1,7 @@
 SUMMARY = "Parse Ruby Gemfile, .gemspec and Cocoapod .podspec files using Python"
 HOMEPAGE = "https://github.com/gemfileparser/gemfileparser"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT | GPLv3"
 LIC_FILES_CHKSUM = "\
                     file://LICENSE.MIT;md5=c3b5d8f6969b92fe92ce8aa3d3f80b3c \

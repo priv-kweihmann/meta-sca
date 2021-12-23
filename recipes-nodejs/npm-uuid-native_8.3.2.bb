@@ -2,7 +2,7 @@ SUMMARY = "NPM: uuid"
 DESCRIPTION = "RFC4122 (v1, v4, and v5) UUIDs"
 HOMEPAGE = "https://github.com/uuidjs/uuid#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=353e680cdafd96bf30131cbb7b14a6e8"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: textlint-rule-terminology"
 DESCRIPTION = "TextLint rule to check correct terms spelling"
 HOMEPAGE = "https://github.com/sapegin/textlint-rule-terminology"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://License.md;md5=1c3c1ff2f08b4ec351c1fc7d50f3e724"
 

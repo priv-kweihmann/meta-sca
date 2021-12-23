@@ -2,7 +2,7 @@ SUMMARY = "Find misconfigurations and vulnerabilities within sudo"
 DESCRIPTION = "A tool to identify and exploit sudo rules' misconfigurations and vulnerabilities within sudo"
 HOMEPAGE = "https://github.com/TH3xACE/SUDO_KILLER"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f45999e825d6792e32a1cbadd968b1b7"
 

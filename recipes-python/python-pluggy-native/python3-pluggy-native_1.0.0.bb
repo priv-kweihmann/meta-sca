@@ -1,7 +1,7 @@
 SUMMARY = "A minimalist production ready plugin system"
 HOMEPAGE = "https://github.com/pytest-dev/pluggy"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1c8206d16fd5cc02fa9b0bb98955e5c2"
 

@@ -2,7 +2,7 @@ SUMMARY = "PHP vulnerability finder"
 DESCRIPTION = "phpcs-security-audit is a set of PHP_CodeSniffer rules that finds vulnerabilities and weaknesses related to security in PHP code"
 HOMEPAGE = "https://github.com/FloeDesignTechnologies/phpcs-security-audit"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=412af50a7c6ed96fe188e6672d9f3d9b"
 

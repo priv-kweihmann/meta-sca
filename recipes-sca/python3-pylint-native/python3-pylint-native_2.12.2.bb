@@ -1,7 +1,7 @@
 SUMMARY = "Pylint is a tool that checks for errors in Python code"
 HOMEPAGE = "https://github.com/PyCQA/pylint"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c107cf754550e65755c42985a5d4e9c9"
 

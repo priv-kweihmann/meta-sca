@@ -2,7 +2,7 @@ SUMMARY = "NPM: has-own-prop"
 DESCRIPTION = "A safer `.hasOwnProperty()`"
 HOMEPAGE = "https://github.com/sindresorhus/has-own-prop#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 

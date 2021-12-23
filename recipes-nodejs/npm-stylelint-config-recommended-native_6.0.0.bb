@@ -2,7 +2,7 @@ SUMMARY = "NPM: stylelint-config-recommended"
 DESCRIPTION = "Recommended shareable config for Stylelint"
 HOMEPAGE = "https://github.com/stylelint/stylelint-config-recommended#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f692ad1565ee66c108b2d13b6f5e1575"
 

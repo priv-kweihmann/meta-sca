@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/samverschueren/clean-regexp#readme"
 
 DEPENDS = "npm-escape-string-regexp-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=a775f12cfff35aa8881152fa96fb8d0a"
 

@@ -1,7 +1,7 @@
 SUMMARY = "Automated security testing using bandit and flake8"
 HOMEPAGE = "https://github.com/tylerwince/flake8-bandit"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c3f9dda449e4d01bf0045d5476dcfefd"
 

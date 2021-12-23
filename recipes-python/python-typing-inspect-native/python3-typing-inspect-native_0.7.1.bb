@@ -1,7 +1,7 @@
 SUMMARY = "Runtime inspection utilities for typing module"
 HOMEPAGE = "https://github.com/ilevkivskyi/typing_inspect"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=38939e40df14ccacab135b023198167a"
 

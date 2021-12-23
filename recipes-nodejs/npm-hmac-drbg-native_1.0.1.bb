@@ -2,7 +2,7 @@ SUMMARY = "NPM: hmac-drbg"
 DESCRIPTION = "Deterministic random bit generator (hmac)"
 HOMEPAGE = "https://github.com/indutny/hmac-drbg#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=25;md5=c733d89c596a5d659d364e58a3637a5c"
 

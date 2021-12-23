@@ -1,7 +1,7 @@
 SUMMARY = "Foreign Function Interface for Python calling C code"
 HOMEPAGE = "https://bitbucket.org/cffi/cffi/src/default/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5677e2fdbf7cdda61d6dd2b57df547bf"
 

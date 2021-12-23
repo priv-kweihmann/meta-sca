@@ -2,7 +2,7 @@ SUMMARY = "NPM: property-information"
 DESCRIPTION = "Info on the properties and attributes of the web platform"
 HOMEPAGE = "https://github.com/wooorm/property-information#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=7e5307a85144ae88c8ce8eb803918a97"
 

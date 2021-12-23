@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/selaux/eslint-plugin-filenames"
 
 DEPENDS = "npm-lodash.camelcase-native npm-lodash.kebabcase-native npm-lodash.snakecase-native npm-lodash.upperfirst-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 # does not provide a license file
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"

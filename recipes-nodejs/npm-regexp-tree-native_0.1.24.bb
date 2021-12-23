@@ -2,7 +2,7 @@ SUMMARY = "NPM: regexp-tree"
 DESCRIPTION = "Regular Expressions parser in JavaScript"
 HOMEPAGE = "https://github.com/DmitrySoshnikov/regexp-tree"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5d06bd44b61726e8ad570f35d48bf36a"
 

@@ -1,7 +1,7 @@
 SUMMARY = "Python PE parsing module"
 HOMEPAGE = "https://github.com/erocarrera/pefile"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ef2c924be9d0c8d6cf82374769748bfa"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: http-signature"
 DESCRIPTION = "Reference implementation of Joyent's HTTP Signature scheme."
 HOMEPAGE = "https://github.com/joyent/node-http-signature/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=38ecf0a3a3894f404ca99c2a08924afc"
 

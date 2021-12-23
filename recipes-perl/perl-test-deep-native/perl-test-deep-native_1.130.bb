@@ -1,7 +1,7 @@
 SUMMARY = "Extremely flexible deep comparison"
 HOMEPAGE = "https://metacpan.org/pod/Test::Deep"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 # module doesn't ship an explicit LICENSE file
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-or-later;md5=fed54355545ffd980b814dab4a3b312c"

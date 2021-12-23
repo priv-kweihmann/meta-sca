@@ -2,7 +2,7 @@ SUMMARY = "NPM: isstream"
 DESCRIPTION = "Determine if an object is a Stream"
 HOMEPAGE = "https://github.com/rvagg/isstream"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=1798150b9d70250c42b55b3530e6af2b"
 

@@ -1,7 +1,7 @@
 SUMMARY = "script for checking on linux kernel hardening"
 HOMEPAGE = "https://github.com/a13xp0p0v/kconfig-hardened-check"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d32239bcb673463ab874e80d47fae504"
 

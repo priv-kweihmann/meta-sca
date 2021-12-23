@@ -1,7 +1,7 @@
 SUMMARY = "The Real First Universal Charset Detector"
 HOMEPAGE = "https://github.com/ousret/charset_normalizer"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=0974a390827087287db39928f7c524b5"
 

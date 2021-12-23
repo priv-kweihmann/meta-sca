@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/dustinspecker/is-js-type#readme"
 
 DEPENDS = "npm-js-types-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=512b547cdbdb32ef8bcbd275eb09a8bd"
 

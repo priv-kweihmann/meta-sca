@@ -2,7 +2,7 @@ SUMMARY = "NPM: tsconfig-paths"
 DESCRIPTION = "Load node modules according to tsconfig paths, in run-time or via API."
 HOMEPAGE = "{homepage}"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4c17ca18a648da5ade1f324b80ea4540"
 

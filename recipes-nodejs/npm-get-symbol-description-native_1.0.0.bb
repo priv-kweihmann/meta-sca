@@ -2,7 +2,7 @@ SUMMARY = "NPM: get-symbol-description"
 DESCRIPTION = "Gets the description of a Symbol. Handles `Symbol()` vs `Symbol('')` properly when possible."
 HOMEPAGE = "https://github.com/inspect-js/get-symbol-description#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a026b78b6909aa5e21d77709fb6b5156"
 

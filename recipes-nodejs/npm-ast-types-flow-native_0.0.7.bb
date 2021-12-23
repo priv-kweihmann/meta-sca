@@ -2,7 +2,7 @@ SUMMARY = "NPM: ast-types-flow"
 DESCRIPTION = "Flow types for the Javascript AST"
 HOMEPAGE = "https://github.com/kyldvs/ast-types-flow#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 # Does not provide a license file
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/ISC;md5=f3b90e78ea0cffb20bf5cca7947a896d"

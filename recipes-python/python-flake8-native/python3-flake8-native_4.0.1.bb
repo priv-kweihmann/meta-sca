@@ -1,7 +1,7 @@
 SUMMARY = "the modular source code checker: pep8, pyflakes and co"
 HOMEPAGE = "https://gitlab.com/pycqa/flake8"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=75b26781f1adf1aa310bda6098937878"
 

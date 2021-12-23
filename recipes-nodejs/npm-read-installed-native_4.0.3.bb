@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/isaacs/read-installed#readme"
 
 DEPENDS = "npm-debuglog-native npm-graceful-fs-native npm-read-package-json-native npm-readdir-scoped-modules-native npm-semver-native npm-slide-native npm-util-extend-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5b2ef2247af6d355ae9d9f988092d470"
 

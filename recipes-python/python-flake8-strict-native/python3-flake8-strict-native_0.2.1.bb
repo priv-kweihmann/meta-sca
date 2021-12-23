@@ -1,7 +1,7 @@
 SUMMARY = "Flake8 plugin that checks Python code against a set of opinionated style rules"
 HOMEPAGE = "https://github.com/smarkets/flake8-strict"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a6ceb86d5d9e2cc99e949bd8ec58dba3"
 

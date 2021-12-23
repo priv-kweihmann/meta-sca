@@ -1,7 +1,7 @@
 SUMMARY = "Library with cross-python path, ini-parsing, io, code, log facilities"
 HOMEPAGE = "http://py.readthedocs.io/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a6bb0320b04a0a503f12f69fea479de9"
 

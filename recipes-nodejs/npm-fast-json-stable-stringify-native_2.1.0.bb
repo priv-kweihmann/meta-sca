@@ -2,7 +2,7 @@ SUMMARY = "NPM: fast-json-stable-stringify"
 DESCRIPTION = "deterministic `JSON.stringify()` - a faster version of substack's json-stable-strigify without jsonify"
 HOMEPAGE = "https://github.com/epoberezkin/fast-json-stable-stringify"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=febe55307df96f60ad763842f5a8ca6f"
 

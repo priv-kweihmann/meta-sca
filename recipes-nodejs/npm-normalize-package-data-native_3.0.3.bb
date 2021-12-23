@@ -2,7 +2,7 @@ SUMMARY = "NPM: normalize-package-data"
 DESCRIPTION = "Normalizes data that can be found in package.json files."
 HOMEPAGE = "https://github.com/npm/normalize-package-data#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d1bcfc4226560b085978f38c2581ce74"
 

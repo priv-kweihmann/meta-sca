@@ -1,7 +1,7 @@
 SUMMARY = "NPM: table"
 DESCRIPTION = "Formats data into a string table."
 HOMEPAGE = "https://github.com/gajus/table#readme"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ef26e159010da62c8f2df919be9c7034"
 

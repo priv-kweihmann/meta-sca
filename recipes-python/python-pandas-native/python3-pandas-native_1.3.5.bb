@@ -1,6 +1,6 @@
 SUMMARY = "pandas library for high-performance data analysis tools"
 HOMEPAGE = "http://pandas.pydata.org/"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3f23c5c092b74d245d48eeef72bc3fd2"
 

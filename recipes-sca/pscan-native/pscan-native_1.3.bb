@@ -1,7 +1,7 @@
 SUMMARY = "A limited problem scanner for C source files"
 HOMEPAGE = "http://deployingradius.com/pscan/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0"
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: string.prototype.matchall"
 DESCRIPTION = "Spec-compliant polyfill for String.prototype.matchAll"
 HOMEPAGE = "https://github.com/es-shims/String.prototype.matchAll#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5db8fa3e421a3211e6a3dc68544da455"
 

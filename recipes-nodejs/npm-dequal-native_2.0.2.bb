@@ -2,7 +2,7 @@ SUMMARY = "NPM: dequal"
 DESCRIPTION = "A tiny (304B to 489B) utility for check for deep equality"
 HOMEPAGE = "https://github.com/lukeed/dequal#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=75a8a6449fca39883a2bcfd1d6ddac5a"
 

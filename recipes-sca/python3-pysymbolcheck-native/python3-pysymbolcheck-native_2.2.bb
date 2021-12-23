@@ -1,7 +1,7 @@
 SUMMARY = "Tool for checking elf-symbols against rules"
 HOMEPAGE = "https://github.com/priv-kweihmann/pysymbolcheck"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause & PD"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=39f57e3d40a441f0656539ac3aa225a5"
 

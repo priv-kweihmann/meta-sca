@@ -1,7 +1,7 @@
 SUMMARY = "An(other) implementation of JSON Schema for Python"
 HOMEPAGE = "https://github.com/Julian/jsonschema"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://COPYING;md5=7a60a81c146ec25599a3e1dabb8610a8"
 

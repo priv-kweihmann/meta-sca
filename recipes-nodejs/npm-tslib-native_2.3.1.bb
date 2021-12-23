@@ -2,7 +2,7 @@ SUMMARY = "NPM: tslib"
 DESCRIPTION = "Runtime library for TypeScript helper functions"
 HOMEPAGE = "https://www.typescriptlang.org/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=f938d99cba29007eeae26d80a9a4cfa6"
 

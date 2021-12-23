@@ -2,7 +2,7 @@ SUMMARY = "NPM: unist-util-stringify-position"
 DESCRIPTION = "unist utility to serialize a node, position, or point as a human readable location"
 HOMEPAGE = "https://github.com/syntax-tree/unist-util-stringify-position#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 

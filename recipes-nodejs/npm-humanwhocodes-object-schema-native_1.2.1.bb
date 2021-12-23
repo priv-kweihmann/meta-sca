@@ -2,7 +2,7 @@ SUMMARY = "NPM: @humanwhocodes/object-schema"
 DESCRIPTION = "An object schema merger/validator"
 HOMEPAGE = "https://github.com/humanwhocodes/object-schema#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e3344c71e5e1f339b11038bec8a90bc4"
 

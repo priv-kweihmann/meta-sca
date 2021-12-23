@@ -2,7 +2,7 @@ SUMMARY = "NPM: totalist"
 DESCRIPTION = "A tiny (195B to 220B) utility to recursively list all (total) files in a directory"
 HOMEPAGE = "https://github.com/lukeed/totalist#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=75a8a6449fca39883a2bcfd1d6ddac5a"
 

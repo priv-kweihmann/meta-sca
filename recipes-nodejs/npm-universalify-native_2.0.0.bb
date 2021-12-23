@@ -2,7 +2,7 @@ SUMMARY = "NPM: universalify"
 DESCRIPTION = "Make a callback- or promise-based function support both promises and callbacks."
 HOMEPAGE = "https://github.com/RyanZim/universalify#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a734c6ad6e37a515025ac5e8e90ef786"
 

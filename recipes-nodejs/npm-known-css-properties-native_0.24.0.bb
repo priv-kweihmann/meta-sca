@@ -1,7 +1,7 @@
 SUMMARY = "NPM: known-css-properties"
 DESCRIPTION = "List of known CSS properties"
 HOMEPAGE = "https://github.com/known-css/known-css-properties#readme"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=37549544f16ed84cd09a09af0e78977f"
 

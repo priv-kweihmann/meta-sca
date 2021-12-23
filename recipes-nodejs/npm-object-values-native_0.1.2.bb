@@ -2,7 +2,7 @@ SUMMARY = "NPM: object_values"
 DESCRIPTION = "polyfill for es8 Object.values"
 HOMEPAGE = "https://github.com/KhaledElAnsari/Object.values#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1e241a19d2d112b1db1a5c1c23216939"
 

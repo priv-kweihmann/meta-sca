@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/nodejs/string_decoder"
 
 DEPENDS = "npm-safe-buffer-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=14af51f8c0a6c6e400b53e18c6e5f85c"
 

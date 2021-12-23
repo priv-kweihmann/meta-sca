@@ -2,7 +2,7 @@ SUMMARY = "NPM: eslint-module-utils"
 DESCRIPTION = "Core utilities to support eslint-plugin-import and other module-related plugins."
 HOMEPAGE = "https://github.com/import-js/eslint-plugin-import#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e012cdf02fc1d8b17c6c65424a590feb"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: is-descriptor"
 DESCRIPTION = "Returns true if a value has the characteristics of a valid JavaScript descriptor. Works for data descriptors and accessor descriptors."
 HOMEPAGE = "https://github.com/jonschlinkert/is-descriptor"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b561e0a423bedc9d9ca9c8c67d40abb9"
 

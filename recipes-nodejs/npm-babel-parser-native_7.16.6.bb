@@ -1,7 +1,7 @@
 SUMMARY = "NPM: @babel/parser"
 DESCRIPTION = "A JavaScript parser"
 HOMEPAGE = "https://babel.dev/docs/en/next/babel-parser"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b324af8e79986f4a5621efa85dd1292"
 

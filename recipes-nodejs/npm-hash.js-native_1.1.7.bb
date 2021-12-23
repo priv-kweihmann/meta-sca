@@ -2,7 +2,7 @@ SUMMARY = "NPM: hash.js"
 DESCRIPTION = "Various hash functions that could be run by both browser and node"
 HOMEPAGE = "https://github.com/indutny/hash.js"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=27;md5=dad318f18fd3c89e1c15dcf36aebbddf"
 

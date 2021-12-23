@@ -1,7 +1,7 @@
 SUMMARY = "NPM: @cspell/dict-en-gb"
 DESCRIPTION = "British English dictionary for cspell."
 HOMEPAGE = "https://github.com/streetsidesoftware/cspell-dicts/blob/main/dictionaries/en_GB#readme"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "LGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=044e57042be98f6562001f5825fee708"
 

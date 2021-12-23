@@ -2,7 +2,7 @@ SUMMARY = "PHP static code analyzer"
 DESCRIPTION = "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards"
 HOMEPAGE = "https://github.com/squizlabs/PHP_CodeSniffer"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://licence.txt;md5=f21955da1cd3e318b7472e2f6f131c68"
 

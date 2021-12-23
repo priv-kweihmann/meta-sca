@@ -2,7 +2,7 @@ SUMMARY = "NPM: console-browserify"
 DESCRIPTION = "Emulate console for all the browsers"
 HOMEPAGE = "https://github.com/browserify/console-browserify"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Unlicense"
 LIC_FILES_CHKSUM = "file://LICENCE;md5=8966d3100f2d871ee216d056c0ea0160"
 

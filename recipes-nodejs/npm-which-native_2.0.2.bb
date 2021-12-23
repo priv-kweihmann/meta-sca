@@ -2,7 +2,7 @@ SUMMARY = "NPM: which"
 DESCRIPTION = "Like which(1) unix command. Find the first instance of an executable in the PATH."
 HOMEPAGE = "https://github.com/isaacs/node-which#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=82703a69f6d7411dde679954c2fd9dca"
 
