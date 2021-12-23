@@ -3,11 +3,11 @@ HOMEPAGE = "https://github.com/Melevir/cognitive_complexity"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/${PN}-LICENSE;md5=535dcde9d395e0ffc8bea1b3e738bed0"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/${BPN}-LICENSE;md5=535dcde9d395e0ffc8bea1b3e738bed0"
 
 PYPI_PACKAGE = "cognitive_complexity"
 
-SRC_URI:append = " https://raw.githubusercontent.com/Melevir/cognitive_complexity/master/LICENSE;name=license;downloadfilename=${PN}-LICENSE"
+SRC_URI:append = " https://raw.githubusercontent.com/Melevir/cognitive_complexity/master/LICENSE;name=license;downloadfilename=${BPN}-LICENSE"
 
 SRC_URI[md5sum] = "637d3616db0d617396b1490040930905"
 SRC_URI[sha256sum] = "3c2b433a9e41502932f6aa629e1f57a5e8f145956c54facbb5241a9492af6fb7"
