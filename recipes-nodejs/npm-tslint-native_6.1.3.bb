@@ -2,7 +2,7 @@ SUMMARY = "NPM: tslint"
 DESCRIPTION = "An extensible static analysis linter for the TypeScript language"
 HOMEPAGE = "https://palantir.github.io/tslint"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: y18n"
 DESCRIPTION = "the bare-bones internationalization library used by yargs"
 HOMEPAGE = "https://github.com/yargs/y18n"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=55e5f88040679148136545002139a8b1"
 

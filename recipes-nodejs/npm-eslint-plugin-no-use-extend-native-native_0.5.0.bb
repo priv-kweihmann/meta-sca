@@ -2,7 +2,7 @@ SUMMARY = "NPM: eslint-plugin-no-use-extend-native"
 DESCRIPTION = "ESLint plugin to prevent use of extended native objects"
 HOMEPAGE = "https://github.com/dustinspecker/eslint-plugin-no-use-extend-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license.md;md5=512b547cdbdb32ef8bcbd275eb09a8bd"
 

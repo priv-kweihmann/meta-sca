@@ -2,7 +2,7 @@ SUMMARY = "NPM: argparse"
 DESCRIPTION = "CLI arguments parser. Native port of python's argparse."
 HOMEPAGE = "https://github.com/nodeca/argparse#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Python-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=203a6dbc802ee896020a47161e759642"
 

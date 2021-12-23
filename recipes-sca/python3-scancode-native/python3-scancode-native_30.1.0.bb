@@ -1,7 +1,7 @@
 SUMMARY = "ScanCode is a tool to scan code for license, copyright"
 HOMEPAGE = "https://github.com/nexB/scancode-toolkit"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "CC-BY-SA-4.0 & Apache-2.0"
 LIC_FILES_CHKSUM = "\
                     file://apache-2.0.LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57 \

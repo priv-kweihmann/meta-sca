@@ -2,7 +2,7 @@ SUMMARY = "NPM: reusify"
 DESCRIPTION = "Reuse objects and functions with style"
 HOMEPAGE = "https://github.com/mcollina/reusify#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=64af5da073cd15043e95dc5b443951ee"
 

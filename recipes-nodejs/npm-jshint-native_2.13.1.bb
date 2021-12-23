@@ -2,7 +2,7 @@ SUMMARY = "NPM: jshint"
 DESCRIPTION = "Static analysis tool for JavaScript"
 HOMEPAGE = "http://jshint.com/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4e19041df56fbb7a49fb87c4322d5849"
 

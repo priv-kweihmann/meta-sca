@@ -2,7 +2,7 @@ SUMMARY = "NPM: esquery"
 DESCRIPTION = "A query library for ECMAScript AST using a CSS selector like query language."
 HOMEPAGE = "https://github.com/estools/esquery/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://license.txt;md5=3c167ae57ad981192db49e7a35b2753d"
 

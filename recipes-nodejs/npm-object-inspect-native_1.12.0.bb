@@ -1,7 +1,7 @@
 SUMMARY = "NPM: object-inspect"
 DESCRIPTION = "string representations of objects in node and the browser"
 HOMEPAGE = "https://github.com/inspect-js/object-inspect"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=288162f1d1bfa064f127f2b42d2a656f"
 

@@ -1,7 +1,7 @@
 SUMMARY = "Python package for creating and manipulating graphs and networks"
 HOMEPAGE = "https://github.com/networkx/networkx"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5cfa4d8f5881e0d053bb497130b9c73a"
 

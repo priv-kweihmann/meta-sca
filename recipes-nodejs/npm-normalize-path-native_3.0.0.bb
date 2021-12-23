@@ -2,7 +2,7 @@ SUMMARY = "NPM: normalize-path"
 DESCRIPTION = "Normalize slashes in a file path to be posix/unix-like forward slashes. Also condenses repeat slashes to a single slash and removes and trailing slashes, unless disabled."
 HOMEPAGE = "https://github.com/jonschlinkert/normalize-path"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ccdc0959f67943eb090f7e7c299621af"
 

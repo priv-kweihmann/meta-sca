@@ -1,7 +1,7 @@
 SUMMARY = "Sparse - a Semantic Parser for C"
 HOMEPAGE = "https://sparse.wiki.kernel.org/index.php/Main_Page"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=69a9605316748b9e191e454efc2235b1"
 

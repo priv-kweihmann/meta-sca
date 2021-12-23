@@ -1,7 +1,7 @@
 SUMMARY = "NPM: lines-and-columns"
 DESCRIPTION = "Maps lines and columns to character offsets and back."
 HOMEPAGE = "https://github.com/eventualbuddha/lines-and-columns#readme"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ccca5bd3aeb53dd27037cf30f01b379f"
 

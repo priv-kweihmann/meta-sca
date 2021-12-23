@@ -2,7 +2,7 @@ SUMMARY = "NPM: cross-spawn"
 DESCRIPTION = "Cross platform child_process#spawn and child_process#spawnSync"
 HOMEPAGE = "https://github.com/moxystudio/node-cross-spawn"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=6046ffd2c9edcd9052bb4dd794d12f95"
 

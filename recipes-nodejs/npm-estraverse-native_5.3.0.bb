@@ -2,7 +2,7 @@ SUMMARY = "NPM: estraverse"
 DESCRIPTION = "ECMAScript JS AST traversal functions"
 HOMEPAGE = "https://github.com/estools/estraverse"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.BSD;md5=e74cede38e957fe3e525b0e53a510bcf"
 

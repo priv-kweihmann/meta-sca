@@ -2,7 +2,7 @@ SUMMARY = "NPM: path-is-absolute"
 DESCRIPTION = "Node.js 0.12 path.isAbsolute() ponyfill"
 HOMEPAGE = "https://github.com/sindresorhus/path-is-absolute#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=a12ebca0510a773644101a99a867d210"
 

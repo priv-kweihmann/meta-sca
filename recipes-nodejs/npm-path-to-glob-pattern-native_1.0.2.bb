@@ -2,7 +2,7 @@ SUMMARY = "NPM: path-to-glob-pattern"
 DESCRIPTION = "Convert file/directory path to glob pattern."
 HOMEPAGE = "https://github.com/azu/path-to-glob-pattern"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1dd32d26fede367f46c5860fa598897c"
 

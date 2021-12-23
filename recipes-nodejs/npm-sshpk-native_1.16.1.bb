@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/arekinath/node-sshpk#readme"
 
 DEPENDS = "npm-asn1-native npm-assert-plus-native npm-bcrypt-pbkdf-native npm-dashdash-native npm-ecc-jsbn-native npm-getpass-native npm-jsbn-native npm-safer-buffer-native npm-tweetnacl-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=38ecf0a3a3894f404ca99c2a08924afc"
 

@@ -2,7 +2,7 @@ SUMMARY = "Linux system security checks"
 DESCRIPTION = "script to check the properties of executables (like PIE, RELRO, PaX, Canaries, ASLR, Fortify Source)"
 HOMEPAGE = "https://github.com/slimm609/checksec.sh"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5bb0d06223ae3b075dbcf2247a3eb9ff"
 

@@ -1,7 +1,7 @@
 SUMMARY = "McCabe complexity checker for Python"
 HOMEPAGE = "https://github.com/pycqa/mccabe"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "EXPAT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a489dc62bacbdad3335c0f160a974f0f"
 

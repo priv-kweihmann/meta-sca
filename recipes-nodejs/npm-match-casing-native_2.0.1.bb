@@ -2,7 +2,7 @@ SUMMARY = "NPM: match-casing"
 DESCRIPTION = "Match the case of `value` to that of `base`"
 HOMEPAGE = "https://github.com/wooorm/match-casing#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 

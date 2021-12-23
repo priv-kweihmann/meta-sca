@@ -1,7 +1,7 @@
 SUMMARY = "Makes working with XML feel like you are working with JSON"
 HOMEPAGE = "https://github.com/martinblech/xmltodict"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=01441d50dc74476db58a41ac10cb9fa2"
 

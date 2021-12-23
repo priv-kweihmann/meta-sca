@@ -1,7 +1,7 @@
 SUMMARY = "The strictest and most opinionated python linter ever!"
 HOMEPAGE = "https://github.com/wemake-services/wemake-python-styleguide"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=dee021f8214bb1b3fd62729a11603bf5"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: formdata-polyfill"
 DESCRIPTION = "HTML5 `FormData` for Browsers and Node."
 HOMEPAGE = "https://github.com/jimmywarting/FormData#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=dfdf37436d551c3737dae60778380106"
 

@@ -1,7 +1,7 @@
 SUMMARY = "NPM: micromark-extension-gfm-footnote"
 DESCRIPTION = "micromark extension to support GFM footnotes"
 HOMEPAGE = "https://github.com/micromark/micromark-extension-gfm-footnote#readme"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=23d8001628ed74be839cbeff9bdbe7dc"
 

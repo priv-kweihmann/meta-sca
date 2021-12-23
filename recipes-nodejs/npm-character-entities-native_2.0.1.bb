@@ -2,7 +2,7 @@ SUMMARY = "NPM: character-entities"
 DESCRIPTION = "Map of named character references"
 HOMEPAGE = "https://github.com/wooorm/character-entities#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=91fb5297439b32d9cd49df8a2484d3eb"
 

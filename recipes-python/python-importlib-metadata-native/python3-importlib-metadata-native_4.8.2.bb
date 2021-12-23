@@ -1,7 +1,7 @@
 SUMMARY = "Read metadata from Python packages"
 HOMEPAGE = "https://importlib-metadata.readthedocs.io/en/latest/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e88ae122f3925d8bde8319060f2ddb8e"
 

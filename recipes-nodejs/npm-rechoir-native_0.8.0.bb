@@ -2,7 +2,7 @@ SUMMARY = "NPM: rechoir"
 DESCRIPTION = "Prepare a node environment to require files with different extensions."
 HOMEPAGE = "https://github.com/gulpjs/rechoir#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5d993567c4655e439768e146094c1869"
 

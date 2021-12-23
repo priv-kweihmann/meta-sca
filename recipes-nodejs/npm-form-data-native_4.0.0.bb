@@ -2,7 +2,7 @@ SUMMARY = "NPM: form-data"
 DESCRIPTION = "A library to create readable "multipart/form-data" streams. Can be used to submit forms and file uploads to other web applications."
 HOMEPAGE = "https://github.com/form-data/form-data#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://License;md5=7aa505292e2636a9e59d4d3f258f4819"
 

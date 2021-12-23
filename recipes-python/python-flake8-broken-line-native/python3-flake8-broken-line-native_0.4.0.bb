@@ -1,7 +1,7 @@
 SUMMARY = "Flake8 plugin to forbid backslashes (\) for line breaks"
 HOMEPAGE = "https://github.com/sobolevn/flake8-broken-line"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=268c5fd9e64a788932af10a988ab35c4"
 

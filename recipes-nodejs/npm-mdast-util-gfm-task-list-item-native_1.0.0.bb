@@ -2,7 +2,7 @@ SUMMARY = "NPM: mdast-util-gfm-task-list-item"
 DESCRIPTION = "mdast extension to parse and serialize GFM task list items"
 HOMEPAGE = "https://github.com/syntax-tree/mdast-util-gfm-task-list-item#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=6a9c614ad8a32fcd51b47e458d620e48"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: asn1"
 DESCRIPTION = "Contains parsers and serializers for ASN.1 (currently BER only)"
 HOMEPAGE = "https://github.com/joyent/node-asn1#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5ce2f42143c298495637e28e40cd5462"
 

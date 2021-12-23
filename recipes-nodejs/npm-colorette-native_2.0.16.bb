@@ -2,7 +2,7 @@ SUMMARY = "NPM: colorette"
 DESCRIPTION = "🌈Easily set your terminal text color & styles."
 HOMEPAGE = "https://github.com/jorgebucaran/colorette#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=e45dd216c3fe7c3ca8f67f20bcd5dadc"
 

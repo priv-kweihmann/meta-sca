@@ -1,7 +1,7 @@
 SUMMARY = "NPM: prettier"
 DESCRIPTION = "Prettier is an opinionated code formatter"
 HOMEPAGE = "https://prettier.io"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e0b7377e8ff45f6d15cb82b02e64d11d"
 

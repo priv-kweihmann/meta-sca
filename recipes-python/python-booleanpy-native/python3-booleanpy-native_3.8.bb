@@ -1,7 +1,7 @@
 SUMMARY = "Implements boolean algebra in one module"
 HOMEPAGE = "https://github.com/bastikr/boolean.py"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=9b58494d4f385978ca5a7ef4f6abca53"
 

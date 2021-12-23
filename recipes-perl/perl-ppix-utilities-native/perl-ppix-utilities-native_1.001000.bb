@@ -1,7 +1,7 @@
 SUMMARY = "Extensions to PPI"
 HOMEPAGE = "https://metacpan.org/pod/PPIx::Utilities"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2ffee94e0815161d2b18352b0fb7d42b"
 

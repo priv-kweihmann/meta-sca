@@ -2,7 +2,7 @@ SUMMARY = "NPM: get-caller-file"
 DESCRIPTION = "[![Build Status](https://travis-ci.org/stefanpenner/get-caller-file.svg?branch=master)](https://travis-ci.org/stefanpenner/get-caller-file) [![Build status](https://ci.appveyor.com/api/projects/status/ol2q94g1932cy14a/branch/master?svg=true)](https://ci.a"
 HOMEPAGE = "https://github.com/stefanpenner/get-caller-file#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=d21aa422a43e9693d50143d612b58967"
 

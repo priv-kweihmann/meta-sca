@@ -2,7 +2,7 @@ SUMMARY = "NPM: micromark-util-combine-extensions"
 DESCRIPTION = "micromark utility to combine syntax or html extensions"
 HOMEPAGE = "https://github.com/micromark/micromark/tree/main#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://readme.md;beginline=90;endline=91;md5=511f6768a0948d45e6ce0015231af805"
 

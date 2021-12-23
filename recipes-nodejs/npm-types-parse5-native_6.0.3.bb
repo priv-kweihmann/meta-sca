@@ -1,7 +1,7 @@
 SUMMARY = "NPM: @types/parse5"
 DESCRIPTION = "TypeScript definitions for parse5"
 HOMEPAGE = "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/parse5"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d4a904ca135bb7bc912156fee12726f0"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: tweetnacl"
 DESCRIPTION = "Port of TweetNaCl cryptographic library to JavaScript"
 HOMEPAGE = "https://tweetnacl.js.org"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Unlicense"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=911690f51af322440237a253d695d19f"
 

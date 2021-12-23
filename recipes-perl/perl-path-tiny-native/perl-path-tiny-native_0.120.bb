@@ -1,7 +1,7 @@
 SUMMARY = "File path utility"
 HOMEPAGE = "https://metacpan.org/pod/Path::Tiny"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=0d4be4fba9b7d7c16379d54e87d199f1"
 

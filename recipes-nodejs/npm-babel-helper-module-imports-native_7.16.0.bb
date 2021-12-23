@@ -2,7 +2,7 @@ SUMMARY = "NPM: @babel/helper-module-imports"
 DESCRIPTION = "Babel helper functions for inserting module loads"
 HOMEPAGE = "https://babel.dev/docs/en/next/babel-helper-module-imports"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b1d0cd283a346e919abb3beeb018279d"
 

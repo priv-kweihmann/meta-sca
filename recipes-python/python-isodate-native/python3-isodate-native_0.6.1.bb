@@ -1,7 +1,7 @@
 SUMMARY = "An ISO 8601 date/time/duration parser and formatter"
 HOMEPAGE = "https://github.com/gweis/isodate/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://setup.py;beginline=2;endline=27;md5=a0de0126e2ca03c5e0bcbadc70fd84e3"
 

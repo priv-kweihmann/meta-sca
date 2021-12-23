@@ -2,7 +2,7 @@ SUMMARY = "NPM: string-argv"
 DESCRIPTION = "string-argv parses a string into an argument array to mimic process.argv. This is useful when testing Command Line Utilities that you want to pass arguments to."
 HOMEPAGE = "https://github.com/mccormicka/string-argv"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2bc3f7a1a9c162a81e69e8aac9f248fe"
 

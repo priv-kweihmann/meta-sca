@@ -2,7 +2,7 @@ SUMMARY = "NPM: unbox-primitive"
 DESCRIPTION = "Unbox a boxed JS primitive value."
 HOMEPAGE = "https://github.com/ljharb/unbox-primitive#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=375dc7ca936a14e9c29418d5263bd066"
 

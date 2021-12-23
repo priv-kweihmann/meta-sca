@@ -2,7 +2,7 @@ SUMMARY = "NPM: js-yaml"
 DESCRIPTION = "YAML 1.2 parser and serializer"
 HOMEPAGE = "https://github.com/nodeca/js-yaml#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=effd621a9bf5d72d6a7e6ef819bf3afb"
 

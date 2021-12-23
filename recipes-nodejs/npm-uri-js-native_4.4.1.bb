@@ -2,7 +2,7 @@ SUMMARY = "NPM: uri-js"
 DESCRIPTION = "An RFC 3986/3987 compliant, scheme extendable URI/IRI parsing/validating/resolving library for JavaScript."
 HOMEPAGE = "https://github.com/garycourt/uri-js"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b55dad4a98748003b5b423477713da1"
 

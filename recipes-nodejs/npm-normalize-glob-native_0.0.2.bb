@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/ajafff/normalize-glob#readme"
 
 DEPENDS = "npm-brace-expansion-native npm-is-negated-glob-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d1f94b2d3cb383f35ab646ca0e5e0718"
 

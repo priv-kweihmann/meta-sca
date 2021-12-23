@@ -2,7 +2,7 @@ SUMMARY = "NPM: caseless"
 DESCRIPTION = "Caseless object set/get/has, very useful when working with HTTP headers."
 HOMEPAGE = "https://github.com/mikeal/caseless#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e9dadf023ba6ebd98e3e0acb6e2470e3"
 

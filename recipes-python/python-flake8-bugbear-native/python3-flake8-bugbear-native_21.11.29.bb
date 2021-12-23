@@ -1,7 +1,7 @@
 SUMMARY = "A plugin for Flake8 finding likely bugs and design problems in your program"
 HOMEPAGE = "https://github.com/PyCQA/flake8-bugbear"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d511f8e447826b7e5b61da03a3f5e82b"
 

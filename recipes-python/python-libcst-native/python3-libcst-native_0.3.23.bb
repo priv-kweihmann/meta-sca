@@ -1,7 +1,7 @@
 SUMMARY = "A concrete syntax tree with AST-like properties for Python 3.5, 3.6, 3.7 and 3.8 programs"
 HOMEPAGE = "https://github.com/Instagram/LibCST"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=acf9a070872c4bc6e8cffc2e9fbd4b8e"
 

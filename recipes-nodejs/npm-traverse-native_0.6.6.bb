@@ -2,7 +2,7 @@ SUMMARY = "NPM: traverse"
 DESCRIPTION = "traverse and transform objects by visiting every node on a recursive walk"
 HOMEPAGE = "https://github.com/substack/js-traverse"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=0f6546e91538ce8c26b2da1623705c62"
 

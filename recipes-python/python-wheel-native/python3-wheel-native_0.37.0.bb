@@ -1,7 +1,7 @@
 SUMMARY = "The official binary distribution format for Python"
 HOMEPAGE = "https://github.com/pypa/wheel"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/LICENSE.txt;md5=9d66b41bc2a080e7174acc5dffecd752"
 

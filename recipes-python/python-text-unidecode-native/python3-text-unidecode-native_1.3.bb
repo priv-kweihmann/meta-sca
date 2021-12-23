@@ -1,7 +1,7 @@
 SUMMARY = "the most basic port of the Text::Unidecode Perl library"
 HOMEPAGE = "https://github.com/kmike/text-unidecode/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ccfb8875bc60bc3d6e91e42e5e8f5587"
 

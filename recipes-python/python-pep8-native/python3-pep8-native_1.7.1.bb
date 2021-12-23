@@ -1,7 +1,7 @@
 SUMMARY = "Python style guide checker"
 HOMEPAGE = "https://pep8.readthedocs.io/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "EXPAT"
 LIC_FILES_CHKSUM = "file://pep8.py;beginline=3;endline=25;md5=f376a6ada75ad85e25be44d4d360f156"
 

@@ -1,7 +1,7 @@
 SUMMARY = "RDFLib is a Python library for working with RDF"
 HOMEPAGE = "https://github.com/RDFLib/rdflib"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b6cde159c801514e0e45a40cf0a9d3d9"
 

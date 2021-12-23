@@ -1,7 +1,7 @@
 SUMMARY = "Dependency Manager for PHP"
 HOMEPAGE = "https://github.com/composer/composer"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=db4ebb1057458d039cb8f6edcc5d756e"
 

@@ -1,7 +1,7 @@
 SUMMARY = "A linter for YAML files"
 HOMEPAGE = "https://github.com/adrienverge/yamllint"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d32239bcb673463ab874e80d47fae504"
 

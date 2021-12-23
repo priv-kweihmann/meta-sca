@@ -2,7 +2,7 @@ SUMMARY = "NPM: resolve"
 DESCRIPTION = "resolve like require.resolve() on behalf of files asynchronously and synchronously"
 HOMEPAGE = "https://github.com/browserify/resolve#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=baa47288b5bd3e657a01886ce3dd0cb6"
 

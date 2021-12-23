@@ -1,7 +1,7 @@
 SUMMARY = "NPM: crc"
 DESCRIPTION = "Module for calculating Cyclic Redundancy Check (CRC) for Node.js and the Browser."
 HOMEPAGE = "https://github.com/alexgorbatchev/node-crc"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=96fda0720658f13fcd8fe9972ae08a77"
 

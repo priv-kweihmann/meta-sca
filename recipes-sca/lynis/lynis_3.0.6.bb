@@ -1,7 +1,7 @@
 SUMMARY = "Security auditing tool for Linux, macOS, and UNIX-based systems"
 HOMEPAGE = "https://github.com/CISOfy/lynis"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3edd6782854304fd11da4975ab9799c1"
 

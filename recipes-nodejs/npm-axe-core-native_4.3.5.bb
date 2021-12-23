@@ -2,7 +2,7 @@ SUMMARY = "NPM: axe-core"
 DESCRIPTION = "Accessibility engine for automated Web UI testing"
 HOMEPAGE = "https://www.deque.com/axe/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MPL-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f27a50d2e878867827842f2c60e30bfc"
 

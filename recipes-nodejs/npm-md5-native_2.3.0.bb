@@ -2,7 +2,7 @@ SUMMARY = "NPM: md5"
 DESCRIPTION = "js function for hashing messages with MD5"
 HOMEPAGE = "https://github.com/pvorb/node-md5#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f975764919f5b2859c839414bb6a6f3a"
 

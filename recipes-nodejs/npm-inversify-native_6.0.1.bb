@@ -2,7 +2,7 @@ SUMMARY = "NPM: inversify"
 DESCRIPTION = "A powerful and lightweight inversion of control container for JavaScript and Node.js apps powered by TypeScript."
 HOMEPAGE = "http://inversify.io"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=305aec93062e1c124bb52446f4f2eaa1"
 

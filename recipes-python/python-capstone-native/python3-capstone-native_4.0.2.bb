@@ -1,7 +1,7 @@
 DESCRIPTION = "Capstone disassembly/disassembler framework"
 HOMEPAGE = "https://github.com/aquynh/capstone"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.TXT;md5=1cfbff4f40612b0144e498a47c91499c"
 

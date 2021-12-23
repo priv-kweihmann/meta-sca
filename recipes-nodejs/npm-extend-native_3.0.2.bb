@@ -2,7 +2,7 @@ SUMMARY = "NPM: extend"
 DESCRIPTION = "Port of jQuery.extend for node.js and the browser"
 HOMEPAGE = "https://github.com/justmoon/node-extend#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=33d9f7a91df276ec16aa941032ee1476"
 

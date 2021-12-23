@@ -1,7 +1,7 @@
 SUMMARY = "NPM: espree"
 DESCRIPTION = "An Esprima-compatible JavaScript parser built on Acorn"
 HOMEPAGE = "https://github.com/eslint/espree"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=31b28967d0717cf00f0d00d02b64c44b"
 

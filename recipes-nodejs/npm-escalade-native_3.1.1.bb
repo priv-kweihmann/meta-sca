@@ -2,7 +2,7 @@ SUMMARY = "NPM: escalade"
 DESCRIPTION = "A tiny (183B to 210B) and fast utility to ascend parent directories"
 HOMEPAGE = "https://github.com/lukeed/escalade#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=1cb46128f91146188c0ded3a1c6144f3"
 

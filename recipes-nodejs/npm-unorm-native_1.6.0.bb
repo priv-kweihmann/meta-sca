@@ -2,7 +2,7 @@ SUMMARY = "NPM: unorm"
 DESCRIPTION = "JavaScript Unicode 8.0 Normalization - NFC, NFD, NFKC, NFKD. Read <http://unicode.org/reports/tr15/> UAX #15 Unicode Normalization Forms."
 HOMEPAGE = "https://github.com/walling/unorm#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT | GPL-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=9802a4c3223160109d146f4bbeda01a5"
 

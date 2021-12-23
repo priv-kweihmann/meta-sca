@@ -1,7 +1,7 @@
 SUMMARY = "NPM: chalk"
 DESCRIPTION = "Terminal string styling done right"
 HOMEPAGE = "https://github.com/chalk/chalk#readme"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=d5f2a6dd0192dcc7c833e50bb9017337"
 

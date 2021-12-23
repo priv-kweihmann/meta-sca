@@ -2,7 +2,7 @@ SUMMARY = "NPM: is-date-object"
 DESCRIPTION = "Is this value a JS Date object? This module works cross-realm/iframe, and despite ES6 @@toStringTag."
 HOMEPAGE = "https://github.com/inspect-js/is-date-object#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5db8fa3e421a3211e6a3dc68544da455"
 

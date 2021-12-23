@@ -2,7 +2,7 @@ SUMMARY = "NPM: eslint-plugin-no-secrets"
 DESCRIPTION = "An eslint rule that searches for potential secrets/keys in code"
 HOMEPAGE = "https://github.com/nickdeis/eslint-plugin-no-secrets#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=37ed47233af64d072eea63e6bc8342bf"
 

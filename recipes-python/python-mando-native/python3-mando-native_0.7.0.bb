@@ -1,7 +1,7 @@
 SUMMARY = "Create Python CLI apps with little to no effort at all!"
 HOMEPAGE = "https://github.com/rubik/mando"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a3c8e41bdf640795815537c1ce89a3aa"
 

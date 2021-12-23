@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/kevva/dir-glob#readme"
 
 DEPENDS = "npm-path-type-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=05240cd20679544d6e90fcff746425bc"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: eslint-config-google"
 DESCRIPTION = "ESLint shareable config for the Google style"
 HOMEPAGE = "https://github.com/google/eslint-config-google#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ddd3d8507066d201ba15708d48d6b607"
 

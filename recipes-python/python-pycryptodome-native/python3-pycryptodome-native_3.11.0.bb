@@ -1,7 +1,7 @@
 SUMMARY = "Cryptographic library for Python"
 HOMEPAGE = "https://github.com/Legrandin/pycryptodome/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause & Apache-2.0 & PD"
 LIC_FILES_CHKSUM = "file://LICENSE.rst;md5=accfa6aeaceb3ba96676edf18e78302c"
 

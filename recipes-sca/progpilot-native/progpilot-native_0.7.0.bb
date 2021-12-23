@@ -1,7 +1,7 @@
 SUMMARY = "A static analysis tool for security"
 HOMEPAGE = "https://github.com/designsecurity/progpilot"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1253fbacf108afc870105327c6f05a94"
 

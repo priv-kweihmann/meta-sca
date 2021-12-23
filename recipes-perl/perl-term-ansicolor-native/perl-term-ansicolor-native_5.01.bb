@@ -1,7 +1,7 @@
 SUMMARY = "Color screen output using ANSI escape sequences"
 HOMEPAGE = "https://metacpan.org/pod/Term::ANSIColor"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7f47ee6ceac50a8ae8e62cfc9e35a213"
 

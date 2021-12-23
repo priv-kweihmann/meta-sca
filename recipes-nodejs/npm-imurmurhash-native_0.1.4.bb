@@ -2,7 +2,7 @@ SUMMARY = "NPM: imurmurhash"
 DESCRIPTION = "An incremental implementation of MurmurHash3"
 HOMEPAGE = "https://github.com/jensyt/imurmurhash-js"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=105;md5=e4bf10d8a74c91aa9ea3c3cb07fd1d97"
 

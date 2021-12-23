@@ -1,7 +1,7 @@
 SUMMARY = "NPM: lint-staged"
 DESCRIPTION = "Lint files staged by git"
 HOMEPAGE = "https://github.com/okonet/lint-staged#readme"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2b44479d65c486365b13a21124f3fe39"
 

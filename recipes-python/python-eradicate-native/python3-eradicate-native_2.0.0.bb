@@ -1,7 +1,7 @@
 SUMMARY = "Removes commented-out code"
 HOMEPAGE = "https://github.com/myint/eradicate"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://eradicate;beginline=3;endline=23;md5=4665a3ee1ecb347243801ec86697f8a0"
 

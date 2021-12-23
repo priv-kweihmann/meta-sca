@@ -2,7 +2,7 @@ SUMMARY = "A python documentation linter"
 DESCRIPTION = "A python documentation linter which checks that the docstring description matches the definition"
 HOMEPAGE = "https://github.com/terrencepreilly/darglint"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=909f5d1d9b02b61f9a881c944b0ec36a"
 

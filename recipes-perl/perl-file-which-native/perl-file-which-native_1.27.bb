@@ -1,7 +1,7 @@
 SUMMARY = "Perl implementation of the which utility as an API"
 HOMEPAGE = "https://metacpan.org/pod/File::Which"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d4aece164a4cb5012c03e0b99aa7c6a4"
 
