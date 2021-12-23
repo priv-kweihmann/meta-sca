@@ -2,7 +2,7 @@ SUMMARY = "NPM: style-search"
 DESCRIPTION = "Search CSS(-like) strings"
 HOMEPAGE = "https://github.com/davidtheclark/style-search#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1a742d72a08adab0d76a29972b52ebf1"
 

@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/Jason3S/cspell"
 SRC_URI = "git://github.com/streetsidesoftware/cspell.git;protocol=https;nobranch=1"
 SRCREV = "04daaaaaf24f2ccd136bfabf7fbd667b3cc6909e"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://LICENSE;md5=b1befbdcbeb73a7fd9b944d31f0fee64"
 

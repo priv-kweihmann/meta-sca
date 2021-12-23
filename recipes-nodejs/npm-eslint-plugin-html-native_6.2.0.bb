@@ -2,7 +2,7 @@ SUMMARY = "NPM: eslint-plugin-html"
 DESCRIPTION = "A ESLint plugin to lint and fix inline scripts contained in HTML files."
 HOMEPAGE = "https://github.com/BenoitZugmeyer/eslint-plugin-html"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=85a25fb9d1ed987d1a805e467bd53f02"
 

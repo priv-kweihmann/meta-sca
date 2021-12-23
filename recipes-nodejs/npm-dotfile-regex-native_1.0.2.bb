@@ -2,7 +2,7 @@ SUMMARY = "NPM: dotfile-regex"
 DESCRIPTION = "Regular expresson for matching dotfiles."
 HOMEPAGE = "https://github.com/regexhq/dotfile-regex"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f6db0829782d67e30695686ebb45970a"
 

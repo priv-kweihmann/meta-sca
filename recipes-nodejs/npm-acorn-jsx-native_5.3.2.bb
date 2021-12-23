@@ -2,7 +2,7 @@ SUMMARY = "NPM: acorn-jsx"
 DESCRIPTION = "Modern, fast React.js JSX parser"
 HOMEPAGE = "https://github.com/acornjs/acorn-jsx"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d31df94bc162bf7b3c8f6cc547294075"
 

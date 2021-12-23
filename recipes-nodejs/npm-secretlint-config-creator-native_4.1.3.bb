@@ -2,7 +2,7 @@ SUMMARY = "NPM: @secretlint/config-creator"
 DESCRIPTION = "Config file creator for secretlint."
 HOMEPAGE = "https://github.com/secretlint/secretlint/tree/master/packages/@secretlint/config-creator/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=402802be77c922cb018a8b5099208dab"
 

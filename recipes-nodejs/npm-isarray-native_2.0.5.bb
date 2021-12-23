@@ -2,7 +2,7 @@ SUMMARY = "NPM: isarray"
 DESCRIPTION = "Array#isArray for older browsers"
 HOMEPAGE = "https://github.com/juliangruber/isarray"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a5df515ef062cc3affd8c0ae59c059ec"
 

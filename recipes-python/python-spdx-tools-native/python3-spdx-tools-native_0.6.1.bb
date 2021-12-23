@@ -1,7 +1,7 @@
 SUMMARY = "SPDX parser and tools"
 HOMEPAGE = "https://github.com/spdx/tools-python"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=dc7f21ccff0f672f2a7cd6f412ae627d"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: is-capitalized"
 DESCRIPTION = "Checks if an input string is a capitalized or not."
 HOMEPAGE = "https://github.com/tjmehta/is-capitalized"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3ab26a490f9c5c89580b409437dd3c48"
 

@@ -1,7 +1,7 @@
 SUMMARY = "expose pylint as a lint command into setup.py"
 HOMEPAGE = "https://github.com/johnnoone/setuptools-pylint"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=2;endline=9;md5=c1563877848d2f74bcf0fbcc4330748b"
 

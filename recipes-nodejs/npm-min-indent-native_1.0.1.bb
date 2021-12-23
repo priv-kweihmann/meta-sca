@@ -2,7 +2,7 @@ SUMMARY = "NPM: min-indent"
 DESCRIPTION = "Get the shortest leading whitespace from lines in a string"
 HOMEPAGE = "https://github.com/thejameskyle/min-indent#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=435c7e75933a56839417be96becb1e5a"
 

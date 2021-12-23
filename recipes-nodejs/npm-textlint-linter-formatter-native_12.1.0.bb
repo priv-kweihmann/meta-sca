@@ -1,7 +1,7 @@
 SUMMARY = "NPM: @textlint/linter-formatter"
 DESCRIPTION = "textlint output formatter"
 HOMEPAGE = "https://github.com/textlint/textlint/tree/master/packages/@textlint/linter-formatter"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=6b49acb5580df945e291fca134d1b02a"
 

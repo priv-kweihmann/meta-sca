@@ -1,7 +1,7 @@
 SUMMARY = "Flake8 lint for trailing commas"
 HOMEPAGE = "https://github.com/PyCQA/flake8-commas/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c816149279ec41ec9d1cba44cbd47b03"
 

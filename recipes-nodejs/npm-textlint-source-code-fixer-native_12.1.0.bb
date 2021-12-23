@@ -1,7 +1,7 @@
 SUMMARY = "NPM: @textlint/source-code-fixer"
 DESCRIPTION = "Apply @textlint/kernel lint result to text."
 HOMEPAGE = "https://github.com/textlint/textlint/tree/master/packages/@textlint/source-code-fixer/"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=feaa9e77067014c95af709fcb652c2ca"
 

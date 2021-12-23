@@ -2,7 +2,7 @@ SUMMARY = "NPM: regx"
 DESCRIPTION = "Tagged template string regular expression compiler."
 HOMEPAGE = "https://github.com/shannonmoeller/regx"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=98;endline=100;md5=1e5fb5243ed1126f85c37c6992f50557"
 

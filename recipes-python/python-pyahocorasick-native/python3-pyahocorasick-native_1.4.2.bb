@@ -1,7 +1,7 @@
 SUMMARY = "a fast and memory efficient library for multi-pattern string search"
 HOMEPAGE = "http://github.com/WojciechMula/pyahocorasick"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=629d983ff344da7b36a88f589f47ccc5"
 

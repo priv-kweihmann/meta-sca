@@ -2,7 +2,7 @@ SUMMARY = "NPM: diff"
 DESCRIPTION = "A javascript text diff implementation."
 HOMEPAGE = "https://github.com/kpdecker/jsdiff#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e6f0309f3f9919cd96cc45a4d4859c54"
 

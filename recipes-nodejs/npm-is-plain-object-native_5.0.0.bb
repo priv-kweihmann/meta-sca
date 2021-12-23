@@ -2,7 +2,7 @@ SUMMARY = "NPM: is-plain-object"
 DESCRIPTION = "Returns true if an object was created by the `Object` constructor, or Object.create(null)."
 HOMEPAGE = "https://github.com/jonschlinkert/is-plain-object"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3d83ea4c8ec9b31d9ff2c82fa29beabb"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: flatted"
 DESCRIPTION = "A super light and fast circular JSON parser."
 HOMEPAGE = "https://github.com/WebReflection/flatted#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=73d317079e156478653d02207ca984da"
 

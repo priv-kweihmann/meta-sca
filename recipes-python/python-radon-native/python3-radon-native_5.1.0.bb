@@ -1,7 +1,7 @@
 SUMMARY = "Various code metrics for Python code"
 HOMEPAGE = "https://github.com/rubik/radon"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d4540bac589ba237d0f9238a399607ca"
 

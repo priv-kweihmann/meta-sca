@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/npm/readdir-scoped-modules"
 
 DEPENDS = "npm-debuglog-native npm-dezalgo-native npm-graceful-fs-native npm-once-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=82703a69f6d7411dde679954c2fd9dca"
 

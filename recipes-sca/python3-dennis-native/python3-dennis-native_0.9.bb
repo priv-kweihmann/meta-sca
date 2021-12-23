@@ -2,7 +2,7 @@ SUMMARY = "PO files linter to ease development and improve quality"
 DESCRIPTION = "Dennis is a set of utilities for working with PO files to ease development and improve quality"
 HOMEPAGE = "https://github.com/willkg/dennis"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5a174f6c1c019edada0f5a18bed0ff0f"
 

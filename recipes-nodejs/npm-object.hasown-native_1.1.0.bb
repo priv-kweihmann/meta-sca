@@ -2,7 +2,7 @@ SUMMARY = "NPM: object.hasown"
 DESCRIPTION = "ES spec-compliant shim for Object.hasOwn"
 HOMEPAGE = "https://github.com/es-shims/Object.hasOwn"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c7ba3c323e19b530833ba2c08ca8dc54"
 

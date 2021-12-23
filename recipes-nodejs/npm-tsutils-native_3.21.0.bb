@@ -2,7 +2,7 @@ SUMMARY = "NPM: tsutils"
 DESCRIPTION = "utilities for working with typescript's AST"
 HOMEPAGE = "https://github.com/ajafff/tsutils#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=bbaf2d631ca7165076ef9bdf62d67abe"
 

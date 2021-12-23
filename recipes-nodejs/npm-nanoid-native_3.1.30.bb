@@ -2,7 +2,7 @@ SUMMARY = "NPM: nanoid"
 DESCRIPTION = "A tiny (130 bytes), secure URL-friendly unique string ID generator"
 HOMEPAGE = "https://github.com/ai/nanoid#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=237c21016e56a1ee4475a39fc00d1504"
 

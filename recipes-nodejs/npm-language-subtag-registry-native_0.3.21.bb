@@ -2,7 +2,7 @@ SUMMARY = "NPM: language-subtag-registry"
 DESCRIPTION = "Full BCP 47 language subtag data from the official IANA repository, in JSON format with multiple indices."
 HOMEPAGE = "https://github.com/mattcg/language-subtag-registry"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ODC-By-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=9dd6529fc4138a7799bb7c0aac21d9ab"
 

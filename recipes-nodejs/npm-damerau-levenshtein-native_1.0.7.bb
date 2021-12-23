@@ -2,7 +2,7 @@ SUMMARY = "NPM: damerau-levenshtein"
 DESCRIPTION = "Damerau - Levenshtein distance by The Spanish Inquisition + relative distance"
 HOMEPAGE = "https://github.com/tad-lispy/node-damerau-levenshtein#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=515a31477042f4c100e408de987a0b5b"
 

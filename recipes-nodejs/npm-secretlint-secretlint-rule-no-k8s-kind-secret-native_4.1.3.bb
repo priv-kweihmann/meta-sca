@@ -2,7 +2,7 @@ SUMMARY = "NPM: @secretlint/secretlint-rule-no-k8s-kind-secret"
 DESCRIPTION = "A secretlint rule that disallow to use Kind: Secret in Kubernetes repository."
 HOMEPAGE = "https://github.com/secretlint/secretlint/tree/master/packages/@secretlint/secretlint-rule-no-k8s-kind-secret/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=402802be77c922cb018a8b5099208dab"
 

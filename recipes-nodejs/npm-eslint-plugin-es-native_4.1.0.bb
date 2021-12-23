@@ -2,7 +2,7 @@ SUMMARY = "NPM: eslint-plugin-es"
 DESCRIPTION = "ESLint plugin about ECMAScript syntactic features."
 HOMEPAGE = "https://github.com/mysticatea/eslint-plugin-es#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a8f21789009221b0b37faaa24544da54"
 

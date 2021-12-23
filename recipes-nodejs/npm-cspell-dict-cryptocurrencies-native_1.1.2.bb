@@ -2,7 +2,7 @@ SUMMARY = "NPM: cspell-dict-cryptocurrencies"
 DESCRIPTION = "Cryptocurrencies dictionary for cspell."
 HOMEPAGE = "https://github.com/streetsidesoftware/cspell-dicts/blob/master/packages/Cryptocurrencies#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=9d60cb9270b846cbb621d0897110eb81"
 

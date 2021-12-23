@@ -2,7 +2,7 @@ SUMMARY = "NPM: natural-compare"
 DESCRIPTION = "Compare strings containing a mix of letters and numbers in the way a human being would in sort order."
 HOMEPAGE = "https://github.com/litejs/natural-compare-lite#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=122;md5=a2721eeec1320f4d924356a266f4b1e9"
 

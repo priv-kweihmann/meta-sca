@@ -1,7 +1,7 @@
 SUMMARY = "NPM: postcss-selector-parser"
 DESCRIPTION = "> Selector parser with built in methods for working with selector strings."
 HOMEPAGE = "https://github.com/postcss/postcss-selector-parser"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE-MIT;md5=5a9c687fbbd43eb51c08313a2cbbf60d"
 

@@ -1,7 +1,7 @@
 SUMMARY = "A tool for linting and static analysis of Lua code"
 HOMEPAGE = "https://github.com/luarocks/luacheck"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=78c1d9d1063a2e3c98965716ac8494f0"
 

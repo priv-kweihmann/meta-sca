@@ -1,7 +1,7 @@
 SUMMARY = "A Python utility / library to sort imports"
 HOMEPAGE = "https://github.com/timothycrosley/isort"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=197c46995787b46a2dbf0d519c1754cf"
 

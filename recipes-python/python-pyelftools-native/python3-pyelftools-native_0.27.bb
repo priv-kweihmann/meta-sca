@@ -1,7 +1,7 @@
 SUMMARY = "Parsing ELF and DWARF in Python"
 HOMEPAGE = "https://github.com/eliben/pyelftools"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "PYELFTOOLS"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5ce2a2b07fca326bc7c146d10105ccfc"
 

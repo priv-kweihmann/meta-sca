@@ -2,7 +2,7 @@ SUMMARY = "NPM: string.prototype.trimend"
 DESCRIPTION = "ES2019 spec-compliant String.prototype.trimEnd shim."
 HOMEPAGE = "https://github.com/es-shims/String.prototype.trimEnd#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1e241a19d2d112b1db1a5c1c23216939"
 

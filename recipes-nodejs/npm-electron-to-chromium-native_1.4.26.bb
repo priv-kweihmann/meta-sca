@@ -1,7 +1,7 @@
 SUMMARY = "NPM: electron-to-chromium"
 DESCRIPTION = "Provides a list of electron-to-chromium version mappings"
 HOMEPAGE = "https://github.com/kilian/electron-to-chromium#readme"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c4bd4cd0c32203ba1496aa7686422491"
 

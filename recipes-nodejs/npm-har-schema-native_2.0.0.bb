@@ -2,7 +2,7 @@ SUMMARY = "NPM: har-schema"
 DESCRIPTION = "JSON Schema for HTTP Archive (HAR)"
 HOMEPAGE = "https://github.com/ahmadnassri/har-schema"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=bfa81591facc9224e4c7451c8dc12958"
 

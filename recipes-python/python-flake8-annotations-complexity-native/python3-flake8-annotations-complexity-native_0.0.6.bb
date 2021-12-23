@@ -1,7 +1,7 @@
 SUMMARY = "flake8 plugin to validate annotations complexity"
 HOMEPAGE = "https://github.com/best-doctor/flake8-annotations-complexity"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=352fd8fef192c98968c70971a80f959c"
 

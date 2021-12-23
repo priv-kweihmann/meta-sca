@@ -1,7 +1,7 @@
 SUMMARY = "Merge a series of JSON documents"
 HOMEPAGE = "https://github.com/avian2/jsonmerge"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=32ff730f2e4d49a1191f6d7c1d6c8395"
 

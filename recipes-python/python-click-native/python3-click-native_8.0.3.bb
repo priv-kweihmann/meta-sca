@@ -1,7 +1,7 @@
 SUMMARY = "Python composable command line interface toolkit"
 HOMEPAGE = "https://github.com/pallets/click"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.rst;md5=1fa98232fd645608937a0fdc82e999b8"
 

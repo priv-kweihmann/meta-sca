@@ -1,7 +1,7 @@
 SUMMARY = "NPM: rfdc"
 DESCRIPTION = "Really Fast Deep Clone"
 HOMEPAGE = "https://github.com/davidmarkclements/rfdc#readme"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fc2ea1f4c58a804909742c8eadede5ea"
 

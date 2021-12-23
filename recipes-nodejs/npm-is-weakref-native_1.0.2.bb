@@ -1,7 +1,7 @@
 SUMMARY = "NPM: is-weakref"
 DESCRIPTION = "Is this value a JS WeakRef? This module works cross-realm/iframe, and despite ES6 @@toStringTag."
 HOMEPAGE = "https://github.com/inspect-js/is-weakref#readme"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=838b75dc6028daf3e04e57871b7ad3ed"
 

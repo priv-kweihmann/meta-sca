@@ -2,7 +2,7 @@ SUMMARY = "NPM: xml"
 DESCRIPTION = "Fast and simple xml generator. Supports attributes, CDATA, etc. Includes tests and examples."
 HOMEPAGE = "http://github.com/dylang/node-xml"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=48f688d5f151a089b8175bbf2919474c"
 

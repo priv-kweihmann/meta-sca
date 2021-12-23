@@ -2,7 +2,7 @@ SUMMARY = "NPM: brorand"
 DESCRIPTION = "Random number generator for browsers and node.js"
 HOMEPAGE = "https://github.com/indutny/brorand"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=5;md5=dad318f18fd3c89e1c15dcf36aebbddf"
 

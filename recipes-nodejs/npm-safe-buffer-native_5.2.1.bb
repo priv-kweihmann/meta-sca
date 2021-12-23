@@ -2,7 +2,7 @@ SUMMARY = "NPM: safe-buffer"
 DESCRIPTION = "Safer Node.js Buffer API"
 HOMEPAGE = "https://github.com/feross/safe-buffer"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=badd5e91c737e7ffdf10b40c1f907761"
 

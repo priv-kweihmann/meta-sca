@@ -1,7 +1,7 @@
 SUMMARY = "Python parser for the CommonMark Markdown spec"
 HOMEPAGE = "https://github.com/readthedocs/commonmark.py"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=37e127eb75a030780aefcfc584e78523"
 

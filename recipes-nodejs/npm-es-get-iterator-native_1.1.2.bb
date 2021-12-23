@@ -2,7 +2,7 @@ SUMMARY = "NPM: es-get-iterator"
 DESCRIPTION = "Get an iterator for any JS language value. Works robustly across all environments, all versions."
 HOMEPAGE = "https://github.com/ljharb/es-get-iterator#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=375dc7ca936a14e9c29418d5263bd066"
 

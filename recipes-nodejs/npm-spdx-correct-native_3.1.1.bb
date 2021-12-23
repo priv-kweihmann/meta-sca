@@ -2,7 +2,7 @@ SUMMARY = "NPM: spdx-correct"
 DESCRIPTION = "correct invalid SPDX expressions"
 HOMEPAGE = "https://github.com/jslicense/spdx-correct.js#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 

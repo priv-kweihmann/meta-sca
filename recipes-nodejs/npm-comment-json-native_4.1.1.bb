@@ -2,7 +2,7 @@ SUMMARY = "NPM: comment-json"
 DESCRIPTION = "Parse and stringify JSON with comments. It will retain comments even after saved!"
 HOMEPAGE = "https://github.com/kaelzhang/node-comment-json#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7f23c6c42a4a980596f5673e5fbee6ad"
 

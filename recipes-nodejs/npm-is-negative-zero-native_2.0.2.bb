@@ -1,7 +1,7 @@
 SUMMARY = "NPM: is-negative-zero"
 DESCRIPTION = "Is this value negative zero? === will lie to you"
 HOMEPAGE = "https://github.com/inspect-js/is-negative-zero"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d22b3eb619d81197fd4f3ca47c2c1ea5"
 

@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/azu/textlint-rule-no-empty-section"
 
 DEPENDS = "npm-select-section-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=bc9a2bae21f2f74984d4a43e24285986"
 

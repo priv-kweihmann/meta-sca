@@ -1,7 +1,7 @@
 SUMMARY = "Find dead Python code"
 HOMEPAGE = "https://github.com/jendrikseipp/vulture"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=7742d436e18716a43014253ae9f16b7e"
 

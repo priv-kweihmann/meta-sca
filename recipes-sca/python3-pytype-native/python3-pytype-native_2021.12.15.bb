@@ -1,7 +1,7 @@
 SUMMARY = "Python type inferencer"
 HOMEPAGE = "https://google.github.io/pytype/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=23a2cfaba162d74b289e2cac209dfa88"
 

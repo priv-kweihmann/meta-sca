@@ -2,7 +2,7 @@ SUMMARY = "NPM: foreach"
 DESCRIPTION = "foreach component + npm package"
 HOMEPAGE = "https://github.com/manuelstofer/foreach"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b2225091caf5effa363ef7016fa2b0ba"
 

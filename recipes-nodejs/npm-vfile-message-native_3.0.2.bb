@@ -2,7 +2,7 @@ SUMMARY = "NPM: vfile-message"
 DESCRIPTION = "vfile utility to create a virtual message"
 HOMEPAGE = "https://github.com/vfile/vfile-message#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=0bbc76ececabc0216b618cfbe4d0c0e3"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: dashdash"
 DESCRIPTION = "A light, featureful and explicit option parsing library."
 HOMEPAGE = "https://github.com/trentm/node-dashdash#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=ebce61c1a0900d798daaf5853c69ce72"
 

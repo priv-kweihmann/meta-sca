@@ -1,7 +1,7 @@
 SUMMARY = "NPM: @babel/helper-module-transforms"
 DESCRIPTION = "Babel helper functions for implementing ES6 module transformations"
 HOMEPAGE = "https://babel.dev/docs/en/next/babel-helper-module-transforms"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b1d0cd283a346e919abb3beeb018279d"
 

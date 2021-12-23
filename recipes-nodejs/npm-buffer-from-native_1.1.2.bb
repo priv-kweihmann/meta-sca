@@ -2,7 +2,7 @@ SUMMARY = "NPM: buffer-from"
 DESCRIPTION = "A [ponyfill](https://ponyfill.com) for `Buffer.from`, uses native implementation if available."
 HOMEPAGE = "https://github.com/LinusU/buffer-from#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=46513463e8f7d9eb671a243f0083b2c6"
 

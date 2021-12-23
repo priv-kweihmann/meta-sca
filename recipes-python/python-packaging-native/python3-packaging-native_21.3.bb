@@ -1,7 +1,7 @@
 SUMMARY = "Core utilities for Python packages"
 HOMEPAGE = "https://github.com/pypa/packaging"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.BSD;md5=7bef9bf4a8e4263634d0597e7ba100b8"
 

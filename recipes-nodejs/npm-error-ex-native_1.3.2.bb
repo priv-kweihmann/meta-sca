@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/qix-/node-error-ex#readme"
 
 DEPENDS = "npm-is-arrayish-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e67c75e89656b80fd99cb7d30fb43102"
 

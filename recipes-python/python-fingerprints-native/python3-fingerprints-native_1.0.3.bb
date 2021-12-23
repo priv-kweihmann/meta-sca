@@ -1,7 +1,7 @@
 SUMMARY = "library that helps with the generation of fingerprints for entity data"
 HOMEPAGE = "http://github.com/alephdata/fingerprints"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=0787dc3f3a14eb8a7efcfd20cf123c6c"
 

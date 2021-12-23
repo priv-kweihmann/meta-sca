@@ -1,7 +1,7 @@
 SUMMARY = "NPM: pyright"
 DESCRIPTION = "Type checker for the Python language"
 HOMEPAGE = "https://github.com/Microsoft/pyright#readme"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=a2a1e4d251b834bf3e0ceee69ab1d4c9"
 

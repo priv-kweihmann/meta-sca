@@ -2,7 +2,7 @@ SUMMARY = "NPM: colors"
 DESCRIPTION = "get colors in your node.js console"
 HOMEPAGE = "https://github.com/Marak/colors.js"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=441ee46669f9365ff2492e9b555c8ee7"
 

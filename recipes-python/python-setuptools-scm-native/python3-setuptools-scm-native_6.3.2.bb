@@ -1,7 +1,7 @@
 SUMMARY = "the blessed package to manage your versions by scm tags"
 HOMEPAGE = "https://github.com/pypa/setuptools_scm"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=8227180126797a0148f94f483f3e1489"
 

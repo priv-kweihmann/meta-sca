@@ -2,7 +2,7 @@ SUMMARY = "NPM: path-parse"
 DESCRIPTION = "Node.js path.parse() ponyfill"
 HOMEPAGE = "https://github.com/jbgutierrez/path-parse#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4b940f9668dfcb796d2cb98ad94692df"
 

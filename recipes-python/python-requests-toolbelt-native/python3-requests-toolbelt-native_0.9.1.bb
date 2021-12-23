@@ -1,7 +1,7 @@
 SUMMARY = "A utility belt for advanced users of python-requests"
 HOMEPAGE = "https://github.com/requests/toolbelt"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=71760e0f1dda8cff91b0bc9246caf571"
 

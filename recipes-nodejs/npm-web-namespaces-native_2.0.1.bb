@@ -2,7 +2,7 @@ SUMMARY = "NPM: web-namespaces"
 DESCRIPTION = "Map of web namespaces"
 HOMEPAGE = "https://github.com/wooorm/web-namespaces#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 

@@ -4,7 +4,7 @@ BUGTRACKER = "https://github.com/koalaman/shellcheck/issues"
 
 COMPATIBLE_HOST = "^x86_64-linux|^aarch64-linux|^arm-linux"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=4961609c03284904eb67ff03e2a87042"
 

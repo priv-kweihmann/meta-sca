@@ -2,7 +2,7 @@ SUMMARY = "NPM: yaml"
 DESCRIPTION = "JavaScript parser and stringifier for YAML"
 HOMEPAGE = "https://eemeli.org/yaml/v1/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f43d95a153ee2ee3d2169246bae2f14b"
 

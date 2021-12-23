@@ -2,7 +2,7 @@ SUMMARY = "NPM: web-streams-polyfill"
 DESCRIPTION = "Web Streams, based on the WHATWG spec reference implementation"
 HOMEPAGE = "https://github.com/MattiasBuelens/web-streams-polyfill#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f386ec07283033a802d3be56cae4a3c8"
 

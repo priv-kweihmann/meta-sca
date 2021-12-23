@@ -2,7 +2,7 @@ SUMMARY = "NPM: util-extend"
 DESCRIPTION = "Node's internal object extension function"
 HOMEPAGE = "https://github.com/isaacs/util-extend#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d7351a4fc8e956f1a68413490d5e655e"
 

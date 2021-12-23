@@ -2,7 +2,7 @@ SUMMARY = "NPM: eslint-plugin-this"
 DESCRIPTION = "ESLint plugin to disallow the use of 'this'"
 HOMEPAGE = "https://github.com/matijs/eslint-plugin-this#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4094bf2f3f6804a8bc5a7d0d98660eee"
 

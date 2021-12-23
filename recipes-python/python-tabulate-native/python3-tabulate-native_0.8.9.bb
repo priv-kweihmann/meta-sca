@@ -1,7 +1,7 @@
 SUMMARY = "Pretty-print tabular data"
 HOMEPAGE = "https://github.com/astanin/python-tabulate"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fad5a39bdfe452b13775adda41023ba7"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: import-local"
 DESCRIPTION = "Let a globally installed package use a locally installed version of itself if available"
 HOMEPAGE = "https://github.com/sindresorhus/import-local#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
 

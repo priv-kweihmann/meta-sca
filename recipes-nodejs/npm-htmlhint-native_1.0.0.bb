@@ -1,7 +1,7 @@
 SUMMARY = "NPM: htmlhint"
 DESCRIPTION = "The Static Code Analysis Tool for your HTML"
 HOMEPAGE = "https://htmlhint.com"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=9ab22e524b729e8ba6a68fda798ad089"
 

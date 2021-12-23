@@ -1,7 +1,7 @@
 SUMMARY = "NPM: markdown-table"
 DESCRIPTION = "Generate a markdown (GFM) table"
 HOMEPAGE = "https://github.com/wooorm/markdown-table#readme"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=f94eeeb01d2350e09cda730abca93641"
 

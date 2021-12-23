@@ -2,7 +2,7 @@ SUMMARY = "NPM: safer-buffer"
 DESCRIPTION = "Modern Buffer API polyfill without footguns"
 HOMEPAGE = "https://github.com/ChALkeR/safer-buffer#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3baebc2a17b8f5bff04882cd0dc0f76e"
 

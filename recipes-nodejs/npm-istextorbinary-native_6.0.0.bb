@@ -2,7 +2,7 @@ SUMMARY = "NPM: istextorbinary"
 DESCRIPTION = "Determine if a filename and/or buffer is text or binary. Smarter detection than the other solutions."
 HOMEPAGE = "https://github.com/bevry/istextorbinary"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=0fd8645059211e9fe4737701ca81bb98"
 

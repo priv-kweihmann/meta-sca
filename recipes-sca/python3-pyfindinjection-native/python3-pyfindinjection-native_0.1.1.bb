@@ -1,7 +1,7 @@
 SUMMARY = "simple python ast consumer which searches for common SQL injection attacks"
 HOMEPAGE = "https://github.com/uber/py-find-injection"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=1d25d70fea8b21087517ef9490406cb9"
 

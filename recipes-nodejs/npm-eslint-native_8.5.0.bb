@@ -1,7 +1,7 @@
 SUMMARY = "NPM: eslint"
 DESCRIPTION = "An AST-based pattern checker for JavaScript."
 HOMEPAGE = "https://eslint.org"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=8b58aa052648f366fd94c13b91b417d5"
 
