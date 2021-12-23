@@ -15,8 +15,8 @@ inherit setuptools3
 inherit native
 
 do_configure:prepend() {
-    cat > ${S}/setup.py <<-EOF
-    from setuptools import setup
-    setup(name="tomli", version="${PV}", packages=["tomli"], package_data={"": ["*"]})
-    EOF
+cat > ${S}/setup.py <<-EOF
+from setuptools import setup
+setup(name="tomli", version="${PV}", packages=["tomli"], package_data={"": ["*"]})
+EOF
 }
