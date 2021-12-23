@@ -65,10 +65,11 @@ SRC_URI = "\
     file://mmap2.patch \
     file://determinism.patch \
     file://0001-tests-meson.build-use-relative-path-to-refer-to-file.patch \
+    file://0001-riscv-Set-5.4-as-minimum-kernel-version-for-riscv32.patch \
 "
 UPSTREAM_CHECK_REGEX = "qemu-(?P<pver>\d+(\.\d+)+)\.tar"
 
-SRC_URI[sha256sum] = "eebc089db3414bbeedf1e464beda0a7515aad30f73261abc246c9b27503a3c96"
+SRC_URI[sha256sum] = "68e15d8e45ac56326e0b9a4afa8b49a3dfe8aba3488221d098c84698bca65b45"
 
 # Applies against virglrender < 0.6.0 and not qemu itself
 CVE_CHECK_WHITELIST += "CVE-2017-5957"
@@ -115,7 +116,7 @@ PACKAGECONFIG[gcrypt] = "--enable-gcrypt,--disable-gcrypt,libgcrypt,"
 PACKAGECONFIG[nettle] = "--enable-nettle,--disable-nettle,nettle"
 PACKAGECONFIG[libusb] = "--enable-libusb,--disable-libusb,libusb1"
 PACKAGECONFIG[fdt] = "--enable-fdt,--disable-fdt,dtc"
-PACKAGECONFIG[alsa] = "--audio-drv-list='oss alsa',,alsa-lib"
+PACKAGECONFIG[alsa] = "--audio-drv-list=default,,alsa-lib"
 PACKAGECONFIG[glx] = "--enable-opengl,--disable-opengl,virtual/libgl"
 PACKAGECONFIG[lzo] = "--enable-lzo,--disable-lzo,lzo"
 PACKAGECONFIG[numa] = "--enable-numa,--disable-numa,numactl"
@@ -139,6 +140,7 @@ PACKAGECONFIG[vhost] = "--enable-vhost-net,--disable-vhost-net,,"
 PACKAGECONFIG[ust] = "--enable-trace-backend=ust,--enable-trace-backend=nop,lttng-ust,"
 PACKAGECONFIG[pie] = "--enable-pie,--disable-pie,,"
 PACKAGECONFIG[seccomp] = "--enable-seccomp,--disable-seccomp,libseccomp"
+PACKAGECONFIG[pulsedio] = "--enable-pa,--disable-pa,pulseaudio"
 
 PACKAGECONFIG ??= ""
 
