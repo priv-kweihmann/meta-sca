@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=0636e73ff0215e8d672dc4c32c317bb3"
 
 DEPENDS += "python3-native"
 
-SRC_URI += "git://github.com/david-a-wheeler/flawfinder.git;branch=master;protocol=https \
+SRC_URI += "git://github.com/david-a-wheeler/flawfinder.git;nobranch=1;protocol=https \
             file://flawfinder.sca.description"
-SRCREV = "51c988dc47885f525022b4d393ff4479024499f7"
+SRCREV = "c57197cd6061453f10a496f30a732bc1905918d1"
 S = "${WORKDIR}/git"
 
 inherit sca-description
