@@ -2,7 +2,7 @@ SUMMARY = "NPM: unist-util-is"
 DESCRIPTION = "unist utility to check if a node passes a test"
 HOMEPAGE = "https://github.com/syntax-tree/unist-util-is#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=129a18b8487c2727a4ae7d7e2ad7b231"
 

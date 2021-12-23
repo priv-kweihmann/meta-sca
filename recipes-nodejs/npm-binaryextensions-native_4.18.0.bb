@@ -2,7 +2,7 @@ SUMMARY = "NPM: binaryextensions"
 DESCRIPTION = "A package that contains an array of every single file extension there is for binary files"
 HOMEPAGE = "https://github.com/bevry/binaryextensions"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=ed191a4651d2d9d2f46b4e22c98fc801"
 

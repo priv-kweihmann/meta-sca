@@ -1,7 +1,7 @@
 SUMMARY = "Extension exposing PHP 7 abstract syntax tree"
 HOMEPAGE = "https://github.com/nikic/php-ast"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a5c6446acfd7f3170fa312948076b516"
 

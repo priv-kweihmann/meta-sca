@@ -2,7 +2,7 @@ SUMMARY = "NPM: postcss-media-query-parser"
 DESCRIPTION = "A tool for parsing media query lists."
 HOMEPAGE = "https://github.com/dryoma/postcss-media-query-parser"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=173;md5=9e62bd89a102fe4153009f3554702c9e"
 

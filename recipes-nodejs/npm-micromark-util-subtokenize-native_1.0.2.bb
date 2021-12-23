@@ -2,7 +2,7 @@ SUMMARY = "NPM: micromark-util-subtokenize"
 DESCRIPTION = "micromark utility to tokenize subtokens"
 HOMEPAGE = "https://github.com/micromark/micromark/tree/main#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://readme.md;beginline=81;endline=82;md5=511f6768a0948d45e6ce0015231af805"
 

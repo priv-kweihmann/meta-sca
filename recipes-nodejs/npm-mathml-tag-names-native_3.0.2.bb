@@ -2,7 +2,7 @@ SUMMARY = "NPM: mathml-tag-names"
 DESCRIPTION = "List of known MathML tag names"
 HOMEPAGE = "https://github.com/wooorm/mathml-tag-names#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=8e9f707ac01af145c36ef2adde15d7e4"
 

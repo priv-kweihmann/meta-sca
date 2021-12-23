@@ -1,7 +1,7 @@
 SUMMARY = "Provide the stuff missing in List::Util"
 HOMEPAGE = "https://metacpan.org/pod/List::MoreUtils"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: is-arguments"
 DESCRIPTION = "Is this an arguments object? It's a harder question than you think."
 HOMEPAGE = "https://github.com/inspect-js/is-arguments"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d22b3eb619d81197fd4f3ca47c2c1ea5"
 

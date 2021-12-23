@@ -1,6 +1,6 @@
 SUMMARY = "Fast open source processor emulator (compiled statically)"
 HOMEPAGE = "http://qemu.org"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPLv2 & LGPLv2.1"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=441c28d2cf86e15a37fa47e15a72fbac \

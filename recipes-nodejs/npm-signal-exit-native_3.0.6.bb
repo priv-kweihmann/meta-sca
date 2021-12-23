@@ -2,7 +2,7 @@ SUMMARY = "NPM: signal-exit"
 DESCRIPTION = "when you want to fire an event no matter how a process exits."
 HOMEPAGE = "https://github.com/tapjs/signal-exit"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=e29e20260a1c78dba16a233048565cde"
 

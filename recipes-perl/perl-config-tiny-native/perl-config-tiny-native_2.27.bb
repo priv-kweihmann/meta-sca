@@ -1,7 +1,7 @@
 SUMMARY = "Read/Write .ini style files with as little code as possible"
 HOMEPAGE = "https://metacpan.org/pod/Config::Tiny"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ab27c3cedbdb0eb6e656a8722476191a"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: eslint-plugin-xss"
 DESCRIPTION = "Validates XSS related issues of mixing HTML and non-HTML content in variables."
 HOMEPAGE = "https://github.com/Rantanen/eslint-plugin-xss#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=631c05fa716ed6389c47022bc85d1c6e"
 

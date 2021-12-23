@@ -2,7 +2,7 @@ SUMMARY = "NPM: cliui"
 DESCRIPTION = "easily create complex multi-column command-line-interfaces"
 HOMEPAGE = "https://github.com/yargs/cliui#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=83623193d3051ca8068a89a455c699ca"
 

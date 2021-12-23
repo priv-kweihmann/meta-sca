@@ -2,7 +2,7 @@ SUMMARY = "NPM: unist-util-visit"
 DESCRIPTION = "unist utility to visit nodes"
 HOMEPAGE = "https://github.com/syntax-tree/unist-util-visit#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=91fb5297439b32d9cd49df8a2484d3eb"
 

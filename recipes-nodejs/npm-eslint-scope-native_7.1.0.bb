@@ -2,7 +2,7 @@ SUMMARY = "NPM: eslint-scope"
 DESCRIPTION = "ECMAScript scope analyzer for ESLint"
 HOMEPAGE = "http://github.com/eslint/eslint-scope"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ea6adf57b10b6fe7db502260e0beab6a"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: rc-config-loader"
 DESCRIPTION = "load config file from .{product}rc.{json,yml,js}"
 HOMEPAGE = "https://github.com/azu/rc-config-loader"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e13f89c6c99507a95c450fa5e043b0cb"
 

@@ -2,7 +2,7 @@ SUMMARY = "Wildcard/glob file name matcher"
 DESCRIPTION = "Wildcard Match provides an enhanced fnmatch, glob, and pathlib library."
 HOMEPAGE = "https://github.com/facelessuser/wcmatch"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=838e17f50a700d2416b311b28960bcd3"
 

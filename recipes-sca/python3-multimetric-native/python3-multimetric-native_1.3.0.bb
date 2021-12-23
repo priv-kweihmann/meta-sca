@@ -1,7 +1,7 @@
 SUMMARY = "Calculate code metrics in various languages"
 HOMEPAGE = "https://github.com/priv-kweihmann/multimetric"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1e0b805e34c99594e846fa46c20d8b9b"
 

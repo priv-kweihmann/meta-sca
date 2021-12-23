@@ -1,7 +1,7 @@
 SUMMARY = "A wrapper for perl's configuration"
 HOMEPAGE = "https://metacpan.org/pod/ExtUtils::Config"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1932ab4d8b84c25fd7967aa18088e57e"
 

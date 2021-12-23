@@ -1,7 +1,7 @@
 SUMMARY = "Modern(-ish) password hashing for your software and your servers"
 HOMEPAGE = "https://github.com/pyca/bcrypt/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=8f7bb094c7232b058c7e9f2e431f389c"
 

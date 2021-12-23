@@ -1,7 +1,7 @@
 SUMMARY = "NPM: postcss-value-parser"
 DESCRIPTION = "Transforms css values and at-rule params into the tree"
 HOMEPAGE = "https://github.com/TrySound/postcss-value-parser"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=192f05d9cfe483ed2a4511ffd5af5895"
 

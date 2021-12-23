@@ -2,7 +2,7 @@ SUMMARY = "NPM: secp256k1"
 DESCRIPTION = "This module provides native bindings to ecdsa secp256k1 functions"
 HOMEPAGE = "https://github.com/cryptocoinjs/secp256k1-node#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e52095b8ccbb6567448b1d4964a4c45b"
 

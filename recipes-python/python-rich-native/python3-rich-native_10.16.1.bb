@@ -1,7 +1,7 @@
 SUMMARY = "Render rich text, tables, progress bars, syntax highlighting"
 HOMEPAGE = "https://github.com/willmcgugan/rich"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b5f0b94fbc94f5ad9ae4efcf8a778303"
 

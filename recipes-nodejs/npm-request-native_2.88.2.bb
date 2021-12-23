@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/request/request#readme"
 
 DEPENDS = "npm-aws-sign2-native npm-aws4-native npm-caseless-native npm-combined-stream-native npm-extend-native npm-forever-agent-native npm-form-data-native npm-har-validator-native npm-http-signature-native npm-is-typedarray-native npm-isstream-native npm-json-stringify-safe-native npm-mime-types-native npm-oauth-sign-native npm-performance-now-native npm-qs-native npm-safe-buffer-native npm-tough-cookie-native npm-tunnel-agent-native npm-uuid-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f3f8ead5440d1c311b45be065d135d90"
 

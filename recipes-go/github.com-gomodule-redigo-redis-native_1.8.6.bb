@@ -1,6 +1,6 @@
 SUMMARY = "go.mod: github.com/gomodule/redigo/redis"
 HOMEPAGE = "https://pkg.go.dev/github.com/gomodule/redigo/redis"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 # License is determined by the modules included and will be therefore computed
 LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '').split(' ') if x)))}"
 

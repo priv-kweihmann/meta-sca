@@ -2,7 +2,7 @@ SUMMARY = "NPM: rehype-parse"
 DESCRIPTION = "rehype plugin to parse HTML"
 HOMEPAGE = "https://github.com/rehypejs/rehype"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://readme.md;beginline=297;endline=298;md5=511f6768a0948d45e6ce0015231af805"
 

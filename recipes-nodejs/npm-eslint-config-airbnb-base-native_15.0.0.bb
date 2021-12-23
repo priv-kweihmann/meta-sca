@@ -2,7 +2,7 @@ SUMMARY = "NPM: eslint-config-airbnb-base"
 DESCRIPTION = "Airbnb's base JS ESLint config, following our styleguide"
 HOMEPAGE = "https://github.com/airbnb/javascript"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=29157425f48d84cfa6d38bd8260ece56"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: get-set-props"
 DESCRIPTION = "List of getter/setter properties for JavaScript types"
 HOMEPAGE = "https://github.com/dustinspecker/get-set-props#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=d8beadf9a6499a20c088624cd844e547"
 

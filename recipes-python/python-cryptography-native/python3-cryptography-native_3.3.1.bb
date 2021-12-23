@@ -2,7 +2,7 @@ SUMMARY = "cryptography exposes cryptographic primitives"
 DESCRIPTION = "cryptography is a package designed to expose cryptographic primitives and recipes to Python developers"
 HOMEPAGE = "https://github.com/pyca/cryptography"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.BSD;md5=5ae30ba4123bc4f2fa49aa0b0dce887b"
 

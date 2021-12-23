@@ -2,7 +2,7 @@ SUMMARY = "NPM: entities"
 DESCRIPTION = "Encode & decode XML and HTML entities with ease"
 HOMEPAGE = "https://github.com/fb55/entities#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d5b9cb3bc7f6ffd7bea8661f30447c11"
 

@@ -1,7 +1,7 @@
 SUMMARY = "Unified diff parsing/metadata extraction library"
 HOMEPAGE = "https://github.com/matiasb/python-unidiff"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4c434b08ef42fea235bb019b5e5a97b3"
 

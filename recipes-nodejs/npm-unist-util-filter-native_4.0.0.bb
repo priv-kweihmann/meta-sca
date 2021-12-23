@@ -2,7 +2,7 @@ SUMMARY = "NPM: unist-util-filter"
 DESCRIPTION = "unist utility to create a new tree with nodes that pass a filter"
 HOMEPAGE = "https://github.com/syntax-tree/unist-util-filter#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=a320e5b1aa9084c9b52db096dc5eee7f"
 

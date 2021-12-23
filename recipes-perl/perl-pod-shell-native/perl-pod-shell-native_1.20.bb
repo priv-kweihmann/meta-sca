@@ -1,7 +1,7 @@
 SUMMARY = "a formatter for spellchecking Pod"
 HOMEPAGE = "https://metacpan.org/pod/Pod::Spell"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=886efa7fcab87e46e4276a3db135992e"
 

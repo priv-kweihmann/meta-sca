@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/jslicense/spdx-expression-parse.js#readme"
 
 DEPENDS = "npm-spdx-exceptions-native npm-spdx-license-ids-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=35a411d082d4487ab0e0287014cddf80"
 

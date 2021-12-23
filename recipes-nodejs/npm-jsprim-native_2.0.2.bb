@@ -2,7 +2,7 @@ SUMMARY = "NPM: jsprim"
 DESCRIPTION = "utilities for primitive JavaScript types"
 HOMEPAGE = "https://github.com/joyent/node-jsprim#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=bc3c23d98d7aa86bbf232058884e19b2"
 

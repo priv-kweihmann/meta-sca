@@ -1,7 +1,7 @@
 SUMMARY = "NPM: ajv"
 DESCRIPTION = "Another JSON Schema Validator"
 HOMEPAGE = "https://ajv.js.org"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5ed8db7ae36f56c8a5cfc218c41ac926"
 

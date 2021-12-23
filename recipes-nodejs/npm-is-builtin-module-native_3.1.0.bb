@@ -2,7 +2,7 @@ SUMMARY = "NPM: is-builtin-module"
 DESCRIPTION = "Check if a string matches the name of a Node.js builtin module"
 HOMEPAGE = "https://github.com/sindresorhus/is-builtin-module#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
 

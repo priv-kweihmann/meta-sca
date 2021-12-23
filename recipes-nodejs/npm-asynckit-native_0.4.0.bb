@@ -2,7 +2,7 @@ SUMMARY = "NPM: asynckit"
 DESCRIPTION = "Minimal async jobs utility library, with streams support"
 HOMEPAGE = "https://github.com/alexindigo/asynckit#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=177bc287fb9558bf3ea50b440c1c86ff"
 

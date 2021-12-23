@@ -1,7 +1,7 @@
 SUMMARY = "Python Library for Tom's Obvious, Minimal Language"
 HOMEPAGE = "https://github.com/uiri/toml"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=16c77b2b1050d2f03cb9c2ed0edaf4f0"
 

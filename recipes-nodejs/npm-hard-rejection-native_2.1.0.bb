@@ -2,7 +2,7 @@ SUMMARY = "NPM: hard-rejection"
 DESCRIPTION = "Make unhandled promise rejections fail hard right away instead of the default silent fail"
 HOMEPAGE = "https://github.com/sindresorhus/hard-rejection#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=915042b5df33c31a6db2b37eadaa00e3"
 

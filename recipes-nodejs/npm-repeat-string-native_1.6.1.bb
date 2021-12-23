@@ -2,7 +2,7 @@ SUMMARY = "NPM: repeat-string"
 DESCRIPTION = "Repeat the given string n times. Fastest implementation for repeating a string."
 HOMEPAGE = "https://github.com/jonschlinkert/repeat-string"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fad3c8b9c04b365012f3d6821f2dda61"
 

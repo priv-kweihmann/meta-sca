@@ -2,7 +2,7 @@ SUMMARY = "NPM: is-bigint"
 DESCRIPTION = "Is this value an ES BigInt?"
 HOMEPAGE = "https://github.com/inspect-js/is-bigint#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=291be6f19f64188a89ffd5180aea06f7"
 

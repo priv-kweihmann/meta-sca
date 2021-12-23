@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/jonschlinkert/to-regex"
 
 DEPENDS = "npm-define-property-native npm-extend-shallow-native npm-regex-not-native npm-safe-regex-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=01a8b0026a66c0139b0434fba078fa92"
 

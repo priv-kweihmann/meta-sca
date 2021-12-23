@@ -2,7 +2,7 @@ SUMMARY = "NPM: weasel-words"
 DESCRIPTION = "detect weasel words"
 
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=27;md5=477dfa54ede28e2f361e7db05941d7a7"
 

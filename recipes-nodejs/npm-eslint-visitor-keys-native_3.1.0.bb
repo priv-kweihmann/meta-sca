@@ -2,7 +2,7 @@ SUMMARY = "NPM: eslint-visitor-keys"
 DESCRIPTION = "Constants and utilities about visitor keys to traverse AST."
 HOMEPAGE = "https://github.com/eslint/eslint-visitor-keys#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e93e1daed697456bb93ade9a07cd1816"
 

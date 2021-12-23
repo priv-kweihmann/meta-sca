@@ -2,7 +2,7 @@ SUMMARY = "NPM: language-tags"
 DESCRIPTION = "Work with IANA language tags."
 HOMEPAGE = "https://github.com/mattcg/language-tags"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=265;md5=36dbe67f104dcc25e9ae22086390e9bd"
 

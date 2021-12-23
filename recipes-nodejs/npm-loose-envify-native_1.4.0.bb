@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/zertosh/loose-envify"
 
 DEPENDS = "npm-js-tokens-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=32e26a5793a4ffbace6131bc51567cb8"
 

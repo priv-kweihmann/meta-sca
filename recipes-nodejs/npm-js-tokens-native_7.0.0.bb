@@ -2,7 +2,7 @@ SUMMARY = "NPM: js-tokens"
 DESCRIPTION = "Tiny JavaScript tokenizer."
 HOMEPAGE = "https://github.com/lydell/js-tokens#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a0e011810241b9e837de91a9f6bea8d1"
 

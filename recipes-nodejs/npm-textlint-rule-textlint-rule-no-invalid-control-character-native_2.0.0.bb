@@ -2,7 +2,7 @@ SUMMARY = "NPM: @textlint-rule/textlint-rule-no-invalid-control-character"
 DESCRIPTION = "textlint rule check unnessary control character in the document."
 HOMEPAGE = "https://github.com/textlint-rule/textlint-rule-no-invalid-control-character"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e13f89c6c99507a95c450fa5e043b0cb"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: inherits"
 DESCRIPTION = "Browser-friendly inheritance fully compatible with standard node.js inherits()"
 HOMEPAGE = "https://github.com/isaacs/inherits#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5b2ef2247af6d355ae9d9f988092d470"
 

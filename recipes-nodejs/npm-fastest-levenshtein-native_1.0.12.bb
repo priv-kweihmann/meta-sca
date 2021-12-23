@@ -2,7 +2,7 @@ SUMMARY = "NPM: fastest-levenshtein"
 DESCRIPTION = "Fastest Levenshtein distance implementation in JS."
 HOMEPAGE = "https://github.com/ka-weihe/fastest-levenshtein#README"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=580cd8f671adc43261d96f8262b5b4c9"
 

@@ -1,7 +1,7 @@
 SUMMARY = "plugin to provide a system package provided libmagic binary and database"
 HOMEPAGE = "https://github.com/nexB/scancode-plugins"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://apache-2.0.LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 

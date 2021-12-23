@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/isaacs/inflight"
 
 DEPENDS = "npm-once-native npm-wrappy-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=90a3ca01a5efed8b813a81c6c8fa2e63"
 

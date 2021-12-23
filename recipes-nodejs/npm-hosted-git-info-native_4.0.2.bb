@@ -2,7 +2,7 @@ SUMMARY = "NPM: hosted-git-info"
 DESCRIPTION = "Provides metadata and conversions from repository urls for GitHub, Bitbucket and GitLab"
 HOMEPAGE = "https://github.com/npm/hosted-git-info"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a01f10cd299d5727263720d47cc2c908"
 

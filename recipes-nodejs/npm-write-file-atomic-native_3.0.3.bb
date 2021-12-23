@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/npm/write-file-atomic"
 
 DEPENDS = "npm-imurmurhash-native npm-is-typedarray-native npm-signal-exit-native npm-typedarray-to-buffer-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=68705ba56afdf6710c9187ed9a9cdd03"
 

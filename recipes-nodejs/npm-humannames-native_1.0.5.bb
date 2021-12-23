@@ -2,7 +2,7 @@ SUMMARY = "NPM: humannames"
 DESCRIPTION = "A list, huge one (~200K) of human male/female first/last names."
 HOMEPAGE = "https://github.com/finnlp/humannames#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=7c5dbe3099281e1c0d0416911c6371ed"
 

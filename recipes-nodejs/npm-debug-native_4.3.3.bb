@@ -1,7 +1,7 @@
 SUMMARY = "NPM: debug"
 DESCRIPTION = "Lightweight debugging utility for Node.js and the browser"
 HOMEPAGE = "https://github.com/debug-js/debug#readme"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d85a365580888e9ee0a01fb53e8e9bf0"
 

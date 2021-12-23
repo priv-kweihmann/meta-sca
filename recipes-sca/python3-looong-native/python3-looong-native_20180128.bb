@@ -1,7 +1,7 @@
 SUMMARY = "Discovery of Long Parameter List"
 HOMEPAGE = "https://github.com/anapaulagomes/looong"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=062956eedf9cd0f703af1af680e8131c"
 

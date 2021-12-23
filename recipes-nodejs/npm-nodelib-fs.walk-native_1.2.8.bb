@@ -2,7 +2,7 @@ SUMMARY = "NPM: @nodelib/fs.walk"
 DESCRIPTION = "A library for efficiently walking a directory recursively"
 HOMEPAGE = "{homepage}"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=580f1c3c6765fecfdb93bdf4e068d952"
 

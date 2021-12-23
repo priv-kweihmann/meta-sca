@@ -1,7 +1,7 @@
 SUMMARY = "Phan is a static analyzer for PHP"
 HOMEPAGE = "https://github.com/phan/phan"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fbdcd3d0ec03d3c2e54b19846ad2b027"
 

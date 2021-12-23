@@ -1,7 +1,7 @@
 SUMMARY = "NPM: @textlint/ast-traverse"
 DESCRIPTION = "TxtNode traverse library"
 HOMEPAGE = "https://github.com/textlint/textlint/tree/master/packages/@textlint/ast-traverse"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ac49fb893a5f9f03c162f1927dfc7bc1"
 

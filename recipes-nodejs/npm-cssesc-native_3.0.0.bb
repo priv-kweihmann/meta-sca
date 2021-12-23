@@ -2,7 +2,7 @@ SUMMARY = "NPM: cssesc"
 DESCRIPTION = "A JavaScript library for escaping CSS strings and identifiers while generating the shortest possible ASCII-only output."
 HOMEPAGE = "https://mths.be/cssesc"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE-MIT.txt;md5=ee9bd8b835cfcd512dd644540dd96987"
 

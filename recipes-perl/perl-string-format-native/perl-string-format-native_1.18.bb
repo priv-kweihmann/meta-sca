@@ -1,7 +1,7 @@
 SUMMARY = "sprintf-like string formatting capabilities with arbitrary format definitions"
 HOMEPAGE = "https://metacpan.org/pod/String::Format"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552"
 

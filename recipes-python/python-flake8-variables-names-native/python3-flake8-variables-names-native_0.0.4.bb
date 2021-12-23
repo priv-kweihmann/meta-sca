@@ -1,7 +1,7 @@
 SUMMARY = "A flake8 extension that helps to make more readable variables names"
 HOMEPAGE = "https://github.com/best-doctor/flake8-variables-names"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=352fd8fef192c98968c70971a80f959c"
 

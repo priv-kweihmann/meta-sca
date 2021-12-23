@@ -2,7 +2,7 @@ SUMMARY = "NPM: fast-levenshtein"
 DESCRIPTION = "Efficient implementation of Levenshtein algorithm  with locale-specific collator support."
 HOMEPAGE = "https://github.com/hiddentao/fast-levenshtein#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=a3e99e82761a3c89e44fe0bc43f82b94"
 

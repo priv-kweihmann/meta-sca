@@ -2,7 +2,7 @@ SUMMARY = "NPM: simple-lru-cache"
 DESCRIPTION = "node-simple-lru-cache ====================="
 HOMEPAGE = "https://github.com/geisbruch/node-simple-lru-cache"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Unlicense"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1c38eccb8acd88c71e334405d972f483"
 

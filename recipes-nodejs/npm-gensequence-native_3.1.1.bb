@@ -2,7 +2,7 @@ SUMMARY = "NPM: gensequence"
 DESCRIPTION = "Small library to simplify working with Generators and Iterators in Javascript / Typescript"
 HOMEPAGE = "https://github.com/Jason3S/GenSequence#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a3165774f004774b003233e87ff7950c"
 

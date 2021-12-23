@@ -1,7 +1,7 @@
 SUMMARY = "A JSON streaming writer"
 HOMEPAGE = "https://github.com/dcbaker/jsonstreams"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a0fc5df914ce7fef4b2393c8eab07808"
 

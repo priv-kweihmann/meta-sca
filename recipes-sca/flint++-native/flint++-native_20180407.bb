@@ -1,7 +1,7 @@
 SUMMARY = "Static code analyzer for C/C++"
 HOMEPAGE = "https://github.com/JossWhittle/FlintPlusPlus"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSL-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e4224ccaecb14d942c71d31bef20d78c"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: ms"
 DESCRIPTION = "Tiny millisecond conversion utility"
 HOMEPAGE = "https://github.com/vercel/ms#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license.md;md5=2b8bc52ae6b7ba58e1629deabd53986f"
 

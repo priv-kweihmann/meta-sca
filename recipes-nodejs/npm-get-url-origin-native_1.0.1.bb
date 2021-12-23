@@ -2,7 +2,7 @@ SUMMARY = "NPM: get-url-origin"
 DESCRIPTION = "Get origin from url string in Node.js"
 HOMEPAGE = "https://github.com/azu/node-get-url-origin"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=46ad0c4fd3586dd75b2ed7a332e35acb"
 

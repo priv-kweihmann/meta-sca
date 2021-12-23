@@ -1,7 +1,7 @@
 SUMMARY = "Better living through Python with decorators"
 HOMEPAGE = "https://github.com/micheles/decorator"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=be2fd2007972bf96c08af3293d728b22"
 

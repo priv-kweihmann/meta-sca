@@ -1,7 +1,7 @@
 SUMMARY = "Soup Sieve is a CSS selector library designed to be used with Beautiful Soup 4"
 HOMEPAGE = "https://github.com/facelessuser/soupsieve"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=33c3a77def9b3ad83e01c65bdcc1af67"
 

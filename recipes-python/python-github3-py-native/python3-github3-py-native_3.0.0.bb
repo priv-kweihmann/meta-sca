@@ -1,7 +1,7 @@
 SUMMARY = "Python wrapper for the GitHub API"
 HOMEPAGE = "https://github.com/sigmavirus24/github3.py"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=6b574ed4b26bdce9060017ce052d0109"
 

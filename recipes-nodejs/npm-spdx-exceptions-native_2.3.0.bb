@@ -2,7 +2,7 @@ SUMMARY = "NPM: spdx-exceptions"
 DESCRIPTION = "list of SPDX standard license exceptions"
 HOMEPAGE = "https://github.com/kemitchell/spdx-exceptions.json#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "CC-BY-3.0"
 LIC_FILES_CHKSUM = "file://README.md;md5=3da6b6bd12471d6d6b5d357602830417"
 

@@ -1,7 +1,7 @@
 SUMMARY = "Python Lex & Yacc"
 HOMEPAGE = "https://github.com/dabeaz/ply"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://README.md;beginline=4;endline=33;md5=e59186804366f14c792cf7188d35108c"
 

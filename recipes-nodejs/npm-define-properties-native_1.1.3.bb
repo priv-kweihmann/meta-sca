@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/ljharb/define-properties#readme"
 
 DEPENDS = "npm-object-keys-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=53ffc646fdb83e45279cfe7105e5157b"
 

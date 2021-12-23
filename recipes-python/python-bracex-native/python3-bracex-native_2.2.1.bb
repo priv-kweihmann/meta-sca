@@ -2,7 +2,7 @@ SUMMARY = "Bash style brace expander"
 DESCRIPTION = "Bracex is a brace expanding library (à la Bash) for Python."
 HOMEPAGE = "https://github.com/facelessuser/bracex"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=afeaf26eb7075154cef8e8a5fe5fa5ee"
 

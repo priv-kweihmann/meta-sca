@@ -1,7 +1,7 @@
 SUMMARY = "NPM: caniuse-lite"
 DESCRIPTION = "A smaller version of caniuse-db, with only the essentials!"
 HOMEPAGE = "https://github.com/browserslist/caniuse-lite#readme"
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "CC-BY-4.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=60f8103054954b2c75f1faa295ea3590"
 

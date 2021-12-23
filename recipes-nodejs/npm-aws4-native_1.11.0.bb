@@ -2,7 +2,7 @@ SUMMARY = "NPM: aws4"
 DESCRIPTION = "Signs and prepares requests using AWS Signature Version 4"
 HOMEPAGE = "https://github.com/mhart/aws4#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ff6f181928a91d8631d565516b4db3cb"
 

@@ -1,7 +1,7 @@
 SUMMARY = "recursively copy Perl datatypes"
 HOMEPAGE = "https://metacpan.org/pod/Clone"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://README.md;beginline=66;endline=70;md5=6bb054d6045f25815f998df561918381"
 

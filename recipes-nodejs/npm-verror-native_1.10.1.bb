@@ -2,7 +2,7 @@ SUMMARY = "NPM: verror"
 DESCRIPTION = "richer JavaScript errors"
 HOMEPAGE = "https://github.com/joyent/node-verror#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=04fce49dd88d841ceb36616ab9789ce0"
 

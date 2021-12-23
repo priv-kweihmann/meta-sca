@@ -1,7 +1,7 @@
 SUMMARY = "Debian package related modules"
 HOMEPAGE = "https://salsa.debian.org/python-debian-team/python-debian"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0+"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0;md5=801f80980d171dd6425610833a22dbe6"
 

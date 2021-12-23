@@ -2,7 +2,7 @@ SUMMARY = "NPM: jsbn"
 DESCRIPTION = "The jsbn library is a fast, portable implementation of large-number math in pure JavaScript, enabling public-key crypto and other applications on desktop and mobile browsers."
 HOMEPAGE = "https://github.com/andyperlitch/jsbn#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=32052d48bacabd1c02e56c6889082a27"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: slice-ansi"
 DESCRIPTION = "Slice a string with ANSI escape codes"
 HOMEPAGE = "https://github.com/chalk/slice-ansi#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://license;md5=c6bf89c1f07fabb257790ed06f37af92"
 

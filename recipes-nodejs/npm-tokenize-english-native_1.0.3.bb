@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/GitbookIO/tokenize-english"
 
 DEPENDS = "npm-lodash-native"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fa818a259cbed7ce8bc2a22d35a464fc"
 

@@ -2,7 +2,7 @@ SUMMARY = "NPM: require-directory"
 DESCRIPTION = "Recursively iterates over specified directory, require()'ing each file, and returning a nested hash structure containing those modules."
 HOMEPAGE = "https://github.com/troygoode/node-require-directory/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=903997d26b12b72b43aa60018387bb90"
 

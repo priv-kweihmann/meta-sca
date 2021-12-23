@@ -2,7 +2,7 @@ SUMMARY = "NPM: type-check"
 DESCRIPTION = "type-check allows you to check the types of JavaScript values at runtime with a Haskell like type syntax."
 HOMEPAGE = "https://github.com/gkz/type-check"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7733af876e78a187f3a51e7c276ae883"
 

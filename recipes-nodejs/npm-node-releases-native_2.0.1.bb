@@ -2,7 +2,7 @@ SUMMARY = "NPM: node-releases"
 DESCRIPTION = "Node.js releases data"
 HOMEPAGE = "https://github.com/chicoxyzzy/node-releases#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=9201369490251e1be377462bd41f58eb"
 

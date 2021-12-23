@@ -2,7 +2,7 @@ SUMMARY = "NPM: tough-cookie"
 DESCRIPTION = "RFC6265 Cookies and Cookie Jar for node.js"
 HOMEPAGE = "https://github.com/salesforce/tough-cookie"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7189377a5215f1211b70cf2b9754841e"
 

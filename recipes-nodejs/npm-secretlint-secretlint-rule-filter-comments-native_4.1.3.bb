@@ -2,7 +2,7 @@ SUMMARY = "NPM: @secretlint/secretlint-rule-filter-comments"
 DESCRIPTION = "secretlint-disable comment directive."
 HOMEPAGE = "https://github.com/secretlint/secretlint/tree/master/packages/@secretlint/secretlint-rule-filter-comments/"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=feaa9e77067014c95af709fcb652c2ca"
 

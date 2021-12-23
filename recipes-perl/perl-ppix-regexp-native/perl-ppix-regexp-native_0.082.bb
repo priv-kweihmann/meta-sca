@@ -1,7 +1,7 @@
 SUMMARY = "Represent a regular expression of some sort"
 HOMEPAGE = "https://metacpan.org/pod/PPIx::Regexp"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0 & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://README;beginline=46;md5=f65adea87f7327e8fde90145fc4d610c"
 

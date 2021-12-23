@@ -2,7 +2,7 @@ SUMMARY = "NPM: stable"
 DESCRIPTION = "A stable array sort for JavaScript"
 HOMEPAGE = "https://github.com/Two-Screen/stable#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.md;beginline=67;md5=cb7af49f3d243cc3e75327109cf3c996"
 

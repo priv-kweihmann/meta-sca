@@ -2,7 +2,7 @@ SUMMARY = "NPM: json-schema-traverse"
 DESCRIPTION = "Traverse JSON Schema passing each schema object to callback"
 HOMEPAGE = "https://github.com/epoberezkin/json-schema-traverse#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ea87ade09b9e6da4f2e47904a4ee137b"
 

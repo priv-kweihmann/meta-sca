@@ -2,7 +2,7 @@ SUMMARY = "NPM: micromark-factory-whitespace"
 DESCRIPTION = "micromark factory to parse markdown whitespace (found in lots of places)"
 HOMEPAGE = "https://github.com/micromark/micromark/tree/main#readme"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://readme.md;beginline=95;endline=96;md5=511f6768a0948d45e6ce0015231af805"
 

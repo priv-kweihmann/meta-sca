@@ -2,7 +2,7 @@ SUMMARY = "NPM: through"
 DESCRIPTION = "simplified stream construction"
 HOMEPAGE = "https://github.com/dominictarr/through"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.APACHE2;md5=ffcf739dca268cb0f20336d6c1a038f1"
 

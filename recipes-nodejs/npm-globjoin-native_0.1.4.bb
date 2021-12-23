@@ -2,7 +2,7 @@ SUMMARY = "NPM: globjoin"
 DESCRIPTION = "Join paths and globs."
 HOMEPAGE = "https://github.com/amobiz/globjoin"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=40b787b068d19ac53e17aff41f21b102"
 

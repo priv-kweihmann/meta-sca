@@ -1,7 +1,7 @@
 SUMMARY = "A small but fast and easy to use template engine written in pure python"
 HOMEPAGE = "https://github.com/pallets/jinja"
 
-DEFAULT_PREFERENCE = "-1"
+DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.rst;md5=5dc88300786f1c214c1e9827a5229462"
 
