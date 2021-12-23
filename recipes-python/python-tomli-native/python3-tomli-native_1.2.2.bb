@@ -12,5 +12,11 @@ PYPI_PACKAGE = "tomli"
 
 inherit pypi
 inherit setuptools3
-inherit sca-setuptools-legacy
 inherit native
+
+do_configure:prepend() {
+    cat > ${S}/setup.py <<-EOF
+    from setuptools import setup
+    setup(name="tomli", version="${PV}", packages=["tomli"], package_data={"": ["*"]})
+    EOF
+}
