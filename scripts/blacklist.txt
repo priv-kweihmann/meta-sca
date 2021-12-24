@@ -113,7 +113,6 @@ sca-recipe-phpmd-rules-native
 sca-recipe-phpsecaudit-rules-native
 sca-recipe-phpstan-rules-native
 sca-recipe-pkgqaenc-rules-native
-sca-recipe-progpilot-rules-native
 sca-recipe-proselint-rules-native
 sca-recipe-pscan-rules-native
 sca-recipe-pyfindinjection-rules-native
