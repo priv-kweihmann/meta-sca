@@ -58,6 +58,11 @@ def exec_wrap_combine_json_dict(a, b, **kwargs):
 
 def exec_wrap_combine_json_subarray(a, b, **kwargs):
     import json
+    if not b.startswith("{"):
+        try:
+            b = b[b.find("{"):]
+        except:
+            pass
     try:
         b = json.loads(b)
     except:
@@ -72,6 +77,11 @@ def exec_wrap_combine_json_subarray(a, b, **kwargs):
 
 def exec_wrap_combine_json_subdict(a, b, **kwargs):
     import json
+    if not b.startswith("{"):
+        try:
+            b = b[b.find("{"):]
+        except:
+            pass
     try:
         b = json.loads(b)
     except:
