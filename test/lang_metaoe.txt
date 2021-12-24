@@ -4,6 +4,13 @@ htmlhint
 jshint
 luacheck
 npmaudit
+phan
+phpcodefixer
+phpcodesniffer
+phpmd
+phpsecaudit
+phpstan
+progpilot
 pyright
 retire
 secretlint
