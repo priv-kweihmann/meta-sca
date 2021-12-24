@@ -10,7 +10,6 @@ phpcodesniffer
 phpmd
 phpsecaudit
 phpstan
-progpilot
 pyright
 retire
 secretlint

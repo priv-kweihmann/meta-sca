@@ -55,7 +55,6 @@ phpmd,PHP Linter,https://github.com/phpmd/phpmd,"meta-oe, manual enable",x,,x,,,
 phpsecaudit,Find vulnerabilities in PHP code,https://github.com/FloeDesignTechnologies/phpcs-security-audit,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,x,,
 phpstan,PHP linter,https://github.com/phpstan/phpstan,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,,x
 pkgqaenc,Enhanced package QA,,,,,x,,,,,,,,,,,,,x,,x,,
-progpilot,PHP linter with security focus,https://github.com/designsecurity/progpilot,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,x,
 proselint,Spelling and text linter,https://github.com/amperser/proselint/,,,x,x,,,,,,,,,,x,,,,,,,x
 protolint,Lint protobuf files,https://github.com/yoheimuta/protolint,,,,x,,,,,,,,,,x,,,,x,,,x
 pscan,Find insecure printfs,http://deployingradius.com/pscan/,,,,x,x,,,,,,,,,,,,,,,x,
