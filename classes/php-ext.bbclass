@@ -7,6 +7,7 @@ PHP_EXTENSION ?= ""
 PHP_INI_FILE ?= "${STAGING_DIR_NATIVE}/${sysconfdir}/php/php.ini"
 
 python do_add_extension() {
+    import glob
     import os
     inifile = d.getVar("PHP_INI_FILE")
     if os.path.exists(inifile):
@@ -18,8 +19,13 @@ python do_add_extension() {
         for ext in [x for x in d.getVar("PHP_EXTENSION").split(" ") if x]:
             if content.find("\nextension={}\n".format(ext)) == -1:
                 content += "extension={}\n".format(ext)
+        _extdir = [x for x in glob.glob(d.expand("${STAGING_DIR_NATIVE}/usr/lib/php*/extensions/no-debug-non-zts-*")) if os.path.isdir(x)]
+        if _extdir:
+            _extdir = _extdir[0]
+        else:
+            bb.error("Cannot find a PHP extention dir in sysroot")
         # forcefully expand extension_dir to the right path
-        content += d.expand("extension_dir = ${STAGING_DIR_NATIVE}/usr/lib/php7/extensions/no-debug-non-zts-20190902") + "\n"
+        content += "extension_dir = " + _extdir + "\n"
         with open(inifile, "w") as o:
             o.write(content)
 }
