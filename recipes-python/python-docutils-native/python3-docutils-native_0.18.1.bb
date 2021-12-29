@@ -3,7 +3,7 @@ HOMEPAGE = "http://docutils.sourceforge.net/"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause & GPLv3 & Python-2.0"
-LIC_FILES_CHKSUM = "file://COPYING.txt;md5=01aec8e28f975e3f369e06b5eb2af9b9"
+LIC_FILES_CHKSUM = "file://COPYING.txt;md5=fecee07ad8df9116e1f739e2ed2ea513"
 
 PYPI_PACKAGE = "docutils"
 
