@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/go-git/go-git-fixtures/v4/@v/v4.2.2.zip;srcoutput=github.com/go-git/go-git-fixtures/v4;srcinput=github.com/go-git/go-git-fixtures/v4@v4.2.2;downloadfilename=github-com-go-git-go-git-fixtures-v4-4.2.2.zip;name=github-com-go-git-go-git-fixtures-v4"
-SRC_URI[github-com-go-git-go-git-fixtures-v4.sha256sum] = "cfb7fd5093441691cdbd6b8c278055205645f72170ef02133d9f49f952c4202e"
+SRC_URI += "https://proxy.golang.org/github.com/go-git/go-git-fixtures/v4/@v/v4.3.0.zip;srcoutput=github.com/go-git/go-git-fixtures/v4;srcinput=github.com/go-git/go-git-fixtures/v4@v4.3.0;downloadfilename=github-com-go-git-go-git-fixtures-v4-4.3.0.zip;name=github-com-go-git-go-git-fixtures-v4"
+SRC_URI[github-com-go-git-go-git-fixtures-v4.sha256sum] = "9a2e44c7335b94ae94be0105d96e8bac33ccc63374cb7d91c22b3d05d7a46e29"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
