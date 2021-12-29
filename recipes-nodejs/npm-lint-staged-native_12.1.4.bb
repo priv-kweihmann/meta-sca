@@ -19,9 +19,9 @@ DEPENDS = "npm-cli-truncate-native \
            npm-supports-color-native \
            npm-yaml-native"
 
-SRC_URI = "https://registry.npmjs.org/lint-staged/-/lint-staged-12.1.3.tgz"
-SRC_URI[md5sum] = "c1aa1198c703c360bc7b816ce3d4bbbc"
-SRC_URI[sha256sum] = "e2738f86812d36c6bc64dd8016b800ff553eb453736a4c6b7521e48e5b6b92b6"
+SRC_URI = "https://registry.npmjs.org/lint-staged/-/lint-staged-12.1.4.tgz"
+SRC_URI[md5sum] = "ff0cbace04664387430b9516c7eb1cae"
+SRC_URI[sha256sum] = "e9a0697eeff3b44f725a2e862da99a8cba5c186e130e77d9edf7fe96bf110b62"
 
 NPM_PKGNAME = "lint-staged"
 
