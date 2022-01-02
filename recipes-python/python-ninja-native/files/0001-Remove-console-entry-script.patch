@@ -4,7 +4,7 @@ Date: Sun, 15 Nov 2020 13:35:39 +0100
 Subject: [PATCH] Remove console entry script
 
 Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
-Upstream-Status: Pending
+Upstream-Status: Inappropriate [disable-feature]
 ---
  setup.py | 6 ------
  1 file changed, 6 deletions(-)
