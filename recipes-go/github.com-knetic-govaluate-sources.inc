@@ -1,5 +1,5 @@
-SRC_URI += "https://github.com/Knetic/govaluate/archive/refs/tags/v3.0.0.zip;srcoutput=github.com/Knetic/govaluate;srcinput=govaluate-3.0.0;downloadfilename=github-com-knetic-govaluate-3.0.0+incompatible.zip;name=github-com-knetic-govaluate"
-SRC_URI[github-com-knetic-govaluate.sha256sum] = "884038fdad05f64fbc33f4921e9d61f487732bd58238978da146b1987f394a4a"
+SRC_URI += "git://github.com/Knetic/govaluate;nobranch=1;protocol=https;srcinput=github.com/Knetic/govaluate;srcoutput=github.com/Knetic/govaluate;destsuffix=github.com/Knetic/govaluate;name=github-com-knetic-govaluate"
+SRCREV_github-com-knetic-govaluate = "d216395917cc49052c7c7094cf57f09657ca08a8"
 
 GOSRC_LICENSE += "\
     MIT \

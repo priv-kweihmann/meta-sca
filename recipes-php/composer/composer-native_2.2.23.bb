@@ -7,14 +7,12 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=db4ebb1057458d039cb8f6edcc5d756e"
 
 DEPENDS += "php-native"
 
-SRC_URI = "https://github.com/composer/getcomposer.org/archive/${SRCREV}.zip;protocol=https;downloadfilename=composer-${PV}.zip"
-SRC_URI[sha256sum] = "d62de496f1e233fec767f60c2e026f15c715dd4d8967993e72808d38bd86f80e"
+SRC_URI = "git://github.com/composer/getcomposer.org.git;protocol=https"
+SRCREV = "baa8937c704cdbf8982a2456f939363b82da0985"
 
-SRCREV = "7eb36fbca44eafe780f225b3b005697b43feb3c0"
+UPSTREAM_CHECK_COMMITS = "1"
 
-UPSTREAM_CHECK_URI = "https://github.com/composer/composer/tags"
-UPSTREAM_CHECK_REGEX ?= "/composer/composer/releases/tag/(?P<pver>(\d+[\.]*)+)$"
-S = "${WORKDIR}/getcomposer.org-${SRCREV}"
+S = "${WORKDIR}/git"
 
 inherit sca-nonet-sanity
 inherit native

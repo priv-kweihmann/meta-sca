@@ -1,5 +1,5 @@
-SRC_URI += "https://github.com/Shopify/sarama/archive/refs/tags/v1.30.1.zip;srcoutput=github.com/Shopify/sarama;srcinput=sarama-1.30.1;downloadfilename=github-com-shopify-sarama-1.30.1.zip;name=github-com-shopify-sarama"
-SRC_URI[github-com-shopify-sarama.sha256sum] = "c984c85d0f8ae83a51fd67e15b3dd5a3fa8916264765fe899a754a9a2c4154c6"
+SRC_URI += "git://github.com/Shopify/sarama;nobranch=1;protocol=https;srcinput=github.com/Shopify/sarama;srcoutput=github.com/Shopify/sarama;destsuffix=github.com/Shopify/sarama;name=github-com-shopify-sarama"
+SRCREV_github-com-shopify-sarama = "635bcf350a7b8a92b4da0aacd288ee09311e673d"
 GOSRC_REMOVEDIRS += "github.com/Shopify/sarama/examples"
 
 GOSRC_LICENSE += "\
