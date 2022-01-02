@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/microcosm-cc/bluemonday/@v/v1.0.16.zip;srcoutput=github.com/microcosm-cc/bluemonday;srcinput=github.com/microcosm-cc/bluemonday@v1.0.16;downloadfilename=github-com-microcosm-cc-bluemonday-1.0.16.zip;name=github-com-microcosm-cc-bluemonday"
-SRC_URI[github-com-microcosm-cc-bluemonday.sha256sum] = "639caf99d9c73f9ebc4dcf6288a0e77e64cb1a85d2764d877ffda7059ee3f3e2"
+SRC_URI += "https://proxy.golang.org/github.com/microcosm-cc/bluemonday/@v/v1.0.17.zip;srcoutput=github.com/microcosm-cc/bluemonday;srcinput=github.com/microcosm-cc/bluemonday@v1.0.17;downloadfilename=github-com-microcosm-cc-bluemonday-1.0.17.zip;name=github-com-microcosm-cc-bluemonday"
+SRC_URI[github-com-microcosm-cc-bluemonday.sha256sum] = "d5d71eb8f095b3ff1e3e8271f15cb7e901a88f829b3365ba68f145a6da293b96"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
