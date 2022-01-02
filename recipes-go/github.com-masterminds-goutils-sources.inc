@@ -1,5 +1,5 @@
-SRC_URI += "https://github.com/Masterminds/goutils/archive/refs/tags/v1.1.1.zip;srcoutput=github.com/Masterminds/goutils;srcinput=goutils-1.1.1;downloadfilename=github-com-masterminds-goutils-1.1.1.zip;name=github-com-masterminds-goutils"
-SRC_URI[github-com-masterminds-goutils.sha256sum] = "6f29a938db61209e1715934e78a7e1fcb6b7007e38ec7a6135b6504be89992e2"
+SRC_URI += "git://github.com/Masterminds/goutils;nobranch=1;protocol=https;srcinput=github.com/Masterminds/goutils;srcoutput=github.com/Masterminds/goutils;destsuffix=github.com/Masterminds/goutils;name=github-com-masterminds-goutils"
+SRCREV_github-com-masterminds-goutils = "f1923532a168b8203bfe956d8cd3b17ebece5982"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \

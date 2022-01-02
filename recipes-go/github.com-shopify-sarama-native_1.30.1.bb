@@ -23,5 +23,7 @@ EXTRA_DEPENDS += "\
 
 GO_IMPORT = "github.com/Shopify/sarama"
 
+UPSTREAM_CHECK_REGEX = "v(?P<pver>\d+\.\d+)"
+
 inherit gosrc
 inherit native

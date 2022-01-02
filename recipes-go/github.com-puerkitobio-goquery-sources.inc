@@ -1,5 +1,5 @@
-SRC_URI += "https://github.com/PuerkitoBio/goquery/archive/refs/tags/v1.8.0.zip;srcoutput=github.com/PuerkitoBio/goquery;srcinput=goquery-1.8.0;downloadfilename=github-com-puerkitobio-goquery-1.8.0.zip;name=github-com-puerkitobio-goquery"
-SRC_URI[github-com-puerkitobio-goquery.sha256sum] = "adfcb18459808f2c04e1790de24889799b3d060d78d9bbc6b600e23a64b620f4"
+SRC_URI += "git://github.com/PuerkitoBio/goquery;nobranch=1;protocol=https;srcinput=github.com/PuerkitoBio/goquery;srcoutput=github.com/PuerkitoBio/goquery;destsuffix=github.com/PuerkitoBio/goquery;name=github-com-puerkitobio-goquery"
+SRCREV_github-com-puerkitobio-goquery = "a8c788f298a276f1212549ea615619a7e133a84f"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \

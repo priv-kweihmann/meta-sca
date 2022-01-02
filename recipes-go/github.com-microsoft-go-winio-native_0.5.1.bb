@@ -1,8 +1,7 @@
-SUMMARY = "go.mod: github.com/microsoft/go-winio"
-HOMEPAGE = "https://pkg.go.dev/github.com/microsoft/go-winio"
-
-# License is determined by the modules included and will be therefore computed
+SUMMARY = "go.mod: github.com/Microsoft/go-winio"
+HOMEPAGE = "https://pkg.go.dev/github.com/Microsoft/go-winio"
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
+# License is determined by the modules included and will be therefore computed
 LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '').split(' ') if x)))}"
 
 # inject the needed sources
@@ -14,11 +13,9 @@ EXTRA_DEPENDS += "\
     golang.org-x-sys-native \
 "
 
-GO_IMPORT = "github.com/microsoft/go-winio"
+GO_IMPORT = "github.com/Microsoft/go-winio"
 
-# windows only
-do_compile[noexec] = "1"
-UPSTREAM_CHECK_GITHUB_TAGS = "1"
+UPSTREAM_CHECK_REGEX = "v(?P<pver>\d+\.\d+)"
 
 inherit gosrc
 inherit native

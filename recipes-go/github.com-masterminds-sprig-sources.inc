@@ -1,5 +1,5 @@
-SRC_URI += "https://github.com/Masterminds/sprig/archive/refs/tags/v2.22.0.zip;srcoutput=github.com/Masterminds/sprig;srcinput=sprig-2.22.0;downloadfilename=github-com-masterminds-sprig-2.22.0+incompatible.zip;name=github-com-masterminds-sprig"
-SRC_URI[github-com-masterminds-sprig.sha256sum] = "2b98a62c67eb38e85673b7d02b17d504c7d48293a87c25b0c892c155cbeae8df"
+SRC_URI += "git://github.com/Masterminds/sprig;nobranch=1;protocol=https;srcinput=github.com/Masterminds/sprig;srcoutput=github.com/Masterminds/sprig;destsuffix=github.com/Masterminds/sprig;name=github-com-masterminds-sprig"
+SRCREV_github-com-masterminds-sprig = "e4c0945838d570720d876a6ad9b4568ed32317b4"
 
 GOSRC_LICENSE += "\
     MIT \

@@ -1,5 +1,5 @@
-SRC_URI += "https://github.com/DataDog/datadog-go/archive/refs/tags/v4.5.0.zip;srcoutput=github.com/DataDog/datadog-go;srcinput=datadog-go-4.5.0;downloadfilename=github-com-datadog-datadog-go-4.5.0+incompatible.zip;name=github-com-datadog-datadog-go"
-SRC_URI[github-com-datadog-datadog-go.sha256sum] = "2326a87067a7fa843320e455462cbb863d2c09b3af89b6b889300eea10279727"
+SRC_URI += "git://github.com/DataDog/datadog-go;nobranch=1;protocol=https;srcinput=github.com/DataDog/datadog-go;srcoutput=github.com/DataDog/datadog-go;destsuffix=github.com/DataDog/datadog-go;name=github-com-datadog-datadog-go"
+SRCREV_github-com-datadog-datadog-go = "7e2137139c897c1327e07dcd1210f72f669fde4c"
 
 GOSRC_LICENSE += "\
     MIT \
