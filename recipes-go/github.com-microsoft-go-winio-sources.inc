@@ -1,11 +1,11 @@
-SRC_URI += "https://proxy.golang.org/github.com/microsoft/go-winio/@v/v0.5.1.zip;srcoutput=github.com/microsoft/go-winio;srcinput=github.com/microsoft/go-winio@v0.5.1;downloadfilename=github-com-microsoft-go-winio-0.5.1.zip;name=github-com-microsoft-go-winio"
-SRC_URI[github-com-microsoft-go-winio.sha256sum] = "e71c6603a7cc879a72832ea62483dc1a4a64596f0f2f1ed9d6c035768eebb72c"
+SRC_URI += "git://github.com/microsoft/go-winio;nobranch=1;protocol=https;srcinput=github.com/Microsoft/go-winio;srcoutput=github.com/Microsoft/go-winio;destsuffix=github.com/Microsoft/go-winio;name=github-com-microsoft-go-winio"
+SRCREV_github-com-microsoft-go-winio = "6c24dfa01eb5906508a5ad06f4f6534a9be47456"
 
 GOSRC_LICENSE += "\
     MIT \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/microsoft/go-winio/LICENSE;md5=69205ff73858f2c22b2ca135b557e8ef \
+    file://src/github.com/Microsoft/go-winio/LICENSE;md5=69205ff73858f2c22b2ca135b557e8ef \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-microsoft-go-winio-sources.inc"

@@ -1,5 +1,5 @@
-SRC_URI += "https://github.com/ekzhu/minhash-lsh/archive/refs/tags/v1.0.zip;srcoutput=github.com/ekzhu/minhash-lsh;srcinput=minhash-lsh-1.0;downloadfilename=github-com-ekzhu-minhash-lsh-1.0.zip;name=github-com-ekzhu-minhash-lsh"
-SRC_URI[github-com-ekzhu-minhash-lsh.sha256sum] = "12bed4420b75072be394016c73003fc28e3471edacc88f13984b4ddd16d071ae"
+SRC_URI += "git://github.com/ekzhu/minhash-lsh;nobranch=1;protocol=https;srcinput=github.com/ekzhu/minhash-lsh;srcoutput=github.com/ekzhu/minhash-lsh;destsuffix=github.com/ekzhu/minhash-lsh;name=github-com-ekzhu-minhash-lsh"
+SRCREV_github-com-ekzhu-minhash-lsh = "5c06ee8586a1691fbfa230842170429e2b31cc05"
 
 GOSRC_LICENSE += "\
     MIT \

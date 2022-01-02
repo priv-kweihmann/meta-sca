@@ -1,3 +1,6 @@
+## SPDX-License-Identifier: BSD-2-Clause
+## Copyright (c) 2021, Konrad Weihmann
+
 inherit go
 
 HOMEPAGE ?= "https://${GO_IMPORT}"
@@ -26,14 +29,19 @@ python gosrc_do_unpack() {
         _srcinput = fetcher.ud[url].parm.get('srcinput')
         _srcoutput = fetcher.ud[url].parm.get('srcoutput')
         if _srcinput and _srcoutput:  
-            _mapping[d.expand("${WORKDIR}/sources/" + _srcinput)] = \
-                d.expand("${S}/src/" + _srcoutput)
+            _mapping[d.expand("${S}/src/" + _srcoutput)] = \
+                d.expand("${WORKDIR}/sources/" + _srcinput)
     fetcher.unpack(d.expand('${WORKDIR}/sources'))
 
     for k,v in _mapping.items():
-        os.makedirs(v, exist_ok=True)
-        for f in os.listdir(k):
-            shutil.move(os.path.join(k, f), os.path.join(v, f))
+        os.makedirs(k, exist_ok=True)
+        for f in os.listdir(v):
+            if os.path.exists(os.path.join(k, f)):
+                continue
+            if os.path.isdir(os.path.join(v, f)):
+                shutil.copytree(os.path.join(v, f), os.path.join(k, f))
+            else:
+                shutil.copy(os.path.join(v, f), os.path.join(k, f))
 }
 do_unpack[dirs] += "${WORKDIR}/sources ${WORKDIR}/src"
 do_unpack[cleandirs] += "${WORKDIR}/sources ${WORKDIR}/src"

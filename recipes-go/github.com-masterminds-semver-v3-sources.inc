@@ -1,5 +1,5 @@
-SRC_URI += "https://github.com/Masterminds/semver/archive/refs/tags/v3.1.1.zip;srcoutput=github.com/Masterminds/semver/v3;srcinput=semver-3.1.1;downloadfilename=github-com-masterminds-semver-v3-3.1.1.zip;name=github-com-masterminds-semver-v3"
-SRC_URI[github-com-masterminds-semver-v3.sha256sum] = "b17ce81f8bcbf8677e65cbbd83c42ec3b4331383c9617736c912034af4ee4a94"
+SRC_URI += "git://github.com/Masterminds/semver;nobranch=1;protocol=https;srcinput=github.com/Masterminds/semver;srcoutput=github.com/Masterminds/semver/v3;destsuffix=github.com/Masterminds/semver;name=github-com-masterminds-semver-v3"
+SRCREV_github-com-masterminds-semver-v3 = "7bb0c843b53d6ad21a3f619cb22c4b442bb3ef3e"
 
 GOSRC_LICENSE += "\
     MIT \
