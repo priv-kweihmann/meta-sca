@@ -1,5 +1,5 @@
-SRC_URI += "https://github.com/gomodule/redigo/archive/refs/tags/v1.8.6.zip;srcoutput=github.com/gomodule/redigo/redis;srcinput=redigo-1.8.6;downloadfilename=github-com-gomodule-redigo-redis-1.8.6.zip;name=github-com-gomodule-redigo-redis"
-SRC_URI[github-com-gomodule-redigo-redis.sha256sum] = "21e2245fdec2e2e0be237354a929753c55b35f638d89660186cb2cc2f9eee4c7"
+SRC_URI += "git://github.com/gomodule/redigo;nobranch=1;protocol=https;srcinput=github.com/gomodule/redigo/redis;srcoutput=github.com/gomodule/redigo/redis;destsuffix=github.com/gomodule/redigo/redis;name=github-com-gomodule-redigo-redis"
+SRCREV_github-com-gomodule-redigo-redis = "574218b5788d47ef16ad8eb15a6704314a3e42d5"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \

@@ -1,5 +1,5 @@
-SRC_URI += "https://github.com/BurntSushi/toml/archive/refs/tags/v0.4.1.zip;srcoutput=github.com/BurntSushi/toml;srcinput=toml-0.4.1;downloadfilename=github-com-burntsushi-toml-0.4.1.zip;name=github-com-burntsushi-toml"
-SRC_URI[github-com-burntsushi-toml.sha256sum] = "9829a7c0dba215e96e01adf4c4eff18cebb5816e89881e0406eb5230db2fdc4e"
+SRC_URI += "git://github.com/BurntSushi/toml;nobranch=1;protocol=https;srcinput=github.com/BurntSushi/toml;srcoutput=github.com/BurntSushi/toml;destsuffix=github.com/BurntSushi/toml;name=github-com-burntsushi-toml"
+SRCREV_github-com-burntsushi-toml = "641c3cf2148ad11ca058c000eab0453dd5d67954"
 
 GOSRC_LICENSE += "\
     MIT \

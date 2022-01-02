@@ -1,5 +1,5 @@
-SRC_URI += "https://github.com/VividCortex/gohistogram/archive/refs/tags/v1.0.0.zip;srcoutput=github.com/VividCortex/gohistogram;srcinput=gohistogram-1.0.0;downloadfilename=github-com-vividcortex-gohistogram-1.0.0.zip;name=github-com-vividcortex-gohistogram"
-SRC_URI[github-com-vividcortex-gohistogram.sha256sum] = "11023d1e01073bcb0a5f3e9d268508d5aa7dc7f22068d89cdde66db8cc493285"
+SRC_URI += "git://github.com/VividCortex/gohistogram;nobranch=1;protocol=https;srcinput=github.com/VividCortex/gohistogram;srcoutput=github.com/VividCortex/gohistogram;destsuffix=github.com/VividCortex/gohistogram;name=github-com-vividcortex-gohistogram"
+SRCREV_github-com-vividcortex-gohistogram = "51564d9861991fb0ad0f531c99ef602d0f9866e6"
 
 GOSRC_LICENSE += "\
     MIT \

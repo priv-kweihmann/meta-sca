@@ -1,5 +1,5 @@
-SRC_URI += "https://github.com/cactus/go-statsd-client/archive/refs/tags/v5.0.0.zip;srcoutput=github.com/cactus/go-statsd-client;srcinput=go-statsd-client-5.0.0;downloadfilename=github-com-cactus-go-statsd-client-5.0.0.zip;name=github-com-cactus-go-statsd-client"
-SRC_URI[github-com-cactus-go-statsd-client.sha256sum] = "1faa133546e1eb16969ebe61b8fdb6c4f9d545f636fa1252bde92a2870009cc3"
+SRC_URI += "git://github.com/cactus/go-statsd-client;nobranch=1;protocol=https;srcinput=github.com/cactus/go-statsd-client;srcoutput=github.com/cactus/go-statsd-client;destsuffix=github.com/cactus/go-statsd-client;name=github-com-cactus-go-statsd-client"
+SRCREV_github-com-cactus-go-statsd-client = "7eb0950793aa9a679bc468eb1da9b5520f73b16f"
 GOSRC_REMOVEDIRS += "github.com/cactus/go-statsd-client/test-client"
 
 GOSRC_LICENSE += "\
