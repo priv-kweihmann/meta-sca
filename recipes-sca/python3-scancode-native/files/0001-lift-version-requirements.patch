@@ -7,6 +7,9 @@ remove version limitations for
 - pluggy
 - typing
 - system provided libs for libarchive and co
+
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+Upstream-Status: Inappropriate [configuration]
 ---
  requirements.txt | 5 +----
  setup.cfg        | 4 +---
