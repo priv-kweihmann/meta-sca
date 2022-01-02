@@ -4,6 +4,7 @@ Date: Sun, 10 May 2020 20:00:35 +0200
 Subject: [PATCH] Makefile fixes
 
 Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+Upstream-Status: Inappropriate [configuration]
 ---
  Makefile | 6 +++---
  1 file changed, 3 insertions(+), 3 deletions(-)
