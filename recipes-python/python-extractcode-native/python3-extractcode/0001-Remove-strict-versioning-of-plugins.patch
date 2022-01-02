@@ -5,7 +5,7 @@ Subject: [PATCH] Remove strict versioning of plugins
 
 and remove the [full] option from typecode.
 
-Upstream-Status: Pending
+Upstream-Status: Inappropriate [configuration]
 Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
 ---
  setup.cfg | 4 +---
