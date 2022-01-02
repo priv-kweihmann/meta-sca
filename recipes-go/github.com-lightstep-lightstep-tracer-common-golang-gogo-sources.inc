@@ -1,5 +1,5 @@
-SRC_URI += "https://github.com/lightstep/lightstep-tracer-common/archive/refs/tags/v1.1.0.zip;srcoutput=github.com/lightstep/lightstep-tracer-common;srcinput=lightstep-tracer-common-1.1.0;downloadfilename=github-com-lightstep-lightstep-tracer-common-golang-gogo-1.1.0.zip;name=github-com-lightstep-lightstep-tracer-common-golang-gogo"
-SRC_URI[github-com-lightstep-lightstep-tracer-common-golang-gogo.sha256sum] = "d0dec6837de67e4d58f5c407160043f7109a6ba5e1a500211a570fa1b690e9b0"
+SRC_URI += "git://github.com/lightstep/lightstep-tracer-common;nobranch=1;protocol=https;srcinput=github.com/lightstep/lightstep-tracer-common/golang/gogo;srcoutput=github.com/lightstep/lightstep-tracer-common;destsuffix=github.com/lightstep/lightstep-tracer-common/golang/gogo;name=github-com-lightstep-lightstep-tracer-common-golang-gogo"
+SRCREV_github-com-lightstep-lightstep-tracer-common-golang-gogo = "a88bf8de3718c9b0279d85effcf667f7a94d6101"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
