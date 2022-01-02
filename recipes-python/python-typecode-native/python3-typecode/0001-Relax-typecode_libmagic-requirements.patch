@@ -5,7 +5,7 @@ Subject: [PATCH] Relax typecode_libmagic requirements
 
 as the source bundle hasn't got the update yet
 
-Upstream-Status: Pending
+Upstream-Status: Inappropriate [configuration]
 Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
 ---
  PKG-INFO  | 1 -
