@@ -103,6 +103,12 @@ def __name_clean(name):
 def __get_checkout(args, name, version):
     _path = os.path.join(args.tmpdir, name)
     _version = __get_latest_version(args, name, version)
+
+    if args.erratadict.get(name, {}).get("version", "").startswith("v"):
+        # prefix the v in case it got missing
+        if not version.startswith("v"):
+            version = "v" + version
+
     _url = args.erratadict.get(name, {}).get(
         "url", "https://proxy.golang.org/{}/@v/v{}.zip".format(name, _version))
     _url = _url.replace("%VERSION%", version or _version)
@@ -147,21 +153,25 @@ def __get_checkout(args, name, version):
                               stderr=subprocess.DEVNULL)
         subprocess.check_call("git checkout {revision}".format(revision=_version), shell=True, cwd=_path,
                               stderr=subprocess.DEVNULL)
+        # translate tag to revision
+        rev = subprocess.check_output("git rev-list -1 {revision}".format(revision=_version), shell=True, cwd=_path)
+        if not isinstance(rev, str):
+            rev = rev.decode("utf-8")
+        rev = rev.strip("\n")
         _extra_recipes_lines.append('SRCREV_{cn} = "{rev}"'.format(
-            cn=__name_clean(name), rev=_version))
+            cn=__name_clean(name), rev=rev))
         _attional_fetcher_attr.append("nobranch=1")
         _attional_fetcher_attr.append("protocol=https")
-        _attional_fetcher_attr.append("srcinput={}".format(name))
+        _attional_fetcher_attr.append("srcinput={}".format(args.erratadict.get(name, {}).get("inputname", name)))
         _attional_fetcher_attr.append("srcoutput={}".format(_suffix_out))
-        _attional_fetcher_attr.append(
-            "destsuffix={}".format(os.path.join(name)))
+        _attional_fetcher_attr.append("destsuffix={}".format(name))
     _attional_fetcher_attr.append("name={cn}".format(cn=__name_clean(name)))
     if _attional_fetcher_attr:
         _url += ";" + ";".join(_attional_fetcher_attr)
 
     _extra_recipes_lines += args.erratadict.get(name, {}).get("extra", [])
 
-    return _path, _url, _version, _extra_recipes_lines
+    return _path, _url, _version.lstrip("v"), _extra_recipes_lines
 
 
 def __prettify(value):

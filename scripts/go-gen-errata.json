@@ -21,40 +21,13 @@
             "do_compile[noexec] = \"1\""
         ]
     },
-    "github.com/Azure/azure-amqp-common-go/v3": {
-        "striplevel": 1,
-        "url": "https://github.com/Azure/azure-amqp-common-go/archive/refs/tags/v%VERSION%.zip",
-        "version": "3.1.0"
-    },
-    "github.com/Azure/azure-pipeline-go": {
-        "striplevel": 1,
-        "url": "https://github.com/Azure/azure-pipeline-go/archive/refs/tags/v%VERSION%.zip",
-        "version": "0.2.3"
-    },
-    "github.com/Azure/azure-storage-blob-go": {
-        "striplevel": 1,
-        "url": "https://github.com/Azure/azure-storage-blob-go/archive/refs/tags/v%VERSION%.zip",
-        "version": "0.13.0"
-    },
-    "github.com/Azure/go-amqp": {
-        "striplevel": 1,
-        "url": "https://github.com/Azure/go-amqp/archive/refs/tags/v%VERSION%.zip",
-        "version": "0.13.6"
-    },
-    "github.com/Azure/go-autorest/autorest": {
-        "striplevel": 1,
-        "url": "https://github.com/Azure/go-autorest/archive/refs/tags/autorest/v%VERSION%.zip",
-        "version": "0.11.18"
-    },
-    "github.com/BobuSumisu/aho-corasick": {
-        "striplevel": 1,
-        "url": "https://github.com/BobuSumisu/aho-corasick/archive/refs/tags/v%VERSION%.zip",
-        "version": "1.0.3"
-    },
     "github.com/BurntSushi/toml": {
         "striplevel": 1,
-        "url": "https://github.com/BurntSushi/toml/archive/refs/tags/v%VERSION%.zip",
-        "version": "0.4.1"
+        "recipeextra": [
+            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+        ],
+        "url": "git://github.com/BurntSushi/toml",
+        "version": "v0.4.1"
     },
     "github.com/BurntSushi/xgb": {
         "extra": [
@@ -66,41 +39,61 @@
     },
     "github.com/DataDog/datadog-go": {
         "striplevel": 1,
-        "url": "https://github.com/DataDog/datadog-go/archive/refs/tags/v%VERSION%.zip",
-        "version": "4.5.0+incompatible"
+        "recipeextra": [
+            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+        ],
+        "url": "git://github.com/DataDog/datadog-go",
+        "version": "v4.5.0"
     },
     "github.com/Knetic/govaluate": {
         "striplevel": 1,
-        "url": "https://github.com/Knetic/govaluate/archive/refs/tags/v%VERSION%.zip",
-        "version": "3.0.0+incompatible"
+        "recipeextra": [
+            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+        ],
+        "url": "git://github.com/Knetic/govaluate",
+        "version": "v3.0.0"
     },
     "github.com/Masterminds/goutils": {
         "striplevel": 1,
-        "url": "https://github.com/Masterminds/goutils/archive/refs/tags/v%VERSION%.zip",
-        "version": "1.1.1"
+        "recipeextra": [
+            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+        ],
+        "url": "git://github.com/Masterminds/goutils",
+        "version": "v1.1.1"
     },
     "github.com/Masterminds/semver": {
         "striplevel": 1,
-        "url": "https://github.com/Masterminds/semver/archive/refs/tags/v%VERSION%.zip",
-        "version": "1.5.0"
+        "recipeextra": [
+            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>1\\.\\d+\\.\\d+)\""
+        ],
+        "url": "git://github.com/Masterminds/semver",
+        "version": "v1.5.0"
     },
     "github.com/Masterminds/semver/v3": {
         "striplevel": 1,
-        "url": "https://github.com/Masterminds/semver/archive/refs/tags/v%VERSION%.zip",
-        "version": "3.1.1"
+        "recipeextra": [
+            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+        ],
+        "buildsuffix": "github.com/Masterminds/semver/v3",
+        "inputname": "github.com/Masterminds/semver",
+        "url": "git://github.com/Masterminds/semver",
+        "version": "v3.1.1"
     },
     "github.com/Masterminds/sprig": {
         "striplevel": 1,
-        "url": "https://github.com/Masterminds/sprig/archive/refs/tags/v%VERSION%.zip",
-        "version": "2.22.0+incompatible"
+        "recipeextra": [
+            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+        ],
+        "url": "git://github.com/Masterminds/sprig",
+        "version": "v2.22.0"
     },
     "github.com/Microsoft/go-winio": {
         "recipeextra": [
-            "UPSTREAM_CHECK_GITHUB_TAGS = \"1\""
+            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
         ],
         "striplevel": 1,
-        "url": "https://github.com/microsoft/go-winio/archive/refs/tags/v%VERSION%.zip",
-        "version": "0.4.16"
+        "url": "git://github.com/microsoft/go-winio",
+        "version": "v0.5.1"
     },
     "github.com/ProtonMail/go-crypto": {
         "extra": [
@@ -115,21 +108,22 @@
     },
     "github.com/PuerkitoBio/goquery": {
         "striplevel": 1,
-        "url": "https://github.com/PuerkitoBio/goquery/archive/refs/tags/v%VERSION%.zip",
-        "version": "1.6.1"
+        "recipeextra": [
+            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+        ],
+        "url": "git://github.com/PuerkitoBio/goquery",
+        "version": "v1.8.0"
     },
     "github.com/Shopify/sarama": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/Shopify/sarama/examples\""
         ],
+        "recipeextra": [
+            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+        ],
         "striplevel": 1,
-        "url": "https://github.com/Shopify/sarama/archive/refs/tags/v%VERSION%.zip",
-        "version": "1.28.0"
-    },
-    "github.com/Shopify/toxiproxy": {
-        "striplevel": 1,
-        "url": "https://github.com/Shopify/toxiproxy/archive/refs/tags/v%VERSION%.zip",
-        "version": "1.2.1"
+        "url": "git://github.com/Shopify/sarama",
+        "version": "v1.30.1"
     },
     "github.com/StackExchange/wmi": {
         "extra": [
@@ -141,8 +135,11 @@
     },
     "github.com/VividCortex/gohistogram": {
         "striplevel": 1,
-        "url": "https://github.com/VividCortex/gohistogram/archive/refs/tags/v%VERSION%.zip",
-        "version": "1.0.0"
+        "recipeextra": [
+            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+        ],
+        "url": "git://github.com/VividCortex/gohistogram",
+        "version": "v1.0.0"
     },
     "github.com/acomagu/bufpipe": {
         "recipeextra": [
@@ -209,11 +206,11 @@
             "GOSRC_REMOVEDIRS += \"github.com/cactus/go-statsd-client/test-client\""
         ],
         "recipeextra": [
-            "UPSTREAM_CHECK_IMPORT_SUFFIX = \"/v5\""
+            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
         ],
         "striplevel": 1,
-        "url": "https://github.com/cactus/go-statsd-client/archive/refs/tags/v%VERSION%.zip",
-        "version": "5.0.0"
+        "url": "git://github.com/cactus/go-statsd-client",
+        "version": "v5.0.0"
     },
     "github.com/cespare/xxhash/v2": {
         "recipeextra": [
@@ -259,12 +256,11 @@
     },
     "github.com/ekzhu/minhash-lsh": {
         "recipeextra": [
-            "UPSTREAM_CHECK_GITHUB_TAGS = \"1\"",
-            "UPSTREAM_CHECK_REGEX = \"releases/tag/v(?P<pver>\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
         ],
         "striplevel": 1,
-        "url": "https://github.com/ekzhu/minhash-lsh/archive/refs/tags/v1.0.zip",
-        "version": "1.0"
+        "url": "git://github.com/ekzhu/minhash-lsh",
+        "version": "v1.0"
     },
     "github.com/envoyproxy/go-control-plane": {
         "extra": [
@@ -307,8 +303,11 @@
     },
     "github.com/gobuffalo/pop": {
         "striplevel": 1,
-        "url": "https://github.com/gobuffalo/pop/archive/refs/tags/v%VERSION%.zip",
-        "version": "5.3.3"
+        "recipeextra": [
+            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
+        ],
+        "url": "git://github.com/gobuffalo/pop",
+        "version": "v5.3.4"
     },
     "github.com/gomodule/redigo": {
         "recipeextra": [
@@ -321,12 +320,11 @@
         "recipeextra": [
             "# version is somehow broken",
             "do_compile[noexec] = \"1\"",
-            "UPSTREAM_CHECK_URI = \"https://github.com/gomodule/redigo/tags\"",
-            "UPSTREAM_CHECK_REGEX = \"releases/tag/v(?P<pver>1\\.\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>1\\.\\d+\\.\\d+)\""
         ],
         "striplevel": 1,
-        "url": "https://github.com/gomodule/redigo/archive/refs/tags/v%VERSION%.zip",
-        "version": "1.8.4"
+        "url": "git://github.com/gomodule/redigo",
+        "version": "v1.8.6"
     },
     "github.com/google/certificate-transparency-go": {
         "extra": [
@@ -417,12 +415,11 @@
         "buildsuffix": "github.com/lightstep/lightstep-tracer-common",
         "modscan": "golang/gogo",
         "recipeextra": [
-            "UPSTREAM_CHECK_URI = \"https://github.com/lightstep/lightstep-tracer-common/tags\"",
-            "UPSTREAM_CHECK_REGEX = \"releases/tag/v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
         ],
         "striplevel": 1,
-        "url": "https://github.com/lightstep/lightstep-tracer-common/archive/refs/tags/v%VERSION%.zip",
-        "version": "1.1.0"
+        "url": "git://github.com/lightstep/lightstep-tracer-common",
+        "version": "v1.1.0"
     },
     "github.com/microsoft/go-winio": {
         "recipeextra": [
@@ -467,11 +464,11 @@
             "GOSRC_REMOVEDIRS += \"github.com/pierrec/lz4/cmd\""
         ],
         "recipeextra": [
-            "UPSTREAM_CHECK_GITHUB_TAGS = \"1\""
+            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
         ],
         "striplevel": 1,
-        "url": "https://github.com/pierrec/lz4/archive/refs/tags/v%VERSION%.zip",
-        "version": "4.1.8"
+        "url": "git://github.com/pierrec/lz4",
+        "version": "v4.1.12"
     },
     "github.com/pseudomuto/protokit": {
         "extra": [
@@ -486,11 +483,6 @@
         "recipeextra": [
             "UPSTREAM_CHECK_IMPORT_SUFFIX = \"/v2\""
         ]
-    },
-    "github.com/shurcooL/sanitized_anchor_name": {
-        "striplevel": 1,
-        "url": "https://github.com/shurcooL/sanitized_anchor_name/archive/refs/tags/v%VERSION%.zip",
-        "version": "1.0.0"
     },
     "github.com/spf13/cobra": {
         "licenseignore": [
@@ -582,22 +574,17 @@
         ]
     },
     "honnef.co/go/tools": {
-        "recipeextra": [
-            "UPSTREAM_CHECK_URI = \"https://github.com/dominikh/go-tools/tags\"",
-            "UPSTREAM_CHECK_REGEX = \"releases/tag/(?P<pver>\\d+\\.\\d+\\.\\d+)\""
-        ],
         "striplevel": 1,
-        "url": "https://github.com/dominikh/go-tools/archive/refs/tags/2020.2.3.zip",
-        "version": "2020.2.3"
+        "url": "git://github.com/dominikh/go-tools",
+        "version": "2021.1.2"
     },
     "mvdan.cc/sh": {
         "recipeextra": [
-            "UPSTREAM_CHECK_URI = \"https://github.com/mvdan/sh/tags\"",
-            "UPSTREAM_CHECK_REGEX = \"releases/tag/v(?P<pver>\\d+\\.\\d+\\.\\d+)$\""
+            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)$\""
         ],
         "striplevel": 1,
-        "url": "https://github.com/mvdan/sh/archive/refs/tags/v%VERSION%.zip",
-        "version": "3.4.0"
+        "url": "git://github.com/mvdan/sh",
+        "version": "v3.4.2"
     },
     "sourcegraph.com/sourcegraph/appdash": {
         "extramods": [
