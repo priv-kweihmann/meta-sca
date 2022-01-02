@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=98419e351433ac106a24e3ad435930bc"
 
 PYPI_PACKAGE = "Pygments"
 
-SRC_URI[md5sum] = "87369a4e15019caf9cf056ab2c5858b3"
-SRC_URI[sha256sum] = "f398865f7eb6874156579fdf36bc840a03cab64d1cde9e93d68f46a425ec52c6"
+SRC_URI[md5sum] = "2cc7dd5f14ea032d905c7ae1bdebbc92"
+SRC_URI[sha256sum] = "59b895e326f0fb0d733fd28c6839bd18ad0687ba20efc26d4277fd1d30b971f4"
 
 inherit pypi
 inherit setuptools3
