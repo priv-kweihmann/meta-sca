@@ -36,7 +36,7 @@ EXTRA_DEPENDS += "\
 
 GO_IMPORT = "github.com/gobuffalo/pop"
 
-UPSTREAM_CHECK_REGEX = "v(?P<pver>\d+\.\d+\.\d+)"
+UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>\d+\.\d+\.\d+)"
 
 inherit gosrc
 inherit native
