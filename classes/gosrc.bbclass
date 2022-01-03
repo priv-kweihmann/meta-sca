@@ -103,7 +103,7 @@ def gosrc_version_pattern(d):
     }
     for pattern, value in _map.items():
         if re.match(pattern, d.getVar("PV")):
-            bb.warn("Using {}".format(value))
+            bb.note("Using {}".format(value))
             return value
     return "/${GO_IMPORT}@v(?P<pver>\\d+[\.\-_a-f0-9]+)"
 
