@@ -1,5 +1,5 @@
 SRC_URI += "git://github.com/DataDog/datadog-go;nobranch=1;protocol=https;srcinput=github.com/DataDog/datadog-go;srcoutput=github.com/DataDog/datadog-go;destsuffix=github.com/DataDog/datadog-go;name=github-com-datadog-datadog-go"
-SRCREV_github-com-datadog-datadog-go = "7e2137139c897c1327e07dcd1210f72f669fde4c"
+SRCREV_github-com-datadog-datadog-go = "58a0c269cb03934385f18c2f68acbcc0a87a2f91"
 
 GOSRC_LICENSE += "\
     MIT \
@@ -10,3 +10,4 @@ LIC_FILES_CHKSUM += "\
 
 GOSRC_INCLUDEGUARD += "github.com-datadog-datadog-go-sources.inc"
 
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-microsoft-go-winio-sources.inc', '', 'github.com-microsoft-go-winio-sources.inc', d)}
