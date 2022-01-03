@@ -104,10 +104,10 @@ def __get_checkout(args, name, version):
     _path = os.path.join(args.tmpdir, name)
     _version = __get_latest_version(args, name, version)
 
-    if args.erratadict.get(name, {}).get("version", "").startswith("v"):
-        # prefix the v in case it got missing
-        if not version.startswith("v"):
-            version = "v" + version
+    _errata_version = args.erratadict.get(name, {}).get("version", "")
+    # prefix the v in case it got missing
+    if not _version.startswith("v") and _errata_version.startswith("v"):
+        _version = "v" + _version
 
     _url = args.erratadict.get(name, {}).get(
         "url", "https://proxy.golang.org/{}/@v/v{}.zip".format(name, _version))
