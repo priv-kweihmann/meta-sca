@@ -9,7 +9,7 @@ require github.com-masterminds-semver-sources.inc
 
 GO_IMPORT = "github.com/Masterminds/semver"
 
-UPSTREAM_CHECK_REGEX = "v(?P<pver>\d+\.\d+)"
+UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>1\.\d+\.\d+)"
 
 inherit gosrc
 inherit native
