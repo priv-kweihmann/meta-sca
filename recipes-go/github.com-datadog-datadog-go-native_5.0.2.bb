@@ -7,9 +7,13 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-datadog-datadog-go-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-microsoft-go-winio-native \
+"
+
 GO_IMPORT = "github.com/DataDog/datadog-go"
 
-UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>\d+\.\d+.\d+)"
+UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>\d+\.\d+\.\d+)"
 
 inherit gosrc
 inherit native
