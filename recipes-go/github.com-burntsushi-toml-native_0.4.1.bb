@@ -9,7 +9,7 @@ require github.com-burntsushi-toml-sources.inc
 
 GO_IMPORT = "github.com/BurntSushi/toml"
 
-UPSTREAM_CHECK_REGEX = "v(?P<pver>\d+\.\d+)"
+UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>\d+\.\d+)"
 
 inherit gosrc
 inherit native
