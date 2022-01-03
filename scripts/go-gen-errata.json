@@ -22,10 +22,10 @@
         ]
     },
     "github.com/BurntSushi/toml": {
-        "striplevel": 1,
         "recipeextra": [
-            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+)\""
         ],
+        "striplevel": 1,
         "url": "git://github.com/BurntSushi/toml",
         "version": "v0.4.1"
     },
@@ -38,58 +38,58 @@
         "version": "deaf085860bc2ec870e50cacc83c467b3501a404"
     },
     "github.com/DataDog/datadog-go": {
-        "striplevel": 1,
         "recipeextra": [
-            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
         ],
+        "striplevel": 1,
         "url": "git://github.com/DataDog/datadog-go",
         "version": "v4.5.0"
     },
     "github.com/Knetic/govaluate": {
-        "striplevel": 1,
         "recipeextra": [
-            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
         ],
+        "striplevel": 1,
         "url": "git://github.com/Knetic/govaluate",
         "version": "v3.0.0"
     },
     "github.com/Masterminds/goutils": {
-        "striplevel": 1,
         "recipeextra": [
-            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
         ],
+        "striplevel": 1,
         "url": "git://github.com/Masterminds/goutils",
         "version": "v1.1.1"
     },
     "github.com/Masterminds/semver": {
-        "striplevel": 1,
         "recipeextra": [
-            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>1\\.\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>1\\.\\d+\\.\\d+)\""
         ],
+        "striplevel": 1,
         "url": "git://github.com/Masterminds/semver",
         "version": "v1.5.0"
     },
     "github.com/Masterminds/semver/v3": {
-        "striplevel": 1,
-        "recipeextra": [
-            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
-        ],
         "buildsuffix": "github.com/Masterminds/semver/v3",
         "inputname": "github.com/Masterminds/semver",
+        "recipeextra": [
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
+        ],
+        "striplevel": 1,
         "url": "git://github.com/Masterminds/semver",
         "version": "v3.1.1"
     },
     "github.com/Masterminds/sprig": {
-        "striplevel": 1,
         "recipeextra": [
-            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
         ],
+        "striplevel": 1,
         "url": "git://github.com/Masterminds/sprig",
         "version": "v2.22.0"
     },
     "github.com/Microsoft/go-winio": {
         "recipeextra": [
-            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
         ],
         "striplevel": 1,
         "url": "git://github.com/microsoft/go-winio",
@@ -107,10 +107,10 @@
         "version": "c05353c2d58c90ebc6e81dfabef7e3ba48137059"
     },
     "github.com/PuerkitoBio/goquery": {
-        "striplevel": 1,
         "recipeextra": [
-            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
         ],
+        "striplevel": 1,
         "url": "git://github.com/PuerkitoBio/goquery",
         "version": "v1.8.0"
     },
@@ -119,7 +119,7 @@
             "GOSRC_REMOVEDIRS += \"github.com/Shopify/sarama/examples\""
         ],
         "recipeextra": [
-            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
         ],
         "striplevel": 1,
         "url": "git://github.com/Shopify/sarama",
@@ -134,10 +134,10 @@
         "version": "fe8f1750fd46057fb58f854c1d35205bed539913"
     },
     "github.com/VividCortex/gohistogram": {
-        "striplevel": 1,
         "recipeextra": [
-            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
         ],
+        "striplevel": 1,
         "url": "git://github.com/VividCortex/gohistogram",
         "version": "v1.0.0"
     },
@@ -206,7 +206,7 @@
             "GOSRC_REMOVEDIRS += \"github.com/cactus/go-statsd-client/test-client\""
         ],
         "recipeextra": [
-            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
         ],
         "striplevel": 1,
         "url": "git://github.com/cactus/go-statsd-client",
@@ -256,7 +256,7 @@
     },
     "github.com/ekzhu/minhash-lsh": {
         "recipeextra": [
-            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+)\""
         ],
         "striplevel": 1,
         "url": "git://github.com/ekzhu/minhash-lsh",
@@ -302,10 +302,10 @@
         ]
     },
     "github.com/gobuffalo/pop": {
-        "striplevel": 1,
         "recipeextra": [
-            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
         ],
+        "striplevel": 1,
         "url": "git://github.com/gobuffalo/pop",
         "version": "v5.3.4"
     },
@@ -320,7 +320,7 @@
         "recipeextra": [
             "# version is somehow broken",
             "do_compile[noexec] = \"1\"",
-            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>1\\.\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>1\\.\\d+\\.\\d+)\""
         ],
         "striplevel": 1,
         "url": "git://github.com/gomodule/redigo",
@@ -415,7 +415,7 @@
         "buildsuffix": "github.com/lightstep/lightstep-tracer-common",
         "modscan": "golang/gogo",
         "recipeextra": [
-            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
         ],
         "striplevel": 1,
         "url": "git://github.com/lightstep/lightstep-tracer-common",
@@ -464,7 +464,7 @@
             "GOSRC_REMOVEDIRS += \"github.com/pierrec/lz4/cmd\""
         ],
         "recipeextra": [
-            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
         ],
         "striplevel": 1,
         "url": "git://github.com/pierrec/lz4",
@@ -580,7 +580,7 @@
     },
     "mvdan.cc/sh": {
         "recipeextra": [
-            "UPSTREAM_CHECK_REGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)$\""
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)$\""
         ],
         "striplevel": 1,
         "url": "git://github.com/mvdan/sh",
