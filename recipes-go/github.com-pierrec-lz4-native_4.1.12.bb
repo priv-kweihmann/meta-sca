@@ -9,7 +9,7 @@ require github.com-pierrec-lz4-sources.inc
 
 GO_IMPORT = "github.com/pierrec/lz4"
 
-UPSTREAM_CHECK_REGEX = "v(?P<pver>\d+\.\d+\.\d+)"
+UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>\d+\.\d+\.\d+)"
 
 inherit gosrc
 inherit native
