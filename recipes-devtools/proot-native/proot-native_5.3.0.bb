@@ -16,11 +16,9 @@ DEPENDS += "\
 "
 
 SRC_URI = "git://github.com/proot-me/proot.git;branch=master;protocol=https"
-SRCREV = "f6f43005c021e706416ccae83553e7a0da2b98c3"
+SRCREV = "96e5a8b1f2760de8a7b0f42f3f771c15b9b3b2fd"
 
 S = "${WORKDIR}/git/src"
-
-UPSTREAM_CHECK_COMMITS = "1"
 
 inherit pkgconfig
 inherit native
