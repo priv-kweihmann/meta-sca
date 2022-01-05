@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/hashicorp/mdns/@v/v1.0.4.zip;srcoutput=github.com/hashicorp/mdns;srcinput=github.com/hashicorp/mdns@v1.0.4;downloadfilename=github-com-hashicorp-mdns-1.0.4.zip;name=github-com-hashicorp-mdns"
-SRC_URI[github-com-hashicorp-mdns.sha256sum] = "f7d04f484c5b398018385ad954a922b0d94d0cb26315780bf995bedede166704"
+SRC_URI += "https://proxy.golang.org/github.com/hashicorp/mdns/@v/v1.0.5.zip;srcoutput=github.com/hashicorp/mdns;srcinput=github.com/hashicorp/mdns@v1.0.5;downloadfilename=github-com-hashicorp-mdns-1.0.5.zip;name=github-com-hashicorp-mdns"
+SRC_URI[github-com-hashicorp-mdns.sha256sum] = "67b36444aa9d686fb5f1a2d72a100943da9d6887259fd3b2d4977445f57710dc"
 
 GOSRC_LICENSE += "\
     MIT \
