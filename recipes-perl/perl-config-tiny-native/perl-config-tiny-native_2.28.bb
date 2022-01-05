@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=ab27c3cedbdb0eb6e656a8722476191a"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/R/RS/RSAVAGE/Config-Tiny-${PV}.tgz"
 
-SRC_URI[md5sum] = "72e70dd180451a06d1baf9676ae0cc77"
-SRC_URI[sha256sum] = "38b01b7014223a2890acdb84d67b08bfd6ddbd91b34e0de613b87cd961e0629d"
+SRC_URI[md5sum] = "4210c634e43b5374c56059e3139092ed"
+SRC_URI[sha256sum] = "12df843a0d29d48f61bcc14c4f18f0858fd27a8dd829a00319529d654fe01500"
 
 S = "${WORKDIR}/Config-Tiny-${PV}"
 
