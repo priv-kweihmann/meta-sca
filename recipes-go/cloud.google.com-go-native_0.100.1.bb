@@ -8,7 +8,6 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require cloud.google.com-go-sources.inc
 
 EXTRA_DEPENDS += "\
-    cloud.google.com-go-storage-native \
     github.com-golang-protobuf-native \
     github.com-google-go-cmp-native \
     github.com-google-martian-v3-native \
