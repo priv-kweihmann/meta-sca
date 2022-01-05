@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/go.uber.org/zap/@v/v1.19.1.zip;srcoutput=go.uber.org/zap;srcinput=go.uber.org/zap@v1.19.1;downloadfilename=go-uber-org-zap-1.19.1.zip;name=go-uber-org-zap"
-SRC_URI[go-uber-org-zap.sha256sum] = "b894b6fdeec3c7b35fb29998b6937292c8fd87b2c4bae720cf885c4a99bd460a"
+SRC_URI += "https://proxy.golang.org/go.uber.org/zap/@v/v1.20.0.zip;srcoutput=go.uber.org/zap;srcinput=go.uber.org/zap@v1.20.0;downloadfilename=go-uber-org-zap-1.20.0.zip;name=go-uber-org-zap"
+SRC_URI[go-uber-org-zap.sha256sum] = "3dc21f94c0e326a5c03a6a186ca26e9ebe60264e0fe7099d02177c262c4ef494"
 
 GOSRC_LICENSE += "\
     MIT \
@@ -10,5 +10,6 @@ LIC_FILES_CHKSUM += "\
 
 GOSRC_INCLUDEGUARD += "go.uber.org-zap-sources.inc"
 
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-benbjohnson-clock-sources.inc', '', 'github.com-benbjohnson-clock-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'go.uber.org-atomic-sources.inc', '', 'go.uber.org-atomic-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'go.uber.org-multierr-sources.inc', '', 'go.uber.org-multierr-sources.inc', d)}
