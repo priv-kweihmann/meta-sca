@@ -1,5 +1,5 @@
 SRC_URI += "git://github.com/gomodule/redigo;nobranch=1;protocol=https;srcinput=github.com/gomodule/redigo/redis;srcoutput=github.com/gomodule/redigo/redis;destsuffix=github.com/gomodule/redigo/redis;name=github-com-gomodule-redigo-redis"
-SRCREV_github-com-gomodule-redigo-redis = "574218b5788d47ef16ad8eb15a6704314a3e42d5"
+SRCREV_github-com-gomodule-redigo-redis = "a83ebbeea6928a0236f332458532b8e978d51f11"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
