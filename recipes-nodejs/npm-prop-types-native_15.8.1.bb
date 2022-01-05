@@ -9,9 +9,9 @@ DEPENDS = "npm-loose-envify-native \
            npm-object-assign-native \
            npm-react-is-native"
 
-SRC_URI = "https://registry.npmjs.org/prop-types/-/prop-types-15.8.0.tgz"
-SRC_URI[md5sum] = "110485696ac22dde73839d50996450e0"
-SRC_URI[sha256sum] = "ca4d45ab19d33e56ad0aca86a52132332c8e85261c731b565a3f6a2047659204"
+SRC_URI = "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
+SRC_URI[md5sum] = "d5c4d407a8f308545c0d76b229e1f4be"
+SRC_URI[sha256sum] = "1c739eb05d8a462c286a4e9dd02f2ce5485c6fa3529244e9ff9b13a3671aa557"
 
 NPM_PKGNAME = "prop-types"
 
