@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=62f84db3eea2ff0da5510fedd081ea0c"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/@cspell/dict-html/-/dict-html-2.0.2.tgz"
-SRC_URI[md5sum] = "65fae6cd2b8868e060b7469075651376"
-SRC_URI[sha256sum] = "b259385607ffc5b79778070ad4c5398020aaee9d51951cebbd5e4c4498ae57a2"
+SRC_URI = "https://registry.npmjs.org/@cspell/dict-html/-/dict-html-2.0.3.tgz"
+SRC_URI[md5sum] = "61a7da88b4a4464303359a9252686a44"
+SRC_URI[sha256sum] = "4a4ea8c9045a9ce2120c21cfe23b2c80b01a8dfd7948e4bcb444434d1e01de1d"
 
 NPM_PKGNAME = "@cspell/dict-html"
 
