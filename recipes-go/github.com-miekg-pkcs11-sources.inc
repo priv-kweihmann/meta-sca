@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/miekg/pkcs11/@v/v1.1.0.zip;srcoutput=github.com/miekg/pkcs11;srcinput=github.com/miekg/pkcs11@v1.1.0;downloadfilename=github-com-miekg-pkcs11-1.1.0.zip;name=github-com-miekg-pkcs11"
-SRC_URI[github-com-miekg-pkcs11.sha256sum] = "2794d3cd41e140cbc96c80b65bce548e35bc6a795a68e92869043c729f10208b"
+SRC_URI += "https://proxy.golang.org/github.com/miekg/pkcs11/@v/v1.1.1.zip;srcoutput=github.com/miekg/pkcs11;srcinput=github.com/miekg/pkcs11@v1.1.1;downloadfilename=github-com-miekg-pkcs11-1.1.1.zip;name=github-com-miekg-pkcs11"
+SRC_URI[github-com-miekg-pkcs11.sha256sum] = "81cfc2922f7d5c59dc1e688d6247ec8dc35246d646ab27088847a232570c76e6"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
