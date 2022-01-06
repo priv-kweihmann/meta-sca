@@ -4,6 +4,11 @@
             "GOSRC_REMOVEDIRS += \"cloud.google.com/go/analytics/admin/apiv1alpha/\""
         ]
     },
+    "cloud.google.com/go/bigquery": {
+        "extramods": [
+            "cloud.google.com/go/iam"
+        ]
+    },
     "cloud.google.com/go/pubsub": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"cloud.google.com/go/pubsub/internal/longtest\""
@@ -482,6 +487,11 @@
     "github.com/securego/gosec": {
         "recipeextra": [
             "UPSTREAM_CHECK_IMPORT_SUFFIX = \"/v2\""
+        ]
+    },
+    "github.com/spf13/afero": {
+        "extramods": [
+            "cloud.google.com/go/pubsub"
         ]
     },
     "github.com/spf13/cobra": {
