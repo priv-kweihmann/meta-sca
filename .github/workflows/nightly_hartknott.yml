@@ -17,7 +17,7 @@ jobs:
       SCM_BRANCH: hardknott
       SCM_BRANCH_META_CLANG: hardknott
       SCM_BRANCH_META_OE: hardknott
-      SCM_BRANCH_RUBYGEMS: master
+      SCM_BRANCH_RUBYGEMS: hardknott
       BUILD_GLIBC: 1
       BUILD_KERNEL: 1
       BUILD_MAXRUNTIME: 21000
