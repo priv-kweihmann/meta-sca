@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/spf13/afero/@v/v1.6.0.zip;srcoutput=github.com/spf13/afero;srcinput=github.com/spf13/afero@v1.6.0;downloadfilename=github-com-spf13-afero-1.6.0.zip;name=github-com-spf13-afero"
-SRC_URI[github-com-spf13-afero.sha256sum] = "234791203d4bb7405bf5ef7f5cecc6e64fdfa9fc5a12d85b6ec7ecdb86cc0834"
+SRC_URI += "https://proxy.golang.org/github.com/spf13/afero/@v/v1.8.0.zip;srcoutput=github.com/spf13/afero;srcinput=github.com/spf13/afero@v1.8.0;downloadfilename=github-com-spf13-afero-1.8.0.zip;name=github-com-spf13-afero"
+SRC_URI[github-com-spf13-afero.sha256sum] = "056d37744654c58e01738abfaa24fe0ac5ff49b11f98cce15215f6aeef73887c"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
@@ -10,5 +10,9 @@ LIC_FILES_CHKSUM += "\
 
 GOSRC_INCLUDEGUARD += "github.com-spf13-afero-sources.inc"
 
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-pubsub-sources.inc', '', 'cloud.google.com-go-pubsub-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-storage-sources.inc', '', 'cloud.google.com-go-storage-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-googleapis-google-cloud-go-testing-sources.inc', '', 'github.com-googleapis-google-cloud-go-testing-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-pkg-sftp-sources.inc', '', 'github.com-pkg-sftp-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-text-sources.inc', '', 'golang.org-x-text-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-api-sources.inc', '', 'google.golang.org-api-sources.inc', d)}
