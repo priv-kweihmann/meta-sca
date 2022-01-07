@@ -69,7 +69,11 @@ python do_cve_check() {
 
     if os.path.exists(d.getVar("CVE_CHECK_DB_FILE")):
         patched_cves = get_patches_cves(d)
-        _, patched, unpatched = check_cves(d, patched_cves)
+        _ret_cve_check = check_cves(d, patched_cves)
+        if len(_ret_cve_check) == 3:
+            _, patched, unpatched = check_cves(d, patched_cves)
+        else:
+            _, patched, unpatched, _ = check_cves(d, patched_cves)
         if patched or unpatched:
             cve_data = get_cve_info(d, patched + unpatched)
 
