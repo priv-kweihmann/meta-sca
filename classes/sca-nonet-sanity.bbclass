@@ -11,3 +11,7 @@ python () {
             d.delVarFlag(task, "nonetwork")
             bb.verbnote("Remove nonetwork flag from %s as the implementation requires network access" % task)
 }
+
+# recipe inheriting this class need network access while building
+do_compile[network] = "1"
+do_install[network] = "1"
