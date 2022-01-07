@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/bradfitz/gomemcache/@v/v0.0.0-20190913173617-a41fca850d0b.zip;srcoutput=github.com/bradfitz/gomemcache;srcinput=github.com/bradfitz/gomemcache@v0.0.0-20190913173617-a41fca850d0b;downloadfilename=github-com-bradfitz-gomemcache-0.0.0-20190913173617-a41fca850d0b.zip;name=github-com-bradfitz-gomemcache"
-SRC_URI[github-com-bradfitz-gomemcache.sha256sum] = "eb71acfac0c4ce5f0b6537d8029de98902d83fd38fdcbfd757f06697c6323f78"
+SRC_URI += "https://proxy.golang.org/github.com/bradfitz/gomemcache/@v/v0.0.0-20220106215444-fb4bf637b56d.zip;srcoutput=github.com/bradfitz/gomemcache;srcinput=github.com/bradfitz/gomemcache@v0.0.0-20220106215444-fb4bf637b56d;downloadfilename=github-com-bradfitz-gomemcache-0.0.0-20220106215444-fb4bf637b56d.zip;name=github-com-bradfitz-gomemcache"
+SRC_URI[github-com-bradfitz-gomemcache.sha256sum] = "cb329cbfa8420f0746c2b598931f6e20ca85a194adea8977c95b33f3f9fa321f"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
