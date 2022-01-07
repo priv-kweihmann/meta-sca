@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://license;md5=a1892d5a0eed5aae41e3df6a732d5ca3"
 
 DEPENDS = "npm-mri-native"
 
-SRC_URI = "https://registry.npmjs.org/sade/-/sade-1.8.0.tgz"
-SRC_URI[md5sum] = "b4e6a1afafb922e9e1e328cfb60742e1"
-SRC_URI[sha256sum] = "3afc50c6a8c21de5d5328b9130f4a80698b7ad6a44cec083669fbe769948728e"
+SRC_URI = "https://registry.npmjs.org/sade/-/sade-1.8.1.tgz"
+SRC_URI[md5sum] = "67ab0b2793a3205cfb6ee41692a7c439"
+SRC_URI[sha256sum] = "73dfd051a36ea90daf95c811ba503bb5230b24f86afbe755c254736dad5d045e"
 
 NPM_PKGNAME = "sade"
 
