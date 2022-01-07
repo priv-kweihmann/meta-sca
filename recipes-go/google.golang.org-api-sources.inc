@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/google.golang.org/api/@v/v0.63.0.zip;srcoutput=google.golang.org/api;srcinput=google.golang.org/api@v0.63.0;downloadfilename=google-golang-org-api-0.63.0.zip;name=google-golang-org-api"
-SRC_URI[google-golang-org-api.sha256sum] = "10a66fef1585d2591f24a783a36019f1c79870c2a0a95fbfc52f6eabf74b52af"
+SRC_URI += "https://proxy.golang.org/google.golang.org/api/@v/v0.64.0.zip;srcoutput=google.golang.org/api;srcinput=google.golang.org/api@v0.64.0;downloadfilename=google-golang-org-api-0.64.0.zip;name=google-golang-org-api"
+SRC_URI[google-golang-org-api.sha256sum] = "7a785fe3e1181d449a4fe4981be267c0cacc5a4db2b36e2b6df57459708d17a8"
 GOSRC_REMOVEDIRS += "google.golang.org/api/integration-tests/byoid google.golang.org/api/integration-tests/downscope"
 
 GOSRC_LICENSE += "\
