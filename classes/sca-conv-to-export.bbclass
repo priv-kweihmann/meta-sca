@@ -5,10 +5,12 @@ inherit sca-global
 inherit sca-helper
 
 def sca_allowed_warning_level(d):
-    opts = ["info", "warning", "error"]
-    while (opts and d.getVar("SCA_WARNING_LEVEL") != opts[0]):
-        opts = opts[1:]
-    return opts
+    if not hasattr(sca_allowed_warning_level, "allowed"):
+        opts = ["info", "warning", "error"] 
+        while (opts and d.getVar("SCA_WARNING_LEVEL") != opts[0]):
+            opts = opts[1:]
+        sca_allowed_warning_level.allowed = opts
+    return sca_allowed_warning_level.allowed
 
 def sca_conv_to_export(d, tool):
     import bb
