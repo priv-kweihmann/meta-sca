@@ -16,7 +16,7 @@ inherit sca-license-filter
 inherit sca-suppress
 inherit sca-image-backtrack
 
-DEPENDS += "libxml2-native"
+DEPENDS += "xmllint-sca-native"
 
 def do_sca_conv_xmllint(d):
     import os
