@@ -38,6 +38,8 @@ def do_sca_conv_reuse(d):
         with open(sca_raw_result_file(d, "reuse"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
+                    if "warning" not in sca_allowed_warning_level(d):
+                        continue
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
                                             Tool="reuse",
@@ -52,8 +54,7 @@ def do_sca_conv_reuse(d):
                         continue
                     if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
                         continue
-                    if g.Severity in sca_allowed_warning_level(d):
-                        _findings += sca_backtrack_findings(d, g)
+                    _findings += sca_backtrack_findings(d, g)
                 except Exception as e:
                     sca_log_note(d, str(e))
     sca_add_model_class_list(d, _findings)
