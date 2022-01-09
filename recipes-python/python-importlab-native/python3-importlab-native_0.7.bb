@@ -10,8 +10,8 @@ DEPENDS += "python3-networkx-native python3-six-native"
 
 PYPI_PACKAGE = "importlab"
 
-SRC_URI[md5sum] = "029fa8226d400ca4ea619916665dfdfa"
-SRC_URI[sha256sum] = "056503329df1ba8f6291a4b548042aa18620ad91d39388ba58044f0fd44ff83e"
+SRC_URI[md5sum] = "92c368d48afe204a57a91deafaa40e58"
+SRC_URI[sha256sum] = "744bd75d4410744962d203bd1eb71a950b19e8fb8eb5f0b805461dc0a2da329b"
 
 inherit pypi
 inherit setuptools3
