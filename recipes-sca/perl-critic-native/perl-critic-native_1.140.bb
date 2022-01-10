@@ -55,5 +55,4 @@ do_install:append() {
     sed -i "s#/usr/bin/perl#/usr/bin/env perl#g" ${D}${bindir}/perlcritic
 }
 
-RDEPENDS:${PN} += "perl"
 INSANE_SKIP:${PN} += "shebang-size"
