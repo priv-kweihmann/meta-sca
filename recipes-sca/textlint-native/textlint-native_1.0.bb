@@ -37,14 +37,7 @@ DEPENDS += "\
             npm-textlint-rule-write-good-native \
             "
 
-SRC_URI = "file://textlint.sca.description"
-
 inherit sca-description
 inherit native
 
-do_install() {
-    install -d ${D}${datadir}
-    install ${WORKDIR}/textlint.sca.description ${D}${datadir}
-}
-
-FILES:${PN} += "${datadir}"
+SCA_TOOL_DESCRIPTION = "textlint"

@@ -6,22 +6,21 @@ LIC_FILES_CHKSUM = "file://pkgqaenc.py;beginline=3;endline=27;md5=0f52bba3b062bd
 
 DEPENDS += "python3-native python3-python-magic-native"
 
-SRC_URI = "file://pkgqaenc.py \
-           file://pkgqaenc.sca.description"
+SRC_URI = "file://pkgqaenc.py"
 
 S = "${WORKDIR}"
 
 inherit sca-description
 inherit native
 
+SCA_TOOL_DESCRIPTION = "pkgqaenc"
+
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
 do_install:append() {
-    install -d ${D}${datadir}
-    install ${WORKDIR}/pkgqaenc.sca.description ${D}${datadir}/
     install -d ${D}${bindir}
     install -m 0755 ${WORKDIR}/pkgqaenc.py ${D}${bindir}/pkgqaenc
 }
 
-FILES:${PN} = "${bindir} ${datadir}"
+FILES:${PN} += "${bindir}"

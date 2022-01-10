@@ -12,7 +12,6 @@ SRC_URI = "\
            file://src/README \
            file://src/pscan.c \
            file://src/pscan.h \
-           file://pscan.sca.description \
            file://src/scanner.l \
            file://src/Makefile \
           "
@@ -21,6 +20,8 @@ S = "${WORKDIR}/src"
 
 inherit sca-description
 inherit native
+
+SCA_TOOL_DESCRIPTION = "pscan"
 
 do_configure[noexec] = "1"
 
@@ -31,8 +32,6 @@ do_compile() {
 do_install() {
     install -d ${D}${bindir}
     install -m 0755 ${S}/pscan ${D}${bindir}
-    install -d ${D}${datadir}
-    install ${WORKDIR}/pscan.sca.description ${D}${datadir}
 }
 
-FILES:${PN} = "${bindir} ${datadir}"
+FILES:${PN} += "${bindir}"

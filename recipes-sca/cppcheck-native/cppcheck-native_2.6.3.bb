@@ -7,8 +7,7 @@ LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 SRC_URI = "git://github.com/danmar/cppcheck.git;protocol=https;nobranch=1 \
-           file://0001-Makefile-fixes.patch \
-           file://cppcheck.sca.description"
+           file://0001-Makefile-fixes.patch"
 SRCREV = "3e518e64d0f1fb1e8b71f2d0e8c07d36e31d0ffc"
 
 S = "${WORKDIR}/git"
@@ -21,15 +20,16 @@ PACKAGECONFIG ??= "rules z3"
 PACKAGECONFIG[rules] = "HAVE_RULES=yes,,libpcre-native"
 PACKAGECONFIG[z3] = "USE_Z3=yes,,z3-native"
 
+SCA_TOOL_DESCRIPTION = "cppcheck"
+
 do_compile() {
     oe_runmake ${PACKAGECONFIG_CONFARGS} FILESDIR=.
 }
 
 do_install() {
     oe_runmake install DESTDIR=${D} FILESDIR=${datadir} PREFIX=${prefix}
-    install ${WORKDIR}/cppcheck.sca.description ${D}${datadir}
 }
 
-FILES:${PN} = "${bindir} ${datadir}"
+FILES:${PN} = "${bindir}"
 
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+(\.\d+)*)$"

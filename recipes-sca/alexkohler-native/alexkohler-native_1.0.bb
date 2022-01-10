@@ -15,17 +15,10 @@ DEPENDS += "\
             github.com-alexkohler-unimport-native \
            "
 
-SRC_URI = "file://alexkohler.sca.description"
-
 inherit sca-description
 inherit native
 
+SCA_TOOL_DESCRIPTION = "alexkohler"
+
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
-
-do_install() {
-    install -d ${D}${datadir}
-    install ${WORKDIR}/alexkohler.sca.description ${D}${datadir}/
-}
-
-FILES:${PN} += "${datadir}"
