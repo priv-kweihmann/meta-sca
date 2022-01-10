@@ -1,12 +1,21 @@
 ## SPDX-License-Identifier: BSD-2-Clause
 ## Copyright (c) 2020, Konrad Weihmann
 
+SCA_TOOL_DESCRIPTION ?= ""
+
+SRC_URI:append:class-native = " file://${SCA_TOOL_DESCRIPTION}.sca.description"
+
 python do_sca_tool_description() {
+    # this does nothing for non-native builds
+    pass
+}
+
+python do_sca_tool_description:class-native() {
     import json
     import glob
     import re
 
-    for item in glob.glob(d.expand("${D}${datadir}/*.sca.description")):
+    for item in glob.glob(d.expand("${WORKDIR}/${SCA_TOOL_DESCRIPTION}.sca.description")):
         cnt = {}
         with open(item) as i:
             cnt = json.load(i)
@@ -21,4 +30,13 @@ python do_sca_tool_description() {
 }
 
 do_sca_tool_description[doc] = "Adds dynamic information such as version into the sca-tool description"
-addtask do_sca_tool_description after do_install before do_populate_sysroot
+addtask do_sca_tool_description after do_patch before do_install
+
+do_install:append:class-native() {
+    install -d ${D}${datadir}
+    if [ -e ${WORKDIR}/${SCA_TOOL_DESCRIPTION}.sca.description ]; then
+        install -m 0644 ${WORKDIR}/${SCA_TOOL_DESCRIPTION}.sca.description ${D}${datadir}
+    fi
+}
+
+FILES:${PN}:class-native += "${datadir}"

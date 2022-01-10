@@ -7,21 +7,17 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=3edd6782854304fd11da4975ab9799c1"
 
 DEPENDS_class_native += "${BPN}"
 
-SRC_URI = "git://github.com/CISOfy/lynis.git;branch=master;protocol=https \
-           file://lynis.sca.description"
+SRC_URI = "git://github.com/CISOfy/lynis.git;branch=master;protocol=https"
 SRCREV = "c89fc248dc9f49d3931c4b05ac0cdf093d87ec40"
 S = "${WORKDIR}/git"
 
 inherit autotools-brokensep
 inherit sca-description
 
+SCA_TOOL_DESCRIPTION = "lynis"
+
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
-
-do_install:class-native () {
-    install -d ${D}/${datadir}
-    install ${WORKDIR}/lynis.sca.description ${D}${datadir}
-}
 
 do_install:class-target () {
     install -d ${D}/${bindir}
@@ -40,7 +36,6 @@ do_install:class-target () {
     cp ${S}/*.prf ${D}/${sysconfdir}/lynis
 }
 
-FILES:${PN}:class-native = "${datadir}"
 FILES:${PN}:class-target = "${datadir} ${sysconfdir} ${bindir}"
 
 RDEPENDS:${PN}:class-target += "procps"

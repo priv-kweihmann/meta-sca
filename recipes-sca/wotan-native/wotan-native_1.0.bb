@@ -11,14 +11,7 @@ DEPENDS += "\
             npm-typescript-native \
             "
 
-SRC_URI = "file://wotan.sca.description"
-
 inherit sca-description
 inherit native
 
-do_install() {
-    install -d ${D}${datadir}
-    install ${WORKDIR}/wotan.sca.description ${D}${datadir}
-}
-
-FILES:${PN} += "${datadir}"
+SCA_TOOL_DESCRIPTION = "wotan"

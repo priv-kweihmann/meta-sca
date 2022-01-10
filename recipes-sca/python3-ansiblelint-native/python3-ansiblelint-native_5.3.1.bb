@@ -28,8 +28,6 @@ DEPENDS += "\
             python3-wcmatch-native \
             "
 
-# wheel-files are just zip-files, so we can threat them like that
-SRC_URI:append = " file://ansiblelint.sca.description"
 SRC_URI[sha256sum] = "7d7bc74b9b90c5982be5c274c2afcba5b8073ec88cce793fab463fe6418a25f6"
 
 PYPI_PACKAGE = "ansible-lint"
@@ -40,9 +38,4 @@ inherit sca-setuptools-legacy
 inherit setuptools3
 inherit native
 
-do_install:append() {
-    install -d ${D}${datadir}
-    install ${WORKDIR}/ansiblelint.sca.description ${D}${datadir}
-}
-
-FILES:${PN} += "${datadir}"
+SCA_TOOL_DESCRIPTION = "ansiblelint"

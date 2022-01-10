@@ -10,10 +10,7 @@ DEPENDS += "\
             python3-pygments-native \
             "
 
-SRC_URI += "\
-            git://github.com/priv-kweihmann/multimetric.git;protocol=https;branch=master \
-            file://multimetric.sca.description \
-           "
+SRC_URI += "git://github.com/priv-kweihmann/multimetric.git;protocol=https;branch=master"
 SRCREV = "1bb8a8b2c28a7d817c3f57736d08e4fb13e9c16c"
 S = "${WORKDIR}/git"
 
@@ -21,9 +18,4 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
-do_install:append() {
-    install -d ${D}${datadir}
-    install ${WORKDIR}/multimetric.sca.description ${D}${datadir}
-}
-
-FILES:${PN} += "${datadir}"
+SCA_TOOL_DESCRIPTION = "multimetric"

@@ -35,8 +35,7 @@ DEPENDS += "\
             perl-text-parsewords-native \
             "
 
-SRC_URI = "git://github.com/Perl-Critic/Perl-Critic.git;branch=master;protocol=https \
-           file://perlcritic.sca.description"
+SRC_URI = "git://github.com/Perl-Critic/Perl-Critic.git;branch=master;protocol=https"
 SRCREV = "47c8115b82f47bd27cba1af2f200694e69a1ef14"
 S = "${WORKDIR}/git"
 
@@ -46,15 +45,15 @@ inherit cpan_build
 inherit sca-description
 inherit native
 
+SCA_TOOL_DESCRIPTION = "perlcritic"
+
 do_compile () {
     perl Build verbose=1
 }
 
 do_install:append() {
-    install -d ${D}${datadir}
-    install ${WORKDIR}/perlcritic.sca.description ${D}${datadir}/
-
     sed -i "s#/usr/bin/perl#/usr/bin/env perl#g" ${D}${bindir}/perlcritic
 }
 
-FILES:${PN} += "${datadir}"
+RDEPENDS:${PN} += "perl"
+INSANE_SKIP:${PN} += "shebang-size"

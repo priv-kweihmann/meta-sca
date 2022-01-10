@@ -14,8 +14,7 @@ DEPENDS += "\
             python3-urllib3-native \
             "
 
-SRC_URI = "git://github.com/priv-kweihmann/oelint-adv.git;protocol=https;branch=master \
-           file://oelint.sca.description"
+SRC_URI = "git://github.com/priv-kweihmann/oelint-adv.git;protocol=https;branch=master"
 SRCREV = "04a89cd2daffebbf95edd08ba2b10e07cfe32c9a"
 S = "${WORKDIR}/git"
 
@@ -23,9 +22,4 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
-do_install:append() {
-    install -d ${D}${datadir}
-    install ${WORKDIR}/oelint.sca.description ${D}${datadir}
-}
-
-FILES:${PN} += "${datadir}"
+SCA_TOOL_DESCRIPTION = "oelint"

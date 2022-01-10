@@ -33,19 +33,16 @@ DEPENDS += "\
             npm-getify-eslint-plugin-proper-arrows-native \
             "
 
-SRC_URI = "file://configs/eslint-plain.json \
-           file://eslint.sca.description"
+SRC_URI = "file://configs/eslint-plain.json"
 
 inherit sca-description
 inherit native
+
+SCA_TOOL_DESCRIPTION = "eslint"
 
 do_install() {
     install -d ${D}/${datadir}/eslint/configs
     for _f in ${WORKDIR}/configs/*; do
         install ${_f} ${D}/${datadir}/eslint/configs/
     done
-    install -d ${D}${datadir}
-    install ${WORKDIR}/eslint.sca.description ${D}${datadir}
 }
-
-FILES:${PN} += "${datadir}"

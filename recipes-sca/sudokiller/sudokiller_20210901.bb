@@ -6,14 +6,15 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f45999e825d6792e32a1cbadd968b1b7"
 
-SRC_URI = "git://github.com/TH3xACE/SUDO_KILLER.git;branch=master;protocol=https \
-           file://sudokiller.sca.description"
+SRC_URI = "git://github.com/TH3xACE/SUDO_KILLER.git;branch=master;protocol=https"
 SRCREV = "899b4ca3623d9ef1438e976d0500377d52b419f4"
 UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
 
 inherit sca-description
+
+SCA_TOOL_DESCRIPTION = "sudokiller"
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
@@ -28,13 +29,7 @@ do_install() {
     chown -R root:root ${D}${bindir}/sudokiller/
 }
 
-do_install:append:class-native () {
-    install -d ${D}/${datadir}
-    install ${WORKDIR}/sudokiller.sca.description ${D}${datadir}
-}
-
 FILES:${PN} = "${bindir}"
-FILES:${PN}:class-native += "${datadir}"
 
 RDEPENDS:${PN} += "bash"
 
