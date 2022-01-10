@@ -6,17 +6,10 @@ LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=a4a2bbea1db029f21b3a328c7
 
 DEPENDS += "nodejs-native"
 
-SRC_URI = "file://npmaudit.sca.description"
-
 inherit sca-description
 inherit native
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
-do_install() {
-    install -d ${D}${datadir}
-    install ${WORKDIR}/npmaudit.sca.description ${D}${datadir}/
-}
-
-FILES:${PN} = "${datadir}"
+SCA_TOOL_DESCRIPTION = "npmaudit"

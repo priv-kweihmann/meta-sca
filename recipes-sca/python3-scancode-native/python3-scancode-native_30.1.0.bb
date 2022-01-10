@@ -73,8 +73,7 @@ DEPENDS += "\
 RDEPENDS:${PN} += "${DEPENDS}"
 
 SRC_URI = "git://github.com/nexB/scancode-toolkit.git;protocol=https;nobranch=1 \
-           file://0001-lift-version-requirements.patch \
-           file://scancode.sca.description"
+           file://0001-lift-version-requirements.patch"
 SRCREV = "c53e81298eecc1cdf0da23b3d57962a85c323afb"
 
 S = "${WORKDIR}/git"
@@ -83,9 +82,4 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
-do_install:append() {
-    install -d ${D}${datadir}
-    install ${WORKDIR}/scancode.sca.description ${D}${datadir}
-}
-
-FILES:${PN} += "${datadir}"
+SCA_TOOL_DESCRIPTION = "scancode"

@@ -12,7 +12,6 @@ DEPENDS += "\
             python3-polib-native \
            "
 
-SRC_URI:append = " file://dennis.sca.description"
 SRC_URI[md5sum] = "2636710455435f612e8595c659e2c746"
 SRC_URI[sha256sum] = "8c942dd5da7d03c65daebc069c5ee5c7f1374ac9b0c8c89c627caa66fe822604"
 
@@ -23,12 +22,9 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
-do_install:append() {
-    install -d ${D}${datadir}
-    install ${WORKDIR}/dennis.sca.description ${D}${datadir}
+SCA_TOOL_DESCRIPTION = "dennis"
 
+do_install:append() {
     ## This otherwise collides with other modules
     rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/tests/
 }
-
-FILES:${PN} += "${datadir}"

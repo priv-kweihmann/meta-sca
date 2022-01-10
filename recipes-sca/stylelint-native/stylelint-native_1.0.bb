@@ -9,14 +9,7 @@ DEPENDS += "\
             npm-stylelint-config-standard-native \
             "
 
-SRC_URI = "file://stylelint.sca.description"
-
 inherit sca-description
 inherit native
 
-do_install() {
-    install -d ${D}${datadir}
-    install ${WORKDIR}/stylelint.sca.description ${D}${datadir}
-}
-
-FILES:${PN} += "${datadir}"
+SCA_TOOL_DESCRIPTION = "stylelint"

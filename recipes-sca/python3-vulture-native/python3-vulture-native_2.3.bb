@@ -7,7 +7,6 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=7742d436e18716a43014253ae9f16b7e"
 
 DEPENDS += "python3-toml-native"
 
-SRC_URI:append = " file://vulture.sca.description"
 SRC_URI[md5sum] = "4f9b49b480e65eea61f26af9b3a00daa"
 SRC_URI[sha256sum] = "03d5a62bcbe9ceb9a9b0575f42d71a2d414070229f2e6f95fa6e7c71aaaed967"
 
@@ -18,9 +17,4 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
-do_install:append() {
-    install -d ${D}${datadir}
-    install ${WORKDIR}/vulture.sca.description ${D}${datadir}
-}
-
-FILES:${PN} += "${datadir}"
+SCA_TOOL_DESCRIPTION = "vulture"

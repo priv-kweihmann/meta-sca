@@ -11,8 +11,7 @@ DEPENDS += "\
            "
 
 SRC_URI = "git://github.com/diffblue/cbmc.git;protocol=https;branch=develop \
-           file://0001-diable-goto-gcc-regression-tests.patch \
-           file://cbmc.sca.description"
+           file://0001-diable-goto-gcc-regression-tests.patch"
 
 SRCREV = "b79bd515ca20259287602abd68d5a32c276dbdd9"
 
@@ -24,9 +23,10 @@ inherit cmake
 inherit sca-description
 inherit native
 
+SCA_TOOL_DESCRIPTION = "cbmc"
+
 EXTRA_OECMAKE += "-DWITH_JBMC=OFF -DWITH_MEMORY_ANALYZER=ON"
 CXXFLAGS += "-Wno-error=maybe-uninitialized"
-FILES:${PN} += "${datadir}"
 
 do_install() {
     install -d ${D}${datadir}
@@ -35,6 +35,4 @@ do_install() {
     for item in ${B}/bin/*; do
         install -m 0755 $item ${D}/${bindir}/$(basename $item)
     done
-
-    install ${WORKDIR}/cbmc.sca.description ${D}${datadir}
 }
