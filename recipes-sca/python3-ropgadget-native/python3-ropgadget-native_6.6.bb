@@ -11,8 +11,7 @@ DEPENDS += "\
             python3-native \
            "
 
-SRC_URI = "git://github.com/JonathanSalwan/ROPgadget.git;branch=master;protocol=https \
-           file://ropgadget.sca.description"
+SRC_URI = "git://github.com/JonathanSalwan/ROPgadget.git;branch=master;protocol=https"
 SRCREV = "4bdb1266cf21814feb4b7e6f3de43e69272778f6"
 S = "${WORKDIR}/git"
 
@@ -20,9 +19,4 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
-do_install:append() {
-    install -d ${D}${datadir}
-    install ${WORKDIR}/ropgadget.sca.description ${D}${datadir}
-}
-
-FILES:${PN} += "${datadir}"
+SCA_TOOL_DESCRIPTION = "ropgadget"

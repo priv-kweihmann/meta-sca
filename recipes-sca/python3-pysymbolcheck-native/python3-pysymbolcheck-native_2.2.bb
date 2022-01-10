@@ -11,8 +11,7 @@ DEPENDS += "\
             python3-pyelftools-native \
             "
 
-SRC_URI = "git://github.com/priv-kweihmann/pysymbolcheck.git;protocol=https;branch=master \
-           file://pysymcheck.sca.description"
+SRC_URI = "git://github.com/priv-kweihmann/pysymbolcheck.git;protocol=https;branch=master"
 SRCREV = "a12e3ee6c64ec8d411bc2411fef3c670821db4a0"
 S = "${WORKDIR}/git"
 
@@ -20,9 +19,10 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
+SCA_TOOL_DESCRIPTION = "pysymcheck"
+
 do_install:append() {
     install -d ${D}${datadir}/pysymbolcheck
-    install ${WORKDIR}/pysymcheck.sca.description ${D}${datadir}
     install ${WORKDIR}/git/basic_rules.json ${D}${datadir}/pysymbolcheck
 }
 

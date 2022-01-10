@@ -31,8 +31,6 @@ SRC_URI[blob_x86_64.sha256sum] = "ab6ee1b178f014d1b86d1e24da20d1139656c8b0ed34d2
 SRC_URI[blob_aarch64.sha256sum] = "9f47bbff5624babfa712eb9d64ece14c6c46327122d0c54983f627ae3a30a4ac"
 SRC_URI[blob_armv6hf.sha256sum] = "17857c8a0a8f4001aa9638732991cbb6e85c4a410500b11e2e0a98d9858afca8"
 
-SRC_URI:append = " file://shellcheck.sca.description"
-
 S = "${WORKDIR}/shellcheck-v${PV}"
 
 do_patch[noexec] = "1"
@@ -42,11 +40,11 @@ do_compile[noexec] = "1"
 inherit sca-description
 inherit native
 
+SCA_TOOL_DESCRIPTION = "shellcheck"
+
 do_install() {
     install -d ${D}${bindir}
     cp -R ${S}/shellcheck ${D}${bindir}
-    install -d ${D}${datadir}
-    install ${WORKDIR}/shellcheck.sca.description ${D}${datadir}
 
     # Add a wrapper script to fix the linking issues
     cat << EOF > ${D}${bindir}/shellcheck-wrapper
@@ -61,7 +59,7 @@ EOF
     chmod 0755 ${D}${bindir}/shellcheck-wrapper
 }
 
-FILES:${PN} = "${bindir} ${datadir}"
+FILES:${PN} = "${bindir}"
 
 UPSTREAM_CHECK_URI = "https://github.com/koalaman/shellcheck/tags"
 UPSTREAM_CHECK_REGEX = "releases/tag/v(?P<pver>\d+\.\d+\.\d+)"

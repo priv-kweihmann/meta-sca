@@ -20,7 +20,6 @@ DEPENDS += "\
             python3-typed-ast-native \
             "
 
-SRC_URI:append = " file://pytype.sca.description"
 SRC_URI[md5sum] = "9b9a606e2f6538f749bfffd24386f338"
 SRC_URI[sha256sum] = "c824d09dd463165ee47dd78f7ca30941353c2095361aadb57165c4211c148901"
 
@@ -31,13 +30,8 @@ inherit sca-description
 inherit setuptools3
 inherit native
 
+SCA_TOOL_DESCRIPTION = "pytype"
+
 do_configure:prepend() {
     sed -i "/ninja/d" ${S}/setup.cfg
 }
-
-do_install:append() {
-    install -d ${D}${datadir}
-    install ${WORKDIR}/pytype.sca.description ${D}${datadir}
-}
-
-FILES:${PN} += "${datadir}"
