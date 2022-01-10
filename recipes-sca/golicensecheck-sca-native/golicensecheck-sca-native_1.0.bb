@@ -9,17 +9,10 @@ DEPENDS += "\
     licensecheck-helper-native \
 "
 
-SRC_URI = "file://golicensecheck.sca.description"
-
 inherit sca-description
 inherit native
 
+SCA_TOOL_DESCRIPTION = "golicensecheck"
+
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
-
-do_install() {
-    install -d ${D}${datadir}
-    install ${WORKDIR}/golicensecheck.sca.description ${D}${datadir}/
-}
-
-FILES:${PN} = "${datadir}"

@@ -5,13 +5,14 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
-SRC_URI = "git://github.com/diego-treitos/linux-smart-enumeration.git;branch=master;protocol=https \
-           file://lse.sca.description"
+SRC_URI = "git://github.com/diego-treitos/linux-smart-enumeration.git;branch=master;protocol=https"
 SRCREV = "6ea7d311e9e44d171d075d225dc791759d1ea5e2"
 
 S = "${WORKDIR}/git"
 
 inherit sca-description
+
+SCA_TOOL_DESCRIPTION = "lse"
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
@@ -21,13 +22,7 @@ do_install() {
     install -m 0755 ${S}/lse.sh ${D}${bindir}/lse.sh
 }
 
-do_install:append:class-native () {
-    install -d ${D}/${datadir}
-    install ${WORKDIR}/lse.sca.description ${D}${datadir}
-}
-
 FILES:${PN} = "${bindir}"
-FILES:${PN}:class-native += "${datadir}"
 
 # We don't really care about debug package for this one
 # also because of the issue mentioned below

@@ -9,19 +9,12 @@ DEPENDS += "\
             licensecheck-helper-native \
             "
 
-SRC_URI = "file://licensecheck.sca.description"
-
 S = "${WORKDIR}"
 
 inherit sca-description
 inherit native
 
+SCA_TOOL_DESCRIPTION = "licensecheck"
+
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
-
-do_install:append() {
-    install -d ${D}${datadir}
-    install ${WORKDIR}/licensecheck.sca.description ${D}${datadir}/
-}
-
-FILES:${PN} = "${datadir}"

@@ -13,14 +13,7 @@ DEPENDS += "\
             npm-secretlint-secretlint-rule-secp256k1-privatekey-native \
             "
 
-SRC_URI = "file://secretlint.sca.description"
-
 inherit sca-description
 inherit native
 
-do_install() {
-    install -d ${D}${datadir}
-    install ${WORKDIR}/secretlint.sca.description ${D}${datadir}
-}
-
-FILES:${PN} += "${datadir}"
+SCA_TOOL_DESCRIPTION = "secretlint"
