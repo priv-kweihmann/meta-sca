@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/mozilla/scribe/@v/v0.0.0-20180711195314-fb71baf557c1.zip;srcoutput=github.com/mozilla/scribe;srcinput=github.com/mozilla/scribe@v0.0.0-20180711195314-fb71baf557c1;downloadfilename=github-com-mozilla-scribe-0.0.0-20180711195314-fb71baf557c1.zip;name=github-com-mozilla-scribe"
-SRC_URI[github-com-mozilla-scribe.sha256sum] = "f92a2bcc665bf606d7f3abbf994917e2deedb8574a8d41eef11a6634f80d6f89"
+SRC_URI += "https://proxy.golang.org/github.com/mozilla/scribe/@v/v0.0.0-20220110210141-3fd4271eb395.zip;srcoutput=github.com/mozilla/scribe;srcinput=github.com/mozilla/scribe@v0.0.0-20220110210141-3fd4271eb395;downloadfilename=github-com-mozilla-scribe-0.0.0-20220110210141-3fd4271eb395.zip;name=github-com-mozilla-scribe"
+SRC_URI[github-com-mozilla-scribe.sha256sum] = "926c32210545d47f64df4b4e398e6cf82f426179d7c938b4bb1e05c112ba296c"
 
 GOSRC_LICENSE += "\
     MPL-2.0 \
