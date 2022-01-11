@@ -14,8 +14,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "enrich"
 
-SRC_URI[md5sum] = "9981b0cdc88c5e64cf42c67c015e19e1"
-SRC_URI[sha256sum] = "0e99ff57d87f7b5def0ca79917e88fb9351aa0d52e228ee38bff7cd858315fe4"
+SRC_URI[md5sum] = "272588dcb826a71e1745596514c11354"
+SRC_URI[sha256sum] = "0a2ab0d2931dff8947012602d1234d2a3ee002d9a355b5d70be6bf5466008893"
 
 inherit pypi
 inherit setuptools3
