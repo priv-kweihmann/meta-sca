@@ -28,7 +28,7 @@ DEPENDS += "\
             python3-wcmatch-native \
             "
 
-SRC_URI[sha256sum] = "7d7bc74b9b90c5982be5c274c2afcba5b8073ec88cce793fab463fe6418a25f6"
+SRC_URI[sha256sum] = "9ba886db4c44e59360bc8d668f0beae6193c0a1fcbb9e76127000ca3aced7c28"
 
 PYPI_PACKAGE = "ansible-lint"
 
