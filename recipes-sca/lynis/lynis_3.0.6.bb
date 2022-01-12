@@ -11,7 +11,6 @@ SRC_URI = "git://github.com/CISOfy/lynis.git;branch=master;protocol=https"
 SRCREV = "c89fc248dc9f49d3931c4b05ac0cdf093d87ec40"
 S = "${WORKDIR}/git"
 
-inherit autotools-brokensep
 inherit sca-description
 
 SCA_TOOL_DESCRIPTION = "lynis"
