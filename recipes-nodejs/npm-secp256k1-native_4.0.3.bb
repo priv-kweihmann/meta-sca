@@ -17,3 +17,7 @@ NPM_PKGNAME = "secp256k1"
 
 inherit npmhelper
 inherit native
+
+do_install:append() {
+    rm -rf ${D}${libdir}/node_modules/@types/secp256k1
+}
