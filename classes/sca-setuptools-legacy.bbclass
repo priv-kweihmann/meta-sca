@@ -15,7 +15,7 @@ python do_create_setup_py_legacy() {
     import os
     import glob
 
-    if os.path.exists(os.path.join(d.getVar("DISTUTILS_SETUP_PATH"), "setup.py")):
+    if os.path.exists(os.path.join(d.getVar("SETUPTOOLS_SETUP_PATH"), "setup.py")):
         return
 
     from configparser import ConfigParser, NoOptionError, NoSectionError, ParsingError
@@ -23,7 +23,7 @@ python do_create_setup_py_legacy() {
 
     config = ConfigParser()
     try:
-        config.read(os.path.join(d.getVar("DISTUTILS_SETUP_PATH"), "setup.cfg"))
+        config.read(os.path.join(d.getVar("SETUPTOOLS_SETUP_PATH"), "setup.cfg"))
     except FileNotFoundError:
         return
 
@@ -102,9 +102,9 @@ python do_create_setup_py_legacy() {
     if _pkginfo["packages"] == ["find:"]:
         # top level search dir can be adjusted by options.packages.find option
         _path = extract_str("options.packages.find", "where", "")
-        _pkginfo["packages"] = find_packages(os.path.join(d.getVar("DISTUTILS_SETUP_PATH"), _path))
+        _pkginfo["packages"] = find_packages(os.path.join(d.getVar("SETUPTOOLS_SETUP_PATH"), _path))
 
-    with open(os.path.join(d.getVar("DISTUTILS_SETUP_PATH"), "setup.py"), "w") as o:
+    with open(os.path.join(d.getVar("SETUPTOOLS_SETUP_PATH"), "setup.py"), "w") as o:
         o.write("import setuptools\n")
         o.write("setuptools.setup(\n")
         for k, v in _pkginfo.items():
