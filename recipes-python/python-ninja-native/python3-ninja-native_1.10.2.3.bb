@@ -26,4 +26,7 @@ inherit pypi
 inherit setuptools3
 inherit native
 
+# accesses network - under investigation
+do_compile[network] = "1"
+
 INSANE_SKIP:${PN} += "already-stripped"

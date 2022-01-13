@@ -18,6 +18,9 @@ do_install() {
     npm install --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --save-dev
 }
 
+# we need to allow network here
+do_install[network] = "1"
+
 SCA_BLACKLIST_proselint += "${PN}"
 
 SCA_ENABLED_MODULES = "bitbake retire npmaudit"
