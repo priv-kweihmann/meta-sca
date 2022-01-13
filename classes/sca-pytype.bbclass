@@ -100,4 +100,4 @@ do_sca_pytype_report[doc] = "Report findings of do_sca_pytype"
 addtask do_sca_pytype after do_configure before do_sca_tracefiles
 addtask do_sca_pytype_report after do_sca_tracefiles before do_sca_deploy
 
-DEPENDS += "python3-pytype-native sca-recipe-pytype-rules-native"
+DEPENDS += "python3-pytype-native ninja-native sca-recipe-pytype-rules-native"
