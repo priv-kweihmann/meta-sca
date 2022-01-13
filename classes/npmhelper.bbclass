@@ -46,5 +46,7 @@ npmhelper_do_install() {
     install -d ${D}${libdir}/node_modules
     npm install --prefix ${D}${prefix} -g ${NPM_EXTRA_ARGS} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --production ${B}/${NPM_PKGNAME_CLEAN}-${PV}.tgz
 }
+npmhelper_do_install[network] = "1"
+do_install[network] = "1"
 
 EXPORT_FUNCTIONS do_install
