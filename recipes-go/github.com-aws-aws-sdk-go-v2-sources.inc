@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/@v/v1.12.0.zip;srcoutput=github.com/aws/aws-sdk-go-v2;srcinput=github.com/aws/aws-sdk-go-v2@v1.12.0;downloadfilename=github-com-aws-aws-sdk-go-v2-1.12.0.zip;name=github-com-aws-aws-sdk-go-v2"
-SRC_URI[github-com-aws-aws-sdk-go-v2.sha256sum] = "bd969c22309baf8f3fe2f304fcdf3f1e99dec9aa2a82708570dc67c20f6bea02"
+SRC_URI += "https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/@v/v1.13.0.zip;srcoutput=github.com/aws/aws-sdk-go-v2;srcinput=github.com/aws/aws-sdk-go-v2@v1.13.0;downloadfilename=github-com-aws-aws-sdk-go-v2-1.13.0.zip;name=github-com-aws-aws-sdk-go-v2"
+SRC_URI[github-com-aws-aws-sdk-go-v2.sha256sum] = "e3a623e41ef34d8caf8c0e0be0bd3458befe9228cc480e9903bb3d1027594c68"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
