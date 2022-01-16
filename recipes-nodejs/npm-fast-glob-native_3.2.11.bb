@@ -11,9 +11,9 @@ DEPENDS = "npm-glob-parent-native \
            npm-nodelib-fs.stat-native \
            npm-nodelib-fs.walk-native"
 
-SRC_URI = "https://registry.npmjs.org/fast-glob/-/fast-glob-3.2.10.tgz"
-SRC_URI[md5sum] = "13be2d71da1ea9f6c5f387983ee478cf"
-SRC_URI[sha256sum] = "50189f38546ac5c946f2a5b218fc4c1276c435ae35fbc43ffda9c57965f2ad82"
+SRC_URI = "https://registry.npmjs.org/fast-glob/-/fast-glob-3.2.11.tgz"
+SRC_URI[md5sum] = "35ded3d6c6e212f41a0b1a3c7cf2f0fc"
+SRC_URI[sha256sum] = "608f893e33abbb4fbe9cdd9b5247836c97cd74a40eb50e6a210c5bbbc3eb3adc"
 
 NPM_PKGNAME = "fast-glob"
 
