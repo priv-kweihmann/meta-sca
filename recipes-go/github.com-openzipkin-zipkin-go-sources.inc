@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/openzipkin/zipkin-go/@v/v0.3.0.zip;srcoutput=github.com/openzipkin/zipkin-go;srcinput=github.com/openzipkin/zipkin-go@v0.3.0;downloadfilename=github-com-openzipkin-zipkin-go-0.3.0.zip;name=github-com-openzipkin-zipkin-go"
-SRC_URI[github-com-openzipkin-zipkin-go.sha256sum] = "ac61afde2a4b80564411e9b1af6330e1a4a7847de895f3aebb9d209ce74964af"
+SRC_URI += "https://proxy.golang.org/github.com/openzipkin/zipkin-go/@v/v0.4.0.zip;srcoutput=github.com/openzipkin/zipkin-go;srcinput=github.com/openzipkin/zipkin-go@v0.4.0;downloadfilename=github-com-openzipkin-zipkin-go-0.4.0.zip;name=github-com-openzipkin-zipkin-go"
+SRC_URI[github-com-openzipkin-zipkin-go.sha256sum] = "830d54a7bd19422b1510fdab391bfd60f378ad1dddc16b3838a783de8f2e8eea"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
