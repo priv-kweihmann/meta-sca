@@ -10,9 +10,9 @@ DEPENDS = "npm-is-buffer-native \
            npm-unist-util-stringify-position-native \
            npm-vfile-message-native"
 
-SRC_URI = "https://registry.npmjs.org/vfile/-/vfile-5.2.1.tgz"
-SRC_URI[md5sum] = "84702ff2567829b170add6e8e47285a3"
-SRC_URI[sha256sum] = "5541fbe699dd773f1ec18ce4f33f7effb178bebb3407eff71eaa0a44c065d24d"
+SRC_URI = "https://registry.npmjs.org/vfile/-/vfile-5.3.0.tgz"
+SRC_URI[md5sum] = "5ffa07b665931d821c05bbc32a0671c7"
+SRC_URI[sha256sum] = "761721f75700a66461bdb17009e80a7154dc68b1665c570f35d4b8b8dc160232"
 
 NPM_PKGNAME = "vfile"
 
