@@ -10,7 +10,6 @@ DEPENDS = "npm-ajv-native \
            npm-cross-spawn-native \
            npm-debug-native \
            npm-doctrine-native \
-           npm-enquirer-native \
            npm-escape-string-regexp-native \
            npm-eslint-eslintrc-native \
            npm-eslint-scope-native \
@@ -36,17 +35,15 @@ DEPENDS = "npm-ajv-native \
            npm-minimatch-native \
            npm-natural-compare-native \
            npm-optionator-native \
-           npm-progress-native \
            npm-regexpp-native \
-           npm-semver-native \
            npm-strip-ansi-native \
            npm-strip-json-comments-native \
            npm-text-table-native \
            npm-v8-compile-cache-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint/-/eslint-8.6.0.tgz"
-SRC_URI[md5sum] = "7d13c50f48175f86322e2582d130a027"
-SRC_URI[sha256sum] = "ca47edc46dd95316882d457ee782e47b4c7bf5e3c095c8d98a44ccac63974d39"
+SRC_URI = "https://registry.npmjs.org/eslint/-/eslint-8.7.0.tgz"
+SRC_URI[md5sum] = "8f482d017fb31d28bb7188450c221c6d"
+SRC_URI[sha256sum] = "4995e96e0abdc29ca40a564ff572f248f6910eb06083a0cf1488a889ac6cbfab"
 
 NPM_PKGNAME = "eslint"
 
