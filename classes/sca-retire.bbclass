@@ -101,6 +101,7 @@ python do_sca_retire_report() {
 }
 
 do_sca_retire[doc] = "Find vulnerable js code"
+do_sca_retire[network] = "1"
 do_sca_retire_report[doc] = "Report finding of do_sca_retire"
 addtask do_sca_retire after do_install before do_sca_tracefiles
 addtask do_sca_retire_report after do_sca_tracefiles before do_sca_deploy
