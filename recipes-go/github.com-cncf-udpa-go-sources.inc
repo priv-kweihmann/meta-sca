@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/cncf/udpa/go/@v/v0.0.0-20210930031921-04548b0d99d4.zip;srcoutput=github.com/cncf/udpa/go;srcinput=github.com/cncf/udpa/go@v0.0.0-20210930031921-04548b0d99d4;downloadfilename=github-com-cncf-udpa-go-0.0.0-20210930031921-04548b0d99d4.zip;name=github-com-cncf-udpa-go"
-SRC_URI[github-com-cncf-udpa-go.sha256sum] = "a449fa94e58117a79c17577e39f72f695c4876f74cbd9142d512278192ca90aa"
+SRC_URI += "https://proxy.golang.org/github.com/cncf/udpa/go/@v/v0.0.0-20220112060539-c52dc94e7fbe.zip;srcoutput=github.com/cncf/udpa/go;srcinput=github.com/cncf/udpa/go@v0.0.0-20220112060539-c52dc94e7fbe;downloadfilename=github-com-cncf-udpa-go-0.0.0-20220112060539-c52dc94e7fbe.zip;name=github-com-cncf-udpa-go"
+SRC_URI[github-com-cncf-udpa-go.sha256sum] = "8fe1585f25d40a5e3cd4243a92143d71ae4ee92e915e7192e72387047539438e"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
