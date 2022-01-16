@@ -6,7 +6,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=34400b68072d710fecd0a2940a0d1658"
 
 SRC_URI = "git://github.com/dev-sec/ssh-baseline.git;branch=master;protocol=https"
-SRCREV = "8e2eb24ecfbbce9e9d7c6f96c6fc0f977b470e49"
+SRCREV = "e3c4b5e222e7fcb3b7d6d4e62a73d4457f0d758d"
 S = "${WORKDIR}/git"
 
 ROLE_NAME = "ssh-baseline"
