@@ -134,6 +134,7 @@ python do_sca_safety() {
                        d.expand("${STAGING_DATADIR_NATIVE}/safety-${SCA_MODE}-fatal")))
 }
 
+do_sca_safety[network] = "1"
 do_sca_safety[doc] = "Find known vulnarabilities in used python libraries"
 addtask do_sca_safety before do_sca_deploy after do_compile
 
