@@ -1,15 +1,15 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/compute/@v/v0.1.0.zip;srcoutput=cloud.google.com/go/compute;srcinput=cloud.google.com/go/compute@v0.1.0;downloadfilename=cloud-google-com-go-compute-0.1.0.zip;name=cloud-google-com-go-compute"
-SRC_URI[cloud-google-com-go-compute.sha256sum] = "5178a3b525efe2866f1760264cb510525333457bcb21b1045e7fd432f1ce5340"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/compute/@v/v1.0.0.zip;srcoutput=cloud.google.com/go/compute;srcinput=cloud.google.com/go/compute@v1.0.0;downloadfilename=cloud-google-com-go-compute-1.0.0.zip;name=cloud-google-com-go-compute"
+SRC_URI[cloud-google-com-go-compute.sha256sum] = "97285050812a88a4c99654b13dfeffdbea78b300088ab67de8842d601a7212f0"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
 "
 LIC_FILES_CHKSUM += "\
     file://src/cloud.google.com/go/compute/LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57 \
-    file://src/cloud.google.com/go/compute/apiv1/license_codes_client.go;md5=253d1f6a23f90c953bcea9a41041be60 \
-    file://src/cloud.google.com/go/compute/apiv1/license_codes_client_example_test.go;md5=9751400613955af6df604db0eb67603a \
-    file://src/cloud.google.com/go/compute/apiv1/licenses_client.go;md5=05643b06ddfd30b0216cc9563ea050cc \
-    file://src/cloud.google.com/go/compute/apiv1/licenses_client_example_test.go;md5=c94b296ea4c8d8935c8be544c9343608 \
+    file://src/cloud.google.com/go/compute/apiv1/license_codes_client.go;md5=fcb29b723d55a7ae113da1402a612fcb \
+    file://src/cloud.google.com/go/compute/apiv1/license_codes_client_example_test.go;md5=84d433f4cfbd6dbd7f48c4389c54d38a \
+    file://src/cloud.google.com/go/compute/apiv1/licenses_client.go;md5=1b4dc1ddb657dc05066243a0578c8248 \
+    file://src/cloud.google.com/go/compute/apiv1/licenses_client_example_test.go;md5=8e1a465e1266caacee44bb287ef807a8 \
 "
 
 GOSRC_INCLUDEGUARD += "cloud.google.com-go-compute-sources.inc"
