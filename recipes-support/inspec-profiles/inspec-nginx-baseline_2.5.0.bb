@@ -6,7 +6,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=34400b68072d710fecd0a2940a0d1658"
 
 SRC_URI = "git://github.com/dev-sec/nginx-baseline.git;branch=master;protocol=https"
-SRCREV = "bd1a6765e16b338f48d4926bf864accdeec792ea"
+SRCREV = "93dccbe0e7f00bddb04e3e94a713066d1ea3b9c3"
 S = "${WORKDIR}/git"
 
 ROLE_NAME = "nginx-baseline"
