@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.mit;md5=a4b94c2b800b582a8d3925a9939cbf44"
 
 PYPI_PACKAGE = "pyrsistent"
 
-SRC_URI[md5sum] = "1b335355d3eb40d0870988a1a41894b3"
-SRC_URI[sha256sum] = "773c781216f8c2900b42a7b638d5b517bb134ae1acbebe4d1e8f1f41ea60eb4b"
+SRC_URI[md5sum] = "cef3da08455664bf917dcf8cd00d49a4"
+SRC_URI[sha256sum] = "d4d61f8b993a7255ba714df3aca52700f8125289f84f704cf80916517c46eb96"
 
 inherit pypi
 inherit setuptools3
