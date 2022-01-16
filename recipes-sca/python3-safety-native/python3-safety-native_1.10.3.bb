@@ -11,6 +11,7 @@ DEPENDS += "\
             python3-packaging-native \
             python3-pyparsing-native \
             python3-requests-native \
+            python3-safety-db-native \
             python3-toml-native \
             "
 
