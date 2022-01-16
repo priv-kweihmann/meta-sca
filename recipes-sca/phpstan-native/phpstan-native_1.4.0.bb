@@ -6,7 +6,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=bd7d90c38753ff54df51817ac7d4e5ff"
 
 SRC_URI = "git://github.com/phpstan/phpstan.git;branch=master;protocol=https"
-SRCREV = "151a51f6149855785fbd883e79768c0abc96b75f"
+SRCREV = "72b04d97b5e6e60a081f17c416fef35bd521120b"
 PHPCOMPOSER_PKGS_NAME = "phpstan/phpstan:${PV}"
 
 S = "${WORKDIR}/git"
