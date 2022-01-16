@@ -116,6 +116,7 @@ python do_sca_safety() {
     if any(tmp_req_lines):
         _args = [d.getVar("PYTHON")]
         _args += ["-m", "safety", "check"]
+        _args += ["--db", d.expand("${STAGING_DIR_NATIVE}${PYTHON_SITEPACKAGES_DIR}/safety_db")]
         _args += ["--output", sca_raw_result_file(d, "safety"), "--json"]
         _args += ["-r", tmp_req]
 
@@ -134,7 +135,6 @@ python do_sca_safety() {
                        d.expand("${STAGING_DATADIR_NATIVE}/safety-${SCA_MODE}-fatal")))
 }
 
-do_sca_safety[network] = "1"
 do_sca_safety[doc] = "Find known vulnarabilities in used python libraries"
 addtask do_sca_safety before do_sca_deploy after do_compile
 
