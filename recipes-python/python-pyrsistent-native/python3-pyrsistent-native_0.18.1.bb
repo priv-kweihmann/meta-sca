@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/tobgu/pyrsistent"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.mit;md5=a4b94c2b800b582a8d3925a9939cbf44"
+LIC_FILES_CHKSUM = "file://LICENSE.mit;md5=b695eb9c6e7a6fb1b1bc2d193c42776e"
 
 PYPI_PACKAGE = "pyrsistent"
 
