@@ -1,2 +1,3 @@
+inspec
 reek
 rubycritic
