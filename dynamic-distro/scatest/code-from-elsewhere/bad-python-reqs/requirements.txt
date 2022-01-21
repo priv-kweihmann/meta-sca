@@ -16,7 +16,7 @@ gtfs-realtime-bindings==0.0.5
 html5lib==1.0.1
 idna==2.7
 ipykernel==5.0.0
-ipython==7.1.1
+ipython==7.16.3
 ipython-genutils==0.2.0
 ipywidgets==7.4.2
 itsdangerous==1.1.0
