@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/prometheus/client_golang/@v/v1.11.0.zip;srcoutput=github.com/prometheus/client_golang;srcinput=github.com/prometheus/client_golang@v1.11.0;downloadfilename=github-com-prometheus-client-golang-1.11.0.zip;name=github-com-prometheus-client-golang"
-SRC_URI[github-com-prometheus-client-golang.sha256sum] = "cbe0dec4366d83d101b4d73c6193d6f4ab02a90f5fccc616a6421983618829a3"
+SRC_URI += "https://proxy.golang.org/github.com/prometheus/client_golang/@v/v1.12.0.zip;srcoutput=github.com/prometheus/client_golang;srcinput=github.com/prometheus/client_golang@v1.12.0;downloadfilename=github-com-prometheus-client-golang-1.12.0.zip;name=github-com-prometheus-client-golang"
+SRC_URI[github-com-prometheus-client-golang.sha256sum] = "9776139bdb0080e048ddad860ba49e9cca0f7b7736ab219ca0d69da4900d830d"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
@@ -18,3 +18,4 @@ require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-prometheus-client
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-prometheus-common-sources.inc', '', 'github.com-prometheus-common-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-prometheus-procfs-sources.inc', '', 'github.com-prometheus-procfs-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-sys-sources.inc', '', 'golang.org-x-sys-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-protobuf-sources.inc', '', 'google.golang.org-protobuf-sources.inc', d)}
