@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=3edd6782854304fd11da4975ab9799c1"
 DEPENDS_class_native += "${BPN}"
 
 SRC_URI = "git://github.com/CISOfy/lynis.git;branch=master;protocol=https"
-SRCREV = "c89fc248dc9f49d3931c4b05ac0cdf093d87ec40"
+SRCREV = "ad5dc53a5f01674bf2c89072dd65a33555c51ff1"
 S = "${WORKDIR}/git"
 
 inherit sca-description
