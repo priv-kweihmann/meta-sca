@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/klauspost/compress/@v/v1.14.1.zip;srcoutput=github.com/klauspost/compress;srcinput=github.com/klauspost/compress@v1.14.1;downloadfilename=github-com-klauspost-compress-1.14.1.zip;name=github-com-klauspost-compress"
-SRC_URI[github-com-klauspost-compress.sha256sum] = "fcc8b34572dd35f7f432ed228ce87718258fe62ee9ef09636227adb7d22d21ec"
+SRC_URI += "https://proxy.golang.org/github.com/klauspost/compress/@v/v1.14.2.zip;srcoutput=github.com/klauspost/compress;srcinput=github.com/klauspost/compress@v1.14.2;downloadfilename=github-com-klauspost-compress-1.14.2.zip;name=github-com-klauspost-compress"
+SRC_URI[github-com-klauspost-compress.sha256sum] = "25990a3b573b4568fa9c98c880e82abe5fe4dc6a3c784935923643ef28791acd"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
