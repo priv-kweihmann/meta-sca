@@ -40,14 +40,15 @@ DEPENDS = "npm-balanced-match-native \
            npm-string-width-native \
            npm-strip-ansi-native \
            npm-style-search-native \
+           npm-supports-hyperlinks-native \
            npm-svg-tags-native \
            npm-table-native \
            npm-v8-compile-cache-native \
            npm-write-file-atomic-native"
 
-SRC_URI = "https://registry.npmjs.org/stylelint/-/stylelint-14.2.0.tgz"
-SRC_URI[md5sum] = "b88e226f11c4c7dd157038b811c5cd15"
-SRC_URI[sha256sum] = "e9ddd0a64d439ef632cb706a470be4fbf954fe907d64ad6b8c944ce19c7884ce"
+SRC_URI = "https://registry.npmjs.org/stylelint/-/stylelint-14.3.0.tgz"
+SRC_URI[md5sum] = "4314e90d3a4aa365db1a91d9e6becf3b"
+SRC_URI[sha256sum] = "dbff697b9ef2a25bd70e1ce89387aa7105cec7ee8ce6622c4be8aaef206868f1"
 
 NPM_PKGNAME = "stylelint"
 
