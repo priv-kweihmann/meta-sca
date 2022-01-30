@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=e23fadd6ceef8c618fc1c65191d846fa"
 
 PYPI_PACKAGE = "Cython"
 
-SRC_URI[md5sum] = "971c9708dd5269180868fc0af986084c"
-SRC_URI[sha256sum] = "af377d543a762867da11fcf6e558f7a4a535ff8693f30cce123fab10c00fa312"
+SRC_URI[md5sum] = "2b2ba86abcf823985935d37f5e43b19a"
+SRC_URI[sha256sum] = "c6a442504db906dfc13a480e96850cced994ecdc076bcf492c43515b78f70da2"
 
 inherit pypi
 inherit setuptools3
