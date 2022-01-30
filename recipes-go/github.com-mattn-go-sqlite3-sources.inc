@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/mattn/go-sqlite3/@v/v1.14.10.zip;srcoutput=github.com/mattn/go-sqlite3;srcinput=github.com/mattn/go-sqlite3@v1.14.10;downloadfilename=github-com-mattn-go-sqlite3-1.14.10.zip;name=github-com-mattn-go-sqlite3"
-SRC_URI[github-com-mattn-go-sqlite3.sha256sum] = "3c1e6497b023fc4741bf1bbfb39ae657b99cf44cfb33f5cbf1e88b315d25a306"
+SRC_URI += "https://proxy.golang.org/github.com/mattn/go-sqlite3/@v/v1.14.11.zip;srcoutput=github.com/mattn/go-sqlite3;srcinput=github.com/mattn/go-sqlite3@v1.14.11;downloadfilename=github-com-mattn-go-sqlite3-1.14.11.zip;name=github-com-mattn-go-sqlite3"
+SRC_URI[github-com-mattn-go-sqlite3.sha256sum] = "6339de97670ec8c809e38b1425be2ea53590da62a09ee7d39ffc945bb0394c34"
 
 GOSRC_LICENSE += "\
     MIT \
