@@ -11,12 +11,11 @@ DEPENDS = "npm-cli-native \
            npm-htmlparser2-native \
            npm-lodash-native \
            npm-minimatch-native \
-           npm-shelljs-native \
            npm-strip-json-comments-native"
 
-SRC_URI = "https://registry.npmjs.org/jshint/-/jshint-2.13.3.tgz"
-SRC_URI[md5sum] = "2fc5ebafe032724e9b4637eb62ed9ff1"
-SRC_URI[sha256sum] = "b6e9897134aac532cae572615ff091d4cc643f5f3711bc71dd88054cda005795"
+SRC_URI = "https://registry.npmjs.org/jshint/-/jshint-2.13.4.tgz"
+SRC_URI[md5sum] = "8aef74c7926860be69b6944a2a618e50"
+SRC_URI[sha256sum] = "1290b3d1b34f4c317b962a014441a2a406e7f3be1f6ddfad31bf8465f3e31293"
 
 NPM_PKGNAME = "jshint"
 
