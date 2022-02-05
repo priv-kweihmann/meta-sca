@@ -14,10 +14,11 @@ MINISAT_VERSION = "2.2.1"
 
 SRC_URI = "\
     git://github.com/diffblue/cbmc.git;protocol=https;branch=develop \
+    https://ftp.debian.org/debian/pool/main/m/minisat2/minisat2_${MINISAT_VERSION}.orig.tar.gz;name=minisat2;unpack=0 \
     file://0001-diable-goto-gcc-regression-tests.patch \
 "
 
-SRCREV = "be56e06fec5a2c51dfc6b74577086e83ee9a2b3b"
+SRCREV = "05210b57773a6429cc183f33226a9d780c6f8757"
 SRC_URI[minisat2.sha256sum] = "e54afa3c192c1753bc8075c0c7e126d5c495d9066e3f90a2588091149ac9ca40"
 
 UPSTREAM_CHECK_GITTAGREGEX = "cbmc-(?P<pver>[\d\.a-f]+)"
@@ -38,8 +39,11 @@ EXTRA_OECMAKE += "\
 "
 CXXFLAGS += "-Wno-error=maybe-uninitialized"
 
-# See https://github.com/diffblue/cbmc/issues/6582
-do_configure[network] = "1"
+do_configure:prepend () {
+    # make minisat2 visible to cmake implementation
+    install -d ${B}/minisat2-download/minisat2-download-prefix/src/
+    cp ${WORKDIR}/minisat2_${MINISAT_VERSION}.orig.tar.gz ${B}/minisat2-download/minisat2-download-prefix/src/
+}
 
 do_install() {
     install -d ${D}${datadir}
