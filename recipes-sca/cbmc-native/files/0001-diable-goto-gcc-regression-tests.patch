@@ -5,7 +5,7 @@ Subject: [PATCH] diable goto-gcc regression tests
 
 as they keep failing for unknown reasons
 
-Upstream-Status: Inappropriate [disable-feature]
+Upstream-Status: Inappropriate [disable feature]
 Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
 ---
  regression/CMakeLists.txt | 2 +-
