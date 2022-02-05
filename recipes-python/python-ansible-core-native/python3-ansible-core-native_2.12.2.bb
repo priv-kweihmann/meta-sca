@@ -17,8 +17,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "ansible-core"
 
-SRC_URI[md5sum] = "71b0b1e781a9378c6aa00b4f4102fe1b"
-SRC_URI[sha256sum] = "a4508707262be11bb4dd98a006f1b14817879a055e6b6c46ad9fca8894fb3073"
+SRC_URI[md5sum] = "c601ed6e167ce9fbedb5ffd18f8dabed"
+SRC_URI[sha256sum] = "bc79e1723a5a92cbc105d581b25b66840d15bb5f4c98925c936ef5a71f92e7c3"
 
 inherit pypi
 inherit setuptools3
