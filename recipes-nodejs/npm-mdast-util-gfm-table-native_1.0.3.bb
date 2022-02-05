@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://license;md5=6a9c614ad8a32fcd51b47e458d620e48"
 DEPENDS = "npm-markdown-table-native \
            npm-mdast-util-to-markdown-native"
 
-SRC_URI = "https://registry.npmjs.org/mdast-util-gfm-table/-/mdast-util-gfm-table-1.0.2.tgz"
-SRC_URI[md5sum] = "e90b24ec02b6c30ea1ce1636e35cc44c"
-SRC_URI[sha256sum] = "3552999547db57773592bd4ac44a26503d3bb1a26f5a41c590dbb01178ca92dd"
+SRC_URI = "https://registry.npmjs.org/mdast-util-gfm-table/-/mdast-util-gfm-table-1.0.3.tgz"
+SRC_URI[md5sum] = "3b8a228ecdf965f16968b3c76508474f"
+SRC_URI[sha256sum] = "71de192636a19b9cd34c13679c38f8923ca413a599941026aabdc0b4d6014f86"
 
 NPM_PKGNAME = "mdast-util-gfm-table"
 
