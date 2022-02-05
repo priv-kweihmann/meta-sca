@@ -99,7 +99,7 @@ python do_create_setup_py_legacy() {
 
     # In case packages is using :find module
     # we need to look for top level directories containing a __init__.py
-    if _pkginfo["packages"] == ["find:"]:
+    if _pkginfo["packages"] == ["find:"] or _pkginfo["packages"] == ["find_namespace:"]:
         # top level search dir can be adjusted by options.packages.find option
         _path = extract_str("options.packages.find", "where", "")
         _pkginfo["packages"] = find_packages(os.path.join(d.getVar("DISTUTILS_SETUP_PATH"), _path))
