@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=774f65abd8a7fe3124be2cdf766cd06f"
 
 PYPI_PACKAGE = "pybind11"
 
-SRC_URI[md5sum] = "7d66b1a55f864e8a4f775c390256070c"
-SRC_URI[sha256sum] = "46d315a669a59b660def6c5ca4e128f6fa975ec4abce6019a43d92084ad1bf89"
+SRC_URI[md5sum] = "a9f47fdcf8b5872211d1c802be0b1aba"
+SRC_URI[sha256sum] = "40f8e57af6fcaa7eb5d727707125f90f8daa0993f28a9981a232d40c85dbbcb0"
 
 inherit pypi
 inherit setuptools3
