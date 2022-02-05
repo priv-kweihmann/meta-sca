@@ -9,8 +9,8 @@ DEPENDS += "file-native"
 
 PYPI_PACKAGE = "python-magic"
 
-SRC_URI[md5sum] = "7a1629d43ef506f29f2b0256510d25aa"
-SRC_URI[sha256sum] = "de800df9fb50f8ec5974761054a708af6e4246b03b4bdaee993f948947b0ebcf"
+SRC_URI[md5sum] = "57af55974d979eed1e58965eb8a45849"
+SRC_URI[sha256sum] = "21f5f542aa0330f5c8a64442528542f6215c8e18d2466b399b0d9d39356d83fc"
 
 inherit pypi
 inherit setuptools3
