@@ -14,6 +14,7 @@ DEPENDS = "npm-clear-module-native \
            npm-cspell-glob-native \
            npm-cspell-io-native \
            npm-cspell-trie-lib-native \
+           npm-fast-equals-native \
            npm-find-up-native \
            npm-fs-extra-native \
            npm-gensequence-native \
@@ -22,9 +23,9 @@ DEPENDS = "npm-clear-module-native \
            npm-resolve-global-native \
            npm-vscode-uri-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-lib/-/cspell-lib-5.17.0.tgz"
-SRC_URI[md5sum] = "48d99b7ff137d5ea961b976cdfaf72a0"
-SRC_URI[sha256sum] = "13df4858af1c788a1b5f6586e3e4a1e2397c1d9c7202f3934e11487f7f75d251"
+SRC_URI = "https://registry.npmjs.org/cspell-lib/-/cspell-lib-5.18.3.tgz"
+SRC_URI[md5sum] = "e1a163c63164aaaa4f8324f2ad48c054"
+SRC_URI[sha256sum] = "41fa3725aaccc8d976fb71966e86c7c391022b5bb3bd5bd102aa38fe6c07f8c3"
 
 NPM_PKGNAME = "cspell-lib"
 
