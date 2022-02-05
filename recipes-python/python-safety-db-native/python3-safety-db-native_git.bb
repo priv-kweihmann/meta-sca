@@ -6,7 +6,7 @@ LICENSE = "CC-BY-NC-4.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=71dfde19e73eeb27e55a05b6a729ab58"
 
 SRC_URI = "git://github.com/pyupio/safety-db.git;branch=master;protocol=https"
-SRCREV = "1163353fa4577d835e29e14a476839163b147ec6"
+SRCREV = "5f89a3e07afb180c74b2fafcd5ca496eae63c06c"
 
 S = "${WORKDIR}/git"
 
