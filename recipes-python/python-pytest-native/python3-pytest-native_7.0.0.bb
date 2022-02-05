@@ -3,7 +3,7 @@ DESCRIPTION = "The pytest framework makes it easy to write small tests, yet scal
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=81eb9f71d006c6b268cf4388e3c98f7b"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=bd27e41b6550fe0fc45356d1d81ee37c"
 
 DEPENDS += "\
             python3-atomicwrites-native \
