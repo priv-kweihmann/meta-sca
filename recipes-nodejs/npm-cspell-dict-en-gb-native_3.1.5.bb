@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=044e57042be98f6562001f5825fee708"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/@cspell/dict-en-gb/-/dict-en-gb-3.1.4.tgz"
-SRC_URI[md5sum] = "262fd8e8a26a6a85270bb8eee36494f8"
-SRC_URI[sha256sum] = "6a10ad2f2f52188cfc70f5c2056492b780f5c842b84678aa7770a1a3da243c58"
+SRC_URI = "https://registry.npmjs.org/@cspell/dict-en-gb/-/dict-en-gb-3.1.5.tgz"
+SRC_URI[md5sum] = "9ceadd0b82962a36cbedfe8cba07b458"
+SRC_URI[sha256sum] = "c19245ed26c5b982bed49cdf09b48a72c327f7fe992440a3fac479b54f8ed289"
 
 NPM_PKGNAME = "@cspell/dict-en-gb"
 
