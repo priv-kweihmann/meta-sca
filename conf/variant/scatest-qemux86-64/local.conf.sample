@@ -10,6 +10,5 @@ PACKAGE_CLASSES = "package_rpm"
 PACKAGECONFIG:append:pn-qemu-system-native = " sdl"
 PATCHRESOLVE = "noop"
 SCA_VERBOSE_OUTPUT = "1"
-USER_CLASSES = "image-prelink"
 
 INHERIT += "rm_work"
