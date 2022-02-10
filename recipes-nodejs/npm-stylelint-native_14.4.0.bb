@@ -8,6 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=0e0ecf49fffcf64b1f3fa0a956ea44a0"
 DEPENDS = "npm-balanced-match-native \
            npm-colord-native \
            npm-cosmiconfig-native \
+           npm-css-functions-list-native \
            npm-debug-native \
            npm-execall-native \
            npm-fast-glob-native \
@@ -46,9 +47,9 @@ DEPENDS = "npm-balanced-match-native \
            npm-v8-compile-cache-native \
            npm-write-file-atomic-native"
 
-SRC_URI = "https://registry.npmjs.org/stylelint/-/stylelint-14.3.0.tgz"
-SRC_URI[md5sum] = "4314e90d3a4aa365db1a91d9e6becf3b"
-SRC_URI[sha256sum] = "dbff697b9ef2a25bd70e1ce89387aa7105cec7ee8ce6622c4be8aaef206868f1"
+SRC_URI = "https://registry.npmjs.org/stylelint/-/stylelint-14.4.0.tgz"
+SRC_URI[md5sum] = "3a114755764b7908811e0dcba192bd7b"
+SRC_URI[sha256sum] = "a3af74f97313d2e34439309c7c6c007d28251adb41cad1c97d8d0ca6dee8960e"
 
 NPM_PKGNAME = "stylelint"
 
