@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/briandowns/spinner/@v/v1.18.0.zip;srcoutput=github.com/briandowns/spinner;srcinput=github.com/briandowns/spinner@v1.18.0;downloadfilename=github-com-briandowns-spinner-1.18.0.zip;name=github-com-briandowns-spinner"
-SRC_URI[github-com-briandowns-spinner.sha256sum] = "52cb45fe69d635b33b32b10d103e51b41cee5d56ad79931b37ca5bbe52da01b5"
+SRC_URI += "https://proxy.golang.org/github.com/briandowns/spinner/@v/v1.18.1.zip;srcoutput=github.com/briandowns/spinner;srcinput=github.com/briandowns/spinner@v1.18.1;downloadfilename=github-com-briandowns-spinner-1.18.1.zip;name=github-com-briandowns-spinner"
+SRC_URI[github-com-briandowns-spinner.sha256sum] = "b004597c67b73fb48f2dba84342466bc36235dabbc26a9f11e14696ea53e89d2"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
@@ -11,3 +11,4 @@ LIC_FILES_CHKSUM += "\
 GOSRC_INCLUDEGUARD += "github.com-briandowns-spinner-sources.inc"
 
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-fatih-color-sources.inc', '', 'github.com-fatih-color-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-mattn-go-isatty-sources.inc', '', 'github.com-mattn-go-isatty-sources.inc', d)}
