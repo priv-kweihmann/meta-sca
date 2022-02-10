@@ -9,9 +9,9 @@ DEPENDS = "npm-cspell-cspell-pipe-native \
            npm-fs-extra-native \
            npm-gensequence-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-trie-lib/-/cspell-trie-lib-5.18.3.tgz"
-SRC_URI[md5sum] = "b3ab928ce21b64956ed922890aed7a72"
-SRC_URI[sha256sum] = "047889f004760c5588485bb026ce5dc5de52dc9991a02ec5b697e8f5f5e71375"
+SRC_URI = "https://registry.npmjs.org/cspell-trie-lib/-/cspell-trie-lib-5.18.4.tgz"
+SRC_URI[md5sum] = "f91b52ea127ecb41768f2e26ff53996c"
+SRC_URI[sha256sum] = "e1b1d94f8ead9bf1677310dbedf6d71cac9b9b24cca85db2447e6995e4b2a288"
 
 NPM_PKGNAME = "cspell-trie-lib"
 
