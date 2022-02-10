@@ -9,8 +9,8 @@ PYPI_PACKAGE = "semantic_version"
 
 UPSTREAM_CHECK_REGEX ?= "/semantic-version/(?P<pver>(\d+[\.\-_]*)+)"
 
-SRC_URI[md5sum] = "76d7364def7ee487b6153d40b13de904"
-SRC_URI[sha256sum] = "d2cb2de0558762934679b9a104e82eca7af448c9f4974d1f3eeccff651df8a54"
+SRC_URI[md5sum] = "1c79ce65c87479473223a642d2cbc3c2"
+SRC_URI[sha256sum] = "abf54873553e5e07a6fd4d5f653b781f5ae41297a493666b59dcf214006a12b2"
 
 inherit pypi
 inherit setuptools3
