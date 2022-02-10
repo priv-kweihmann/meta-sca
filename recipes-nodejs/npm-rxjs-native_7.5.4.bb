@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=80ca6de0630df9d3c3faee86819caa57"
 
 DEPENDS = "npm-tslib-native"
 
-SRC_URI = "https://registry.npmjs.org/rxjs/-/rxjs-7.5.2.tgz"
-SRC_URI[md5sum] = "a06e00ed6453dabb44861d75f44b877f"
-SRC_URI[sha256sum] = "653bc5f42bdd262d9f45232a817b6ff0c025dc6f7a3328dad3b0589a6e0d8128"
+SRC_URI = "https://registry.npmjs.org/rxjs/-/rxjs-7.5.4.tgz"
+SRC_URI[md5sum] = "be50e641aa40a0f70cd48662a3a74fef"
+SRC_URI[sha256sum] = "a6b3a844e192888d0372c230648f726be532bf272032dfdd291c3d06c7457405"
 
 NPM_PKGNAME = "rxjs"
 
