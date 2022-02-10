@@ -1,5 +1,5 @@
 SRC_URI += "git://github.com/pierrec/lz4;nobranch=1;protocol=https;srcinput=github.com/pierrec/lz4;srcoutput=github.com/pierrec/lz4;destsuffix=github.com/pierrec/lz4;name=github-com-pierrec-lz4"
-SRCREV_github-com-pierrec-lz4 = "a134e63e138e8dcef0be0a90bb586bccf4e99651"
+SRCREV_github-com-pierrec-lz4 = "a5532e5996ee86d17f8ce2694c08fb5bf3c6b471"
 GOSRC_REMOVEDIRS += "github.com/pierrec/lz4/cmd"
 
 GOSRC_LICENSE += "\
