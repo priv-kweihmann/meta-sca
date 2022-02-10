@@ -7,7 +7,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f45999e825d6792e32a1cbadd968b1b7"
 
 SRC_URI = "git://github.com/TH3xACE/SUDO_KILLER.git;branch=master;protocol=https"
-SRCREV = "26be522ac146487eff2bba3e5c27635512542f18"
+SRCREV = "0c219da0799e0fe62e2203be0b7aef92bfb33b30"
 UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
