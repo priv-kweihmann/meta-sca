@@ -20,8 +20,8 @@ DEPENDS += "\
             python3-typed-ast-native \
             "
 
-SRC_URI[md5sum] = "ea84afcad5d1be0bdcc01e43e1c5775c"
-SRC_URI[sha256sum] = "67537326b8840289581964bfe8786c0172bea66ba9025cc2cf9b5aa31794398f"
+SRC_URI[md5sum] = "28f4bd45f33daa40d0c76f1553201652"
+SRC_URI[sha256sum] = "14b864a6a08565db8e90476a8e05ae18c61121c8064a623e27c713c272faae54"
 
 PYPI_PACKAGE = "pytype"
 
