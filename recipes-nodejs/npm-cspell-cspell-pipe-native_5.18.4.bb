@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b1befbdcbeb73a7fd9b944d31f0fee64"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/@cspell/cspell-pipe/-/cspell-pipe-5.18.3.tgz"
-SRC_URI[md5sum] = "b072aff7c3d5dc329d3e3bdb91c9aa7e"
-SRC_URI[sha256sum] = "b1c5c60e3f650483b8e388202ca4719dbe311ce8d4cb5cb9d55a0d1afca30170"
+SRC_URI = "https://registry.npmjs.org/@cspell/cspell-pipe/-/cspell-pipe-5.18.4.tgz"
+SRC_URI[md5sum] = "d6e334d1f5132e56b1af4156d8f2b9ac"
+SRC_URI[sha256sum] = "f990f1466e81592baf4614eef35021cbe1cda123aaaa52b7fdf2434704aaf31d"
 
 NPM_PKGNAME = "@cspell/cspell-pipe"
 
