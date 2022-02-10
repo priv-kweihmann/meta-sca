@@ -9,8 +9,8 @@ DEPENDS += "python3-six-native"
 
 PYPI_PACKAGE = "pathlib2"
 
-SRC_URI[md5sum] = "e50a0cf94e406c5110b3aed535626e9e"
-SRC_URI[sha256sum] = "7d8bcb5555003cdf4a8d2872c538faa3a0f5d20630cb360e518ca3b981795e5f"
+SRC_URI[md5sum] = "ff87562935872cf68f935f8a9e43f84f"
+SRC_URI[sha256sum] = "7a4329d67beff9a712e1d3ae147e4e3e108b0bfd284ffdea03a635126c76b3c0"
 
 inherit pypi
 inherit setuptools3
