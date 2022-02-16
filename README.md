@@ -379,6 +379,7 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
   - [How are the statistics of a tool calculated?](docs/sca/build_exec_times.md)
   - [How to build your own module](docs/add_your_own.md)
   - [build and version conflicts](docs/sca/version_preference.md)
+  - [maintaining your own branch](docs/maintainer_guide.md)
 - Case studies
   - [Regression on severe code issues](docs/casestudy/simple_regression.md)
   - [Idenfying hardening and security potential](docs/casestudy/adv_security.md)
