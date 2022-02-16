@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/jhump/protoreflect/@v/v1.10.3.zip;srcoutput=github.com/jhump/protoreflect;srcinput=github.com/jhump/protoreflect@v1.10.3;downloadfilename=github-com-jhump-protoreflect-1.10.3.zip;name=github-com-jhump-protoreflect"
-SRC_URI[github-com-jhump-protoreflect.sha256sum] = "c6be6a6bd11494d83e01e7aba075144e516568a3b340c064e036b302855470ab"
+SRC_URI += "https://proxy.golang.org/github.com/jhump/protoreflect/@v/v1.11.0.zip;srcoutput=github.com/jhump/protoreflect;srcinput=github.com/jhump/protoreflect@v1.11.0;downloadfilename=github-com-jhump-protoreflect-1.11.0.zip;name=github-com-jhump-protoreflect"
+SRC_URI[github-com-jhump-protoreflect.sha256sum] = "f6c3362387ebe0c9ad0616ae3c4446bca077d3398274f25a5a226e033892fdd4"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
