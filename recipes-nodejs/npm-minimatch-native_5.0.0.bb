@@ -3,13 +3,13 @@ DESCRIPTION = "a glob matcher in javascript"
 HOMEPAGE = "https://github.com/isaacs/minimatch#readme"
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "ISC"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=82703a69f6d7411dde679954c2fd9dca"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=662b24bdd69543eedfd0619202355315"
 
 DEPENDS = "npm-brace-expansion-native"
 
-SRC_URI = "https://registry.npmjs.org/minimatch/-/minimatch-3.1.2.tgz"
-SRC_URI[md5sum] = "7b4ad790ecb6bd5eef2fa305b3b4c19f"
-SRC_URI[sha256sum] = "13964b10b60a3b66dd6eec90a2d39af28590721b8c9d1df8ff754f90b081a34d"
+SRC_URI = "https://registry.npmjs.org/minimatch/-/minimatch-5.0.0.tgz"
+SRC_URI[md5sum] = "ea82adb449c9d07565730cc3bdf5345b"
+SRC_URI[sha256sum] = "68f0161563aa3480c32b848f0fa074422caa2f3ed380d731a737911913b54720"
 
 NPM_PKGNAME = "minimatch"
 
