@@ -14,9 +14,9 @@ DEPENDS = "npm-cli-truncate-native \
            npm-through-native \
            npm-wrap-ansi-native"
 
-SRC_URI = "https://registry.npmjs.org/listr2/-/listr2-4.0.3.tgz"
-SRC_URI[md5sum] = "e41c0d155983616dcb798f2ebcbcf87d"
-SRC_URI[sha256sum] = "72c8a593312491d86499028c44f6f639b2c9762786d3decaad795a38972e6c98"
+SRC_URI = "https://registry.npmjs.org/listr2/-/listr2-4.0.4.tgz"
+SRC_URI[md5sum] = "93e10dbff543b3108789588ff7a5d73d"
+SRC_URI[sha256sum] = "815f5e8d7bb676da31ca16fb5bde54d04233f6381e6a04c43a775e1d4406decc"
 
 NPM_PKGNAME = "listr2"
 
