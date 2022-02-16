@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/pseudomuto/protokit/@v/v0.2.0.zip;srcoutput=github.com/pseudomuto/protokit;srcinput=github.com/pseudomuto/protokit@v0.2.0;downloadfilename=github-com-pseudomuto-protokit-0.2.0.zip;name=github-com-pseudomuto-protokit"
-SRC_URI[github-com-pseudomuto-protokit.sha256sum] = "16d5fe0f6ac5bebbf9f2f05fde72f28bbf05bb18baef045b9ae79c2585f4e127"
+SRC_URI += "https://proxy.golang.org/github.com/pseudomuto/protokit/@v/v0.2.1.zip;srcoutput=github.com/pseudomuto/protokit;srcinput=github.com/pseudomuto/protokit@v0.2.1;downloadfilename=github-com-pseudomuto-protokit-0.2.1.zip;name=github-com-pseudomuto-protokit"
+SRC_URI[github-com-pseudomuto-protokit.sha256sum] = "5a1d6574a061f3d1e81a9d605b65f643a484af3ceb29f59be0188437a1cefab1"
 export CGO_ENABLED = "1"
 
 GOSRC_LICENSE += "\
