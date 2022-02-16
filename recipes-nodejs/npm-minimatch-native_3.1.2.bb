@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=82703a69f6d7411dde679954c2fd9dca"
 
 DEPENDS = "npm-brace-expansion-native"
 
-SRC_URI = "https://registry.npmjs.org/minimatch/-/minimatch-3.0.5.tgz"
-SRC_URI[md5sum] = "2f176ceb67a64703be495a9b943ff75e"
-SRC_URI[sha256sum] = "40a7bae4566a4c4dfc2a534a4ff93d96eb8bfe65630be1c951f029860c857b89"
+SRC_URI = "https://registry.npmjs.org/minimatch/-/minimatch-3.1.2.tgz"
+SRC_URI[md5sum] = "7b4ad790ecb6bd5eef2fa305b3b4c19f"
+SRC_URI[sha256sum] = "13964b10b60a3b66dd6eec90a2d39af28590721b8c9d1df8ff754f90b081a34d"
 
 NPM_PKGNAME = "minimatch"
 
