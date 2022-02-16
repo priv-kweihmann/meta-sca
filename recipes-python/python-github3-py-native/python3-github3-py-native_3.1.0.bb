@@ -14,8 +14,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "github3.py"
 
-SRC_URI[md5sum] = "2d7132e59549355f51e121c37e7be8b2"
-SRC_URI[sha256sum] = "a9134cb9efd334b1644ad7c5ee3ff3ff488317c4549ffc0e8d82e4d63383a1a4"
+SRC_URI[md5sum] = "520f3f7a2b582392fbc336607339b289"
+SRC_URI[sha256sum] = "43133fbb2e4bfc8bab77ea996de6b027ea5054a958cc01f5efdcab3f5cb116ae"
 
 inherit pypi
 inherit setuptools3
