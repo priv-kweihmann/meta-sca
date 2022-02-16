@@ -47,9 +47,9 @@ DEPENDS = "npm-balanced-match-native \
            npm-v8-compile-cache-native \
            npm-write-file-atomic-native"
 
-SRC_URI = "https://registry.npmjs.org/stylelint/-/stylelint-14.4.0.tgz"
-SRC_URI[md5sum] = "3a114755764b7908811e0dcba192bd7b"
-SRC_URI[sha256sum] = "a3af74f97313d2e34439309c7c6c007d28251adb41cad1c97d8d0ca6dee8960e"
+SRC_URI = "https://registry.npmjs.org/stylelint/-/stylelint-14.5.0.tgz"
+SRC_URI[md5sum] = "a9aa4e66ec1301529095c93becbb7f6f"
+SRC_URI[sha256sum] = "5afdda0a9195dbedb24b3f25588c32237e39aa0a2ffd5b861a154f5a95d6a80d"
 
 NPM_PKGNAME = "stylelint"
 
