@@ -12,10 +12,8 @@ EXTRA_DEPENDS += "\
     github.com-huandu-xstrings-native \
     github.com-imdario-mergo-native \
     github.com-masterminds-goutils-native \
-    github.com-masterminds-semver-v3-native \
+    github.com-masterminds-semver-native \
     github.com-mitchellh-copystructure-native \
-    github.com-shopspring-decimal-native \
-    github.com-spf13-cast-native \
     golang.org-x-crypto-native \
 "
 
