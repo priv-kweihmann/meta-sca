@@ -9,7 +9,8 @@ require github.com-jhump-protoreflect-sources.inc
 
 EXTRA_DEPENDS += "\
     github.com-golang-protobuf-native \
-    golang.org-x-net-native \
+    github.com-jhump-gopoet-native \
+    github.com-jhump-goprotoc-native \
     google.golang.org-genproto-native \
     google.golang.org-grpc-native \
     google.golang.org-protobuf-native \
