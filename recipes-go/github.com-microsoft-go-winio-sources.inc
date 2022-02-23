@@ -1,5 +1,5 @@
 SRC_URI += "git://github.com/microsoft/go-winio;nobranch=1;protocol=https;srcinput=github.com/Microsoft/go-winio;srcoutput=github.com/Microsoft/go-winio;destsuffix=github.com/Microsoft/go-winio;name=github-com-microsoft-go-winio"
-SRCREV_github-com-microsoft-go-winio = "6c24dfa01eb5906508a5ad06f4f6534a9be47456"
+SRCREV_github-com-microsoft-go-winio = "dfd7da8f92a382999d77b5d9cfe8cc6bec1894c6"
 
 GOSRC_LICENSE += "\
     MIT \
@@ -10,6 +10,5 @@ LIC_FILES_CHKSUM += "\
 
 GOSRC_INCLUDEGUARD += "github.com-microsoft-go-winio-sources.inc"
 
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-pkg-errors-sources.inc', '', 'github.com-pkg-errors-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-sirupsen-logrus-sources.inc', '', 'github.com-sirupsen-logrus-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-sys-sources.inc', '', 'golang.org-x-sys-sources.inc', d)}
