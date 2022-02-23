@@ -6,7 +6,7 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5bb0d06223ae3b075dbcf2247a3eb9ff"
 
-SRC_URI = "git://github.com/slimm609/checksec.sh"
+SRC_URI = "git://github.com/slimm609/checksec.sh;protocol=https"
 SRCREV = "70c94213fa5c62e6dfcf6f6c721346977112acb4"
 
 S = "${WORKDIR}/git"
