@@ -2,7 +2,7 @@ SUMMARY = "Debian package related modules"
 HOMEPAGE = "https://salsa.debian.org/python-debian-team/python-debian"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "GPL-2.0+"
+LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-or-later;md5=fed54355545ffd980b814dab4a3b312c"
 
 DEPENDS += "\

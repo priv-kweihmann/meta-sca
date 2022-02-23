@@ -3,7 +3,7 @@ DESCRIPTION = "phpcs-security-audit is a set of PHP_CodeSniffer rules that finds
 HOMEPAGE = "https://github.com/FloeDesignTechnologies/phpcs-security-audit"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "GPL-3.0"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=412af50a7c6ed96fe188e6672d9f3d9b"
 
 DEPENDS += "phpcodesniffer-native"

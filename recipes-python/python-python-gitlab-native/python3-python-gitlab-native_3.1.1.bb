@@ -2,7 +2,7 @@ SUMMARY = "Interact with GitLab API"
 HOMEPAGE = "https://github.com/python-gitlab/python-gitlab"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "LGPL-3.0"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=e6a600fd5e1d9cbde2d983680233ad02"
 
 DEPENDS += "\

@@ -3,7 +3,7 @@ DESCRIPTION = "JavaScript Unicode 8.0 Normalization - NFC, NFD, NFKC, NFKD. Read
 HOMEPAGE = "https://github.com/walling/unorm#readme"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "MIT | GPL-2.0"
+LICENSE = "MIT | GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=9802a4c3223160109d146f4bbeda01a5"
 
 SRC_URI = "https://registry.npmjs.org/unorm/-/unorm-1.6.0.tgz"

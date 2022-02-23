@@ -2,7 +2,7 @@ SUMMARY = "A static code analyzer for C++, Lua"
 HOMEPAGE = "https://github.com/Tencent/TscanCode"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=17f3d09aae7e567139cf4c67db039584"
 
 SRC_URI = "git://github.com/Tencent/TscanCode.git;protocol=https;branch=master"

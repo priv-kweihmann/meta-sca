@@ -2,7 +2,7 @@ SUMMARY = "Minimalist class construction"
 HOMEPAGE = "https://metacpan.org/pod/Class::Tiny"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "GPL-2.0 & Artistic-1.0"
+LICENSE = "GPL-2.0-only & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=73abf4c2d50faa339365e754fbb9303f"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Class-Tiny-${PV}.tar.gz"

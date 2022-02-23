@@ -3,8 +3,8 @@
 
 SCA_PKGQAENC_HASHDOG_CULP ?= "DATETIME"
 SCA_PKGQAENC_HASHDOG_EXCL ?= "\
-    ${BB_HASHBASE_WHITELIST} \
-    ${BB_HASHCONFIG_WHITELIST} \
+    ${BB_BASEHASH_IGNORE_VARS} \
+    ${BB_HASHCONFIG_IGNORE_VARS} \
     base_bindir_native \
     base_bindir_nativesdk \
     base_libdir_native \

@@ -2,7 +2,7 @@ SUMMARY = "check for bashisms in /bin/sh scripts"
 HOMEPAGE = "https://salsa.debian.org/debian/devscripts"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "GPLv2.0"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=faa39cbd7a7cded9a1436248295de3c2"
 
 DEPENDS += "perl-native"

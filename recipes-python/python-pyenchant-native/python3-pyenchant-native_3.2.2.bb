@@ -2,7 +2,7 @@ SUMMARY = "spellchecking library for python"
 HOMEPAGE = "https://github.com/rfk/pyenchant"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "LGPL-2.1"
+LICENSE = "LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=7fbc338309ac38fefcd64b04bb903e34"
 
 DEPENDS += "enchant2-native"

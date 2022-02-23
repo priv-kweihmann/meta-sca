@@ -3,7 +3,7 @@ DESCRIPTION = "List of common misspellings from Wikipedia"
 HOMEPAGE = "https://github.com/io-monad/misspellings#readme"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "GPL-3.0"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d32239bcb673463ab874e80d47fae504"
 
 SRC_URI = "https://registry.npmjs.org/misspellings/-/misspellings-1.1.0.tgz"

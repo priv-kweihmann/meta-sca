@@ -2,7 +2,7 @@ SUMMARY = "reuse is a tool for compliance with the REUSE recommendations"
 HOMEPAGE = "https://github.com/fsfe/reuse-tool"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "GPL-3.0+ & Apache-2.0 & CC0-1.0 & CC-BY-SA-4.0"
+LICENSE = "GPL-3.0-or-later & Apache-2.0 & CC0-1.0 & CC-BY-SA-4.0"
 LIC_FILES_CHKSUM = "\
                     file://LICENSES/Apache-2.0.txt;md5=3b83ef96387f14655fc854ddc3c6bd57 \
                     file://LICENSES/CC-BY-SA-4.0.txt;md5=fba3b94d88bfb9b81369b869a1e9a20f \

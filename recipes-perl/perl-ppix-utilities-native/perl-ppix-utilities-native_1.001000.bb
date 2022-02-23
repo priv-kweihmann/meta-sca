@@ -2,7 +2,7 @@ SUMMARY = "Extensions to PPI"
 HOMEPAGE = "https://metacpan.org/pod/PPIx::Utilities"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "GPL-2.0 & Artistic-1.0"
+LICENSE = "GPL-2.0-only & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2ffee94e0815161d2b18352b0fb7d42b"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/E/EL/ELLIOTJS/PPIx-Utilities-${PV}.tar.gz"

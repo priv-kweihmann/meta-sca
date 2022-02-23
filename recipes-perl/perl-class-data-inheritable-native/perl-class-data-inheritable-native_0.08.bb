@@ -2,7 +2,7 @@ SUMMARY = "Inheritable, overridable class data"
 HOMEPAGE = "https://metacpan.org/pod/Class::Data::Inheritable"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "GPL-2.0 & Artistic-1.0"
+LICENSE = "GPL-2.0-only & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://README;beginline=100;endline=105;md5=72bfdf715eed477210669ee3f23ad19a"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/T/TM/TMTM/Class-Data-Inheritable-${PV}.tar.gz"
