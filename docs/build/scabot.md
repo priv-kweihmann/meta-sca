@@ -39,7 +39,7 @@ Now you need to tell the build how to talk to your git server.
 Set in your **local.conf** or **distro.conf** the following
 
 ```bitbake
-BB_ENV_EXTRAWHITE += "SCA_BOT_BOTUSER SCA_BOT_BOTTOKEN SCA_BOT_PROJECT SCA_BOT_REQUEST SCA_BOT_SERVER"
+BB_ENV_PASSTHROUGH_ADDITIONS += "SCA_BOT_BOTUSER SCA_BOT_BOTTOKEN SCA_BOT_PROJECT SCA_BOT_REQUEST SCA_BOT_SERVER"
 ```
 
 so you can pass these sensitive information from the environment.

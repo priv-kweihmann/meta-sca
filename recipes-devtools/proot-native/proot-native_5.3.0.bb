@@ -6,7 +6,7 @@ DESCRIPTION = "PRoot is a user-space implementation of chroot, mount --bind, and
                architecture transparently through QEMU user-mode"
 HOMEPAGE = "https://github.com/proot-me/proot"
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "GPL-2.0"
+LICENSE = "GPL-2.0-only"
 
 LIC_FILES_CHKSUM = "file://../COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 

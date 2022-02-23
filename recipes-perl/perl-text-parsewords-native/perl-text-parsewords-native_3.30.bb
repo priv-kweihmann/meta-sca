@@ -2,7 +2,7 @@ SUMMARY = "parse text into an array of tokens or array of arrays"
 HOMEPAGE = "https://metacpan.org/pod/Text::ParseWords"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "GPL-2.0 & Artistic-1.0"
+LICENSE = "GPL-2.0-only & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://README;beginline=30;md5=e21ba77e6512164f2a40e60557f00e68"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/C/CH/CHORNY/Text-ParseWords-${PV}.tar.gz"

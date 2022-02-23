@@ -2,7 +2,7 @@ SUMMARY = "The Unix security audit and intrusion detection tool"
 HOMEPAGE = "http://www.nongnu.org/tiger/"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "GPL-2.0"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
 
 DEPENDS += "bash perl"

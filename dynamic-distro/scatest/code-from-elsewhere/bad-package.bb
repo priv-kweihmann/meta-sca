@@ -1,6 +1,6 @@
 SUMMARY = "A really bad package"
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "CLOSED& GPLv2+ |MIT-style"
+LICENSE = "CLOSED& GPL-2.0-or-later |MIT"
 
 SRC_URI += "\
             http://www.magicermine.com/demos/curl/curl/curl-7.30.0.ermine.tar.bz2;subdir=source;name=curl \

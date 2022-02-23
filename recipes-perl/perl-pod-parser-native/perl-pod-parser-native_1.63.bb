@@ -2,7 +2,7 @@ SUMMARY = "Various pod modules"
 HOMEPAGE = "https://metacpan.org/pod/Pod-Parser"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "GPL-2.0 & Artistic-1.0"
+LICENSE = "GPL-2.0-only & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://README;beginline=84;endline=131;md5=ab4a103dd819bcc3dc34bced058717d1"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/M/MA/MAREKR/Pod-Parser-${PV}.tar.gz"

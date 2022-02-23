@@ -15,7 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh """
-                    export BB_ENV_EXTRAWHITE="$BB_ENV_EXTRAWHITE SCA_ENABLE"
+                    export BB_ENV_PASSTHROUGH_ADDITIONS="$BB_ENV_PASSTHROUGH_ADDITIONS SCA_ENABLE"
                     . ./oe-init-build-env
                     SCA_ENABLE=${params.SCA_ENABLE} bitbake core-image-minimal
                 """

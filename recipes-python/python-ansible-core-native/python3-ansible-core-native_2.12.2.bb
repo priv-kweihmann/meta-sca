@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/ansible/ansible/"
 SECTION = "devel/python"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "GPL-3.0"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=8f0e2cd40e05189ec81232da84bd6e1a"
 
 DEPENDS += "\

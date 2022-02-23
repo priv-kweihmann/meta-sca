@@ -2,7 +2,7 @@ SUMMARY = "A common base representation of python source code for pylint and oth
 HOMEPAGE = "https://github.com/PyCQA/astroid"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "LGPLv2"
+LICENSE = "LGPL-2.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a70cf540abf41acb644ac3b621b2fad1"
 
 DEPENDS += "\

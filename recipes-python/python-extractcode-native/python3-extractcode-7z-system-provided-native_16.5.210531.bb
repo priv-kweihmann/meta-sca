@@ -2,7 +2,7 @@ SUMMARY = "plugin to provide system package provided sevenzip binary"
 HOMEPAGE = "https://github.com/nexB/extractcode"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "Apache-2.0 & LGPL-2.1 & unRAR & BSD-3-Clause"
+LICENSE = "Apache-2.0 & LGPL-2.1-only & unRAR & BSD-3-Clause"
 LIC_FILES_CHKSUM = "\
     file://apache-2.0.LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57 \
     file://LICENSE.txt;md5=b88ed37631527bdf35bcf5cb2dac553f \

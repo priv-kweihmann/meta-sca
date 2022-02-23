@@ -2,7 +2,7 @@ SUMMARY = "a static analysis tool for finding vulnerabilities in C/C++ source co
 HOMEPAGE = "https://github.com/david-a-wheeler/flawfinder"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "GPL-2.0"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=0636e73ff0215e8d672dc4c32c317bb3"
 
 DEPENDS += "python3-native"

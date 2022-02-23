@@ -2,7 +2,7 @@ SUMMARY = "Shell script to check for simple privilege escalation vectors on Unix
 HOMEPAGE = "https://github.com/pentestmonkey/unix-privesc-check"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "GPL-2.0"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://doc/COPYING.GPL;md5=751419260aa954499f7abaabaa882bbe"
 
 SRC_URI = "git://github.com/pentestmonkey/unix-privesc-check.git;branch=master;protocol=https"
