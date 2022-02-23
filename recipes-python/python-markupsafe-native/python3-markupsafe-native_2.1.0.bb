@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.rst;md5=ffeffa59c90c9c4a033c7574f8f3fb75"
 
 PYPI_PACKAGE = "MarkupSafe"
 
-SRC_URI[md5sum] = "892e0fefa3c488387e5cc0cad2daa523"
-SRC_URI[sha256sum] = "594c67807fb16238b30c44bdf74f36c02cdf22d1c8cda91ef8a0ed8dabf5620a"
+SRC_URI[md5sum] = "1c3ef96104e89fc64f90e48194a4f154"
+SRC_URI[sha256sum] = "80beaf63ddfbc64a0452b841d8036ca0611e049650e20afcb882f5d3c266d65f"
 
 inherit pypi
 inherit setuptools3
