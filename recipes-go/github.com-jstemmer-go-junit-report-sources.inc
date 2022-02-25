@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/jstemmer/go-junit-report/@v/v0.9.1.zip;srcoutput=github.com/jstemmer/go-junit-report;srcinput=github.com/jstemmer/go-junit-report@v0.9.1;downloadfilename=github-com-jstemmer-go-junit-report-0.9.1.zip;name=github-com-jstemmer-go-junit-report"
-SRC_URI[github-com-jstemmer-go-junit-report.sha256sum] = "fbd2196e4a50a88f8c352f76325f4ba72338ecec7b6cb7535317ce9e3aa40284"
+SRC_URI += "https://proxy.golang.org/github.com/jstemmer/go-junit-report/@v/v1.0.0.zip;srcoutput=github.com/jstemmer/go-junit-report;srcinput=github.com/jstemmer/go-junit-report@v1.0.0;downloadfilename=github-com-jstemmer-go-junit-report-1.0.0.zip;name=github-com-jstemmer-go-junit-report"
+SRC_URI[github-com-jstemmer-go-junit-report.sha256sum] = "eb36a13d8534b246903498e3d71d6f2d6e545c5150296f7a01e8fbf108119b11"
 
 GOSRC_LICENSE += "\
     MIT \
