@@ -9,6 +9,7 @@ require github.com-aws-smithy-go-sources.inc
 
 EXTRA_DEPENDS += "\
     github.com-google-go-cmp-native \
+    github.com-jmespath-go-jmespath-native \
 "
 
 GO_IMPORT = "github.com/aws/smithy-go"
