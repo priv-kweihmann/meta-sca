@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=feaa9e77067014c95af709fcb652c2ca"
 DEPENDS = "npm-debug-native \
            npm-textlint-types-native"
 
-SRC_URI = "https://registry.npmjs.org/@textlint/source-code-fixer/-/source-code-fixer-12.1.0.tgz"
-SRC_URI[md5sum] = "ffb053a418afc877f74b8da48f3a4497"
-SRC_URI[sha256sum] = "456e2cece518b0e191d48affcaafcaaa1ed69658ca1e776ba3f6ad2325f3747f"
+SRC_URI = "https://registry.npmjs.org/@textlint/source-code-fixer/-/source-code-fixer-12.1.1.tgz"
+SRC_URI[md5sum] = "5ddede6781f12a5eb12bd5efeb39a82f"
+SRC_URI[sha256sum] = "a6af98fe496d5a9c2130f0920545e507bcd573de6f019f8a6aa9a3eb4886978e"
 
 NPM_PKGNAME = "@textlint/source-code-fixer"
 
