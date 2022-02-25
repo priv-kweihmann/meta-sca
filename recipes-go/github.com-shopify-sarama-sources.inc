@@ -1,5 +1,5 @@
 SRC_URI += "git://github.com/Shopify/sarama;nobranch=1;protocol=https;srcinput=github.com/Shopify/sarama;srcoutput=github.com/Shopify/sarama;destsuffix=github.com/Shopify/sarama;name=github-com-shopify-sarama"
-SRCREV_github-com-shopify-sarama = "e35ee3f9fcd948f79b8a5faf266ff06105eb8622"
+SRCREV_github-com-shopify-sarama = "9baf7a651a68631e143039fafd7a7bb13ebdceca"
 GOSRC_REMOVEDIRS += "github.com/Shopify/sarama/examples"
 
 GOSRC_LICENSE += "\
