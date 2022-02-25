@@ -9,9 +9,9 @@ DEPENDS = "npm-textlint-feature-flag-native \
            npm-textlint-kernel-native \
            npm-textlint-native"
 
-SRC_URI = "https://registry.npmjs.org/textlint-tester/-/textlint-tester-12.1.0.tgz"
-SRC_URI[md5sum] = "c1cf81d0b5fb0d28e5b40c0c75c73932"
-SRC_URI[sha256sum] = "bc0f084bac69fd4ea4684100cbe782db51ecbe16e4d3b088664cd264c66f8488"
+SRC_URI = "https://registry.npmjs.org/textlint-tester/-/textlint-tester-12.1.1.tgz"
+SRC_URI[md5sum] = "b88429ee6692cc493c70129a8ecf02b3"
+SRC_URI[sha256sum] = "7723021777aff69b96518414caa3667ff802ebbbffb3cee5389157230195c376"
 
 NPM_PKGNAME = "textlint-tester"
 
