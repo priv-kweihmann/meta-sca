@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=acbb3c1bd757871a3042b2b9699697ee"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/lru-cache/-/lru-cache-7.3.1.tgz"
-SRC_URI[md5sum] = "e48bd45c0f89604ac0f013fd8d3d4e52"
-SRC_URI[sha256sum] = "a1b2406313b550fe3cfb35c5de89de572d368a3dca1433af25b9da3e4fbec917"
+SRC_URI = "https://registry.npmjs.org/lru-cache/-/lru-cache-7.4.0.tgz"
+SRC_URI[md5sum] = "1eecdaab21b280c94b8f3d7d1f17e948"
+SRC_URI[sha256sum] = "89ec64128de5b416f402af6f204875f961b1937f1f13d317c07d3d6795006ab4"
 
 NPM_PKGNAME = "lru-cache"
 
