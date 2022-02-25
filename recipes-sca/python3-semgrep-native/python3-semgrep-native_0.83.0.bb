@@ -22,8 +22,8 @@ DEPENDS += "\
             semgrep-core-native \
            "
 
-SRC_URI[md5sum] = "9c4bf2742195652aad68b53b6973cc09"
-SRC_URI[sha256sum] = "aa6c57d08602ffde3bf36159c0325d6d72f70dc634cd237f30ff46f7d6b78be3"
+SRC_URI[md5sum] = "27077327e618b282b77aa749b43cb065"
+SRC_URI[sha256sum] = "e2e60d37d1f2f27a63d93693ec01dba6e3876fed0ec8144a296c1fa7770d983a"
 
 PYPI_PACKAGE = "semgrep"
 
