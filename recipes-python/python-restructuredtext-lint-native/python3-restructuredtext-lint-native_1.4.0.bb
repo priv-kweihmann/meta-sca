@@ -11,8 +11,8 @@ PYPI_PACKAGE = "restructuredtext_lint"
 
 UPSTREAM_CHECK_REGEX ?= "/restructuredtext-lint/(?P<pver>(\d+[\.\-_]*)+)"
 
-SRC_URI[md5sum] = "f329e3fb722f4d58b72af9e96f088df4"
-SRC_URI[sha256sum] = "d3b10a1fe2ecac537e51ae6d151b223b78de9fafdd50e5eb6b08c243df173c80"
+SRC_URI[md5sum] = "05aae776c7fe02edb03f3b2601ac6b67"
+SRC_URI[sha256sum] = "1b235c0c922341ab6c530390892eb9e92f90b9b75046063e047cacfb0f050c45"
 
 inherit pypi
 inherit setuptools3
