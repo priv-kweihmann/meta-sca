@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/golang.org/x/oauth2/@v/v0.0.0-20211104180415-d3ed0bb246c8.zip;srcoutput=golang.org/x/oauth2;srcinput=golang.org/x/oauth2@v0.0.0-20211104180415-d3ed0bb246c8;downloadfilename=golang-org-x-oauth2-0.0.0-20211104180415-d3ed0bb246c8.zip;name=golang-org-x-oauth2"
-SRC_URI[golang-org-x-oauth2.sha256sum] = "7317b4f8c045bf2840b67cf2981cee14facc6d38a86b2781b62b32c0600f607c"
+SRC_URI += "https://proxy.golang.org/golang.org/x/oauth2/@v/v0.0.0-20220223155221-ee480838109b.zip;srcoutput=golang.org/x/oauth2;srcinput=golang.org/x/oauth2@v0.0.0-20220223155221-ee480838109b;downloadfilename=golang-org-x-oauth2-0.0.0-20220223155221-ee480838109b.zip;name=golang-org-x-oauth2"
+SRC_URI[golang-org-x-oauth2.sha256sum] = "727cbde311819801a83590d70b80d69771b03031489de95a674fd7be32d12122"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
