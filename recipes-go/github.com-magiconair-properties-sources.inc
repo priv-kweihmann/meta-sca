@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/magiconair/properties/@v/v1.8.5.zip;srcoutput=github.com/magiconair/properties;srcinput=github.com/magiconair/properties@v1.8.5;downloadfilename=github-com-magiconair-properties-1.8.5.zip;name=github-com-magiconair-properties"
-SRC_URI[github-com-magiconair-properties.sha256sum] = "fa056b3c72df6a36c991e9f22285818b07e377bf07c7beb441d9a097b2d6263e"
+SRC_URI += "https://proxy.golang.org/github.com/magiconair/properties/@v/v1.8.6.zip;srcoutput=github.com/magiconair/properties;srcinput=github.com/magiconair/properties@v1.8.6;downloadfilename=github-com-magiconair-properties-1.8.6.zip;name=github-com-magiconair-properties"
+SRC_URI[github-com-magiconair-properties.sha256sum] = "649dd0dac8fa6d7f2d5e6d1e7fe4a57ecb6c05346c8f6f15968dd66ebaf7212a"
 
 GOSRC_LICENSE += "\
     BSD-2-Clause \
