@@ -10,7 +10,6 @@ require cloud.google.com-go-compute-sources.inc
 EXTRA_DEPENDS += "\
     cloud.google.com-go-native \
     github.com-googleapis-gax-go-v2-native \
-    golang.org-x-xerrors-native \
     google.golang.org-api-native \
     google.golang.org-genproto-native \
     google.golang.org-grpc-native \
