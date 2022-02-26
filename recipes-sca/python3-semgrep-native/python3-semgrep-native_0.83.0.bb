@@ -38,7 +38,7 @@ export SEMGREP_SKIP_BIN = "1"
 
 do_configure:prepend() {
     # Remove the version pinning
-    sed -i "s#jsonschema~=3.2#jsonschema>=3.2#g" "${S}/setup.py"
+    sed -i "s#~=#>=#g" "${S}/setup.py"
 }
 
 do_install:append() {
