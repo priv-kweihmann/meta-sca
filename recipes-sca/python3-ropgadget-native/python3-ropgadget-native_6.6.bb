@@ -20,3 +20,4 @@ inherit setuptools3
 inherit native
 
 SCA_TOOL_DESCRIPTION = "ropgadget"
+PIP_INSTALL_PACKAGE = "ROPGadget"

@@ -20,6 +20,7 @@ inherit setuptools3
 inherit native
 
 SCA_TOOL_DESCRIPTION = "pysymcheck"
+PIP_INSTALL_PACKAGE = "pysymbolcheck"
 
 do_install:append() {
     install -d ${D}${datadir}/pysymbolcheck

@@ -15,6 +15,7 @@ SRCREV = "567b922d4fecf92fb6680669c08b861e178ba689"
 
 UPSTREAM_CHECK_COMMITS = "1"
 S = "${WORKDIR}/git"
+PYPA_WHEEL = "${PIP_INSTALL_DIST_PATH}/flake8_functions-0.0.4-*.whl"
 
 inherit setuptools3
 inherit native

@@ -1,0 +1,41 @@
+From 49ada8ceff0b3aea880f24f467c688b973bf46ea Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Sun, 27 Feb 2022 09:35:31 +0100
+Subject: [PATCH] setup.py: use setuptools instead of distutils
+
+as distutils will be deprecated in python 3.12 and already produces
+a warning when run with python 3.10.x, it might be a good time to
+switch to setuptools.
+It offers the same interface, so results will be the same
+
+Upstream-Status: Submitted
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+---
+ setup.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index 60b06cc..c78c2ec 100755
+--- a/setup.py
++++ b/setup.py
+@@ -5,7 +5,7 @@
+ from __future__ import unicode_literals
+ 
+ import ast
+-from distutils import core
++from setuptools import setup
+ 
+ 
+ def version():
+@@ -17,7 +17,7 @@ def version():
+ 
+ 
+ with open('README.rst') as readme:
+-    core.setup(
++    setup(
+         name='eradicate',
+         version=version(),
+         description='Removes commented-out code.',
+-- 
+2.25.1
+

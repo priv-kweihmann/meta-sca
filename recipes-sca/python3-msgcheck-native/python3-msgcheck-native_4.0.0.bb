@@ -16,3 +16,4 @@ inherit setuptools3
 inherit native
 
 SCA_TOOL_DESCRIPTION = "msgcheck"
+PIP_INSTALL_PACKAGE = "msgcheck"

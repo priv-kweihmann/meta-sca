@@ -20,6 +20,7 @@ inherit setuptools3
 inherit native
 
 SCA_TOOL_DESCRIPTION = "detectsecrets"
+PIP_INSTALL_PACKAGE = "detect_secrets"
 
 do_install:append() {
     # Remove the requests from the requires.txt, as this isn't working

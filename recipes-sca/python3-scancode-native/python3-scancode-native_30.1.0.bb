@@ -82,3 +82,4 @@ inherit setuptools3
 inherit native
 
 SCA_TOOL_DESCRIPTION = "scancode"
+PYPA_WHEEL = "${PIP_INSTALL_DIST_PATH}/scancode_toolkit-*-*.whl"

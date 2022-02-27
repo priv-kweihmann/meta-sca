@@ -10,6 +10,7 @@ DEPENDS += "python3-flake8-native"
 SRC_URI += "git://github.com/tommilligan/flake8-fixme.git;branch=master;protocol=https"
 SRCREV = "8efe63380de2e42e8049235f135bf102c6d22ea6"
 S = "${WORKDIR}/git"
+PIP_INSTALL_PACKAGE = "flake8_fixme"
 
 inherit setuptools3
 inherit native
