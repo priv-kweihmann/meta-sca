@@ -62,7 +62,6 @@ DEPENDS += "\
             python3-tempora-native \
             python3-toml-native \
             python3-typecode-native \
-            python3-typing-native \
             python3-unicodecsv-native \
             python3-urlpy-native \
             python3-xmltodict-native \

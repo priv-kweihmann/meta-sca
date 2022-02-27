@@ -8,7 +8,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=38939e40df14ccacab135b023198167a"
 DEPENDS += "\
     python3-mypy-extensions-native \
     python3-typing-extensions-native \
-    python3-typing-native \
 "
 
 PYPI_PACKAGE = "typing_inspect"

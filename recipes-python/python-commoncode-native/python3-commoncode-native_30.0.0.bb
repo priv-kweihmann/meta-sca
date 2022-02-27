@@ -15,7 +15,6 @@ DEPENDS += "\
             python3-setuptools-scm-native \
             python3-text-unidecode-native \
             python3-toml-native \
-            python3-typing-native \
            "
 
 SRC_URI = "\
