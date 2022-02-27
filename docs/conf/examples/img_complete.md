@@ -73,7 +73,6 @@ SCA_ENABLED_MODULES_RECIPE = "\
                             mypy \
                             pyfindinjection \
                             pylint \
-                            pytype \
                             rats \
                             revive \
                             safety \

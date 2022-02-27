@@ -65,7 +65,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             pylint \
                             pyright \
                             pysymcheck \
-                            pytype \
                             rats \
                             reek \
                             retire \
