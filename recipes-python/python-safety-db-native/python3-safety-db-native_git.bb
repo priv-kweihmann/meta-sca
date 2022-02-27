@@ -14,3 +14,4 @@ inherit setuptools3
 inherit native
 
 UPSTREAM_CHECK_COMMITS = "1"
+PYPA_WHEEL = "${PIP_INSTALL_DIST_PATH}/safety_db-*-*.whl"

@@ -11,6 +11,8 @@ PYPI_PACKAGE = "bitarray"
 SRC_URI[md5sum] = "e45e87a1c03d8473b029d0475f5f14ad"
 SRC_URI[sha256sum] = "4da790ab193e993107f3ff0aebc4f8d6ad5196a19071fbafad16b02898a44fd7"
 
+SRC_URI:append = " file://0001-setup.py-use-setuptools-instead-of-distutils.patch"
+
 inherit pypi
 inherit setuptools3
 inherit native

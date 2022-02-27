@@ -20,3 +20,5 @@ S = "${WORKDIR}/git"
 
 inherit setuptools3
 inherit native
+
+PIP_INSTALL_PACKAGE = "shellexeclist"

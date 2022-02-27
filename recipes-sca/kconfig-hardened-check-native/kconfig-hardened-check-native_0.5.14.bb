@@ -17,7 +17,4 @@ inherit native
 
 SCA_TOOL_DESCRIPTION = "kconfighard"
 
-do_configure[noexec] = "1"
-do_compile[noexec] = "1"
-
 FILES:${PN} += "${bindir}"

@@ -18,3 +18,4 @@ inherit setuptools3
 inherit native
 
 SCA_TOOL_DESCRIPTION = "pyfindinjection"
+PIP_INSTALL_PACKAGE = "py_find_injection"

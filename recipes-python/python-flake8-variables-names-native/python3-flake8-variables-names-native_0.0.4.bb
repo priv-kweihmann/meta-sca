@@ -11,6 +11,7 @@ SRC_URI = "git://github.com/best-doctor/flake8-variables-names.git;branch=master
 SRCREV = "746fa90de6843e20161171f9d056bf45bd67be63"
 
 S = "${WORKDIR}/git"
+PIP_INSTALL_PACKAGE = "flake8_variables_names"
 
 inherit setuptools3
 inherit native

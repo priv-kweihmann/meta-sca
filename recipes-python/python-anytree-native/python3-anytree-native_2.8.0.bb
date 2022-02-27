@@ -13,5 +13,7 @@ SRCREV = "75c0198636f8997967ba00df5077cd21350f68ce"
 
 S = "${WORKDIR}/git"
 
+PIP_INSTALL_PACKAGE = "anytree"
+
 inherit setuptools3
 inherit native

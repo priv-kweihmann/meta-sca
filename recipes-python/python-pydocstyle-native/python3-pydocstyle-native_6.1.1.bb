@@ -12,5 +12,7 @@ SRCREV = "faeaa735d5c9387ab2f02c5bf9d4f07d0e7b6841"
 
 S = "${WORKDIR}/git"
 
+PIP_INSTALL_PACKAGE = "pydocstyle"
+
 inherit setuptools3
 inherit native

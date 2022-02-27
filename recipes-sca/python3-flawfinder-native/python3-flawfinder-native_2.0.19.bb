@@ -16,8 +16,9 @@ inherit setuptools3
 inherit native
 
 SCA_TOOL_DESCRIPTION = "flawfinder"
+PIP_INSTALL_PACKAGE = "flawfinder"
 
-do_install:prepend() {
+do_configure:prepend() {
     # Remove the data_files section from setup, as
     # it isn't really needed
     sed -i "/data_files/d" ${S}/setup.py

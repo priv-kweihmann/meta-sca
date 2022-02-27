@@ -16,5 +16,9 @@ inherit pypi
 
 SRC_URI = "${PYPI_SRC_URI};subdir=${PYPI_PACKAGE}-${PV}"
 
+do_configure:prepend() {
+    sed -i "s#distutils.core#setuptools#g" ${S}/setup.py
+}
+
 inherit setuptools3
 inherit native

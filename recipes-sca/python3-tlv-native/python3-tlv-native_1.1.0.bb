@@ -19,3 +19,4 @@ inherit setuptools3
 inherit native
 
 SCA_TOOL_DESCRIPTION = "tlv"
+PIP_INSTALL_PACKAGE = "tlv"

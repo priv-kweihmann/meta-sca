@@ -14,6 +14,7 @@ SRC_URI = "git://github.com/Arkq/flake8-requirements.git;branch=master;protocol=
 SRCREV = "084927bac97a5e0539c48d2d591fd4dcfc00c963"
 
 S = "${WORKDIR}/git"
+PIP_INSTALL_PACKAGE = "flake8_requirements"
 
 inherit setuptools3
 inherit native

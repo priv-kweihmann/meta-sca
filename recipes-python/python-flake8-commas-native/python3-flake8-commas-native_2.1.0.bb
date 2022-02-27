@@ -10,6 +10,7 @@ DEPENDS += "python3-flake8-native"
 SRC_URI = "git://github.com/PyCQA/flake8-commas.git;branch=master;protocol=https"
 SRCREV = "f19499b91d8408abd47b3fc070fa230f53c0c8ac"
 S = "${WORKDIR}/git"
+PIP_INSTALL_PACKAGE = "flake8_commas"
 
 inherit setuptools3
 inherit native

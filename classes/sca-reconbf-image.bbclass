@@ -3,7 +3,7 @@
 
 SCA_RECONBF_EXTRA_SUPPRESS ?= ""
 SCA_RECONBF_EXTRA_FATAL ?= ""
-SCA_RECONBF_CONFIG ?= "${datadir}/etc/reconbf/hos.cfg"
+SCA_RECONBF_CONFIG ?= "${prefix}/etc/reconbf/hos.cfg"
 
 SCA_RAW_RESULT_FILE[reconbf] = "json"
 

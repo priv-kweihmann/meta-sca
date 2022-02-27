@@ -11,6 +11,7 @@ SRC_URI = "git://github.com/globality-corp/flake8-logging-format.git;branch=mast
 SRCREV = "b2946e3f81b9274e59baf427400b6f9801b1d9ee"
 
 S = "${WORKDIR}/git"
+PIP_INSTALL_PACKAGE = "flake8_logging_format"
 
 inherit setuptools3
 inherit native

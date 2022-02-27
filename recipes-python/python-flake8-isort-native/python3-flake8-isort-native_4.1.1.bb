@@ -16,6 +16,7 @@ SRC_URI = "git://github.com/gforcada/flake8-isort.git;branch=master;protocol=htt
 SRCREV = "8d25aab33c972ca362f35e74e3d4bb1d1f670cec"
 
 S = "${WORKDIR}/git"
+PIP_INSTALL_PACKAGE = "flake8_isort"
 
 inherit setuptools3
 inherit native
