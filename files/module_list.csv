@@ -62,7 +62,6 @@ pyfindinjection,Find SQL injections in python code,https://github.com/uber/py-fi
 pylint,Python linter,https://github.com/PyCQA/pylint,,,x,x,,,x,,,,,,,,,,,,,x,x
 pyright,Python type linter,https://github.com/Microsoft/pyright,"meta-oe, manual enable",x,,x,,,x,,,,,,,,,,,,,x,
 pysymcheck,Check binaries for forbidden function usage,https://github.com/priv-kweihmann/pysymbolcheck,,,,x,,,,,,,,,,,,x,,,x,,
-pytype,Python linter using type-annotations,https://github.com/google/pytype,,x,,x,,,x,,,,,,,,,,,,,x,
 rats,Check on insecurities in several languages,https://github.com/redNixon/rats,,,,x,,x,x,x,,x,,,,,,,,,x,,
 reconbf,security audit tool,https://github.com/HewlettPackard/reconbf,,,x,,,,,,,,,x,,,,,,,x,,
 reek,Code smell detector for Ruby,https://github.com/troessner/reek,"meta-rubygems, manual enable",,,x,,,,,,,,,,,,,,x,,,x

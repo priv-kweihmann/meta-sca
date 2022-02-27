@@ -129,7 +129,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           pyfindinjection \
                           pylint \
                           pysymcheck \
-                          pytype \
                           rats \
                           reconbf \
                           reuse \
