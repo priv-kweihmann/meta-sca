@@ -119,7 +119,6 @@ sca-recipe-pyfindinjection-rules-native
 sca-recipe-pylint-rules-native
 sca-recipe-pyright-rules-native
 sca-recipe-pysymcheck-rules-native
-sca-recipe-pytype-rules-native
 sca-recipe-rats-rules-native
 sca-recipe-reek-rules-native
 sca-recipe-retire-rules-native
