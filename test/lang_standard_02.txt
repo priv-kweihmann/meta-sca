@@ -17,7 +17,6 @@ proselint
 pyfindinjection
 pylint
 pysymcheck
-pytype
 safety
 setuptoolslint
 vulture
