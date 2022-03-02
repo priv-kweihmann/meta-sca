@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/xdg-go/stringprep/@v/v1.0.2.zip;srcoutput=github.com/xdg-go/stringprep;srcinput=github.com/xdg-go/stringprep@v1.0.2;downloadfilename=github-com-xdg-go-stringprep-1.0.2.zip;name=github-com-xdg-go-stringprep"
-SRC_URI[github-com-xdg-go-stringprep.sha256sum] = "4f4d7c8ba09ab5fa288ff86902c2f4000f3a85cd55d9ff75a04ade18c8e33ad9"
+SRC_URI += "https://proxy.golang.org/github.com/xdg-go/stringprep/@v/v1.0.3.zip;srcoutput=github.com/xdg-go/stringprep;srcinput=github.com/xdg-go/stringprep@v1.0.3;downloadfilename=github-com-xdg-go-stringprep-1.0.3.zip;name=github-com-xdg-go-stringprep"
+SRC_URI[github-com-xdg-go-stringprep.sha256sum] = "515150cab19dedebd979f6298f64d29e3b6e45e55d645a0f32d9f72997e3b2ed"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
