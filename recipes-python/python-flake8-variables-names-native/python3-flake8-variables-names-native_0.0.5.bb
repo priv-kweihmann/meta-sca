@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=352fd8fef192c98968c70971a8
 DEPENDS += "python3-flake8-native"
 
 SRC_URI = "git://github.com/best-doctor/flake8-variables-names.git;branch=master;protocol=https"
-SRCREV = "746fa90de6843e20161171f9d056bf45bd67be63"
+SRCREV = "3db7cd93a8f4e80cd856d7e713acc4f656644219"
 
 S = "${WORKDIR}/git"
 
