@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/influxdata/influxdb1-client/@v/v0.0.0-20200827194710-b269163b24ab.zip;srcoutput=github.com/influxdata/influxdb1-client;srcinput=github.com/influxdata/influxdb1-client@v0.0.0-20200827194710-b269163b24ab;downloadfilename=github-com-influxdata-influxdb1-client-0.0.0-20200827194710-b269163b24ab.zip;name=github-com-influxdata-influxdb1-client"
-SRC_URI[github-com-influxdata-influxdb1-client.sha256sum] = "ed01c8c61c067924a350e68af2bf16d90952e094a9fd5bbf61db82a66576be14"
+SRC_URI += "https://proxy.golang.org/github.com/influxdata/influxdb1-client/@v/v0.0.0-20220302092344-a9ab5670611c.zip;srcoutput=github.com/influxdata/influxdb1-client;srcinput=github.com/influxdata/influxdb1-client@v0.0.0-20220302092344-a9ab5670611c;downloadfilename=github-com-influxdata-influxdb1-client-0.0.0-20220302092344-a9ab5670611c.zip;name=github-com-influxdata-influxdb1-client"
+SRC_URI[github-com-influxdata-influxdb1-client.sha256sum] = "71cde4d7b82c60edcecc528d44eac250071f9720e2e1d6ea279309a36e2a63e5"
 
 GOSRC_LICENSE += "\
     MIT \
