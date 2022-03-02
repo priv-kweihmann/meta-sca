@@ -11,13 +11,14 @@ DEPENDS += "\
             python3-setuptools-scm-native \
            "
 
-SRC_URI[md5sum] = "f87d06b0bcea00279dfdf6cc32bf0fd0"
-SRC_URI[sha256sum] = "0fce5b8dc68760f353979d99fdd6b3ad46330b6b1837e2077a89ebcf204aac91"
+SRC_URI[md5sum] = "74f14ba3b07bb7ef96da4108f3f2921b"
+SRC_URI[sha256sum] = "b4d85362ed29b4c348678de797df438f0f0509497ddb8c647096c02a6d87b685"
 
 PYPI_PACKAGE = "pytest-runner"
 
 inherit pypi
 inherit setuptools3
+inherit sca-setuptools-legacy
 inherit native
 
 do_configure:prepend() {
