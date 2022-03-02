@@ -15,9 +15,9 @@ DEPENDS = "npm-ajv-native \
            npm-minimatch-native \
            npm-strip-json-comments-native"
 
-SRC_URI = "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-1.1.0.tgz"
-SRC_URI[md5sum] = "9b51f2bee48b6b268d3c548f0e8a83d0"
-SRC_URI[sha256sum] = "f8f1310eb6c267c15df44df2331c24cdcafa4f56861ad1a9a4f6280b26356438"
+SRC_URI = "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-1.2.0.tgz"
+SRC_URI[md5sum] = "07a8ba7f5db0ccd48ada7dce961b9608"
+SRC_URI[sha256sum] = "ef2a6a355b33580253ca7320637424d5d6066338d80b28ac3f0b6717fc340e17"
 
 NPM_PKGNAME = "@eslint/eslintrc"
 
