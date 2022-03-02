@@ -9,8 +9,8 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-3.0-only;md5=c79ff39f19dfec
 
 PYPI_PACKAGE = "systemdunitparser"
 
-SRC_URI[md5sum] = "211799b0229cb36c316cef26856dbabe"
-SRC_URI[sha256sum] = "f85f1362abd18778a74605955fc83cbe62e695cf02ac80211c9b010377df2823"
+SRC_URI[md5sum] = "4bb9d1a8495ef5024bde1ab1785c14e4"
+SRC_URI[sha256sum] = "1a072a4e55fc5573823e0a910497164db96d9e16648b0f540d546cd5591de90e"
 
 inherit pypi
 inherit setuptools3
