@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.TXT;md5=1cfbff4f40612b0144e498a47c91499c"
 
 PYPI_PACKAGE = "capstone"
 
-SRC_URI[md5sum] = "96215136924b612ddd4e05742c02cbff"
-SRC_URI[sha256sum] = "2842913092c9b69fd903744bc1b87488e1451625460baac173056e1808ec1c66"
+SRC_URI[md5sum] = "a35caae78eb868e5f7516cab404a07db"
+SRC_URI[sha256sum] = "6e18ee140463881c627b7ff7fd655752ddf37d9036295d3dba7b130408fbabaf"
 
 inherit pypi
 inherit setuptools3
