@@ -17,8 +17,7 @@ SRC_URI[sha256sum] = "b4d85362ed29b4c348678de797df438f0f0509497ddb8c647096c02a6d
 PYPI_PACKAGE = "pytest-runner"
 
 inherit pypi
-inherit setuptools3
-inherit sca-setuptools-legacy
+inherit setuptools_build_meta
 inherit native
 
 do_configure:prepend() {
