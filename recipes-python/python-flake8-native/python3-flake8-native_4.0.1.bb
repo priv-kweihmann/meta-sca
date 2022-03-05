@@ -6,7 +6,6 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=75b26781f1adf1aa310bda6098937878"
 
 DEPENDS += "\
-            python3-entrypoints-native \
             python3-mccabe-native \
             python3-pycodestyle-native \
             python3-pyflakes-native \
