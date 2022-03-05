@@ -10,6 +10,5 @@ SRC_URI[sha256sum] = "9dcba389effe67d3f906bbdcc64b8ef2ee8eac00072406784ea636bb6b
 PYPI_PACKAGE = "javaproperties"
 
 inherit pypi
-inherit setuptools3
-inherit sca-setuptools-legacy
+inherit setuptools_build_meta
 inherit native
