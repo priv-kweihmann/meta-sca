@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/xdg-go/scram/@v/v1.1.0.zip;srcoutput=github.com/xdg-go/scram;srcinput=github.com/xdg-go/scram@v1.1.0;downloadfilename=github-com-xdg-go-scram-1.1.0.zip;name=github-com-xdg-go-scram"
-SRC_URI[github-com-xdg-go-scram.sha256sum] = "ae24ee0f4c854fc017ea3b4168fb49c1d2dda5896ce917b448b1f9fda9fffac7"
+SRC_URI += "https://proxy.golang.org/github.com/xdg-go/scram/@v/v1.1.1.zip;srcoutput=github.com/xdg-go/scram;srcinput=github.com/xdg-go/scram@v1.1.1;downloadfilename=github-com-xdg-go-scram-1.1.1.zip;name=github-com-xdg-go-scram"
+SRC_URI[github-com-xdg-go-scram.sha256sum] = "d1e4c9b5cc9a50a6029a5d655e7a04055de1de8fc611d5741958b49df8f3ba12"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
