@@ -8,6 +8,7 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require github.com-datadog-datadog-go-sources.inc
 
 EXTRA_DEPENDS += "\
+    github.com-golang-mock-native \
     github.com-microsoft-go-winio-native \
 "
 
