@@ -16,9 +16,9 @@ DEPENDS = "npm-chalk-native \
            npm-textlint-types-native \
            npm-try-resolve-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/formatter/-/formatter-4.2.0.tgz"
-SRC_URI[md5sum] = "00de2220128cc445dd809c0b934e662c"
-SRC_URI[sha256sum] = "a75c9e693e50c4f6afe7cc7ce4f59f073371bf2cd6ddd2edff3f0ac36c502afb"
+SRC_URI = "https://registry.npmjs.org/@secretlint/formatter/-/formatter-5.0.1.tgz"
+SRC_URI[md5sum] = "ddab1be21ac1311408cab4530d90c70c"
+SRC_URI[sha256sum] = "cce1168e455bf1cc6dbd918f8b763191a5bc9cb2ea366771016fde3068027f21"
 
 NPM_PKGNAME = "@secretlint/formatter"
 
