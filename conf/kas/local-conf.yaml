@@ -1,0 +1,6 @@
+header:
+  version: 1
+local_conf_header:
+  meta-sca: |
+    SCA_VERBOSE_OUTPUT = "1"
+    CONF_VERSION = "2"
