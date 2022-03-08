@@ -86,6 +86,7 @@ python do_sca_phpstan() {
     with open(sca_raw_result_file(d, "phpstan"), "w") as o:
         o.write(cmd_output)
 }
+do_sca_phpstan[network] = "1"
 
 python do_sca_phpstan_report() {
     import os
