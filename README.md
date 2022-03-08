@@ -16,6 +16,7 @@ For the list of current findings from pipelines see [meta-sca report](https://pr
   - [Use of containers](#use-of-containers)
   - [Use in CI](#use-in-ci)
   - [Setup](#setup)
+  - [Kas](#kas)
   - [Optional layer](#optional-layer)
     - [meta-clang](#meta-clang)
     - [meta-oe](#meta-oe)
@@ -78,6 +79,11 @@ or with poky layer already setup run in shell
 ```shell
 bitbake-layers add-layer "<full path to sca-layer>/meta-sca"
 ```
+
+### Kas
+
+Alternatively you can use [kas](https://kas.readthedocs.io) to setup the workspace.
+Use `conf/kas/scatest-qemux86-64.yaml` from this layer
 
 ### Optional layer
 

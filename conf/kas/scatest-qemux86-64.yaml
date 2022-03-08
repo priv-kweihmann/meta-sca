@@ -1,0 +1,29 @@
+header:
+  version: 1
+  includes:
+    - local-conf.yaml
+machine: qemux86-64
+distro: scatest
+target: core-image-minimal-scatest
+defaults:
+  repos:
+    refspec: honister
+repos:
+  poky:
+    url: "https://git.yoctoproject.org/git/poky"
+    layers:
+      meta:
+      meta-poky:
+      meta-yocto-bsp:
+  meta-sca:
+    url: "https://github.com/priv-kweihmann/meta-sca"
+  meta-openembedded:
+    url: "https://git.openembedded.org/meta-openembedded"
+    layers:
+      meta-oe:
+  meta-rubygems:
+    refspec: hardknott
+    url: "https://github.com/priv-kweihmann/meta-rubygems"
+  meta-clang:
+    url: "https://github.com/kraj/meta-clang"
+    
