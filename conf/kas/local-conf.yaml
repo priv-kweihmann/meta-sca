@@ -3,4 +3,9 @@ header:
 local_conf_header:
   meta-sca: |
     SCA_VERBOSE_OUTPUT = "1"
-    CONF_VERSION = "2"
+    CONF_VERSION = "1"
+    PREFERRED_VERSION_python3-setuptools-scm-native = "6.4.%"
+    PREFERRED_VERSION_python3-packaging-native = "21.3"
+    PREFERRED_VERSION_python3-pyparsing-native = "3.%"
+    PREFERRED_VERSION_python3-attrs-native = "21.4.%"
+
