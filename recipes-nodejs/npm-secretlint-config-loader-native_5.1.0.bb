@@ -12,9 +12,9 @@ DEPENDS = "npm-ajv-native \
            npm-secretlint-types-native \
            npm-try-resolve-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/config-loader/-/config-loader-5.0.1.tgz"
-SRC_URI[md5sum] = "db7ff8dea4d0b31a8630b71f7c843218"
-SRC_URI[sha256sum] = "c05eb60ae75c9604a9ce4272f490a4f5a912ff9e472cc90b9fa8b41dca74bee0"
+SRC_URI = "https://registry.npmjs.org/@secretlint/config-loader/-/config-loader-5.1.0.tgz"
+SRC_URI[md5sum] = "7db16f85e9e1a0effaa724e851f11bf4"
+SRC_URI[sha256sum] = "c24de7c356f65fad44c7449823505fb2eeb07dbb4cf336688e84bbfc07f2032b"
 
 NPM_PKGNAME = "@secretlint/config-loader"
 
