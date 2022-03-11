@@ -3,12 +3,12 @@ HOMEPAGE = "https://github.com/wbond/asn1crypto"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=7439e38f5e04ff62fae436184786b7ca"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=b5cda97fbd7959ad47a952651a87051a"
 
 PYPI_PACKAGE = "asn1crypto"
 
-SRC_URI[md5sum] = "00bf5b72d37778e62cc73b1d8909ae27"
-SRC_URI[sha256sum] = "f4f6e119474e58e04a2b1af817eb585b4fd72bdd89b998624712b5c99be7641c"
+SRC_URI[md5sum] = "fbcbd9ba89cd8fafe0deaf1263922162"
+SRC_URI[sha256sum] = "2c9eb1b1635425bcadf94749bbcd83bfa8b0a912661bad6106466521d484d62b"
 
 inherit pypi
 inherit setuptools3
