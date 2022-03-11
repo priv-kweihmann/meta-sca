@@ -12,8 +12,7 @@ DEPENDS += "\
             python3-pycodestyle-native \
             "
 
-SRC_URI[md5sum] = "30b3113b388cbf6d1ca588e4fc4ca0c6"
-SRC_URI[sha256sum] = "687fc8da2e4a239b206af2e54a90093572a60d0954f3054e23690739b0b0de3b"
+SRC_URI[sha256sum] = "54d19427e6a8d50322a7b02e1841c0a7c22d856975f3459803320e0e18e2d6a1"
 
 PYPI_PACKAGE = "flake8_bandit"
 
