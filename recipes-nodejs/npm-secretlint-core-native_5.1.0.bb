@@ -10,9 +10,9 @@ DEPENDS = "npm-debug-native \
            npm-secretlint-types-native \
            npm-structured-source-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/core/-/core-5.0.1.tgz"
-SRC_URI[md5sum] = "fdb516646ef5153e81cc132c76c418ba"
-SRC_URI[sha256sum] = "8104e8b064ecf6f490f48002d8679b1bf8436d81e9ad92f07bbcfd01ffc55d19"
+SRC_URI = "https://registry.npmjs.org/@secretlint/core/-/core-5.1.0.tgz"
+SRC_URI[md5sum] = "f93647b6195dfdeb495afc0ad05f7383"
+SRC_URI[sha256sum] = "db4b1d225fbe4d0817196ffcb3699dc689a29ccab00bd9baa4c83f94324e6d00"
 
 NPM_PKGNAME = "@secretlint/core"
 
