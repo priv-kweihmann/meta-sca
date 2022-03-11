@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/aws/smithy-go/@v/v1.11.0.zip;srcoutput=github.com/aws/smithy-go;srcinput=github.com/aws/smithy-go@v1.11.0;downloadfilename=github-com-aws-smithy-go-1.11.0.zip;name=github-com-aws-smithy-go"
-SRC_URI[github-com-aws-smithy-go.sha256sum] = "dfbe8bbd66efd5050d8d4990aef04c77a4c9b6f62eae35fa5e9bdbbed95ac705"
+SRC_URI += "https://proxy.golang.org/github.com/aws/smithy-go/@v/v1.11.1.zip;srcoutput=github.com/aws/smithy-go;srcinput=github.com/aws/smithy-go@v1.11.1;downloadfilename=github-com-aws-smithy-go-1.11.1.zip;name=github-com-aws-smithy-go"
+SRC_URI[github-com-aws-smithy-go.sha256sum] = "c9f6acf83bfcc998c41afb5adf047785930010c1404b058c5a785fd582107d99"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
