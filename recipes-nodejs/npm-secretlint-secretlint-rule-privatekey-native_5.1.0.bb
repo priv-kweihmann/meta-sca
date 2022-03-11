@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=402802be77c922cb018a8b5099208dab"
 
 DEPENDS = "npm-textlint-regexp-string-matcher-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-privatekey/-/secretlint-rule-privatekey-5.0.1.tgz"
-SRC_URI[md5sum] = "146de20d24d88df358766bf4bbc0867d"
-SRC_URI[sha256sum] = "eab2ef2413cbb469f2f318caefa8948905949e6cb84a47fcd74786bec106849c"
+SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-privatekey/-/secretlint-rule-privatekey-5.1.0.tgz"
+SRC_URI[md5sum] = "14633629648c6a734a20088157328411"
+SRC_URI[sha256sum] = "cff410f983fa8dc9106b11e240e684354ebf37d2490d5e70f46d832c6f6d24a5"
 
 NPM_PKGNAME = "@secretlint/secretlint-rule-privatekey"
 
