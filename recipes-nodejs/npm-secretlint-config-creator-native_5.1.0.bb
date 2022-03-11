@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=402802be77c922cb018a8b5099208dab"
 
 DEPENDS = "npm-secretlint-types-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/config-creator/-/config-creator-5.0.1.tgz"
-SRC_URI[md5sum] = "a5f7f6b772428aafa0dde967d456c235"
-SRC_URI[sha256sum] = "0808a2b19fde2f340084d5c64831dc146c986f8c273e73511cbf21a3ccd96de8"
+SRC_URI = "https://registry.npmjs.org/@secretlint/config-creator/-/config-creator-5.1.0.tgz"
+SRC_URI[md5sum] = "1e58e3f1a56ad35f0eb718b4ef56f42a"
+SRC_URI[sha256sum] = "0ddb2b92f0d8d7889f6fc2940009bfcb59021aade9bfc0d4eca0ecd43281f7c6"
 
 NPM_PKGNAME = "@secretlint/config-creator"
 
