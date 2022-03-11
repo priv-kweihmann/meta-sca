@@ -9,9 +9,9 @@ DEPENDS = "npm-data-uri-to-buffer-native \
            npm-fetch-blob-native \
            npm-formdata-polyfill-native"
 
-SRC_URI = "https://registry.npmjs.org/node-fetch/-/node-fetch-3.2.1.tgz"
-SRC_URI[md5sum] = "46b1351d0d422ae7473a5eab9a8e0aaf"
-SRC_URI[sha256sum] = "ba81eee1167d9c0803cb6e1ea7786f22a36a4cd18b802a105ce89bd3c50d7d80"
+SRC_URI = "https://registry.npmjs.org/node-fetch/-/node-fetch-3.2.2.tgz"
+SRC_URI[md5sum] = "58b8c3e47cf336859a53d07f4b907e32"
+SRC_URI[sha256sum] = "e90a87ef5767ebb4fb7e357f5776c142223afdf0139810e9312f749889360216"
 
 NPM_PKGNAME = "node-fetch"
 
