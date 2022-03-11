@@ -11,7 +11,6 @@ EXTRA_DEPENDS += "\
     github.com-cpuguy83-go-md2man-v2-native \
     github.com-inconshreveable-mousetrap-native \
     github.com-spf13-pflag-native \
-    github.com-spf13-viper-native \
     gopkg.in-yaml.v2-native \
 "
 
