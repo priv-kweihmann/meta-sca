@@ -10,6 +10,7 @@ DEPENDS += "\
             python3-click-native \
             python3-click-option-group-native \
             python3-colorama-native \
+            python3-defusedxml-native \
             python3-jsonschema-native \
             python3-packaging-native \
             python3-peewee-native \
