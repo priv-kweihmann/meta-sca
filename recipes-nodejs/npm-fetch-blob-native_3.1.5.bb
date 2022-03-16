@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=db6bf2cba86c6207f4c83860e373aba1"
 DEPENDS = "npm-node-domexception-native \
            npm-web-streams-polyfill-native"
 
-SRC_URI = "https://registry.npmjs.org/fetch-blob/-/fetch-blob-3.1.4.tgz"
-SRC_URI[md5sum] = "40468d8d04b6723790c5cfc7108cd38f"
-SRC_URI[sha256sum] = "a37675d5cf8755ac5a2cdad7d50e8af6d3395e97dc81b22d11a6256c4a561925"
+SRC_URI = "https://registry.npmjs.org/fetch-blob/-/fetch-blob-3.1.5.tgz"
+SRC_URI[md5sum] = "1de4456c3b460b8fdfda10322e8d8b29"
+SRC_URI[sha256sum] = "1ee0899cf869519e9dac47a0bae82545ba96b8de29a97fb4df6dd8335c9ea1aa"
 
 NPM_PKGNAME = "fetch-blob"
 
