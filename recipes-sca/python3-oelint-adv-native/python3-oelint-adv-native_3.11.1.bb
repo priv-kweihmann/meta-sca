@@ -14,13 +14,13 @@ DEPENDS += "\
             python3-urllib3-native \
             "
 
-SRC_URI = "git://github.com/priv-kweihmann/oelint-adv.git;protocol=https;branch=master"
-SRCREV = "f0a70c2e6bd2fd5e26e86e3abd5bbf884f4ca161"
-S = "${WORKDIR}/git"
+SRC_URI[sha256sum] = "385679b50db460368611ae429a5ffbd05fa044e4e485541e05092a6c4e67e89d"
+
+PYPI_PACKAGE = "oelint_adv"
 
 inherit sca-description
 inherit setuptools3
+inherit pypi
 inherit native
 
 SCA_TOOL_DESCRIPTION = "oelint"
-PIP_INSTALL_PACKAGE = "oelint_adv"
