@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/google/martian/v3/@v/v3.2.1.zip;srcoutput=github.com/google/martian/v3;srcinput=github.com/google/martian/v3@v3.2.1;downloadfilename=github-com-google-martian-v3-3.2.1.zip;name=github-com-google-martian-v3"
-SRC_URI[github-com-google-martian-v3.sha256sum] = "d1450c8806be91afda7d68d9eee117de58aa04e89d01dbd328455c294379c6c0"
+SRC_URI += "https://proxy.golang.org/github.com/google/martian/v3/@v/v3.3.2.zip;srcoutput=github.com/google/martian/v3;srcinput=github.com/google/martian/v3@v3.3.2;downloadfilename=github-com-google-martian-v3-3.3.2.zip;name=github-com-google-martian-v3"
+SRC_URI[github-com-google-martian-v3.sha256sum] = "aa691c18a36d986d0505aab68925985faba03d72e15729ee1b97f919af8e628c"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
