@@ -20,8 +20,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "pytest"
 
-SRC_URI[md5sum] = "995d64fe44bbe717d03bd703d5c48ec6"
-SRC_URI[sha256sum] = "e30905a0c131d3d94b89624a1cc5afec3e0ba2fbdb151867d8e0ebd49850f171"
+SRC_URI[md5sum] = "f7862ccb98e608366ca5c1def3c804f5"
+SRC_URI[sha256sum] = "f1089d218cfcc63a212c42896f1b7fbf096874d045e1988186861a1a87d27b47"
 
 
 inherit pypi
