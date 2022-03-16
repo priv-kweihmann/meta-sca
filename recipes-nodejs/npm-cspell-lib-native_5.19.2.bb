@@ -10,6 +10,7 @@ DEPENDS = "npm-clear-module-native \
            npm-configstore-native \
            npm-cosmiconfig-native \
            npm-cspell-cspell-bundled-dicts-native \
+           npm-cspell-cspell-pipe-native \
            npm-cspell-cspell-types-native \
            npm-cspell-glob-native \
            npm-cspell-io-native \
@@ -21,11 +22,12 @@ DEPENDS = "npm-clear-module-native \
            npm-import-fresh-native \
            npm-resolve-from-native \
            npm-resolve-global-native \
+           npm-vscode-languageserver-textdocument-native \
            npm-vscode-uri-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-lib/-/cspell-lib-5.18.5.tgz"
-SRC_URI[md5sum] = "cc71cdfbeb4573d834e6fef9079ea080"
-SRC_URI[sha256sum] = "1fd4aded6a4c8e3cb410fbe67a83c98a0bb94f28621cd495b523962b45409a21"
+SRC_URI = "https://registry.npmjs.org/cspell-lib/-/cspell-lib-5.19.2.tgz"
+SRC_URI[md5sum] = "914f61c78ddecbeefbdb4fc362866ac6"
+SRC_URI[sha256sum] = "7cb81c3e6d97b5968ddcfdaf73f6317e5d0a77cc22e2bea4227e34ae1878ff9f"
 
 NPM_PKGNAME = "cspell-lib"
 
