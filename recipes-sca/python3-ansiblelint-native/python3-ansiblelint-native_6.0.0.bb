@@ -2,8 +2,8 @@ SUMMARY = "Checks playbooks for practices and behaviour that could potentially b
 HOMEPAGE = "https://github.com/ansible/ansible-lint"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=27006a41205763794866943ed14d2493"
+LICENSE = "GPL-3.0-only"
+LIC_FILES_CHKSUM = "file://COPYING;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 DEPENDS += "\
             python3-ansible-native \
@@ -28,7 +28,7 @@ DEPENDS += "\
             python3-wcmatch-native \
             "
 
-SRC_URI[sha256sum] = "2160a60b4ab034c04006d701a1779340ffb0f6e28f030ff8de958e1062a88962"
+SRC_URI[sha256sum] = "8b24227dd778373ecc82fb8b15d796229665990a407112b3ec1086be24c1bead"
 
 PYPI_PACKAGE = "ansible-lint"
 
