@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=fd0120fc2e9f841c73ac707a30389af5"
 
 PYPI_PACKAGE = "paramiko"
 
-SRC_URI[md5sum] = "df65b3d7e0cfe6a4afe14b570d2ef240"
-SRC_URI[sha256sum] = "944a9e5dbdd413ab6c7951ea46b0ab40713235a9c4c5ca81cfe45c6f14fa677b"
+SRC_URI[md5sum] = "b660eb1e607832a01b7ef4008a2abeeb"
+SRC_URI[sha256sum] = "ff47cc35dd4c4af507d2bdc9d7def9f7fa89977212b4f926e14ac486e930f03a"
 
 inherit pypi
 inherit setuptools3
