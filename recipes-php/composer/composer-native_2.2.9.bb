@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=db4ebb1057458d039cb8f6edcc5d756e"
 DEPENDS += "php-native"
 
 SRC_URI = "git://github.com/composer/getcomposer.org.git;protocol=https;branch=main"
-SRCREV = "3e36040b5c353d00f41361176f6f18005495baa7"
+SRCREV = "d3b829dc7a936a67d4fb9baf7e3502cb55d77548"
 
 UPSTREAM_CHECK_COMMITS = "1"
 
