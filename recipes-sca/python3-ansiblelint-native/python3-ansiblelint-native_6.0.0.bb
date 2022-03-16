@@ -6,6 +6,7 @@ LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 DEPENDS += "\
+            python3-ansible-compat-native \
             python3-ansible-native \
             python3-bcrypt-native \
             python3-cryptography-native \
@@ -26,6 +27,7 @@ DEPENDS += "\
             python3-tenacity-native \
             python3-toml-native \
             python3-wcmatch-native \
+            python3-yamllint-native \
             "
 
 SRC_URI[sha256sum] = "8b24227dd778373ecc82fb8b15d796229665990a407112b3ec1086be24c1bead"
