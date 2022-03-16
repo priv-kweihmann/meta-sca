@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/genny/v2/@v/v2.0.8.zip;srcoutput=github.com/gobuffalo/genny/v2;srcinput=github.com/gobuffalo/genny/v2@v2.0.8;downloadfilename=github-com-gobuffalo-genny-v2-2.0.8.zip;name=github-com-gobuffalo-genny-v2"
-SRC_URI[github-com-gobuffalo-genny-v2.sha256sum] = "99e06a0a1a0cfcc4465fc43b4027e3f0e19fd9ae5f3b234cb116f868f38cba69"
+SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/genny/v2/@v/v2.0.9.zip;srcoutput=github.com/gobuffalo/genny/v2;srcinput=github.com/gobuffalo/genny/v2@v2.0.9;downloadfilename=github-com-gobuffalo-genny-v2-2.0.9.zip;name=github-com-gobuffalo-genny-v2"
+SRC_URI[github-com-gobuffalo-genny-v2.sha256sum] = "338d8b5f833fedd9a127602b23921797f2b8e92a32dc4620f8231e34ba5bc4ef"
 
 GOSRC_LICENSE += "\
     MIT \
