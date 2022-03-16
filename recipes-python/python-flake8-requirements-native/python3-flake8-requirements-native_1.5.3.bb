@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/Arkq/flake8-requirements"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=0ea7a8535b886b84749903b72bb23949"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=8e37d68747f8cd3c0ec28d12f1492271"
 
 DEPENDS += "\
             python3-flake8-native \
@@ -11,7 +11,7 @@ DEPENDS += "\
             "
 
 SRC_URI = "git://github.com/Arkq/flake8-requirements.git;branch=master;protocol=https"
-SRCREV = "084927bac97a5e0539c48d2d591fd4dcfc00c963"
+SRCREV = "368d0b190ae563b668f3e16c447f5b555a6602a1"
 
 S = "${WORKDIR}/git"
 PIP_INSTALL_PACKAGE = "flake8_requirements"
