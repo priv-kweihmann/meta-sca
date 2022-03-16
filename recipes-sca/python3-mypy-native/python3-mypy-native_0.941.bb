@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/python/mypy"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=17b7180fcfc43c4e70c07c71588604c4"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=6ba8ec528da02073b7e1f4124c0f836f"
 
 DEPENDS += "\
             python3-mypy-extensions-native \
@@ -12,8 +12,8 @@ DEPENDS += "\
             python3-typing-extensions-native \
             "
 
-SRC_URI[md5sum] = "9659998bca8c44b41055650394924619"
-SRC_URI[sha256sum] = "0038b21890867793581e4cb0d810829f5fd4441aa75796b53033af3aa30430ce"
+SRC_URI[md5sum] = "d95be359d8793ccd676ff01d8beb8ca5"
+SRC_URI[sha256sum] = "cbcc691d8b507d54cb2b8521f0a2a3d4daa477f62fe77f0abba41e5febb377b7"
 
 PYPI_PACKAGE = "mypy"
 
