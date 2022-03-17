@@ -1,7 +1,4 @@
 
-ansible-role-merger-native
-ansible-sca-native
-bad-ansible
 bad-bitbake
 bad-css
 bad-go
@@ -31,12 +28,9 @@ gcc-sca-native
 github.com-golang-protobuf-native
 npmaudit-sca-native
 p7zip-native
-packagegroup-ansible-roles
 packagegroup-sca-test
 pkgqaenc-native
 rubycritic-test
-sca-image-ansible-rules-native
-sca-image-ansiblelint-rules-native
 sca-image-bandit-rules-native
 sca-image-bashate-rules-native
 sca-image-checkbashism-rules-native
@@ -71,7 +65,6 @@ sca-image-xmllint-rules-native
 sca-image-yamllint-rules-native
 sca-image-yara-rules-native
 sca-recipe-alexkohler-rules-native
-sca-recipe-ansiblelint-rules-native
 sca-recipe-bandit-rules-native
 sca-recipe-bashate-rules-native
 sca-recipe-cbmc-rules
