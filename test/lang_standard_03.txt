@@ -1,4 +1,3 @@
-ansible
 checksec
 configcheck
 lse
