@@ -11,7 +11,6 @@ inherit sca-deploy-recipe
 
 SCA_ENABLED_MODULES_RECIPE ?= "\
                             alexkohler \
-                            ansiblelint \
                             bandit \
                             bashate \
                             bitbake \
