@@ -78,7 +78,6 @@ in the conf/local.conf-file.
 
 For this particular purpose the following tools are quite useful
 
-* [ansible](../conf/module/ansible.md)
 * [lynis](../conf/module/lynis.md)
 * [tiger](../conf/module/tiger.md)
 * [upc](../conf/module/upc.md)
@@ -86,7 +85,7 @@ For this particular purpose the following tools are quite useful
 They will run a multitude of tests on the resulting image and will give advise what should be further checked on.
 
 ```bitbake
-SCA_AVAILABLE_MODULES = "ansible lynis tiger upc"
+SCA_AVAILABLE_MODULES = "lynis tiger upc"
 ```
 
 in the conf/local.conf-file.
@@ -177,7 +176,6 @@ The full applied configuration may look like this
 SCA_AVAILABLE_MODULES = "\
                         gcc \
                         bitbake \
-                        ansible \
                         ropgadget \
                         tlv \
                         multimetric \
