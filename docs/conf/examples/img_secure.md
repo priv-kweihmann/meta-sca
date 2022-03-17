@@ -23,7 +23,6 @@ SCA_ENABLE_BESTOF = "0"
 SCA_VERBOSE_OUTPUT = "0"
 SCA_SCOPE_FILTER = "security"
 SCA_ENABLED_MODULES_IMAGE ?= "\
-                            ansible \
                             bandit \
                             bitbake \
                             detectsecrets \

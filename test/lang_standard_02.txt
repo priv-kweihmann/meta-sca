@@ -1,4 +1,3 @@
-ansiblelint
 bandit
 bitbake
 cvecheck
