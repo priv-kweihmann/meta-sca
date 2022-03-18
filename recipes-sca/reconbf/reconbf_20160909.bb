@@ -18,7 +18,6 @@ inherit setuptools3
 inherit sca-description
 
 SCA_TOOL_DESCRIPTION = "reconbf"
-PYPA_WHEEL = "${PIP_INSTALL_DIST_PATH}/reconbf-*-*.whl"
 
 FILES:${PN} += "${datadir} ${prefix}/etc"
 
