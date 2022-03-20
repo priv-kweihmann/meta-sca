@@ -19,5 +19,5 @@ PYPI_PACKAGE = "jsonschema"
 SRC_URI[sha256sum] = "636694eb41b3535ed608fe04129f26542b59ed99808b4f688aa32dcf55317a83"
 
 inherit pypi
-inherit setuptools_build_meta
+inherit python_setuptools_build_meta
 inherit native
