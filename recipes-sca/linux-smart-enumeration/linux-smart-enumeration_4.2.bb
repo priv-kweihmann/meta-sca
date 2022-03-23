@@ -6,7 +6,7 @@ LICENSE = "GPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 SRC_URI = "git://github.com/diego-treitos/linux-smart-enumeration.git;branch=master;protocol=https"
-SRCREV = "9ca3a9de04a532d21d3d0c607138d8ca45eadf78"
+SRCREV = "3b5e163abd8234606f27e8784d684faf6c472630"
 
 S = "${WORKDIR}/git"
 
@@ -25,7 +25,6 @@ do_install() {
 FILES:${PN} = "${bindir}"
 
 # We don't really care about debug package for this one
-# also because of the issue mentioned below
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
 BBCLASSEXTEND = "native"
