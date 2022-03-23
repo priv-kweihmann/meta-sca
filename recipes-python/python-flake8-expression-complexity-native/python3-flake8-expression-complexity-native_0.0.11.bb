@@ -3,8 +3,7 @@ HOMEPAGE = "https://github.com/best-doctor/flake8-expression-complexity"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-# does currently ship no license file
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=352fd8fef192c98968c70971a80f959c"
 
 DEPENDS += "\
             python3-astpretty-native \
