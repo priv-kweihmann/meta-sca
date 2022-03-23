@@ -10,9 +10,9 @@ DEPENDS = "npm-json5-native \
            npm-strip-bom-native \
            npm-types-json5-native"
 
-SRC_URI = "https://registry.npmjs.org/tsconfig-paths/-/tsconfig-paths-3.14.0.tgz"
-SRC_URI[md5sum] = "d1011372553b22508b19b19d3f7a6c12"
-SRC_URI[sha256sum] = "b74e7118d15b5266508d92baafe5980a29c702fcec0f995c6a026b1b388fb873"
+SRC_URI = "https://registry.npmjs.org/tsconfig-paths/-/tsconfig-paths-3.14.1.tgz"
+SRC_URI[md5sum] = "4d77fe4a7d930f1ecb5942b37f359909"
+SRC_URI[sha256sum] = "9c764c11733958e34f461ca43b430f4c54edc9167cfbbb9088660f3431e9f401"
 
 NPM_PKGNAME = "tsconfig-paths"
 
