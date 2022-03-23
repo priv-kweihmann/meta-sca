@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/rs/xid/@v/v1.3.0.zip;srcoutput=github.com/rs/xid;srcinput=github.com/rs/xid@v1.3.0;downloadfilename=github-com-rs-xid-1.3.0.zip;name=github-com-rs-xid"
-SRC_URI[github-com-rs-xid.sha256sum] = "809ed1d8845fe5d73f6973e9b7a33eefd786cc97b1aebe493243e420b7c89958"
+SRC_URI += "https://proxy.golang.org/github.com/rs/xid/@v/v1.4.0.zip;srcoutput=github.com/rs/xid;srcinput=github.com/rs/xid@v1.4.0;downloadfilename=github-com-rs-xid-1.4.0.zip;name=github-com-rs-xid"
+SRC_URI[github-com-rs-xid.sha256sum] = "94bbc83a933838e64cf00d4abc1942236a82cb21d4b5142c4f0fedb578288871"
 
 GOSRC_LICENSE += "\
     MIT \
