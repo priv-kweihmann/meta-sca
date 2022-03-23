@@ -5,7 +5,10 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT & MPL-2.0"
 LIC_FILES_CHKSUM = "file://publicsuffix2.LICENSE;md5=18f95bf99d093deb07ba194bbf6c64d2"
 
-DEPENDS += "python3-requests-native"
+DEPENDS += "\
+    python3-charset-normalizer-native \
+    python3-requests-native \
+"
 
 PYPI_PACKAGE = "publicsuffix2"
 
