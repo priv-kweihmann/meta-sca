@@ -13,9 +13,9 @@ DEPENDS = "npm-cliui-native \
            npm-y18n-native \
            npm-yargs-parser-native"
 
-SRC_URI = "https://registry.npmjs.org/yargs/-/yargs-17.3.1.tgz"
-SRC_URI[md5sum] = "059c50cf75a81d7a13d5fdae48b93697"
-SRC_URI[sha256sum] = "167b90f61fe91be8b4093451578aed7dfb79b35765d03e5e2dfdf3f3ccd8e0f9"
+SRC_URI = "https://registry.npmjs.org/yargs/-/yargs-17.4.0.tgz"
+SRC_URI[md5sum] = "c88bbcb8adf048954c0b932f65c7e6df"
+SRC_URI[sha256sum] = "9cdb9f4b727e4419f721a0a0f231c772549357893e1d9a70cb4987da6a173838"
 
 NPM_PKGNAME = "yargs"
 
