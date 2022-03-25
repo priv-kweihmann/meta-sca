@@ -7,6 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=c107cf754550e65755c42985a5d4e9c9"
 
 DEPENDS += "\
             python3-astroids-native \
+            python3-dill-native \
             python3-isort-native \
             python3-mccabe-native \
             python3-native \
