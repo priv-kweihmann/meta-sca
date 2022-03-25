@@ -6,7 +6,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=78c1d9d1063a2e3c98965716ac8494f0"
 
 SRC_URI = "git://github.com/luarocks/luacheck.git;branch=master;protocol=https"
-SRCREV = "abf7386a892df4ce566fef9e4640ddbf9af78411"
+SRCREV = "5784e3f906979abfd0b2bc7a004be64e07fe84b2"
 
 S = "${WORKDIR}/git"
 
