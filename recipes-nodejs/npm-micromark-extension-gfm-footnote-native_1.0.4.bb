@@ -11,11 +11,12 @@ DEPENDS = "npm-micromark-core-commonmark-native \
            npm-micromark-util-normalize-identifier-native \
            npm-micromark-util-sanitize-uri-native \
            npm-micromark-util-symbol-native \
+           npm-micromark-util-types-native \
            npm-uvu-native"
 
-SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-footnote/-/micromark-extension-gfm-footnote-1.0.3.tgz"
-SRC_URI[md5sum] = "c334f9f98274fd877015f86e8bc25eaa"
-SRC_URI[sha256sum] = "1c1a1544d3f2505d30818ae8220cc5af67558f433567711e5fa77fa7d0190667"
+SRC_URI = "https://registry.npmjs.org/micromark-extension-gfm-footnote/-/micromark-extension-gfm-footnote-1.0.4.tgz"
+SRC_URI[md5sum] = "6afd79e08654abc7eeea0b4207825da2"
+SRC_URI[sha256sum] = "267fd6eb7c3f1c71f3cca55ba490c4be1b75b79435d04bb574a78067a6e72ffa"
 
 NPM_PKGNAME = "micromark-extension-gfm-footnote"
 
