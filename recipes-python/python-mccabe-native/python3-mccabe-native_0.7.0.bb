@@ -9,8 +9,8 @@ DEPENDS += "python3-pytest-runner-native"
 
 PYPI_PACKAGE = "mccabe"
 
-SRC_URI[md5sum] = "723df2f7b1737b8887475bac4c763e1e"
-SRC_URI[sha256sum] = "dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"
+SRC_URI[md5sum] = "374ee2b9407546bb41d195e7436e5f62"
+SRC_URI[sha256sum] = "348e0240c33b60bbdf4e523192ef919f28cb2c3d7d5c7794f74009290f236325"
 
 inherit pypi
 inherit setuptools3
