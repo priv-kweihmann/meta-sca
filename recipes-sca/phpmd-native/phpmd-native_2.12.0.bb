@@ -7,7 +7,7 @@ LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=102189a3104d17e4cdd01198fef36372"
 
 SRC_URI = "git://github.com/phpmd/phpmd.git;branch=master;protocol=https"
-SRCREV = "08b60a2eb7e14c23f46ff8865b510ae08b75d0fd"
+SRCREV = "c0b678ba71902f539c27c14332aa0ddcf14388ec"
 PHPCOMPOSER_PKGS_NAME = "phpmd/phpmd:${PV}"
 
 S = "${WORKDIR}/git"
