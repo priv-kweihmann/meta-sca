@@ -256,7 +256,9 @@
     "github.com/coreos/go-systemd/v22": {
         "recipeextra": [
             "# recipe needs systemd header, which isn't available as a native recipe",
-            "do_compile[noexec] = \"1\""
+            "do_compile[noexec] = \"1\"",
+            "UPSTREAM_CHECK_GITHUB_TAGS = \"1\"",
+            "UPSTREAM_CHECK_URI = \"https://github.com/coreos/go-systemd/tags\""
         ]
     },
     "github.com/ekzhu/minhash-lsh": {
