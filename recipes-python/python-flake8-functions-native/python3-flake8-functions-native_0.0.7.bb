@@ -12,6 +12,7 @@ DEPENDS += "\
             "
 
 PYPI_PACKAGE = "flake8_functions"
+UPSTREAM_CHECK_REGEX ?= "/flake8-functions/(?P<pver>(\d+[\.\-_]*)+)"
 
 SRC_URI[sha256sum] = "40584b05d57e5ab185545bcfa08aa0edca52b04646d0df266e2b1667d6437184"
 
