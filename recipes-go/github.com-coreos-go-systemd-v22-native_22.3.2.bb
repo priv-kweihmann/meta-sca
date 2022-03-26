@@ -15,6 +15,8 @@ EXTRA_DEPENDS += "\
 # recipe needs systemd header, which isn't available as a native recipe
 do_compile[noexec] = "1"
 UPSTREAM_CHECK_IMPORT_SUFFIX = "/v22"
+UPSTREAM_CHECK_URI = "https://github.com/coreos/go-systemd/tags"
+UPSTREAM_CHECK_GITHUB_TAGS = "1"
 
 GO_IMPORT = "github.com/coreos/go-systemd/v22"
 
