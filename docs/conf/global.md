@@ -6,6 +6,7 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:|
+| SCA_ALLOW_LAYER | layer names, like 'core' or 'openembedded-layer' to apply SCA to on all recipes of that layer | space seperated list | ""
 | SCA_AUTO_INH_ON_IMAGE | Do automatically enable analysis on image-recipes | string | "1"
 | SCA_AUTO_INH_ON_RECIPE | Do automatically enable analysis on other recipes | string | "1"
 | SCA_AUTO_LICENSE_FILTER | Filter according to recipe license if sca should invoked | space separated regular expression | ".*"
@@ -13,10 +14,10 @@ The behavior of the analysis can be controlled by several __bitbake__-variables
 | SCA_BACKTRACK | Backtrack findings in images to their original recipes | string: 0 or 1 | "0"
 | SCA_CLEAN_BEFORE_EXPORT | Remove old files from export dir | string: 0 or 1 | "1"
 | SCA_ENABLE | Does globally enable the analysis | string | "1"
-| SCA_ENABLE_BESTOF | Enables/disables the BestOf mode (see chapter BestOf Mode) | string | "0"
-| SCA_ENABLE_IMAGE_SUMMARY | En/disable the image-summary module | string | "1"
 | SCA_ENABLED_MODULES_IMAGE | The analysis modules to be activated on images | space-separated-string | see sca-on-image.bbclass
 | SCA_ENABLED_MODULES_RECIPE | The analysis modules to be activated on recipes | space-separated-string | see sca-on-recipe.bbclass
+| SCA_ENABLE_BESTOF | Enables/disables the BestOf mode (see chapter BestOf Mode) | string | "0"
+| SCA_ENABLE_IMAGE_SUMMARY | En/disable the image-summary module | string | "1"
 | SCA_EXPORT_DIR | Directory where to store the results of analysis | path | \${DEPLOY_DIR_IMAGE}/sca
 | SCA_EXPORT_FINDING_DIR | The folder where to store the original source-files of findings | path | \${DEPLOY_DIR_IMAGE}/sca/sources/\${PN}/
 | SCA_EXPORT_FINDING_SRC | Do copy the source-files of any finding to deploy-dir. This proved to helpful when integrating into Jenkins. | string | "1"
