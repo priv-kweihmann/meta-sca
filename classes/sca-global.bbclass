@@ -195,3 +195,6 @@ SCA_HASHEXCLUDE_VARS = "\
                         SCA_DATAMODEL_STORAGE \
                         SCA_LAYERDIR \
                         "
+
+# some global vardepexcludes
+LIC_FILES_CHKSUM[vardepsexclude] += "SCA_LAYERDIR"
