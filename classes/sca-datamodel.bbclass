@@ -31,6 +31,7 @@ def sca_datamodel_bbfiles(d):
             x = x.replace(y, "", 1)
         res.add(x.lstrip("/")) 
     return sorted(res)
+sca_datamodel_bbfiles[vardepsexclude] += "BBINCLUDED BBLAYERS"
 
 def sca_get_model_class(d, **kwargs):
     __SevTrans = sca_severity_transformation(d)
@@ -284,6 +285,8 @@ def sca_get_model_class(d, **kwargs):
     x = SCADataModel(d, SevTrans=__SevTrans, BBFiles=sca_datamodel_bbfiles(d), **kwargs)
     x.AddDescription(d.getVar("STAGING_DATADIR_NATIVE"))
     return x
+
+sca_get_model_class[vardepsexclude] += "BBLAYERS"
 
 def __sca_model_to_list(d, list):
     return [x.ToDict() for x in list]

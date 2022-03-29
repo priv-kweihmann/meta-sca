@@ -52,3 +52,5 @@ def do_sca_pkgqaenc_shelllist(d, package):
                                                 "Package {pkg} uses {bin}, but no provider for this file can be found".format(
                                                     bin=bin, pkg=package))
     return res
+
+do_sca_pkgqaenc_shelllist[vardepsexclude] += "TOPDIR"

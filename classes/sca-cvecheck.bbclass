@@ -11,6 +11,7 @@ inherit sca-image-backtrack
 
 # override some variables till an upstream fix is available
 CVE_CHECK_DB_DIR = "${TOPDIR}/downloads/CVE_CHECK"
+CVE_CHECK_DB_DIR[vardepsexclude] += "TOPDIR"
 
 SCA_RAW_RESULT_FILE[cvecheck] = "json"
 
