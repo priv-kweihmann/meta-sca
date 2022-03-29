@@ -56,6 +56,8 @@ def do_sca_conv_mypy(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
+do_sca_conv_mypy[vardepsexclude] += "TOPDIR"
+
 python do_sca_mypy_core() {
     import os
     import subprocess
@@ -76,7 +78,6 @@ python do_sca_mypy_core() {
         o.write(cmd_output)
 }
 
-do_sca_mypy_core[vardepsexclude] += "TOPDIR"
 python do_sca_mypy_core_report() {
     import os
     ## Create data model
