@@ -73,6 +73,8 @@ def do_sca_conv_semgrep(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
+do_sca_conv_semgrep[vardepsexclude] += "TOPDIR"
+
 python do_sca_semgrep() {
     import os
     import subprocess
