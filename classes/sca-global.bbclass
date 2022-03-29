@@ -17,6 +17,8 @@ SCA_SPARE_LAYER ?= ""
 # Additional regular expressions for paths that shouldn't
 # run SCA
 SCA_SPARE_DIRS ?= ""
+# Allow list of layer names to apply sca to
+SCA_ALLOW_LAYER ?= ""
 # if set to 1 all bbappends from non-suppressed layer will
 # not invoke SCA, which means in consequence that if the value
 # is != 1 an bbappend from a non-supressed layer will

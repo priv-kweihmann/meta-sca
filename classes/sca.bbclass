@@ -13,8 +13,11 @@ def sca_files_part_of_unspared_layer(d, files):
     import re
     import os
     _layer = []
+    _allow_list = d.getVar("SCA_ALLOW_LAYER").split(" ")
     for x in d.getVar("SCA_SPARE_LAYER").split(" "):
         if not x:
+            continue
+        if _allow_list and x not in _allow_list:
             continue
         _tmp = d.getVar("BBFILE_PATTERN_{}".format(x))
         if _tmp:
