@@ -8,18 +8,9 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM  = "file://LICENSE;md5=b1befbdcbeb73a7fd9b944d31f0fee64"
 
-DEPENDS += "nodejs-native"
 S = "${WORKDIR}/git"
 
 inherit sca
-
-do_install() {
-    export HOME=${B}
-    npm install --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} --save-dev
-}
-
-# we need to allow network here
-do_install[network] = "1"
 
 SCA_BLACKLIST_proselint += "${PN}"
 
