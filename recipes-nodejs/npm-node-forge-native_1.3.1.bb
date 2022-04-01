@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=3468e584d830bfb0ffd2d0af6e129136"
 
 DEPENDS = ""
 
-SRC_URI = "https://registry.npmjs.org/node-forge/-/node-forge-1.3.0.tgz"
-SRC_URI[md5sum] = "b835b74356c717cf1e0bc9e547dc1d97"
-SRC_URI[sha256sum] = "97f0276c32b39411ad85c5762bf546ca281451eeaa93bdd383ff082e8e0181b4"
+SRC_URI = "https://registry.npmjs.org/node-forge/-/node-forge-1.3.1.tgz"
+SRC_URI[md5sum] = "69dc8225cc6755031bf42b78264c2df9"
+SRC_URI[sha256sum] = "77de03720cd00fafdbcda47e3e995a1f548f2e9028d11a98b0d9bef37ec2ad85"
 
 NPM_PKGNAME = "node-forge"
 
