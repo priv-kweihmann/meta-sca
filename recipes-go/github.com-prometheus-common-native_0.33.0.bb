@@ -1,8 +1,7 @@
 SUMMARY = "go.mod: github.com/prometheus/common"
 HOMEPAGE = "https://pkg.go.dev/github.com/prometheus/common"
-
-# License is determined by the modules included and will be therefore computed
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
+# License is determined by the modules included and will be therefore computed
 LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '').split(' ') if x)))}"
 
 # inject the needed sources
@@ -14,7 +13,6 @@ EXTRA_DEPENDS += "\
     github.com-julienschmidt-httprouter-native \
     github.com-matttproud-golang-protobuf-extensions-native \
     github.com-mwitkow-go-conntrack-native \
-    github.com-pkg-errors-native \
     github.com-prometheus-client-golang-native \
     github.com-prometheus-client-model-native \
     golang.org-x-net-native \
