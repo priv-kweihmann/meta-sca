@@ -1,10 +1,9 @@
 SUMMARY = "NPM: es-abstract"
 DESCRIPTION = "ECMAScript spec abstract operations."
 HOMEPAGE = "https://github.com/ljharb/es-abstract#readme"
-
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=53ffc646fdb83e45279cfe7105e5157b"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=8eddf3932f9ef22313648669213a2e4b"
 
 DEPENDS = "npm-call-bind-native \
            npm-es-to-primitive-native \
@@ -27,9 +26,9 @@ DEPENDS = "npm-call-bind-native \
            npm-string.prototype.trimstart-native \
            npm-unbox-primitive-native"
 
-SRC_URI = "https://registry.npmjs.org/es-abstract/-/es-abstract-1.19.1.tgz"
-SRC_URI[md5sum] = "11444142629b2eb1c6cc47907ca74f1f"
-SRC_URI[sha256sum] = "10fd94f8d892b32a91429bb7be44e1256d891c69467ae522e79bd6400f8946bc"
+SRC_URI = "https://registry.npmjs.org/es-abstract/-/es-abstract-1.19.2.tgz"
+SRC_URI[md5sum] = "b8fc16463f6d157fbc3c29835c1d63fa"
+SRC_URI[sha256sum] = "9714d68b354f8b6b036d33c427f544c73cf0844a4db4ed049dd753b075b71a12"
 
 NPM_PKGNAME = "es-abstract"
 
