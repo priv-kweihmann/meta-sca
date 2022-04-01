@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/kevinburke/ssh_config/@v/v1.1.0.zip;srcoutput=github.com/kevinburke/ssh_config;srcinput=github.com/kevinburke/ssh_config@v1.1.0;downloadfilename=github-com-kevinburke-ssh-config-1.1.0.zip;name=github-com-kevinburke-ssh-config"
-SRC_URI[github-com-kevinburke-ssh-config.sha256sum] = "79ddea75ed7ea52aeae0aca78e4a1dd9fd3f63984c4dfe2f4b2497857ed55dfb"
+SRC_URI += "https://proxy.golang.org/github.com/kevinburke/ssh_config/@v/v1.2.0.zip;srcoutput=github.com/kevinburke/ssh_config;srcinput=github.com/kevinburke/ssh_config@v1.2.0;downloadfilename=github-com-kevinburke-ssh-config-1.2.0.zip;name=github-com-kevinburke-ssh-config"
+SRC_URI[github-com-kevinburke-ssh-config.sha256sum] = "9ddb8038a222880f96080264a314a205deea58a0b9db9c6d314e79e085f02ec3"
 
 GOSRC_LICENSE += "\
     MIT \
