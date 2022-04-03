@@ -22,7 +22,6 @@
             {"cmd": ["retire", "-h"], "returncode": 0}
         ],
         "findings": [
-            "cspell"
         ],
         "no-findings": [
             "busybox"
