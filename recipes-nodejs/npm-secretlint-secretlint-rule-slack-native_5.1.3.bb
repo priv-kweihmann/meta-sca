@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=402802be77c922cb018a8b5099208dab"
 DEPENDS = "npm-secretlint-types-native \
            npm-textlint-regexp-string-matcher-native"
 
-SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-slack/-/secretlint-rule-slack-5.1.1.tgz"
-SRC_URI[md5sum] = "c3bfb38eb2c0c2d05969d46865d022b0"
-SRC_URI[sha256sum] = "3c8766e26fb442db6107796411501443d01cdb1963b79bc38d7437a6a57443dc"
+SRC_URI = "https://registry.npmjs.org/@secretlint/secretlint-rule-slack/-/secretlint-rule-slack-5.1.3.tgz"
+SRC_URI[md5sum] = "71e861ec454e8f5f6b9fd25fb2828ef6"
+SRC_URI[sha256sum] = "35046ae004ee489b7b049ce1f7d23a3bf548bd43a5e4b977681bb7b5116870af"
 
 NPM_PKGNAME = "@secretlint/secretlint-rule-slack"
 
