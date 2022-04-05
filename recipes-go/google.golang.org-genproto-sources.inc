@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/google.golang.org/genproto/@v/v0.0.0-20220329172620-7be39ac1afc7.zip;srcoutput=google.golang.org/genproto;srcinput=google.golang.org/genproto@v0.0.0-20220329172620-7be39ac1afc7;downloadfilename=google-golang-org-genproto-0.0.0-20220329172620-7be39ac1afc7.zip;name=google-golang-org-genproto"
-SRC_URI[google-golang-org-genproto.sha256sum] = "8c68fd6220f191c38fc04a6f654d41dae256306173fca113d3161b0cd1de2be0"
+SRC_URI += "https://proxy.golang.org/google.golang.org/genproto/@v/v0.0.0-20220401170504-314d38edb7de.zip;srcoutput=google.golang.org/genproto;srcinput=google.golang.org/genproto@v0.0.0-20220401170504-314d38edb7de;downloadfilename=google-golang-org-genproto-0.0.0-20220401170504-314d38edb7de.zip;name=google-golang-org-genproto"
+SRC_URI[google-golang-org-genproto.sha256sum] = "dcf4288673ce3fcc35d75f5438209ba563aeaceb495bd2bd60f76fabed181cb9"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
