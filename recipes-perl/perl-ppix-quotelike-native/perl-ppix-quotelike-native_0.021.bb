@@ -9,8 +9,8 @@ DEPENDS += "libmodule-build-perl-native"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/W/WY/WYANT/PPIx-QuoteLike-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "37c829ff36570827c3203020193e25ac"
-SRC_URI[sha256sum] = "860593a44d4c0fa40616232fc904aa46af46f03af64f4bcea044f8e7a2e2fc28"
+SRC_URI[md5sum] = "4eb9a5324518afc9aa5cc5dcc0ec8a76"
+SRC_URI[sha256sum] = "1ebf223eae99db42281a834ea0d4b6a95b9d4192bf94fa4ac6a6a5c00a5cff67"
 
 S = "${WORKDIR}/PPIx-QuoteLike-${PV}"
 
