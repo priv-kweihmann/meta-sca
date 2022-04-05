@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b1befbdcbeb73a7fd9b944d31f0fee64"
 DEPENDS = "npm-cspell-glob-native \
            npm-find-up-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-gitignore/-/cspell-gitignore-5.19.3.tgz"
-SRC_URI[md5sum] = "025cc9d0996a89157a7a178288d689b1"
-SRC_URI[sha256sum] = "5862abe2db0dab847cf97051967f57e96a0d38ec75be3fd5f90945d08520cb2f"
+SRC_URI = "https://registry.npmjs.org/cspell-gitignore/-/cspell-gitignore-5.19.5.tgz"
+SRC_URI[md5sum] = "7cdbfa990ae63e06d555e32ce23ee2ef"
+SRC_URI[sha256sum] = "814600ef3b2f7aea6844f56b4893ada6048a64474c94f34b9ab5996db24b82f1"
 
 NPM_PKGNAME = "cspell-gitignore"
 
