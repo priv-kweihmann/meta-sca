@@ -25,9 +25,9 @@ DEPENDS = "npm-clear-module-native \
            npm-vscode-languageserver-textdocument-native \
            npm-vscode-uri-native"
 
-SRC_URI = "https://registry.npmjs.org/cspell-lib/-/cspell-lib-5.19.5.tgz"
-SRC_URI[md5sum] = "d10f9380babdb80c8c9ef9fffbda6539"
-SRC_URI[sha256sum] = "9bec00330d515ddef166571992dd95bf872cc065f8bc47c4eede0869588a99b9"
+SRC_URI = "https://registry.npmjs.org/cspell-lib/-/cspell-lib-5.19.7.tgz"
+SRC_URI[md5sum] = "beb97e6f3a1d8906781fd5e092ae8f57"
+SRC_URI[sha256sum] = "32620423233cfb0d3c8507f18d35c24597db6deba20168128830913ba7738978"
 
 NPM_PKGNAME = "cspell-lib"
 
