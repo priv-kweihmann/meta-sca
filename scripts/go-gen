@@ -149,7 +149,7 @@ def __get_checkout(args, name, version):
         _extra_recipes_lines.append('SRC_URI[{cleanname}.sha256sum] = "{sha256}"'.format(
             cleanname=__name_clean(name), sha256=_sha))
     elif _url.startswith("git://"):
-        subprocess.check_call("git clone {url} {path}".format(path=_path, url=_url), shell=True,
+        subprocess.check_call("git clone {url} {path}".format(path=_path, url=_url.replace('git://', 'https://')), shell=True,
                               stderr=subprocess.DEVNULL)
         subprocess.check_call("git checkout {revision}".format(revision=_version), shell=True, cwd=_path,
                               stderr=subprocess.DEVNULL)
