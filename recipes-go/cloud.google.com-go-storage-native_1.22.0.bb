@@ -13,6 +13,7 @@ EXTRA_DEPENDS += "\
     cloud.google.com-go-native \
     github.com-golang-protobuf-native \
     github.com-googleapis-gax-go-v2-native \
+    github.com-googleapis-go-type-adapters-native \
     golang.org-x-oauth2-native \
     golang.org-x-xerrors-native \
     google.golang.org-api-native \
