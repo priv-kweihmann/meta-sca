@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/contrib.go.opencensus.io/exporter/stackdriver/@v/v0.13.10.zip;srcoutput=contrib.go.opencensus.io/exporter/stackdriver;srcinput=contrib.go.opencensus.io/exporter/stackdriver@v0.13.10;downloadfilename=contrib-go-opencensus-io-exporter-stackdriver-0.13.10.zip;name=contrib-go-opencensus-io-exporter-stackdriver"
-SRC_URI[contrib-go-opencensus-io-exporter-stackdriver.sha256sum] = "fea84438402c3e85860726f2dd9a30414fd88c8b43cda61a862a606ebca03599"
+SRC_URI += "https://proxy.golang.org/contrib.go.opencensus.io/exporter/stackdriver/@v/v0.13.11.zip;srcoutput=contrib.go.opencensus.io/exporter/stackdriver;srcinput=contrib.go.opencensus.io/exporter/stackdriver@v0.13.11;downloadfilename=contrib-go-opencensus-io-exporter-stackdriver-0.13.11.zip;name=contrib-go-opencensus-io-exporter-stackdriver"
+SRC_URI[contrib-go-opencensus-io-exporter-stackdriver.sha256sum] = "581e2c4eee11ac4cf37ec08a17b38cd41ee6252771bdb11d2a0099e2ca73a414"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
