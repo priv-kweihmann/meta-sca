@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/emirpasic/gods/@v/v1.12.0.zip;srcoutput=github.com/emirpasic/gods;srcinput=github.com/emirpasic/gods@v1.12.0;downloadfilename=github-com-emirpasic-gods-1.12.0.zip;name=github-com-emirpasic-gods"
-SRC_URI[github-com-emirpasic-gods.sha256sum] = "729ea0bda86bf801b61ff66eb019e5b9adc559cd217944abf10bb103fca573ee"
+SRC_URI += "https://proxy.golang.org/github.com/emirpasic/gods/@v/v1.12.1.zip;srcoutput=github.com/emirpasic/gods;srcinput=github.com/emirpasic/gods@v1.12.1;downloadfilename=github-com-emirpasic-gods-1.12.1.zip;name=github-com-emirpasic-gods"
+SRC_URI[github-com-emirpasic-gods.sha256sum] = "8b4b12237c9a6339e96db96b8b6dca345057bd3cd856014ea109d1ecbea7de1f"
 
 GOSRC_LICENSE += "\
     BSD-2-Clause \
