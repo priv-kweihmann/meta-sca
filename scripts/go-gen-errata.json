@@ -32,7 +32,7 @@
         ],
         "striplevel": 1,
         "url": "git://github.com/BurntSushi/toml",
-        "version": "v0.4.1"
+        "version": "v1.1.0"
     },
     "github.com/BurntSushi/xgb": {
         "extra": [
@@ -538,6 +538,12 @@
     "golang.org/x/exp": {
         "recipeextra": [
             "# needs GLES3/gl3.h",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "golang.org/x/exp/typeparams": {
+        "recipeextra": [
+            "# needs CGO",
             "do_compile[noexec] = \"1\""
         ]
     },
