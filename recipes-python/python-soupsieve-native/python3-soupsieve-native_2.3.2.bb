@@ -3,13 +3,13 @@ HOMEPAGE = "https://github.com/facelessuser/soupsieve"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.md;md5=33c3a77def9b3ad83e01c65bdcc1af67"
+LIC_FILES_CHKSUM = "file://LICENSE.md;md5=c7a2acf04248c0d02dac4c82ee8a7f56"
 
 PYPI_PACKAGE = "soupsieve"
 
-SRC_URI[md5sum] = "f64640a3b112d3deb1d3469037bed5e3"
-SRC_URI[sha256sum] = "b8d49b1cd4f037c7082a9683dfa1801aa2597fb11c3a1155b7a5b94829b4f1f9"
+SRC_URI[md5sum] = "6e949354eef87e8712d45e51ed964944"
+SRC_URI[sha256sum] = "0bcc6d7432153063e3df09c3ac9442af3eba488715bfcad6a4c38ccb2a523124"
 
 inherit pypi
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit native
