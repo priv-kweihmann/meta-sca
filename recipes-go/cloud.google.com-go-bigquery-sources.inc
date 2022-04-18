@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/bigquery/@v/v1.30.2.zip;srcoutput=cloud.google.com/go/bigquery;srcinput=cloud.google.com/go/bigquery@v1.30.2;downloadfilename=cloud-google-com-go-bigquery-1.30.2.zip;name=cloud-google-com-go-bigquery"
-SRC_URI[cloud-google-com-go-bigquery.sha256sum] = "38b6b26c388e29acf21eb351319e12f1ace31699e7825324f6e317ae3700158c"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/bigquery/@v/v1.31.0.zip;srcoutput=cloud.google.com/go/bigquery;srcinput=cloud.google.com/go/bigquery@v1.31.0;downloadfilename=cloud-google-com-go-bigquery-1.31.0.zip;name=cloud-google-com-go-bigquery"
+SRC_URI[cloud-google-com-go-bigquery.sha256sum] = "a41698e1b0c8b3a7be0605e4df3fcfe4fc2d9ab427a7d97e3d67a99d8272b83e"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
