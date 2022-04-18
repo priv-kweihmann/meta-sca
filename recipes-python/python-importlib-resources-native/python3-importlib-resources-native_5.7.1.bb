@@ -11,8 +11,8 @@ PYPI_PACKAGE = "importlib_resources"
 
 UPSTREAM_CHECK_REGEX ?= "/importlib-resources/(?P<pver>(\d+[\.\-_]*)+)"
 
-SRC_URI[md5sum] = "0ae9c56e65f5c970075cbe9d900aed7b"
-SRC_URI[sha256sum] = "1b93238cbf23b4cde34240dd8321d99e9bf2eb4bc91c0c99b2886283e7baad85"
+SRC_URI[md5sum] = "c824bbb240390b1bf71bb9d5a7c4bc38"
+SRC_URI[sha256sum] = "b6062987dfc51f0fcb809187cffbd60f35df7acb4589091f154214af6d0d49d3"
 
 inherit pypi
 inherit setuptools3
