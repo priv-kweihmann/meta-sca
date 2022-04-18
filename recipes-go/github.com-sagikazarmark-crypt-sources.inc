@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/sagikazarmark/crypt/@v/v0.4.0.zip;srcoutput=github.com/sagikazarmark/crypt;srcinput=github.com/sagikazarmark/crypt@v0.4.0;downloadfilename=github-com-sagikazarmark-crypt-0.4.0.zip;name=github-com-sagikazarmark-crypt"
-SRC_URI[github-com-sagikazarmark-crypt.sha256sum] = "ba3ab3477370c0ad266aa072f3e59dd00111456932abdf46160655402cc968f7"
+SRC_URI += "https://proxy.golang.org/github.com/sagikazarmark/crypt/@v/v0.5.0.zip;srcoutput=github.com/sagikazarmark/crypt;srcinput=github.com/sagikazarmark/crypt@v0.5.0;downloadfilename=github-com-sagikazarmark-crypt-0.5.0.zip;name=github-com-sagikazarmark-crypt"
+SRC_URI[github-com-sagikazarmark-crypt.sha256sum] = "1f3e20fb4b410d40e60c0e6450d9515cc17a4880ee8c17484eddfea7faadb4f0"
 
 GOSRC_LICENSE += "\
     MIT \
