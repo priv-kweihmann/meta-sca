@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/monitoring/@v/v1.4.0.zip;srcoutput=cloud.google.com/go/monitoring;srcinput=cloud.google.com/go/monitoring@v1.4.0;downloadfilename=cloud-google-com-go-monitoring-1.4.0.zip;name=cloud-google-com-go-monitoring"
-SRC_URI[cloud-google-com-go-monitoring.sha256sum] = "9e775ee99461494c2a36b462b6e0eec96c4f4033615af243f3f4afdb17339d42"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/monitoring/@v/v1.5.0.zip;srcoutput=cloud.google.com/go/monitoring;srcinput=cloud.google.com/go/monitoring@v1.5.0;downloadfilename=cloud-google-com-go-monitoring-1.5.0.zip;name=cloud-google-com-go-monitoring"
+SRC_URI[cloud-google-com-go-monitoring.sha256sum] = "bd963f5e6b363288f51d97893710f158cce76800ab89bf2dfd6075b5f77e8576"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
