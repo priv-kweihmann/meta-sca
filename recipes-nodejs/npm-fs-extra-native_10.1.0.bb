@@ -9,9 +9,9 @@ DEPENDS = "npm-graceful-fs-native \
            npm-jsonfile-native \
            npm-universalify-native"
 
-SRC_URI = "https://registry.npmjs.org/fs-extra/-/fs-extra-10.0.1.tgz"
-SRC_URI[md5sum] = "301d50abdff3c5ec05d71d06f772c338"
-SRC_URI[sha256sum] = "96deda5671c355b267d5f642d4b852460ae3e3b2c2894d950c6b1ce0efd10312"
+SRC_URI = "https://registry.npmjs.org/fs-extra/-/fs-extra-10.1.0.tgz"
+SRC_URI[md5sum] = "22465e0d5f48db0dbf9ba9f7785fae7f"
+SRC_URI[sha256sum] = "50aa67852e866bb06b35c23f83fd07fc21b06c21ac96283956d0480922971fea"
 
 NPM_PKGNAME = "fs-extra"
 
