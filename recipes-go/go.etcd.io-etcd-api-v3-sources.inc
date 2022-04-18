@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/go.etcd.io/etcd/api/v3/@v/v3.5.2.zip;srcoutput=go.etcd.io/etcd/api/v3;srcinput=go.etcd.io/etcd/api/v3@v3.5.2;downloadfilename=go-etcd-io-etcd-api-v3-3.5.2.zip;name=go-etcd-io-etcd-api-v3"
-SRC_URI[go-etcd-io-etcd-api-v3.sha256sum] = "bfd9ce626389c8a11c2d33eb3c823cc277898c51254a6e02ed967f948aec79f6"
+SRC_URI += "https://proxy.golang.org/go.etcd.io/etcd/api/v3/@v/v3.5.3.zip;srcoutput=go.etcd.io/etcd/api/v3;srcinput=go.etcd.io/etcd/api/v3@v3.5.3;downloadfilename=go-etcd-io-etcd-api-v3-3.5.3.zip;name=go-etcd-io-etcd-api-v3"
+SRC_URI[go-etcd-io-etcd-api-v3.sha256sum] = "01f4708d743ab01f3c864d94c81abdee5ca195f999ff4723f4aeb42e5c520b66"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
