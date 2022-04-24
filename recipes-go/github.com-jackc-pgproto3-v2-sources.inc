@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/jackc/pgproto3/v2/@v/v2.2.0.zip;srcoutput=github.com/jackc/pgproto3/v2;srcinput=github.com/jackc/pgproto3/v2@v2.2.0;downloadfilename=github-com-jackc-pgproto3-v2-2.2.0.zip;name=github-com-jackc-pgproto3-v2"
-SRC_URI[github-com-jackc-pgproto3-v2.sha256sum] = "09c53bcb65d57408227582cf0b7d9e753a56c89df9fcdcc461c1471131f6e2fa"
+SRC_URI += "https://proxy.golang.org/github.com/jackc/pgproto3/v2/@v/v2.3.0.zip;srcoutput=github.com/jackc/pgproto3/v2;srcinput=github.com/jackc/pgproto3/v2@v2.3.0;downloadfilename=github-com-jackc-pgproto3-v2-2.3.0.zip;name=github-com-jackc-pgproto3-v2"
+SRC_URI[github-com-jackc-pgproto3-v2.sha256sum] = "6b702c372e13520636243d3be58922968f0630b67e23ba77326ef6ee4cada463"
 
 GOSRC_LICENSE += "\
     MIT \
