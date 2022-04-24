@@ -10,8 +10,8 @@ DEPENDS += "python3-native \
 
 PYPI_PACKAGE = "Babel"
 
-SRC_URI[md5sum] = "7166099733d78aa857d74fa50d8ff58c"
-SRC_URI[sha256sum] = "bc0c176f9f6a994582230df350aa6e05ba2ebe4b3ac317eab29d9be5d2768da0"
+SRC_URI[md5sum] = "a846a22016ee41db5d864ec399acc8f8"
+SRC_URI[sha256sum] = "98aeaca086133efb3e1e2aad0396987490c8425929ddbcfe0550184fdc54cd13"
 
 inherit pypi
 inherit setuptools3
