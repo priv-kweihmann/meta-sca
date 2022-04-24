@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/mitchellh/mapstructure/@v/v1.4.3.zip;srcoutput=github.com/mitchellh/mapstructure;srcinput=github.com/mitchellh/mapstructure@v1.4.3;downloadfilename=github-com-mitchellh-mapstructure-1.4.3.zip;name=github-com-mitchellh-mapstructure"
-SRC_URI[github-com-mitchellh-mapstructure.sha256sum] = "87dabbf71bb4e829595cb399e20c1b15b7bac2092aa67ca7b71d1bf0ec3b68b7"
+SRC_URI += "https://proxy.golang.org/github.com/mitchellh/mapstructure/@v/v1.5.0.zip;srcoutput=github.com/mitchellh/mapstructure;srcinput=github.com/mitchellh/mapstructure@v1.5.0;downloadfilename=github-com-mitchellh-mapstructure-1.5.0.zip;name=github-com-mitchellh-mapstructure"
+SRC_URI[github-com-mitchellh-mapstructure.sha256sum] = "118d5b2cb65c50dba967fb6d708f450a9caf93f321f8fc99080675b2ee374199"
 
 GOSRC_LICENSE += "\
     MIT \
