@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/@v/v0.100.2.zip;srcoutput=cloud.google.com/go;srcinput=cloud.google.com/go@v0.100.2;downloadfilename=cloud-google-com-go-0.100.2.zip;name=cloud-google-com-go"
-SRC_URI[cloud-google-com-go.sha256sum] = "79e47d6cd3f86477d6ae148d52189150160847e10b4ddd11a0ec77fcebf49e80"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/@v/v0.101.0.zip;srcoutput=cloud.google.com/go;srcinput=cloud.google.com/go@v0.101.0;downloadfilename=cloud-google-com-go-0.101.0.zip;name=cloud-google-com-go"
+SRC_URI[cloud-google-com-go.sha256sum] = "14dae437e1d4c31b0160a277fb99a5eb2234f3a050afeb5e6e94f26990268925"
 GOSRC_REMOVEDIRS += "cloud.google.com/go/analytics/admin/apiv1alpha/"
 
 GOSRC_LICENSE += "\
@@ -14,6 +14,7 @@ LIC_FILES_CHKSUM += "\
 GOSRC_INCLUDEGUARD += "cloud.google.com-go-sources.inc"
 
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-compute-sources.inc', '', 'cloud.google.com-go-compute-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-storage-sources.inc', '', 'cloud.google.com-go-storage-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-golang-protobuf-sources.inc', '', 'github.com-golang-protobuf-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-google-go-cmp-sources.inc', '', 'github.com-google-go-cmp-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-google-martian-v3-sources.inc', '', 'github.com-google-martian-v3-sources.inc', d)}
