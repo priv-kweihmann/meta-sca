@@ -10,9 +10,9 @@ DEPENDS = "npm-glob-native \
            npm-normalize-package-data-native \
            npm-npm-normalize-package-bin-native"
 
-SRC_URI = "https://registry.npmjs.org/read-package-json/-/read-package-json-5.0.0.tgz"
-SRC_URI[md5sum] = "6ce43fd114a20a0013b4a3acc0fe14c2"
-SRC_URI[sha256sum] = "1a70a49e727b519ea7caff7d4ae612bef39d22c5c0de8aeedc006920b424f94d"
+SRC_URI = "https://registry.npmjs.org/read-package-json/-/read-package-json-5.0.1.tgz"
+SRC_URI[md5sum] = "1397b8fe91af3021bc3188280f1ecc2b"
+SRC_URI[sha256sum] = "62f9c9f37a68cac587a208062bd4f88ec2308c1e7985320a6d56ca92bfe7915d"
 
 NPM_PKGNAME = "read-package-json"
 
