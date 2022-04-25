@@ -55,7 +55,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             revive \
                             safety \
                             scancode \
-                            secretlint \
                             setuptoolslint \
                             shellcheck \
                             slick \
