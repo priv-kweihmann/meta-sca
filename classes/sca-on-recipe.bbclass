@@ -37,7 +37,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             kconfighard \
                             licensecheck \
                             looong \
-                            npmaudit \
                             msgcheck \
                             multimetric \
                             mypy \

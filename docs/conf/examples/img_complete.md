@@ -64,7 +64,6 @@ SCA_ENABLED_MODULES_RECIPE = "\
                             gosec \
                             jsonlint \
                             kconfighard \
-                            npmaudit \
                             mypy \
                             pyfindinjection \
                             pylint \
