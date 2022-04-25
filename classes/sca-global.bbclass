@@ -104,7 +104,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           flawfinder \
                           flint \
                           gcc \
-                          goconsistent \
                           golicensecheck \
                           golint \
                           it \
