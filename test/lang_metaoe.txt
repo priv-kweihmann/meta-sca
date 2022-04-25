@@ -1,4 +1,3 @@
-cspell
 eslint
 htmlhint
 jshint
