@@ -3,7 +3,6 @@ configcheck
 lse
 lynis
 nixauditor
-ropgadget
 reconbf
 sudokiller
 systemdlint
