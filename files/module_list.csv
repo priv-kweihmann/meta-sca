@@ -39,7 +39,6 @@ nixauditor,Auditing tool for images,https://github.com/XalfiE/Nix-Auditor,,,x,,,
 oelint,Bitbake recipe linter,https://github.com/priv-kweihmann/oelint-adv,,,x,x,,,,,,,,,,,,,,x,,,x
 perl,Perl warnings check,,,,,x,,,,,,,,,,,,,,x,,x,
 perlcritic,Perl linter,https://metacpan.org/pod/perlcritic,,,,x,,,,,,,,,,,,,,x,,x,
-phpmd,PHP Linter,https://github.com/phpmd/phpmd,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,x,x
 phpsecaudit,Find vulnerabilities in PHP code,https://github.com/FloeDesignTechnologies/phpcs-security-audit,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,x,,
 phpstan,PHP linter,https://github.com/phpstan/phpstan,"meta-oe, manual enable",x,,x,,,,,,x,,,,,,,,,,,x
 pkgqaenc,Enhanced package QA,,,,,x,,,,,,,,,,,,,x,,x,,
