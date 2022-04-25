@@ -1,4 +1,3 @@
-phpcodefixer
 phpcodesniffer
 phpmd
 phpsecaudit
