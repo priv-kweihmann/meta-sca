@@ -10,7 +10,6 @@ inherit sca-blacklist
 inherit sca-deploy-recipe
 
 SCA_ENABLED_MODULES_RECIPE ?= "\
-                            alexkohler \
                             bandit \
                             bashate \
                             bitbake \
