@@ -34,7 +34,6 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             shellcheck \
                             slick \
                             stank \
-                            stylelint \
                             sudokiller \
                             systemdlint \
                             tiger \
