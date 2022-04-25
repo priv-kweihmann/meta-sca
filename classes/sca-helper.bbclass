@@ -323,8 +323,8 @@ def sca_regex_safe(d, var):
     return sca_regex_safe_string(d.getVar(var) or "")
 
 def sca_module_applicable(d, module):
-    _layers = clean_split(d, "BBFILE_COLLECTIONS")
-    if module in d.getVarFlags("SCA_AVAILABLE_MODULES"):
+    _layers = clean_split(d, "BBFILE_COLLECTIONS") or []
+    if module in (d.getVarFlags("SCA_AVAILABLE_MODULES") or {}):
         missing_req = set()
         for req in [x for x in d.getVarFlag("SCA_AVAILABLE_MODULES", module).split(" ") if x]:
             if req not in _layers:
