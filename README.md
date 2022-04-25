@@ -160,7 +160,6 @@ The layer can check on a recipe-level or on an image-level.
 
 | Module          | Description                                           | Homepage                                                              | Requires                                     | Requires inet          | Run on image | Run on recipe | C   | C++ | Python | Shell | Javascript | PHP | Go  | Images | LUA | Spelling | Metrics | Binaries | Packages | Other formats | Security scope | Functional scope | Style scope |
 | --------------- | ----------------------------------------------------- | --------------------------------------------------------------------- | -------------------------------------------- | ---------------------- | ------------ | ------------- | --- | --- | ------ | ----- | ---------- | --- | --- | ------ | --- | -------- | ------- | -------- | -------- | ------------- | -------------- | ---------------- | ----------- |
-| alexkohler      | Suite of GO analysis tools                            | https://github.com/alexkohler                                         |                                              |                        |              | x             |     |     |        |       |            |     | x   |        |     |          |         |          |          |               |                |                  | x           |
 | bandit          | Scan python code for insecurities                     | https://github.com/PyCQA/bandit                                       |                                              |                        | x            | x             |     |     | x      |       |            |     |     |        |     |          |         |          |          |               | x              |                  |             |
 | bashate         | Shell script linter                                   | http://docs.openstack.org/developer/bashate/                          |                                              |                        | x            | x             |     |     |        | x     |            |     |     |        |     |          |         |          |          |               |                | x                | x           |
 | bitbake         | Bitbake issue handling                                |                                                                       |                                              |                        | x            | x             |     |     |        |       |            |     |     |        |     |          |         |          | x        |               |                | x                | x           |
@@ -242,7 +241,6 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
   - [Suppress findings](docs/conf/suppression.md)
   - [Trace source files](docs/conf/tracefiles.md)
   - Tools
-    - [alexkohler](docs/conf/module/alexkohler.md)
     - [bandit](docs/conf/module/bandit.md)
     - [bashate](docs/conf/module/bashate.md)
     - [bitbake](docs/conf/module/bitbake.md)

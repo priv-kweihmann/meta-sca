@@ -44,7 +44,6 @@ SCA_ENABLED_MODULES_IMAGE = "\
                             yamllint \
                             "
 SCA_ENABLED_MODULES_RECIPE = "\
-                            alexkohler \
                             bandit \
                             bashate \
                             bitbake \

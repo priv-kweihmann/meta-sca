@@ -87,7 +87,6 @@ SCA_SEVERITY_TRANSFORM ?= ""
 
 ## List of overall available modules
 SCA_AVAILABLE_MODULES ?= "\
-                          alexkohler \
                           bandit \
                           bashate \
                           bitbake \
