@@ -28,7 +28,6 @@ SCA_VERBOSE_OUTPUT = "0"
 SCA_BACKTRACK = "1"
 SCA_ENABLED_MODULES_IMAGE ?= "\
                             bitbake \
-                            inspec \
                             lynis \
                             oelint \
                             pkgqaenc \
