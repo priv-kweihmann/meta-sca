@@ -1,4 +1,3 @@
-npmaudit
 phan
 phpcodefixer
 phpcodesniffer
