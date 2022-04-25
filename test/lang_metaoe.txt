@@ -1,3 +1,2 @@
-stylelint
 textlint
 wotan
