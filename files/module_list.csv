@@ -56,7 +56,6 @@ setuptoolslint,Lint python-setup.py,https://github.com/johnnoone/setuptools-pyli
 shellcheck,Shell script linter,https://github.com/koalaman/shellcheck,,,x,x,,,,x,,,,,,,,,,,,x,x
 slick,Shell script linter,https://github.com/mcandre/slick,,,x,x,,,,x,,,,,,,,,,,,x,
 sparse,C linter,https://sparse.wiki.kernel.org/index.php/Main_Page,,,,x,x,,,,,,,,,,,,,,,x,
-standard,Javascript linter,https://github.com/standard/standard,"meta-oe, manual enable",x,x,x,,,,,x,,,,,,,,,,,x,x
 stank,Shell script linter,https://github.com/mcandre/stank,,,x,x,,,,x,,,,,,,,,,,,x,x
 stylelint,CSS/SCSS linter,https://github.com/stylelint/stylelint,"meta-oe, manual enable",,x,x,,,,,,,,,,,,,,x,,,x
 sudokiller,check on sudo,https://github.com/TH3xACE/SUDO_KILLER,,,x,,,,,,,,,x,,,,,,,x,,

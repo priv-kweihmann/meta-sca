@@ -25,7 +25,6 @@ SCA_SCOPE_FILTER = "security functional style"
 SCA_ENABLED_MODULES_RECIPE = "\
                             flake8 \
                             jsonlint \
-                            standard \
                             stylelint \
                             "
 ```
