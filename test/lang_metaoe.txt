@@ -1,4 +1,3 @@
-eslint
 htmlhint
 jshint
 luacheck
