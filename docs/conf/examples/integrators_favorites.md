@@ -33,7 +33,6 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             oelint \
                             pkgqaenc \
                             scancode \
-                            secretlint \
                             shellcheck \
                             systemdlint \
                             "
