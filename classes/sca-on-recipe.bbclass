@@ -43,7 +43,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             oelint \
                             perl \
                             perlcritic \
-                            phpsecaudit \
                             phpstan \
                             pkgqaenc \
                             proselint \
