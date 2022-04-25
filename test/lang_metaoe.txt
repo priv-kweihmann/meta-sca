@@ -1,4 +1,3 @@
-phan
 phpcodefixer
 phpcodesniffer
 phpmd
