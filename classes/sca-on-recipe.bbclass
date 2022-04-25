@@ -74,7 +74,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             safety \
                             scancode \
                             secretlint \
-                            semgrep \
                             setuptoolslint \
                             shellcheck \
                             slick \
