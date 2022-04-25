@@ -24,7 +24,6 @@ SCA_VERBOSE_OUTPUT = "0"
 SCA_SCOPE_FILTER = "security functional style"
 SCA_ENABLED_MODULES_RECIPE = "\
                             flake8 \
-                            htmlhint \
                             jsonlint \
                             npmaudit \
                             standard \
