@@ -8,7 +8,6 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 
 IMAGE_INSTALL += "\
-                    bad-nginx \
                     bad-systemd \
                     openssh \
                     sudo \
