@@ -18,7 +18,6 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             checksec \
                             configcheck \
                             detectsecrets \
-                            eslint \
                             flake8 \
                             htmlhint \
                             inspec \

@@ -14,7 +14,6 @@ cvecheck,Check for unpatched CVEs,https://github.com/clearlinux/cve-check-tool,m
 darglint,Python docstring linter,https://github.com/terrencepreilly/darglint,,,,x,,,x,,,,,,,,,,,,,,x
 dennis,I18N linter,https://github.com/willkg/dennis/,,,,x,,,,,,,,,,,,,,x,,x,x
 detectsecrets,Detect hardcoded secrets in code,https://github.com/Yelp/detect-secrets,,,x,x,,,,,,,,,,,,,x,,x,x,
-eslint,Javascript linter,https://github.com/eslint/eslint,"meta-oe, manual enable",x,x,x,,,,,x,,,,,,,,,,,x,
 flake8,Python linter,http://flake8.pycqa.org/en/latest/,,,x,x,,,x,,,,,,,,,,,,,x,x
 flawfinder,C/C++ security linter,https://github.com/david-a-wheeler/flawfinder,,,,x,x,x,,,,,,,,,,,,,x,,
 flint,C/C++ linter,https://github.com/JossWhittle/FlintPlusPlus,,,,x,x,x,,,,,,,,,,,,,,x,

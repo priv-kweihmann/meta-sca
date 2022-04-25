@@ -23,7 +23,6 @@ SCA_ENABLE_BESTOF = "0"
 SCA_VERBOSE_OUTPUT = "0"
 SCA_SCOPE_FILTER = "security functional style"
 SCA_ENABLED_MODULES_RECIPE = "\
-                            eslint \
                             flake8 \
                             htmlhint \
                             jsonlint \

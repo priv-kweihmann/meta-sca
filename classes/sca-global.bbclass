@@ -150,7 +150,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           yara \
                         "
 # additional layer requirements
-SCA_AVAILABLE_MODULES[eslint] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[htmlhint] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[inspec] = "openembedded-layer rubygems"
 SCA_AVAILABLE_MODULES[jshint] = "openembedded-layer"
