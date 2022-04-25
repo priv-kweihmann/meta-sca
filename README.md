@@ -1,6 +1,6 @@
 # meta-sca <!-- omit in toc -->
 
-![https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CPython%2CShell%2Cjs%2Cperl%2Cruby-informational](https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CPython%2CShell%2Cjs%2Cperl%2Cruby-informational)
+![https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CPython%2CShell%%2Cperl-informational](https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CPython%2CShell%2Cperl-informational)
 
 [![Nightly](https://github.com/priv-kweihmann/meta-sca/workflows/[master]-nightly/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
 [![Lastest commit](https://github.com/priv-kweihmann/meta-sca/actions/workflows/push_staging.yml/badge.svg?branch=staging)](https://github.com/priv-kweihmann/meta-sca/actions/workflows/push_staging.yml)
@@ -44,9 +44,6 @@ Support for these branches, including quality control, has to be done fully by t
   - [Use in CI](#use-in-ci)
   - [Setup](#setup)
   - [Kas](#kas)
-  - [Optional layer](#optional-layer)
-    - [meta-oe](#meta-oe)
-    - [meta-rubygems](#meta-rubygems)
 - [Web monitor](#web-monitor)
 - [Support](#support)
   - [Release cycle](#release-cycle)
@@ -110,16 +107,6 @@ bitbake-layers add-layer "<full path to sca-layer>/meta-sca"
 
 Alternatively you can use [kas](https://kas.readthedocs.io) to setup the workspace.
 Use `conf/kas/scatest-qemux86-64.yaml` from this layer
-
-### Optional layer
-
-#### meta-oe
-
-To enable the php/lua/npm support you need to add the [meta-oe](http://cgit.openembedded.org/meta-openembedded) layer to your bblayer-file.
-
-#### meta-rubygems
-
-To enable the ruby support you need to add the [meta-rubygems](https://github.com/priv-kweihmann/meta-rubygems) layer to your bblayer-file.
 
 ## Web monitor
 
