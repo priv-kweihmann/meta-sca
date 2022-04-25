@@ -43,7 +43,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             perl \
                             perlcritic \
                             pkgqaenc \
-                            proselint \
                             protolint \
                             pscan \
                             pyfindinjection \

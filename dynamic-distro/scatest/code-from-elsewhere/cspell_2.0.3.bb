@@ -12,6 +12,4 @@ S = "${WORKDIR}/git"
 
 inherit sca
 
-SCA_BLACKLIST_proselint += "${PN}"
-
 SCA_ENABLED_MODULES = "bitbake"
