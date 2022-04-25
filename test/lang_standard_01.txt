@@ -8,7 +8,6 @@ flawfinder
 flint
 gcc
 goconsistent
-goconst
 golicensecheck
 golint
 kconfighard
