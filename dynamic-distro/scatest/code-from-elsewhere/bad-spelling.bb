@@ -15,4 +15,4 @@ inherit sca
 
 SCA_SEVERITY_TRANSFORM_EXTRA += "cspell.*=warning"
 
-SCA_ENABLED_MODULES = "bitbake cspell"
+SCA_ENABLED_MODULES = "bitbake"

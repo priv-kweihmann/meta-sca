@@ -22,7 +22,6 @@
             {"cmd": ["npm", "audit", "--help"], "returncode": 0}
         ],
         "findings": [
-            "cspell"
         ],
         "no-findings": [
             "busybox"
