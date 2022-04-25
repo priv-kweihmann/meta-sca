@@ -49,7 +49,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             pscan \
                             pyfindinjection \
                             pylint \
-                            pyright \
                             pysymcheck \
                             rats \
                             reek \

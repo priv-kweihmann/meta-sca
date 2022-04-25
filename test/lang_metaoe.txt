@@ -1,4 +1,3 @@
-pyright
 retire
 secretlint
 standard
