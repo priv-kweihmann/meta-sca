@@ -59,7 +59,6 @@ SCA_ENABLED_MODULES_RECIPE = "\
                             flint \
                             gcc \
                             golint \
-                            gosec \
                             jsonlint \
                             kconfighard \
                             mypy \
