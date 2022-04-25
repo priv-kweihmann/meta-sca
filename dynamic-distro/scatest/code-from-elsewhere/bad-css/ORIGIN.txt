@@ -1,1 +1,0 @@
-https://github.com/stylelint/stylelint/blob/master/system-tests/fix/stylesheet.css
