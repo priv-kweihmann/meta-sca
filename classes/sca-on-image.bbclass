@@ -33,7 +33,6 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             reconbf \
                             shellcheck \
                             slick \
-                            standard \
                             stank \
                             stylelint \
                             sudokiller \
