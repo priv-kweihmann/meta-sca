@@ -23,7 +23,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             darglint \
                             dennis \
                             detectsecrets \
-                            eslint \
                             flake8 \
                             flawfinder \
                             flint \
