@@ -7,7 +7,6 @@ cpplint
 flawfinder
 flint
 gcc
-goconsistent
 golicensecheck
 golint
 kconfighard
