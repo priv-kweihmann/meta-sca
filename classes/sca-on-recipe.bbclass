@@ -27,7 +27,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             flint \
                             gcc \
                             goconsistent \
-                            goconst \
                             golicensecheck \
                             golint \
                             it \

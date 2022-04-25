@@ -105,7 +105,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           flint \
                           gcc \
                           goconsistent \
-                          goconst \
                           golicensecheck \
                           golint \
                           it \
