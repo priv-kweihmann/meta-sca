@@ -1,6 +1,5 @@
 recipes-foo/foo/*
 TODO
 .vscode
-.textlintrc
 __pycache__
 *.pyc

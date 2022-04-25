@@ -59,7 +59,6 @@ sparse,C linter,https://sparse.wiki.kernel.org/index.php/Main_Page,,,,x,x,,,,,,,
 stank,Shell script linter,https://github.com/mcandre/stank,,,x,x,,,,x,,,,,,,,,,,,x,x
 sudokiller,check on sudo,https://github.com/TH3xACE/SUDO_KILLER,,,x,,,,,,,,,x,,,,,,,x,,
 systemdlint,Systemd unit linter,https://github.com/priv-kweihmann/systemdlint,,,x,x,,,,,,,,,,,,,,x,x,x,x
-textlint,Spelling and text linter,https://github.com/textlint/textlint,"meta-oe, manual enable",x,,x,,,,,,,,,,x,,,,,,,x
 tiger,security audit and intrusion detection tool,http://www.nongnu.org/tiger/,,,x,,,,,,,,,x,,,,,,,x,,
 tlv,Find duplicate code,https://github.com/priv-kweihmann/tlv,manual enable,,x,x,x,x,x,,x,x,x,,,,,,,,x,,x
 tscancode,C and lua linter,https://github.com/Tencent/TscanCode,,,,x,x,,,,,,,,,,,,,,,x,

@@ -61,7 +61,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             sparse \
                             stank \
                             systemdlint \
-                            textlint \
                             tlv \
                             tscancode \
                             vulture \
