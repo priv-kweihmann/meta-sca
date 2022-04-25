@@ -114,26 +114,6 @@ SCA_AVAILABLE_MODULES = "tlv"
 
 in the conf/local.conf-file.
 
-#### Hardening if user defined code is executed
-
-In this case it might be worth a look if your code does have a larger weakness for [ROP](https://en.wikipedia.org/wiki/Return-oriented_programming).
-Mostly it can't be fully avoided, but the chances of being exploited by that technique could be mitigated.
-
-The [ropgadget](../conf/module/ropgadget.md) module does scan your code for such pattern.
-As there are a large number of occurrences the global loglevel need to be turned to "info" to see all findings.
-
-To active add/set
-
-```bitbake
-SCA_AVAILABLE_MODULES = "ropgadget"
-SCA_WARNING_LEVEL = "info"
-```
-
-in the conf/local.conf-file.
-
-To fix it, try to write the code pattern in a different style so the compiler doesn't translate it into a exploitable pattern.
-This might need some time and should be done by an experienced developer.
-
 #### Usage of metrics
 
 Metrics have proven to be quite a good indicator of improvable code.
@@ -176,7 +156,6 @@ The full applied configuration may look like this
 SCA_AVAILABLE_MODULES = "\
                         gcc \
                         bitbake \
-                        ropgadget \
                         tlv \
                         multimetric \
                         cppcheck \
