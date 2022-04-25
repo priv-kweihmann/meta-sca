@@ -59,7 +59,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             shellcheck \
                             slick \
                             sparse \
-                            standard \
                             stank \
                             stylelint \
                             systemdlint \

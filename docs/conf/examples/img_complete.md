@@ -36,7 +36,6 @@ SCA_ENABLED_MODULES_IMAGE = "\
                             pyfindinjection \
                             pylint \
                             shellcheck \
-                            standard \
                             stylelint \
                             systemdlint \
                             tiger \
@@ -72,7 +71,6 @@ SCA_ENABLED_MODULES_RECIPE = "\
                             safety \
                             shellcheck \
                             sparse \
-                            standard \
                             stylelint \
                             tscancode \
                             vulture \
