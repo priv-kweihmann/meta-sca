@@ -18,7 +18,6 @@ flawfinder,C/C++ security linter,https://github.com/david-a-wheeler/flawfinder,,
 flint,C/C++ linter,https://github.com/JossWhittle/FlintPlusPlus,,,,x,x,x,,,,,,,,,,,,,,x,
 gcc,GCC compiler issues and hardening,,,,,x,x,x,,,,,,,,,,,,,x,x,
 goconsistent,Source code analyzer that helps you to make your Go programs more consistent,https://github.com/quasilyte/go-consistent,,,,x,,,,,,,x,,,,,,,,,,x
-goconst,Find variables that could be constants in GO files,https://github.com/jgautheron/goconst,,,,x,,,,,,,x,,,,,,,,,,x
 golicensecheck,Scan code for license information,https://github.com/go-enry/go-license-detector,,,,x,,,,,,,,,,,,,,x,x,,
 golint,GO linter,https://github.com/golang/lint,,,,x,,,,,,,x,,,,,,,,,,x
 image-summary,Aggregate all findings for package in an image,,,,x,,,,,,,,,,,,,,x,,x,x,x
