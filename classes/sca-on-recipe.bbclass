@@ -31,7 +31,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             goconst \
                             golicensecheck \
                             golint \
-                            gosec \
                             it \
                             jsonlint \
                             kconfighard \

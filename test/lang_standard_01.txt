@@ -12,7 +12,6 @@ goconsistent
 goconst
 golicensecheck
 golint
-gosec
 kconfighard
 licensecheck
 perl
