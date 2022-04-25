@@ -1,4 +1,3 @@
-alexkohler
 bashate
 cbmc
 checkbashism
