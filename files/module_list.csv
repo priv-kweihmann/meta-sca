@@ -64,7 +64,6 @@ tlv,Find duplicate code,https://github.com/priv-kweihmann/tlv,manual enable,,x,x
 tscancode,C and lua linter,https://github.com/Tencent/TscanCode,,,,x,x,,,,,,,,,,,,,,,x,
 upc,check for simple privilege escalation vectors,https://github.com/pentestmonkey/unix-privesc-check,,,x,,,,,,,,,x,,,,,,,x,,
 vulture,Find dead python code,https://github.com/jendrikseipp/vulture,,,x,x,,,x,,,,,,,,,,,,,x,
-wotan,Typescript/javascript linter,https://github.com/fimbullinter/wotan,"meta-oe, manual enable",x,x,x,,,,,x,,,,,,,,,,,x,x
 xmllint,XML linter,http://xmlsoft.org/xmllint.html,,,x,x,,,,,,,,,,,,,,x,,x,
 yamllint,YAML linter,https://github.com/adrienverge/yamllint,,,x,x,,,,,,,,,,,,,,x,,,x
 yara,Find suspicious pattern in binaries,https://github.com/VirusTotal/yara,,,x,,,,,,,,,x,,,,,,,x,,
