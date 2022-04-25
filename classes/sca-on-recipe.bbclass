@@ -32,7 +32,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             golicensecheck \
                             golint \
                             gosec \
-                            htmlhint \
                             it \
                             jshint \
                             jsonlint \

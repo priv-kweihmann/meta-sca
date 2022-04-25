@@ -30,7 +30,6 @@ SCA_ENABLED_MODULES_IMAGE = "\
                             configcheck \
                             detectsecrets \
                             flake8 \
-                            htmlhint \
                             jsonlint \
                             mypy \
                             lynis \
@@ -63,7 +62,6 @@ SCA_ENABLED_MODULES_RECIPE = "\
                             gcc \
                             golint \
                             gosec \
-                            htmlhint \
                             jsonlint \
                             kconfighard \
                             npmaudit \
