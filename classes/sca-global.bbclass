@@ -148,14 +148,11 @@ SCA_AVAILABLE_MODULES ?= "\
                           yamllint \
                           yara \
                         "
-# additional layer requirements
-SCA_AVAILABLE_MODULES[inspec] = "openembedded-layer rubygems"
 
 # Modules using crossemu support, because they need some extra "love"
 _SCA_CROSSEMU_MODULES = "\
     checksec \
     configcheck \
-    inspec \
     lse \
     lynis \
     nixauditor \
