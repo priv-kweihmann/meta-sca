@@ -45,7 +45,6 @@ Support for these branches, including quality control, has to be done fully by t
   - [Setup](#setup)
   - [Kas](#kas)
   - [Optional layer](#optional-layer)
-    - [meta-clang](#meta-clang)
     - [meta-oe](#meta-oe)
     - [meta-rubygems](#meta-rubygems)
 - [Web monitor](#web-monitor)
@@ -113,10 +112,6 @@ Alternatively you can use [kas](https://kas.readthedocs.io) to setup the workspa
 Use `conf/kas/scatest-qemux86-64.yaml` from this layer
 
 ### Optional layer
-
-#### meta-clang
-
-To make the integration of clang (clang-tidy) work you need to add the [meta-clang](https://github.com/kraj/meta-clang) layer to your bblayer-file.
 
 #### meta-oe
 
@@ -186,7 +181,6 @@ The layer can check on a recipe-level or on an image-level.
 | cbmc            | C Bounded Model Checker                               | https://github.com/diffblue/cbmc/                                     |                                              | x                      |              | x             | x   |     |        |       |            |     |     |        |     |          |         |          |          |               |                | x                |             |
 | checkbashisms   | Shell script linter                                   | https://manpages.debian.org/jessie/devscripts/checkbashisms.1.en.html |                                              |                        | x            | x             |     |     |        | x     |            |     |     |        |     |          |         |          |          |               |                | x                | x           |
 | checksec        | check on security issues                              | https://github.com/slimm609/checksec.sh                               |                                              |                        | x            |               |     |     |        |       |            |     |     | x      |     |          |         |          |          |               | x              |                  |             |
-| clang           | C/C++ linter using LLVM                               | https://clang.llvm.org/extra/clang-tidy/                              | meta-clang, manual enable                    |                        |              |               | x   | x   | x      |       |            |     |     |        |     |          |         |          |          |               |                |                  | x           |
 | cmake           | Get cmake errors and warnings                         |                                                                       |                                              |                        |              | x             | x   | x   |        |       |            |     |     |        |     |          |         |          |          |               |                | x                |             |
 | configcheck     | Check application configurations                      |                                                                       |                                              |                        | x            |               |     |     |        |       |            |     |     |        |     |          |         |          |          | x             |                | x                |             |
 | cppcheck        | C/C++ linter                                          | https://github.com/danmar/cppcheck                                    |                                              |                        |              | x             | x   | x   |        |       |            |     |     |        |     |          |         |          |          |               | x              | x                | x           |
@@ -294,7 +288,6 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
     - [cbmc](docs/conf/module/cbmc.md)
     - [checkbashism](docs/conf/module/checkbashism.md)
     - [checksec](docs/conf/module/checksec.md)
-    - [clang](docs/conf/module/clang.md)
     - [cmake](docs/conf/module/cmake.md)
     - [configcheck](docs/conf/module/configcheck.md)
     - [cppcheck](docs/conf/module/cppcheck.md)

@@ -16,7 +16,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             bitbake \
                             cbmc \
                             checkbashism \
-                            clang \
                             cmake \
                             cppcheck \
                             cpplint \
