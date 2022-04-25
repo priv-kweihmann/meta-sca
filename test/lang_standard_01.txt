@@ -24,7 +24,6 @@ rats
 reuse
 revive
 scancode
-semgrep
 shellcheck
 slick
 sparse

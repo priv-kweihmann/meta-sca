@@ -134,7 +134,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           reuse \
                           revive \
                           safety \
-                          semgrep \
                           setuptoolslint \
                           shellcheck \
                           slick \
