@@ -1,4 +1,3 @@
-phpsecaudit
 phpstan
 pyright
 retire
