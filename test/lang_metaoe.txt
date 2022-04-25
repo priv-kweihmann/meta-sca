@@ -1,4 +1,3 @@
-phpstan
 pyright
 retire
 secretlint
