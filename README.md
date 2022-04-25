@@ -1,6 +1,6 @@
 # meta-sca <!-- omit in toc -->
 
-![https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CLua%2CPython%2CShell%2Cjs%2Cperl%2Cruby-informational](https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CLua%2CPython%2CShell%2Cjs%2Cperl%2Cruby-informational)
+![https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CPython%2CShell%2Cjs%2Cperl%2Cruby-informational](https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CPython%2CShell%2Cjs%2Cperl%2Cruby-informational)
 
 [![Lastest commit](https://github.com/priv-kweihmann/meta-sca/actions/workflows/push_kirkstone.yml/badge.svg?branch=kirkstone)](https://github.com/priv-kweihmann/meta-sca/actions/workflows/push_kirkstone.yml)
 
