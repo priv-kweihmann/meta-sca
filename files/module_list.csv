@@ -48,7 +48,6 @@ pylint,Python linter,https://github.com/PyCQA/pylint,,,x,x,,,x,,,,,,,,,,,,,x,x
 pysymcheck,Check binaries for forbidden function usage,https://github.com/priv-kweihmann/pysymbolcheck,,,,x,,,,,,,,,,,,x,,,x,,
 rats,Check on insecurities in several languages,https://github.com/redNixon/rats,,,,x,,x,x,x,,x,,,,,,,,,x,,
 reconbf,security audit tool,https://github.com/HewlettPackard/reconbf,,,x,,,,,,,,,x,,,,,,,x,,
-retire,Check for known vulnerabilities in javascript and NPM,https://retirejs.github.io/retire.js/,"meta-oe, manual enable",x,,x,,,,,x,,,,,,,,x,,x,,
 reuse,Scan code for license information,https://github.com/fsfe/reuse-tool,,,,x,,,,,,,,,,,,,,x,x,,
 revive,GO linter,https://github.com/mgechev/revive,,,,x,,,,,,,x,,,,,,,,,x,x
 ropgadget,Determine ROP exploitability in binaries,https://github.com/JonathanSalwan/ROPgadget,manual enable,,,x,,,,,,,,,,,,x,,,x,,
