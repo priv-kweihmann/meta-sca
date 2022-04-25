@@ -1,4 +1,3 @@
-jshint
 luacheck
 npmaudit
 phan
