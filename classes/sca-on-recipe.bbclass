@@ -19,7 +19,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             cmake \
                             cppcheck \
                             cpplint \
-                            cspell \
                             cvecheck \
                             darglint \
                             dennis \
