@@ -1,4 +1,3 @@
-retire
 secretlint
 standard
 stylelint

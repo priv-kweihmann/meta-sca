@@ -51,7 +51,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             pylint \
                             pysymcheck \
                             rats \
-                            retire \
                             reuse \
                             revive \
                             ropgadget \
