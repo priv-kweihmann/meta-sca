@@ -151,7 +151,6 @@ SCA_AVAILABLE_MODULES ?= "\
                         "
 # additional layer requirements
 SCA_AVAILABLE_MODULES[inspec] = "openembedded-layer rubygems"
-SCA_AVAILABLE_MODULES[luacheck] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[npmaudit] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[phan] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[phpcodefixer] = "openembedded-layer"
