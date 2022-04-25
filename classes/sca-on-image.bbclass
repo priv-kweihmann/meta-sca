@@ -19,7 +19,6 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             configcheck \
                             detectsecrets \
                             flake8 \
-                            htmlhint \
                             inspec \
                             jshint \
                             jsonlint \
