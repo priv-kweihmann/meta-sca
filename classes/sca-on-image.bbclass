@@ -40,7 +40,6 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             tlv \
                             upc \
                             vulture \
-                            wotan \
                             xmllint \
                             yamllint \
                             yara \

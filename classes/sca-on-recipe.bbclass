@@ -64,7 +64,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             tlv \
                             tscancode \
                             vulture \
-                            wotan \
                             xmllint \
                             yamllint \
                             "
