@@ -26,7 +26,6 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             mypy \
                             nixauditor \
                             oelint \
-                            proselint \
                             pyfindinjection \
                             pylint \
                             reconbf \
