@@ -109,7 +109,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           goconst \
                           golicensecheck \
                           golint \
-                          gosec \
                           it \
                           jsonlint \
                           kconfighard \
