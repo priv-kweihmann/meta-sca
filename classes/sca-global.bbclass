@@ -151,7 +151,6 @@ SCA_AVAILABLE_MODULES ?= "\
                         "
 # additional layer requirements
 SCA_AVAILABLE_MODULES[inspec] = "openembedded-layer rubygems"
-SCA_AVAILABLE_MODULES[pyright] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[reek] = "rubygems"
 SCA_AVAILABLE_MODULES[retire] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[rubycritic] = "rubygems"
