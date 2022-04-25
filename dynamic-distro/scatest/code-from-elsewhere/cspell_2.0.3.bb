@@ -14,4 +14,4 @@ inherit sca
 
 SCA_BLACKLIST_proselint += "${PN}"
 
-SCA_ENABLED_MODULES = "bitbake retire"
+SCA_ENABLED_MODULES = "bitbake"
