@@ -7,7 +7,7 @@ distro: scatest
 target: core-image-minimal-scatest
 defaults:
   repos:
-    refspec: master
+    refspec: kirkstone
 repos:
   poky:
     url: "https://git.yoctoproject.org/git/poky"
@@ -23,6 +23,8 @@ repos:
       meta-oe:
   meta-rubygems:
     url: "https://github.com/priv-kweihmann/meta-rubygems"
+    refspec: master
   meta-clang:
     url: "https://github.com/kraj/meta-clang"
+    refspec: master
     

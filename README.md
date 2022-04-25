@@ -2,8 +2,7 @@
 
 ![https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CLua%2CPHP%2CPython%2CShell%2Cjs%2Cperl%2Cruby-informational](https://img.shields.io/badge/Supported%20languages-C%2CC%2B%2B%2CGo%2CLua%2CPHP%2CPython%2CShell%2Cjs%2Cperl%2Cruby-informational)
 
-[![Nightly](https://github.com/priv-kweihmann/meta-sca/workflows/[master]-nightly/badge.svg)](https://github.com/priv-kweihmann/meta-sca/actions)
-[![Lastest commit](https://github.com/priv-kweihmann/meta-sca/actions/workflows/push_master.yml/badge.svg?branch=master)](https://github.com/priv-kweihmann/meta-sca/actions/workflows/push_master.yml)
+[![Lastest commit](https://github.com/priv-kweihmann/meta-sca/actions/workflows/push_kirkstone.yml/badge.svg?branch=kirkstone)](https://github.com/priv-kweihmann/meta-sca/actions/workflows/push_kirkstone.yml)
 
 For the list of current findings from pipelines see [meta-sca report](https://priv-kweihmann.github.io/)
 
