@@ -29,7 +29,6 @@ SCA_ENABLED_MODULES_IMAGE = "\
                             checkbashism \
                             configcheck \
                             detectsecrets \
-                            eslint \
                             flake8 \
                             htmlhint \
                             jsonlint \
@@ -59,7 +58,6 @@ SCA_ENABLED_MODULES_RECIPE = "\
                             darglint \
                             dennis \
                             detectsecrets \
-                            eslint \
                             flake8 \
                             flint \
                             gcc \
