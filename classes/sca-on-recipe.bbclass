@@ -60,7 +60,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             slick \
                             sparse \
                             stank \
-                            stylelint \
                             systemdlint \
                             textlint \
                             tlv \

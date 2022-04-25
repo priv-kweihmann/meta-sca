@@ -151,7 +151,6 @@ SCA_AVAILABLE_MODULES ?= "\
                         "
 # additional layer requirements
 SCA_AVAILABLE_MODULES[inspec] = "openembedded-layer rubygems"
-SCA_AVAILABLE_MODULES[stylelint] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[textlint] = "openembedded-layer"
 SCA_AVAILABLE_MODULES[wotan] = "openembedded-layer"
 
