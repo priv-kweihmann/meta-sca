@@ -9,7 +9,10 @@ require honnef.co-go-tools-sources.inc
 
 EXTRA_DEPENDS += "\
     github.com-burntsushi-toml-native \
+    golang.org-x-exp-typeparams-native \
+    golang.org-x-sys-native \
     golang.org-x-tools-native \
+    golang.org-x-xerrors-native \
 "
 
 GO_IMPORT = "honnef.co/go/tools"
