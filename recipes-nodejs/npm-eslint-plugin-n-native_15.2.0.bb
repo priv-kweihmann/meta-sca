@@ -14,9 +14,9 @@ DEPENDS = "npm-builtins-native \
            npm-resolve-native \
            npm-semver-native"
 
-SRC_URI = "https://registry.npmjs.org/eslint-plugin-n/-/eslint-plugin-n-15.1.0.tgz"
-SRC_URI[md5sum] = "96c0a3c0fd2b0c674c87f50f885d212a"
-SRC_URI[sha256sum] = "f8a317481dc3d9a18b35a65ec707d703b1e9c92c0c25a19ff0e5531f68fc5c36"
+SRC_URI = "https://registry.npmjs.org/eslint-plugin-n/-/eslint-plugin-n-15.2.0.tgz"
+SRC_URI[md5sum] = "b7a0f58b46e00ebb6db1357c76a3bf4b"
+SRC_URI[sha256sum] = "61857bb2e9c06af1b3781156aef03529dc229986119fa83a33acff4360d66e3e"
 
 NPM_PKGNAME = "eslint-plugin-n"
 
