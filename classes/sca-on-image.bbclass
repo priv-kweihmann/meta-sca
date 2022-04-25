@@ -20,7 +20,6 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             detectsecrets \
                             flake8 \
                             inspec \
-                            jshint \
                             jsonlint \
                             lse \
                             lynis \
