@@ -17,14 +17,4 @@ repos:
       meta-yocto-bsp:
   meta-sca:
     url: "https://github.com/priv-kweihmann/meta-sca"
-  meta-openembedded:
-    url: "https://git.openembedded.org/meta-openembedded"
-    layers:
-      meta-oe:
-  meta-rubygems:
-    url: "https://github.com/priv-kweihmann/meta-rubygems"
-    refspec: master
-  meta-clang:
-    url: "https://github.com/kraj/meta-clang"
-    refspec: master
     
