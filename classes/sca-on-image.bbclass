@@ -61,7 +61,7 @@ def sca_on_image_init(d):
             BBHandler.inherit("sca-{}-image".format(item), "sca-on-image", 1, d)
             func = "sca-{}-init".format(item).replace("-", "_")
             if d.getVar(func, False) is not None:
-                bb.build.exec_func(func, d, **get_bb_exec_ext_parameter_support(d))
+                bb.build.exec_func(func, d)
             okay = True
             enabledModules.append(item)
         except bb.parse.ParseError as exp:
@@ -77,11 +77,11 @@ def sca_on_image_init(d):
             func = "sca-{}-init".format("bestof").replace("-", "_")
             enabledModules.append("bestof")
             if d.getVar(func, False) is not None:
-                bb.build.exec_func(func, d, **get_bb_exec_ext_parameter_support(d))
+                bb.build.exec_func(func, d)
         if d.getVar("SCA_ENABLE_IMAGE_SUMMARY") == "1":
             BBHandler.inherit("sca-{}".format("image-summary"), "sca-on-image", 1, d)
             func = "sca-{}-init".format("image-summary").replace("-", "_")
             enabledModules.append("image-summary")
             if d.getVar(func, False) is not None:
-                bb.build.exec_func(func, d, **get_bb_exec_ext_parameter_support(d))
+                bb.build.exec_func(func, d)
     d.appendVar("SCA_ACTIVE_MODULES", " " + " ".join(sorted(enabledModules)))

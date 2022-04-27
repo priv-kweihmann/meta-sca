@@ -279,20 +279,6 @@ def sca_task_aftermath(d, tool, fatals=None):
         bb.error("SCA has following fatal errors: {}".format("\n".join(_str_fatals)))
 
 
-def get_bb_exec_ext_parameter_support(d):
-    ## Since commit https://github.com/openembedded/bitbake/commit/cfeffb602dd5319f071cd6bcf84139ec77f2d170
-    ## The support for pythonexception=True was removed from bb.build.exec_func
-    ## which this layer uses heavily
-    ## so we need to probe here for it
-    ## if we are able to pass it or not
-    import bb
-    import inspect
-    res = {}
-    x = inspect.getfullargspec(bb.build.exec_func)
-    if "pythonexception" in x.args:
-        res["pythonexception"] = True
-    return res
-
 def sca_get_func_by_name(d, name):
     if name in locals().keys():
         return locals()[name]

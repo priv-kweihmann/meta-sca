@@ -82,7 +82,7 @@ def sca_on_recipe_init(d):
             BBHandler.inherit("sca-{}".format(item), "sca-on-recipe", 1, d)
             func = "sca-{}-init".format(item).replace("-", "_")
             if d.getVar(func, False) is not None:
-                bb.build.exec_func(func, d, **get_bb_exec_ext_parameter_support(d))
+                bb.build.exec_func(func, d)
             okay = True
         except bb.parse.ParseError:
             pass
@@ -91,7 +91,7 @@ def sca_on_recipe_init(d):
             BBHandler.inherit("sca-{}-recipe".format(item), "sca-on-recipe", 1, d)
             func = "sca-{}-init".format(item).replace("-", "_")
             if d.getVar(func, False) is not None:
-                bb.build.exec_func(func, d, **get_bb_exec_ext_parameter_support(d))
+                bb.build.exec_func(func, d)
             okay = True
         except bb.parse.ParseError:
             pass
@@ -102,7 +102,7 @@ def sca_on_recipe_init(d):
         func = "sca-{}-init".format("bestof").replace("-", "_")
         enabledModules.append("bestof")
         if d.getVar(func, False) is not None:
-            bb.build.exec_func(func, d, **get_bb_exec_ext_parameter_support(d))
+            bb.build.exec_func(func, d)
     if any(enabledModules):
         if d.getVar("SCA_VERBOSE_OUTPUT") == "1":
             bb.note("Using SCA Module(s) {}".format(",".join(sorted(enabledModules))))
