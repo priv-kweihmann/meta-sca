@@ -46,7 +46,6 @@ Support for these branches, including quality control, has to be done fully by t
   - [Kas](#kas)
 - [Web monitor](#web-monitor)
 - [Support](#support)
-  - [Release cycle](#release-cycle)
     - [Releases](#releases)
   - [Compatibility](#compatibility)
 - [Licensing](#licensing)
@@ -114,17 +113,13 @@ If you're not quite convinced what this layer can do for you, have a look at the
 
 ## Support
 
-Actively maintained branches will receive feature and package updates according to the [release cycle](#release-cycle).
+Actively maintained branch is currently only `master`.
 Unmaintained branches will only receive package updates on demand.
+Support for unmaintained branches has to be done by the community.
 
 Status of the branches is described at [SECURITY.md](SECURITY.md).
 
 It's advised to use the tagged source versions in productive environment.
-
-### Release cycle
-
-You can expect a new tagged build every 4-6 weeks for every actively maintained branch.
-Planning is done by milestone features on GitHub.
 
 #### Releases
 
