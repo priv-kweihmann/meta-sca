@@ -47,7 +47,6 @@ def main():
     _rootdir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
     _releasenotedir = os.path.join(_rootdir, "docs", "releasenotes")
     _newtag = inc_version(_args, _args.tag)
-    os.makedirs(_releasenotedir, exist_ok=True)
     _git = git.Repo(path=_rootdir)
     _currenbranch = _git.active_branch.name
     for b in _args.branch:
@@ -59,6 +58,7 @@ def main():
                    _args.username,
                    _args.token
                   ]
+        os.makedirs(_releasenotedir, exist_ok=True)
         try:
             out = subprocess.check_output(_sagrs, universal_newlines=True)
             _git.git.checkout(b)
