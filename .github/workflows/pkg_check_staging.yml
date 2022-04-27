@@ -78,6 +78,6 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/packagecheck@latest
         with:
           backoff-time: 60
-          blacklist: "blacklist.txt"
+          blacklist: "blocklist.txt"
           deploy-token: ${{ secrets.WEBDEPLOY }}
           user: "priv-kweihmann"
