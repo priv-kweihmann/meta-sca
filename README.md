@@ -61,7 +61,6 @@ To install clone the needed branch(es) to any path on your local system.
 ### Prerequisites
 
 - You need the current standard [__poky__-layer](https://git.yoctoproject.org/cgit/cgit.cgi/poky/) installed onto your local build environment.
-- You need at least **python 3.5** to be installed on your build host.
 - You need **glib-2.0-dev** package installed on your build host (used for e.g. configcheck, lynis, tiger, upc)
 
 ### Use of containers
