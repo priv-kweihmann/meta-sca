@@ -38,16 +38,6 @@ def get_real_package_name_go(_args, recipe):
     return out
 
 
-def run_package_update_npm(_args, packagename, version):
-    try:
-        subprocess.check_call(["python3", os.path.join(_args.repo, "scripts", "npm-gen.py"),
-                               os.path.join(_args.repo, "recipes-nodejs"),
-                               packagename, version], universal_newlines=True)
-        return (True, 1)
-    except:
-        return (False, 1)
-
-
 def run_package_update_pypi(_args, packagename, version):
     try:
         subprocess.check_call(["python3", os.path.join(_args.repo, "scripts", "pypi-update.py"),
@@ -127,15 +117,7 @@ def update_packages(_args, _input, number):
         _allowed_changes = 0
         _recipe = m.group("recipe")
         _skip = False
-        if _recipe.startswith("npm-"):
-            if os.environ.get("NO_NPM", ""):
-                _skip = True
-            else:
-                _pkgname = get_real_package_name_npm(_args, _recipe)
-                if _pkgname:
-                    _update, _allowed_changes = run_package_update_npm(
-                        _args, _pkgname, m.group("version"))
-        elif _recipe.startswith("python3-"):
+        if _recipe.startswith("python3-"):
             if os.environ.get("NO_PYTHON", ""):
                 _skip = True
             else:
