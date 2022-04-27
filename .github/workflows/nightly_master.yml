@@ -23,7 +23,7 @@ jobs:
 
     strategy:
       matrix:
-        testset: [standard_01, standard_02, standard_03, metaoe, metaclang, metaruby]
+        testset: [standard_01, standard_02, standard_03]
         include:
         - testset: standard_01
           BUILD_PARAMFILE: standard_01
@@ -74,11 +74,6 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
           target: linux-yocto
-      - if: matrix.SCM_LAYER_ENABLE_CLANG == '1'
-        name: build (clang)
-        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
-        with:
-          target: clang-native
       - if: matrix.BUILD_QEMUSYSTEM == '1'
         name: build (qemu-system)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
