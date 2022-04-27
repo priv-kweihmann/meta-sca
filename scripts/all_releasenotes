@@ -1,0 +1,74 @@
+#!/usr/bin/env python3
+import argparse
+import os
+import subprocess
+
+import git
+
+class ExtendAction(argparse.Action):
+
+    def __call__(self, parser, namespace, values, option_string=None):
+        items = getattr(namespace, self.dest) or []
+        items.extend(values)
+        setattr(namespace, self.dest, items)
+
+def create_parser():
+    parser = argparse.ArgumentParser()
+    parser.register('action', 'extend', ExtendAction)
+
+    parser.add_argument("--main", default=[], action="extend", nargs="*", help="add a main section entry")
+    parser.add_argument("--git_user", default=os.environ.get("GIT_USER"))
+    parser.add_argument("--git_mail", default=os.environ.get("GIT_MAIL"))
+    parser.add_argument("--minorupd", default=False, action="store_true", help="Minor update")
+    parser.add_argument("tag", help="tag to query from")
+    parser.add_argument("username", help="GitHub username")
+    parser.add_argument("token", help="GitHub token")
+    parser.add_argument("branch", default=[], nargs="+", help="branch to query")
+    return parser.parse_args()
+
+_map = {
+    "master": "v{tag}"
+}
+
+def git_commit(args, _git, summary, body):
+    _git.git.add("*")
+    user = git.Actor(args.git_user, args.git_mail)
+    _git.index.commit("{}\n\n{}".format(
+        summary, body), author=user, committer=user)
+
+def inc_version(_args, ver):
+    _chunks = ver.split(".")
+    _needle = 2 if _args.minorupd else 1
+    _chunks[1] = str(int(_chunks[_needle]) + 1)
+    return ".".join(_chunks)
+
+def main():
+    _args = create_parser()
+    _rootdir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    _releasenotedir = os.path.join(_rootdir, "docs", "releasenotes")
+    _newtag = inc_version(_args, _args.tag)
+    _git = git.Repo(path=_rootdir)
+    _currenbranch = _git.active_branch.name
+    for b in _args.branch:
+        _sagrs = [os.path.join(os.path.dirname(__file__), "releasenotes")]
+        if _args.main:
+            _sagrs += ["--main={}".format(x) for x in _args.main]
+        _sagrs += [b,
+                   _map.get(b, "v{branch}_{tag}").format(branch=b, tag=_args.tag),
+                   _args.username,
+                   _args.token
+                  ]
+        os.makedirs(_releasenotedir, exist_ok=True)
+        try:
+            out = subprocess.check_output(_sagrs, universal_newlines=True)
+            _git.git.checkout(b)
+            with open(os.path.join(_releasenotedir, "{}-{}.md".format(b, _newtag)), "w") as o:
+                o.write(out)
+            git_commit(_args, _git, "Add release notes for {}".format(_newtag), "")
+            _git.git.checkout(_currenbranch)
+        except:
+            pass
+
+
+if __name__ == '__main__':
+    main()
