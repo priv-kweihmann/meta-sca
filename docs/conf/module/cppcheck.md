@@ -20,7 +20,7 @@ For further explanations on the variables see the manpage of cppcheck
 | SCA_CPPCHECK_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_CPPCHECK_CHECK_DEPTH | Depth of analysis - higher value = higher effort | int | "3"
 | SCA_CPPCHECK_ADD_INCLUDES | Additional paths leading to includes | space-separated-list | ""
-| SCA_BLACKLIST_cppcheck | Blacklist filter for this tool | space-separated-list | "linux-*"
+| SCA_BLOCKLIST_cppcheck | Blacklist filter for this tool | space-separated-list | "linux-*"
 
 ## Supports
 

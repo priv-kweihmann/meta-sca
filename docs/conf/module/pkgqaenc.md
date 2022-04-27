@@ -8,12 +8,12 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLACKLIST_pkgqaenc | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST_pkgqaenc | Blacklist filter for this tool | space-separated-list | ""
 | SCA_PKGQAENC_ACCEPTABLE_DIRS | Directories where packages could install data | space-separated-list | see sca-pkgqaenc.bbclass
 | SCA_PKGQAENC_ACCEPTABLE_SHEBANG | Accepted shebangs in script files | space-separated-list | ""
-| SCA_PKGQAENC_BLACKLIST_DIRS | Directories where no files should be installed | space-separated-list | \${infodir} \${docdir} \${mandir}
-| SCA_PKGQAENC_BLACKLIST_FILES | Files that shouldn't be installed | space-separated-list | ".c .h .cpp .hpp .man" for base, "application/x-executable application/x-sharedlib application/x-pie-executable" for -dev
-| SCA_PKGQAENC_BLACKLIST_SHEBANG | Blacklisted shebangs in script files | space-separated-list | ""
+| SCA_PKGQAENC_BLOCKLIST_DIRS | Directories where no files should be installed | space-separated-list | \${infodir} \${docdir} \${mandir}
+| SCA_PKGQAENC_BLOCKLIST_FILES | Files that shouldn't be installed | space-separated-list | ".c .h .cpp .hpp .man" for base, "application/x-executable application/x-sharedlib application/x-pie-executable" for -dev
+| SCA_PKGQAENC_BLOCKLIST_SHEBANG | Blacklisted shebangs in script files | space-separated-list | ""
 | SCA_PKGQAENC_EXEC_CHECK | Files that needs to be executable | space-separated-list | see sca-pkgqaenc.bbclass
 | SCA_PKGQAENC_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
 | SCA_PKGQAENC_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
@@ -25,7 +25,7 @@
 | SCA_PKGQAENC_PERM_MIN_MASK | Min. required file mode  mask | octal representation | see below
 | SCA_PKGQAENC_PYIDENT_BUILTINS | Modules builtin to the python interpreter | space-separated-list | See `sca-pkgqaenc-pyident.bbclass` for details
 | SCA_PKGQAENC_SHELLIDENT_SHELLS | Shells to be checked for missing binaries | space-separated-list | "bash sh ksh"
-| SCA_PKGQAENC_WHITELIST_FILES | Files that are okay to be installed | space-separated-list | ""
+| SCA_PKGQAENC_ALLOWLIST_FILES | Files that are okay to be installed | space-separated-list | ""
 
 ### Package based rules
 
@@ -35,7 +35,7 @@ __dev__ package.
 
 ### Fallback setting
 
-The configuration for `SCA_PKGQAENC_PERM_MAX_MASK`, `SCA_PKGQAENC_PERM_MIN_MASK` and `SCA_PKGQAENC_BLACKLIST_FILES` can contain 
+The configuration for `SCA_PKGQAENC_PERM_MAX_MASK`, `SCA_PKGQAENC_PERM_MIN_MASK` and `SCA_PKGQAENC_BLOCKLIST_FILES` can contain 
 the keys
 
 * `default` for all files, that are not catched by more specific rules
@@ -44,7 +44,7 @@ the keys
 
 ### File matching
 
-The configuration for `SCA_PKGQAENC_PERM_MAX_MASK`, `SCA_PKGQAENC_PERM_MIN_MASK` and `SCA_PKGQAENC_BLACKLIST_FILES` can contain either
+The configuration for `SCA_PKGQAENC_PERM_MAX_MASK`, `SCA_PKGQAENC_PERM_MIN_MASK` and `SCA_PKGQAENC_BLOCKLIST_FILES` can contain either
 
 * a file extension (with the leading dot)
 * a mime type (like you would see when running `mimetype <file>`)
@@ -85,12 +85,12 @@ SCA_PKGQAENC_ACCEPTABLE_DIRS ?= "\
                                 ${systemd_user_unitdir} \
                                 bin \
                                 "
-SCA_PKGQAENC_BLACKLIST_DIRS ?= "\
+SCA_PKGQAENC_BLOCKLIST_DIRS ?= "\
                                 ${infodir} \
                                 ${mandir} \
                                 ${docdir} \
                                 "
-SCA_PKGQAENC_BLACKLIST_FILES ?= "\
+SCA_PKGQAENC_BLOCKLIST_FILES ?= "\
                                 .c \
                                 .cpp \
                                 .h \
@@ -98,7 +98,7 @@ SCA_PKGQAENC_BLACKLIST_FILES ?= "\
                                 .man \
                                 "
 
-SCA_PKGQAENC_BLACKLIST_FILES-dev ?= "\
+SCA_PKGQAENC_BLOCKLIST_FILES-dev ?= "\
                                     application/x-executable \
                                     application/x-sharedlib \
                                     application/x-pie-executable \

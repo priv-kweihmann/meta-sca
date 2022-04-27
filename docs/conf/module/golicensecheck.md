@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLACKLIST_golicensecheck | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST_golicensecheck | Blacklist filter for this tool | space-separated-list | ""
 | SCA_LICENSECHECK_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
 | SCA_LICENSECHECK_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_GOLICENSECHECK_MIN_CONFIDENCE | Minimum confidence about the license | float: 0.0-1.0 | "0.9"

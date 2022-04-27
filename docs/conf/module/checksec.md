@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLACKLIST_checksec | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST_checksec | Blacklist filter for this tool | space-separated-list | ""
 | SCA_CHECKSEC_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
 | SCA_CHECKSEC_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_CHECKSEC_CHECKS | Checks to perform | space-separated-list | "canary nx pie relro rpath safestack symbols"

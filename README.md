@@ -224,7 +224,7 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
 ## Further documentation
 
 - [Global Configuration](docs/conf/global.md)
-  - [Blacklisting sources](docs/conf/blacklist.md)
+  - [Blacklisting sources](docs/conf/blocklist.md)
   - [Configuration wizard](docs/conf/wizard.md)
   - [Custom severity](docs/conf/sevtransform.md)
   - [Enable SCA locally/globally](docs/conf/inherit.md)

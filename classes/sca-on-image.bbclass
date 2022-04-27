@@ -6,7 +6,7 @@
 inherit sca-global
 inherit sca-helper
 inherit sca-file-filter
-inherit sca-blacklist
+inherit sca-blocklist
 inherit sca-deploy-image
 
 SCA_PACKAGE_LICENSE_FILTER = "CLOSED"
@@ -56,7 +56,7 @@ def sca_on_image_init(d):
         if not sca_module_applicable(d, item):
             continue
         try:
-            if sca_is_module_blacklisted(d, item):
+            if sca_is_module_blocklisted(d, item):
                 continue
             BBHandler.inherit("sca-{}-image".format(item), "sca-on-image", 1, d)
             func = "sca-{}-init".format(item).replace("-", "_")

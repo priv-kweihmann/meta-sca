@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLACKLIST_nixauditor | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST_nixauditor | Blacklist filter for this tool | space-separated-list | ""
 | SCA_NIXAUDITOR_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_NIXAUDITOR_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 

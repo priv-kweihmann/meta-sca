@@ -32,13 +32,13 @@ SCA_PKGQAENC_ACCEPTABLE_DIRS ?= "\
                                 bin \
                                 "
 SCA_PKGQAENC_ACCEPTABLE_SHEBANG ?= ""
-SCA_PKGQAENC_BLACKLIST_SHEBANG ?= ""
-SCA_PKGQAENC_BLACKLIST_DIRS ?= "\
+SCA_PKGQAENC_BLOCKLIST_SHEBANG ?= ""
+SCA_PKGQAENC_BLOCKLIST_DIRS ?= "\
                                 ${infodir} \
                                 ${mandir} \
                                 ${docdir} \
                                 "
-SCA_PKGQAENC_BLACKLIST_FILES ?= "\
+SCA_PKGQAENC_BLOCKLIST_FILES ?= "\
                                 .c \
                                 .cpp \
                                 .h \
@@ -56,8 +56,8 @@ SCA_PKGQAENC_EXEC_CHECK ?= "\
                              application/x-pie-executable \
                              script \
                             "
-SCA_PKGQAENC_WHITELIST_FILES ?= ""
-SCA_PKGQAENC_BLACKLIST_FILES-dev ?= "\
+SCA_PKGQAENC_ALLOWLIST_FILES ?= ""
+SCA_PKGQAENC_BLOCKLIST_FILES-dev ?= "\
                                     application/x-executable \
                                     application/x-sharedlib \
                                     application/x-pie-executable \
@@ -153,11 +153,11 @@ def do_sca_pkgqaenc_core(d, package):
             conf["minMask"] = {}
         conf["minMask"][k.replace("_", "/")] = v
     conf["acceptableDirs"] = [x for x in (d.getVar("SCA_PKGQAENC_ACCEPTABLE_DIRS{}".format(_suffix)) or "").split(" ") if x]
-    conf["blacklistDirs"] = [x for x in (d.getVar("SCA_PKGQAENC_BLACKLIST_DIRS{}".format(_suffix)) or "").split(" ") if x]
+    conf["blacklistDirs"] = [x for x in (d.getVar("SCA_PKGQAENC_BLOCKLIST_DIRS{}".format(_suffix)) or "").split(" ") if x]
     conf["acceptableShebang"] = [unquote(x) for x in (d.getVar("SCA_PKGQAENC_ACCEPTABLE_SHEBANG{}".format(_suffix)) or "").split(" ") if x]
-    conf["blacklistShebang"] = [unquote(x) for x in (d.getVar("SCA_PKGQAENC_BLACKLIST_SHEBANG{}".format(_suffix)) or "").split(" ") if x]
-    conf["blacklistFiles"] = [x for x in (d.getVar("SCA_PKGQAENC_BLACKLIST_FILES{}".format(_suffix)) or "").split(" ") if x]
-    conf["whitelistFiles"] = [x for x in (d.getVar("SCA_PKGQAENC_WHITELIST_FILES{}".format(_suffix)) or "").split(" ") if x]
+    conf["blacklistShebang"] = [unquote(x) for x in (d.getVar("SCA_PKGQAENC_BLOCKLIST_SHEBANG{}".format(_suffix)) or "").split(" ") if x]
+    conf["blacklistFiles"] = [x for x in (d.getVar("SCA_PKGQAENC_BLOCKLIST_FILES{}".format(_suffix)) or "").split(" ") if x]
+    conf["whitelistFiles"] = [x for x in (d.getVar("SCA_PKGQAENC_ALLOWLIST_FILES{}".format(_suffix)) or "").split(" ") if x]
     conf["execCheck"] = [x for x in (d.getVar("SCA_PKGQAENC_EXEC_CHECK{}".format(_suffix)) or "").split(" ") if x]
     if not any(bb.data.inherits_class(x, d) for x in clean_split(d, "SCA_PKGQAENC_NO_COPY_NO_CHECK_CLASSES")):
         conf["nocopyCheck"] = clean_split(d, "SCA_PKGQAENC_NO_COPY_CHECK{}".format(_suffix))

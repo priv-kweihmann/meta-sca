@@ -1,7 +1,7 @@
 ## SPDX-License-Identifier: BSD-2-Clause
 ## Copyright (c) 2021, Konrad Weihmann
 inherit sca-global
-inherit sca-blacklist
+inherit sca-blocklist
 
 # enable/disable the bot
 SCA_BOT_ENABLE ??= "1"
@@ -31,7 +31,7 @@ SCA_BOT_DEPENDENCIES = "\
     python3-scabot-native \
 "
 
-DEPENDS += "${@oe.utils.ifelse(not sca_is_module_blacklisted(d) and d.getVar('SCA_BOT_ENABLE') == '1', '${SCA_BOT_DEPENDENCIES}', '')}"
+DEPENDS += "${@oe.utils.ifelse(not sca_is_module_blocklisted(d) and d.getVar('SCA_BOT_ENABLE') == '1', '${SCA_BOT_DEPENDENCIES}', '')}"
 
 # We use a global handler, which is fired at the end of any build
 # no matter if it was successful or failed

@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLACKLIST_yara | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST_yara | Blacklist filter for this tool | space-separated-list | ""
 | SCA_YARA_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_YARA_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_YARA_MODULE | List of modules to check for | space-separated-list | see sca-yara-image.bbclass for details

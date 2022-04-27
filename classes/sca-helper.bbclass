@@ -3,10 +3,10 @@
 
 inherit sca-conv-to-export
 inherit sca-datamodel
-inherit sca-blacklist
+inherit sca-blocklist
 inherit sca-helper-exec
 
-DEPENDS += "${@oe.utils.ifelse(sca_is_module_blacklisted(d, 'foo'), '', 'python3-python-magic-native')}"
+DEPENDS += "${@oe.utils.ifelse(sca_is_module_blocklisted(d, 'foo'), '', 'python3-python-magic-native')}"
 
 def find_file_in_layer(d, _file, _skipPath=""):
     import os

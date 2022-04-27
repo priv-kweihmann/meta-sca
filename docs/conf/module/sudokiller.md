@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLACKLIST_sudokiller | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST_sudokiller | Blacklist filter for this tool | space-separated-list | ""
 | SCA_SUDOKILLER_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
 | SCA_SUDOKILLER_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_SUDOKILLER_PASSWORD | If a password for sudo is required, set it here | space-separated-list | "usr sud fst sys sec ret"

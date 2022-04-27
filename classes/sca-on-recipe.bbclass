@@ -6,7 +6,7 @@
 inherit sca-global
 inherit sca-helper
 inherit sca-file-filter
-inherit sca-blacklist
+inherit sca-blocklist
 inherit sca-deploy-recipe
 
 SCA_ENABLED_MODULES_RECIPE ?= "\
@@ -75,7 +75,7 @@ def sca_on_recipe_init(d):
     for item in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")):
         if not sca_module_applicable(d, item):
             continue
-        if sca_is_module_blacklisted(d, item) or not any(sca_filter_by_license(d)):
+        if sca_is_module_blocklisted(d, item) or not any(sca_filter_by_license(d)):
             continue
         okay = False
         try:

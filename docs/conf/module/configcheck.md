@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLACKLIST_configcheck | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST_configcheck | Blacklist filter for this tool | space-separated-list | ""
 | SCA_CONFIGCHECK_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
 | SCA_CONFIGCHECK_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_CONFIGCHECK_MODULES | Applications to check | space-separated-list | "apache2 cups freeradius lighttpd nftables nginx ntp postfix proftpd samba squid sshd vsftpd"
