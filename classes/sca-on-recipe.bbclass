@@ -97,12 +97,6 @@ def sca_on_recipe_init(d):
             pass
         if okay:
             enabledModules.append(item)
-    if d.getVar("SCA_ENABLE_BESTOF") == "1":
-        BBHandler.inherit("sca-{}-recipe".format("bestof"), "sca-on-recipe", 1, d)
-        func = "sca-{}-init".format("bestof").replace("-", "_")
-        enabledModules.append("bestof")
-        if d.getVar(func, False) is not None:
-            bb.build.exec_func(func, d)
     if any(enabledModules):
         if d.getVar("SCA_VERBOSE_OUTPUT") == "1":
             bb.note("Using SCA Module(s) {}".format(",".join(sorted(enabledModules))))

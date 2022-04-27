@@ -83,7 +83,6 @@ SCA_AUTO_INH_ON_IMAGE = "1"
 SCA_AUTO_INH_ON_RECIPE = "1"
 SCA_AUTO_LICENSE_FILTER = ".*"
 SCA_AVAILABLE_MODULES = "bashate checkbashism cppcheck flake8 gcc pylint shellcheck"
-SCA_ENABLE_BESTOF = "0"
 SCA_ENABLE_IMAGE_SUMMARY = "0"
 SCA_EXPORT_FINDING_SRC = "1"
 SCA_WARNING_LEVEL = "error"
@@ -160,7 +159,6 @@ pipeline {
                 echo 'SCA_AUTO_INH_ON_IMAGE = \\"1\\"' >> conf/local.conf
                 echo 'SCA_AUTO_LICENSE_FILTER = \\".*\\"' >> conf/local.conf
                 echo 'SCA_AVAILABLE_MODULES = \\"bashate checkbashism cppcheck flake8 gcc pylint shellcheck\\"' >> conf/local.conf
-                echo 'SCA_ENABLE_BESTOF = \\"0\\"' >> conf/local.conf
                 echo 'SCA_ENABLE_IMAGE_SUMMARY = \\"0\\"' >> conf/local.conf
                 echo 'SCA_EXPORT_FINDING_SRC = \\"1\\"' >> conf/local.conf
                 echo 'SCA_WARNING_LEVEL = \\"error\\"' >> conf/local.conf

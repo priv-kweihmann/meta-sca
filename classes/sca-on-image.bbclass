@@ -70,12 +70,6 @@ def sca_on_image_init(d):
             bb.note("Using SCA Module(s) {}".format(",".join(sorted(enabledModules))))
         ## inherit license-helper class
         BBHandler.inherit("sca-license-image-helper".format(item), "sca-on-image", 1, d)
-        if d.getVar("SCA_ENABLE_BESTOF") == "1":
-            BBHandler.inherit("sca-{}-image".format("bestof"), "sca-on-recipe", 1, d)
-            func = "sca-{}-init".format("bestof").replace("-", "_")
-            enabledModules.append("bestof")
-            if d.getVar(func, False) is not None:
-                bb.build.exec_func(func, d)
         if d.getVar("SCA_ENABLE_IMAGE_SUMMARY") == "1":
             BBHandler.inherit("sca-{}".format("image-summary"), "sca-on-image", 1, d)
             func = "sca-{}-init".format("image-summary").replace("-", "_")

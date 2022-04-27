@@ -12,7 +12,7 @@ inherit sca-tracefiles
 
 python sca_multimetric_init() {
     for item in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")):
-        if item in ["bitbake", "multimetric", "bestof", "imagesummary"]:
+        if item in ["bitbake", "multimetric", "imagesummary"]:
             continue
         for taskstr in ["do_sca_{}_report".format(item), "do_sca_{}_core_report".format(item)]:
             task = d.getVar(taskstr, False)

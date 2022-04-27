@@ -184,7 +184,6 @@ if __name__ == '__main__':
         "SCA_AUTO_INH_ON_RECIPE": InputElement("Do you want to check recipes?", dataobj={"yes": "1", "no": "0"}),
         "SCA_WARNING_LEVEL": InputElement("From which priority on the findings should be reported?", dataobj=["error", "warning", "info"]),
         "SCA_ENABLE_IMAGE_SUMMARY": InputElement("Do you want to use image summary functionality?", dataobj={"yes": "1", "no": "0"}),
-        "SCA_ENABLE_BESTOF": InputElement("Do you want to use best-of functionality?", dataobj={"yes": "1", "no": "0"}),
         "SCA_AUTO_LICENSE_FILTER": RawInputElement("Enter a license filter", dataobj=".*"),
         "SCA_EXPORT_FINDING_SRC": InputElement("Do you want export the findings to Jenkins?", dataobj={"yes": "1", "no": "0"}),
         "SCA_TRACEFILES_MODE": InputElement("What kind input files should be considered?", 

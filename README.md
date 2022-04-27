@@ -278,7 +278,6 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
     - [xmllint](docs/conf/module/xmllint.md)
     - [yamllint](docs/conf/module/yamllint.md)
   - Extra modes
-    - [BestOf](docs/conf/extra/bestof.md)
     - [Image Summary](docs/conf/extra/image-summary.md)
 - Configuration Examples
   - [C/C++ code while developing](docs/conf/examples/c_inflight.md)
