@@ -18,7 +18,6 @@ SCA_ENABLE = "1"
 SCA_AUTO_INH_ON_IMAGE = "1"
 SCA_AUTO_INH_ON_RECIPE = "1"
 SCA_WARNING_LEVEL = "warning"
-SCA_ENABLE_IMAGE_SUMMARY = "1"
 SCA_VERBOSE_OUTPUT = "0"
 SCA_SCOPE_FILTER = "security functional"
 SCA_ENABLED_MODULES_IMAGE = "\
@@ -113,7 +112,7 @@ pipeline {
             recordIssues qualityGates: [
                 [threshold: 1, type: 'NEW_ERROR', unstable: false],
                 [threshold: 5, type: 'NEW_HIGH', unstable: false]
-            ], tools: [checkStyle(pattern: '$deployDir/sca/image-summary/checkstyle/*.xml')]
+            ], tools: [checkStyle(pattern: '$deployDir/sca/checkstyle/*.xml')]
        }
     }
 }

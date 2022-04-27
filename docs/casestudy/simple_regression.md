@@ -70,8 +70,6 @@ Answer the following questions
 * How fast should the tools be build? -> 3
 * How fast should the tools be executed? -> 7
 * What quality do you expect of the tools? -> 6
-* Do you want to use best-of functionality -> NO
-* Do you want to use image summary functionality? -> NO
 * Do you want export the findings to Jenkins? -> YES
 * From which priority on the findings should be reported? -> error
 ```
@@ -83,7 +81,6 @@ SCA_AUTO_INH_ON_IMAGE = "1"
 SCA_AUTO_INH_ON_RECIPE = "1"
 SCA_AUTO_LICENSE_FILTER = ".*"
 SCA_AVAILABLE_MODULES = "bashate checkbashism cppcheck flake8 gcc pylint shellcheck"
-SCA_ENABLE_IMAGE_SUMMARY = "0"
 SCA_EXPORT_FINDING_SRC = "1"
 SCA_WARNING_LEVEL = "error"
 ```
@@ -159,7 +156,6 @@ pipeline {
                 echo 'SCA_AUTO_INH_ON_IMAGE = \\"1\\"' >> conf/local.conf
                 echo 'SCA_AUTO_LICENSE_FILTER = \\".*\\"' >> conf/local.conf
                 echo 'SCA_AVAILABLE_MODULES = \\"bashate checkbashism cppcheck flake8 gcc pylint shellcheck\\"' >> conf/local.conf
-                echo 'SCA_ENABLE_IMAGE_SUMMARY = \\"0\\"' >> conf/local.conf
                 echo 'SCA_EXPORT_FINDING_SRC = \\"1\\"' >> conf/local.conf
                 echo 'SCA_WARNING_LEVEL = \\"error\\"' >> conf/local.conf
                 echo 'SCA_GCC_HARDENING = \\"0\\"' >> conf/local.conf

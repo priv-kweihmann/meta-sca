@@ -54,9 +54,6 @@ SCA_AUTO_LICENSE_FILTER ?= ".*"
 ## possible options error, warning or info
 SCA_WARNING_LEVEL ?= "warning"
 
-## Enable an extra report per image
-SCA_ENABLE_IMAGE_SUMMARY ?= "1"
-
 ## Shebang for python interpreter
 SCA_PYTHON_SHEBANG = ".*python3"
 
