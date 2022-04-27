@@ -24,7 +24,6 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             lynis \
                             multimetric \
                             mypy \
-                            nixauditor \
                             oelint \
                             pyfindinjection \
                             pylint \

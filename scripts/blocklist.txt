@@ -33,7 +33,6 @@ sca-image-jsonlint-rules-native
 sca-image-lynis-rules-native
 sca-image-multimetric-rules-native
 sca-image-mypy-rules-native
-sca-image-nixauditor-rules-native
 sca-image-oelint-rules-native
 sca-image-pyfindinjection-rules-native
 sca-image-pylint-rules-native

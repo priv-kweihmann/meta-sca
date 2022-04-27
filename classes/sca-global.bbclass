@@ -114,7 +114,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           lynis \
                           msgcheck \
                           mypy \
-                          nixauditor \
                           oelint \
                           perl \
                           perlcritic \
@@ -151,7 +150,6 @@ _SCA_CROSSEMU_MODULES = "\
     configcheck \
     lse \
     lynis \
-    nixauditor \
     reconbf \
     sudokiller \
     tiger \
