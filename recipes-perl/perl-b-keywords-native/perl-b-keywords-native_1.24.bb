@@ -13,5 +13,4 @@ SRC_URI[sha256sum] = "a5cf6bb285d06d17cee227783b723bb274213fd4153a5dee311d240e11
 S = "${WORKDIR}/B-Keywords-${PV}"
 
 inherit cpan
-inherit cpan-upgrade-check
 inherit native

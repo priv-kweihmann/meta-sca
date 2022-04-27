@@ -13,5 +13,4 @@ SRC_URI[sha256sum] = "6281bd87cced7a885c38aa104498e3cd4b5f4c276087442cf68c673793
 S = "${WORKDIR}/Term-ANSIColor-${PV}"
 
 inherit cpan
-inherit cpan-upgrade-check
 inherit native

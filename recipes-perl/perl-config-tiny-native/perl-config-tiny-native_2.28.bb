@@ -13,5 +13,4 @@ SRC_URI[sha256sum] = "12df843a0d29d48f61bcc14c4f18f0858fd27a8dd829a00319529d654f
 S = "${WORKDIR}/Config-Tiny-${PV}"
 
 inherit cpan
-inherit cpan-upgrade-check
 inherit native

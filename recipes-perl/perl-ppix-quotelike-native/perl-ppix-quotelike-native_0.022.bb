@@ -15,5 +15,4 @@ SRC_URI[sha256sum] = "e043488d3b561b65188ab8e7b778f682490bf710a7bddced521e77bd11
 S = "${WORKDIR}/PPIx-QuoteLike-${PV}"
 
 inherit cpan_build
-inherit cpan-upgrade-check
 inherit native
