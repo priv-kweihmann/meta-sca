@@ -1,5 +1,4 @@
 [
     "dynamic-distro/",
-    "recipes-devtools/ruby/",
     "recipes-python/python-scabot-native/python3-scabot-native_git.bb"
 ]
