@@ -39,7 +39,6 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             vulture \
                             xmllint \
                             yamllint \
-                            yara \
                             "
 SCA_SOURCES_DIR ?= "${IMAGE_ROOTFS}"
 

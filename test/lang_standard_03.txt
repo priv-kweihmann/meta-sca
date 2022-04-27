@@ -7,4 +7,3 @@ sudokiller
 systemdlint
 tiger
 upc
-yara

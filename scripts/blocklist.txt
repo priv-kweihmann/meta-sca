@@ -48,7 +48,6 @@ sca-image-upc-rules-native
 sca-image-vulture-rules-native
 sca-image-xmllint-rules-native
 sca-image-yamllint-rules-native
-sca-image-yara-rules-native
 sca-recipe-bandit-rules-native
 sca-recipe-bashate-rules-native
 sca-recipe-cbmc-rules

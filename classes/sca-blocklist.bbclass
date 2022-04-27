@@ -64,7 +64,6 @@ SCA_BLOCKLIST_upc ?= ""
 SCA_BLOCKLIST_vulture ?= ""
 SCA_BLOCKLIST_xmllint ?= ""
 SCA_BLOCKLIST_yamllint ?= ""
-SCA_BLOCKLIST_yara ?= ""
 
 # insert a renamed copy of intersect_lists from sca-helpers
 # to avoid inclusing helpers module too early

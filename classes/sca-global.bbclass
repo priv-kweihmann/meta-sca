@@ -141,7 +141,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           vulture \
                           xmllint \
                           yamllint \
-                          yara \
                         "
 
 # Modules using crossemu support, because they need some extra "love"
