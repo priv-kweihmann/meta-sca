@@ -13,20 +13,6 @@ As announced by [this discussion](https://github.com/priv-kweihmann/meta-sca/dis
 
 Support will be given only for `master` branch
 
-the following changes will take effect by this time immediately
-
-- integration will take place for a set of known good revisions only
-- support for npm recipes will be dropped
-- support for php language support will be dropped
-- support for ruby language support will be dropped
-- support for lua language support will be dropped
-- support for ropgadget module will be dropped
-- support for clang module will be dropped
-- releases will be made less frequent and not to according to a fixed schedule
-- no daily integration of upstream poky branches
-
-Module removal list will be document at [this ticket](https://github.com/priv-kweihmann/meta-sca/issues/8749)
-
 ### What can I do when I'm affected by the changes
 
 A maintainers guide can be found [here](docs/maintainer_guide.md).
