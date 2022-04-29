@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=17f3d09aae7e567139cf4c67db
 
 SRC_URI = "git://github.com/Tencent/TscanCode.git;protocol=https;branch=master"
 
-SRCREV = "4e4e5018ca59d051af5b350c09e9c1c341dbcbd0"
+SRCREV = "03f3a0fcb79d10802e1353f4aa0c528bb8d1d4aa"
 UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git/trunk"
