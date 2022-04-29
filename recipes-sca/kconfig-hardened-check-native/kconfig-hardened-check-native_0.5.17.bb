@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d32239bcb673463ab874e80d47fae504"
 DEPENDS += "python3-native"
 
 SRC_URI = "git://github.com/a13xp0p0v/kconfig-hardened-check.git;protocol=https;branch=master"
-SRCREV = "78a91671d5e78c3f5d4a9501089bda0475cf9e64"
+SRCREV = "87db8c4fc519a655380aefe635de41e6df1568e3"
 S = "${WORKDIR}/git"
 
 inherit setuptools3
