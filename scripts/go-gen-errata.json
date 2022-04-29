@@ -48,7 +48,7 @@
         ],
         "striplevel": 1,
         "url": "git://github.com/DataDog/datadog-go",
-        "version": "v4.5.0"
+        "version": "v5.1.0"
     },
     "github.com/Knetic/govaluate": {
         "recipeextra": [
