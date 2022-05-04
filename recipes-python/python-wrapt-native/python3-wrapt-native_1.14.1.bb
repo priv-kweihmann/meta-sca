@@ -3,12 +3,12 @@ HOMEPAGE = "http://wrapt.readthedocs.org/"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=fdfc019b57affbe1d7a32e3d34e83db4"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=7a4e084dbc322d180bc74f26cdf8236e"
 
 PYPI_PACKAGE = "wrapt"
 
-SRC_URI[md5sum] = "f45b2b131595dbc5024807f9d009f436"
-SRC_URI[sha256sum] = "8323a43bd9c91f62bb7d4be74cc9ff10090e7ef820e27bfe8815c57e68261311"
+SRC_URI[md5sum] = "6e7340264f038efdefcba707250c91c2"
+SRC_URI[sha256sum] = "380a85cf89e0e69b7cfbe2ea9f765f004ff419f34194018a6827ac0e3edfed4d"
 
 inherit pypi
 inherit setuptools3
