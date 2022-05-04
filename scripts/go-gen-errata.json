@@ -35,6 +35,7 @@
         "version": "v1.1.0"
     },
     "github.com/BurntSushi/xgb": {
+        "branch": "master",
         "recipeextra": [
             "UPSTREAM_CHECK_COMMITS = \"1\""
         ],
@@ -101,6 +102,7 @@
         "version": "v0.5.1"
     },
     "github.com/ProtonMail/go-crypto": {
+        "branch": "master",
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/ProtonMail/go-crypto/openpgp/integration_tests\""
         ],
@@ -131,6 +133,7 @@
         "version": "v1.30.1"
     },
     "github.com/StackExchange/wmi": {
+        "branch": "master",
         "recipeextra": [
             "UPSTREAM_CHECK_COMMITS = \"1\""
         ],
@@ -147,6 +150,7 @@
         "version": "v1.0.0"
     },
     "github.com/acomagu/bufpipe": {
+        "branch": "master",
         "recipeextra": [
             "UPSTREAM_CHECK_COMMITS = \"1\""
         ],

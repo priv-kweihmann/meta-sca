@@ -1,4 +1,4 @@
-SRC_URI += "git://github.com/StackExchange/wmi;nobranch=1;protocol=https;srcinput=github.com/StackExchange/wmi;srcoutput=github.com/StackExchange/wmi;destsuffix=github.com/StackExchange/wmi;name=github-com-stackexchange-wmi"
+SRC_URI += "git://github.com/StackExchange/wmi;branch=master;protocol=https;srcinput=github.com/StackExchange/wmi;srcoutput=github.com/StackExchange/wmi;destsuffix=github.com/StackExchange/wmi;name=github-com-stackexchange-wmi"
 SRCREV_github-com-stackexchange-wmi = "fe8f1750fd46057fb58f854c1d35205bed539913"
 
 GOSRC_LICENSE += "\

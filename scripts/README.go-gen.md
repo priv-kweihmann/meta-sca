@@ -51,10 +51,11 @@ The following sub-keys can be configured (all options are opt-in)
  | key            | type          | description                                                                                                                                                          |
  | -------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
  | addtionalstrip | string        | additional path elements that will be stripped on unpacking                                                                                                          |
- | buildsuffix    | string        | overrides the name of the import
+ | branch         | string        | branch to pick a git resource from (use this when UPSTREAM_CHECK_COMMIT is set in the recipe)                                                                        |
+ | buildsuffix    | string        | overrides the name of the import                                                                                                                                     |
  | extra          | array[string] | additional bitbake lines to be put into the shared inc files                                                                                                         |
  | extramods      | array[string] | extra dependencies of this import                                                                                                                                    |
- | inputname      | string        | overrides the sources dir                                                                                                                                   |
+ | inputname      | string        | overrides the sources dir                                                                                                                                            |
  | licenseignore  | array[string] | paths that should be ignored for license extraction                                                                                                                  |
  | licenses       | array[dict]   | Overrides the license detection                                                                                                                                      |
  | licenses.file  | string        | path to license file                                                                                                                                                 |

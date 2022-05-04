@@ -160,7 +160,11 @@ def __get_checkout(args, name, version):
         rev = rev.strip("\n")
         _extra_recipes_lines.append('SRCREV_{cn} = "{rev}"'.format(
             cn=__name_clean(name), rev=rev))
-        _attional_fetcher_attr.append("nobranch=1")
+        _upstream_branch = args.erratadict.get(name, {}).get("branch", "")
+        if _upstream_branch:
+            _attional_fetcher_attr.append("branch={branch}".format(branch=_upstream_branch))
+        else:
+            _attional_fetcher_attr.append("nobranch=1")
         _attional_fetcher_attr.append("protocol=https")
         _attional_fetcher_attr.append("srcinput={}".format(args.erratadict.get(name, {}).get("inputname", name)))
         _attional_fetcher_attr.append("srcoutput={}".format(_suffix_out))
