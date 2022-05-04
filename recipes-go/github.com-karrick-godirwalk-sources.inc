@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/karrick/godirwalk/@v/v1.16.1.zip;srcoutput=github.com/karrick/godirwalk;srcinput=github.com/karrick/godirwalk@v1.16.1;downloadfilename=github-com-karrick-godirwalk-1.16.1.zip;name=github-com-karrick-godirwalk"
-SRC_URI[github-com-karrick-godirwalk.sha256sum] = "b2aa8e2d798891d3b6fda14fc27b8c1090a505b98970fc0903a9722797c20a00"
+SRC_URI += "https://proxy.golang.org/github.com/karrick/godirwalk/@v/v1.17.0.zip;srcoutput=github.com/karrick/godirwalk;srcinput=github.com/karrick/godirwalk@v1.17.0;downloadfilename=github-com-karrick-godirwalk-1.17.0.zip;name=github-com-karrick-godirwalk"
+SRC_URI[github-com-karrick-godirwalk.sha256sum] = "8b0c4399d8df96c0d0c358d077fbdd9c190025f8dbc4d945f11aff9333ed8c21"
 
 GOSRC_LICENSE += "\
     BSD-2-Clause \
