@@ -10,6 +10,7 @@ require github.com-stackexchange-wmi-sources.inc
 
 GO_IMPORT = "github.com/StackExchange/wmi"
 
+UPSTREAM_CHECK_COMMITS = "1"
 do_compile[noexec] = "1"
 
 inherit gosrc

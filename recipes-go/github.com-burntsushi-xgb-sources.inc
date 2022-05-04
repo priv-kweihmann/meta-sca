@@ -1,6 +1,5 @@
 SRC_URI += "git://github.com/BurntSushi/xgb;nobranch=1;protocol=https;srcinput=github.com/BurntSushi/xgb;srcoutput=github.com/BurntSushi/xgb;destsuffix=github.com/BurntSushi/xgb;name=github-com-burntsushi-xgb"
 SRCREV_github-com-burntsushi-xgb = "deaf085860bc2ec870e50cacc83c467b3501a404"
-UPSTREAM_CHECK_COMMITS = "1"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \

@@ -10,5 +10,7 @@ require github.com-acomagu-bufpipe-sources.inc
 
 GO_IMPORT = "github.com/acomagu/bufpipe"
 
+UPSTREAM_CHECK_COMMITS = "1"
+
 inherit gosrc
 inherit native

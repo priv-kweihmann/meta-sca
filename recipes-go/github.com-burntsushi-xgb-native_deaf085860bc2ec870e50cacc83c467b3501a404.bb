@@ -10,5 +10,7 @@ require github.com-burntsushi-xgb-sources.inc
 
 GO_IMPORT = "github.com/BurntSushi/xgb"
 
+UPSTREAM_CHECK_COMMITS = "1"
+
 inherit gosrc
 inherit native
