@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/shogo82148/go-shuffle/@v/v1.0.0.zip;srcoutput=github.com/shogo82148/go-shuffle;srcinput=github.com/shogo82148/go-shuffle@v1.0.0;downloadfilename=github-com-shogo82148-go-shuffle-1.0.0.zip;name=github-com-shogo82148-go-shuffle"
-SRC_URI[github-com-shogo82148-go-shuffle.sha256sum] = "d61d110e56846ea92f59553038c3da816ea78d94102c7734e801f7b501c3ee2a"
+SRC_URI += "https://proxy.golang.org/github.com/shogo82148/go-shuffle/@v/v1.0.1.zip;srcoutput=github.com/shogo82148/go-shuffle;srcinput=github.com/shogo82148/go-shuffle@v1.0.1;downloadfilename=github-com-shogo82148-go-shuffle-1.0.1.zip;name=github-com-shogo82148-go-shuffle"
+SRC_URI[github-com-shogo82148-go-shuffle.sha256sum] = "8d03aef649f851ad7c5462812f36762ae296cadd892f62cc5141d96497dd96cd"
 
 GOSRC_LICENSE += "\
     MIT \
