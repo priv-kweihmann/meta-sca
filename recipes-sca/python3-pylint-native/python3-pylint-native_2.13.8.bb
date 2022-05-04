@@ -17,8 +17,8 @@ DEPENDS += "\
             python3-toml-native \
             "
 
-SRC_URI[md5sum] = "d87c68a814581aa10e0081ee54643e00"
-SRC_URI[sha256sum] = "911d3a97c808f7554643bcc5416028cfdc42eae34ed129b150741888c688d5d5"
+SRC_URI[md5sum] = "ad34c6b11c1ca7f81434d3ad965ef6e6"
+SRC_URI[sha256sum] = "ced8968c3b699df0615e2a709554dec3ddac2f5cd06efadb69554a69eeca364a"
 
 PYPI_PACKAGE = "pylint"
 
