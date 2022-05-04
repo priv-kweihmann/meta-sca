@@ -15,6 +15,7 @@ EXTRA_DEPENDS += "\
     github.com-yoheimuta-go-protoparser-v4-native \
     google.golang.org-genproto-native \
     google.golang.org-grpc-native \
+    google.golang.org-protobuf-native \
     gopkg.in-yaml.v2-native \
 "
 
