@@ -3,8 +3,7 @@ HOMEPAGE = "https://github.com/jbkahn/flake8-debugger"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-## No license in repo & package
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
+LIC_FILES_CHKSUM = "file://LICENCE;md5=5062d59f7c370e1fae388e102ca06095"
 
 PYPI_PACKAGE = "flake8-debugger"
 
