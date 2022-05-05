@@ -1,0 +1,76 @@
+name: "[master]-cache-build"
+
+on:
+  schedule:
+    - cron: "30 18 * * *"
+
+jobs:
+  buildrun:
+    name: "build"
+    env:
+      SCM_BRANCH: master
+      BUILD_MAXRUNTIME: 20000
+      PYTHONIOENCODING: utf8
+      LC_ALL: en_US.UTF-8
+      LANG: en_US.UTF-8
+      LANGUAGE: en_US.UTF-8
+
+    runs-on: ubuntu-latest
+
+    container:
+      image: privkweihmann/yocto-sca-minimal:latest
+      env:
+        WORKSPACE: /opt/build
+        TOPDIR: /opt/build
+        TEMPLATECONF: /opt/build/sources/meta-sca/conf/variant/scatest-qemux86-64/
+      volumes:
+        - ${{ github.workspace }}:/opt/build
+      options: --privileged
+
+    steps:
+      - name: setup (container)
+        uses: priv-kweihmann/meta-sca-ci-utils/preparecontainer@latest
+      - name: setup (caches)
+        run: |
+          mkdir -p ${WORKSPACE}/sstate-cache
+        shell: bash
+      - name: additional setup (caches)
+        uses: actions/cache@v2
+        with:
+          path: /opt/build/sstate-cache
+          key: sca-glibc-${{ github.sha }}
+      - name: checkout (poky)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        with:
+          repo: git://git.yoctoproject.org/poky.git
+          branch: ${{ env.SCM_BRANCH }}
+          add-layer: "0"
+      - name: checkout (meta-sca)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        with:
+          repo: https://github.com/priv-kweihmann/meta-sca.git
+          branch: ${{ env.SCM_BRANCH }}
+      - name: configure (caches)
+        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
+        with:
+          variable: SSTATE_DIR
+          value: /opt/build/sstate-cache
+      - name: build (glibc)
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
+        with:
+          target: glibc
+      - name: build (kernel)
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
+        with:
+          target: linux-yocto
+      - name: setup (rm_work_and_downloads)
+        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
+        with:
+          variable: INHERIT
+          operation: " += "
+          value: "rm_work_and_downloads"
+      - name: build
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
+        with:
+          target: "core-image-minimal-scatest bad-go bad-package"
+          ignore-exit-codes: "124"

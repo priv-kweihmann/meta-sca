@@ -54,6 +54,18 @@ jobs:
           repo: git://git.yoctoproject.org/poky.git
           branch: ${{ env.SCM_BRANCH }}
           add-layer: "0"
+      - name: configure (caches)
+        uses: actions/cache@v2
+        with:
+          path: /opt/build/sstate-cache
+          key: sca-glibc-${{ github.base_ref }}
+          restore-keys: |
+            sca-glibc-
+      - name: activate (caches)
+        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
+        with:
+          variable: SSTATE_DIR
+          value: "${WORKSPACE}/sstate-cache"
       - name: checkout (meta-sca)
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
         with:
