@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/nats-io/nats.go/@v/v1.14.0.zip;srcoutput=github.com/nats-io/nats.go;srcinput=github.com/nats-io/nats.go@v1.14.0;downloadfilename=github-com-nats-io-nats-go-1.14.0.zip;name=github-com-nats-io-nats-go"
-SRC_URI[github-com-nats-io-nats-go.sha256sum] = "e363a509ffa75587c74342930361808376a264307bf75763dcb3410d58232e38"
+SRC_URI += "https://proxy.golang.org/github.com/nats-io/nats.go/@v/v1.15.0.zip;srcoutput=github.com/nats-io/nats.go;srcinput=github.com/nats-io/nats.go@v1.15.0;downloadfilename=github-com-nats-io-nats-go-1.15.0.zip;name=github-com-nats-io-nats-go"
+SRC_URI[github-com-nats-io-nats-go.sha256sum] = "0c2f3fa2e1ee30acb26858c31ee22e6c89963fe52d8ef479c565afb90cc1d10a"
 GOSRC_REMOVEDIRS += "github.com/nats-io/nats.go/test"
 
 GOSRC_LICENSE += "\
