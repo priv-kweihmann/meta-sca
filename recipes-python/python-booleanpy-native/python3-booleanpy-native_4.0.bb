@@ -3,12 +3,12 @@ HOMEPAGE = "https://github.com/bastikr/boolean.py"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=9b58494d4f385978ca5a7ef4f6abca53"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d118b5feceee598ebeca76e13395c2bd"
 
 PYPI_PACKAGE = "boolean.py"
 
-SRC_URI[md5sum] = "83ccc145ba74a585637124c8bc648333"
-SRC_URI[sha256sum] = "cc24e20f985d60cd4a3a5a1c0956dd12611159d32a75081dabd0c9ab981acaa4"
+SRC_URI[md5sum] = "5a8b0eae254b0c37a1bdde38c6bd5b5d"
+SRC_URI[sha256sum] = "17b9a181630e43dde1851d42bef546d616d5d9b4480357514597e78b203d06e4"
 
 inherit pypi
 inherit setuptools3
