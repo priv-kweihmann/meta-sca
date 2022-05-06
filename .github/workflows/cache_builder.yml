@@ -8,6 +8,7 @@ jobs:
   buildrun:
     name: "build"
     env:
+      DISTRO: scatest
       SCM_BRANCH: master
       BUILD_MAXRUNTIME: 20000
       PYTHONIOENCODING: utf8
