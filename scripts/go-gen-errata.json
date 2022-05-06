@@ -99,7 +99,7 @@
         ],
         "striplevel": 1,
         "url": "git://github.com/microsoft/go-winio",
-        "version": "v0.5.1"
+        "version": "v0.5.2"
     },
     "github.com/ProtonMail/go-crypto": {
         "branch": "master",
