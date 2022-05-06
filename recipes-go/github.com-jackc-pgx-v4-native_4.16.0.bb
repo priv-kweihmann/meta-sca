@@ -1,15 +1,14 @@
 SUMMARY = "go.mod: github.com/jackc/pgx/v4"
 HOMEPAGE = "https://pkg.go.dev/github.com/jackc/pgx/v4"
-
-# License is determined by the modules included and will be therefore computed
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
+# License is determined by the modules included and will be therefore computed
 LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '').split(' ') if x)))}"
 
 # inject the needed sources
 require github.com-jackc-pgx-v4-sources.inc
 
 EXTRA_DEPENDS += "\
-    github.com-go-kit-kit-native \
+    github.com-go-kit-log-native \
     github.com-jackc-pgconn-native \
     github.com-jackc-pgio-native \
     github.com-jackc-pgproto3-v2-native \
