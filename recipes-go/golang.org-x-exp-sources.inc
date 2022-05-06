@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/golang.org/x/exp/@v/v0.0.0-20210430132503-b698a44fee45.zip;srcoutput=golang.org/x/exp;srcinput=golang.org/x/exp@v0.0.0-20210430132503-b698a44fee45;downloadfilename=golang-org-x-exp-0.0.0-20210430132503-b698a44fee45.zip;name=golang-org-x-exp"
-SRC_URI[golang-org-x-exp.sha256sum] = "8ef26c7f452951a05f5f80b0c2ecb3d4cc7cd945fc0ad0acfc8db7cb7ee732b8"
+SRC_URI += "https://proxy.golang.org/golang.org/x/exp/@v/v0.0.0-20220428152302-39d4317da171.zip;srcoutput=golang.org/x/exp;srcinput=golang.org/x/exp@v0.0.0-20220428152302-39d4317da171;downloadfilename=golang-org-x-exp-0.0.0-20220428152302-39d4317da171.zip;name=golang-org-x-exp"
+SRC_URI[golang-org-x-exp.sha256sum] = "dda3d8504004ef0954ca9d75b8de5d5af1ea9abc7d8481b7a3f2a3355b0e7a9a"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
@@ -10,12 +10,5 @@ LIC_FILES_CHKSUM += "\
 
 GOSRC_INCLUDEGUARD += "golang.org-x-exp-sources.inc"
 
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'dmitri.shuralyov.com-gpu-mtl-sources.inc', '', 'dmitri.shuralyov.com-gpu-mtl-sources.inc', d)}
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-burntsushi-xgb-sources.inc', '', 'github.com-burntsushi-xgb-sources.inc', d)}
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-go-gl-glfw-v3.3-glfw-sources.inc', '', 'github.com-go-gl-glfw-v3.3-glfw-sources.inc', d)}
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-image-sources.inc', '', 'golang.org-x-image-sources.inc', d)}
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-mobile-sources.inc', '', 'golang.org-x-mobile-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-mod-sources.inc', '', 'golang.org-x-mod-sources.inc', d)}
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-sys-sources.inc', '', 'golang.org-x-sys-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-tools-sources.inc', '', 'golang.org-x-tools-sources.inc', d)}
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-xerrors-sources.inc', '', 'golang.org-x-xerrors-sources.inc', d)}
