@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/go-git/go-git/v5/@v/v5.4.0.zip;srcoutput=github.com/go-git/go-git/v5;srcinput=github.com/go-git/go-git/v5@v5.4.0;downloadfilename=github-com-go-git-go-git-v5-5.4.0.zip;name=github-com-go-git-go-git-v5"
-SRC_URI[github-com-go-git-go-git-v5.sha256sum] = "6e7caafb85c5556765706ab0dbe978cc2b735a4de4846eef15e743875a4715df"
+SRC_URI += "https://proxy.golang.org/github.com/go-git/go-git/v5/@v/v5.4.2.zip;srcoutput=github.com/go-git/go-git/v5;srcinput=github.com/go-git/go-git/v5@v5.4.2;downloadfilename=github-com-go-git-go-git-v5-5.4.2.zip;name=github-com-go-git-go-git-v5"
+SRC_URI[github-com-go-git-go-git-v5.sha256sum] = "fc23fc8777efddaf0566d1b8f7fe832b4f444887ac85ad0e5b1ae69d4ae8fff7"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
