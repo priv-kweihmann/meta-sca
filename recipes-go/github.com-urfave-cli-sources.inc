@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/urfave/cli/@v/v1.22.8.zip;srcoutput=github.com/urfave/cli;srcinput=github.com/urfave/cli@v1.22.8;downloadfilename=github-com-urfave-cli-1.22.8.zip;name=github-com-urfave-cli"
-SRC_URI[github-com-urfave-cli.sha256sum] = "344f281cd0a756d287471582f5197608c2a9eec022ebdb48133b2aaf55bf93a6"
+SRC_URI += "https://proxy.golang.org/github.com/urfave/cli/@v/v1.22.9.zip;srcoutput=github.com/urfave/cli;srcinput=github.com/urfave/cli@v1.22.9;downloadfilename=github-com-urfave-cli-1.22.9.zip;name=github-com-urfave-cli"
+SRC_URI[github-com-urfave-cli.sha256sum] = "2fa8fa1cd0472a28b5d8038b9790c3c3d9b1a9c46e4c2cb339846b81340f3114"
 
 GOSRC_LICENSE += "\
     MIT \
