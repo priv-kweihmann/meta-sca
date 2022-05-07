@@ -65,7 +65,8 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
         with:
           variable: SSTATE_DIR
-          value: "/opt/build/sstate-cache"
+          value: /opt/build/sstate-cache
+          operation: " = "
       - name: checkout (meta-sca)
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
         with:
