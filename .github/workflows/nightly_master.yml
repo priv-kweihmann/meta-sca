@@ -54,6 +54,16 @@ jobs:
           repo: git://git.yoctoproject.org/poky.git
           branch: ${{ env.SCM_BRANCH }}
           add-layer: "0"
+      - name: checkout (meta-sca)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        with:
+          repo: https://github.com/priv-kweihmann/meta-sca.git
+          branch: ${{ env.SCM_BRANCH }}
+      - name: setup (bitbake config)
+        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
+        with:
+          variable: SCA_AVAILABLE_MODULES
+          value: /opt/build/sources/meta-sca/test/lang_${{ matrix.BUILD_PARAMFILE }}.txt
       - name: configure (caches)
         uses: actions/cache@v2
         with:
@@ -66,17 +76,6 @@ jobs:
         with:
           variable: SSTATE_DIR
           value: /opt/build/sstate-cache
-          operation: " = "
-      - name: checkout (meta-sca)
-        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
-        with:
-          repo: https://github.com/priv-kweihmann/meta-sca.git
-          branch: ${{ env.SCM_BRANCH }}
-      - name: setup (bitbake config)
-        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
-        with:
-          variable: SCA_AVAILABLE_MODULES
-          value: /opt/build/sources/meta-sca/test/lang_${{ matrix.BUILD_PARAMFILE }}.txt
       - if: env.BUILD_GLIBC == '1'
         name: build (glibc)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
