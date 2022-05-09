@@ -39,7 +39,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /opt/build/sstate-cache
-          key: sca-glibc-${{ github.sha }}
+          key: sca-glibc-${{ github.run_id }}
       - name: checkout (poky)
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
         with:

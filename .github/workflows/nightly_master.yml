@@ -68,7 +68,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /opt/build/sstate-cache
-          key: sca-glibc-${{ github.base_ref }}
+          key: sca-glibc-${{ github.run_id }}
           restore-keys: |
             sca-glibc-
       - name: activate (caches)
