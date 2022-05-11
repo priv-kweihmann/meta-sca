@@ -102,7 +102,7 @@
         "version": "v0.5.2"
     },
     "github.com/ProtonMail/go-crypto": {
-        "branch": "master",
+        "branch": "main",
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/ProtonMail/go-crypto/openpgp/integration_tests\""
         ],

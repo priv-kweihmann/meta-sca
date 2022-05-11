@@ -1,4 +1,4 @@
-SRC_URI += "git://github.com/ProtonMail/go-crypto;branch=master;protocol=https;srcinput=github.com/ProtonMail/go-crypto;srcoutput=github.com/ProtonMail/go-crypto;destsuffix=github.com/ProtonMail/go-crypto;name=github-com-protonmail-go-crypto"
+SRC_URI += "git://github.com/ProtonMail/go-crypto;branch=main;protocol=https;srcinput=github.com/ProtonMail/go-crypto;srcoutput=github.com/ProtonMail/go-crypto;destsuffix=github.com/ProtonMail/go-crypto;name=github-com-protonmail-go-crypto"
 SRCREV_github-com-protonmail-go-crypto = "c05353c2d58c90ebc6e81dfabef7e3ba48137059"
 GOSRC_REMOVEDIRS += "github.com/ProtonMail/go-crypto/openpgp/integration_tests"
 
