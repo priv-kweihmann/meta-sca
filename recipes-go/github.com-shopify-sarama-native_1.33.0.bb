@@ -12,6 +12,7 @@ EXTRA_DEPENDS += "\
     github.com-eapache-go-resiliency-native \
     github.com-eapache-go-xerial-snappy-native \
     github.com-eapache-queue-native \
+    github.com-hashicorp-go-multierror-native \
     github.com-jcmturner-gofork-native \
     github.com-jcmturner-gokrb5-v8-native \
     github.com-klauspost-compress-native \
