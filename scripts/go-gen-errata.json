@@ -548,7 +548,7 @@
         ],
         "striplevel": 1,
         "url": "git://github.com/pierrec/lz4",
-        "version": "v4.1.12"
+        "version": "v4.1.14"
     },
     "github.com/pseudomuto/protokit": {
         "extra": [
