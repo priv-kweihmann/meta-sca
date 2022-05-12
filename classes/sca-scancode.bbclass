@@ -118,7 +118,7 @@ python do_sca_scancode_report() {
         with open(d.getVar("SCA_TRACEFILES_LIST")) as i:
             _jobj = json.load(i)
             for key, val in _jobj.items():
-                _args = ["licensecheck",
+                _args = ["licensecheck-helper",
                          "--badcrholders", d.getVar("SCA_SCANCODE_BAD_CRHOLDER"),
                          "--rootpath={}".format(d.getVar("SCA_SOURCES_DIR")),
                          "--licfileminlength={}".format(d.getVar("SCA_SCANCODE_LICENSE_FILE_MINLENGTH")),

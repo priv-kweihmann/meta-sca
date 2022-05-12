@@ -98,7 +98,7 @@ python do_sca_reuse_report() {
         with open(d.getVar("SCA_TRACEFILES_LIST")) as i:
             _jobj = json.load(i)
             for key, val in _jobj.items():
-                _args = ["licensecheck",
+                _args = ["licensecheck-helper",
                          reuse_get_license(d, key),
                          "reuse",
                          sca_raw_result_file(d, "reuse_raw")]

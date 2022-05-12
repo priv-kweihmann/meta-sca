@@ -102,7 +102,7 @@ python do_sca_licensecheck_report() {
         with open(d.getVar("SCA_TRACEFILES_LIST")) as i:
             _jobj = json.load(i)
             for key, val in _jobj.items():
-                _args = ["licensecheck",
+                _args = ["licensecheck-helper",
                          licensecheck_get_license(d, key),
                          "lc",
                          sca_raw_result_file(d, "licensecheck_raw")]
