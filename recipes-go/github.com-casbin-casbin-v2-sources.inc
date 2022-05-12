@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/casbin/casbin/v2/@v/v2.45.0.zip;srcoutput=github.com/casbin/casbin/v2;srcinput=github.com/casbin/casbin/v2@v2.45.0;downloadfilename=github-com-casbin-casbin-v2-2.45.0.zip;name=github-com-casbin-casbin-v2"
-SRC_URI[github-com-casbin-casbin-v2.sha256sum] = "d6d91a9e76283100497eaed7fe69bdb559c804079e031a1cafef66901adb316b"
+SRC_URI += "https://proxy.golang.org/github.com/casbin/casbin/v2/@v/v2.46.0.zip;srcoutput=github.com/casbin/casbin/v2;srcinput=github.com/casbin/casbin/v2@v2.46.0;downloadfilename=github-com-casbin-casbin-v2-2.46.0.zip;name=github-com-casbin-casbin-v2"
+SRC_URI[github-com-casbin-casbin-v2.sha256sum] = "a989843343d4415010737427a04e71d4366a54070638a7b7a9bc970a5213bdce"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
