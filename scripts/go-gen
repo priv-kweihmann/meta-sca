@@ -203,6 +203,8 @@ def __get_license(args, path, default=["UNKNOWN"]):
     with open(_tmp_store) as i:
         j = json.load(i)
         for f in j["files"]:
+            if f["path"].endswith("_test.go"):
+                continue
             for l in f["licenses"]:
                 if l["spdx_license_key"].startswith("LicenseRef-scancode"):
                     continue
@@ -332,6 +334,7 @@ def __double_check_mods(args, name, path, mods):
     except subprocess.SubprocessError as e:
         pass
     res.update(args.erratadict.get(name, {}).get("extramods", []))
+    res -= set(args.erratadict.get(name, {}).get("modignore", []))
     if res:
         log.info("{} depends on {}".format(name, ",".join(sorted(res))))
     return res
@@ -374,16 +377,12 @@ def __get_mods(path, name):
 
             _cnt = "".join(_lines)
 
-            # m = re.match(r"^module\s(?P<name>.*)", _cnt)
-
-            # if m:
-            #     if m.group("name") != name:
-            #         # add dependency is case the module is named
-            #         # different in public
-            #         res.add(m.group("name"))
-
-            for m in re.finditer(r"^require\s+(?P<mod>.*)\s+v\d+\.", _cnt, re.MULTILINE):
-                res.add(m.group("mod").strip('"'))
+            for m in re.finditer(r"^require\s+(?P<mod>.*)\s+v\d+\..*", _cnt, re.MULTILINE):
+                _raw = m.group("mod").strip('"')
+                if "// indirect" in m.group(0):
+                    continue
+                if not any(_raw.startswith(x) for x in ["./", ".."]):
+                    res.add(_raw)
             for m in re.finditer(r"^exclude\s+(?P<mod>.*)\s+v\d+\.", _cnt, re.MULTILINE):
                 try:
                     res.remove(m.group("mod").strip('"'))
@@ -391,9 +390,12 @@ def __get_mods(path, name):
                     pass
             for m in re.finditer(r"^replace\s+(?P<what>.*) => (?P<mod>.*)", _cnt, re.MULTILINE):
                 try:
-                    res.remove(m.group("what").strip('"'))
-                    # strip off potential version info
-                    res.add(m.group("mod").strip('"').split(" ")[0])
+                    _raw = m.group("mod").strip('"')
+                    _rawwhat = m.group("mod").strip('"')
+                    if not any(_raw.startswith(x) for x in ["./", ".."]):
+                        res.remove(_rawwhat)
+                        # strip off potential version info
+                        res.add(_raw)
                 except KeyError:
                     pass
     return res

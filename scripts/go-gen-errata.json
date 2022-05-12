@@ -26,6 +26,15 @@
             "do_compile[noexec] = \"1\""
         ]
     },
+    "github.com/AndreasBriese/bbloom": {
+        "branch": "master",
+        "recipeextra": [
+            "UPSTREAM_CHECK_COMMITS = \"1\""
+        ],
+        "striplevel": 1,
+        "url": "git://github.com/AndreasBriese/bbloom",
+        "version": "46b345b51c9667fcbaad862a370d73bd7aa802b6"
+    },
     "github.com/BurntSushi/toml": {
         "recipeextra": [
             "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+)\""
@@ -43,6 +52,23 @@
         "url": "git://github.com/BurntSushi/xgb",
         "version": "deaf085860bc2ec870e50cacc83c467b3501a404"
     },
+    "github.com/CloudyKit/fastprinter": {
+        "branch": "master",
+        "recipeextra": [
+            "UPSTREAM_CHECK_COMMITS = \"1\""
+        ],
+        "striplevel": 1,
+        "url": "git://github.com/CloudyKit/fastprinter",
+        "version": "33d98a066a532e5d333057e62ded1d30008b7828"
+    },
+    "github.com/CloudyKit/jet/v3": {
+        "recipeextra": [
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>3\\.\\d+\\.\\d+)\""
+        ],
+        "striplevel": 1,
+        "url": "git://github.com/CloudyKit/jet",
+        "version": "v3.0.1"
+    },
     "github.com/DataDog/datadog-go": {
         "recipeextra": [
             "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
@@ -50,6 +76,15 @@
         "striplevel": 1,
         "url": "git://github.com/DataDog/datadog-go",
         "version": "v5.1.0"
+    },
+    "github.com/Joker/hpp": {
+        "branch": "master",
+        "recipeextra": [
+            "UPSTREAM_CHECK_COMMITS = \"1\""
+        ],
+        "striplevel": 1,
+        "url": "git://github.com/Joker/hpp",
+        "version": "8ce86f8545bdede7fd94f07fe1e42aafbaeacb5e"
     },
     "github.com/Knetic/govaluate": {
         "recipeextra": [
@@ -121,6 +156,15 @@
         "url": "git://github.com/PuerkitoBio/goquery",
         "version": "v1.8.0"
     },
+    "github.com/Shopify/goreferrer": {
+        "branch": "master",
+        "recipeextra": [
+            "UPSTREAM_CHECK_COMMITS = \"1\""
+        ],
+        "striplevel": 1,
+        "url": "git://github.com/Shopify/goreferrer",
+        "version": "536fa16abd6ff1717b0e2e94e1ef16a094335d6d"
+    },
     "github.com/Shopify/sarama": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/Shopify/sarama/examples\""
@@ -179,6 +223,12 @@
         "recipeextra": [
             "# needs CGO",
             "do_compile[noexec] = \"1\""
+        ]
+    },
+    "github.com/apache/beam/sdks/v2": {
+        "licenseignore": [
+            "java/*",
+            "python/*"
         ]
     },
     "github.com/apache/thrift": {
@@ -275,7 +325,11 @@
     },
     "github.com/envoyproxy/go-control-plane": {
         "extra": [
-            "GOSRC_REMOVEDIRS += \"github.com/envoyproxy/go-control-plane/pkg/integration\""
+            "GOSRC_REMOVEDIRS += \"github.com/envoyproxy/go-control-plane/pkg/integration\"",
+            "GOSRC_REMOVEDIRS += \"github.com/envoyproxy/go-control-plane/envoy/extensions/access_loggers/open_telemetry\""
+        ],
+        "modignore": [
+            "go.opentelemetry.io/proto/otlp"
         ]
     },
     "github.com/fullstorydev/grpcurl": {
@@ -339,11 +393,26 @@
     },
     "github.com/google/certificate-transparency-go": {
         "extra": [
-            "GOSRC_REMOVEDIRS += \"github.com/google/certificate-transparency-go/trillian/\""
+            "GOSRC_REMOVEDIRS += \"github.com/google/certificate-transparency-go/trillian/\"",
+            "GOSRC_REMOVEDIRS += \"github.com/google/certificate-transparency-go/tools.go\""
+        ],
+        "modignore": [
+            "github.com/google/trillian",
+            "go.etcd.io/etcd/v3",
+            "go.etcd.io/etcd/etcdctl",
+            "go.etcd.io/etcd",
+            "go.etcd.io/etcd/client/v3",
+            "go.etcd.io/etcd/etcdctl/v3"
         ],
         "recipeextra": [
             "# trillian integration is completely broken",
             "do_compile[noexec] = \"1\""
+        ]
+    },
+    "github.com/google/licenseclassifier": {
+        "licenseignore": [
+            "license_type.go",
+            "tools/license_serializer/license_serializer.go"
         ]
     },
     "github.com/google/trillian": {
@@ -561,6 +630,9 @@
         "extra": [
             "GOSRC_REMOVEDIRS += \"golang.org/x/net/http2/h2demo\""
         ]
+    },
+    "golang.org/x/tools": {
+        "version": "0.1.9"
     },
     "gonum.org/v1/gonum": {
         "licenseignore": [
