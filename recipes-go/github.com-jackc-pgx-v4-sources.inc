@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/jackc/pgx/v4/@v/v4.16.0.zip;srcoutput=github.com/jackc/pgx/v4;srcinput=github.com/jackc/pgx/v4@v4.16.0;downloadfilename=github-com-jackc-pgx-v4-4.16.0.zip;name=github-com-jackc-pgx-v4"
-SRC_URI[github-com-jackc-pgx-v4.sha256sum] = "bf28558914c5083102facd3e1c602f14eb043cd10751c337c4413d3cf5c5dc86"
+SRC_URI += "https://proxy.golang.org/github.com/jackc/pgx/v4/@v/v4.16.1.zip;srcoutput=github.com/jackc/pgx/v4;srcinput=github.com/jackc/pgx/v4@v4.16.1;downloadfilename=github-com-jackc-pgx-v4-4.16.1.zip;name=github-com-jackc-pgx-v4"
+SRC_URI[github-com-jackc-pgx-v4.sha256sum] = "c3a169a68ff0e56f9f81eee4de4d2fd2a5ec7f4d6be159159325f4863c80bd10"
 
 GOSRC_LICENSE += "\
     MIT \
