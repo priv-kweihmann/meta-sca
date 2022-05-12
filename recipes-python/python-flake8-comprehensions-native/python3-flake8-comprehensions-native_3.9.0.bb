@@ -3,14 +3,14 @@ HOMEPAGE = "https://github.com/adamchainz/flake8-comprehensions"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=0699983c8f8199c37bee38509aacbbc6"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=dd54c94e040946267bc2300dbc7d7e6d"
 
 DEPENDS += "python3-flake8-native"
 
 PYPI_PACKAGE = "flake8-comprehensions"
 
-SRC_URI[md5sum] = "22252a66ed0bd86eff53a45f399ca2f9"
-SRC_URI[sha256sum] = "8e108707637b1d13734f38e03435984f6b7854fa6b5a4e34f93e69534be8e521"
+SRC_URI[md5sum] = "d9f73758d97ef441db085bf3dd1aff44"
+SRC_URI[sha256sum] = "20c2f6846090e8f265e757f0aa500614c88b0f9ffb0d954d330dcd8abd8f874e"
 
 inherit pypi
 inherit setuptools3
