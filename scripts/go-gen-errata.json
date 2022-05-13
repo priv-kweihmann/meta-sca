@@ -77,6 +77,14 @@
         "url": "git://github.com/DataDog/datadog-go",
         "version": "v5.1.0"
     },
+    "github.com/HdrHistogram/hdrhistogram-go": {
+        "recipeextra": [
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
+        ],
+        "striplevel": 1,
+        "url": "git://github.com/HdrHistogram/hdrhistogram-go",
+        "version": "v1.1.2"
+    },
     "github.com/Joker/hpp": {
         "branch": "master",
         "recipeextra": [
@@ -353,12 +361,8 @@
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/go-kit/kit/metrics/cloudwatch2\""
         ],
-        "extramods": [
-            "github.com/aws/aws-sdk-go-v2"
-        ],
-        "recipeextra": [
-            "# version is somehow broken",
-            "do_compile[noexec] = \"1\""
+        "modignore": [
+            "github.com/aws/aws-sdk-go-v2/service/cloudwatch"
         ]
     },
     "github.com/gobuffalo/fizz": {
@@ -453,6 +457,11 @@
     "github.com/grpc-ecosystem/grpc-gateway": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/grpc-ecosystem/grpc-gateway/examples\""
+        ]
+    },
+    "github.com/grpc-ecosystem/grpc-gateway/v2": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/grpc-ecosystem/grpc-gateway/v2/examples\""
         ]
     },
     "github.com/hashicorp/serf": {
@@ -606,11 +615,6 @@
     "golang.org/x/crypto": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"golang.org/x/crypto/internal/wycheproof\""
-        ]
-    },
-    "github.com/grpc-ecosystem/grpc-gateway/v2": {
-        "extra": [
-            "GOSRC_REMOVEDIRS += \"github.com/grpc-ecosystem/grpc-gateway/v2/examples\""
         ]
     },
     "golang.org/x/exp": {
