@@ -8,8 +8,7 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require go.opentelemetry.io-proto-otlp-sources.inc
 
 EXTRA_DEPENDS += "\
-    github.com-golang-protobuf-native \
-    github.com-grpc-ecosystem-grpc-gateway-native \
+    github.com-grpc-ecosystem-grpc-gateway-v2-native \
     google.golang.org-grpc-native \
     google.golang.org-protobuf-native \
 "

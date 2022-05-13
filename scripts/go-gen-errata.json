@@ -608,6 +608,11 @@
             "GOSRC_REMOVEDIRS += \"golang.org/x/crypto/internal/wycheproof\""
         ]
     },
+    "github.com/grpc-ecosystem/grpc-gateway/v2": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/grpc-ecosystem/grpc-gateway/v2/examples\""
+        ]
+    },
     "golang.org/x/exp": {
         "recipeextra": [
             "# needs GLES3/gl3.h",
