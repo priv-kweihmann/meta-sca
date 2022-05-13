@@ -637,7 +637,13 @@
         ]
     },
     "golang.org/x/tools": {
-        "version": "0.1.9"
+        "licenseignore": [
+            "licenses.hlp"
+        ],
+        "recipeextra": [
+            "# needs CGO",
+            "do_compile[noexec] = \"1\""
+        ]
     },
     "gonum.org/v1/gonum": {
         "licenseignore": [

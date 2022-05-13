@@ -19,5 +19,8 @@ EXTRA_DEPENDS += "\
 
 GO_IMPORT = "golang.org/x/tools"
 
+# needs CGO
+do_compile[noexec] = "1"
+
 inherit gosrc
 inherit native
