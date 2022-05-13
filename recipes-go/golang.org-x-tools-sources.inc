@@ -3,12 +3,10 @@ SRC_URI[golang-org-x-tools.sha256sum] = "8685e5176d6f86584c98be54a4ffccb95794b32
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
-    UNKNOWN \
 "
 LIC_FILES_CHKSUM += "\
     file://src/golang.org/x/tools/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707 \
     file://src/golang.org/x/tools/cmd/getgo/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab \
-    file://src/golang.org/x/tools/internal/lsp/cmd/usage/licenses.hlp;md5=7a70132edbd970758470729d5e6133e9 \
 "
 
 GOSRC_INCLUDEGUARD += "golang.org-x-tools-sources.inc"

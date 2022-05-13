@@ -26,6 +26,47 @@
             "do_compile[noexec] = \"1\""
         ]
     },
+    "fyne.io/fyne": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"fyne.io/fyne/cmd/fyne_demo/\""
+        ],
+        "licenseignore": [
+            "theme/font/LICENSE_DejaVu-Powerline.txt",
+            "theme/font/LICENSE.txt"
+        ],
+        "recipeextra": [
+            "# needs X11 EGL3 and more",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "fyne.io/fyne/v2": {
+        "licenseignore": [
+            "theme/font/LICENSE_DejaVu-Powerline.txt",
+            "theme/font/LICENSE.txt"
+        ],
+        "recipeextra": [
+            "# needs X11 EGL3 and more",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "gioui.org": {
+        "extramods": [
+            "golang.org/x/exp/shiny"
+        ],
+        "recipeextra": [
+            "# fails to compile",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "gioui.org/cpu": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"gioui.org/cpu/cmd/example\""
+        ],
+        "recipeextra": [
+            "# fails to compile",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
     "github.com/AndreasBriese/bbloom": {
         "branch": "master",
         "recipeextra": [
@@ -101,6 +142,15 @@
         "striplevel": 1,
         "url": "git://github.com/Knetic/govaluate",
         "version": "v3.0.0"
+    },
+    "github.com/Kodeworks/golang-image-ico": {
+        "branch": "master",
+        "recipeextra": [
+            "UPSTREAM_CHECK_COMMITS = \"1\""
+        ],
+        "striplevel": 1,
+        "url": "git://github.com/Kodeworks/golang-image-ico",
+        "version": "73f0f4cfade9008b7c0938a8224ececaa7733883"
     },
     "github.com/Masterminds/goutils": {
         "recipeextra": [
@@ -224,6 +274,30 @@
             "do_compile[noexec] = \"1\""
         ]
     },
+    "github.com/ajstarks/deck": {
+        "recipeextra": [
+            "# fails to compile",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "github.com/ajstarks/fc": {
+        "recipeextra": [
+            "# fails to compile",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "github.com/ajstarks/giocanvas": {
+        "recipeextra": [
+            "# fails to compile",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "github.com/ajstarks/openvg": {
+        "recipeextra": [
+            "# fails to compile",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
     "github.com/apache/beam": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/apache/beam/sdks/go/test/integration/xlang\""
@@ -340,15 +414,38 @@
             "go.opentelemetry.io/proto/otlp"
         ]
     },
+    "github.com/fogleman/gg": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/fogleman/gg/examples\""
+        ]
+    },
     "github.com/fullstorydev/grpcurl": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/fullstorydev/grpcurl/cmd\""
+        ]
+    },
+    "github.com/fyne-io/mobile": {
+        "recipeextra": [
+            "# fails to compile",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "github.com/gioui/uax": {
+        "recipeextra": [
+            "# fails to compile",
+            "do_compile[noexec] = \"1\""
         ]
     },
     "github.com/go-git/go-git-fixtures/v4": {
         "recipeextra": [
             "UPSTREAM_CHECK_URI = \"https://github.com/go-git/go-git-fixtures/tags\"",
             "UPSTREAM_CHECK_REGEX = \"releases/tag/v(?P<pver>4\\.\\d+\\.\\d+)\""
+        ]
+    },
+    "github.com/go-gl/gl": {
+        "recipeextra": [
+            "# fails to compile",
+            "do_compile[noexec] = \"1\""
         ]
     },
     "github.com/go-gl/glfw/v3.3/glfw": {
@@ -377,6 +474,16 @@
         "striplevel": 1,
         "url": "git://github.com/gobuffalo/pop",
         "version": "v5.3.4"
+    },
+    "github.com/goki/freetype": {
+        "licenseignore": [
+            "testdata/COPYING"
+        ]
+    },
+    "github.com/golang/freetype": {
+        "licenseignore": [
+            "testdata/COPYING"
+        ]
     },
     "github.com/gomodule/redigo": {
         "recipeextra": [
@@ -537,6 +644,18 @@
             "GOSRC_REMOVEDIRS += \"github.com/nats-io/nats.go/test\""
         ]
     },
+    "github.com/npillmayer/schuko": {
+        "recipeextra": [
+            "# fails to compile",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "github.com/npillmayer/uax": {
+        "recipeextra": [
+            "# fails to compile",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
     "github.com/onsi/gomega": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/onsi/gomega/internal/testingtsupport\""
@@ -546,6 +665,18 @@
         "recipeextra": [
             "UPSTREAM_CHECK_URI = \"https://github.com/pborman/getopt/tags\"",
             "UPSTREAM_CHECK_REGEX = \"releases/tag/v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
+        ]
+    },
+    "github.com/pelletier/go-toml": {
+        "recipeextra": [
+            "# needs CGO",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "github.com/pelletier/go-toml/v2": {
+        "recipeextra": [
+            "# needs CGO",
+            "do_compile[noexec] = \"1\""
         ]
     },
     "github.com/pierrec/lz4": {
@@ -654,7 +785,7 @@
     },
     "golang.org/x/tools": {
         "licenseignore": [
-            "licenses.hlp"
+            "internal/lsp/cmd/usage/licenses.hlp"
         ],
         "recipeextra": [
             "# needs CGO",
@@ -667,6 +798,12 @@
             "THIRD_PARTY_LICENSES/W3C-TestSuite-LICENSE",
             "THIRD_PARTY_LICENSES/Sun-LICENSE",
             "THIRD_PARTY_LICENSES/Bogaert-LICENSE"
+        ]
+    },
+    "gonum.org/v1/plot": {
+        "recipeextra": [
+            "# fails to compile",
+            "do_compile[noexec] = \"1\""
         ]
     },
     "google.golang.org/api": {

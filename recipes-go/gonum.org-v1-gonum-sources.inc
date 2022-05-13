@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/gonum.org/v1/gonum/@v/v0.9.1.zip;srcoutput=gonum.org/v1/gonum;srcinput=gonum.org/v1/gonum@v0.9.1;downloadfilename=gonum-org-v1-gonum-0.9.1.zip;name=gonum-org-v1-gonum"
-SRC_URI[gonum-org-v1-gonum.sha256sum] = "ad30f0b630c9eb51e07e436f1fd7251cdf23adb541237912237f440291e5110c"
+SRC_URI += "https://proxy.golang.org/gonum.org/v1/gonum/@v/v0.11.0.zip;srcoutput=gonum.org/v1/gonum;srcinput=gonum.org/v1/gonum@v0.11.0;downloadfilename=gonum-org-v1-gonum-0.11.0.zip;name=gonum-org-v1-gonum"
+SRC_URI[gonum-org-v1-gonum.sha256sum] = "abdfee15ce7c9d2cd96b66468d3ae28d6054add4efbfc1b15fadfe3613f3d362"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
@@ -23,3 +23,4 @@ GOSRC_INCLUDEGUARD += "gonum.org-v1-gonum-sources.inc"
 
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-exp-sources.inc', '', 'golang.org-x-exp-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-tools-sources.inc', '', 'golang.org-x-tools-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'gonum.org-v1-plot-sources.inc', '', 'gonum.org-v1-plot-sources.inc', d)}
