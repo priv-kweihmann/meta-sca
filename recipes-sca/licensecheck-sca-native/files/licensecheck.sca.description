@@ -19,7 +19,7 @@
     },
     "test": {
         "integration": [
-            {"cmd": ["licensecheck", "--help"], "returncode": 0}
+            {"cmd": ["lc", "--help"], "returncode": 0}
         ],
         "findings": [
             "bad-package"
