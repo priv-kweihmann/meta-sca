@@ -559,6 +559,12 @@
         "url": "git://github.com/pierrec/lz4",
         "version": "v4.1.14"
     },
+    "github.com/power-devops/perfstat": {
+        "recipeextra": [
+            "# fails with C source files not allowed when not using cgo or SWIG",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
     "github.com/pseudomuto/protokit": {
         "extra": [
             "export CGO_ENABLED = \"1\""
@@ -587,6 +593,12 @@
         "extramods": [
             "github.com/xdg/stringprep",
             "golang.org/x/crypto"
+        ]
+    },
+    "github.com/yusufpapurcu/wmi": {
+        "recipeextra": [
+            "# fails with some very weird import error",
+            "do_compile[noexec] = \"1\""
         ]
     },
     "go.etcd.io/etcd": {
