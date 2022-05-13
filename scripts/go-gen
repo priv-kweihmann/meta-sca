@@ -97,7 +97,7 @@ def __get_sha256(path):
 
 
 def __name_clean(name):
-    return name.lower().replace("/", "-").replace(".", "-").replace("_", "-")
+    return name.lower().replace("/", "-").replace(".", "-").replace("_", "-").replace("~", "-")
 
 
 def __get_checkout(args, name, version):
@@ -341,7 +341,7 @@ def __double_check_mods(args, name, path, mods):
 
 
 def __name_to_recipe_native(name):
-    return "{}-native".format(name.lower().replace("/", "-").replace("_", "-"))
+    return "{}-native".format(name.lower().replace("/", "-").replace("_", "-").replace("~", "-"))
 
 
 def __name_to_recipe_native_fn(name, version):
@@ -349,7 +349,7 @@ def __name_to_recipe_native_fn(name, version):
 
 
 def __name_to_inc_native(name):
-    return "{}-sources".format(name.lower().replace("/", "-").replace("_", "-"))
+    return "{}-sources".format(name.lower().replace("/", "-").replace("_", "-").replace("~", "-"))
 
 
 def __name_to_inc_native_fn(name):
