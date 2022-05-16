@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/gertd/go-pluralize/@v/v0.2.0.zip;srcoutput=github.com/gertd/go-pluralize;srcinput=github.com/gertd/go-pluralize@v0.2.0;downloadfilename=github-com-gertd-go-pluralize-0.2.0.zip;name=github-com-gertd-go-pluralize"
-SRC_URI[github-com-gertd-go-pluralize.sha256sum] = "e4b8b7642b0a1d1ee6869bc7ff9d698ee564be9e6fc6dcc450193ebd660851a6"
+SRC_URI += "https://proxy.golang.org/github.com/gertd/go-pluralize/@v/v0.2.1.zip;srcoutput=github.com/gertd/go-pluralize;srcinput=github.com/gertd/go-pluralize@v0.2.1;downloadfilename=github-com-gertd-go-pluralize-0.2.1.zip;name=github-com-gertd-go-pluralize"
+SRC_URI[github-com-gertd-go-pluralize.sha256sum] = "f0f07fb3d0afc13b0c2436daf8400ad5d303246cca519f1a14962bfc586944be"
 
 GOSRC_LICENSE += "\
     MIT \
