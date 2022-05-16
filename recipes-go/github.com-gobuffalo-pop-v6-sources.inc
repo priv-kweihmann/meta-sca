@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/pop/v6/@v/v6.0.2.zip;srcoutput=github.com/gobuffalo/pop/v6;srcinput=github.com/gobuffalo/pop/v6@v6.0.2;downloadfilename=github-com-gobuffalo-pop-v6-6.0.2.zip;name=github-com-gobuffalo-pop-v6"
-SRC_URI[github-com-gobuffalo-pop-v6.sha256sum] = "14b4aafdc08780a7075c65f4cf1bb375aa1f14e8d60a8c3314bba46ebacc696a"
+SRC_URI += "https://proxy.golang.org/github.com/gobuffalo/pop/v6/@v/v6.0.3.zip;srcoutput=github.com/gobuffalo/pop/v6;srcinput=github.com/gobuffalo/pop/v6@v6.0.3;downloadfilename=github-com-gobuffalo-pop-v6-6.0.3.zip;name=github-com-gobuffalo-pop-v6"
+SRC_URI[github-com-gobuffalo-pop-v6.sha256sum] = "edab7666e3600a401035ed5b3d04f97aa1055fe383c0a4c9d742196d7aa63e34"
 
 GOSRC_LICENSE += "\
     MIT \
