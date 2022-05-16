@@ -3,9 +3,7 @@ HOMEPAGE = "https://github.com/sgallagher/systemdunitparser"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-3.0-only"
-## This modules doesn't offer an explicit license file
-## Info taken from pypi-PKGINFO
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-3.0-only;md5=c79ff39f19dfec6d293b95dea7b07891"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=1c76c4cc354acaac30ed4d5eefea7245"
 
 PYPI_PACKAGE = "systemdunitparser"
 
