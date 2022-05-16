@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/go-pdf/fpdf/@v/v0.6.0.zip;srcoutput=github.com/go-pdf/fpdf;srcinput=github.com/go-pdf/fpdf@v0.6.0;downloadfilename=github-com-go-pdf-fpdf-0.6.0.zip;name=github-com-go-pdf-fpdf"
-SRC_URI[github-com-go-pdf-fpdf.sha256sum] = "03a6909fc346ac972b008b77585ac3954d76b416c33b4b64dc22c5f35f0e1edb"
+SRC_URI += "https://proxy.golang.org/github.com/go-pdf/fpdf/@v/v1.4.3.zip;srcoutput=github.com/go-pdf/fpdf;srcinput=github.com/go-pdf/fpdf@v1.4.3;downloadfilename=github-com-go-pdf-fpdf-1.4.3.zip;name=github-com-go-pdf-fpdf"
+SRC_URI[github-com-go-pdf-fpdf.sha256sum] = "de5d22e5a381313361c4870127b036ee21f50b59513088278d0d098b4dcdbb51"
 
 GOSRC_LICENSE += "\
     MIT \
