@@ -15,7 +15,6 @@ EXTRA_DEPENDS += "\
     github.com-hashicorp-logutils-native \
     github.com-hashicorp-mdns-native \
     github.com-hashicorp-memberlist-native \
-    github.com-mitchellh-cli-native \
     github.com-mitchellh-mapstructure-native \
     github.com-ryanuber-columnize-native \
 "

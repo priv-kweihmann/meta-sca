@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/hashicorp/serf/@v/v0.9.7.zip;srcoutput=github.com/hashicorp/serf;srcinput=github.com/hashicorp/serf@v0.9.7;downloadfilename=github-com-hashicorp-serf-0.9.7.zip;name=github-com-hashicorp-serf"
-SRC_URI[github-com-hashicorp-serf.sha256sum] = "083877d564d10ebda66d362ec30ed4567f8e76ac90502f5311e6b87efcabfc50"
+SRC_URI += "https://proxy.golang.org/github.com/hashicorp/serf/@v/v0.9.8.zip;srcoutput=github.com/hashicorp/serf;srcinput=github.com/hashicorp/serf@v0.9.8;downloadfilename=github-com-hashicorp-serf-0.9.8.zip;name=github-com-hashicorp-serf"
+SRC_URI[github-com-hashicorp-serf.sha256sum] = "58203f731643177fef03a76bdb6c2349e0dc9859cd806e3e6fa84bfde6b906ff"
 
 GOSRC_LICENSE += "\
     MPL-2.0 \
@@ -19,6 +19,5 @@ require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-hashicorp-go-sysl
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-hashicorp-logutils-sources.inc', '', 'github.com-hashicorp-logutils-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-hashicorp-mdns-sources.inc', '', 'github.com-hashicorp-mdns-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-hashicorp-memberlist-sources.inc', '', 'github.com-hashicorp-memberlist-sources.inc', d)}
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-mitchellh-cli-sources.inc', '', 'github.com-mitchellh-cli-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-mitchellh-mapstructure-sources.inc', '', 'github.com-mitchellh-mapstructure-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-ryanuber-columnize-sources.inc', '', 'github.com-ryanuber-columnize-sources.inc', d)}
