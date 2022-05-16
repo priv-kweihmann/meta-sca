@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/tklauser/numcpus/@v/v0.4.0.zip;srcoutput=github.com/tklauser/numcpus;srcinput=github.com/tklauser/numcpus@v0.4.0;downloadfilename=github-com-tklauser-numcpus-0.4.0.zip;name=github-com-tklauser-numcpus"
-SRC_URI[github-com-tklauser-numcpus.sha256sum] = "9719c3c848e98d337109bb065668e0c611502605402679a838a512107e694a5b"
+SRC_URI += "https://proxy.golang.org/github.com/tklauser/numcpus/@v/v0.5.0.zip;srcoutput=github.com/tklauser/numcpus;srcinput=github.com/tklauser/numcpus@v0.5.0;downloadfilename=github-com-tklauser-numcpus-0.5.0.zip;name=github-com-tklauser-numcpus"
+SRC_URI[github-com-tklauser-numcpus.sha256sum] = "35361fce686dc3e741f25496cbee1d19f00629c87886bc2ed3b8eb2fc4e84fb0"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
