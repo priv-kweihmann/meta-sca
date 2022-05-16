@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/go-gl/glfw/v3.3/glfw/@v/v0.0.0-20220320163800-277f93cfa958.zip;srcoutput=github.com/go-gl/glfw/v3.3/glfw;srcinput=github.com/go-gl/glfw/v3.3/glfw@v0.0.0-20220320163800-277f93cfa958;downloadfilename=github-com-go-gl-glfw-v3-3-glfw-0.0.0-20220320163800-277f93cfa958.zip;name=github-com-go-gl-glfw-v3-3-glfw"
-SRC_URI[github-com-go-gl-glfw-v3-3-glfw.sha256sum] = "92a4c576548533795e9a41664364ca621ff6a27cff17b4c70e395dda922f05c0"
+SRC_URI += "https://proxy.golang.org/github.com/go-gl/glfw/v3.3/glfw/@v/v0.0.0-20220515205805-8da84822faab.zip;srcoutput=github.com/go-gl/glfw/v3.3/glfw;srcinput=github.com/go-gl/glfw/v3.3/glfw@v0.0.0-20220515205805-8da84822faab;downloadfilename=github-com-go-gl-glfw-v3-3-glfw-0.0.0-20220515205805-8da84822faab.zip;name=github-com-go-gl-glfw-v3-3-glfw"
+SRC_URI[github-com-go-gl-glfw-v3-3-glfw.sha256sum] = "914dd2b08fb7e881348c49b42e0a5724a1849872df7abdd241a9654022355a9c"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
