@@ -838,9 +838,13 @@
         ]
     },
     "honnef.co/go/tools": {
+        "recipeextra": [
+            "# needs CGO",
+            "do_compile[noexec] = \"1\""
+        ],
         "striplevel": 1,
         "url": "git://github.com/dominikh/go-tools",
-        "version": "2021.1.2"
+        "version": "2022.1.2"
     },
     "mvdan.cc/sh": {
         "recipeextra": [
