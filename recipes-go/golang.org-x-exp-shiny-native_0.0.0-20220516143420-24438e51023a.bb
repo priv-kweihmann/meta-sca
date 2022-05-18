@@ -18,5 +18,8 @@ EXTRA_DEPENDS += "\
 
 GO_IMPORT = "golang.org/x/exp/shiny"
 
+# fails to compile
+do_compile[noexec] = "1"
+
 inherit gosrc
 inherit native

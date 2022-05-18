@@ -766,6 +766,12 @@
             "do_compile[noexec] = \"1\""
         ]
     },
+    "golang.org/x/exp/shiny": {
+        "recipeextra": [
+            "# fails to compile",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
     "golang.org/x/exp/typeparams": {
         "recipeextra": [
             "# needs CGO",
