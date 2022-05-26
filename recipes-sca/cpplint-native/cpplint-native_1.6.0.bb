@@ -8,7 +8,11 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a58572e3501e262ddd5da01be644887d"
 
-DEPENDS += "python3-pytest-runner-native"
+DEPENDS += "\
+    python3-pip-native \
+    python3-pytest-runner-native \
+    python3-setuptools-native \
+"
 
 SRC_URI = "git://github.com/cpplint/cpplint.git;protocol=https;branch=master \
            file://cpplint-multi"
