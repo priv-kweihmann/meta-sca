@@ -17,6 +17,8 @@ DEPENDS += "\
             python3-toml-native \
             "
 
+SRC_URI:append = " file://0001-setup.cfg-don-t-use-in-project-URLs.patch"
+
 SRC_URI[md5sum] = "8d95effcc0a0dd1244949c41489da4b4"
 SRC_URI[sha256sum] = "095567c96e19e6f57b5b907e67d265ff535e588fe26b12b5ebe1fc5645b2c731"
 

@@ -1,0 +1,27 @@
+From b08bd9313fcfb2297d2cb170591dd12caf6cc235 Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Thu, 26 May 2022 15:04:34 +0200
+Subject: [PATCH] setup.cfg: don't use ' in project URLs
+
+Upstream-Status: Pending
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+---
+ setup.cfg | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.cfg b/setup.cfg
+index 73fedf2..3f4e141 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -33,7 +33,7 @@ keywords = static code analysis linter python lint
+ project_urls = 
+ 	Homepage = https://www.pylint.org/
+ 	Source Code = https://github.com/PyCQA/pylint
+-	What's New = https://pylint.pycqa.org/en/latest/whatsnew/
++	What is New = https://pylint.pycqa.org/en/latest/whatsnew/
+ 	Bug Tracker = https://github.com/PyCQA/pylint/issues
+ 	Discord Server = https://discord.gg/Egy6P8AMB5
+ 	Docs: User Guide = https://pylint.pycqa.org/en/latest/
+-- 
+2.25.1
+
