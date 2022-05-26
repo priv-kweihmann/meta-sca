@@ -1,0 +1,27 @@
+From dc174c8319dc5d6202ecdc685999e730d1f059ff Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Thu, 26 May 2022 14:17:48 +0200
+Subject: [PATCH] setup.cfg: add version field
+
+as this is required by PEP621 now.
+
+Upstream-Status: Pending
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+---
+ setup.cfg | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/setup.cfg b/setup.cfg
+index 89a4c95..08625e2 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -1,5 +1,6 @@
+ [metadata]
+ name = bandit
++version = attr: bandit.__version__
+ summary = Security oriented static analyser for python code.
+ description_file = 
+ 	README.rst
+-- 
+2.25.1
+

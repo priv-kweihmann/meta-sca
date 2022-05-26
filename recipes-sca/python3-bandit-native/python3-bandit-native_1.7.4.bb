@@ -8,10 +8,13 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=34400b68072d710fecd0a2940a0d1658"
 DEPENDS += "\
             python3-gitpython-native \
             python3-native \
+            python3-pbr-native \
             python3-pyyaml-native \
             python3-six-native \
             python3-stevedore-native \
            "
+
+SRC_URI:append = " file://0001-setup.cfg-add-version-field.patch"
 
 SRC_URI[sha256sum] = "2d63a8c573417bae338962d4b9b06fbc6080f74ecd955a092849e1e65c717bd2"
 
