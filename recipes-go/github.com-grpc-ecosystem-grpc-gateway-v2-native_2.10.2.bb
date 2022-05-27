@@ -14,6 +14,7 @@ EXTRA_DEPENDS += "\
     github.com-google-go-cmp-native \
     github.com-rogpeppe-fastuuid-native \
     golang.org-x-oauth2-native \
+    golang.org-x-text-native \
     google.golang.org-genproto-native \
     google.golang.org-grpc-native \
     google.golang.org-protobuf-native \
