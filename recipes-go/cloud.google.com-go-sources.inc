@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/@v/v0.101.1.zip;srcoutput=cloud.google.com/go;srcinput=cloud.google.com/go@v0.101.1;downloadfilename=cloud-google-com-go-0.101.1.zip;name=cloud-google-com-go"
-SRC_URI[cloud-google-com-go.sha256sum] = "462fece82fbe67698c3c9364455fb353cf8a51beabf443432dc04c630060cf77"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/@v/v0.102.0.zip;srcoutput=cloud.google.com/go;srcinput=cloud.google.com/go@v0.102.0;downloadfilename=cloud-google-com-go-0.102.0.zip;name=cloud-google-com-go"
+SRC_URI[cloud-google-com-go.sha256sum] = "0dff4135229cf031fba029a8a32ae0c8e2f785f80375c00fae02a1fa0d1ad00e"
 GOSRC_REMOVEDIRS += "cloud.google.com/go/analytics/admin/apiv1alpha/"
 
 GOSRC_LICENSE += "\
