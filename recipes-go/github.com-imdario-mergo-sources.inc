@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/imdario/mergo/@v/v0.3.12.zip;srcoutput=github.com/imdario/mergo;srcinput=github.com/imdario/mergo@v0.3.12;downloadfilename=github-com-imdario-mergo-0.3.12.zip;name=github-com-imdario-mergo"
-SRC_URI[github-com-imdario-mergo.sha256sum] = "a89fac0be93400703776d7dc164433c2f1ecd7f1fe9dc0308584daf609545c7e"
+SRC_URI += "https://proxy.golang.org/github.com/imdario/mergo/@v/v0.3.13.zip;srcoutput=github.com/imdario/mergo;srcinput=github.com/imdario/mergo@v0.3.13;downloadfilename=github-com-imdario-mergo-0.3.13.zip;name=github-com-imdario-mergo"
+SRC_URI[github-com-imdario-mergo.sha256sum] = "04f72d0e4695b4a004846a5d4f60d2dc381bacb032ebb8d58905e6eb00d121d2"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
