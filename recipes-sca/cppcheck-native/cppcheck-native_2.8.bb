@@ -3,12 +3,19 @@ HOMEPAGE = "https://github.com/danmar/cppcheck"
 BUGTRACKER = "https://trac.cppcheck.net/"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "GPL-3.0-only"
-LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
+LICENSE = "GPL-3.0-only & BSD-2-Clause & BSD-3-Clause"
+LIC_FILES_CHKSUM = "\
+    file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \
+    file://externals/simplecpp/LICENSE;md5=959bffe2993816eb32ec4bc1ec1d5875 \
+    file://externals/tinyxml2/LICENSE;md5=135624eef03e1f1101b9ba9ac9b5fffd \
+    file://externals/picojson/LICENSE;md5=29d6d693711f69885bbfe08072624f2e \
+"
 
-SRC_URI = "git://github.com/danmar/cppcheck.git;protocol=https;nobranch=1 \
-           file://0001-Makefile-fixes.patch"
-SRCREV = "6ba6567ad897d56741159f8af90fc354ae050e61"
+SRC_URI = "\
+    git://github.com/danmar/cppcheck.git;protocol=https;nobranch=1 \
+    file://0001-Makefile-fixes.patch \
+"
+SRCREV = "61f846073d9c348b408b21230790007bc8a022c2"
 
 S = "${WORKDIR}/git"
 
