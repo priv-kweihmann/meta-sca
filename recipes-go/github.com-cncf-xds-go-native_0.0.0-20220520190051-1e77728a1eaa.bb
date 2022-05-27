@@ -10,6 +10,7 @@ require github.com-cncf-xds-go-sources.inc
 EXTRA_DEPENDS += "\
     github.com-envoyproxy-protoc-gen-validate-native \
     github.com-golang-protobuf-native \
+    google.golang.org-genproto-native \
     google.golang.org-grpc-native \
     google.golang.org-protobuf-native \
 "
