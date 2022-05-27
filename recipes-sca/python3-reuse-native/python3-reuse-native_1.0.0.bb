@@ -20,8 +20,8 @@ DEPENDS += "\
             python3-setuptools-scm-native \
             "
 
-SRC_URI[md5sum] = "0c799808adec22a5635d68815b7806b2"
-SRC_URI[sha256sum] = "771dbf42cbae63c97557aafdc3472a698cf34d1e3e1eb3b08dc77881d2c604e1"
+SRC_URI[md5sum] = "3e48c4b361e546a4b046852f3f8cbc78"
+SRC_URI[sha256sum] = "db3022be2d87f69c8f508b928023de3026f454ce17d01e22f770f7147ac1e8d4"
 
 PYPI_PACKAGE = "reuse"
 
