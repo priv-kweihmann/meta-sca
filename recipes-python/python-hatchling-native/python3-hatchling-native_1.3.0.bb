@@ -20,6 +20,7 @@ SRC_URI[sha256sum] = "1401d45d3dd6a5910f64d539acaa943486d5e8b7dda1a97f2b0040fddd
 
 inherit pypi python_hatchling native
 
+PYPI_PACKAGE = "hatchling"
 PEP517_BUILD_API = "hatchling.ouroboros"
 
 do_compile:prepend() {
