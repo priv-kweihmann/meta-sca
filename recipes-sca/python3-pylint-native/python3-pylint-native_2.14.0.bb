@@ -15,6 +15,7 @@ DEPENDS += "\
             python3-pytest-runner-native \
             python3-six-native \
             python3-toml-native \
+            python3-tomlkit-native \
             "
 
 SRC_URI:append = " file://0001-setup.cfg-don-t-use-in-project-URLs.patch"
