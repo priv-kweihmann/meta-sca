@@ -67,6 +67,7 @@ python do_sca_setuptoolslint() {
     ## Run
     os.environ["STAGING_INCDIR"] = d.getVar("STAGING_INCDIR")
     os.environ["STAGING_LIBDIR"] = d.getVar("STAGING_LIBDIR")
+    os.environ["PYLINTHOME"] = d.getVar("T")
     os.environ["HTTP_PROXY"] = d.getVar("SCA_SETUPTOOLSLINT_LOCAL_PROXY")
     os.environ["HTTPS_PROXY"] = d.getVar("SCA_SETUPTOOLSLINT_LOCAL_PROXY")
     os.environ["PYTHONPATH"] = ":".join([os.environ.get("PYTHONPATH", ""), os.path.join(d.getVar("STAGING_LIBDIR_NATIVE"), "python-sysconfigdata")])

@@ -1,0 +1,66 @@
+From 690516f7aac3e78b5690cc2c6f23c834860229f5 Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Thu, 2 Jun 2022 10:43:58 +0200
+Subject: [PATCH] adapt to pylint API changes
+
+make_options was replaced by lint.base_options._make_linter_options().
+remove user_options method
+
+Upstream-Status: Pending
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+---
+ src/setuptools_lint/setuptools_command.py | 17 +++--------------
+ 1 file changed, 3 insertions(+), 14 deletions(-)
+
+diff --git a/src/setuptools_lint/setuptools_command.py b/src/setuptools_lint/setuptools_command.py
+index 69fb84b..8afb30e 100644
+--- a/src/setuptools_lint/setuptools_command.py
++++ b/src/setuptools_lint/setuptools_command.py
+@@ -7,19 +7,6 @@ from pylint import lint
+ from pylint.__pkginfo__ import numversion as pylint_version
+ from pkg_resources import *
+ 
+-_opts = lint.Run.LinterClass.make_options()
+-
+-
+-def user_options():
+-    parsed = []
+-
+-    for longopt, params in _opts:
+-        desc = params.get("help", None)
+-
+-        parsed.append(("lint-" + longopt + "=", None, desc))
+-    return parsed
+-
+-
+ def validate_rcfile(dist, attr, value):
+     if not os.path.exists(value):
+         raise DistutilsSetupError("Cannot find PyLint configuration file %s" % value)
+@@ -31,7 +18,7 @@ class DistutilsPylintError(DistutilsError):
+ 
+ class PylintCommand(setuptools.Command):
+     description = "run pylint on all your modules"
+-    user_options = user_options() + [
++    user_options = [
+         (
+             "lint-packages=",
+             None,
+@@ -49,6 +36,7 @@ class PylintCommand(setuptools.Command):
+         self.lint_exclude_packages = "tests test"
+         self.lint_output = None
+         self.lint_rcfile = self.distribution.lint_rcfile
++        _opts = lint.base_options._make_linter_options(self)
+         for longopt, params in _opts:
+             key = "lint_" + longopt.replace("-", "_").rstrip("=")
+             setattr(self, key, None)
+@@ -108,6 +96,7 @@ class PylintCommand(setuptools.Command):
+ 
+     def run(self):
+         options = []
++        _opts = lint.base_options._make_linter_options(self)
+         for longopt, params in _opts + (("rcfile", None),):
+             value = getattr(self, "lint_" + longopt.replace("-", "_"))
+             if value is not None:
+-- 
+2.25.1
+
