@@ -18,8 +18,7 @@ EXTRA_DEPENDS += "\
     google.golang.org-genproto-native \
     google.golang.org-grpc-native \
     google.golang.org-protobuf-native \
-    gopkg.in-yaml.v2-native \
-    sigs.k8s.io-yaml-native \
+    gopkg.in-yaml.v3-native \
 "
 
 GO_IMPORT = "github.com/grpc-ecosystem/grpc-gateway/v2"

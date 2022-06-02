@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/grpc-ecosystem/grpc-gateway/v2/@v/v2.10.2.zip;srcoutput=github.com/grpc-ecosystem/grpc-gateway/v2;srcinput=github.com/grpc-ecosystem/grpc-gateway/v2@v2.10.2;downloadfilename=github-com-grpc-ecosystem-grpc-gateway-v2-2.10.2.zip;name=github-com-grpc-ecosystem-grpc-gateway-v2"
-SRC_URI[github-com-grpc-ecosystem-grpc-gateway-v2.sha256sum] = "05bf5bec169d592e1f55e91172649f8e466024ce04945e87d5ffb8bf2d6552fc"
+SRC_URI += "https://proxy.golang.org/github.com/grpc-ecosystem/grpc-gateway/v2/@v/v2.10.3.zip;srcoutput=github.com/grpc-ecosystem/grpc-gateway/v2;srcinput=github.com/grpc-ecosystem/grpc-gateway/v2@v2.10.3;downloadfilename=github-com-grpc-ecosystem-grpc-gateway-v2-2.10.3.zip;name=github-com-grpc-ecosystem-grpc-gateway-v2"
+SRC_URI[github-com-grpc-ecosystem-grpc-gateway-v2.sha256sum] = "bfb1a5601d1519b85d5daafc8175d7dfa1f82c26c0fb2f7b855d9ee42d010f84"
 GOSRC_REMOVEDIRS += "github.com/grpc-ecosystem/grpc-gateway/v2/examples"
 
 GOSRC_LICENSE += "\
@@ -22,5 +22,4 @@ require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-text-sources.in
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-genproto-sources.inc', '', 'google.golang.org-genproto-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-grpc-sources.inc', '', 'google.golang.org-grpc-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-protobuf-sources.inc', '', 'google.golang.org-protobuf-sources.inc', d)}
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'gopkg.in-yaml.v2-sources.inc', '', 'gopkg.in-yaml.v2-sources.inc', d)}
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'sigs.k8s.io-yaml-sources.inc', '', 'sigs.k8s.io-yaml-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'gopkg.in-yaml.v3-sources.inc', '', 'gopkg.in-yaml.v3-sources.inc', d)}
