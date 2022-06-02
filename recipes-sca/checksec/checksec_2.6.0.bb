@@ -4,10 +4,10 @@ HOMEPAGE = "https://github.com/slimm609/checksec.sh"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5bb0d06223ae3b075dbcf2247a3eb9ff"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=879b2147c754bc040c29e9c3b84da836"
 
-SRC_URI = "git://github.com/slimm609/checksec.sh;protocol=https;branch=master"
-SRCREV = "70c94213fa5c62e6dfcf6f6c721346977112acb4"
+SRC_URI = "git://github.com/slimm609/checksec.sh;protocol=https;branch=main"
+SRCREV = "2753ebb89fcdc96433ae8a4c4e5a49214a845be2"
 
 S = "${WORKDIR}/git"
 
