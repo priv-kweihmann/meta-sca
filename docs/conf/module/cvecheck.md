@@ -22,7 +22,7 @@ So if you tend to include this module, please do it in an appropriate environmen
 * [ ] terminate build on fatal
 * [x] run on recipe
 * [ ] run on image
-* [ ] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
+* [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires
 

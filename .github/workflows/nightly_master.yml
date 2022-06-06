@@ -15,26 +15,16 @@ jobs:
       LANGUAGE: en_US.UTF-8
       BUILD_EXPORT: 1
       SCM_BRANCH: master
-      BUILD_GLIBC: 1
-      BUILD_KERNEL: 1
       BUILD_MAXRUNTIME: 21000
 
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        testset: [standard_01, standard_02, standard_03]
+        testset: [standard]
         include:
-        - testset: standard_01
-          BUILD_PARAMFILE: standard_01
-          BUILD_QEMUSYSTEM: 0
-        - testset: standard_02
-          BUILD_PARAMFILE: standard_02
-          BUILD_QEMUSYSTEM: 0
-        - testset: standard_03
-          BUILD_PARAMFILE: standard_03
-          BUILD_QEMUSYSTEM: 1
-
+        - testset: standard
+          BUILD_PARAMFILE: standard
     container:
       image: privkweihmann/yocto-sca-minimal:latest
       env:
@@ -76,18 +66,15 @@ jobs:
         with:
           variable: SSTATE_DIR
           value: /opt/build/sstate-cache
-      - if: env.BUILD_GLIBC == '1'
-        name: build (glibc)
+      - name: build (glibc)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
           target: glibc
-      - if: env.BUILD_KERNEL == '1'
-        name: build (kernel)
+      - name: build (kernel)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
           target: linux-yocto
-      - if: matrix.BUILD_QEMUSYSTEM == '1'
-        name: build (qemu-system)
+      - name: build (qemu-system)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
           target: qemu-system-native

@@ -91,6 +91,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           configcheck \
                           cppcheck \
                           cpplint \
+                          cvecheck \
                           darglint \
                           dennis \
                           detectsecrets \
@@ -103,10 +104,12 @@ SCA_AVAILABLE_MODULES ?= "\
                           it \
                           jsonlint \
                           kconfighard \
+                          licensecheck \
                           looong \
                           lse \
                           lynis \
                           msgcheck \
+                          multimetric \
                           mypy \
                           oelint \
                           perl \
@@ -122,6 +125,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           reuse \
                           revive \
                           safety \
+                          scancode \
                           setuptoolslint \
                           shellcheck \
                           slick \

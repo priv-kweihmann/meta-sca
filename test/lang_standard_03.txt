@@ -1,9 +1,0 @@
-checksec
-configcheck
-lse
-lynis
-reconbf
-sudokiller
-systemdlint
-tiger
-upc
