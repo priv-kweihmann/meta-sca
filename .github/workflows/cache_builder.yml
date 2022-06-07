@@ -36,7 +36,7 @@ jobs:
           mkdir -p ${WORKSPACE}/sstate-cache
         shell: bash
       - name: additional setup (caches)
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: /opt/build/sstate-cache
           key: sca-glibc-${{ github.run_id }}
