@@ -14,8 +14,6 @@ DEPENDS += "\
             python3-stevedore-native \
            "
 
-SRC_URI:append = " file://0001-setup.cfg-add-version-field.patch"
-
 SRC_URI[sha256sum] = "2d63a8c573417bae338962d4b9b06fbc6080f74ecd955a092849e1e65c717bd2"
 
 PYPI_PACKAGE = "bandit"

@@ -18,8 +18,6 @@ DEPENDS += "\
             python3-tomlkit-native \
             "
 
-SRC_URI:append = " file://0001-setup.cfg-don-t-use-in-project-URLs.patch"
-
 SRC_URI[md5sum] = "d32b11ac24c3341f72677a0f3c094539"
 SRC_URI[sha256sum] = "10d291ea5133645f73fc1b51ca137ad6531223c1461a5632a1db029a9bc033b5"
 
