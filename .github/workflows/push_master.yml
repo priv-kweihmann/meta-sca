@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   qemux86:
@@ -21,14 +24,11 @@ jobs:
 
     strategy:
       matrix:
-        testset: [standard, globalinherit]
+        testset: [standard]
         include:
         - testset: standard
           BUILD_PARAMFILE: standard
           BUILD_GLOBALINHERIT: 0
-        - testset: globalinherit
-          BUILD_PARAMFILE: standard
-          BUILD_GLOBALINHERIT: 1
 
     container:
       image: privkweihmann/yocto-sca-minimal:latest
@@ -43,6 +43,16 @@ jobs:
     steps:
       - name: setup (container)
         uses: priv-kweihmann/meta-sca-ci-utils/preparecontainer@latest
+      - name: setup (caches)
+        run: |
+          install -d -m 0777 ${WORKSPACE}/sstate-cache
+      - name: configure (caches)
+        uses: actions/cache@v3
+        with:
+          path: /opt/build/sstate-cache
+          key: sca-glibc-2463638403
+          restore-keys: |
+            sca-glibc-
       - name: checkout (poky)
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
         with:
@@ -54,21 +64,24 @@ jobs:
         with:
           repo: https://github.com/priv-kweihmann/meta-sca.git
           branch: ${{ env.SCM_BRANCH }}
-      - if: matrix.BUILD_GLOBALINHERIT == '1'
-        name: setup (bitbake global inherit)
+      - name: activate (caches)
         uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
         with:
-          variable: INHERIT
-          operation: " += "
-          value: sca
-      - if: matrix.BUILD_GLOBALINHERIT != '1'
-        name: setup (bitbake config)
-        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
-        with:
-          variable: SCA_AVAILABLE_MODULES
-          value: /opt/build/sources/meta-sca/test/lang_${{ matrix.BUILD_PARAMFILE }}.txt
-      - name: build (sca-modules)
+          variable: SSTATE_DIR
+          value: ${WORKSPACE}/sstate-cache
+      - name: test (pre)
+        run: |
+          source sources/poky/oe-init-build-env
+          find /opt/build/sstate-cache -name "*quilt-native*"
+        shell: bash
+      - name: build
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
-          target: core-image-minimal-scatest
-          ignore-exit-codes: "124"
+          target: quilt-native
+      - name: test
+        run: |
+          source sources/poky/oe-init-build-env
+          find /opt/build/sstate-cache -name "*quilt-native*"
+          bitbake-diffsigs -t quilt-native patch
+        shell: bash
+      

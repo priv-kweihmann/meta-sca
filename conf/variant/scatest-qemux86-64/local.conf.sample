@@ -12,3 +12,4 @@ PATCHRESOLVE = "noop"
 SCA_VERBOSE_OUTPUT = "1"
 
 INHERIT += "rm_work"
+BB_HASHSERVE = ""
