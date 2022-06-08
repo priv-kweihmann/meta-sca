@@ -56,6 +56,12 @@ jobs:
         with:
           variable: SSTATE_DIR
           value: /opt/build/sstate-cache
+      - name: setup (rm_work_and_downloads)
+        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
+        with:
+          variable: INHERIT
+          operation: " += "
+          value: "rm_work_and_downloads"
       - name: build (glibc)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
@@ -64,12 +70,6 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
           target: linux-yocto
-      - name: setup (rm_work_and_downloads)
-        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
-        with:
-          variable: INHERIT
-          operation: " += "
-          value: "rm_work_and_downloads"
       - name: build
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
