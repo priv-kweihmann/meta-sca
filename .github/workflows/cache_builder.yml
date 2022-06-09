@@ -35,11 +35,14 @@ jobs:
         run: |
           mkdir -p ${WORKSPACE}/sstate-cache
         shell: bash
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d-%H-%M-%S')"
       - name: additional setup (caches)
         uses: actions/cache@v3
         with:
           path: /opt/build/sstate-cache
-          key: sca-glibc-${{ github.run_id }}
+          key: sca-glibc-${{ steps.date.outputs.date }}
       - name: checkout (poky)
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
         with:
