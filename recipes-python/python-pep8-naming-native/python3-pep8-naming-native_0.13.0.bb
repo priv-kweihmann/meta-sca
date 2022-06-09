@@ -9,8 +9,8 @@ DEPENDS += "python3-flake8-polyfill-native"
 
 PYPI_PACKAGE = "pep8-naming"
 
-SRC_URI[md5sum] = "ae51f4c3791c189961970f0a2d7b13ab"
-SRC_URI[sha256sum] = "bb2455947757d162aa4cad55dba4ce029005cd1692f2899a21d51d8630ca7841"
+SRC_URI[md5sum] = "8dce7ff11eb5998dc42040b07170d207"
+SRC_URI[sha256sum] = "9f38e6dcf867a1fb7ad47f5ff72c0ddae544a6cf64eb9f7600b7b3c0bb5980b5"
 
 inherit pypi
 inherit setuptools3
