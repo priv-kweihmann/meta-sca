@@ -9,9 +9,9 @@ require github.com-rs-zerolog-sources.inc
 
 EXTRA_DEPENDS += "\
     github.com-coreos-go-systemd-v22-native \
+    github.com-mattn-go-colorable-native \
     github.com-pkg-errors-native \
     github.com-rs-xid-native \
-    golang.org-x-tools-native \
 "
 
 GO_IMPORT = "github.com/rs/zerolog"
