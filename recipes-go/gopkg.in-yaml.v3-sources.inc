@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/gopkg.in/yaml.v3/@v/v3.0.0-20220512140231-539c8e751b99.zip;srcoutput=gopkg.in/yaml.v3;srcinput=gopkg.in/yaml.v3@v3.0.0-20220512140231-539c8e751b99;downloadfilename=gopkg-in-yaml-v3-3.0.0-20220512140231-539c8e751b99.zip;name=gopkg-in-yaml-v3"
-SRC_URI[gopkg-in-yaml-v3.sha256sum] = "e5b4e720f85d7ae6f8f4060f4a51a86a814eccd77c4347b2ad51a3dc32212cce"
+SRC_URI += "https://proxy.golang.org/gopkg.in/yaml.v3/@v/v3.0.1.zip;srcoutput=gopkg.in/yaml.v3;srcinput=gopkg.in/yaml.v3@v3.0.1;downloadfilename=gopkg-in-yaml-v3-3.0.1.zip;name=gopkg-in-yaml-v3"
+SRC_URI[gopkg-in-yaml-v3.sha256sum] = "aab8fbc4e6300ea08e6afe1caea18a21c90c79f489f52c53e2f20431f1a9a015"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
