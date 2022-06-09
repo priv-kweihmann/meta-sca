@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/golang.org/x/exp/shiny/@v/v0.0.0-20220518171630-0b5c67f07fdf.zip;srcoutput=golang.org/x/exp/shiny;srcinput=golang.org/x/exp/shiny@v0.0.0-20220518171630-0b5c67f07fdf;downloadfilename=golang-org-x-exp-shiny-0.0.0-20220518171630-0b5c67f07fdf.zip;name=golang-org-x-exp-shiny"
-SRC_URI[golang-org-x-exp-shiny.sha256sum] = "0050ee1cdc76f069a5a9d954ce460de5d800eec10dcba8e1ba2d01b03840e88f"
+SRC_URI += "https://proxy.golang.org/golang.org/x/exp/shiny/@v/v0.0.0-20220608143224-64259d1afd70.zip;srcoutput=golang.org/x/exp/shiny;srcinput=golang.org/x/exp/shiny@v0.0.0-20220608143224-64259d1afd70;downloadfilename=golang-org-x-exp-shiny-0.0.0-20220608143224-64259d1afd70.zip;name=golang-org-x-exp-shiny"
+SRC_URI[golang-org-x-exp-shiny.sha256sum] = "7514e193204d4612c8fc4552774c1e24c4f75d241f7be570d872ac374daf24da"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
