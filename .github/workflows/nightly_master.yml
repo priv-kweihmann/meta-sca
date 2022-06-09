@@ -2,7 +2,7 @@ name: "[master]-nightly"
 
 on:
   schedule:
-    - cron: "30 0 * * *"
+    - cron: "30 18 * * *"
 
 jobs:
   qemux86:
@@ -54,12 +54,20 @@ jobs:
         with:
           variable: SCA_AVAILABLE_MODULES
           value: /opt/build/sources/meta-sca/test/lang_${{ matrix.BUILD_PARAMFILE }}.txt
+      - name: Get current date
+        id: date
+        run: |
+          echo "::set-output name=date::$(date +'%Y-%m-%d-%H-%M-%S')"
+          echo "::set-output name=date_month::$(date +'%Y-%m')"
+          echo "::set-output name=date_day::$(date +'%Y-%m-%d')"
       - name: configure (caches)
         uses: actions/cache@v3
         with:
           path: /opt/build/sstate-cache
-          key: sca-glibc-${{ github.run_id }}
+          key: sca-glibc-${{ steps.date.outputs.date }}
           restore-keys: |
+            sca-glibc-${{ steps.date.outputs.date_day }}
+            sca-glibc-${{ steps.date.outputs.date_month }}
             sca-glibc-
       - name: activate (caches)
         uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
