@@ -2,7 +2,7 @@ name: "[master]-cache-build"
 
 on:
   schedule:
-    - cron: "30 12 * * *"
+    - cron: "30 10 * * *"
 
 jobs:
   buildrun:
