@@ -31,7 +31,7 @@ LIC_FILES_CHKSUM = "file://talloc.h;beginline=3;endline=27;md5=a301712782cad6dd6
 DEPENDS += "\
             docbook-xsl-stylesheets-native \
             libxslt-native \
-            python3 \
+            python3-native \
             qemu-native \
            "
 
@@ -41,7 +41,7 @@ SRC_URI = "https://www.samba.org/ftp/talloc/talloc-${PV}.tar.gz \
 "
 SRC_URI += "${@bb.utils.contains('PACKAGECONFIG', 'attr', '', 'file://avoid-attr-unless-wanted.patch', d)}"
 
-SRC_URI[sha256sum] = "6be95b2368bd0af1c4cd7a88146eb6ceea18e46c3ffc9330bf6262b40d1d8aaa"
+SRC_URI[sha256sum] = "179f9ebe265e67e4ab2c26cad2b7de4b6a77c6c212f966903382869f06be6505"
 
 S = "${WORKDIR}/talloc-${PV}"
 
@@ -124,7 +124,7 @@ do_configure() {
 
 do_compile[progress] = "outof:^\[\s*(\d+)/\s*(\d+)\]\s+"
 do_compile() {
-    python3 ./buildtools/bin/waf ${@oe.utils.parallel_make_argument(d, '-j%d', limit=64)}
+    PYTHON=python3 oe_runmake
 }
 
 do_install() {
@@ -133,9 +133,9 @@ do_install() {
 
 PACKAGES += "pytalloc pytalloc-dev"
 
-RDEPENDS:pytalloc = "python3"
+RDEPENDS:pytalloc = "python3-native"
 
-RPROVIDES:${PN}-dbg += "pytalloc-dbg"
+RPROVIDES:${PN}-dbg += "pytalloc-dbg-native"
 
 FILES:pytalloc = "${libdir}/python${PYTHON_BASEVERSION}/site-packages \
                   ${libdir}/libpytalloc-util.so.2 \
