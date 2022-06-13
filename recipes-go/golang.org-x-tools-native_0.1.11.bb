@@ -14,7 +14,6 @@ EXTRA_DEPENDS += "\
     golang.org-x-sync-native \
     golang.org-x-sys-native \
     golang.org-x-text-native \
-    golang.org-x-xerrors-native \
 "
 
 GO_IMPORT = "golang.org/x/tools"
