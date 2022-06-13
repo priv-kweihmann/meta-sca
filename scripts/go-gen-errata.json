@@ -424,6 +424,12 @@
             "GOSRC_REMOVEDIRS += \"github.com/fullstorydev/grpcurl/cmd\""
         ]
     },
+    "github.com/fyne-io/gl-js": {
+        "recipeextra": [
+            "# needs X11 EGL3 and more",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
     "github.com/fyne-io/mobile": {
         "recipeextra": [
             "# fails to compile",
@@ -443,6 +449,9 @@
         ]
     },
     "github.com/go-gl/gl": {
+        "extra": [
+            "inherit pkgconfig"
+        ],
         "recipeextra": [
             "# fails to compile",
             "do_compile[noexec] = \"1\""
@@ -545,6 +554,12 @@
         "recipeextra": [
             "# who ever made that weird mix of test/internal and cross reference should get fired",
             "# version is simply not compilable",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "github.com/gopherjs/gopherjs": {
+        "recipeextra": [
+            "# needs CGO",
             "do_compile[noexec] = \"1\""
         ]
     },
@@ -709,6 +724,24 @@
         "recipeextra": [
             "UPSTREAM_CHECK_IMPORT_SUFFIX = \"/v2\""
         ]
+    },
+    "github.com/shurcooL/httpfs": {
+        "branch": "master",
+        "recipeextra": [
+            "UPSTREAM_CHECK_COMMITS = \"1\""
+        ],
+        "striplevel": 1,
+        "url": "git://github.com/shurcooL/httpfs",
+        "version": "8d4bc4ba774931155e6cd5ef6098cb038dd45135"
+    },
+    "github.com/shurcooL/httpgzip": {
+        "branch": "master",
+        "recipeextra": [
+            "UPSTREAM_CHECK_COMMITS = \"1\""
+        ],
+        "striplevel": 1,
+        "url": "git://github.com/shurcooL/httpgzip",
+        "version": "320755c1c1b0484e6179c9a5b68aabcc0dae5ac2"
     },
     "github.com/spf13/afero": {
         "extramods": [
