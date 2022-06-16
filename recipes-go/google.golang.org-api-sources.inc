@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/google.golang.org/api/@v/v0.83.0.zip;srcoutput=google.golang.org/api;srcinput=google.golang.org/api@v0.83.0;downloadfilename=google-golang-org-api-0.83.0.zip;name=google-golang-org-api"
-SRC_URI[google-golang-org-api.sha256sum] = "d4411c8642ea52491b7602924c1cf5c2f0f781598296ddbdf20eaf2e7ed5f26a"
+SRC_URI += "https://proxy.golang.org/google.golang.org/api/@v/v0.84.0.zip;srcoutput=google.golang.org/api;srcinput=google.golang.org/api@v0.84.0;downloadfilename=google-golang-org-api-0.84.0.zip;name=google-golang-org-api"
+SRC_URI[google-golang-org-api.sha256sum] = "f6fc27fbeedd8d9de68adbb6a2148e44314f133ef77f5bfe42d8817fe5e5dd92"
 GOSRC_REMOVEDIRS += "google.golang.org/api/integration-tests/byoid google.golang.org/api/integration-tests/downscope"
 
 GOSRC_LICENSE += "\
@@ -13,6 +13,7 @@ LIC_FILES_CHKSUM += "\
 GOSRC_INCLUDEGUARD += "google.golang.org-api-sources.inc"
 
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-compute-sources.inc', '', 'cloud.google.com-go-compute-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-googleapis-enterprise-certificate-proxy-sources.inc', '', 'github.com-googleapis-enterprise-certificate-proxy-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-googleapis-gax-go-v2-sources.inc', '', 'github.com-googleapis-gax-go-v2-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'go.opencensus.io-sources.inc', '', 'go.opencensus.io-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-net-sources.inc', '', 'golang.org-x-net-sources.inc', d)}
