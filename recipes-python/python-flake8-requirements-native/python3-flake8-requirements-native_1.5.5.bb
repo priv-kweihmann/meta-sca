@@ -11,7 +11,7 @@ DEPENDS += "\
             "
 
 SRC_URI = "git://github.com/Arkq/flake8-requirements.git;branch=master;protocol=https"
-SRCREV = "4ee2e8614bf3b71c7432975705c836cf35ce4f5a"
+SRCREV = "c946232f4a2e3b97eac30af56cd96759722a9d72"
 
 S = "${WORKDIR}/git"
 PIP_INSTALL_PACKAGE = "flake8_requirements"
