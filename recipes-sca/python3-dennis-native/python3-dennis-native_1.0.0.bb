@@ -1,10 +1,10 @@
 SUMMARY = "PO files linter to ease development and improve quality"
 DESCRIPTION = "Dennis is a set of utilities for working with PO files to ease development and improve quality"
-HOMEPAGE = "https://github.com/willkg/dennis"
+HOMEPAGE = "https://github.com/mozilla/dennis"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=5a174f6c1c019edada0f5a18bed0ff0f"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=c18944f15ca204949de2ab6f33ce1065"
 
 DEPENDS += "\
             python3-click-native \
@@ -12,8 +12,8 @@ DEPENDS += "\
             python3-polib-native \
            "
 
-SRC_URI[md5sum] = "2636710455435f612e8595c659e2c746"
-SRC_URI[sha256sum] = "8c942dd5da7d03c65daebc069c5ee5c7f1374ac9b0c8c89c627caa66fe822604"
+SRC_URI[md5sum] = "a78cbb0044549d63c97f864fafff0e9f"
+SRC_URI[sha256sum] = "07381af4e0c16340186446313ad72937a6188b68022e5961f1a35da67e4d3610"
 
 PYPI_PACKAGE = "dennis"
 
