@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/datastore/@v/v1.6.0.zip;srcoutput=cloud.google.com/go/datastore;srcinput=cloud.google.com/go/datastore@v1.6.0;downloadfilename=cloud-google-com-go-datastore-1.6.0.zip;name=cloud-google-com-go-datastore"
-SRC_URI[cloud-google-com-go-datastore.sha256sum] = "5b1fd8d5d57858600406f511afadbe5c7eb46cfba19080906db9ba6d32f11e77"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/datastore/@v/v1.8.0.zip;srcoutput=cloud.google.com/go/datastore;srcinput=cloud.google.com/go/datastore@v1.8.0;downloadfilename=cloud-google-com-go-datastore-1.8.0.zip;name=cloud-google-com-go-datastore"
+SRC_URI[cloud-google-com-go-datastore.sha256sum] = "3c1e4178883a6a10156b93000913e748a45438c2725f1fd8296e2524e8f9a851"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
