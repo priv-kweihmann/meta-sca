@@ -450,6 +450,12 @@
             "do_compile[noexec] = \"1\""
         ]
     },
+    "github.com/go-enry/go-license-detector/v4": {
+        "licenseignore": [
+            "licensedb/licensedb.go",
+            "licensedb/licensedb_test.go"
+        ]
+    },
     "github.com/go-git/go-git-fixtures/v4": {
         "recipeextra": [
             "UPSTREAM_CHECK_URI = \"https://github.com/go-git/go-git-fixtures/tags\"",

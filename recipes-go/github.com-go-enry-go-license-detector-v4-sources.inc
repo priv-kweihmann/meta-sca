@@ -3,12 +3,9 @@ SRC_URI[github-com-go-enry-go-license-detector-v4.sha256sum] = "03e6c5a9aa9d1256
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
-    UNKNOWN \
 "
 LIC_FILES_CHKSUM += "\
     file://src/github.com/go-enry/go-license-detector/v4/LICENSE.md;md5=e06bb9eb867ad187ff551478be6d9747 \
-    file://src/github.com/go-enry/go-license-detector/v4/licensedb/licensedb.go;md5=b1f3b5c49b58abfe747d8d0768a2d240 \
-    file://src/github.com/go-enry/go-license-detector/v4/licensedb/licensedb_test.go;md5=b046ee50a32dec09a651ff7d9acffcdf \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-go-enry-go-license-detector-v4-sources.inc"
