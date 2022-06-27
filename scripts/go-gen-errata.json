@@ -9,6 +9,14 @@
             "cloud.google.com/go/iam"
         ]
     },
+    "cloud.google.com/go/compute": {
+        "licenseignore": [
+            "apiv1/licenses_client.go",
+            "apiv1/license_codes_client.go",
+            "apiv1/licenses_client_example_test.go",
+            "apiv1/license_codes_client_example_test.go"
+        ]
+    },
     "cloud.google.com/go/pubsub": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"cloud.google.com/go/pubsub/internal/longtest\""
