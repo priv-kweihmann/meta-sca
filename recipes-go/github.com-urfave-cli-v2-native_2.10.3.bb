@@ -12,7 +12,7 @@ EXTRA_DEPENDS += "\
     github.com-cpuguy83-go-md2man-v2-native \
     github.com-xrash-smetrics-native \
     golang.org-x-text-native \
-    gopkg.in-yaml.v2-native \
+    gopkg.in-yaml.v3-native \
 "
 
 GO_IMPORT = "github.com/urfave/cli/v2"
