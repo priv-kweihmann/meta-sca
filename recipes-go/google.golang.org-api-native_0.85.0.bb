@@ -9,6 +9,7 @@ require google.golang.org-api-sources.inc
 
 EXTRA_DEPENDS += "\
     cloud.google.com-go-compute-native \
+    github.com-google-uuid-native \
     github.com-googleapis-enterprise-certificate-proxy-native \
     github.com-googleapis-gax-go-v2-native \
     go.opencensus.io-native \
