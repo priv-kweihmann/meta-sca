@@ -11,8 +11,8 @@ DEPENDS += "\
             python3-packaging-native \
             python3-pyparsing-native \
             python3-requests-native \
+            python3-ruamel-yaml-native \
             python3-safety-db-native \
-            python3-toml-native \
             "
 
 SRC_URI[md5sum] = "56d715c9da8dbb696c87db0f09835390"
