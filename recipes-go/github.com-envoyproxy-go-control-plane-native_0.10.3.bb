@@ -1,8 +1,7 @@
 SUMMARY = "go.mod: github.com/envoyproxy/go-control-plane"
 HOMEPAGE = "https://pkg.go.dev/github.com/envoyproxy/go-control-plane"
-
-# License is determined by the modules included and will be therefore computed
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
+# License is determined by the modules included and will be therefore computed
 LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '').split(' ') if x)))}"
 
 # inject the needed sources
@@ -14,7 +13,6 @@ EXTRA_DEPENDS += "\
     github.com-envoyproxy-protoc-gen-validate-native \
     github.com-golang-protobuf-native \
     github.com-prometheus-client-model-native \
-    go.opentelemetry.io-proto-otlp-native \
     google.golang.org-genproto-native \
     google.golang.org-grpc-native \
     google.golang.org-protobuf-native \
