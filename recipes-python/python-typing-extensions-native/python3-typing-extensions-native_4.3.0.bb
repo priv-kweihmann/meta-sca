@@ -9,8 +9,8 @@ PYPI_PACKAGE = "typing_extensions"
 
 UPSTREAM_CHECK_REGEX ?= "/typing-extensions/(?P<pver>(\d+[\.\-_]*)+)"
 
-SRC_URI[md5sum] = "197fb153e3720a3f6e0c85bb47f9c2b5"
-SRC_URI[sha256sum] = "f1c24655a0da0d1b67f07e17a5e6b2a105894e6824b92096378bb3668ef02376"
+SRC_URI[md5sum] = "30ff8c89459dd93970a92a90b0386aba"
+SRC_URI[sha256sum] = "e6d2677a32f47fc7eb2795db1dd15c1f34eff616bcaf2cfb5e997f854fa1c4a6"
 
 inherit pypi
 inherit setuptools3
