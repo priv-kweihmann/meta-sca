@@ -15,14 +15,14 @@ DEPENDS += "\
             python3-toml-native \
             "
 
-SRC_URI[md5sum] = "d3fcda6267ed49ad8786699b08cd69ef"
-SRC_URI[sha256sum] = "30e394d02a20ac49b7f65292d19d38fa927a8f9582cdfd3ad1adbbc66c641ad5"
+SRC_URI[md5sum] = "56d715c9da8dbb696c87db0f09835390"
+SRC_URI[sha256sum] = "d739d00a9e4203cfaba34540c822a73ca1d327159ed7776b3dce09391f81c35d"
 
 PYPI_PACKAGE = "safety"
 
 inherit pypi
 inherit sca-description
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit native
 
 SCA_TOOL_DESCRIPTION = "safety"
