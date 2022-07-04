@@ -124,7 +124,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           reconbf \
                           reuse \
                           revive \
-                          safety \
                           scancode \
                           setuptoolslint \
                           shellcheck \

@@ -63,7 +63,6 @@ SCA_ENABLED_MODULES_RECIPE = "\
                             pylint \
                             rats \
                             revive \
-                            safety \
                             shellcheck \
                             sparse \
                             tscancode \

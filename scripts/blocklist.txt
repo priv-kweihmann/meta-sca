@@ -80,7 +80,6 @@ sca-recipe-pylint-rules-native
 sca-recipe-pysymcheck-rules-native
 sca-recipe-rats-rules-native
 sca-recipe-revive-rules-native
-sca-recipe-safety-rules-native
 sca-recipe-setuptoolslint-rules-native
 sca-recipe-shellcheck-rules-native
 sca-recipe-slick-rules-native

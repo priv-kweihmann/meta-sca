@@ -41,7 +41,6 @@ rats
 reconbf
 reuse
 revive
-safety
 scancode
 setuptoolslint
 shellcheck
