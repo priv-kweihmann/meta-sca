@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=31aac0dbc1babd278d5386dadb7f8e82"
 
 PYPI_PACKAGE = "tomlkit"
 
-SRC_URI[sha256sum] = "71ceb10c0eefd8b8f11fe34e8a51ad07812cb1dc3de23247425fbc9ddc47b9dd"
+SRC_URI[sha256sum] = "61901f81ff4017951119cd0d1ed9b7af31c821d6845c8c477587bbdcd5e5854e"
 
 inherit pypi
 inherit python_poetry_core
