@@ -5,12 +5,12 @@ HOMEPAGE = "https://github.com/Simplistix/testfixtures"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=c4021af699354173a4f2c1e1039eeffc"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=ef9ea9bec729a33fef60ec5ef45edd22"
 
 PYPI_PACKAGE = "testfixtures"
 
-SRC_URI[md5sum] = "e89cfe8325778a8c519a6bf63ae3fe83"
-SRC_URI[sha256sum] = "02dae883f567f5b70fd3ad3c9eefb95912e78ac90be6c7444b5e2f46bf572c84"
+SRC_URI[md5sum] = "b8d0799589abc35db60502b7534a3747"
+SRC_URI[sha256sum] = "8ecac5a308793451640594d9ca42ce89b987711e1e4c9312855321ec21f6ccb4"
 
 inherit pypi
 inherit setuptools3
