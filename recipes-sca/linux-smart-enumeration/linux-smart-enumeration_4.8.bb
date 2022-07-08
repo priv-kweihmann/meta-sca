@@ -5,8 +5,8 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
-SRC_URI = "git://github.com/diego-treitos/linux-smart-enumeration.git;branch=master;protocol=https"
-SRCREV = "ee593a85bed5b3ac006e55b72a908c970fde280c"
+SRC_URI = "git://github.com/diego-treitos/linux-smart-enumeration.git;nobranch=1;protocol=https"
+SRCREV = "00ddc7bffa37aa6e7241ede7a995c88e0bdb9052"
 
 S = "${WORKDIR}/git"
 
