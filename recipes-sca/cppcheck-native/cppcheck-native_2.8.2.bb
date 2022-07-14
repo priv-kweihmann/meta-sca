@@ -15,7 +15,7 @@ SRC_URI = "\
     git://github.com/danmar/cppcheck.git;protocol=https;nobranch=1 \
     file://0001-Makefile-fixes.patch \
 "
-SRCREV = "c6f7b7db02b62a6cd330d7cc4f05c91117102dbe"
+SRCREV = "70b3cc7638c361383946390564ea4c77c813df48"
 
 S = "${WORKDIR}/git"
 
