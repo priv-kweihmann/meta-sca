@@ -16,7 +16,7 @@ DEPENDS += "\
 "
 DEPENDS:remove = "python3-hatchling-native"
 
-SRC_URI[sha256sum] = "13461b42876ade4f75ee5d2a2c656b288ca0aab7f048ef66657ef166996b2118"
+SRC_URI[sha256sum] = "9ca409a41140cc662164680b78adcd3ba77b23a945984bd9970d11fe38e86a38"
 
 inherit pypi python_hatchling native
 
