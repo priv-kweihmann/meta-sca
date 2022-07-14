@@ -10,8 +10,8 @@ DEPENDS += "\
             python3-pyyaml-native \
            "
 
-SRC_URI[md5sum] = "751b2086411d1a21d37de4c90ac0844d"
-SRC_URI[sha256sum] = "3934dcde484374596d6b52d8db412929a169f6d9e52e20f9ade5bf3523d9b96e"
+SRC_URI[md5sum] = "8e78a4a9d194c2f4765ad3f762acd367"
+SRC_URI[sha256sum] = "e688324b58560ab68a1a3cff2c0a474e3fed371dfe8da5d1b9817b7df55039ce"
 
 PYPI_PACKAGE = "yamllint"
 
