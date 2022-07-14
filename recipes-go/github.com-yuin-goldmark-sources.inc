@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/yuin/goldmark/@v/v1.4.12.zip;srcoutput=github.com/yuin/goldmark;srcinput=github.com/yuin/goldmark@v1.4.12;downloadfilename=github-com-yuin-goldmark-1.4.12.zip;name=github-com-yuin-goldmark"
-SRC_URI[github-com-yuin-goldmark.sha256sum] = "116721e67a48174d6e1c02439de40328b544d4b2dd43afe9b62b63f63116c339"
+SRC_URI += "https://proxy.golang.org/github.com/yuin/goldmark/@v/v1.4.13.zip;srcoutput=github.com/yuin/goldmark;srcinput=github.com/yuin/goldmark@v1.4.13;downloadfilename=github-com-yuin-goldmark-1.4.13.zip;name=github-com-yuin-goldmark"
+SRC_URI[github-com-yuin-goldmark.sha256sum] = "bb41a602b174345fda392c8ad83fcc93217c285c763699677630be90feb7a5e3"
 
 GOSRC_LICENSE += "\
     MIT \
