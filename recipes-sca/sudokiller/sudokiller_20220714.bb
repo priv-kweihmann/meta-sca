@@ -7,7 +7,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f45999e825d6792e32a1cbadd968b1b7"
 
 SRC_URI = "git://github.com/TH3xACE/SUDO_KILLER.git;branch=master;protocol=https"
-SRCREV = "51e3de24c921b9d89b8925e0d00e228575ea5ae9"
+SRCREV = "dc761ed10f69277b00bcc85849d7755853419288"
 UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git"
@@ -40,6 +40,6 @@ INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 # Package contains exploit sample from (maybe) not matching arch
 # plus all the dependencies from that arch
 # Ignore that while packaging
-INSANE_SKIP:${PN} += "file-rdeps arch already-stripped"
+INSANE_SKIP:${PN} += "file-rdeps arch already-stripped libdir staticdev dev-so"
 
 BBCLASSEXTEND = "native"
