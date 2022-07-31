@@ -27,7 +27,7 @@ def do_sca_conv_detectsecrets(d):
 
     items = []
     __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
-    __suppress = sca_suppress_init(d, "SCA_DETECTSECRETS_EXTRA_SUPPRESS",
+    __suppress = sca_suppress_init(d, clean_split(d, "SCA_DETECTSECRETS_EXTRA_SUPPRESS"),
                                     d.expand("${STAGING_DATADIR_NATIVE}/detectsecrets-${SCA_MODE}-suppress"))
     _findings = []
 
@@ -70,7 +70,7 @@ python do_sca_detectsecrets_core() {
     import subprocess
     import json
 
-    _args = [d.getVar("PYTHON")]
+    _args = ["python3"]
     _args += [os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "detect-secrets")]
     _args += ["scan"]
     _args += ["--all-files"]
@@ -91,6 +91,6 @@ python do_sca_detectsecrets_core_report() {
     dm_output = do_sca_conv_detectsecrets(d)
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
-    sca_task_aftermath(d, "detectsecrets", get_fatal_entries(d, "SCA_DETECTSECRETS_EXTRA_FATAL",
+    sca_task_aftermath(d, "detectsecrets", get_fatal_entries(d, clean_split(d, "SCA_DETECTSECRETS_EXTRA_FATAL"),
                        d.expand("${STAGING_DATADIR_NATIVE}/detectsecrets-${SCA_MODE}-fatal")))
 }

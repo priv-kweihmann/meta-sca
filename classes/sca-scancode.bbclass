@@ -44,7 +44,7 @@ def do_sca_conv_scancode(d):
     items = []
     pattern = r"^(?P<pkg>.*):\[(?P<id>.+)\]\s+(?P<msg>.*)"
 
-    _suppress = sca_suppress_init(d, "SCA_SCANCODE_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_SCANCODE_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/scancode-${SCA_MODE}-suppress"),
                                   file_trace=False)
     _findings = []
@@ -139,12 +139,14 @@ python do_sca_scancode_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "scancode", get_fatal_entries(d, "SCA_SCANCODE_EXTRA_FATAL",
+    sca_task_aftermath(d, "scancode", get_fatal_entries(d, clean_split(d, "SCA_SCANCODE_EXTRA_FATAL"),
                        d.expand("${STAGING_DATADIR_NATIVE}/scancode-${SCA_MODE}-fatal")))
 }
 
 do_sca_scancode[doc] = "License compliance with scancode"
 do_sca_scancode_report[doc] = "Report findings of do_sca_scancode"
+do_sca_scancode[nosdkgen] = "1"
+do_sca_scancode_report[nosdkgen] = "1"
 addtask do_sca_scancode after do_compile before do_sca_tracefiles
 addtask do_sca_scancode_report after do_sca_tracefiles before do_sca_deploy
 

@@ -133,7 +133,7 @@ python do_sca_bitbake () {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "bitbake", get_fatal_entries(d, "", None))
+    sca_task_aftermath(d, "bitbake", get_fatal_entries(d, clean_split(d, ""), None))
 }
 
 DEPENDS += "bitbake-sca-native"

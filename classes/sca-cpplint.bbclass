@@ -36,7 +36,7 @@ def do_sca_conv_cpplint(d):
     }
     pattern = r"^(?P<file>.*):(?P<line>\d+):\s+(?P<message>.*)\s+\[(?P<id>.*)\]\s+\[(?P<severity>\d)\]"
     _findings = []
-    _suppress = sca_suppress_init(d, "SCA_CPPLINT_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_CPPLINT_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/cpplint-${SCA_MODE}-suppress"))
 
     if os.path.exists(sca_raw_result_file(d, "cpplint")):
@@ -95,7 +95,7 @@ python do_sca_cpplint_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "cpplint", get_fatal_entries(d, "SCA_CPPLINT_EXTRA_FATAL",
+    sca_task_aftermath(d, "cpplint", get_fatal_entries(d, clean_split(d, "SCA_CPPLINT_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/cpplint-${SCA_MODE}-fatal")))
 }
 

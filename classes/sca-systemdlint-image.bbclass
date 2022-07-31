@@ -7,6 +7,7 @@ inherit sca-systemdlint-core
 
 SCA_SYSTEMDLINT_SOURCES_DIR = "${SCA_SOURCES_DIR}"
 
+do_sca_systemdlint[nosdkgen] = "1"
 addtask do_sca_systemdlint before do_sca_deploy after do_image
 
 DEPENDS += "sca-image-systemdlint-rules-native"

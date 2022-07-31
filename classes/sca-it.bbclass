@@ -26,7 +26,7 @@ def do_sca_conv_it(d):
 
     pattern = r"^\s+-\s+(?P<file>.*):(?P<line>\d+):(?P<col>\d+)\s+=>\s+(?P<id>.*)"
 
-    _suppress = sca_suppress_init(d, "SCA_IT_EXTRA_SUPPRESS", 
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_IT_EXTRA_SUPPRESS"), 
                                   d.expand("${STAGING_DATADIR_NATIVE}/it-${SCA_MODE}-suppress"))
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
@@ -83,7 +83,7 @@ python do_sca_it_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "it", get_fatal_entries(d, "SCA_IT_EXTRA_FATAL",
+    sca_task_aftermath(d, "it", get_fatal_entries(d, clean_split(d, "SCA_IT_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/it-${SCA_MODE}-fatal")))
 }
 

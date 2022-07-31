@@ -14,3 +14,4 @@ python do_sca_image_pkg_list() {
     with open(d.getVar("SCA_IMAGE_PKG_LIST"), "w") as o:
         json.dump(image_list_installed_packages(d), o)
 }
+do_sca_image_pkg_list[nosdkgen] = "1"

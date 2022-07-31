@@ -27,7 +27,7 @@ def do_sca_conv_darglint(d):
 
     pattern = r"^(?P<file>.*?):(\w+):(?P<line>\d+):\s*(?P<severity>[A-Z]+)(?P<id>[0-9]+):\s*(?P<msg>.*)"
 
-    _suppress = sca_suppress_init(d, "SCA_DARGLINT_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_DARGLINT_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/darglint-${SCA_MODE}-suppress"))
     _findings = []
     if os.path.exists(sca_raw_result_file(d, "darglint")):
@@ -86,7 +86,7 @@ python do_sca_darglint_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "darglint", get_fatal_entries(d, "SCA_DARGLINT_EXTRA_FATAL",
+    sca_task_aftermath(d, "darglint", get_fatal_entries(d, clean_split(d, "SCA_DARGLINT_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/darglint-${SCA_MODE}-fatal")))
 }
 
