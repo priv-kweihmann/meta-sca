@@ -27,7 +27,7 @@ def do_sca_conv_tlv(d):
         "Duplicate" : "error",
         "TooLessVariation" : "warning"
     }
-    _suppress = sca_suppress_init(d, "", None)
+    _suppress = sca_suppress_init(d, clean_split(d, ""), None)
     _findings = []
 
     if os.path.exists(sca_raw_result_file(d, "tlv")):
@@ -84,7 +84,7 @@ python do_sca_tlv_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "tlv", get_fatal_entries(d, "", None))
+    sca_task_aftermath(d, "tlv", get_fatal_entries(d, clean_split(d, ""), None))
 }
 
 DEPENDS += "python3-tlv-native"

@@ -28,7 +28,7 @@ def do_sca_conv_pylint(d):
     }
 
     _findings = []
-    _suppress = sca_suppress_init(d, "SCA_PYLINT_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_PYLINT_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/pylint-${SCA_MODE}-suppress"))
 
     if os.path.exists(sca_raw_result_file(d, "pylint")):
@@ -100,7 +100,7 @@ python do_sca_pylint_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "pylint", get_fatal_entries(d, "SCA_PYLINT_EXTRA_FATAL",
+    sca_task_aftermath(d, "pylint", get_fatal_entries(d, clean_split(d, "SCA_PYLINT_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/pylint-${SCA_MODE}-fatal")))
 }
 

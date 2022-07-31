@@ -33,7 +33,7 @@ def do_sca_conv_pysymcheck(d):
         "info": "info"
     }
 
-    _suppress = sca_suppress_init(d, "SCA_PYSYMCHECK_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_PYSYMCHECK_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/pysymcheck-${SCA_MODE}-suppress"),
                                   file_trace=False)
 
@@ -87,7 +87,7 @@ python do_sca_pysymcheck() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "pysymcheck", get_fatal_entries(d, "SCA_PYSYMCHECK_EXTRA_FATAL",
+    sca_task_aftermath(d, "pysymcheck", get_fatal_entries(d, clean_split(d, "SCA_PYSYMCHECK_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/pysymcheck-${SCA_MODE}-fatal")))
 }
 

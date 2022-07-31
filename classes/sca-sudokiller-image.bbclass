@@ -29,7 +29,7 @@ def do_sca_conv_sudokiller(d):
     pattern = r"^\[\-]\s+(?P<msg>.*)(\:+|\s+)"
     cve_pattern = r"^\[\+\]\s+Please\s+find the following exploit for (?P<msg>[A-Z\-0-9]+) in the exploits' directory"
 
-    _suppress = sca_suppress_init(d, "SCA_SUDOKILLER_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_SUDOKILLER_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/sudokiller-${SCA_MODE}-suppress"))
     _findings = []
 
@@ -98,11 +98,12 @@ fakeroot python do_sca_sudokiller() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "sudokiller", get_fatal_entries(d, "SCA_SUDOKILLER_EXTRA_FATAL",
+    sca_task_aftermath(d, "sudokiller", get_fatal_entries(d, clean_split(d, "SCA_SUDOKILLER_EXTRA_FATAL"),
                        d.expand("${STAGING_DATADIR_NATIVE}/sudokiller-${SCA_MODE}-fatal")))
 }
 
 do_sca_sudokiller[doc] = "Find exploitable CVEs of sudo in image"
+do_sca_sudokiller[nosdkgen] = "1"
 addtask do_sca_sudokiller before do_sca_deploy after do_image
 
 DEPENDS += "sca-image-sudokiller-rules-native"

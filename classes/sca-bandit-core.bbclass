@@ -30,7 +30,7 @@ def do_sca_conv_bandit(d):
     }
 
     _findings = []
-    _suppress = sca_suppress_init(d, "SCA_BANDIT_EXTRA_FATAL",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_BANDIT_EXTRA_SUPPRESS"),
                     d.expand("${STAGING_DATADIR_NATIVE}/bandit-${SCA_MODE}-suppress"))
 
     if os.path.exists(sca_raw_result_file(d, "bandit")):
@@ -110,6 +110,6 @@ python do_sca_bandit_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "bandit", get_fatal_entries(d, "SCA_BANDIT_EXTRA_SUPPRESS",
+    sca_task_aftermath(d, "bandit", get_fatal_entries(d, clean_split(d, "SCA_BANDIT_EXTRA_SUPPRESS"),
                         d.expand("${STAGING_DATADIR_NATIVE}/bandit-${SCA_MODE}-fatal")))
 }

@@ -7,6 +7,7 @@ inherit sca-oelint-core
 inherit sca-conv-to-export
 
 do_sca_oelint_core[doc] = "Lint bitbake recipes"
+do_sca_oelint_core[nosdkgen] = "1"
 addtask do_sca_oelint_core before do_sca_deploy after do_image
 
 DEPENDS += "sca-image-oelint-rules-native"

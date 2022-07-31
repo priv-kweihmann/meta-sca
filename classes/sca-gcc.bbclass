@@ -40,7 +40,7 @@ def sca_gcc_hardening(d):
     _cflags = [x for x in d.getVar("CFLAGS").split(" ") if x] + [x for x in d.getVar("CXXFLAGS").split(" ") if x]
     _cxxflags = [x for x in d.getVar("CXXFLAGS").split(" ") if x] + [x for x in d.getVar("CPPFLAGS").split(" ") if x]
 
-    _suppress = sca_suppress_init(d, "SCA_GCC_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_GCC_EXTRA_SUPPRESS"),
                                     d.expand("${STAGING_DATADIR_NATIVE}/gcc-${SCA_MODE}-suppress"))
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
 
@@ -228,7 +228,7 @@ def do_sca_conv_gcc(d):
         "note": "info"
     }
 
-    _suppress = sca_suppress_init(d, "SCA_GCC_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_GCC_EXTRA_SUPPRESS"),
                                     d.expand("${STAGING_DATADIR_NATIVE}/gcc-${SCA_MODE}-suppress"))
     _excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
     _findings = []
@@ -281,7 +281,7 @@ python do_sca_gcc_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "gcc", get_fatal_entries(d, "SCA_GCC_EXTRA_FATAL",
+    sca_task_aftermath(d, "gcc", get_fatal_entries(d, clean_split(d, "SCA_GCC_EXTRA_FATAL"),
                          d.expand("${STAGING_DATADIR_NATIVE}/gcc-${SCA_MODE}-fatal")))
 }
 

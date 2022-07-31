@@ -71,6 +71,8 @@ python do_sca_multimetric_image() {
 
 do_sca_multimetric_image[doc] = "Get code metrics for image"
 do_sca_deploy_multimetric_image[doc] = "Deploy results of do_sca_multimetric_core"
+do_sca_multimetric_image[nosdkgen] = "1"
+do_sca_deploy_multimetric_image[nosdkgen] = "1"
 addtask do_sca_multimetric_core before do_image_complete after do_image
 addtask do_sca_multimetric_core_report after do_sca_multimetric_core before do_sca_deploy
 

@@ -6,6 +6,7 @@ inherit sca-license-filter
 ## Global file filter
 SCA_FILE_FILTER ?= "\
                     .pc/* \
+                    .git/* \
                     tests/* \
                     test/* \
                     doc/* \
