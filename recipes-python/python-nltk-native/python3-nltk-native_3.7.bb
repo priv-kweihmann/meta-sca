@@ -26,3 +26,9 @@ do_install:append() {
   # delete pydoc reference
   find ${D} -type f -exec sed -i '/import pydoc/d' {} \;
 }
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-click \
+    nativesdk-python3-joblib \
+    nativesdk-python3-regex \
+    nativesdk-python3-tqdm \
+"

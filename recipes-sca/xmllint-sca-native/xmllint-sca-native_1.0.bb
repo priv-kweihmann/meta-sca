@@ -10,3 +10,5 @@ inherit sca-description
 inherit native
 
 SCA_TOOL_DESCRIPTION = "xmllint"
+
+RDEPENDS:${PN}:class-nativesdk += "nativesdk-libxml2"

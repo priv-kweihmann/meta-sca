@@ -17,3 +17,5 @@ SRC_URI[sha256sum] = "637245b8bab2b6502fcbc752cc4b7a6f6243bb02b31c5c26156ad103d3
 inherit pypi
 inherit python_setuptools_build_meta
 inherit native
+
+RDEPENDS:${PN}:class-nativesdk += "nativesdk-python3-zipp"

@@ -20,3 +20,10 @@ PIP_INSTALL_PACKAGE = "flake8_strict"
 
 inherit setuptools3
 inherit native
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-black \
+    nativesdk-python3-core \
+    nativesdk-python3-enum-compat \
+    nativesdk-python3-flake8 \
+"

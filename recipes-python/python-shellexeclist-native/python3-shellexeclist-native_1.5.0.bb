@@ -22,3 +22,8 @@ inherit setuptools3
 inherit native
 
 PIP_INSTALL_PACKAGE = "shellexeclist"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-chardet \
+    nativesdk-python3-ply \
+"

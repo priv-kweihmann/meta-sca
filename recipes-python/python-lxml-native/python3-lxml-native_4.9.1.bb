@@ -20,3 +20,9 @@ inherit pkgconfig
 inherit pypi
 inherit setuptools3
 inherit native
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-libxml2 \
+    nativesdk-libxslt \
+    nativesdk-python3-cython \
+"

@@ -21,3 +21,10 @@ S = "${WORKDIR}/PPI-${PV}"
 
 inherit cpan
 inherit native
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-perl-clone \
+    nativesdk-perl-io-string \
+    nativesdk-perl-params-util \
+    nativesdk-perl-task-weaken \
+"

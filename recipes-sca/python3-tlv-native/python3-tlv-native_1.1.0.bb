@@ -20,3 +20,8 @@ inherit native
 
 SCA_TOOL_DESCRIPTION = "tlv"
 PIP_INSTALL_PACKAGE = "tlv"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-chardet \
+    nativesdk-python3-pygments \
+"

@@ -13,3 +13,5 @@ SCA_TOOL_DESCRIPTION = "protolint"
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
+
+RDEPENDS:${PN}:class-nativesdk += "nativesdk-github.com-yoheimuta-protolint"

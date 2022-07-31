@@ -28,3 +28,9 @@ do_install:append() {
 }
 
 FILES:${PN} += "${datadir}"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3 \
+    nativesdk-python3-jsonmerge \
+    nativesdk-python3-pyelftools \
+"

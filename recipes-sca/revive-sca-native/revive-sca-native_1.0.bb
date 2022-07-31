@@ -13,3 +13,5 @@ do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
 SCA_TOOL_DESCRIPTION = "revive"
+
+RDEPENDS:${PN}:class-nativesdk += "nativesdk-github.com-mgechev-revive"

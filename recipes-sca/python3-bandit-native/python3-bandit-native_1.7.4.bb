@@ -24,3 +24,15 @@ inherit setuptools3
 inherit native
 
 SCA_TOOL_DESCRIPTION = "bandit"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+    nativesdk-python3-datetime \
+    nativesdk-python3-gitpython \
+    nativesdk-python3-io \
+    nativesdk-python3-logging \
+    nativesdk-python3-pbr \
+    nativesdk-python3-pyyaml \
+    nativesdk-python3-six \
+    nativesdk-python3-stevedore \
+"

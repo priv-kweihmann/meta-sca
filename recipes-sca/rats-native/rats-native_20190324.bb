@@ -37,3 +37,5 @@ do_install() {
 }
 
 FILES:${PN} += "${bindir} ${incdir} ${datadir} ${libdir}"
+
+RDEPENDS:${PN}:class-nativesdk += "nativesdk-expat"

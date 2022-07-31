@@ -20,3 +20,11 @@ inherit setuptools3
 inherit native
 
 SCA_TOOL_DESCRIPTION = "setuptoolslint"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+    nativesdk-python3-distutils \
+    nativesdk-python3-pip \
+    nativesdk-python3-pylint \
+    nativesdk-python3-setuptools \
+"

@@ -24,3 +24,9 @@ do_install:append() {
     # remove test files
     rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/tests
 }
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-banal \
+    nativesdk-python3-chardet \
+    nativesdk-python3-text-unidecode \
+"

@@ -20,3 +20,9 @@ UPSTREAM_CHECK_REGEX = "project/flake8-expression-complexity/(?P<pver>(\d+[\.]*)
 inherit pypi
 inherit setuptools3
 inherit native
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-astpretty \
+    nativesdk-python3-core \
+    nativesdk-python3-flake8 \
+"

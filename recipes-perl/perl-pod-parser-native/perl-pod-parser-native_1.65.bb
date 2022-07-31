@@ -19,3 +19,5 @@ do_install:append() {
     # remove as it's supplied by perl itself
     rm ${D}${bindir}/podselect
 }
+
+FILES:${PN} += "${bindir}"

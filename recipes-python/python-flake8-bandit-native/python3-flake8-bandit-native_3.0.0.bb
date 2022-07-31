@@ -21,3 +21,11 @@ UPSTREAM_CHECK_REGEX ?= "/flake8-bandit/(?P<pver>(\d+[\.\-_]*)+)"
 inherit pypi
 inherit setuptools3
 inherit native
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-bandit \
+    nativesdk-python3-core \
+    nativesdk-python3-flake8 \
+    nativesdk-python3-flake8-polyfill \
+    nativesdk-python3-pycodestyle \
+"

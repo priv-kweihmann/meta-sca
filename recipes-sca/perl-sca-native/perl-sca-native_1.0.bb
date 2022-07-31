@@ -13,3 +13,7 @@ SCA_TOOL_DESCRIPTION = "perl"
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
+
+FILES:${PN} += "${datadir}"
+
+RDEPENDS:${PN}:class-nativesdk += "nativesdk-perl"

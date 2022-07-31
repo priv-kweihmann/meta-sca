@@ -15,3 +15,9 @@ SRC_URI[sha256sum] = "9f38e6dcf867a1fb7ad47f5ff72c0ddae544a6cf64eb9f7600b7b3c0bb
 inherit pypi
 inherit setuptools3
 inherit native
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+    nativesdk-python3-flake8 \
+    nativesdk-python3-flake8-polyfill \
+"

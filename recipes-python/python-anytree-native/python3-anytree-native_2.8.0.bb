@@ -17,3 +17,14 @@ PIP_INSTALL_PACKAGE = "anytree"
 
 inherit setuptools3
 inherit native
+
+# put any LICENSE file into doc pkg
+FILES:${PN}-doc += "${datadir}/LICENSE ${prefix}/LICENSE"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+    nativesdk-python3-io \
+    nativesdk-python3-json \
+    nativesdk-python3-logging \
+    nativesdk-python3-six \
+"

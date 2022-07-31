@@ -27,3 +27,16 @@ do_install:append() {
     # for whatever reasons, no matter if requests is available or not
     find ${D} -name "requires.txt" -exec sed -i "/requests/d" {} +
 }
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+    nativesdk-python3-crypt \
+    nativesdk-python3-datetime \
+    nativesdk-python3-json \
+    nativesdk-python3-logging \
+    nativesdk-python3-multiprocessing \
+    nativesdk-python3-netclient \
+    nativesdk-python3-pyyaml \
+    nativesdk-python3-requests \
+    nativesdk-python3-stringold \
+"

@@ -5,7 +5,10 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING.GPL;md5=1ebbd3e34237af26da5dc08a4e440464"
 
-DEPENDS += "python3-flake8-native"
+DEPENDS += "\
+    python3-flake8-native \
+    python3-setuptools-scm-native \
+"
 
 PYPI_PACKAGE = "flake8-executable"
 
@@ -18,3 +21,9 @@ inherit native
 
 # put any LICENSE file into doc pkg
 FILES:${PN}-doc += "${datadir}/LICENSE ${datadir}/COPYING*"
+FILES:${PN}-doc += "${prefix}/LICENSE ${prefix}/COPYING*"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+    nativesdk-python3-flake8 \
+"

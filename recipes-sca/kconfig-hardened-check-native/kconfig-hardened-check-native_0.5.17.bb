@@ -21,3 +21,8 @@ inherit native
 SCA_TOOL_DESCRIPTION = "kconfighard"
 
 FILES:${PN} += "${bindir}"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+    nativesdk-python3-json \
+"

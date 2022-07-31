@@ -15,6 +15,7 @@ DEPENDS += "\
             python3-pathlib2-native \
             python3-pluggy-native \
             python3-py-native \
+            python3-setuptools-scm-native \
             python3-wcwidth-native \
            "
 
@@ -27,3 +28,16 @@ SRC_URI[sha256sum] = "a06a0425453864a270bc45e71f783330a7428defb4230fb5e6a731fde0
 inherit pypi
 inherit setuptools3
 inherit native
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-atomicwrites \
+    nativesdk-python3-attrs \
+    nativesdk-python3-colorama \
+    nativesdk-python3-importlib-metadata \
+    nativesdk-python3-more-itertools \
+    nativesdk-python3-packaging \
+    nativesdk-python3-pathlib2 \
+    nativesdk-python3-pluggy \
+    nativesdk-python3-py \
+    nativesdk-python3-wcwidth \
+"

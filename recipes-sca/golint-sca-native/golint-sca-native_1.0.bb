@@ -13,3 +13,5 @@ SCA_TOOL_DESCRIPTION = "golint"
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
+
+RDEPENDS:${PN}:class-nativesdk += "nativesdk-golang.org-x-lint"

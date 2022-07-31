@@ -49,3 +49,5 @@ do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
 SCA_TOOL_DESCRIPTION = "flake8"
+
+RDEPENDS:${PN}:class-nativesdk += "nativesdk-python3-flake8"

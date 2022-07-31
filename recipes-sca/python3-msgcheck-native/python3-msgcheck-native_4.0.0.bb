@@ -17,3 +17,10 @@ inherit native
 
 SCA_TOOL_DESCRIPTION = "msgcheck"
 PIP_INSTALL_PACKAGE = "msgcheck"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+    nativesdk-python3-io \
+    nativesdk-python3-pyenchant \
+    nativesdk-python3-shell \
+"

@@ -22,3 +22,5 @@ inherit native
 
 UPSTREAM_CHECK_URI = "https://pypi.org/project/typecode-libmagic-system-provided/"
 UPSTREAM_CHECK_REGEX = "/typecode-libmagic-system-provided/(?P<pver>(\d+[\.\-_]*)+)/"
+
+RDEPENDS:${PN}:class-nativesdk += "nativesdk-file-replacement"

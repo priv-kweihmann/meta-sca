@@ -20,3 +20,5 @@ do_install() {
     install -d "${D}${bindir}"
     install -m 0755 ${WORKDIR}/tracefiles.py ${D}${bindir}/tracefiles
 }
+
+RDEPENDS:${PN}:class-nativesdk += "nativesdk-python3-pyelftools"

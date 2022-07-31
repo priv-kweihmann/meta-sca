@@ -15,3 +15,8 @@ PIP_INSTALL_PACKAGE = "flake8_string_format"
 
 inherit setuptools3
 inherit native
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+    nativesdk-python3-flake8 \
+"

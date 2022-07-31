@@ -16,3 +16,15 @@ inherit native
 
 SCA_TOOL_DESCRIPTION = "darglint"
 PIP_INSTALL_PACKAGE = "darglint"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-asyncio \
+    nativesdk-python3-core \
+    nativesdk-python3-datetime \
+    nativesdk-python3-flake8 \
+    nativesdk-python3-json \
+    nativesdk-python3-logging \
+    nativesdk-python3-misc \
+    nativesdk-python3-profile \
+    nativesdk-python3-unittest \
+"

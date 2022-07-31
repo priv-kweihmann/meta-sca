@@ -10,3 +10,5 @@ inherit sca-description
 inherit native
 
 SCA_TOOL_DESCRIPTION = "slick"
+
+RDEPENDS:${PN}:class-nativesdk += "nativesdk-github.com-mcandre-slick"

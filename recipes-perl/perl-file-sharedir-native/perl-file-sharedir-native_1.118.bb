@@ -19,3 +19,8 @@ S = "${WORKDIR}/File-ShareDir-${PV}"
 
 inherit cpan
 inherit native
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-perl-class-inspector \
+    nativesdk-perl-file-sharedir-install \
+"

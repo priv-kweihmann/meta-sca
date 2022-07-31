@@ -1,0 +1,30 @@
+From 5815dd8c1e039da3a92000b52f5d037ab0c6b0c0 Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Mon, 25 Jul 2022 19:41:21 +0200
+Subject: [PATCH] setup.py: add entrypoint
+
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+Upstream-Status: Inactive-Upstream [lastcommit: 2018]
+---
+ setup.py | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/setup.py b/setup.py
+index 052c936..4e50c45 100644
+--- a/setup.py
++++ b/setup.py
+@@ -15,6 +15,11 @@ setup(
+     packages=[
+         'looong',
+     ],
++    entry_points={
++        'console_scripts': [
++            'looong = looong.main:execute',
++        ],
++    },
+     license='MIT',
+     classifiers=[
+         'Development Status :: 2 - Pre-Alpha',
+-- 
+2.25.1
+

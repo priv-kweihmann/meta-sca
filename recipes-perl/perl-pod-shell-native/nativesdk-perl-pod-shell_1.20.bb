@@ -6,11 +6,11 @@ LICENSE = "GPL-2.0-only & Artistic-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=886efa7fcab87e46e4276a3db135992e"
 
 DEPENDS += "\
-            perl-class-tiny-native \
-            perl-en-lingua-inflect-native \
-            perl-file-sharedir-native \
-            perl-path-tiny-native \
-           "
+    nativesdk-perl-class-tiny \
+    nativesdk-perl-en-lingua-inflect \
+    nativesdk-perl-path-tiny \
+    perl-file-sharedir-native \
+"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/D/DO/DOLMEN/Pod-Spell-${PV}.tar.gz"
 
@@ -20,7 +20,7 @@ SRC_URI[sha256sum] = "6383f7bfe22bc0d839a08057a0ce780698b046184aea935be4833d9498
 S = "${WORKDIR}/Pod-Spell-${PV}"
 
 inherit cpan
-inherit native
+inherit nativesdk
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-perl \
