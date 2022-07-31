@@ -5,7 +5,7 @@ LICENSE = "MIT"
 
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5f03ad1486a2e4ce71200ce0f9721557"
 SRC_URI = "git://github.com/Z3Prover/z3;branch=master;protocol=https"
-SRCREV = "6ed071b44407cf6623b8d3c0dceb2a8fb7040cee"
+SRCREV = "69b1337ca634a8e8726e7815fa8730c7501c443f"
 
 S = "${WORKDIR}/git"
 
