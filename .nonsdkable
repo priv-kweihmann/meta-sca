@@ -12,6 +12,7 @@
 .*/recipes-sca-rules/sca-recipe-reuse-rules-native/.*
 .*/recipes-sca-rules/sca-recipe-scancode-rules-native/.*
 .*/recipes-sca/bitbake-sca-native/.*
+.*/recipes-sca/cbmc-native/.*
 .*/recipes-sca/checksec.*
 .*/recipes-sca/cmake-sca-native/.*
 .*/recipes-sca/configcheck.*
