@@ -19,3 +19,11 @@ inherit setuptools3
 inherit native
 
 SCA_TOOL_DESCRIPTION = "multimetric"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-chardet \
+    nativesdk-python3-core \
+    nativesdk-python3-multiprocessing \
+    nativesdk-python3-pygments \
+    nativesdk-python3-statistics \
+"

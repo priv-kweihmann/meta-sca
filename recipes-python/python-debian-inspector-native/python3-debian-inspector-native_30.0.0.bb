@@ -27,3 +27,8 @@ inherit native
 
 UPSTREAM_CHECK_URI = "https://pypi.org/project/debian-inspector/"
 UPSTREAM_CHECK_REGEX = "/debian-inspector/(?P<pver>(\d+[\.\-_]*)+)/"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-attrs \
+    nativesdk-python3-chardet \
+"

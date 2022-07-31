@@ -19,3 +19,7 @@ inherit native
 
 SCA_TOOL_DESCRIPTION = "pyfindinjection"
 PIP_INSTALL_PACKAGE = "py_find_injection"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+"

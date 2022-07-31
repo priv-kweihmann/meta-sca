@@ -35,3 +35,5 @@ do_install() {
 }
 
 FILES:${PN} += "${bindir}"
+
+RDEPENDS:${PN}:class-nativesdk += "nativesdk-perl"

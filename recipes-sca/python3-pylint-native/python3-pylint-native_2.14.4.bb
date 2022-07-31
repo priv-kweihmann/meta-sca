@@ -33,3 +33,25 @@ SCA_TOOL_DESCRIPTION = "pylint"
 ## A python file with /usr/bin/python-shebang is
 ## used - ignore this error
 INSANE_SKIP:${PN} += "file-rdeps"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-astroids \
+    nativesdk-python3-core \
+    nativesdk-python3-datetime \
+    nativesdk-python3-dill \
+    nativesdk-python3-io \
+    nativesdk-python3-isort \
+    nativesdk-python3-json \
+    nativesdk-python3-mccabe \
+    nativesdk-python3-numbers \
+    nativesdk-python3-pickle \
+    nativesdk-python3-pip \
+    nativesdk-python3-platformdirs \
+    nativesdk-python3-profile \
+    nativesdk-python3-pytest \
+    nativesdk-python3-shell \
+    nativesdk-python3-six \
+    nativesdk-python3-stringold \
+    nativesdk-python3-tomlkit \
+    nativesdk-python3-unittest \
+"

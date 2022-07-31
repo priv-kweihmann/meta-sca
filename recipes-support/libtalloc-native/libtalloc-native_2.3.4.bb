@@ -48,7 +48,9 @@ S = "${WORKDIR}/talloc-${PV}"
 # The following includes a stripped version of waf-samba.bbclass from
 # http://cgit.openembedded.org/meta-openembedded/tree/meta-networking/classes/waf-samba.bbclass
 
-inherit qemu python3native native
+inherit qemu
+inherit python3native
+inherit native
 
 PACKAGECONFIG ??= "\
                    ${@bb.utils.filter('DISTRO_FEATURES', 'acl', d)} \
@@ -142,3 +144,10 @@ FILES:pytalloc = "${libdir}/python${PYTHON_BASEVERSION}/site-packages \
                   ${libdir}/libpytalloc-util.so.2.1.1 \
                  "
 FILES:pytalloc-dev = "${libdir}/libpytalloc-util.so"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-docbook-xsl-stylesheets \
+    nativesdk-libxslt \
+    nativesdk-python3 \
+    nativesdk-qemu \
+"

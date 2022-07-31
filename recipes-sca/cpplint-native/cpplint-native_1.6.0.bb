@@ -35,3 +35,12 @@ do_install:append() {
         install -m 0755 ${WORKDIR}/cpplint-multi ${D}${bindir}/cpplint-multi
     fi
 }
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-make \
+    nativesdk-python3-core \
+    nativesdk-python3-pip \
+    nativesdk-python3-setuptools \
+    nativesdk-python3-stringold \
+    nativesdk-python3-xml \
+"

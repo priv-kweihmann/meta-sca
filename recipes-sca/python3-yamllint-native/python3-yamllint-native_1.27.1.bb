@@ -21,3 +21,10 @@ inherit setuptools3
 inherit native
 
 SCA_TOOL_DESCRIPTION = "yamllint"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+    nativesdk-python3-pathspec \
+    nativesdk-python3-pyyaml \
+    nativesdk-python3-stringold \
+"

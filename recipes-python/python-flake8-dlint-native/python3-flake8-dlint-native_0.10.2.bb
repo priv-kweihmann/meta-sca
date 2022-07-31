@@ -21,3 +21,9 @@ do_install:append() {
     ## This otherwise collides with other modules
     rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/tests/
 }
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+    nativesdk-python3-flake8 \
+    nativesdk-python3-unittest \
+"

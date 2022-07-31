@@ -56,3 +56,29 @@ do_install:append() {
 }
 
 INSANE_SKIP:${PN} += "shebang-size"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-perl \
+    nativesdk-perl-class-data-inheritable \
+    nativesdk-perl-config-tiny \
+    nativesdk-perl-devel-stacktrace \
+    nativesdk-perl-exception-class \
+    nativesdk-perl-file-spec \
+    nativesdk-perl-file-which \
+    nativesdk-perl-io-string \
+    nativesdk-perl-list-utils \
+    nativesdk-perl-module-pluggable \
+    nativesdk-perl-perl-tidy \
+    nativesdk-perl-pod-parser \
+    nativesdk-perl-pod-shell \
+    nativesdk-perl-ppi \
+    nativesdk-perl-ppix-quotelike \
+    nativesdk-perl-ppix-regexp \
+    nativesdk-perl-ppix-utilities \
+    nativesdk-perl-readonly \
+    nativesdk-perl-string-format \
+    nativesdk-perl-task-weaken \
+    nativesdk-perl-term-ansicolor \
+    nativesdk-perl-test-deep \
+    nativesdk-perl-text-parsewords \
+"

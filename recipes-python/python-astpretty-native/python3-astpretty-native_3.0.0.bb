@@ -13,3 +13,7 @@ PYPI_PACKAGE = "astpretty"
 inherit pypi
 inherit setuptools3
 inherit native
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+"

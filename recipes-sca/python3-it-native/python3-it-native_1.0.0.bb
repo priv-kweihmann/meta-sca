@@ -16,3 +16,16 @@ inherit setuptools3
 inherit native
 
 SCA_TOOL_DESCRIPTION = "it"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-asyncio \
+    nativesdk-python3-core \
+    nativesdk-python3-distutils \
+    nativesdk-python3-json \
+    nativesdk-python3-logging \
+    nativesdk-python3-multiprocessing \
+    nativesdk-python3-netclient \
+    nativesdk-python3-netserver \
+    nativesdk-python3-profile \
+    nativesdk-python3-stringold \
+"

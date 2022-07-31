@@ -21,3 +21,8 @@ SRC_URI[sha256sum] = "cba0f197a64883bf3e73657efbc0324d5bf17179e7769b1385b4d75d26
 inherit pypi
 inherit python_setuptools_build_meta
 inherit native
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-jaraco-functools \
+    nativesdk-python3-pytz \
+"

@@ -10,6 +10,7 @@ DEPENDS += "\
             python3-mccabe-native \
             python3-pep8-native \
             python3-pyflakes-native \
+            python3-pytest-runner-native \
             "
 
 PYPI_PACKAGE = "flake8-mutable"
@@ -20,3 +21,11 @@ SRC_URI[sha256sum] = "ee9b77111b867d845177bbc289d87d541445ffcc6029a0c5c65865b42b
 inherit pypi
 inherit setuptools3
 inherit native
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+    nativesdk-python3-flake8 \
+    nativesdk-python3-mccabe \
+    nativesdk-python3-pep8 \
+    nativesdk-python3-pyflakes \
+"

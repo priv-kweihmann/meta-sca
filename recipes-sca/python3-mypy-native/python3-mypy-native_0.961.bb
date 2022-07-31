@@ -23,3 +23,24 @@ inherit setuptools3
 inherit native
 
 SCA_TOOL_DESCRIPTION = "mypy"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+    nativesdk-python3-crypt \
+    nativesdk-python3-difflib \
+    nativesdk-python3-distutils \
+    nativesdk-python3-io \
+    nativesdk-python3-json \
+    nativesdk-python3-multiprocessing \
+    nativesdk-python3-mypy-extensions \
+    nativesdk-python3-netclient \
+    nativesdk-python3-pickle \
+    nativesdk-python3-pytest \
+    nativesdk-python3-shell \
+    nativesdk-python3-stringold \
+    nativesdk-python3-tests \
+    nativesdk-python3-threading \
+    nativesdk-python3-typed-ast \
+    nativesdk-python3-typing-extensions \
+    nativesdk-python3-unittest \
+"

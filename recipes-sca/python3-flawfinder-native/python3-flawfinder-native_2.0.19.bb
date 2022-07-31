@@ -25,3 +25,12 @@ do_configure:prepend() {
 }
 
 FILES:${PN} += "${prefix}"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+    nativesdk-python3-crypt \
+    nativesdk-python3-json \
+    nativesdk-python3-pickle \
+    nativesdk-python3-shell \
+    nativesdk-python3-stringold \
+"

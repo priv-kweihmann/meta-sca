@@ -25,3 +25,16 @@ do_install:append() {
     ## This otherwise collides with other modules
     rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/tests/
 }
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-asyncio \
+    nativesdk-python3-core \
+    nativesdk-python3-eradicate \
+    nativesdk-python3-io \
+    nativesdk-python3-logging \
+    nativesdk-python3-mccabe \
+    nativesdk-python3-pip \
+    nativesdk-python3-pycodestyle \
+    nativesdk-python3-pydocstyle \
+    nativesdk-python3-pyflakes \
+"

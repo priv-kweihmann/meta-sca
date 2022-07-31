@@ -28,3 +28,13 @@ inherit setuptools3
 inherit native
 
 PIP_INSTALL_PACKAGE = "commoncode"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-attrs \
+    nativesdk-python3-beautifulsoup4 \
+    nativesdk-python3-click \
+    nativesdk-python3-intbitset \
+    nativesdk-python3-requests \
+    nativesdk-python3-saneyaml \
+    nativesdk-python3-text-unidecode \
+"

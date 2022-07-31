@@ -17,3 +17,9 @@ PYPI_PACKAGE = "flake8-docstrings"
 inherit pypi
 inherit setuptools3
 inherit native
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+    nativesdk-python3-flake8 \
+    nativesdk-python3-pydocstyle \
+"

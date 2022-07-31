@@ -22,3 +22,13 @@ inherit setuptools3
 inherit native
 
 SCA_TOOL_DESCRIPTION = "bashate"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-babel \
+    nativesdk-python3-core \
+    nativesdk-python3-misc \
+    nativesdk-python3-pbr \
+    nativesdk-python3-shell \
+    nativesdk-python3-tests \
+    nativesdk-python3-unittest \
+"

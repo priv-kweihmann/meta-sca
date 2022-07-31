@@ -20,3 +20,10 @@ PIP_INSTALL_PACKAGE = "flake8_isort"
 
 inherit setuptools3
 inherit native
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+    nativesdk-python3-flake8 \
+    nativesdk-python3-isort \
+    nativesdk-python3-testfixtures \
+"

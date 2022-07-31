@@ -16,3 +16,5 @@ PIP_INSTALL_PACKAGE = "pydocstyle"
 
 inherit setuptools3
 inherit native
+
+RDEPENDS:${PN}:class-nativesdk += "nativesdk-python3-snowballstemmer"

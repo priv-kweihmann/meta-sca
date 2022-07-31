@@ -18,3 +18,12 @@ inherit setuptools3
 inherit native
 
 SCA_TOOL_DESCRIPTION = "vulture"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+    nativesdk-python3-ctypes \
+    nativesdk-python3-logging \
+    nativesdk-python3-stringold \
+    nativesdk-python3-toml \
+    nativesdk-python3-unittest \
+"

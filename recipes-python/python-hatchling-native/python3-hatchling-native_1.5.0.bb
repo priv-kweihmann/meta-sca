@@ -27,3 +27,5 @@ do_compile:prepend() {
     export PYTHONPATH=src
 }
 
+
+RDEPENDS:${PN}:class-nativesdk += "nativesdk-python3-hatchling"

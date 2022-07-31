@@ -20,3 +20,12 @@ inherit native
 
 SCA_TOOL_DESCRIPTION = "systemdlint"
 PIP_INSTALL_PACKAGE = "systemdlint"
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-anytree \
+    nativesdk-python3-core \
+    nativesdk-python3-datetime \
+    nativesdk-python3-io \
+    nativesdk-python3-shell \
+    nativesdk-python3-systemdunitparser \
+"

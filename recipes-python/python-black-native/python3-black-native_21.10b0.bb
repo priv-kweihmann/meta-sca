@@ -25,3 +25,24 @@ UPSTREAM_CHECK_REGEX ?= "/${PYPI_PACKAGE}/(?P<pver>(\d+[a-z0-9\.\-_]*)+)"
 inherit pypi
 inherit setuptools3
 inherit native
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-appdirs \
+    nativesdk-python3-asyncio \
+    nativesdk-python3-attrs \
+    nativesdk-python3-click \
+    nativesdk-python3-core \
+    nativesdk-python3-datetime \
+    nativesdk-python3-io \
+    nativesdk-python3-json \
+    nativesdk-python3-logging \
+    nativesdk-python3-multiprocessing \
+    nativesdk-python3-mypy-extensions \
+    nativesdk-python3-netclient \
+    nativesdk-python3-packaging \
+    nativesdk-python3-pathspec \
+    nativesdk-python3-pickle \
+    nativesdk-python3-profile \
+    nativesdk-python3-setuptools \
+    nativesdk-python3-typed-ast \
+"

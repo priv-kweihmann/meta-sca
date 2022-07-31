@@ -15,3 +15,11 @@ UPSTREAM_CHECK_REGEX ?= "/click/(?P<pver>(\d+[\.\-_]*)+)"
 inherit pypi
 inherit setuptools3
 inherit native
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-core \
+    nativesdk-python3-ctypes \
+    nativesdk-python3-datetime \
+    nativesdk-python3-io \
+    nativesdk-python3-shell \
+"

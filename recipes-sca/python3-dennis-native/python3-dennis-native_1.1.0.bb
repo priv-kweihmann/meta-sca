@@ -28,3 +28,12 @@ do_install:append() {
     ## This otherwise collides with other modules
     rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/tests/
 }
+
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-click \
+    nativesdk-python3-core \
+    nativesdk-python3-html \
+    nativesdk-python3-netclient \
+    nativesdk-python3-polib \
+    nativesdk-python3-stringold \
+"
