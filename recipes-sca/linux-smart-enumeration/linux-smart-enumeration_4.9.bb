@@ -6,7 +6,7 @@ LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 SRC_URI = "git://github.com/diego-treitos/linux-smart-enumeration.git;nobranch=1;protocol=https"
-SRCREV = "00ddc7bffa37aa6e7241ede7a995c88e0bdb9052"
+SRCREV = "02be84575eda232c36e16a3f3c3ce49cbcc18ef8"
 
 S = "${WORKDIR}/git"
 
