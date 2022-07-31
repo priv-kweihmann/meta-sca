@@ -1,5 +1,5 @@
 SRC_URI += "git://github.com/dominikh/go-tools;nobranch=1;protocol=https;srcinput=honnef.co/go/tools;srcoutput=honnef.co/go/tools;destsuffix=honnef.co/go/tools;name=honnef-co-go-tools"
-SRCREV_honnef-co-go-tools = "7586196b2bb05a248f1934d8087c759d05910e60"
+SRCREV_honnef-co-go-tools = "376210a89477dedbe6fdc4484b233998650d7b3c"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
