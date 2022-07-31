@@ -103,11 +103,22 @@ def run_bitbake_test(_args, recipe):
             _recipes.append("_".join(_base.split("_")[:-1]))
     if any(_recipes):
         try:
-            subprocess.check_call(["bitbake"] + _recipes, universal_newlines=True)
+            subprocess.check_call(["bitbake"] + _recipes,
+                                  universal_newlines=True)
         except:
             input("Build failed - check and press enter when okay")
             run_bitbake_test(_args, recipe)
     return True
+
+
+def get_nativesdk_recipe(pkgname):
+    m = re.match(r'(?P<name>.*)-native$', pkgname)
+    return 'nativesdk-' + m.group('name')
+
+
+def run_sdkgen(_args):
+    _pargs = [os.path.join(_args.repo, "scripts", "sdk-gen")]
+    subprocess.check_call(_pargs, universal_newlines=True)
 
 
 def update_packages(_args, _input, number):
@@ -141,6 +152,12 @@ def update_packages(_args, _input, number):
             if run_bitbake_test(_args, _recipe):
                 git_commit(_args, _recipe,
                            m.group("version"), number, _allowed_changes)
+                _recipe = get_nativesdk_recipe(_recipe)
+                run_sdkgen(_args)
+                if run_bitbake_test(_args, _recipe):
+                    git_commit(_args, _recipe,
+                               m.group("version"), number, _allowed_changes)
+                    return 1
                 return 1
         elif _skip:
             print("Skipped {recipe}".format(recipe=_recipe))
@@ -151,21 +168,23 @@ def update_packages(_args, _input, number):
 
 
 def is_updateable(_args, title):
-    if title.startswith("Update npm-") or title.startswith("Update python3-") or \
+    if title.startswith("Update python3-") or \
        title.startswith("Update perl-"):
         return True
     return is_go_package(_args, title)
 
+
 def get_issues(_args):
     res = []
     for i in range(1, 100, 1):
-        with urllib.request.urlopen("https://api.github.com/repos/priv-kweihmann/meta-sca/issues?state=open&sort=created-asc&page={}".format(i)) as url: 
+        with urllib.request.urlopen("https://api.github.com/repos/priv-kweihmann/meta-sca/issues?state=open&sort=created-asc&page={}".format(i)) as url:
             data = json.loads(url.read().decode())
             if data:
                 res += data
             else:
                 break
     return res
+
 
 _args = create_parser()
 data = get_issues(_args)
@@ -178,11 +197,11 @@ for item in data:
             continue
         print("Attempting {}".format(item["title"]))
         _updated_items += update_packages(_args,
-                                        item["title"], item["number"])
+                                          item["title"], item["number"])
 if _updated_items > 0:
     try:
         _pargs = [os.path.join(_args.repo, "..", "meta-buildutils", "scripts", "unused"),
-                "--remove", _args.repo]
+                  "--remove", _args.repo]
         subprocess.check_call(_pargs, universal_newlines=True)
     except:
         pass

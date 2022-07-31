@@ -76,7 +76,7 @@ def get_updates(_blacklist, _args):
     devtool_out = ""
     res = []
     for l in layer_list:
-        if l in _blacklist or not re.match(_args.filter, l):
+        if l in _blacklist or not re.match(_args.filter, l) or l.startswith("nativesdk-"):
             continue
         print("Checking {}...".format(l), end='', flush=True)
         try:
