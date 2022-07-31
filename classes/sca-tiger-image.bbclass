@@ -31,7 +31,7 @@ def do_sca_conv_tiger(d):
         "WARN" : "warning"
     }
 
-    _suppress = sca_suppress_init(d, "SCA_TIGER_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_TIGER_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/tiger-${SCA_MODE}-suppress"))
     _findings = []
 
@@ -79,11 +79,12 @@ fakeroot python do_sca_tiger() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "tiger", get_fatal_entries(d, "SCA_TIGER_EXTRA_FATAL",
+    sca_task_aftermath(d, "tiger", get_fatal_entries(d, clean_split(d, "SCA_TIGER_EXTRA_FATAL"),
                        d.expand("${STAGING_DATADIR_NATIVE}/tiger-${SCA_MODE}-fatal")))
 }
 
 do_sca_tiger[doc] = "Run audit with tiger on image"
+do_sca_tiger[nosdkgen] = "1"
 addtask do_sca_tiger before do_sca_deploy after do_image
 
 DEPENDS += "sca-image-tiger-rules-native"

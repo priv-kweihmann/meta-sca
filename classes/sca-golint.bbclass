@@ -29,7 +29,7 @@ def do_sca_conv_golint(d):
     items = []
     pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<col>\d+):\s*(?P<msg>.*)"
 
-    _suppress = sca_suppress_init(d, "SCA_GOLINT_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_GOLINT_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/golint-${SCA_MODE}-suppress"))
     _findings = []
 
@@ -85,7 +85,7 @@ python do_sca_golint_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "golint", get_fatal_entries(d, "SCA_GOLINT_EXTRA_FATAL",
+    sca_task_aftermath(d, "golint", get_fatal_entries(d, clean_split(d, "SCA_GOLINT_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/golint-${SCA_MODE}-fatal")))
 }
 

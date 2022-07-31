@@ -75,7 +75,7 @@ def do_sca_conv_upc(d):
         "W" : "warning"
     }
 
-    _suppress = sca_suppress_init(d, "SCA_UPC_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_UPC_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/upc-${SCA_MODE}-suppress"))
     _findings = []
 
@@ -120,11 +120,12 @@ fakeroot python do_sca_upc() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "upc", get_fatal_entries(d, "SCA_UPC_EXTRA_FATAL",
+    sca_task_aftermath(d, "upc", get_fatal_entries(d, clean_split(d, "SCA_UPC_EXTRA_FATAL"),
                        d.expand("${STAGING_DATADIR_NATIVE}/upc-${SCA_MODE}-fatal")))
 }
 
 do_sca_upc[doc] = "Find priviledge esacalation vectors in image"
+do_sca_upc[nosdkgen] = "1"
 addtask do_sca_upc before do_sca_deploy after do_image
 
 DEPENDS += "sca-image-upc-rules-native"

@@ -75,7 +75,7 @@ def _combine_x_entries(d, input_file, extra_key):
         _rules_file = _filename
         with open(_rules_file) as f:
             res = [x.strip(" \n") for x in f.readlines() if x.strip(" \n")]
-    res += clean_split(d, extra_key)
+    res += extra_key
     return res
 
 
@@ -337,7 +337,7 @@ SCA_SOURCECHECKSUM ?= "${T}/sca_seen_sources.txt"
 
 do_sca_get_sources() {
     echo "" > ${SCA_SOURCECHECKSUM}
-    find ${S} -type f -exec sh -c "md5sum {} 2>/dev/null || true" >> ${SCA_SOURCECHECKSUM} \;
+    find ${S} -type f -exec sh -c "md5sum '{}' 2>/dev/null || true" >> ${SCA_SOURCECHECKSUM} \;
 }
 
 do_sca_get_sources[doc] = "Get all source files of the workspace"

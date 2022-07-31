@@ -32,7 +32,7 @@ def do_sca_conv_dennis(d):
         "W" : "warning",
     }
 
-    __suppress = sca_suppress_init(d, "SCA_DENNIS_EXTRA_SUPPRESS",
+    __suppress = sca_suppress_init(d, clean_split(d, "SCA_DENNIS_EXTRA_SUPPRESS"),
                                    d.expand("${STAGING_DATADIR_NATIVE}/dennis-${SCA_MODE}-suppress"),
                                    file_trace=False)
     _findings = []
@@ -82,8 +82,8 @@ python do_sca_dennis() {
             cmd_output = "E999: Parsing Error.\n1"
 
         if cmd_output:
-            prefix = "{}: ".format(f)
-            cmd_output = prefix + prefix.join(cmd_output.splitlines(True))
+            _prefix = "{}: ".format(f)
+            cmd_output = _prefix + _prefix.join(cmd_output.splitlines(True))
         allrun_output += cmd_output
 
     with open(sca_raw_result_file(d, "dennis"), "w") as o:
@@ -95,7 +95,7 @@ python do_sca_dennis() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "dennis", get_fatal_entries(d, "SCA_DENNIS_EXTRA_FATAL",
+    sca_task_aftermath(d, "dennis", get_fatal_entries(d, clean_split(d, "SCA_DENNIS_EXTRA_FATAL"),
                        d.expand("${STAGING_DATADIR_NATIVE}/dennis-${SCA_MODE}-fatal")))
 }
 

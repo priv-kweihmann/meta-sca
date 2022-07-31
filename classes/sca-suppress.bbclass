@@ -1,10 +1,12 @@
 inherit sca-helper
 
+SCA_NO_TRACEFILES ?= ""
+
 def sca_suppress_init(d, suppress_extra, suppress_file, file_trace=True):
     import os
     import sys
     import re
-    import urllib
+    from urllib import parse
     import bb
     import json
 
@@ -23,7 +25,7 @@ def sca_suppress_init(d, suppress_extra, suppress_file, file_trace=True):
                 self.File = ".*"
 
         def __unquote(self, value):
-            return urllib.parse.unquote(value)
+            return parse.unquote(value)
 
         @property
         def File(self):
@@ -92,7 +94,7 @@ def sca_suppress_init(d, suppress_extra, suppress_file, file_trace=True):
         def __init__(self, d, suppress_extra, suppress_file, file_trace=True):
             self.__Items = self.__add_global_items(d, suppress_extra, suppress_file) + self.__add_local_items(d)
             # automatically set to false if running on image
-            self.__filetrace = file_trace and not bb.data.inherits_class('image', d)
+            self.__filetrace = file_trace and not bb.data.inherits_class('image', d) and not d.getVar("SCA_NO_TRACEFILES")
             self.__tracedfiles = set()
             if os.path.exists(d.getVar("SCA_TRACEFILES_LIST") or "/does/not/exist") and self.__filetrace:
                 _valid_package = d.expand("${SCA_TRACEFILES_PKGS}").split(" ")

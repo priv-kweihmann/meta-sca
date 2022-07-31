@@ -29,7 +29,7 @@ def do_sca_conv_reconbf(d):
     items = []
 
     __excludes = sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA"))
-    _suppress = sca_suppress_init(d, "SCA_RECONBF_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_RECONBF_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/reconbf-${SCA_MODE}-suppress"))
     _findings = []
 
@@ -93,11 +93,12 @@ fakeroot python do_sca_reconbf() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "reconbf", get_fatal_entries(d, "SCA_RECONBF_EXTRA_FATAL",
+    sca_task_aftermath(d, "reconbf", get_fatal_entries(d, clean_split(d, "SCA_RECONBF_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/reconbf-${SCA_MODE}-fatal")))
 }
 
 do_sca_reconbf[doc] = "Run reconbf audit on image"
+do_sca_reconbf[nosdkgen] = "1"
 addtask do_sca_reconbf before do_sca_deploy after do_image
 
 DEPENDS += "sca-image-reconbf-rules-native"

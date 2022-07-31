@@ -31,7 +31,7 @@ def do_sca_conv_golicensecheck(d):
     items = []
     pattern = r"^(?P<pkg>.*):\[(?P<id>.+)\]\s+(?P<msg>.*)"
 
-    _suppress = sca_suppress_init(d, "SCA_GOLICENSECHECK_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_GOLICENSECHECK_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/golicensecheck-${SCA_MODE}-suppress"),
                                   file_trace=False)
     _findings = []
@@ -128,12 +128,14 @@ python do_sca_golicensecheck_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "golicensecheck", get_fatal_entries(d, "SCA_GOLICENSECHECK_EXTRA_FATAL",
+    sca_task_aftermath(d, "golicensecheck", get_fatal_entries(d, clean_split(d, "SCA_GOLICENSECHECK_EXTRA_FATAL"),
                        d.expand("${STAGING_DATADIR_NATIVE}/golicensecheck-${SCA_MODE}-fatal")))
 }
 
 do_sca_golicensecheck[doc] = "Scan license information in workspace"
 do_sca_golicensecheck_report[doc] = "Report findings of do_sca_golicensecheck"
+do_sca_golicensecheck[nosdkgen] = "1"
+do_sca_golicensecheck_report[nosdkgen] = "1"
 addtask do_sca_golicensecheck after do_compile before do_sca_tracefiles
 addtask do_sca_golicensecheck_report after do_sca_tracefiles before do_sca_deploy
 

@@ -121,7 +121,10 @@ def do_sca_pkgqaenc_pythonident(d, package):
 
         # Try to map against known errata
         if _imp in builtins:
-            third_party_packages.add("python3-core")
+            if bb.data.inherits_class('nativesdk', d):
+                third_party_packages.add("nativesdk-python3-core")
+            else:
+                third_party_packages.add("python3-core")
         else:
             for needle in _needles:
                 _self_served = do_sca_pkgqaenc_is_provided_by_self(d, needle[0], package, isexec=False, suffix=needle[1])

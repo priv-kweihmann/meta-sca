@@ -82,6 +82,7 @@ python do_sca_tracefiles() {
         json.dump(sca_get_trace_files(d), o)
 }
 
+do_sca_tracefiles[nosdkgen] = "1"
 addtask do_sca_tracefiles after do_install before do_package
 
 DEPENDS += "tracefiles-native"

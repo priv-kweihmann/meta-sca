@@ -33,7 +33,7 @@ def do_sca_conv_lse(d):
 
     pattern = r"^\[(?P<sev>.)\]\s+(?P<id>[a-z0-9]+)\s+(?P<msg>.*?)\.+\s+yes!"
 
-    _suppress = sca_suppress_init(d, "SCA_LSE_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_LSE_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/lse-${SCA_MODE}-suppress"))
     _findings = []
 
@@ -80,9 +80,10 @@ fakeroot python do_sca_lse() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "lse", get_fatal_entries(d, "SCA_LSE_EXTRA_FATAL",
+    sca_task_aftermath(d, "lse", get_fatal_entries(d, clean_split(d, "SCA_LSE_EXTRA_FATAL"),
                        d.expand("${STAGING_DATADIR_NATIVE}/lse-${SCA_MODE}-fatal")))
 }
 
 do_sca_lse[doc] = "Find security weaknesses in a image"
+do_sca_lse[nosdkgen] = "1"
 addtask do_sca_lse before do_sca_deploy after do_image
