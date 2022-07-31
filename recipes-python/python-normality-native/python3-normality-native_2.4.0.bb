@@ -3,7 +3,7 @@ HOMEPAGE = "http://github.com/pudo/normality"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=ac24567f92cb0c2380157fd45299ceb3"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=2f7219b033913ae167adef13f25265b5"
 
 DEPENDS += "\
             python3-banal-native \
@@ -13,11 +13,11 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "normality"
 
-SRC_URI[md5sum] = "76839f8fbeee9cb6c4877c85af748958"
-SRC_URI[sha256sum] = "c9eda72c288795294db79b1fe0b285b26f0b5e2e7b20b8fa1e617eb165fc3962"
+SRC_URI[md5sum] = "860e620b837627282c0b01f1327e40ac"
+SRC_URI[sha256sum] = "38bbe4e1dfd737c318ffd70e981ae8ff40bd8839393f6d62f0e200e5aab9e992"
 
 inherit pypi
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit native
 
 do_install:append() {
