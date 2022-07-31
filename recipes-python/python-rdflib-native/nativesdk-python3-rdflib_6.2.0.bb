@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/RDFLib/rdflib"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=b6cde159c801514e0e45a40cf0a9d3d9"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=bcae79bd3c84b857f42a98a7ccf6ad47"
 
 DEPENDS += "\
     nativesdk-python3-html5lib \
