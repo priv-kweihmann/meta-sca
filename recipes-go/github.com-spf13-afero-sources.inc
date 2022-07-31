@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/spf13/afero/@v/v1.8.2.zip;srcoutput=github.com/spf13/afero;srcinput=github.com/spf13/afero@v1.8.2;downloadfilename=github-com-spf13-afero-1.8.2.zip;name=github-com-spf13-afero"
-SRC_URI[github-com-spf13-afero.sha256sum] = "bb6102798d19eea4d80f8d3279a6b8fe4ec4cad46d2c90c36817ed969c2115e1"
+SRC_URI += "https://proxy.golang.org/github.com/spf13/afero/@v/v1.9.2.zip;srcoutput=github.com/spf13/afero;srcinput=github.com/spf13/afero@v1.9.2;downloadfilename=github-com-spf13-afero-1.9.2.zip;name=github-com-spf13-afero"
+SRC_URI[github-com-spf13-afero.sha256sum] = "64dbd57907f1718a4b549f5275375c13eb9bed301242fdacdfece0e97bdd86c7"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
