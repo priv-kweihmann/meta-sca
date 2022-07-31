@@ -1,0 +1,6 @@
+#!/bin/sh
+IFS=:
+for dir in $PATH; do
+    [ ! -e "${dir}" ] && continue
+    find "${dir}" -type f -name "sca.*.sh" -exec {} \;
+done
