@@ -117,7 +117,7 @@ def get_nativesdk_recipe(pkgname):
 
 
 def run_sdkgen(_args):
-    _pargs = [os.path.join(_args.repo, "scripts", "sdk-gen")]
+    _pargs = [os.path.join(_args.repo, "scripts", "sdk-gen"), f"--ignores={_args.repo}/.nonsdkable", _args.repo]
     subprocess.check_call(_pargs, universal_newlines=True)
 
 
