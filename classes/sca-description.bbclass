@@ -1,16 +1,13 @@
 ## SPDX-License-Identifier: BSD-2-Clause
 ## Copyright (c) 2020, Konrad Weihmann
 
+inherit sca-sdk-script-gen
+
 SCA_TOOL_DESCRIPTION ?= ""
 
-SRC_URI:append:class-native = " file://${SCA_TOOL_DESCRIPTION}.sca.description"
+SRC_URI:append = " file://${SCA_TOOL_DESCRIPTION}.sca.description"
 
 python do_sca_tool_description() {
-    # this does nothing for non-native builds
-    pass
-}
-
-python do_sca_tool_description:class-native() {
     import json
     import glob
     import re
@@ -32,11 +29,14 @@ python do_sca_tool_description:class-native() {
 do_sca_tool_description[doc] = "Adds dynamic information such as version into the sca-tool description"
 addtask do_sca_tool_description after do_patch before do_install
 
-do_install:append:class-native() {
+do_install:append() {
     install -d ${D}${datadir}
     if [ -e ${WORKDIR}/${SCA_TOOL_DESCRIPTION}.sca.description ]; then
         install -m 0644 ${WORKDIR}/${SCA_TOOL_DESCRIPTION}.sca.description ${D}${datadir}
     fi
 }
 
-FILES:${PN}:class-native += "${datadir}"
+FILES:${PN}:append = " ${datadir}"
+
+PROVIDES:class-nativesdk += "${PN}"
+ALLOW_EMPTY:${PN}:class-nativesdk = "1"
