@@ -20,6 +20,7 @@
 * [x] terminate build on fatal
 * [ ] run on recipe
 * [x] run on image
+* [ ] available in SDK
 * [x] run with SCA-layer default settings (see SCA_AVAILABLE_MODULES)
 
 ## Requires

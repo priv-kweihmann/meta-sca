@@ -20,20 +20,16 @@ So lets assume your tool is build by recipe `myfoolint-native`, you need to add 
 Then add the following code blocks into your tool recipe
 
 ```bitbake
-SRC_URI += "file://myfoolint.sca.description"
-FILES:${PN} += "${datadir}"
+inherit sca-description
 
-do_install:append() {
-    install -d ${D}${datadir}
-    install ${WORKDIR}/myfoolint.sca.description ${D}${datadir}/
-}
+SCA_TOOL_DESCRIPTION = "myfoolint"
 ```
 
 ### Content of the description file
 
 As already mentioned the description file is a json which usually looks like this
 
-```javascript
+```json
 {
     // information how long it takes to build the tool itself on a scale between 0 (worst) - 10 (best)
     "buildspeed": 7,
@@ -454,6 +450,37 @@ SCA_BLOCKLIST_myfoolint = ""
 ```
 
 **Congratulation** you made it - Now it's time to test your implementation!
+
+## Make the tool available for SDK users
+
+in case your tool should be available when building the SDK, please do the following
+
+### Generate the SDK recipe
+
+run
+
+```shell
+path/to/meta-sca/scripts/sdk-gen --ignores=path/to/meta-sca/.nonsdkable path/to/your/recipe/
+```
+
+e.g.
+
+```shell
+path/to/meta-sca/scripts/sdk-gen --ignores=path/to/meta-sca/.nonsdkable recipes-lint/myfoolint/
+```
+
+### Add the tool to a package-group
+
+easiest it is to bbappend to `packagegroups/nativesdk-sca-tools.bb`
+
+e.g. like the following
+
+```bitbake
+
+RDEPENDS:${PN} += "\
+    ${@oe.utils.ifelse('myfoolint' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-myfoolint nativesdk-sca-recipe-myfoolint-rules', '')} \
+"
+```
 
 ## Contribute it back
 
