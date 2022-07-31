@@ -1,0 +1,163 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: BSD-2-Clause
+# Copyright (c) 2021, Konrad Weihmann
+
+# Generate SDK recipes out of native recipes
+
+import argparse
+import glob
+import os
+import re
+
+from oelint_parser.cls_stash import Stash
+from oelint_parser.cls_item import Variable
+from oelint_parser.helper_files import guess_recipe_name
+
+_notranlate = [
+    "bison-native",
+    "cmake-native",
+    "libmodule-build-perl-native",
+    "ninja-native",
+    "perl-b-keywords-native",
+    "perl-exporter-tiny-native",
+    "perl-extutils-config-native",
+    "perl-extutils-helper-native",
+    "perl-extutils-installpaths-native",
+    "perl-file-sharedir-native",
+    "perl-list-moreutils-native",
+    "perl-module-build-tiny-native",
+    "python3-distro-native",
+    "python3-hatch-vcs-native",
+    "python3-nose-native",
+    "python3-numpy-native",
+    "python3-pbr-native",
+    "python3-pytest-runner-native",
+    "python3-scikit-build-native",
+    "python3-setuptools-scm-native",
+    "python3-toml-native",
+    "python3-tomli-native",
+    "python3-wheel-native",
+]
+
+
+def read_ignores(args):
+    if not os.path.exists(args.ignores):
+        return []
+    with open(args.ignores) as i:
+        return [x.strip('\n').strip() for x in i.readlines()]
+
+
+def create_parser():
+    parser = argparse.ArgumentParser(description='SDK recipe generator')
+    parser.add_argument('--force', action='store_true',
+                        help='Force recipe generation')
+    parser.add_argument('--ignores', default=os.path.join(os.path.dirname(__file__),
+                                                          "..", ".nonsdkable"), help='file with non-SDK-able recipes')
+    parser.add_argument('root', help='base path to the repo')
+    x = parser.parse_args()
+    x.ignores = read_ignores(x)
+    return x
+
+
+def native_to_sdk_convert(_input):
+    _quotes = '"' if _input.startswith('"') else ''
+    if _quotes:
+        _input = _input.strip('"')
+    _f = []
+    for item in re.split(r'\s|\t|\x1b', _input):
+        if not item:
+            continue
+        if item.endswith('-native') and item not in _notranlate:
+            _f.append('nativesdk-{}'.format(item.replace('-native', '')))
+        else:
+            _f.append(item)
+    _gluestr = ' \\\n    ' if len(_f) > 1 else ' '
+    _p = '\\\n    ' if len(_f) > 1 else ''
+    _s = ' \\\n' if len(_f) > 1 else ''
+    return '{q}{p}{i}{s}{q}'.format(q=_quotes, i=_gluestr.join(sorted(_f)), p=_p, s=_s)
+
+
+def nativesdk_filename(_input):
+    return os.path.join(os.path.dirname(_input), 'nativesdk-{}'.format(os.path.basename(_input).replace('-native', '')))
+
+
+def find_older_recipes(_input):
+    _mask = '_'.join(os.path.basename(_input).split('_')[0:-1]) + '_*'
+    res = glob.glob(os.path.join(os.path.dirname(_input), _mask))
+    return [x for x in res if x != _input]
+
+
+def translate_items(tree, _table, recipe):
+    for sitem in tree.GetItemsFor():
+        if sitem.CLASSIFIER != Variable.CLASSIFIER:
+            continue
+        if sitem.VarName == "COMPATIBLE_HOST":
+            sitem.RealRaw = 'DEPENDS += "{recipe}"\n'.format(recipe=recipe)
+
+        for titem in _table:
+            if not re.match(titem.get('name', '.*'), sitem.VarName):
+                continue
+            if not re.match(titem.get('value', '.*'), sitem.VarValue):
+                continue
+            if titem.get('remove', False):
+                sitem.RealRaw = ''
+            else:
+                sitem.VarValue = re.sub(
+                    titem.get('value', '(.*)'), titem.get('to', r'\1'), sitem.VarValue)
+                sitem.VarValue = native_to_sdk_convert(sitem.VarValue)
+                _op = sitem.VarOp if sitem.VarName != 'inherit' else ' '
+                _varname = titem.get('rename', None) or sitem.VarNameComplete
+                sitem.RealRaw = '{name}{op}{value}\n'.format(
+                    name=_varname, op=_op, value=sitem.VarValue)
+
+
+_translate = [
+    {'name': 'inherit', 'value': 'native', 'to': 'nativesdk'},
+    {'name': 'DEPENDS', 'to': r'\1'},
+    {'name': 'RDEPENDS', 'to': r'\1'},
+    {'value': '(.*-native.*)', 'to': r'\1'},
+]
+
+
+def create_recipe(args, _file):
+    _res = {
+        'inputfile': _file,
+        'outputfile': nativesdk_filename(_file),
+        '_inputtree': Stash(quiet=True),
+        '_olderfiles': []
+    }
+    _res['_olderfiles'] = find_older_recipes(_res['outputfile'])
+    if not os.path.exists(_res['outputfile']) or args.force:
+        # find older sdk recipes
+        _res['_inputtree'].AddFile(_res['inputfile'])
+
+        # run translation table
+        translate_items(_res['_inputtree'], _translate,
+                        guess_recipe_name(_file))
+        # dump content
+        _res['output'] = ''.join([x.RealRaw for x in sorted(
+            _res['_inputtree'].GetItemsFor(filename=_file, nolink=True), key=lambda k: k.Line)])
+
+        # prettify
+        _res['output']= re.sub(r'\n{3,}', '\n\n', _res['output'])
+
+        print('Creating {}'.format(_res['outputfile']))
+        with open(_res['outputfile'], 'w') as o:
+            o.write(_res['output'])
+    # remove older files
+    for item in _res['_olderfiles']:
+        os.remove(item)
+
+
+def main():
+    args= create_parser()
+    for f in glob.glob(os.path.join(args.root, '**', '*.bb'), recursive=True):
+        if "-native" not in os.path.basename(f):
+            continue
+        if any(re.match(x, f) for x in args.ignores):
+            continue
+        create_recipe(args, f)
+
+
+if __name__ == '__main__':
+    main()
