@@ -90,7 +90,7 @@ def do_sca_conv_pkgqaenc(d):
     items = []
     pattern = r"^WARNING:\s+\[(?P<id>.*?)\]:\s+(?P<path>.*?):\s+(?P<msg>.*)"
 
-    _suppress = sca_suppress_init(d, "SCA_PKGQAENC_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_PKGQAENC_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/pkgqaenc-${SCA_MODE}-suppress"),
                                   file_trace=False)
     _findings = []
@@ -189,13 +189,14 @@ python do_sca_pkgqaenc() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "pkgqaenc", get_fatal_entries(d, "SCA_PKGQAENC_EXTRA_FATAL",
+    sca_task_aftermath(d, "pkgqaenc", get_fatal_entries(d, clean_split(d, "SCA_PKGQAENC_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/pkgqaenc-${SCA_MODE}-fatal")))
 }
 
 
 do_sca_pkgqaenc[doc] = "Lint produced packages"
 do_sca_pkgqaenc[depends] += "python3-native:do_populate_sysroot ${PN}:do_prepare_recipe_sysroot"
+do_sca_pkgqaenc[nosdkgen] = "1"
 addtask do_sca_pkgqaenc before do_sca_deploy after do_package
 
-DEPENDS += "pkgqaenc-native sca-recipe-pkgqaenc-rules-native python3-native"
+DEPENDS += "pkgqaenc-native sca-recipe-pkgqaenc-rules-native python3-native file-native"

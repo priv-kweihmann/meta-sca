@@ -29,7 +29,7 @@ def do_sca_conv_reuse(d):
     items = []
     pattern = r"^(?P<pkg>.*):\[(?P<id>.+)\]\s+(?P<msg>.*)"
 
-    _suppress = sca_suppress_init(d, "SCA_REUSE_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_REUSE_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/reuse-${SCA_MODE}-suppress"),
                                   file_trace=False)
     _findings = []
@@ -113,12 +113,14 @@ python do_sca_reuse_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "reuse", get_fatal_entries(d, "SCA_REUSE_EXTRA_FATAL",
+    sca_task_aftermath(d, "reuse", get_fatal_entries(d, clean_split(d, "SCA_REUSE_EXTRA_FATAL"),
                        d.expand("${STAGING_DATADIR_NATIVE}/reuse-${SCA_MODE}-fatal")))
 }
 
 do_sca_reuse[doc] = "License compliance with reuse"
 do_sca_reuse_report[doc] = "Report findings of do_sca_reuse"
+do_sca_reuse[nosdkgen] = "1"
+do_sca_reuse_report[nosdkgen] = "1"
 addtask do_sca_reuse after do_compile before do_sca_tracefiles
 addtask do_sca_reuse_report after do_sca_tracefiles before do_sca_deploy
 

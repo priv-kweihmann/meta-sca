@@ -21,6 +21,6 @@ SCA_PYLINT_LIBATH ?= "${STAGING_LIBDIR}/python${PYTHON_BASEVERSION}/:${STAGING_L
 do_sca_pylint_core[doc] = "Lint python code with pylint"
 do_sca_pylint_core_report[doc] = "Report findings from do_sca_pylint_core"
 addtask do_sca_pylint_core after do_compile before do_sca_tracefiles
-addtask do_sca_pylint_core_report after do_sca_tracefiles before do_sca_deploy
+addtask do_sca_pylint_core_report after do_sca_pylint_core do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "sca-recipe-pylint-rules-native"

@@ -37,7 +37,7 @@ def do_sca_conv_perlcritic(d):
         "1": "info"
     }
 
-    _suppress = sca_suppress_init(d, "SCA_PERLCRITIC_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_PERLCRITIC_EXTRA_SUPPRESS"),
                                    d.expand("${STAGING_DATADIR_NATIVE}/perlcritic-${SCA_MODE}-suppress"))
     _findings = []
 
@@ -98,7 +98,7 @@ python do_sca_perlcritic_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "perlcritic", get_fatal_entries(d, "SCA_PERLCRITIC_EXTRA_FATAL",
+    sca_task_aftermath(d, "perlcritic", get_fatal_entries(d, clean_split(d, "SCA_PERLCRITIC_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/perlcritic-${SCA_MODE}-fatal")))
 }
 

@@ -26,7 +26,7 @@ def do_sca_conv_protolint(d):
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
     items = []
-    _suppress = sca_suppress_init(d, "SCA_PROTOLINT_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_PROTOLINT_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/protolint-${SCA_MODE}-suppress"),
                                   file_trace=False)
     _findings = []
@@ -119,7 +119,7 @@ python do_sca_protolint_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "protolint", get_fatal_entries(d, "SCA_PROTOLINT_EXTRA_FATAL",
+    sca_task_aftermath(d, "protolint", get_fatal_entries(d, clean_split(d, "SCA_PROTOLINT_EXTRA_FATAL"),
                        d.expand("${STAGING_DATADIR_NATIVE}/protolint-${SCA_MODE}-fatal")))
 }
 

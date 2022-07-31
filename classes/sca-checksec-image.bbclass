@@ -40,7 +40,7 @@ def do_sca_conv_checksec(d):
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
-    _suppress = sca_suppress_init(d, "SCA_CHECKSEC_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_CHECKSEC_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/checksec-${SCA_MODE}-suppress"))
     _findings = []
 
@@ -100,9 +100,10 @@ fakeroot python do_sca_checksec() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "checksec", get_fatal_entries(d, "SCA_CHECKSEC_EXTRA_FATAL",
+    sca_task_aftermath(d, "checksec", get_fatal_entries(d, clean_split(d, "SCA_CHECKSEC_EXTRA_FATAL"),
                        d.expand("${STAGING_DATADIR_NATIVE}/checksec-${SCA_MODE}-fatal")))
 }
 
 do_sca_checksec[doc] = "Find security weaknesses in binaries"
+do_sca_checksec[nosdkgen] = "1"
 addtask do_sca_checksec before do_sca_deploy after do_image

@@ -28,7 +28,7 @@ def do_sca_conv_msgcheck(d):
     items = []
     pattern = r"^(?P<file>.*):(?P<line>\d+):(\s+(?P<severity>warning|error):\s|\s+\[(?P<id>.*)\]\s+|\s+)(?P<msg>.*)"
 
-    __suppress = sca_suppress_init(d, "SCA_MSGCHECK_EXTRA_SUPPRESS",
+    __suppress = sca_suppress_init(d, clean_split(d, "SCA_MSGCHECK_EXTRA_SUPPRESS"),
                                    d.expand("${STAGING_DATADIR_NATIVE}/msgcheck-${SCA_MODE}-suppress"),
                                    file_trace=False)
     _findings = []
@@ -88,7 +88,7 @@ python do_sca_msgcheck() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "msgcheck", get_fatal_entries(d, "SCA_MSGCHECK_EXTRA_FATAL",
+    sca_task_aftermath(d, "msgcheck", get_fatal_entries(d, clean_split(d, "SCA_MSGCHECK_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/msgcheck-${SCA_MODE}-fatal")))
 }
 

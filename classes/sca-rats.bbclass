@@ -33,7 +33,7 @@ def do_sca_conv_rats(d):
         "Default": "info"
     }
 
-    _suppress = sca_suppress_init(d, "SCA_RATS_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_RATS_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/rats-${SCA_MODE}-suppress"))
 
     _findings = []
@@ -136,7 +136,7 @@ python do_sca_rats_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "rats", get_fatal_entries(d, "SCA_RATS_EXTRA_FATAL",
+    sca_task_aftermath(d, "rats", get_fatal_entries(d, clean_split(d, "SCA_RATS_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/rats-${SCA_MODE}-fatal")))
 }
 

@@ -18,7 +18,7 @@ def do_sca_conv_shellcheck(d):
 
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
-    _suppress = sca_suppress_init(d, "SCA_SHELLCHECK_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_SHELLCHECK_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/shellcheck-${SCA_MODE}-suppress"))
     _findings = []
 
@@ -89,7 +89,7 @@ python do_sca_shellcheck_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "shellcheck", get_fatal_entries(d, "SCA_SHELLCHECK_EXTRA_FATAL",
+    sca_task_aftermath(d, "shellcheck", get_fatal_entries(d, clean_split(d, "SCA_SHELLCHECK_EXTRA_FATAL"),
                        d.expand("${STAGING_DATADIR_NATIVE}/shellcheck-${SCA_MODE}-fatal")))
 }
 

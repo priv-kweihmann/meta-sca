@@ -71,7 +71,7 @@ fakeroot python do_sca_configcheck() {
     cmd_output = ""
 
     _raw_findings = []
-    _suppress = sca_suppress_init(d, "SCA_CONFIGCHECK_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_CONFIGCHECK_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/configcheck-${SCA_MODE}-suppress"))
 
     _pargs = []
@@ -117,11 +117,12 @@ fakeroot python do_sca_configcheck() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "configcheck", get_fatal_entries(d, "SCA_TIGER_EXTRA_FATAL",
+    sca_task_aftermath(d, "configcheck", get_fatal_entries(d, clean_split(d, "SCA_TIGER_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/configcheck-${SCA_MODE}-fatal")))
 }
 
 do_sca_configcheck[doc] = "Check configuration of tools for validity in image"
+do_sca_configcheck[nosdkgen] = "1"
 addtask do_sca_configcheck before do_sca_deploy after do_image
 
 DEPENDS += "configcheck-sca-native sca-image-configcheck-rules-native"

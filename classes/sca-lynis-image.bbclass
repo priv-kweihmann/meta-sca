@@ -31,7 +31,7 @@ def do_sca_conv_lynis(d):
         "*" : "warning"
     }
 
-    _suppress = sca_suppress_init(d, "SCA_LYNIS_EXTRA_SUPPRESS",
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_LYNIS_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/lynis-${SCA_MODE}-suppress"))
     _findings = []
 
@@ -82,11 +82,12 @@ fakeroot python do_sca_lynis() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "lynis", get_fatal_entries(d, "SCA_LYNIS_EXTRA_FATAL",
+    sca_task_aftermath(d, "lynis", get_fatal_entries(d, clean_split(d, "SCA_LYNIS_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/lynis-${SCA_MODE}-fatal")))
 }
 
 do_sca_lynis[doc] = "Audit image with lynis"
+do_sca_lynis[nosdkgen] = "1"
 addtask do_sca_lynis before do_sca_deploy after do_image
 
 DEPENDS += "sca-image-lynis-rules-native"
