@@ -25,3 +25,5 @@ IMAGE_ROOTFS_EXTRA_SPACE:append = "${@bb.utils.contains("DISTRO_FEATURES", "syst
 ROOTFS_POSTPROCESS_COMMAND += "add_fake_secret;"
 
 do_devshell[depends] += "${PN}:do_rootfs"
+
+TOOLCHAIN_HOST_TASK += "nativesdk-sca-tools"
