@@ -14,7 +14,6 @@ EXTRA_DEPENDS += "\
     github.com-golang-protobuf-native \
     github.com-google-uuid-native \
     github.com-googleapis-gax-go-v2-native \
-    github.com-googleapis-go-type-adapters-native \
     golang.org-x-oauth2-native \
     google.golang.org-api-native \
     google.golang.org-genproto-native \
