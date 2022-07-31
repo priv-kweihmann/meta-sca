@@ -337,7 +337,7 @@ SCA_SOURCECHECKSUM ?= "${T}/sca_seen_sources.txt"
 
 do_sca_get_sources() {
     echo "" > ${SCA_SOURCECHECKSUM}
-    find ${S} -type f -exec sh -c "md5sum '{}' 2>/dev/null || true" >> ${SCA_SOURCECHECKSUM} \;
+    find ${S} -type f  -exec sh -c "md5sum '{}' 2>/dev/null || true" >> ${SCA_SOURCECHECKSUM} \; || true
 }
 
 do_sca_get_sources[doc] = "Get all source files of the workspace"
