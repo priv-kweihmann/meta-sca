@@ -126,6 +126,10 @@ def do_sca_pkgqaenc_core(d, package):
     from urllib.parse import unquote
 
     _config_tmp = os.path.join(d.getVar("T"), "pkgqaenc.conf")
+    try:
+        os.remove(_config_tmp)
+    except:
+        pass
     os.environ["MAGIC"] = os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "misc/magic.mgc")
     _args = ["nativepython3", os.path.join(d.getVar("STAGING_BINDIR_NATIVE"), "pkgqaenc")]
     _args += ["--debug"]
