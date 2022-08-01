@@ -36,6 +36,7 @@ RDEPENDS:${PN} += "bash"
 # We don't really care about debug package for this one
 # also because of the issue mentioned below
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
+INHIBIT_PACKAGE_STRIP = "1"
 
 # Package contains exploit sample from (maybe) not matching arch
 # plus all the dependencies from that arch
