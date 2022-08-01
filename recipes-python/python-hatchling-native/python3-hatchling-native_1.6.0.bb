@@ -18,7 +18,9 @@ DEPENDS:remove = "python3-hatchling-native"
 
 SRC_URI[sha256sum] = "bd6e8505de511ac4217ff50927f6d1845494608e401e63a62b830c31fb613544"
 
-inherit pypi python_hatchling native
+inherit pypi
+inherit python_hatchling
+inherit native
 
 PYPI_PACKAGE = "hatchling"
 PEP517_BUILD_API = "hatchling.ouroboros"
