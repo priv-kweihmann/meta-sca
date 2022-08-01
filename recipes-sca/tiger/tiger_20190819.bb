@@ -31,6 +31,10 @@ do_install:prepend() {
     install -d ${D}${mandir}
 }
 
+do_install:append() {
+    sed -i "s#${HOSTTOOLS_DIR}/##g" ${D}/${datadir}/tiger/doc/Makefile
+}
+
 do_install:append:class-target() {
     chown -R root:root ${D}${datadir}/tiger
 }
