@@ -37,6 +37,9 @@ do_install:class-target () {
 
 FILES:${PN}:class-target = "${datadir} ${sysconfdir} ${bindir}"
 
-RDEPENDS:${PN}:class-target += "procps"
+RDEPENDS:${PN}:class-target += "\
+    bash \
+    procps \
+"
 
 BBCLASSEXTEND = "native"
