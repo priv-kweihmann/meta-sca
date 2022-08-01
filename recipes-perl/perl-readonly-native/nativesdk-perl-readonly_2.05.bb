@@ -16,3 +16,9 @@ S = "${WORKDIR}/Readonly-${PV}"
 
 inherit cpan_build
 inherit nativesdk
+
+do_install:append() {
+    # Remove .packlist file, as it contains host specific paths
+    # and doesn't serve a real purpose
+    find ${D} -name ".packlist" -delete
+}

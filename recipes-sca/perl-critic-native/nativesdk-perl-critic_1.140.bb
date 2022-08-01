@@ -50,7 +50,10 @@ do_compile () {
     perl Build verbose=1
 }
 do_install:append() {
-    sed -i "s#/usr/bin/perl#/usr/bin/env perl#g" ${D}${bindir}/perlcritic
+    sed -i "s#/.*/bin/perl#/usr/bin/env perl#g" ${D}${bindir}/perlcritic
+    # Remove .packlist file, as it contains host specific paths
+    # and doesn't serve a real purpose
+    find ${D} -name ".packlist" -delete
 }
 INSANE_SKIP:${PN} += "shebang-size"
 RDEPENDS:${PN}:class-nativesdk += "\

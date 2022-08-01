@@ -16,3 +16,9 @@ S = "${WORKDIR}/PPIx-Regexp-${PV}"
 
 inherit cpan_build
 inherit native
+
+do_install:append() {
+    # Remove .packlist file, as it contains host specific paths
+    # and doesn't serve a real purpose
+    find ${D} -name ".packlist" -delete
+}
