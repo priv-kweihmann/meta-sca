@@ -28,10 +28,11 @@
 SUMMARY = "7-zip is a commandline utility handling 7z archives."
 HOMEPAGE = "http://www.7-zip.org/"
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "LGPL-2.1-or-later & unRAR"
+LICENSE = "LGPL-2.1-or-later & unRAR & MIT"
 LIC_FILES_CHKSUM = "file://DOC/copying.txt;md5=4fbd65380cdd255951079008b364516c \
                     file://DOC/unRarLicense.txt;md5=9c87ddde469ef94aed153b0951d088de \
-                    file://DOC/License.txt;md5=879598edf1f54dddb6930d7581357f8b"
+                    file://DOC/License.txt;md5=879598edf1f54dddb6930d7581357f8b \
+                    file://CPP/7zip/Compress/Lzham/LICENSE;md5=ecb85112590039ffede794cdce301571"
 
 SRC_URI = "http://downloads.sourceforge.net/p7zip/p7zip/16.02/p7zip_16.02_src_all.tar.bz2 \
            file://do_not_override_compiler_and_do_not_strip.patch \
@@ -50,4 +51,7 @@ do_install() {
 	ln -s 7za ${D}${bindir}/7z
 }
 
-inherit native
+inherit nativesdk
+
+UPSTREAM_CHECK_URI = "https://sourceforge.net/projects/p7zip/files/p7zip/"
+UPSTREAM_CHECK_REGEX = "/projects/p7zip/files/p7zip/(?P<pver>\d+\.\d+)"
