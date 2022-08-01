@@ -39,6 +39,8 @@ do_compile[noexec] = "1"
 inherit sca-description
 inherit nativesdk
 SCA_TOOL_DESCRIPTION = "shellcheck"
+WRAPPER_LIBPATH:class-native = "${STAGING_LIBDIR_NATIVE}"
+WRAPPER_LIBPATH:class-nativesdk = "${libdir}"
 do_install() {
     install -d ${D}${bindir}
     cp -R ${S}/shellcheck ${D}${bindir}
@@ -47,11 +49,11 @@ do_install() {
     cat << EOF > ${D}${bindir}/shellcheck-wrapper
 #!/bin/sh
 
-if [ ! -e "${STAGING_LIBDIR_NATIVE}/libffi.so.7" -a -e "${STAGING_LIBDIR_NATIVE}/libffi.so.6" ]; then
-   ln -s ${STAGING_LIBDIR_NATIVE}/libffi.so.6 ${STAGING_LIBDIR_NATIVE}/libffi.so.7
+if [ ! -e "${WRAPPER_LIBPATH}/libffi.so.7" -a -e "${WRAPPER_LIBPATH}/libffi.so.6" ]; then
+   ln -s ${WRAPPER_LIBPATH}/libffi.so.6 ${WRAPPER_LIBPATH}/libffi.so.7
 fi
 
-LD_LIBRARY_PATH=${STAGING_LIBDIR_NATIVE} shellcheck \$@
+LD_LIBRARY_PATH=${WRAPPER_LIBPATH} shellcheck \$@
 EOF
     chmod 0755 ${D}${bindir}/shellcheck-wrapper
 }
