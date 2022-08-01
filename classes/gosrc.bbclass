@@ -43,6 +43,8 @@ python gosrc_do_unpack() {
             else:
                 shutil.copy(os.path.join(v, f), os.path.join(k, f))
 }
+gosrc_do_unpack[dirs] += "${WORKDIR}/sources ${WORKDIR}/src"
+gosrc_do_unpack[cleandirs] += "${WORKDIR}/sources ${WORKDIR}/src"
 do_unpack[dirs] += "${WORKDIR}/sources ${WORKDIR}/src"
 do_unpack[cleandirs] += "${WORKDIR}/sources ${WORKDIR}/src"
 
