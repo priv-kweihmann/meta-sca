@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/jackc/pgconn/@v/v1.12.1.zip;srcoutput=github.com/jackc/pgconn;srcinput=github.com/jackc/pgconn@v1.12.1;downloadfilename=github-com-jackc-pgconn-1.12.1.zip;name=github-com-jackc-pgconn"
-SRC_URI[github-com-jackc-pgconn.sha256sum] = "48d34064a1facff7766713d9224502e7376a5d90c1506f99a37c57bfceaf9636"
+SRC_URI += "https://proxy.golang.org/github.com/jackc/pgconn/@v/v1.13.0.zip;srcoutput=github.com/jackc/pgconn;srcinput=github.com/jackc/pgconn@v1.13.0;downloadfilename=github-com-jackc-pgconn-1.13.0.zip;name=github-com-jackc-pgconn"
+SRC_URI[github-com-jackc-pgconn.sha256sum] = "83aa80850abbe09910a80a110b00d9b8d5e01160fb8b3c21191675241b5b3405"
 
 GOSRC_LICENSE += "\
     MIT \
