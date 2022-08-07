@@ -10,6 +10,7 @@ require github.com-prometheus-client-golang-sources.inc
 EXTRA_DEPENDS += "\
     nativesdk-github.com-beorn7-perks \
     nativesdk-github.com-cespare-xxhash-v2 \
+    nativesdk-github.com-davecgh-go-spew \
     nativesdk-github.com-golang-protobuf \
     nativesdk-github.com-json-iterator-go \
     nativesdk-github.com-prometheus-client-model \
