@@ -85,12 +85,9 @@
         "version": "46b345b51c9667fcbaad862a370d73bd7aa802b6"
     },
     "github.com/BurntSushi/toml": {
-        "recipeextra": [
-            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+)\""
-        ],
         "striplevel": 1,
         "url": "git://github.com/BurntSushi/toml",
-        "version": "v1.1.0"
+        "version": "v1.2.0"
     },
     "github.com/BurntSushi/xgb": {
         "branch": "master",

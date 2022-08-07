@@ -8,6 +8,6 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require github.com-burntsushi-toml-sources.inc
 
 GO_IMPORT = "github.com/BurntSushi/toml"
-UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>\d+\.\d+)"
+
 inherit gosrc
-inherit nativesdk
+inherit native
