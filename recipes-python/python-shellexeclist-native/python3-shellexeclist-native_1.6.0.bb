@@ -14,7 +14,7 @@ LIC_FILES_CHKSUM = "\
 "
 
 SRC_URI = "git://github.com/priv-kweihmann/shellexeclist.git;branch=master;protocol=https"
-SRCREV = "e09449a4cbf134567f9b89bf19c5f06f16688cd8"
+SRCREV = "b160e5bdd0166b9233835f43941dff8da1b1685f"
 
 S = "${WORKDIR}/git"
 
