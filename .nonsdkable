@@ -1,6 +1,7 @@
 .*/dynamic-distro/.*
 .*/recipes-devtools/proot-native/.*
 .*/recipes-devtools/qemu-static/.*
+.*/recipes-python/python-shellexeclist-native/python3-shellexeclist-native.*
 .*/recipes-sca-rules/sca-image-.*
 .*/recipes-sca-rules/sca-recipe-cmake-rules-native/.*
 .*/recipes-sca-rules/sca-recipe-gcc-rules-native/.*
