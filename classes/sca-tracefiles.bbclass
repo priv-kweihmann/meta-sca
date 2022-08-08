@@ -52,7 +52,7 @@ def sca_get_trace_files(d):
     _pkg_files = sca_get_pkg_files(d)
     for k, v in _pkg_files.items():
         try:
-            cmd_out = subprocess.check_output(["tracefiles", d.getVar("D"), d.getVar("SCA_SOURCES_DIR")] + v)
+            cmd_out = subprocess.check_output(["tracefiles", d.getVar("SCA_SOURCES_DIR")] + v)
         except subprocess.CalledProcessError as e:
             cmd_out = e.output or ""
 
