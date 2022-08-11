@@ -13,7 +13,7 @@ def sca_files_part_of_unspared_layer(d, files):
     import re
     import os
     _layer = []
-    _allow_list = d.getVar("SCA_ALLOW_LAYER").split(" ")
+    _allow_list = [x for x in d.getVar("SCA_ALLOW_LAYER").split(" ") if x]
     for x in d.getVar("SCA_SPARE_LAYER").split(" "):
         if not x:
             continue
