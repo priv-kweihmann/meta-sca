@@ -45,16 +45,16 @@ def do_sca_conv_oelint(d, _files):
     _suppress = sca_suppress_init(d, clean_split(d, "SCA_OELINT_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/oelint-${SCA_MODE}-suppress"),
                                   file_trace=False)
-    _spared_layer_files = _files
+    _applicable_files = _files
     if d.getVar("SCA_OELINT_IGNORE_SPARED_LAYER") == "1":
-        _spared_layer_files = sca_files_part_of_unspared_layer(d, _files)
+        _applicable_files = sca_applicable(d, _files)
 
     if os.path.exists(sca_raw_result_file(d, "oelint")):
         with open(sca_raw_result_file(d, "oelint"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
-                    if not m.group("file") in _spared_layer_files:
-                        # if file is not in unspared layer continue
+                    if m.group("file") not in _applicable_files:
+                        # if sca is not applicable skip here
                         continue
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
