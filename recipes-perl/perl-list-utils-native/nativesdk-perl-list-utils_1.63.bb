@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://README;beginline=21;md5=21c3aed4474bc6fbe084cb3c7b497
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "2e5186779360f938c8ec83030c7b5a03"
-SRC_URI[sha256sum] = "7279c4ec7df0cf2c0acb874abdfe86956f5028d2414974db56edfbed8a4d339f"
+SRC_URI[md5sum] = "bf0470460a4c1d20fb2ae0c5862be315"
+SRC_URI[sha256sum] = "cafbdf212f6827dc9a0dd3b57b6ee50e860586d7198228a33262d55c559eb2a9"
 
 S = "${WORKDIR}/Scalar-List-Utils-${PV}"
 
