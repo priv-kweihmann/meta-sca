@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/hashicorp/serf/@v/v0.9.8.zip;srcoutput=github.com/hashicorp/serf;srcinput=github.com/hashicorp/serf@v0.9.8;downloadfilename=github-com-hashicorp-serf-0.9.8.zip;name=github-com-hashicorp-serf"
-SRC_URI[github-com-hashicorp-serf.sha256sum] = "58203f731643177fef03a76bdb6c2349e0dc9859cd806e3e6fa84bfde6b906ff"
+SRC_URI += "https://proxy.golang.org/github.com/hashicorp/serf/@v/v0.10.0.zip;srcoutput=github.com/hashicorp/serf;srcinput=github.com/hashicorp/serf@v0.10.0;downloadfilename=github-com-hashicorp-serf-0.10.0.zip;name=github-com-hashicorp-serf"
+SRC_URI[github-com-hashicorp-serf.sha256sum] = "21a5ce45b99c336e743af06ab0d6e92341e44e850493a2ebf0bd9f1d23f27649"
 
 GOSRC_LICENSE += "\
     MPL-2.0 \
