@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/storage/@v/v1.24.0.zip;srcoutput=cloud.google.com/go/storage;srcinput=cloud.google.com/go/storage@v1.24.0;downloadfilename=cloud-google-com-go-storage-1.24.0.zip;name=cloud-google-com-go-storage"
-SRC_URI[cloud-google-com-go-storage.sha256sum] = "14a39f3b57093da56fc01f836a2fbdce8448115c25adf54b0c97aa1c18a4c4db"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/storage/@v/v1.25.0.zip;srcoutput=cloud.google.com/go/storage;srcinput=cloud.google.com/go/storage@v1.25.0;downloadfilename=cloud-google-com-go-storage-1.25.0.zip;name=cloud-google-com-go-storage"
+SRC_URI[cloud-google-com-go-storage.sha256sum] = "ffc1a49f7b1d2f0118b5e02e12b1d0747f765c6d589af31e2327871e99570cac"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
