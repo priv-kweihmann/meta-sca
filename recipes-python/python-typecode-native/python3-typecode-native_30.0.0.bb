@@ -18,12 +18,10 @@ DEPENDS += "\
              python3-wheel-native \
             "
 
-SRC_URI:append = " file://0001-Relax-typecode_libmagic-requirements.patch"
-
 PYPI_PACKAGE = "typecode"
 
-SRC_URI[md5sum] = "da4c8e1fa8df7f4cb73514498142f8c8"
-SRC_URI[sha256sum] = "d3a82859df5607c900972e08e1bca31e3fe2daed37afd1b8231cad2ef613d8d6"
+SRC_URI[md5sum] = "fa8ff162e21720d990885ac1755f2651"
+SRC_URI[sha256sum] = "a5118b53fc73410a8364c22caead45cbb560188a458e71eda663bec8beede20f"
 
 inherit pypi
 inherit setuptools3
