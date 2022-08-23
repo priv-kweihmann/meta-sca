@@ -9,8 +9,8 @@ DEPENDS += "nativesdk-python3-six"
 
 PYPI_PACKAGE = "intbitset"
 
-SRC_URI[md5sum] = "4f76e100da761aa92188151c0dbdec60"
-SRC_URI[sha256sum] = "44bca80b8cc702d5a56f0686f2bb5e028ab4d0c2c1761941589d46b7fa2c701c"
+SRC_URI[md5sum] = "8f417e4ec5879841fde7aa873320ffdc"
+SRC_URI[sha256sum] = "f1e6d03c6729922a223c51849df65b9e916e625aefb911784e7f9acd4c207d53"
 
 inherit pypi
 inherit setuptools3
