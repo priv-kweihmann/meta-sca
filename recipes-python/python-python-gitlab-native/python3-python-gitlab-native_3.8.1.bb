@@ -12,8 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "python-gitlab"
 
-SRC_URI[md5sum] = "24cdf9a446ef85be84710a2199810c6f"
-SRC_URI[sha256sum] = "08ccb2d2db6882bca76e370b0b7fee724e978b1e0de2970f1a704fa451bbcfa0"
+SRC_URI[md5sum] = "abd55a597f25fdbbe070d61aa76d9de5"
+SRC_URI[sha256sum] = "e1db25076520e118c7c26becb0d074a7a68127439870d43b8636342206b1e091"
 
 inherit pypi
 inherit setuptools3
