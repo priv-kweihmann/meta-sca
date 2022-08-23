@@ -15,7 +15,7 @@ jobs:
       LANG: en_US.UTF-8
       LANGUAGE: en_US.UTF-8
       SCM_BRANCH: master
-      BUILD_MAXRUNTIME: 1200
+      BUILD_MAXRUNTIME: 3600
 
     runs-on: ubuntu-latest
 
