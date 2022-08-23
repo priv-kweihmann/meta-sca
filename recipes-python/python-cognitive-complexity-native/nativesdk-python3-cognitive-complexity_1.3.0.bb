@@ -9,8 +9,8 @@ PYPI_PACKAGE = "cognitive_complexity"
 
 SRC_URI:append = " https://raw.githubusercontent.com/Melevir/cognitive_complexity/master/LICENSE;name=license;downloadfilename=${BPN}-LICENSE"
 
-SRC_URI[md5sum] = "637d3616db0d617396b1490040930905"
-SRC_URI[sha256sum] = "3c2b433a9e41502932f6aa629e1f57a5e8f145956c54facbb5241a9492af6fb7"
+SRC_URI[md5sum] = "eb2718408f8667e6ee11143aa04340fe"
+SRC_URI[sha256sum] = "a0cfbd47dee0b19f4056f892389f501694b205c3af69fb703cc744541e03dde5"
 SRC_URI[license.md5sum] = "535dcde9d395e0ffc8bea1b3e738bed0"
 SRC_URI[license.sha256sum] = "606ac64848bc8293ed15cb9195dab80b75907c5826156c2139fe8f9df37db1fc"
 
