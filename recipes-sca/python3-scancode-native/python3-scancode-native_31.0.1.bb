@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/nexB/scancode-toolkit"
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "CC-BY-SA-4.0 & Apache-2.0"
 LIC_FILES_CHKSUM = "\
-                    file://apache-2.0.LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57 \
+                    file://apache-2.0.LICENSE;md5=86d3f3a95c324c9479bd8986968f4327 \
                     file://cc-by-4.0.LICENSE;md5=c2b69cea79405efd14cca910fbc5c070 \
                     "
 
@@ -17,6 +17,7 @@ DEPENDS += "\
             python3-click-native \
             python3-colorama-native \
             python3-commoncode-native \
+            python3-container-inspector-native \
             python3-contextlib2-native \
             python3-debian-inspector-native \
             python3-dparse-native \
@@ -41,6 +42,7 @@ DEPENDS += "\
             python3-parameter-expansion-patched-native \
             python3-pdfminer-six-native \
             python3-pefile-native \
+            python3-pip-requirements-parser-native \
             python3-pkginfo-native \
             python3-pluggy-native \
             python3-plugincode-native \
@@ -69,16 +71,13 @@ DEPENDS += "\
             python3-zc-lockfile-native \
         "
 
-RDEPENDS:${PN} += "${DEPENDS}"
-
-SRC_URI = "git://github.com/nexB/scancode-toolkit.git;protocol=https;nobranch=1 \
-           file://0001-lift-version-requirements.patch"
-SRCREV = "c53e81298eecc1cdf0da23b3d57962a85c323afb"
+SRC_URI = "git://github.com/nexB/scancode-toolkit.git;protocol=https;nobranch=1"
+SRCREV = "71e994a6ed9105ff4dbf534c2d1cb6524ff9fa2c"
 
 S = "${WORKDIR}/git"
 
 inherit sca-description
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit native
 
 SCA_TOOL_DESCRIPTION = "scancode"
