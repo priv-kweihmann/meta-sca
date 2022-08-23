@@ -11,8 +11,8 @@ PYPI_PACKAGE = "flake8_2020"
 
 UPSTREAM_CHECK_REGEX ?= "/flake8-2020/(?P<pver>(\d+[\.\-_]*)+)"
 
-SRC_URI[md5sum] = "d0ad923dc1993140092fe119dcc8682c"
-SRC_URI[sha256sum] = "db523e3383befc17c895219551ff6c9b2f6e0a5cae4c7739ea65a2238bdc6f74"
+SRC_URI[md5sum] = "e2d9e43f6d4f4f6d7b117fe128946c6b"
+SRC_URI[sha256sum] = "9342902563a7d0b0233128c395be1372b8a3e8072805931639760bfe8a3935f9"
 
 inherit pypi
 inherit setuptools3
