@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/pyupio/dparse"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=220d28dc5d30a15667788003c931221c"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=9563caded03dbd1b6016d79712dbe333"
 
 DEPENDS += "\
             python3-packaging-native \
@@ -11,10 +11,9 @@ DEPENDS += "\
             python3-six-native \
            "
 
-PYPI_PACKAGE = "dparse"
+PYPI_PACKAGE = "dparse2"
 
-SRC_URI[md5sum] = "d5174ef465e97f8465a427a4aa64cce9"
-SRC_URI[sha256sum] = "a1b5f169102e1c894f9a7d5ccf6f9402a836a5d24be80a986c7ce9eaed78f367"
+SRC_URI[sha256sum] = "fbafb839c3dc83040012af2602a00ca4e4b1693a9b1988492150466afa59dd26"
 
 inherit pypi
 inherit setuptools3
