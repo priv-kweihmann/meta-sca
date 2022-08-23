@@ -7,10 +7,7 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-rogpeppe-go-internal-sources.inc
 
-EXTRA_DEPENDS += "\
-    nativesdk-github.com-pkg-diff \
-    nativesdk-gopkg.in-errgo.v2 \
-"
+EXTRA_DEPENDS += "nativesdk-github.com-pkg-diff"
 GO_IMPORT = "github.com/rogpeppe/go-internal"
 inherit gosrc
 inherit nativesdk
