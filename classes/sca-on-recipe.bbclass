@@ -106,6 +106,7 @@ def sca_on_recipe_init(d):
         if bb.data.inherits_class('nativesdk', d):
             _list += " pkgqaenc"
         d.setVar("SCA_ENABLED_MODULES", _list)
+        d.setVar("SCA_AVAILABLE_MODULES", _list)
 
     for item in intersect_lists(d, d.getVar("SCA_ENABLED_MODULES"), d.getVar("SCA_AVAILABLE_MODULES")):
         if not sca_module_applicable(d, item):
