@@ -1,7 +1,14 @@
 .*/dynamic-distro/.*
 .*/recipes-devtools/proot-native/.*
 .*/recipes-devtools/qemu-static/.*
+.*/recipes-python/python-commoncode-native/.*
+.*/recipes-python/python-dparse-native/.*
+.*/recipes-python/python-extractcode-native/.*
+.*/recipes-python/python-license-expression-native/.*
+.*/recipes-python/python-pkginfo-native/.*
+.*/recipes-python/python-plugincode-native/.*
 .*/recipes-python/python-shellexeclist-native/python3-shellexeclist-native.*
+.*/recipes-python/python-typecode-native/.*
 .*/recipes-sca-rules/sca-image-.*
 .*/recipes-sca-rules/sca-recipe-cmake-rules-native/.*
 .*/recipes-sca-rules/sca-recipe-gcc-rules-native/.*
