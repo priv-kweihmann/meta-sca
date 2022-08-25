@@ -68,7 +68,7 @@ def native_to_sdk_convert(_input):
         if not item:
             continue
         if item.endswith('-native') and item not in _notranlate:
-            _f.append('nativesdk-{}'.format(item.replace('-native', '')))
+            _f.append(re.sub(r'([a-z].*)-native', r'nativesdk-\1', item))
         else:
             _f.append(item)
     _gluestr = ' \\\n    ' if len(_f) > 1 else ' '
