@@ -1,4 +1,5 @@
 [
     "dynamic-distro/",
-    "recipes-python/python-scabot-native/python3-scabot-native_git.bb"
+    "recipes-python/python-scabot-native/python3-scabot-native_git.bb",
+    "packagegroups/nativesdk-sca-tools.bb"
 ]
