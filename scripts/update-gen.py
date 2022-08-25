@@ -117,8 +117,18 @@ def get_nativesdk_recipe(pkgname):
 
 
 def run_sdkgen(_args):
-    _pargs = [os.path.join(_args.repo, "scripts", "sdk-gen"), f"--ignores={_args.repo}/.nonsdkable", _args.repo]
+    _pargs = [os.path.join(_args.repo, "scripts", "sdk-gen"),
+              f"--ignores={_args.repo}/.nonsdkable", _args.repo]
     subprocess.check_call(_pargs, universal_newlines=True)
+
+
+def run_unused(_args):
+    try:
+        _pargs = [os.path.join(_args.repo, "..", "meta-buildutils", "scripts", "unused"),
+                  "--remove", _args.repo]
+        subprocess.check_call(_pargs, universal_newlines=True)
+    except:
+        pass
 
 
 def update_packages(_args, _input, number):
@@ -154,6 +164,7 @@ def update_packages(_args, _input, number):
                            m.group("version"), number, _allowed_changes)
                 _recipe = get_nativesdk_recipe(_recipe)
                 run_sdkgen(_args)
+                run_unused(_args)
                 if run_bitbake_test(_args, _recipe):
                     git_commit(_args, _recipe,
                                m.group("version"), number, _allowed_changes)
@@ -198,10 +209,3 @@ for item in data:
         print("Attempting {}".format(item["title"]))
         _updated_items += update_packages(_args,
                                           item["title"], item["number"])
-if _updated_items > 0:
-    try:
-        _pargs = [os.path.join(_args.repo, "..", "meta-buildutils", "scripts", "unused"),
-                  "--remove", _args.repo]
-        subprocess.check_call(_pargs, universal_newlines=True)
-    except:
-        pass
