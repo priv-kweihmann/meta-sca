@@ -96,6 +96,8 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/buildmodules@latest
         with:
           parameter-file: ${{ matrix.BUILD_PARAMFILE }}
+        env:
+          BUILDNTEST_NOSDK: 1
       - name: test (sca results)
         uses: priv-kweihmann/meta-sca-ci-utils/testresults@latest
         with:

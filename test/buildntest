@@ -20,7 +20,7 @@ if [ ! -z "${_targets}" ]; then
         done
     fi
     bitbake ${_targets} || exit 1
-    bitbake nativesdk-sca-tools || exit 1
+    [ -z "${BUILDNTEST_NOSDK}" ] && bitbake nativesdk-sca-tools || exit 1
 fi
 if [ -z "${BUILDNTEST_NOTEST}" ]; then
     ${_thispath}/check_results ${_pwd}/tmp/deploy/images/*/sca ${mods} || exit 1
