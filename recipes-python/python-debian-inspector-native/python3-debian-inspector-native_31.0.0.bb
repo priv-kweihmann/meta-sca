@@ -18,8 +18,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "debian_inspector"
 
-SRC_URI[md5sum] = "63191a232acb214b8decb93dac2a24e5"
-SRC_URI[sha256sum] = "d0f4f9b13e9a75aaa0610b568e4b35db2b34cf50b79f5d7a69e25a10a47f5b18"
+SRC_URI[md5sum] = "0894faf885d8f00c25b57eb91338ef45"
+SRC_URI[sha256sum] = "46094f953464b269bb09855eadeee3c92cb6b487a0bfa26eba537b52cc3d6b47"
 
 inherit pypi
 inherit setuptools3
