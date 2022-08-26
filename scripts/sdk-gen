@@ -93,6 +93,12 @@ def translate_items(tree, _table, recipe):
             continue
         if sitem.VarName == "COMPATIBLE_HOST":
             sitem.RealRaw = 'DEPENDS += "{recipe}"\n'.format(recipe=recipe)
+        
+        # if they are already scope specific skip here
+        if "class-nativesdk" in sitem.SubItems:
+            continue
+        if "class-native" in sitem.SubItems:
+            continue
 
         for titem in _table:
             if not re.match(titem.get('name', '.*'), sitem.VarName):
