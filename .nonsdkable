@@ -1,7 +1,7 @@
 .*/dynamic-distro/.*
 .*/recipes-devtools/proot-native/.*
 .*/recipes-devtools/qemu-static/.*
-.*/recipes-go/github.com-boyter-native_.*
+.*/recipes-go/github.com-boyter-lc-native_.*
 .*/recipes-go/github.com-briandowns-spinner-native_.*
 .*/recipes-go/github.com-go-enry-go-license-detector-v4-native_.*
 .*/recipes-go/github.com-go-git-go-git-v5-native_.*
