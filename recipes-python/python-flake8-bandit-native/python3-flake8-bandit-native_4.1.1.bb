@@ -12,13 +12,11 @@ DEPENDS += "\
             python3-pycodestyle-native \
             "
 
-SRC_URI = "git://github.com/tylerwince/flake8-bandit.git;branch=main;protocol=https"
-SRCREV = "38912eb20d6ce6bd029f17efafe6d953efb5a05f"
-
-S = "${WORKDIR}/git"
+SRC_URI[sha256sum] = "068e09287189cbfd7f986e92605adea2067630b75380c6b5733dab7d87f9a84e"
 
 PYPI_PACKAGE = "flake8_bandit"
 
+inherit pypi
 inherit setuptools3
 inherit native
 
