@@ -18,17 +18,21 @@ DEPENDS += "\
     python3-toml-native \
 "
 
-SRC_URI[md5sum] = "6c095d6908c18fe69553e8a075fbe05b"
-SRC_URI[sha256sum] = "487ce2192eee48211269a0e976421f334cf94de1806ca9d0a99449adcdf0285e"
+SRC_URI[md5sum] = "c55e06abf330e07a5a004c7ffc468450"
+SRC_URI[sha256sum] = "4f3f7e869646b0bd63b3dfb79f3c0f28fc3d2d923ea220d52620fd625aed92b0"
 
 PYPI_PACKAGE = "pylint"
 
 inherit pypi
 
 inherit sca-description
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit nativesdk
 SCA_TOOL_DESCRIPTION = "pylint"
+do_configure:prepend() {
+    sed -i 's#setuptools~=#setuptools>=#g' ${S}/pyproject.toml
+    sed -i 's#wheel~=#wheel>=#g' ${S}/pyproject.toml
+}
 ## A python file with /usr/bin/python-shebang is
 ## used - ignore this error
 INSANE_SKIP:${PN} += "file-rdeps"
