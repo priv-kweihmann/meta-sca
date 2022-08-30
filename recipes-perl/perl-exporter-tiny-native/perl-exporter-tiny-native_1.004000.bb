@@ -3,12 +3,12 @@ HOMEPAGE = "https://metacpan.org/pod/Exporter::Tiny"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0-only & Artistic-1.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=e2c688697749fe6ea6a094eced384110"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=622025314d222840baccc6f37e119800"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "485897322a2514b4d6ca90b2daacb7cd"
-SRC_URI[sha256sum] = "00f0b95716b18157132c6c118ded8ba31392563d19e490433e9a65382e707101"
+SRC_URI[md5sum] = "998f397261493b8417176fec12b5be67"
+SRC_URI[sha256sum] = "7f7b3b4fbe923355317243cd434d2319ffbad81c98cf8c8e189a6943b42bfeca"
 
 S = "${WORKDIR}/Exporter-Tiny-${PV}"
 
