@@ -12,8 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "python-debian"
 
-SRC_URI[md5sum] = "289a4961d3a0a8ff897c8ecc595bcc18"
-SRC_URI[sha256sum] = "65592fe3b64f6c6c93d94e2d2599db5e0c22831d3bcff07cb7b96d3840b1333e"
+SRC_URI[md5sum] = "16b9ec29d89c07e16022c4f591a1ac08"
+SRC_URI[sha256sum] = "51e202823777a3d716a843b8a540fba2ba0bed9f507a87c0c0f9eefcdec3342c"
 
 inherit pypi
 inherit setuptools3
