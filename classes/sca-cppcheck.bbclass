@@ -104,7 +104,6 @@ python do_sca_cppcheck() {
     import os
     import subprocess
 
-    _user_rules = os.path.join(d.getVar("STAGING_DATADIR_NATIVE"), "cppcheck-user-rules.xml")
     _add_include = d.getVar("SCA_CPPCHECK_ADD_INCLUDES").split(" ")
 
     # Copy configurations into special dir
@@ -120,8 +119,6 @@ python do_sca_cppcheck() {
     subprocess.check_call(["ln", "-sf", d.expand("${STAGING_DATADIR_NATIVE}/platform"), d.expand("${T}/platform")])
 
     _args = ["cppcheck"]
-    if os.path.exists(_user_rules):
-        _args += ["--rule-file={}".format(_user_rules)]
 
     if d.getVar("SCA_CPPCHECK_RUNMODE") == "complete":
         _args += ["--enable=all"]

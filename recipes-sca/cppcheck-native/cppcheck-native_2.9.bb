@@ -11,10 +11,7 @@ LIC_FILES_CHKSUM = "\
     file://externals/picojson/LICENSE;md5=29d6d693711f69885bbfe08072624f2e \
 "
 
-SRC_URI = "\
-    git://github.com/danmar/cppcheck.git;protocol=https;nobranch=1 \
-    file://0001-Makefile-fixes.patch \
-"
+SRC_URI = "git://github.com/danmar/cppcheck.git;protocol=https;nobranch=1"
 SRCREV = "aca3f6fefa6d6b8c5915f15035c7e5908961f6f1"
 
 S = "${WORKDIR}/git"
@@ -23,11 +20,9 @@ inherit pkgconfig
 inherit sca-description
 inherit native
 
-LIBPCRE = "libpcre-native"
 LIBZ3 = "z3-native"
 
-PACKAGECONFIG ??= "rules z3"
-PACKAGECONFIG[rules] = "HAVE_RULES=yes,,${LIBPCRE}"
+PACKAGECONFIG ??= "z3"
 PACKAGECONFIG[z3] = "USE_Z3=yes,,${LIBZ3}"
 
 SCA_TOOL_DESCRIPTION = "cppcheck"
