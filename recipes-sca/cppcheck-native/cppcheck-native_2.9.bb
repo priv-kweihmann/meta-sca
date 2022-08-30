@@ -15,25 +15,31 @@ SRC_URI = "\
     git://github.com/danmar/cppcheck.git;protocol=https;nobranch=1 \
     file://0001-Makefile-fixes.patch \
 "
-SRCREV = "70b3cc7638c361383946390564ea4c77c813df48"
+SRCREV = "aca3f6fefa6d6b8c5915f15035c7e5908961f6f1"
 
 S = "${WORKDIR}/git"
 
 inherit pkgconfig
-
 inherit sca-description
-inherit nativesdk
-LIBPCRE = "nativesdk-libpcre"
-LIBZ3 = "nativesdk-z3"
+inherit native
+
+LIBPCRE = "libpcre-native"
+LIBZ3 = "z3-native"
+
 PACKAGECONFIG ??= "rules z3"
 PACKAGECONFIG[rules] = "HAVE_RULES=yes,,${LIBPCRE}"
 PACKAGECONFIG[z3] = "USE_Z3=yes,,${LIBZ3}"
+
 SCA_TOOL_DESCRIPTION = "cppcheck"
+
 do_compile() {
     oe_runmake ${PACKAGECONFIG_CONFARGS} FILESDIR=.
 }
+
 do_install() {
     oe_runmake install DESTDIR=${D} FILESDIR=${datadir} PREFIX=${prefix}
 }
+
 FILES:${PN} = "${bindir} ${datadir}"
+
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+(\.\d+)*)$"
