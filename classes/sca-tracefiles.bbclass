@@ -3,10 +3,10 @@
 
 # Valid modes are
 # full - takes all sources files
-# loose - takes all sources files end up being installed + any files matching SCA_TRACEFILES_LOOSE_INC
-# strict - takes all sources files end up being installed
+# loose - takes all sources files ending up being installed + any files matching SCA_TRACEFILES_LOOSE_INC
+# strict - takes all sources files ending up being installed
 SCA_TRACEFILES_MODE ?= "full"
-SCA_TRACEFILES_LIST ?= "${T}/sca_sources.txt"
+SCA_TRACEFILES_LIST ?= "${T}/sca_sources.json"
 # file extensions addionally consider in loose mode
 SCA_TRACEFILES_LOOSE_INC ?= ".h .hpp"
 # Packages to scan
@@ -51,8 +51,12 @@ def sca_get_trace_files(d):
     _res = {}
     _pkg_files = sca_get_pkg_files(d)
     for k, v in _pkg_files.items():
+        if not v:
+            continue
         try:
-            cmd_out = subprocess.check_output(["tracefiles", d.getVar("SCA_SOURCES_DIR")] + v)
+            cmd_out = subprocess.check_output(["tracefiles", 
+                                               "--addsourcedirs={}:0".format(d.getVar("WORKDIR")),
+                                               d.getVar("SCA_SOURCES_DIR")] + v)
         except subprocess.CalledProcessError as e:
             cmd_out = e.output or ""
 
@@ -60,7 +64,6 @@ def sca_get_trace_files(d):
             cmd_out = cmd_out.decode('utf-8')
 
         _res[k] = set([x for x in cmd_out.split("\n") if x])
-        _res[k].update(v)
         if _mode == "loose":
             # in loose mode include all files that are specified by include filter
             _res[k].update(get_files_by_extention(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_TRACEFILES_LOOSE_INC")))

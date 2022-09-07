@@ -202,6 +202,16 @@ def get_files_by_extention_or_shebang(d, path, shebang, extentions, excludes=[])
     res = get_files_by_shebang(d, path, shebang, excludes) + get_files_by_extention(d, path, extentions, excludes)
     return sorted(list(set(res)))
 
+def get_files_from_workdir(d):
+    import os
+    res = set()
+    root = d.getVar("WORKDIR")
+    for f in os.listdir(root):
+        if not os.path.isfile(os.path.join(root, f)):
+            continue
+        res.add(os.path.join(root, f))
+    return sorted(res)
+
 def get_suppress_entries(d, suppress_extra, suppress_file):
     return _combine_x_entries(d, suppress_file, suppress_extra)
 
