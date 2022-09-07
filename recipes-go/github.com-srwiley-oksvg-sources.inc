@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/srwiley/oksvg/@v/v0.0.0-20220731023508-a61f04f16b76.zip;srcoutput=github.com/srwiley/oksvg;srcinput=github.com/srwiley/oksvg@v0.0.0-20220731023508-a61f04f16b76;downloadfilename=github-com-srwiley-oksvg-0.0.0-20220731023508-a61f04f16b76.zip;name=github-com-srwiley-oksvg"
-SRC_URI[github-com-srwiley-oksvg.sha256sum] = "5d804fb1fbd5c22c31a4de7516d9cb6e37eef9115e4e9704510ffc31c8520258"
+SRC_URI += "https://proxy.golang.org/github.com/srwiley/oksvg/@v/v0.0.0-20220904191616-8889df18e8f4.zip;srcoutput=github.com/srwiley/oksvg;srcinput=github.com/srwiley/oksvg@v0.0.0-20220904191616-8889df18e8f4;downloadfilename=github-com-srwiley-oksvg-0.0.0-20220904191616-8889df18e8f4.zip;name=github-com-srwiley-oksvg"
+SRC_URI[github-com-srwiley-oksvg.sha256sum] = "dc3c198bbd0b482014ed0acaee6ef2abb35ddea35360ce5c9ff4fae2c030e339"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
