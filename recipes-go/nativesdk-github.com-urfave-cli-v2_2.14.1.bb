@@ -11,7 +11,6 @@ EXTRA_DEPENDS += "\
     nativesdk-github.com-burntsushi-toml \
     nativesdk-github.com-cpuguy83-go-md2man-v2 \
     nativesdk-github.com-xrash-smetrics \
-    nativesdk-golang.org-x-text \
     nativesdk-gopkg.in-yaml.v3 \
 "
 GO_IMPORT = "github.com/urfave/cli/v2"
