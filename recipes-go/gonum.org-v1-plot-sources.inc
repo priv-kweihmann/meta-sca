@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/gonum.org/v1/plot/@v/v0.11.0.zip;srcoutput=gonum.org/v1/plot;srcinput=gonum.org/v1/plot@v0.11.0;downloadfilename=gonum-org-v1-plot-0.11.0.zip;name=gonum-org-v1-plot"
-SRC_URI[gonum-org-v1-plot.sha256sum] = "917e54def836ffb02450db9643e3463b2483f6f69b0666de1c538e0912f9444d"
+SRC_URI += "https://proxy.golang.org/gonum.org/v1/plot/@v/v0.12.0.zip;srcoutput=gonum.org/v1/plot;srcinput=gonum.org/v1/plot@v0.12.0;downloadfilename=gonum-org-v1-plot-0.12.0.zip;name=gonum-org-v1-plot"
+SRC_URI[gonum-org-v1-plot.sha256sum] = "54d93a6c450affcf257e3591a3945d09b66159aed1333cd4571115f06c743c3d"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
