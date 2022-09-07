@@ -13,7 +13,6 @@ EXTRA_DEPENDS += "\
     nativesdk-github.com-benoitkugler-textlayout \
     nativesdk-github.com-gioui-uax \
     nativesdk-github.com-go-text-typesetting \
-    nativesdk-golang.org-x-exp \
     nativesdk-golang.org-x-exp-shiny \
     nativesdk-golang.org-x-image \
     nativesdk-golang.org-x-sys \
