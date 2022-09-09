@@ -11,7 +11,7 @@ git checkout <branch of your choice>
 git branch <branch name of the update batch>
 cd ..
 
-export TEMPLATECONF=$(pwd)/meta-sca/conf/variant/scatest-qemux86-64
+export TEMPLATECONF=$(pwd)/meta-sca/conf/templates/scatest-qemux86-64
 source poky/oe-init-build-env
 ```
 

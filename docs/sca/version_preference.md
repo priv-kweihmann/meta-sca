@@ -22,7 +22,7 @@ PREFERRED_VERSION_<package-name> = "<version>"
 
 in your `distro.conf` or your `local.conf`
 
-Proposed settings can be found at `https://github.com/priv-kweihmann/meta-sca/blob/<branch name>/conf/variant/scatest-qemux86-64/local.conf.sample`
+Proposed settings can be found at `https://github.com/priv-kweihmann/meta-sca/blob/<branch name>/conf/templates/scatest-qemux86-64/local.conf.sample`
 
 ### remove the module
 

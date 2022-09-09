@@ -35,7 +35,7 @@ jobs:
       env:
         WORKSPACE: /opt/build
         TOPDIR: /opt/build
-        TEMPLATECONF: /opt/build/sources/meta-sca/conf/variant/scatest-qemux86-64/
+        TEMPLATECONF: /opt/build/sources/meta-sca/conf/templates/scatest-qemux86-64/
       volumes:
         - ${{ github.workspace }}:/opt/build
       options: --privileged
