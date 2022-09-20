@@ -8,6 +8,8 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require google.golang.org-genproto-sources.inc
 
 EXTRA_DEPENDS += "\
+    cloud.google.com-go-asset-native \
+    cloud.google.com-go-security-native \
     github.com-golang-protobuf-native \
     google.golang.org-grpc-native \
     google.golang.org-protobuf-native \
