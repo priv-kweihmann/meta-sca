@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=622025314d222840baccc6f37e119800"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "998f397261493b8417176fec12b5be67"
-SRC_URI[sha256sum] = "7f7b3b4fbe923355317243cd434d2319ffbad81c98cf8c8e189a6943b42bfeca"
+SRC_URI[md5sum] = "0c2002399089ba3748523b25456e5c9e"
+SRC_URI[sha256sum] = "0d53898ad60e1b7dc28aeee198c4b6f454f71adefff120f016037e4974395574"
 
 S = "${WORKDIR}/Exporter-Tiny-${PV}"
 
