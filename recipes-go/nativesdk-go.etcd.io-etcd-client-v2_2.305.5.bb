@@ -10,6 +10,8 @@ require go.etcd.io-etcd-client-v2-sources.inc
 EXTRA_DEPENDS += "\
     nativesdk-github.com-json-iterator-go \
     nativesdk-github.com-modern-go-reflect2 \
+    nativesdk-go.etcd.io-etcd-api-v3 \
+    nativesdk-go.etcd.io-etcd-client-pkg-v3 \
     nativesdk-go.etcd.io-etcd-client-v3 \
 "
 GO_IMPORT = "go.etcd.io/etcd/client/v2"
