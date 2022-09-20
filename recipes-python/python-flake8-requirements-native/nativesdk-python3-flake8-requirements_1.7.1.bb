@@ -12,7 +12,7 @@ DEPENDS += "\
 "
 
 SRC_URI = "git://github.com/Arkq/flake8-requirements.git;branch=master;protocol=https"
-SRCREV = "e7690ebb5f34785d368470c81c05013a794fc46a"
+SRCREV = "7888e31f6492bc7edb67ac42bada03e2896764f1"
 
 S = "${WORKDIR}/git"
 
