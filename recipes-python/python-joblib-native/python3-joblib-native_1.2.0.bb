@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=2e481820abf0a70a18011a30153df066"
 
 PYPI_PACKAGE = "joblib"
 
-SRC_URI[md5sum] = "d8fb897e6cbb1359738ed7b1739be389"
-SRC_URI[sha256sum] = "4158fcecd13733f8be669be0683b96ebdbbd38d23559f54dca7205aea1bf1e35"
+SRC_URI[md5sum] = "928a19e66a10f6cda32fb004440c70fb"
+SRC_URI[sha256sum] = "e1cee4a79e4af22881164f218d4311f60074197fb707e082e803b61f6d137018"
 
 inherit pypi
 inherit setuptools3
