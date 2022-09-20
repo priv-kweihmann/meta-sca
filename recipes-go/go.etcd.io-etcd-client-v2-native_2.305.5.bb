@@ -10,6 +10,8 @@ require go.etcd.io-etcd-client-v2-sources.inc
 EXTRA_DEPENDS += "\
     github.com-json-iterator-go-native \
     github.com-modern-go-reflect2-native \
+    go.etcd.io-etcd-api-v3-native \
+    go.etcd.io-etcd-client-pkg-v3-native \
     go.etcd.io-etcd-client-v3-native \
 "
 
