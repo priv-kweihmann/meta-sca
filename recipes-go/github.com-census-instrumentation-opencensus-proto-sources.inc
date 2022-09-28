@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/census-instrumentation/opencensus-proto/@v/v0.3.0.zip;srcoutput=github.com/census-instrumentation/opencensus-proto;srcinput=github.com/census-instrumentation/opencensus-proto@v0.3.0;downloadfilename=github-com-census-instrumentation-opencensus-proto-0.3.0.zip;name=github-com-census-instrumentation-opencensus-proto"
-SRC_URI[github-com-census-instrumentation-opencensus-proto.sha256sum] = "579ab1ff19403579c3b438ab95528dfc691f0ff6076829f4ed2b2d2dc5b72552"
+SRC_URI += "https://proxy.golang.org/github.com/census-instrumentation/opencensus-proto/@v/v0.4.1.zip;srcoutput=github.com/census-instrumentation/opencensus-proto;srcinput=github.com/census-instrumentation/opencensus-proto@v0.4.1;downloadfilename=github-com-census-instrumentation-opencensus-proto-0.4.1.zip;name=github-com-census-instrumentation-opencensus-proto"
+SRC_URI[github-com-census-instrumentation-opencensus-proto.sha256sum] = "6fce66b7dcd2cba031ed9d73d77d6b21c2fe749c5de27cbb416a2d2cc1c68719"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
@@ -10,7 +10,6 @@ LIC_FILES_CHKSUM += "\
 
 GOSRC_INCLUDEGUARD += "github.com-census-instrumentation-opencensus-proto-sources.inc"
 
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-golang-protobuf-sources.inc', '', 'github.com-golang-protobuf-sources.inc', d)}
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-grpc-ecosystem-grpc-gateway-sources.inc', '', 'github.com-grpc-ecosystem-grpc-gateway-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-grpc-ecosystem-grpc-gateway-v2-sources.inc', '', 'github.com-grpc-ecosystem-grpc-gateway-v2-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-grpc-sources.inc', '', 'google.golang.org-grpc-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-protobuf-sources.inc', '', 'google.golang.org-protobuf-sources.inc', d)}
