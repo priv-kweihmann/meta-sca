@@ -11,7 +11,6 @@ EXTRA_DEPENDS += "\
     nativesdk-cloud.google.com-go \
     nativesdk-github.com-googleapis-gax-go-v2 \
     nativesdk-google.golang.org-api \
-    nativesdk-google.golang.org-genproto \
     nativesdk-google.golang.org-grpc \
     nativesdk-google.golang.org-protobuf \
 "
