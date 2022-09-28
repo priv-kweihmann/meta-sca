@@ -16,7 +16,6 @@ EXTRA_DEPENDS += "\
     github.com-googleapis-gax-go-v2-native \
     golang.org-x-oauth2-native \
     google.golang.org-api-native \
-    google.golang.org-genproto-native \
     google.golang.org-grpc-native \
     google.golang.org-protobuf-native \
 "
