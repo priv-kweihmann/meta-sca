@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/envoyproxy/protoc-gen-validate/@v/v0.6.8.zip;srcoutput=github.com/envoyproxy/protoc-gen-validate;srcinput=github.com/envoyproxy/protoc-gen-validate@v0.6.8;downloadfilename=github-com-envoyproxy-protoc-gen-validate-0.6.8.zip;name=github-com-envoyproxy-protoc-gen-validate"
-SRC_URI[github-com-envoyproxy-protoc-gen-validate.sha256sum] = "734c2c951e0290da7199878bafa33d2ed3698f004ade379b7bbf6721c6bd1ee9"
+SRC_URI += "https://proxy.golang.org/github.com/envoyproxy/protoc-gen-validate/@v/v0.6.11.zip;srcoutput=github.com/envoyproxy/protoc-gen-validate;srcinput=github.com/envoyproxy/protoc-gen-validate@v0.6.11;downloadfilename=github-com-envoyproxy-protoc-gen-validate-0.6.11.zip;name=github-com-envoyproxy-protoc-gen-validate"
+SRC_URI[github-com-envoyproxy-protoc-gen-validate.sha256sum] = "a5f52b604f37051b02cdcb745de1e295bbf2098ea95026473c087ecf45a17eac"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
