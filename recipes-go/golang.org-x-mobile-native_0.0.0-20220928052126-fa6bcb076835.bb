@@ -11,6 +11,7 @@ EXTRA_DEPENDS += "\
     golang.org-x-exp-native \
     golang.org-x-image-native \
     golang.org-x-mod-native \
+    golang.org-x-sync-native \
     golang.org-x-tools-native \
 "
 
