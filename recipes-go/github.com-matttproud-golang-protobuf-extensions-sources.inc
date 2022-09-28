@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/matttproud/golang_protobuf_extensions/@v/v1.0.1.zip;srcoutput=github.com/matttproud/golang_protobuf_extensions;srcinput=github.com/matttproud/golang_protobuf_extensions@v1.0.1;downloadfilename=github-com-matttproud-golang-protobuf-extensions-1.0.1.zip;name=github-com-matttproud-golang-protobuf-extensions"
-SRC_URI[github-com-matttproud-golang-protobuf-extensions.sha256sum] = "e64dc58023f4b8c4472d05a44f2719b84d6c2cc364cc682820c9f72b233c9cdc"
+SRC_URI += "https://proxy.golang.org/github.com/matttproud/golang_protobuf_extensions/@v/v1.0.2.zip;srcoutput=github.com/matttproud/golang_protobuf_extensions;srcinput=github.com/matttproud/golang_protobuf_extensions@v1.0.2;downloadfilename=github-com-matttproud-golang-protobuf-extensions-1.0.2.zip;name=github-com-matttproud-golang-protobuf-extensions"
+SRC_URI[github-com-matttproud-golang-protobuf-extensions.sha256sum] = "97e9159e663efc29947c3f5fbe58e87128c0d4d23ee742b155a2f0ddd6610202"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
