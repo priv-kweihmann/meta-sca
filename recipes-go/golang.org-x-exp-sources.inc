@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/golang.org/x/exp/@v/v0.0.0-20220916125017-b168a2c6b86b.zip;srcoutput=golang.org/x/exp;srcinput=golang.org/x/exp@v0.0.0-20220916125017-b168a2c6b86b;downloadfilename=golang-org-x-exp-0.0.0-20220916125017-b168a2c6b86b.zip;name=golang-org-x-exp"
-SRC_URI[golang-org-x-exp.sha256sum] = "e799e0f4d8739a119d340845e82017fb9c6e395e5402e815e694d39b9be9e4ab"
+SRC_URI += "https://proxy.golang.org/golang.org/x/exp/@v/v0.0.0-20220927162542-c76eaa363f9d.zip;srcoutput=golang.org/x/exp;srcinput=golang.org/x/exp@v0.0.0-20220927162542-c76eaa363f9d;downloadfilename=golang-org-x-exp-0.0.0-20220927162542-c76eaa363f9d.zip;name=golang-org-x-exp"
+SRC_URI[golang-org-x-exp.sha256sum] = "56ebc8b69f98c7e7fd4d72589ae79ee949a87cdb6ac9ca0c01414ae1cfeda8e6"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
