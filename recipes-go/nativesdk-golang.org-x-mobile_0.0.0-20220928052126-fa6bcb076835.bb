@@ -11,6 +11,7 @@ EXTRA_DEPENDS += "\
     nativesdk-golang.org-x-exp \
     nativesdk-golang.org-x-image \
     nativesdk-golang.org-x-mod \
+    nativesdk-golang.org-x-sync \
     nativesdk-golang.org-x-tools \
 "
 GO_IMPORT = "golang.org/x/mobile"
