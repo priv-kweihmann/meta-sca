@@ -58,6 +58,8 @@ def create_parser():
                         help="explicit temporary directory to chose")
     parser.add_argument("--errata", default=os.path.join(os.path.dirname(__file__),
                                                          "go-gen-errata.json"), help="errata file for this tool")
+    parser.add_argument("--tmpignore", default=os.path.join(os.path.dirname(__file__),
+                                                         "go-gen-ignore.json"), help="List of mods not to update")
     parser.add_argument("--erratadict", help=argparse.SUPPRESS)
     parser.add_argument("--usetests", default=False,
                         action="store_true", help="Use also test files")
@@ -74,6 +76,9 @@ def create_parser():
     x = parser.parse_args()
     with open(x.errata) as i:
         x.erratadict = json.load(i)
+    
+    with open(x.tmpignore) as i:
+        x.ignores = json.load(i)
     return x
 
 
@@ -480,6 +485,8 @@ def __does_version_exist(args, name, version):
 
 
 def create_module(args, pbar, name, version, level, force, breadcrumb=[]):
+    if name in args.ignores:
+        return [{"name": name}]
     _desc = {
         "cleanname": __name_clean(name),
         "license": "UNKNOWN",

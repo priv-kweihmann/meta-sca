@@ -1,5 +1,6 @@
-recipes-foo/foo/*
-TODO
-.vscode
 __pycache__
+.vscode
 *.pyc
+recipes-foo/foo/*
+scripts/go-gen-ignore.json
+TODO
