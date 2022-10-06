@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/asset/@v/v1.6.0.zip;srcoutput=cloud.google.com/go/asset;srcinput=cloud.google.com/go/asset@v1.6.0;downloadfilename=cloud-google-com-go-asset-1.6.0.zip;name=cloud-google-com-go-asset"
-SRC_URI[cloud-google-com-go-asset.sha256sum] = "a16da6b9cb0f550265f3cef32b1b551fc01eaae7c1e678d35364b13c0bc8dcf1"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/asset/@v/v1.7.0.zip;srcoutput=cloud.google.com/go/asset;srcinput=cloud.google.com/go/asset@v1.7.0;downloadfilename=cloud-google-com-go-asset-1.7.0.zip;name=cloud-google-com-go-asset"
+SRC_URI[cloud-google-com-go-asset.sha256sum] = "2824fea5b05bc6ae8154c1abe5faaaae31479f0d09762d04a0447566652c4245"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
