@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/iam/@v/v0.4.0.zip;srcoutput=cloud.google.com/go/iam;srcinput=cloud.google.com/go/iam@v0.4.0;downloadfilename=cloud-google-com-go-iam-0.4.0.zip;name=cloud-google-com-go-iam"
-SRC_URI[cloud-google-com-go-iam.sha256sum] = "627a59bd108f4940451aa4dd670a927eee5bef6f81239f0b86d9113ce8846b7f"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/iam/@v/v0.5.0.zip;srcoutput=cloud.google.com/go/iam;srcinput=cloud.google.com/go/iam@v0.5.0;downloadfilename=cloud-google-com-go-iam-0.5.0.zip;name=cloud-google-com-go-iam"
+SRC_URI[cloud-google-com-go-iam.sha256sum] = "0637c2167a3a8385ccec9c82f1b6272b330bc9051e61f5185ce4ceade5850a6c"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
@@ -16,3 +16,4 @@ require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-googleapis-gax-go
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-api-sources.inc', '', 'google.golang.org-api-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-genproto-sources.inc', '', 'google.golang.org-genproto-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-grpc-sources.inc', '', 'google.golang.org-grpc-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-protobuf-sources.inc', '', 'google.golang.org-protobuf-sources.inc', d)}
