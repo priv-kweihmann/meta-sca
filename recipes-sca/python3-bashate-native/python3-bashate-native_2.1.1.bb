@@ -11,8 +11,8 @@ DEPENDS += "\
             python3-pbr-native \
            "
 
-SRC_URI[md5sum] = "e910cde1c80a2518eec647a6110bae2e"
-SRC_URI[sha256sum] = "a0df143639715dc2fb6cf9aa6907e4a372d6f0a43afeffc55c5fb3ecfe3523c8"
+SRC_URI[md5sum] = "b0de3d5aead12cfd6c42d9ce221c05ea"
+SRC_URI[sha256sum] = "4bab6e977f8305a720535f8f93f1fb42c521fcbc4a6c2b3d3d7671f42f221f4c"
 
 PYPI_PACKAGE = "bashate"
 
