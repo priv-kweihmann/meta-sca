@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/ajstarks/giocanvas/@v/v0.0.0-20220908124116-07df59debe04.zip;srcoutput=github.com/ajstarks/giocanvas;srcinput=github.com/ajstarks/giocanvas@v0.0.0-20220908124116-07df59debe04;downloadfilename=github-com-ajstarks-giocanvas-0.0.0-20220908124116-07df59debe04.zip;name=github-com-ajstarks-giocanvas"
-SRC_URI[github-com-ajstarks-giocanvas.sha256sum] = "b5457069030b64443d981dc3afcc61ba15d965fd721265e305fcaa7cb2f1f5ae"
+SRC_URI += "https://proxy.golang.org/github.com/ajstarks/giocanvas/@v/v0.0.0-20221005112147-a4a3500715d7.zip;srcoutput=github.com/ajstarks/giocanvas;srcinput=github.com/ajstarks/giocanvas@v0.0.0-20221005112147-a4a3500715d7;downloadfilename=github-com-ajstarks-giocanvas-0.0.0-20221005112147-a4a3500715d7.zip;name=github-com-ajstarks-giocanvas"
+SRC_URI[github-com-ajstarks-giocanvas.sha256sum] = "91c9520423f47947086f47fb978eb2f3ccd8fc4139d282c339ddb15e4e142d88"
 
 GOSRC_LICENSE += "\
     MIT \
