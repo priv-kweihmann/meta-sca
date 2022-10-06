@@ -14,6 +14,7 @@ EXTRA_DEPENDS += "\
     nativesdk-google.golang.org-api \
     nativesdk-google.golang.org-genproto \
     nativesdk-google.golang.org-grpc \
+    nativesdk-google.golang.org-protobuf \
 "
 GO_IMPORT = "cloud.google.com/go/iam"
 inherit gosrc
