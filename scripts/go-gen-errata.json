@@ -9,6 +9,11 @@
             "cloud.google.com/go/iam"
         ]
     },
+    "honnef.co/go/js/dom": {
+        "extramods": [
+            "github.com/gopherjs/gopherjs"
+        ]
+    },
     "cloud.google.com/go/compute": {
         "licenseignore": [
             "apiv1/licenses_client.go",

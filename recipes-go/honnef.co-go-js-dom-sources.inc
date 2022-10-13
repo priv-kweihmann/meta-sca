@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/honnef.co/go/js/dom/@v/v0.0.0-20210725211120-f030747120f2.zip;srcoutput=honnef.co/go/js/dom;srcinput=honnef.co/go/js/dom@v0.0.0-20210725211120-f030747120f2;downloadfilename=honnef-co-go-js-dom-0.0.0-20210725211120-f030747120f2.zip;name=honnef-co-go-js-dom"
-SRC_URI[honnef-co-go-js-dom.sha256sum] = "4470b3abd3e95f41705b43a3346570bc4d9beb2924fb1e70c7137502afb57bc2"
+SRC_URI += "https://proxy.golang.org/honnef.co/go/js/dom/@v/v0.0.0-20221001195520-26252dedbe70.zip;srcoutput=honnef.co/go/js/dom;srcinput=honnef.co/go/js/dom@v0.0.0-20221001195520-26252dedbe70;downloadfilename=honnef-co-go-js-dom-0.0.0-20221001195520-26252dedbe70.zip;name=honnef-co-go-js-dom"
+SRC_URI[honnef-co-go-js-dom.sha256sum] = "9249d376b4125c9d80fd2e3ea59c31c657220d02dd0d6cfa16503a02cafebf8f"
 
 GOSRC_LICENSE += "\
     MIT \
