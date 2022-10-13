@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/fredbi/uri/@v/v0.0.0-20221002085739-62643c0df0c8.zip;srcoutput=github.com/fredbi/uri;srcinput=github.com/fredbi/uri@v0.0.0-20221002085739-62643c0df0c8;downloadfilename=github-com-fredbi-uri-0.0.0-20221002085739-62643c0df0c8.zip;name=github-com-fredbi-uri"
-SRC_URI[github-com-fredbi-uri.sha256sum] = "cafbb80f6fb7cee6b9e279a99e18181d089b5cc974e238c88c5e757b0b0ddc06"
+SRC_URI += "https://proxy.golang.org/github.com/fredbi/uri/@v/v0.0.0-20221012073901-fb871453c6d3.zip;srcoutput=github.com/fredbi/uri;srcinput=github.com/fredbi/uri@v0.0.0-20221012073901-fb871453c6d3;downloadfilename=github-com-fredbi-uri-0.0.0-20221012073901-fb871453c6d3.zip;name=github-com-fredbi-uri"
+SRC_URI[github-com-fredbi-uri.sha256sum] = "b60e4c217a00705f1d5a52807f6ba84f951737b8ff99f1c0ee970970104cde8b"
 
 GOSRC_LICENSE += "\
     MIT \
