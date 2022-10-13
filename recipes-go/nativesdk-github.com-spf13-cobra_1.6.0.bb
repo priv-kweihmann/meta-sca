@@ -11,7 +11,7 @@ EXTRA_DEPENDS += "\
     nativesdk-github.com-cpuguy83-go-md2man-v2 \
     nativesdk-github.com-inconshreveable-mousetrap \
     nativesdk-github.com-spf13-pflag \
-    nativesdk-gopkg.in-yaml.v2 \
+    nativesdk-gopkg.in-yaml.v3 \
 "
 GO_IMPORT = "github.com/spf13/cobra"
 inherit gosrc
