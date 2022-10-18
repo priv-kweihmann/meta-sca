@@ -19,14 +19,14 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: privkweihmann/yocto-sca-minimal:latest
+      image: privkweihmann/yocto-sca-minimal:2004
       env:
         WORKSPACE: /opt/build
         TOPDIR: /opt/build
         TEMPLATECONF: /opt/build/sources/meta-sca/conf/templates/scatest-qemux86-64/
       volumes:
         - ${{ github.workspace }}:/opt/build
-      options: --privileged
+      options: --privileged --user=yoctouser
 
     steps:
       - name: setup (container)
@@ -39,7 +39,7 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d-%H-%M-%S')"
       - name: additional setup (caches)
-        uses: actions/cache@v3.0.10
+        uses: actions/cache@v3
         with:
           path: /opt/build/sstate-cache
           key: sca-glibc-${{ steps.date.outputs.date }}

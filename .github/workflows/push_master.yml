@@ -31,14 +31,14 @@ jobs:
           BUILD_GLOBALINHERIT: 1
 
     container:
-      image: privkweihmann/yocto-sca-minimal:latest
+      image: privkweihmann/yocto-sca-minimal:2004
       env:
         WORKSPACE: /opt/build
         TOPDIR: /opt/build
         TEMPLATECONF: /opt/build/sources/meta-sca/conf/templates/scatest-qemux86-64/
       volumes:
         - ${{ github.workspace }}:/opt/build
-      options: --privileged
+      options: --privileged --user=yoctouser
 
     steps:
       - name: setup (container)
