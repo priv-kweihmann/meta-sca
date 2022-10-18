@@ -65,7 +65,7 @@ To install clone the needed branch(es) to any path on your local system.
 
 ### Use of containers
 
-It is recommended to use `privkweihmann/yocto-sca-minimal:latest` docker container for building, which has all necessary requirements already installed.
+It is recommended to use `privkweihmann/yocto-sca-minimal:2004` docker container for building, which has all necessary requirements already installed.
 
 ### Use in CI
 
