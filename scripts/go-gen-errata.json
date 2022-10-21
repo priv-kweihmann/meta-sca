@@ -9,11 +9,6 @@
             "cloud.google.com/go/iam"
         ]
     },
-    "honnef.co/go/js/dom": {
-        "extramods": [
-            "github.com/gopherjs/gopherjs"
-        ]
-    },
     "cloud.google.com/go/compute": {
         "licenseignore": [
             "apiv1/licenses_client.go",
@@ -775,6 +770,11 @@
             "golang.org/x/crypto"
         ]
     },
+    "github.com/yuin/goldmark": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/yuin/goldmark/fuzz\""
+        ]
+    },
     "github.com/yusufpapurcu/wmi": {
         "recipeextra": [
             "# fails with some very weird import error",
@@ -884,6 +884,11 @@
         "recipeextra": [
             "# needs CGO",
             "do_compile[noexec] = \"1\""
+        ]
+    },
+    "honnef.co/go/js/dom": {
+        "extramods": [
+            "github.com/gopherjs/gopherjs"
         ]
     },
     "honnef.co/go/tools": {
