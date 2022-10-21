@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/benoitkugler/textlayout/@v/v0.2.0.zip;srcoutput=github.com/benoitkugler/textlayout;srcinput=github.com/benoitkugler/textlayout@v0.2.0;downloadfilename=github-com-benoitkugler-textlayout-0.2.0.zip;name=github-com-benoitkugler-textlayout"
-SRC_URI[github-com-benoitkugler-textlayout.sha256sum] = "57baa730479f5c4f5533f4091599eaa7b36f22e662fbca64713082e905e0da66"
+SRC_URI += "https://proxy.golang.org/github.com/benoitkugler/textlayout/@v/v0.2.1.zip;srcoutput=github.com/benoitkugler/textlayout;srcinput=github.com/benoitkugler/textlayout@v0.2.1;downloadfilename=github-com-benoitkugler-textlayout-0.2.1.zip;name=github-com-benoitkugler-textlayout"
+SRC_URI[github-com-benoitkugler-textlayout.sha256sum] = "c3efc70528451418fde67222715b6aebd9b56711e27a75ab08366454c18ac4a4"
 
 GOSRC_LICENSE += "\
     MIT \
