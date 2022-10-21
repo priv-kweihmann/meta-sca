@@ -10,8 +10,11 @@ require github.com-microsoft-go-winio-sources.inc
 EXTRA_DEPENDS += "\
     nativesdk-github.com-sirupsen-logrus \
     nativesdk-golang.org-x-sys \
+    nativesdk-golang.org-x-tools \
 "
 GO_IMPORT = "github.com/Microsoft/go-winio"
 UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>\d+\.\d+\.\d+)"
+# needs CGO
+do_compile[noexec] = "1"
 inherit gosrc
 inherit nativesdk
