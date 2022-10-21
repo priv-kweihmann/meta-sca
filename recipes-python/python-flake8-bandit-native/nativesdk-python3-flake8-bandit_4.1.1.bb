@@ -27,3 +27,6 @@ RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-flake8-polyfill \
     nativesdk-python3-pycodestyle \
 "
+
+UPSTREAM_CHECK_URI = "https://pypi.org/project/flake8-bandit/"
+UPSTREAM_CHECK_REGEX = "/flake8-bandit/(?P<pver>(\d+[\.\-_]*)+)/"
