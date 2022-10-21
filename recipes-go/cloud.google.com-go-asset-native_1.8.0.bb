@@ -9,6 +9,7 @@ require cloud.google.com-go-asset-sources.inc
 
 EXTRA_DEPENDS += "\
     cloud.google.com-go-native \
+    github.com-golang-protobuf-native \
     github.com-googleapis-gax-go-v2-native \
     google.golang.org-api-native \
     google.golang.org-genproto-native \
