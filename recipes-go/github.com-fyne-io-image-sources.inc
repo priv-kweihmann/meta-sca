@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/fyne-io/image/@v/v0.0.0-20220602074514-4956b0afb3d2.zip;srcoutput=github.com/fyne-io/image;srcinput=github.com/fyne-io/image@v0.0.0-20220602074514-4956b0afb3d2;downloadfilename=github-com-fyne-io-image-0.0.0-20220602074514-4956b0afb3d2.zip;name=github-com-fyne-io-image"
-SRC_URI[github-com-fyne-io-image.sha256sum] = "d0ecdba4bced0978e1e3d95ef18c15433c54a39b6066cb814c99bd128ea64912"
+SRC_URI += "https://proxy.golang.org/github.com/fyne-io/image/@v/v0.0.0-20221020213044-f609c6a24345.zip;srcoutput=github.com/fyne-io/image;srcinput=github.com/fyne-io/image@v0.0.0-20221020213044-f609c6a24345;downloadfilename=github-com-fyne-io-image-0.0.0-20221020213044-f609c6a24345.zip;name=github-com-fyne-io-image"
+SRC_URI[github-com-fyne-io-image.sha256sum] = "a4488d8b9d44c83fea8bdf6262306b708909ad9fa238f3038de787cfb1621959"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
