@@ -193,11 +193,13 @@
     },
     "github.com/Microsoft/go-winio": {
         "recipeextra": [
-            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\""
+            "UPSTREAM_CHECK_GITTAGREGEX = \"v(?P<pver>\\d+\\.\\d+\\.\\d+)\"",
+            "# needs CGO",
+            "do_compile[noexec] = \"1\""
         ],
         "striplevel": 1,
         "url": "git://github.com/microsoft/go-winio",
-        "version": "v0.5.2"
+        "version": "v0.6.0"
     },
     "github.com/ProtonMail/go-crypto": {
         "branch": "main",
