@@ -11,9 +11,7 @@ EXTRA_DEPENDS += "\
     nativesdk-github.com-yuin-goldmark \
     nativesdk-golang.org-x-mod \
     nativesdk-golang.org-x-net \
-    nativesdk-golang.org-x-sync \
     nativesdk-golang.org-x-sys \
-    nativesdk-golang.org-x-text \
 "
 GO_IMPORT = "golang.org/x/tools"
 # needs CGO
