@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/grpc-ecosystem/grpc-gateway/v2/@v/v2.11.3.zip;srcoutput=github.com/grpc-ecosystem/grpc-gateway/v2;srcinput=github.com/grpc-ecosystem/grpc-gateway/v2@v2.11.3;downloadfilename=github-com-grpc-ecosystem-grpc-gateway-v2-2.11.3.zip;name=github-com-grpc-ecosystem-grpc-gateway-v2"
-SRC_URI[github-com-grpc-ecosystem-grpc-gateway-v2.sha256sum] = "7a91982c93816b187308f345fe56f892a3f7069b69c6da3c5657576dbd8c16d3"
+SRC_URI += "https://proxy.golang.org/github.com/grpc-ecosystem/grpc-gateway/v2/@v/v2.12.0.zip;srcoutput=github.com/grpc-ecosystem/grpc-gateway/v2;srcinput=github.com/grpc-ecosystem/grpc-gateway/v2@v2.12.0;downloadfilename=github-com-grpc-ecosystem-grpc-gateway-v2-2.12.0.zip;name=github-com-grpc-ecosystem-grpc-gateway-v2"
+SRC_URI[github-com-grpc-ecosystem-grpc-gateway-v2.sha256sum] = "b5f3c7035569832b3823f2d8d9075c8bd0129e29681b47276780315ad4472df3"
 GOSRC_REMOVEDIRS += "github.com/grpc-ecosystem/grpc-gateway/v2/examples"
 
 GOSRC_LICENSE += "\
@@ -19,6 +19,7 @@ require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-google-go-cmp-sou
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-rogpeppe-fastuuid-sources.inc', '', 'github.com-rogpeppe-fastuuid-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-oauth2-sources.inc', '', 'golang.org-x-oauth2-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-text-sources.inc', '', 'golang.org-x-text-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-genproto-sources.inc', '', 'google.golang.org-genproto-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-grpc-sources.inc', '', 'google.golang.org-grpc-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-protobuf-sources.inc', '', 'google.golang.org-protobuf-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'gopkg.in-yaml.v3-sources.inc', '', 'gopkg.in-yaml.v3-sources.inc', d)}
