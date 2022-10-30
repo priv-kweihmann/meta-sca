@@ -9,6 +9,8 @@ DEPENDS += "nativesdk-python3-six"
 
 PYPI_PACKAGE = "intbitset"
 
+SRC_URI:append = " file://0001-inibitset-include-pycore_frame-for-py-3.11.patch"
+
 SRC_URI[md5sum] = "8f417e4ec5879841fde7aa873320ffdc"
 SRC_URI[sha256sum] = "f1e6d03c6729922a223c51849df65b9e916e625aefb911784e7f9acd4c207d53"
 

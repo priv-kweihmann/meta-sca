@@ -1,0 +1,57 @@
+From c1e095ddc6bf9d2317c57c6d975958b11a2aba95 Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Sun, 30 Oct 2022 09:50:52 +0000
+Subject: [PATCH] inibitset: include pycore_frame for py 3.11
+
+this is a backport of a change done in cython to include the
+correct definition of PyFrame for python 3.11.
+Only added a guard macro to avoid double including the
+header file
+
+Closes #81
+
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+Upstream-Status: Submitted [https://github.com/inveniosoftware/intbitset/pull/82]
+---
+ intbitset/intbitset.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+diff --git a/intbitset/intbitset.c b/intbitset/intbitset.c
+index da73fae..cae9ffb 100644
+--- a/intbitset/intbitset.c
++++ b/intbitset/intbitset.c
+@@ -1173,6 +1173,15 @@ static PyObject *__Pyx_PyFunction_FastCallDict(PyObject *func, PyObject **args,
+ #if CYTHON_FAST_PYCALL
+   static size_t __pyx_pyframe_localsplus_offset = 0;
+   #include "frameobject.h"
++  #if PY_VERSION_HEX >= 0x030b00a6
++    #ifndef Py_BUILD_CORE
++      #define Py_BUILD_CORE 1
++    #endif
++    #ifndef PYCORE_FRAME
++      #include "internal/pycore_frame.h"
++      #define PYCORE_FRAME
++    #endif
++  #endif
+   #define __Pxy_PyFrame_Initialize_Offsets()\
+     ((void)__Pyx_BUILD_ASSERT_EXPR(sizeof(PyFrameObject) == offsetof(PyFrameObject, f_localsplus) + Py_MEMBER_SIZE(PyFrameObject, f_localsplus)),\
+      (void)(__pyx_pyframe_localsplus_offset = ((size_t)PyFrame_Type.tp_basicsize) - Py_MEMBER_SIZE(PyFrameObject, f_localsplus)))
+@@ -17199,6 +17208,15 @@ static void __pyx_insert_code_object(int code_line, PyCodeObject* code_object) {
+ /* AddTraceback */
+ #include "compile.h"
+ #include "frameobject.h"
++#if PY_VERSION_HEX >= 0x030b00a6
++  #ifndef Py_BUILD_CORE
++    #define Py_BUILD_CORE 1
++  #endif
++  #ifndef PYCORE_FRAME
++    #include "internal/pycore_frame.h"
++    #define PYCORE_FRAME
++  #endif
++#endif
+ #include "traceback.h"
+ static PyCodeObject* __Pyx_CreateCodeObjectForTraceback(
+             const char *funcname, int c_line,
+-- 
+2.34.1
+
