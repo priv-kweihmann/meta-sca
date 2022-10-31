@@ -12,7 +12,5 @@ SRCREV = "131f7819eade4fba35afdc63cee1e56bbd3122e6"
 
 S = "${WORKDIR}/git"
 
-UPSTREAM_CHECK_COMMITS = "1"
-
 inherit setuptools3
 inherit native
