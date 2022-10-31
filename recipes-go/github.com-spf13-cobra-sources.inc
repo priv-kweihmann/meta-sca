@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/spf13/cobra/@v/v1.6.0.zip;srcoutput=github.com/spf13/cobra;srcinput=github.com/spf13/cobra@v1.6.0;downloadfilename=github-com-spf13-cobra-1.6.0.zip;name=github-com-spf13-cobra"
-SRC_URI[github-com-spf13-cobra.sha256sum] = "61b6ba34cd34ac5f82f386bde90fc4531f84f0ace33ce82b9d5310d8e0101915"
+SRC_URI += "https://proxy.golang.org/github.com/spf13/cobra/@v/v1.6.1.zip;srcoutput=github.com/spf13/cobra;srcinput=github.com/spf13/cobra@v1.6.1;downloadfilename=github-com-spf13-cobra-1.6.1.zip;name=github-com-spf13-cobra"
+SRC_URI[github-com-spf13-cobra.sha256sum] = "10945bdd829f0abbedbeaecd722f4077ad3b317dedcbfc6eacde72fc8e5b3879"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
