@@ -1,13 +1,12 @@
-SRC_URI += "https://proxy.golang.org/github.com/hashicorp/go-msgpack/@v/v1.1.5.zip;srcoutput=github.com/hashicorp/go-msgpack;srcinput=github.com/hashicorp/go-msgpack@v1.1.5;downloadfilename=github-com-hashicorp-go-msgpack-1.1.5.zip;name=github-com-hashicorp-go-msgpack"
-SRC_URI[github-com-hashicorp-go-msgpack.sha256sum] = "7bdbe258c6c84bb35b26d6a0e613792c17364ac9d5f141cc304cfb636129a6d4"
+SRC_URI += "https://proxy.golang.org/github.com/hashicorp/go-msgpack/@v/v1.1.6.zip;srcoutput=github.com/hashicorp/go-msgpack;srcinput=github.com/hashicorp/go-msgpack@v1.1.6;downloadfilename=github-com-hashicorp-go-msgpack-1.1.6.zip;name=github-com-hashicorp-go-msgpack"
+SRC_URI[github-com-hashicorp-go-msgpack.sha256sum] = "4fe3a5a30d30ca366c4d0a97cf07d5aa32c0dc2ed0e2183b6d7a9eb571dc5179"
 
 GOSRC_LICENSE += "\
-    MIT \
+    BSD-3-Clause \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/hashicorp/go-msgpack/LICENSE;md5=a03c0693c900925da5789db4e72da142 \
+    file://src/github.com/hashicorp/go-msgpack/LICENSE;md5=3f4c936a1236aa7f17ca2a0b0ce4bfdd \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-hashicorp-go-msgpack-sources.inc"
 
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-tools-sources.inc', '', 'golang.org-x-tools-sources.inc', d)}
