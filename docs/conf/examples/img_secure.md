@@ -26,7 +26,6 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             detectsecrets \
                             jsonlint \
                             lynis \
-                            pyfindinjection \
                             pylint \
                             shellcheck \
                             systemdlint \

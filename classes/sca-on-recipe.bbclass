@@ -42,7 +42,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             pkgqaenc \
                             protolint \
                             pscan \
-                            pyfindinjection \
                             pylint \
                             pysymcheck \
                             rats \

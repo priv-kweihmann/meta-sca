@@ -117,7 +117,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           pkgqaenc \
                           protolint \
                           pscan \
-                          pyfindinjection \
                           pylint \
                           pysymcheck \
                           rats \

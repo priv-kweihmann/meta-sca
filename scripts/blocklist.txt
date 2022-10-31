@@ -34,7 +34,6 @@ sca-image-lynis-rules-native
 sca-image-multimetric-rules-native
 sca-image-mypy-rules-native
 sca-image-oelint-rules-native
-sca-image-pyfindinjection-rules-native
 sca-image-pylint-rules-native
 sca-image-reconbf-rules-native
 sca-image-shellcheck-rules-native
@@ -75,7 +74,6 @@ sca-recipe-perl-rules-native
 sca-recipe-perlcritic-rules-native
 sca-recipe-pkgqaenc-rules-native
 sca-recipe-pscan-rules-native
-sca-recipe-pyfindinjection-rules-native
 sca-recipe-pylint-rules-native
 sca-recipe-pysymcheck-rules-native
 sca-recipe-rats-rules-native

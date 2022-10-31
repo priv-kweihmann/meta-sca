@@ -25,7 +25,6 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             multimetric \
                             mypy \
                             oelint \
-                            pyfindinjection \
                             pylint \
                             reconbf \
                             shellcheck \

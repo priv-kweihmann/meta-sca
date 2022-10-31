@@ -29,7 +29,6 @@ SCA_ENABLED_MODULES:remove:class-nativesdk = "${@oe.utils.ifelse(not bb.data.inh
 SCA_ENABLED_MODULES:remove:class-nativesdk = "${@oe.utils.ifelse(not bb.data.inherits_class('packagegroup', d), 'perlcritic', '')}"
 SCA_ENABLED_MODULES:remove:class-nativesdk = "${@oe.utils.ifelse(not bb.data.inherits_class('packagegroup', d), 'protolint', '')}"
 SCA_ENABLED_MODULES:remove:class-nativesdk = "${@oe.utils.ifelse(not bb.data.inherits_class('packagegroup', d), 'pscan', '')}"
-SCA_ENABLED_MODULES:remove:class-nativesdk = "${@oe.utils.ifelse(not bb.data.inherits_class('packagegroup', d), 'pyfindinjection', '')}"
 SCA_ENABLED_MODULES:remove:class-nativesdk = "${@oe.utils.ifelse(not bb.data.inherits_class('packagegroup', d), 'pylint', '')}"
 SCA_ENABLED_MODULES:remove:class-nativesdk = "${@oe.utils.ifelse(not bb.data.inherits_class('packagegroup', d), 'pysymcheck', '')}"
 SCA_ENABLED_MODULES:remove:class-nativesdk = "${@oe.utils.ifelse(not bb.data.inherits_class('packagegroup', d), 'rats', '')}"

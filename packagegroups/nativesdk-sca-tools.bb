@@ -28,7 +28,6 @@ RDEPENDS:${PN} += "\
     ${@oe.utils.ifelse('perlcritic' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-perl-critic nativesdk-sca-recipe-perlcritic-rules', '')} \
     ${@oe.utils.ifelse('protolint' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-protolint-sca nativesdk-sca-recipe-protolint-rules', '')} \
     ${@oe.utils.ifelse('pscan' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-pscan nativesdk-sca-recipe-pscan-rules', '')} \
-    ${@oe.utils.ifelse('pyfindinjection' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-python3-pyfindinjection nativesdk-sca-recipe-pyfindinjection-rules', '')} \
     ${@oe.utils.ifelse('pylint' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-python3-pylint nativesdk-sca-recipe-pylint-rules', '')} \
     ${@oe.utils.ifelse('pysymbolcheck' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-python3-pysymbolcheck nativesdk-sca-recipe-pysymcheck-rules', '')} \
     ${@oe.utils.ifelse('rats' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-rats nativesdk-sca-recipe-rats-rules', '')} \

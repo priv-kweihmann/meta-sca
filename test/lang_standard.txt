@@ -34,7 +34,6 @@ perlcritic
 pkgqaenc
 protolint
 pscan
-pyfindinjection
 pylint
 pysymcheck
 rats

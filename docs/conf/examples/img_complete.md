@@ -31,7 +31,6 @@ SCA_ENABLED_MODULES_IMAGE = "\
                             jsonlint \
                             mypy \
                             lynis \
-                            pyfindinjection \
                             pylint \
                             shellcheck \
                             systemdlint \
@@ -59,7 +58,6 @@ SCA_ENABLED_MODULES_RECIPE = "\
                             jsonlint \
                             kconfighard \
                             mypy \
-                            pyfindinjection \
                             pylint \
                             rats \
                             revive \
