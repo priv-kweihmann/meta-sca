@@ -26,6 +26,7 @@ RDEPENDS:${PN}:class-target += "\
                                 python3-core \
                                 python3-json \
                                 python3-logging \
+                                python3-misc \
                                 python3-multiprocessing \
                                 python3-netserver \
                                 python3-pkgutil \
