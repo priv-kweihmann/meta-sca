@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/jezek/xgb/@v/v1.0.1.zip;srcoutput=github.com/jezek/xgb;srcinput=github.com/jezek/xgb@v1.0.1;downloadfilename=github-com-jezek-xgb-1.0.1.zip;name=github-com-jezek-xgb"
-SRC_URI[github-com-jezek-xgb.sha256sum] = "cc2a4933d1c5ea932fbf43af0d06346b1335a473d7fc2dc06208167711f4c4c2"
+SRC_URI += "https://proxy.golang.org/github.com/jezek/xgb/@v/v1.1.0.zip;srcoutput=github.com/jezek/xgb;srcinput=github.com/jezek/xgb@v1.1.0;downloadfilename=github-com-jezek-xgb-1.1.0.zip;name=github-com-jezek-xgb"
+SRC_URI[github-com-jezek-xgb.sha256sum] = "60408d792721de68bbfe1b66589c803028c640ed04741e92dad7d6a431b5d434"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
