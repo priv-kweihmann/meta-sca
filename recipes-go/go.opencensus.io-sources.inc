@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/go.opencensus.io/@v/v0.23.0.zip;srcoutput=go.opencensus.io;srcinput=go.opencensus.io@v0.23.0;downloadfilename=go-opencensus-io-0.23.0.zip;name=go-opencensus-io"
-SRC_URI[go-opencensus-io.sha256sum] = "81c78beb84872084d6d5ddc0a0bffc47294412898472c891a29cfcb66f3fa2d8"
+SRC_URI += "https://proxy.golang.org/go.opencensus.io/@v/v0.24.0.zip;srcoutput=go.opencensus.io;srcinput=go.opencensus.io@v0.24.0;downloadfilename=go-opencensus-io-0.24.0.zip;name=go-opencensus-io"
+SRC_URI[go-opencensus-io.sha256sum] = "203a767d7f8e7c1ebe5588220ad168d1e15b14ae70a636de7ca9a4a88a7e0d0c"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
