@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/grpc-ecosystem/grpc-gateway/v2/@v/v2.12.0.zip;srcoutput=github.com/grpc-ecosystem/grpc-gateway/v2;srcinput=github.com/grpc-ecosystem/grpc-gateway/v2@v2.12.0;downloadfilename=github-com-grpc-ecosystem-grpc-gateway-v2-2.12.0.zip;name=github-com-grpc-ecosystem-grpc-gateway-v2"
-SRC_URI[github-com-grpc-ecosystem-grpc-gateway-v2.sha256sum] = "b5f3c7035569832b3823f2d8d9075c8bd0129e29681b47276780315ad4472df3"
+SRC_URI += "https://proxy.golang.org/github.com/grpc-ecosystem/grpc-gateway/v2/@v/v2.13.0.zip;srcoutput=github.com/grpc-ecosystem/grpc-gateway/v2;srcinput=github.com/grpc-ecosystem/grpc-gateway/v2@v2.13.0;downloadfilename=github-com-grpc-ecosystem-grpc-gateway-v2-2.13.0.zip;name=github-com-grpc-ecosystem-grpc-gateway-v2"
+SRC_URI[github-com-grpc-ecosystem-grpc-gateway-v2.sha256sum] = "c4686a46615ffa03f840af6a303d16733cd1c78da3b81abb5513d43549e1cdd2"
 GOSRC_REMOVEDIRS += "github.com/grpc-ecosystem/grpc-gateway/v2/examples"
 
 GOSRC_LICENSE += "\
