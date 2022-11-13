@@ -12,10 +12,8 @@ DEPENDS += "\
     python3-unidiff-native \
 "
 
-PV = "1.0.0+${SRCREV}"
-
 SRC_URI = "git://github.com/priv-kweihmann/scabot.git;branch=master;protocol=https"
-SRCREV = "95cec6c70c1043d64c341172efb435f32ae9a482"
+SRCREV = "d076829b2e1ad534c394be4e8fbf4fc79c98e0eb"
 
 S = "${WORKDIR}/git"
 
