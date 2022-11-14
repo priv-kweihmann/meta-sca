@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/coreos/go-systemd/v22/@v/v22.4.0.zip;srcoutput=github.com/coreos/go-systemd/v22;srcinput=github.com/coreos/go-systemd/v22@v22.4.0;downloadfilename=github-com-coreos-go-systemd-v22-22.4.0.zip;name=github-com-coreos-go-systemd-v22"
-SRC_URI[github-com-coreos-go-systemd-v22.sha256sum] = "e384d70ff122eff39da242f20832c27e696cd186d27fe39575b4460d7c855fe9"
+SRC_URI += "https://proxy.golang.org/github.com/coreos/go-systemd/v22/@v/v22.5.0.zip;srcoutput=github.com/coreos/go-systemd/v22;srcinput=github.com/coreos/go-systemd/v22@v22.5.0;downloadfilename=github-com-coreos-go-systemd-v22-22.5.0.zip;name=github-com-coreos-go-systemd-v22"
+SRC_URI[github-com-coreos-go-systemd-v22.sha256sum] = "4c44e3a6b84de4db393e341537c7124031fa98d5f98860ad31b32b4890f2234c"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
