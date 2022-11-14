@@ -11,6 +11,7 @@ EXTRA_DEPENDS += "\
     github.com-yuin-goldmark-native \
     golang.org-x-mod-native \
     golang.org-x-net-native \
+    golang.org-x-sync-native \
     golang.org-x-sys-native \
 "
 
