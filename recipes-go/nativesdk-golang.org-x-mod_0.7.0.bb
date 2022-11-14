@@ -7,7 +7,6 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require golang.org-x-mod-sources.inc
 
-EXTRA_DEPENDS += "nativesdk-golang.org-x-crypto"
 GO_IMPORT = "golang.org/x/mod"
 inherit gosrc
 inherit nativesdk
