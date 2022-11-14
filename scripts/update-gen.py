@@ -69,6 +69,7 @@ def run_package_update_go(_args, packagename, version):
         _pargs = ["python3", os.path.join(
             _args.repo, "scripts", "go-gen")]
         _pargs += ["--version={}".format(version)]
+        _pargs += ["--keepdepversion"]
         _pargs += [os.path.join(_args.repo, "recipes-go"),
                    packagename]
         subprocess.check_call(_pargs, universal_newlines=True)
