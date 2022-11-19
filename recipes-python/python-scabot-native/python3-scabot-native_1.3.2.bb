@@ -20,8 +20,6 @@ S = "${WORKDIR}/git"
 inherit setuptools3
 inherit native
 
-UPSTREAM_CHECK_COMMITS = "1"
-
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-github3-py \
     nativesdk-python3-python-gitlab \
