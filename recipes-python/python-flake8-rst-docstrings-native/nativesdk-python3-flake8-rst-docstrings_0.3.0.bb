@@ -6,18 +6,18 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.rst;md5=647e2c41944e325227c84555a6bced85"
 
 DEPENDS += "\
-            python3-flake8-native \
-            python3-restructuredtext-lint-native \
-            "
+    nativesdk-python3-flake8 \
+    nativesdk-python3-restructuredtext-lint \
+    python3-pip-native \
+"
 
 PYPI_PACKAGE = "flake8-rst-docstrings"
 
-SRC_URI[md5sum] = "1193e2ba320176eea7899001adee3772"
-SRC_URI[sha256sum] = "2740067ab9237559dd45a3434d8c987792c7b259ca563621a3b95efe201f5382"
+SRC_URI[sha256sum] = "d1ce22b4bd37b73cd86b8d980e946ef198cfcc18ed82fedb674ceaa2f8d1afa4"
 
 inherit pypi
-inherit setuptools3
-inherit native
+inherit python_setuptools_build_meta
+inherit nativesdk
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \
