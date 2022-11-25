@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/gioui.org/@v/v0.0.0-20221109144551-4f5a6b321284.zip;srcoutput=gioui.org;srcinput=gioui.org@v0.0.0-20221109144551-4f5a6b321284;downloadfilename=gioui-org-0.0.0-20221109144551-4f5a6b321284.zip;name=gioui-org"
-SRC_URI[gioui-org.sha256sum] = "34e042d7973ccd6f94590a9900b4f035dc73aba2ecbb5b179644345c81509342"
+SRC_URI += "https://proxy.golang.org/gioui.org/@v/v0.0.0-20221122135904-dee53b364560.zip;srcoutput=gioui.org;srcinput=gioui.org@v0.0.0-20221122135904-dee53b364560;downloadfilename=gioui-org-0.0.0-20221122135904-dee53b364560.zip;name=gioui-org"
+SRC_URI[gioui-org.sha256sum] = "b5cb6de06af13a1c39179e512f1973dc8665448a91236fc80cf4842a3038ad79"
 
 GOSRC_LICENSE += "\
     MIT \
