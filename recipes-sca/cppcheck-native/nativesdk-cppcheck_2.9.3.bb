@@ -12,7 +12,7 @@ LIC_FILES_CHKSUM = "\
 "
 
 SRC_URI = "git://github.com/danmar/cppcheck.git;protocol=https;nobranch=1"
-SRCREV = "caa6ff7c2a6ef64df53e04701944aaa4712a1915"
+SRCREV = "577d07360e42c302ce49d1096059d982cf380c4f"
 
 S = "${WORKDIR}/git"
 
