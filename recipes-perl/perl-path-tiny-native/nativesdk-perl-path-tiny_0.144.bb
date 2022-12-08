@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=0d4be4fba9b7d7c16379d54e87d199f1"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "2f4282d1ec2b6e4036cfb3d37a8315ad"
-SRC_URI[sha256sum] = "faa2bafd722647c22d31efcafc2605ba11470b06471f815b6937d5957b1032ec"
+SRC_URI[md5sum] = "7b2fc4f5edfd29b88d2cc3b96830e7d1"
+SRC_URI[sha256sum] = "f6ea094ece845c952a02c2789332579354de8d410a707f9b7045bd241206487d"
 
 S = "${WORKDIR}/Path-Tiny-${PV}"
 
