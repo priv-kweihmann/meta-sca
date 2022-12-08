@@ -20,14 +20,14 @@ DEPENDS += "\
             python3-setuptools-scm-native \
             "
 
-SRC_URI[md5sum] = "3e48c4b361e546a4b046852f3f8cbc78"
-SRC_URI[sha256sum] = "db3022be2d87f69c8f508b928023de3026f454ce17d01e22f770f7147ac1e8d4"
+SRC_URI[md5sum] = "efef219dedc0a2e5c465d4cd6e8f904d"
+SRC_URI[sha256sum] = "7a054f6e372ad02d0b1b07368030fc38746b50ed45f5422a81994e7a88b52f1f"
 
 PYPI_PACKAGE = "reuse"
 
 inherit pypi
 inherit sca-description
-inherit setuptools3
+inherit python_poetry_core
 inherit native
 
 SCA_TOOL_DESCRIPTION = "reuse"
