@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/go-text/typesetting/@v/v0.0.0-20221123115637-1b69ca38a859.zip;srcoutput=github.com/go-text/typesetting;srcinput=github.com/go-text/typesetting@v0.0.0-20221123115637-1b69ca38a859;downloadfilename=github-com-go-text-typesetting-0.0.0-20221123115637-1b69ca38a859.zip;name=github-com-go-text-typesetting"
-SRC_URI[github-com-go-text-typesetting.sha256sum] = "c2ac4d15aadc2f9fd0742f0b2c4ff6f11717280ec5f51766e3cfcb77fa1b4f20"
+SRC_URI += "https://proxy.golang.org/github.com/go-text/typesetting/@v/v0.0.0-20221129122707-b081989d8c45.zip;srcoutput=github.com/go-text/typesetting;srcinput=github.com/go-text/typesetting@v0.0.0-20221129122707-b081989d8c45;downloadfilename=github-com-go-text-typesetting-0.0.0-20221129122707-b081989d8c45.zip;name=github-com-go-text-typesetting"
+SRC_URI[github-com-go-text-typesetting.sha256sum] = "b22df6c85ca9fda76841606a7432430ef266c80b0174a9518565fe7a54b68956"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
