@@ -10,7 +10,6 @@ require cloud.google.com-go-bigquery-sources.inc
 EXTRA_DEPENDS += "\
     cloud.google.com-go-iam-native \
     cloud.google.com-go-native \
-    github.com-golang-protobuf-native \
     github.com-googleapis-gax-go-v2-native \
     go.opencensus.io-native \
     golang.org-x-sync-native \
