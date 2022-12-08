@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/dmitri.shuralyov.com/gpu/mtl/@v/v0.0.0-20201218220906-28db891af037.zip;srcoutput=dmitri.shuralyov.com/gpu/mtl;srcinput=dmitri.shuralyov.com/gpu/mtl@v0.0.0-20201218220906-28db891af037;downloadfilename=dmitri-shuralyov-com-gpu-mtl-0.0.0-20201218220906-28db891af037.zip;name=dmitri-shuralyov-com-gpu-mtl"
-SRC_URI[dmitri-shuralyov-com-gpu-mtl.sha256sum] = "d9992a60371571861985f191ac38954db2cc1bd36e834058ad50f989ccc8fa06"
+SRC_URI += "https://proxy.golang.org/dmitri.shuralyov.com/gpu/mtl/@v/v0.0.0-20221208032759-85de2813cf6b.zip;srcoutput=dmitri.shuralyov.com/gpu/mtl;srcinput=dmitri.shuralyov.com/gpu/mtl@v0.0.0-20221208032759-85de2813cf6b;downloadfilename=dmitri-shuralyov-com-gpu-mtl-0.0.0-20221208032759-85de2813cf6b.zip;name=dmitri-shuralyov-com-gpu-mtl"
+SRC_URI[dmitri-shuralyov-com-gpu-mtl.sha256sum] = "a0b264e88f5a4f4b97e3b6ab8b3d1284a5a14c99a545b734312ce5b32cc8dc65"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
