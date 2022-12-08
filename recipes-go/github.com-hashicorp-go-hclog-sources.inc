@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/hashicorp/go-hclog/@v/v1.3.1.zip;srcoutput=github.com/hashicorp/go-hclog;srcinput=github.com/hashicorp/go-hclog@v1.3.1;downloadfilename=github-com-hashicorp-go-hclog-1.3.1.zip;name=github-com-hashicorp-go-hclog"
-SRC_URI[github-com-hashicorp-go-hclog.sha256sum] = "5c88941c557a5be4419d3a79dfaebf8830b7b5be7d1590ce6d9bb3fb186eb702"
+SRC_URI += "https://proxy.golang.org/github.com/hashicorp/go-hclog/@v/v1.4.0.zip;srcoutput=github.com/hashicorp/go-hclog;srcinput=github.com/hashicorp/go-hclog@v1.4.0;downloadfilename=github-com-hashicorp-go-hclog-1.4.0.zip;name=github-com-hashicorp-go-hclog"
+SRC_URI[github-com-hashicorp-go-hclog.sha256sum] = "afc45fbf826ced46d8c54877e24c73b8acda235d1c0a44f5b63145664e347e31"
 
 GOSRC_LICENSE += "\
     MIT \
