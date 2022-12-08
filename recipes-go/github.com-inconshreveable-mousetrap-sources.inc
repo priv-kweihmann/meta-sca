@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/inconshreveable/mousetrap/@v/v1.0.1.zip;srcoutput=github.com/inconshreveable/mousetrap;srcinput=github.com/inconshreveable/mousetrap@v1.0.1;downloadfilename=github-com-inconshreveable-mousetrap-1.0.1.zip;name=github-com-inconshreveable-mousetrap"
-SRC_URI[github-com-inconshreveable-mousetrap.sha256sum] = "af6f61a00f42d025f195ea272620bbddb045552a9badcf97d8a837980017dbfc"
+SRC_URI += "https://proxy.golang.org/github.com/inconshreveable/mousetrap/@v/v1.1.0.zip;srcoutput=github.com/inconshreveable/mousetrap;srcinput=github.com/inconshreveable/mousetrap@v1.1.0;downloadfilename=github-com-inconshreveable-mousetrap-1.1.0.zip;name=github-com-inconshreveable-mousetrap"
+SRC_URI[github-com-inconshreveable-mousetrap.sha256sum] = "526674de624d7db108cfe7653ef110ccdfd97bc85026254224815567928ed243"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
