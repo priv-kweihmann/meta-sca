@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/huandu/xstrings/@v/v1.3.2.zip;srcoutput=github.com/huandu/xstrings;srcinput=github.com/huandu/xstrings@v1.3.2;downloadfilename=github-com-huandu-xstrings-1.3.2.zip;name=github-com-huandu-xstrings"
-SRC_URI[github-com-huandu-xstrings.sha256sum] = "d2adf0995f9b6e9e099be38b8412202633475c5bf8cc440245b3ddddf8b741de"
+SRC_URI += "https://proxy.golang.org/github.com/huandu/xstrings/@v/v1.4.0.zip;srcoutput=github.com/huandu/xstrings;srcinput=github.com/huandu/xstrings@v1.4.0;downloadfilename=github-com-huandu-xstrings-1.4.0.zip;name=github-com-huandu-xstrings"
+SRC_URI[github-com-huandu-xstrings.sha256sum] = "619760fde0a5e414a529f67fefa40877a1e9a20c1f7288bbb02fa42b67aaa1ad"
 
 GOSRC_LICENSE += "\
     MIT \
