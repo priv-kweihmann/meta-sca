@@ -12,7 +12,7 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "pip-requirements-parser"
 
-SRC_URI[sha256sum] = "8c2a6f8e091ac2693824a5ef4e3b250226e34f74a20a91a87b9ab0714b47788f"
+SRC_URI[sha256sum] = "5159b8a9485a5a0d0254a29c9bd8b8ce66db2eb9a1a0244c64dfce43f7f2ac90"
 
 inherit pypi
 inherit setuptools3
