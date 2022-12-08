@@ -11,7 +11,6 @@ EXTRA_DEPENDS += "\
     nativesdk-cloud.google.com-go \
     nativesdk-cloud.google.com-go-compute-metadata \
     nativesdk-cloud.google.com-go-iam \
-    nativesdk-github.com-golang-protobuf \
     nativesdk-github.com-google-uuid \
     nativesdk-github.com-googleapis-gax-go-v2 \
     nativesdk-golang.org-x-oauth2 \
