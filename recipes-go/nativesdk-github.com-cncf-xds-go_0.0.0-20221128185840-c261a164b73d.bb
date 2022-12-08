@@ -10,9 +10,7 @@ require github.com-cncf-xds-go-sources.inc
 EXTRA_DEPENDS += "\
     nativesdk-github.com-envoyproxy-protoc-gen-validate \
     nativesdk-github.com-golang-protobuf \
-    nativesdk-google.golang.org-genproto \
     nativesdk-google.golang.org-grpc \
-    nativesdk-google.golang.org-protobuf \
 "
 GO_IMPORT = "github.com/cncf/xds/go"
 inherit gosrc
