@@ -6,7 +6,7 @@ COMPATIBLE_HOST = "^x86_64-linux|^aarch64-linux|^arm-linux|.*x86-64|.*aarch64|.*
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-3.0-only"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=4961609c03284904eb67ff03e2a87042"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 DEPENDS += "\
     dpkg-native \
@@ -27,9 +27,9 @@ def shellcheck_arch_map(d):
 
 SRC_URI = "https://github.com/koalaman/shellcheck/releases/download/v${PV}/shellcheck-v${PV}.linux.${@shellcheck_arch_map(d)}.tar.xz;name=blob_${@shellcheck_arch_map(d)}"
 
-SRC_URI[blob_x86_64.sha256sum] = "ab6ee1b178f014d1b86d1e24da20d1139656c8b0ed34d2867fbb834dad02bf0a"
-SRC_URI[blob_aarch64.sha256sum] = "9f47bbff5624babfa712eb9d64ece14c6c46327122d0c54983f627ae3a30a4ac"
-SRC_URI[blob_armv6hf.sha256sum] = "17857c8a0a8f4001aa9638732991cbb6e85c4a410500b11e2e0a98d9858afca8"
+SRC_URI[blob_x86_64.sha256sum] = "700324c6dd0ebea0117591c6cc9d7350d9c7c5c287acbad7630fa17b1d4d9e2f"
+SRC_URI[blob_aarch64.sha256sum] = "179c579ef3481317d130adebede74a34dbbc2df961a70916dd4039ebf0735fae"
+SRC_URI[blob_armv6hf.sha256sum] = "03deed9ded9dd66434ccf9649815bcde7d275d6c9f6dcf665b83391673512c75"
 
 S = "${WORKDIR}/shellcheck-v${PV}"
 
