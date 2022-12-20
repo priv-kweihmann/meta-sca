@@ -615,6 +615,13 @@
             "testdata/license.yml"
         ]
     },
+    "github.com/inconshreveable/log15": {
+        "extramods": [
+            "golang.org/x/term",
+            "github.com/mattn/go-colorable",
+            "github.com/go-stack/stack"
+        ]
+    },
     "github.com/json-iterator/go": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/json-iterator/go/api_tests\"",

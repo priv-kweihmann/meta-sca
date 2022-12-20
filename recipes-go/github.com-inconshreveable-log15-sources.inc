@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/inconshreveable/log15/@v/v0.0.0-20201112154412-8562bdadbbac.zip;srcoutput=github.com/inconshreveable/log15;srcinput=github.com/inconshreveable/log15@v0.0.0-20201112154412-8562bdadbbac;downloadfilename=github-com-inconshreveable-log15-0.0.0-20201112154412-8562bdadbbac.zip;name=github-com-inconshreveable-log15"
-SRC_URI[github-com-inconshreveable-log15.sha256sum] = "7bcdfcf1b3d69569e6c77942a0bacb8b60a152cf010ba27cae994350b6577ae0"
+SRC_URI += "https://proxy.golang.org/github.com/inconshreveable/log15/@v/v3.0.0-testing.5+incompatible.zip;srcoutput=github.com/inconshreveable/log15;srcinput=github.com/inconshreveable/log15@v3.0.0-testing.5+incompatible;downloadfilename=github-com-inconshreveable-log15-3.0.0-testing.5+incompatible.zip;name=github-com-inconshreveable-log15"
+SRC_URI[github-com-inconshreveable-log15.sha256sum] = "1380423648ad8bc31a0975ab6486683680f51af745478e7b2180933d17208c21"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
@@ -14,4 +14,4 @@ GOSRC_INCLUDEGUARD += "github.com-inconshreveable-log15-sources.inc"
 
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-go-stack-stack-sources.inc', '', 'github.com-go-stack-stack-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-mattn-go-colorable-sources.inc', '', 'github.com-mattn-go-colorable-sources.inc', d)}
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-mattn-go-isatty-sources.inc', '', 'github.com-mattn-go-isatty-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-term-sources.inc', '', 'golang.org-x-term-sources.inc', d)}
