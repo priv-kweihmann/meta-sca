@@ -9,7 +9,7 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "hatch_vcs"
 
-SRC_URI[sha256sum] = "854e398586e7a0a9295c9d4365729d1ae6834ef39de33c88080f4eecc6fc5681"
+SRC_URI[sha256sum] = "cec5107cfce482c67f8bc96f18bbc320c9aa0d068180e14ad317bbee5a153fee"
 
 inherit pypi
 inherit python_hatchling
