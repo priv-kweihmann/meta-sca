@@ -8,7 +8,7 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require mvdan.cc-sh-sources.inc
 
 EXTRA_DEPENDS += "\
-    nativesdk-github.com-google-renameio \
+    nativesdk-github.com-google-renameio-v2 \
     nativesdk-github.com-pkg-diff \
     nativesdk-golang.org-x-sync \
     nativesdk-golang.org-x-sys \
