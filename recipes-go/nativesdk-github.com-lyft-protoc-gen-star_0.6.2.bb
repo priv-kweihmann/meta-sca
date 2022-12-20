@@ -10,6 +10,8 @@ require github.com-lyft-protoc-gen-star-sources.inc
 EXTRA_DEPENDS += "\
     nativesdk-github.com-golang-protobuf \
     nativesdk-github.com-spf13-afero \
+    nativesdk-golang.org-x-tools \
+    nativesdk-google.golang.org-protobuf \
 "
 GO_IMPORT = "github.com/lyft/protoc-gen-star"
 inherit gosrc
