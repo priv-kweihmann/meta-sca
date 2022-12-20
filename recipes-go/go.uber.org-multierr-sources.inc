@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/go.uber.org/multierr/@v/v1.8.0.zip;srcoutput=go.uber.org/multierr;srcinput=go.uber.org/multierr@v1.8.0;downloadfilename=go-uber-org-multierr-1.8.0.zip;name=go-uber-org-multierr"
-SRC_URI[go-uber-org-multierr.sha256sum] = "0077abedf9a4798c50e015045b5cc092b8001be6d994fc59781c4b0d6ae94507"
+SRC_URI += "https://proxy.golang.org/go.uber.org/multierr/@v/v1.9.0.zip;srcoutput=go.uber.org/multierr;srcinput=go.uber.org/multierr@v1.9.0;downloadfilename=go-uber-org-multierr-1.9.0.zip;name=go-uber-org-multierr"
+SRC_URI[go-uber-org-multierr.sha256sum] = "b029b936a6b10ae3fa158e14f89910da317bd678fc66f51f9c4612098005d367"
 
 GOSRC_LICENSE += "\
     MIT \
