@@ -13,8 +13,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "lxml"
 
-SRC_URI[md5sum] = "e27240a7319d80d0c1e5390ca31eb1d8"
-SRC_URI[sha256sum] = "fe749b052bb7233fe5d072fcb549221a8cb1a16725c47c37e42b0b9cb3ff2c3f"
+SRC_URI[md5sum] = "aa84a7ce47581b43cb827145340505c6"
+SRC_URI[sha256sum] = "2455cfaeb7ac70338b3257f41e21f0724f4b5b0c0e7702da67ee6c3640835b67"
 
 inherit pkgconfig
 inherit pypi
