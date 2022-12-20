@@ -11,7 +11,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=732073107cf3502051ce427bb5b01816"
 
 PYPI_PACKAGE = "dockerfile-parse"
 
-SRC_URI[sha256sum] = "07e65eec313978e877da819855870b3ae47f3fac94a40a965b9ede10484dacc5"
+SRC_URI[sha256sum] = "21fe7d510642f2b61a999d45c3d9745f950e11fe6ba2497555b8f63782b78e45"
 
 inherit pypi
 inherit setuptools3
