@@ -11,11 +11,12 @@ EXTRA_DEPENDS += "\
     gioui.org-cpu-native \
     gioui.org-shader-native \
     github.com-benoitkugler-textlayout-native \
-    github.com-gioui-uax-native \
     github.com-go-text-typesetting-native \
+    golang.org-x-exp-native \
     golang.org-x-exp-shiny-native \
     golang.org-x-image-native \
     golang.org-x-sys-native \
+    golang.org-x-text-native \
 "
 
 GO_IMPORT = "gioui.org"

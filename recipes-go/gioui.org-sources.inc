@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/gioui.org/@v/v0.0.0-20221122135904-dee53b364560.zip;srcoutput=gioui.org;srcinput=gioui.org@v0.0.0-20221122135904-dee53b364560;downloadfilename=gioui-org-0.0.0-20221122135904-dee53b364560.zip;name=gioui-org"
-SRC_URI[gioui-org.sha256sum] = "b5cb6de06af13a1c39179e512f1973dc8665448a91236fc80cf4842a3038ad79"
+SRC_URI += "https://proxy.golang.org/gioui.org/@v/v0.0.0-20221219171716-c455f0f342ef.zip;srcoutput=gioui.org;srcinput=gioui.org@v0.0.0-20221219171716-c455f0f342ef;downloadfilename=gioui-org-0.0.0-20221219171716-c455f0f342ef.zip;name=gioui-org"
+SRC_URI[gioui-org.sha256sum] = "9b4f6ff43155bba402e24d386162028849082ce97fe8fef2668a1f01cb8af562"
 
 GOSRC_LICENSE += "\
     MIT \
@@ -14,8 +14,9 @@ GOSRC_INCLUDEGUARD += "gioui.org-sources.inc"
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'gioui.org-cpu-sources.inc', '', 'gioui.org-cpu-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'gioui.org-shader-sources.inc', '', 'gioui.org-shader-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-benoitkugler-textlayout-sources.inc', '', 'github.com-benoitkugler-textlayout-sources.inc', d)}
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-gioui-uax-sources.inc', '', 'github.com-gioui-uax-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-go-text-typesetting-sources.inc', '', 'github.com-go-text-typesetting-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-exp-shiny-sources.inc', '', 'golang.org-x-exp-shiny-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-exp-sources.inc', '', 'golang.org-x-exp-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-image-sources.inc', '', 'golang.org-x-image-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-sys-sources.inc', '', 'golang.org-x-sys-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-text-sources.inc', '', 'golang.org-x-text-sources.inc', d)}
