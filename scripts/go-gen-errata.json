@@ -895,6 +895,11 @@
             "do_compile[noexec] = \"1\""
         ]
     },
+    "gopkg.in/inconshreveable/log15.v2": {
+        "extramods": [
+            "github.com/inconshreveable/log15"
+        ]
+    },
     "honnef.co/go/js/dom": {
         "extramods": [
             "github.com/gopherjs/gopherjs"
