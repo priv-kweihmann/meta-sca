@@ -13,7 +13,7 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "dparse2"
 
-SRC_URI[sha256sum] = "fbafb839c3dc83040012af2602a00ca4e4b1693a9b1988492150466afa59dd26"
+SRC_URI[sha256sum] = "6bf6872aeaffedcac67ad0abb516630bad045dbdb58505b58d8f796ee91f0a73"
 
 inherit pypi
 inherit setuptools3
