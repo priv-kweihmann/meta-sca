@@ -12,7 +12,7 @@ DEPENDS += "\
             python3-testfixtures-native \
             "
 
-SRC_URI[sha256sum] = "0951398c343c67f4933407adbbfb495d4df7c038650c5d05753a006efcfeb390"
+SRC_URI[sha256sum] = "537f453a660d7e903f602ecfa36136b140de279df58d02eb1b6a0c84e83c528c"
 
 PIP_INSTALL_PACKAGE = "flake8_isort"
 
