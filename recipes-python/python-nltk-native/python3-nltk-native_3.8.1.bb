@@ -15,8 +15,8 @@ DEPENDS += "\
 PYPI_PACKAGE = "nltk"
 PYPI_PACKAGE_EXT = "zip"
 
-SRC_URI[md5sum] = "04c3af8a3644ec274b8d5994f3122685"
-SRC_URI[sha256sum] = "74b30826a37d78d53427105bbd037dd880251be269fca64ee530838a46ed55fc"
+SRC_URI[md5sum] = "501b06f95281115c8afb799449b6cc54"
+SRC_URI[sha256sum] = "1834da3d0682cba4f2cede2f9aad6b0fafb6461ba451db0efb6f9c39798d64d3"
 
 inherit pypi
 inherit setuptools3
