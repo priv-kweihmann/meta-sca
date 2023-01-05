@@ -18,6 +18,7 @@ EXTRA_DEPENDS += "\
     nativesdk-github.com-go-gl-gl \
     nativesdk-github.com-go-gl-glfw-v3.3-glfw \
     nativesdk-github.com-go-ole-go-ole \
+    nativesdk-github.com-go-text-typesetting \
     nativesdk-github.com-godbus-dbus-v5 \
     nativesdk-github.com-goki-freetype \
     nativesdk-github.com-gopherjs-gopherjs \
