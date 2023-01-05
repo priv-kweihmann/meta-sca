@@ -8,8 +8,8 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-or-later;md5=fed5435554
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Deep-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "d466e471108f7f7a5df3802cb13761ac"
-SRC_URI[sha256sum] = "4064f494f5f62587d0ae501ca439105821ee5846c687dc6503233f55300a7c56"
+SRC_URI[md5sum] = "1483ed950669cbba27ff4a7ca865ed2a"
+SRC_URI[sha256sum] = "2aa985eede185d594d7227b2fb7399cf70bda317aa7781234c40edf01b8a32b1"
 
 S = "${WORKDIR}/Test-Deep-${PV}"
 
