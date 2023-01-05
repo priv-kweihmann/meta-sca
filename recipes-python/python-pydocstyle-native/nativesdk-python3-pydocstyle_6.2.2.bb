@@ -8,13 +8,13 @@ LIC_FILES_CHKSUM = "file://LICENSE-MIT;md5=e759cd67def347876897f64931fd6065"
 DEPENDS += "nativesdk-python3-snowballstemmer"
 
 SRC_URI = "git://github.com/PyCQA/pydocstyle.git;branch=master;protocol=https"
-SRCREV = "faeaa735d5c9387ab2f02c5bf9d4f07d0e7b6841"
+SRCREV = "bd294bbf6c80c578716e8817b5de79220ac9f089"
 
 S = "${WORKDIR}/git"
 
 PIP_INSTALL_PACKAGE = "pydocstyle"
 
-inherit setuptools3
+inherit python_poetry_core
 inherit nativesdk
 
 RDEPENDS:${PN}:class-nativesdk += "nativesdk-python3-snowballstemmer"
