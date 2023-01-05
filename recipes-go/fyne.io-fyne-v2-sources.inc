@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/fyne.io/fyne/v2/@v/v2.2.4.zip;srcoutput=fyne.io/fyne/v2;srcinput=fyne.io/fyne/v2@v2.2.4;downloadfilename=fyne-io-fyne-v2-2.2.4.zip;name=fyne-io-fyne-v2"
-SRC_URI[fyne-io-fyne-v2.sha256sum] = "747ded5d75dea0e3e725b75523c0f5c4dc07cbde82d69d44d233f463041eeb4e"
+SRC_URI += "https://proxy.golang.org/fyne.io/fyne/v2/@v/v2.3.0.zip;srcoutput=fyne.io/fyne/v2;srcinput=fyne.io/fyne/v2@v2.3.0;downloadfilename=fyne-io-fyne-v2-2.3.0.zip;name=fyne-io-fyne-v2"
+SRC_URI[fyne-io-fyne-v2.sha256sum] = "3fa9972be00284fa4c68ffc4b70ee1f45a1f6215ec0462dc198fd4a50b15f379"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
@@ -22,6 +22,7 @@ require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-fyne-io-image-sou
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-go-gl-gl-sources.inc', '', 'github.com-go-gl-gl-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-go-gl-glfw-v3.3-glfw-sources.inc', '', 'github.com-go-gl-glfw-v3.3-glfw-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-go-ole-go-ole-sources.inc', '', 'github.com-go-ole-go-ole-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-go-text-typesetting-sources.inc', '', 'github.com-go-text-typesetting-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-godbus-dbus-v5-sources.inc', '', 'github.com-godbus-dbus-v5-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-goki-freetype-sources.inc', '', 'github.com-goki-freetype-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-gopherjs-gopherjs-sources.inc', '', 'github.com-gopherjs-gopherjs-sources.inc', d)}
