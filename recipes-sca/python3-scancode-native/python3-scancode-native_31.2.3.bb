@@ -39,6 +39,7 @@ DEPENDS += "\
             python3-more-itertools-native \
             python3-nltk-native \
             python3-packageurl-python-native \
+            python3-packvers-native \
             python3-parameter-expansion-patched-native \
             python3-pdfminer-six-native \
             python3-pefile-native \
