@@ -3,12 +3,12 @@ HOMEPAGE = "https://github.com/ilanschnell/bitarray"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "PSF-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=5299db65b54d73474e8e47616ba72113"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=d7e177def08ec4089aab4e7c68f6c819"
 
 PYPI_PACKAGE = "bitarray"
 
-SRC_URI[md5sum] = "0f3b20538cb5268978043050ba7cc675"
-SRC_URI[sha256sum] = "8440a5493221f6ed6c4e0d9cb2ba6e4e600a5fb639f66003eaf15b7150a49230"
+SRC_URI[md5sum] = "e2ff6069b356eeae26cea71a1b47470f"
+SRC_URI[sha256sum] = "90bac83ba6c37ab5048b43e07eba7d0de12f301ad6641633656fa269618a7301"
 
 inherit pypi
 inherit setuptools3
