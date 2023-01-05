@@ -12,9 +12,7 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "pip-requirements-parser"
 
-SRC_URI:append = " file://0001-add-vendored-packing-module.patch"
-
-SRC_URI[sha256sum] = "5159b8a9485a5a0d0254a29c9bd8b8ce66db2eb9a1a0244c64dfce43f7f2ac90"
+SRC_URI[sha256sum] = "b4fa3a7a0be38243123cf9d1f3518da10c51bdb165a2b2985566247f9155a7d3"
 
 inherit pypi
 inherit setuptools3
