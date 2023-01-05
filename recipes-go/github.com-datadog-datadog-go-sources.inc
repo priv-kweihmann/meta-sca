@@ -1,5 +1,5 @@
 SRC_URI += "git://github.com/DataDog/datadog-go;nobranch=1;protocol=https;srcinput=github.com/DataDog/datadog-go;srcoutput=github.com/DataDog/datadog-go;destsuffix=github.com/DataDog/datadog-go;name=github-com-datadog-datadog-go"
-SRCREV_github-com-datadog-datadog-go = "553de96e699a42be8b401607fbbbce81d4942790"
+SRCREV_github-com-datadog-datadog-go = "c4044d01c67813fefb8d99bf55ca9a915c73b0ad"
 
 GOSRC_LICENSE += "\
     MIT \
