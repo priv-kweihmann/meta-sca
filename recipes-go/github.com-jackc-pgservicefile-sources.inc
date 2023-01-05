@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/jackc/pgservicefile/@v/v0.0.0-20200714003250-2b9c44734f2b.zip;srcoutput=github.com/jackc/pgservicefile;srcinput=github.com/jackc/pgservicefile@v0.0.0-20200714003250-2b9c44734f2b;downloadfilename=github-com-jackc-pgservicefile-0.0.0-20200714003250-2b9c44734f2b.zip;name=github-com-jackc-pgservicefile"
-SRC_URI[github-com-jackc-pgservicefile.sha256sum] = "8422a25b9d2b0be05c66ee1ccfdbaab144ce98f1ac678bc647064c560d4cd6e2"
+SRC_URI += "https://proxy.golang.org/github.com/jackc/pgservicefile/@v/v0.0.0-20221227161230-091c0ba34f0a.zip;srcoutput=github.com/jackc/pgservicefile;srcinput=github.com/jackc/pgservicefile@v0.0.0-20221227161230-091c0ba34f0a;downloadfilename=github-com-jackc-pgservicefile-0.0.0-20221227161230-091c0ba34f0a.zip;name=github-com-jackc-pgservicefile"
+SRC_URI[github-com-jackc-pgservicefile.sha256sum] = "1f8bdf75b2a0d750e56c2a94b1d1b0b5be4b29d6df056aebd997162c29bfd8ab"
 
 GOSRC_LICENSE += "\
     MIT \
