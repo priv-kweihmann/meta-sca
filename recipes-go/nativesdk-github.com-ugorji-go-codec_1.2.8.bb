@@ -7,7 +7,6 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-ugorji-go-codec-sources.inc
 
-EXTRA_DEPENDS += "nativesdk-github.com-ugorji-go"
 GO_IMPORT = "github.com/ugorji/go/codec"
 inherit gosrc
 inherit nativesdk
