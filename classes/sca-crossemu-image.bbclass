@@ -33,6 +33,7 @@ def do_sca_create_crossemu_img(d, tool, addpkgs, postcmd=""):
     from oe.rootfs import create_rootfs
     from oe.manifest import create_manifest
     from oe.utils import execute_pre_post_process
+    import oe.packagedata
 
     bb.build.exec_func("do_sca_flush_pseudodb", d)
 
