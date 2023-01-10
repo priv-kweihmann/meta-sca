@@ -40,7 +40,6 @@ The easiest way is by looking at the output of `git log --oneline` of your updat
 
 ```shell
 50ad9ddc7 Update cppcheck-native to 2.7
-42a46cf0f Update sudokiller to latest
 7022cc94f Update npm-listr2-native to 4.0.3
 c83673bbe Update python3-semgrep-native to 0.82.0
 d2a0f32c6 Update python3-ftfy-native to 6.1.1
@@ -51,14 +50,13 @@ this could be mapped to
 
 ```shell
 50ad9ddc7 Update cppcheck-native to 2.7 --> cppcheck
-42a46cf0f Update sudokiller to latest --> sudokiller
 7022cc94f Update npm-listr2-native to 4.0.3 --> @npm as we don't know what kind of module is using that
 c83673bbe Update python3-semgrep-native to 0.82.0 --> semgrep
 d2a0f32c6 Update python3-ftfy-native to 6.1.1 --> @python as we don't know what module is using that
 6fdee669f Update github.com-fullstorydev-grpcurl-native to 1.8.6 --> @go for the same reason as the @npm or @python cases
 ```
 
-the resulting command line in this case will be `../meta-sca/test/buildntest cppcheck sudokiller @npm semgrep @python`.
+the resulting command line in this case will be `../meta-sca/test/buildntest cppcheck @npm semgrep @python`.
 And don't worry any duplicates will be filtered out automatically
 
 ## Analysing the output

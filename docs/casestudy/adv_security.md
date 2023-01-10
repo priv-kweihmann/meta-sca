@@ -74,22 +74,6 @@ SCA_GCC_HARDENING = "1"
 
 in the conf/local.conf-file.
 
-### Identifying security issue in the resulting image
-
-For this particular purpose the following tools are quite useful
-
-* [lynis](../conf/module/lynis.md)
-* [tiger](../conf/module/tiger.md)
-* [upc](../conf/module/upc.md)
-
-They will run a multitude of tests on the resulting image and will give advise what should be further checked on.
-
-```bitbake
-SCA_AVAILABLE_MODULES = "lynis tiger upc"
-```
-
-in the conf/local.conf-file.
-
 ### Identifying components that might need a refactoring
 
 A component might need some refactoring, if one or more points of the following are true
@@ -161,9 +145,6 @@ SCA_AVAILABLE_MODULES = "\
                         cppcheck \
                         rats \
                         shellcheck \
-                        lynis \
-                        tiger \
-                        upc \
                         "
 SCA_BITBAKE_HARDENING = "\
                         debug_tweaks \

@@ -25,12 +25,9 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             bitbake \
                             detectsecrets \
                             jsonlint \
-                            lynis \
                             pylint \
                             shellcheck \
                             systemdlint \
-                            tiger \
-                            upc \
                             xmllint \
                             yamllint \
                             "

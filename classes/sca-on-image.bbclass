@@ -15,26 +15,18 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             bashate \
                             bitbake \
                             checkbashism \
-                            checksec \
-                            configcheck \
                             detectsecrets \
                             flake8 \
                             jsonlint \
-                            lse \
-                            lynis \
                             multimetric \
                             mypy \
                             oelint \
                             pylint \
-                            reconbf \
                             shellcheck \
                             slick \
                             stank \
-                            sudokiller \
                             systemdlint \
-                            tiger \
                             tlv \
-                            upc \
                             vulture \
                             xmllint \
                             yamllint \

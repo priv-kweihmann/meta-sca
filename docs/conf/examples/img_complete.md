@@ -25,17 +25,13 @@ SCA_ENABLED_MODULES_IMAGE = "\
                             bashate \
                             bitbake \
                             checkbashism \
-                            configcheck \
                             detectsecrets \
                             flake8 \
                             jsonlint \
                             mypy \
-                            lynis \
                             pylint \
                             shellcheck \
                             systemdlint \
-                            tiger \
-                            upc \
                             vulture \
                             xmllint \
                             yamllint \

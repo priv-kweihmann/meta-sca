@@ -61,7 +61,6 @@ To install clone the needed branch(es) to any path on your local system.
 ### Prerequisites
 
 - You need the current standard [__poky__-layer](https://git.yoctoproject.org/cgit/cgit.cgi/poky/) installed onto your local build environment.
-- You need **glib-2.0-dev** package installed on your build host (used for e.g. configcheck, lynis, tiger, upc)
 
 ### Use of containers
 
@@ -127,9 +126,6 @@ can be found in the individual file header
 This layer provides only **-native** tools, so actually none of the build binaries will be deployed to your target.
 Everything happens on the build machine.
 
-There are some excludes to this rule (e.g. lynis) as they need to be cross-compiled to make use of them, nevertheless
-none of these tools will be installed automatically to your build.
-
 ## Available tools
 
 The layer can check on a recipe-level or on an image-level.
@@ -146,9 +142,7 @@ The layer can check on a recipe-level or on an image-level.
 | bitbake         | Bitbake issue handling                        |                                                                       |               |               | x            | x             |                  |     |     |        |       |            |     |     |        |     |          |         |          | x        |               |                | x                | x           |
 | cbmc            | C Bounded Model Checker                       | https://github.com/diffblue/cbmc/                                     |               | x             |              | x             |                  | x   |     |        |       |            |     |     |        |     |          |         |          |          |               |                | x                |             |
 | checkbashisms   | Shell script linter                           | https://manpages.debian.org/jessie/devscripts/checkbashisms.1.en.html |               |               | x            | x             | x                |     |     |        | x     |            |     |     |        |     |          |         |          |          |               |                | x                | x           |
-| checksec        | check on security issues                      | https://github.com/slimm609/checksec.sh                               |               |               | x            |               |                  |     |     |        |       |            |     |     | x      |     |          |         |          |          |               | x              |                  |             |
 | cmake           | Get cmake errors and warnings                 |                                                                       |               |               |              | x             |                  | x   | x   |        |       |            |     |     |        |     |          |         |          |          |               |                | x                |             |
-| configcheck     | Check application configurations              |                                                                       |               |               | x            |               |                  |     |     |        |       |            |     |     |        |     |          |         |          |          | x             |                | x                |             |
 | cppcheck        | C/C++ linter                                  | https://github.com/danmar/cppcheck                                    |               |               |              | x             | x                | x   | x   |        |       |            |     |     |        |     |          |         |          |          |               | x              | x                | x           |
 | cpplint         | C/C++ linter                                  | https://github.com/cpplint/cpplint                                    |               |               |              | x             | x                | x   | x   |        |       |            |     |     |        |     |          |         |          |          |               | x              | x                | x           |
 | cvecheck        | Check for unpatched CVEs                      | https://github.com/clearlinux/cve-check-tool                          | manual enable | x             |              | x             |                  |     |     |        |       |            |     |     |        |     |          |         |          | x        |               | x              |                  |             |
@@ -166,8 +160,6 @@ The layer can check on a recipe-level or on an image-level.
 | kconfighard     | Kernel config hardening checker               | https://github.com/a13xp0p0v/kconfig-hardened-check                   |               |               |              | x             | x                |     |     |        |       |            |     |     |        |     |          |         |          |          | x             | x              |                  |             |
 | licensecheck    | Scan code for license information             | https://github.com/boyter/lc                                          |               |               |              | x             |                  |     |     |        |       |            |     |     |        |     |          |         |          |          | x             | x              |                  |             |
 | looong          | Find functions with too long arglists         | https://github.com/anapaulagomes/looong                               |               |               |              | x             | x                |     |     | x      |       |            |     |     |        |     |          |         |          |          |               |                |                  | x           |
-| lse             | check on security issues                      | https://github.com/diego-treitos/linux-smart-enumeration              |               |               | x            |               |                  |     |     |        |       |            |     |     | x      |     |          |         |          |          |               | x              |                  |             |
-| lynis           | Auditing tool for images                      | https://github.com/CISOfy/lynis                                       |               |               | x            |               |                  |     |     |        |       |            |     |     | x      |     |          |         |          |          |               | x              |                  |             |
 | msgcheck        | I18n linter                                   | https://github.com/codingjoe/msgcheck                                 |               |               |              | x             | x                |     |     |        |       |            |     |     |        |     |          |         |          |          | x             |                |                  | x           |
 | multimetric     | Coding metrics                                | https://github.com/priv-kweihmann/multimetric                         | manual enable |               | x            | x             | x                | x   | x   | x      |       | x          | x   | x   |        | x   |          | x       |          |          |               |                |                  | x           |
 | mypy            | Python linter                                 | https://github.com/python/mypy                                        |               |               | x            | x             | x                |     |     | x      |       |            |     |     |        |     |          |         |          |          |               |                | x                |             |
@@ -180,7 +172,6 @@ The layer can check on a recipe-level or on an image-level.
 | pylint          | Python linter                                 | https://github.com/PyCQA/pylint                                       |               |               | x            | x             | x                |     |     | x      |       |            |     |     |        |     |          |         |          |          |               |                | x                | x           |
 | pysymcheck      | Check binaries for forbidden function usage   | https://github.com/priv-kweihmann/pysymbolcheck                       |               |               |              | x             |                  |     |     |        |       |            |     |     |        |     |          |         | x        |          |               | x              |                  |             |
 | rats            | Check on insecurities in several languages    | https://github.com/redNixon/rats                                      |               |               |              | x             | x                |     | x   | x      | x     |            | x   |     |        |     |          |         |          |          |               | x              |                  |             |
-| reconbf         | security audit tool                           | https://github.com/HewlettPackard/reconbf                             |               |               | x            |               | x                |     |     |        |       |            |     |     | x      |     |          |         |          |          |               | x              |                  |             |
 | reuse           | Scan code for license information             | https://github.com/fsfe/reuse-tool                                    |               |               |              | x             |                  |     |     |        |       |            |     |     |        |     |          |         |          |          | x             | x              |                  |             |
 | revive          | GO linter                                     | https://github.com/mgechev/revive                                     |               |               |              | x             | x                |     |     |        |       |            |     | x   |        |     |          |         |          |          |               |                | x                | x           |
 | scancode        | Scan code for license information             | https://github.com/nexB/scancode-toolkit                              |               |               |              | x             |                  |     |     |        |       |            |     |     |        |     |          |         |          |          | x             | x              |                  |             |
@@ -189,12 +180,9 @@ The layer can check on a recipe-level or on an image-level.
 | slick           | Shell script linter                           | https://github.com/mcandre/slick                                      |               |               | x            | x             | x                |     |     |        | x     |            |     |     |        |     |          |         |          |          |               |                | x                |             |
 | sparse          | C linter                                      | https://sparse.wiki.kernel.org/index.php/Main_Page                    |               |               |              | x             | x                | x   |     |        |       |            |     |     |        |     |          |         |          |          |               |                | x                |             |
 | stank           | Shell script linter                           | https://github.com/mcandre/stank                                      |               |               | x            | x             | x                |     |     |        | x     |            |     |     |        |     |          |         |          |          |               |                | x                | x           |
-| sudokiller      | check on sudo                                 | https://github.com/TH3xACE/SUDO_KILLER                                |               |               | x            |               |                  |     |     |        |       |            |     |     | x      |     |          |         |          |          |               | x              |                  |             |
 | systemdlint     | Systemd unit linter                           | https://github.com/priv-kweihmann/systemdlint                         |               |               | x            | x             | x                |     |     |        |       |            |     |     |        |     |          |         |          |          | x             | x              | x                | x           |
-| tiger           | security audit and intrusion detection tool   | http://www.nongnu.org/tiger/                                          |               |               | x            |               |                  |     |     |        |       |            |     |     | x      |     |          |         |          |          |               | x              |                  |             |
 | tlv             | Find duplicate code                           | https://github.com/priv-kweihmann/tlv                                 | manual enable |               | x            | x             | x                | x   | x   | x      |       | x          | x   | x   |        |     |          |         |          |          |               | x              |                  | x           |
 | tscancode       | C and lua linter                              | https://github.com/Tencent/TscanCode                                  |               |               |              | x             | x                | x   |     |        |       |            |     |     |        |     |          |         |          |          |               |                | x                |             |
-| upc             | check for simple privilege escalation vectors | https://github.com/pentestmonkey/unix-privesc-check                   |               |               | x            |               |                  |     |     |        |       |            |     |     | x      |     |          |         |          |          |               | x              |                  |             |
 | vulture         | Find dead python code                         | https://github.com/jendrikseipp/vulture                               |               |               | x            | x             | x                |     |     | x      |       |            |     |     |        |     |          |         |          |          |               |                | x                |             |
 | xmllint         | XML linter                                    | http://xmlsoft.org/xmllint.html                                       |               |               | x            | x             | x                |     |     |        |       |            |     |     |        |     |          |         |          |          | x             |                | x                |             |
 | yamllint        | YAML linter                                   | https://github.com/adrienverge/yamllint                               |               |               | x            | x             | x                |     |     |        |       |            |     |     |        |     |          |         |          |          | x             |                |                  | x           |
@@ -221,9 +209,7 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
     - [bitbake](docs/conf/module/bitbake.md)
     - [cbmc](docs/conf/module/cbmc.md)
     - [checkbashism](docs/conf/module/checkbashism.md)
-    - [checksec](docs/conf/module/checksec.md)
     - [cmake](docs/conf/module/cmake.md)
-    - [configcheck](docs/conf/module/configcheck.md)
     - [cppcheck](docs/conf/module/cppcheck.md)
     - [cpplint](docs/conf/module/cpplint.md)
     - [cvecheck](docs/conf/module/cvecheck.md)
@@ -241,8 +227,6 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
     - [kconfighard](docs/conf/module/kconfighard.md)
     - [licensecheck](docs/conf/module/licensecheck.md)
     - [looong](docs/conf/module/looong.md)
-    - [lse](docs/conf/module/lse.md)
-    - [lynis](docs/conf/module/lynis.md)
     - [msgcheck](docs/conf/module/msgcheck.md)
     - [multimetric](docs/conf/module/multimetric.md)
     - [mypy](docs/conf/module/mypy.md)
@@ -255,7 +239,6 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
     - [pylint](docs/conf/module/pylint.md)
     - [pysymcheck](docs/conf/module/pysymcheck.md)
     - [rats](docs/conf/module/rats.md)
-    - [reconbf](docs/conf/module/reconbf.md)
     - [reuse](docs/conf/module/reuse.md)
     - [revive](docs/conf/module/revive.md)
     - [scancode](docs/conf/module/scancode.md)
@@ -264,12 +247,9 @@ each tool does have it's own benefits and flaws so don't be mad if you have 10k+
     - [slick](docs/conf/module/slick.md)
     - [sparse](docs/conf/module/sparse.md)
     - [stank](docs/conf/module/stank.md)
-    - [sudokiller](docs/conf/module/sudokiller.md)
     - [systemdlint](docs/conf/module/systemdlint.md)
-    - [tiger](docs/conf/module/tiger.md)
     - [tlv](docs/conf/module/tlv.md)
     - [tscancode](docs/conf/module/tscancode.md)
-    - [upc](docs/conf/module/upc.md)
     - [vulture](docs/conf/module/vulture.md)
     - [xmllint](docs/conf/module/xmllint.md)
     - [yamllint](docs/conf/module/yamllint.md)

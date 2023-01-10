@@ -86,9 +86,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           bitbake \
                           cbmc \
                           checkbashism \
-                          checksec \
                           cmake \
-                          configcheck \
                           cppcheck \
                           cpplint \
                           cvecheck \
@@ -106,8 +104,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           kconfighard \
                           licensecheck \
                           looong \
-                          lse \
-                          lynis \
                           msgcheck \
                           multimetric \
                           mypy \
@@ -120,7 +116,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           pylint \
                           pysymcheck \
                           rats \
-                          reconbf \
                           reuse \
                           revive \
                           scancode \
@@ -129,26 +124,12 @@ SCA_AVAILABLE_MODULES ?= "\
                           slick \
                           sparse \
                           stank \
-                          sudokiller \
                           systemdlint \
-                          tiger \
                           tscancode \
-                          upc \
                           vulture \
                           xmllint \
                           yamllint \
                         "
-
-# Modules using crossemu support, because they need some extra "love"
-_SCA_CROSSEMU_MODULES = "\
-    checksec \
-    configcheck \
-    lse \
-    lynis \
-    reconbf \
-    sudokiller \
-    tiger \
-"
 
 SCA_ENABLED_MODULES := "${SCA_ENABLED_MODULES_${SCA_MODE_UPPER}}"
 
