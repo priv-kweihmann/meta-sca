@@ -16,6 +16,7 @@ DEPENDS += "\
             python3-debian-native \
             python3-jinja2-native \
             python3-license-expression-native \
+            python3-picobuild-native \
             python3-requests-native \
             python3-setuptools-scm-native \
             "
@@ -29,5 +30,9 @@ inherit pypi
 inherit sca-description
 inherit python_poetry_core
 inherit native
+
+python_pep517_do_compile () {
+    nativepython3 -m picobuild --source ${PEP517_SOURCE_PATH} --dest ${PEP517_WHEEL_PATH} --wheel ${PEP517_BUILD_OPTS}
+}
 
 SCA_TOOL_DESCRIPTION = "reuse"
