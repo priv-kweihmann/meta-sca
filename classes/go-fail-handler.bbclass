@@ -9,7 +9,6 @@
 addhandler go_error_handler
 go_error_handler[eventmask] = "bb.build.TaskFailed"
 python go_error_handler() {
-    bb.warn(str(type(e)))
     if isinstance(e, bb.build.TaskFailed) and e._task == 'do_compile':
         if bb.data.inherits_class('gosrc', d):
             result = []
