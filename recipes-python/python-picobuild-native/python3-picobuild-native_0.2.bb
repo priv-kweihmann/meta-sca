@@ -13,6 +13,9 @@ LIC_FILES_CHKSUM = "\
     file://picobuild/vendored/tomli/LICENSE;md5=aaaaf0879d17df0110d1aa8c8c9f46f5 \
 "
 
+# nooelint: oelint.vars.dependsclass
+DEPENDS:remove = "python3"
+
 PV .= "+git${SRCPV}"
 
 SRC_URI = "git://gitlab.com/rossburton/picobuild.git;protocol=https;branch=main"
