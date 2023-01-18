@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE-MIT;md5=e759cd67def347876897f64931fd6065"
 DEPENDS += "python3-snowballstemmer-native"
 
 SRC_URI = "git://github.com/PyCQA/pydocstyle.git;branch=master;protocol=https"
-SRCREV = "bd294bbf6c80c578716e8817b5de79220ac9f089"
+SRCREV = "07f6707e2c5612960347f7c00125620457f490a7"
 
 S = "${WORKDIR}/git"
 
