@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/sergi/go-diff/@v/v1.2.0.zip;srcoutput=github.com/sergi/go-diff;srcinput=github.com/sergi/go-diff@v1.2.0;downloadfilename=github-com-sergi-go-diff-1.2.0.zip;name=github-com-sergi-go-diff"
-SRC_URI[github-com-sergi-go-diff.sha256sum] = "da1accb73e9ac304a805eb59fba2c50d0089f9206a2574b8812af7e75e8ec105"
+SRC_URI += "https://proxy.golang.org/github.com/sergi/go-diff/@v/v1.3.1.zip;srcoutput=github.com/sergi/go-diff;srcinput=github.com/sergi/go-diff@v1.3.1;downloadfilename=github-com-sergi-go-diff-1.3.1.zip;name=github-com-sergi-go-diff"
+SRC_URI[github-com-sergi-go-diff.sha256sum] = "b7a2378f17322fd5f08cf69f5bf1a3ba2bcb84704960ba23230305f6dfec4f98"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
