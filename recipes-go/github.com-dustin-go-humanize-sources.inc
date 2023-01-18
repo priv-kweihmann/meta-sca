@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/dustin/go-humanize/@v/v1.0.0.zip;srcoutput=github.com/dustin/go-humanize;srcinput=github.com/dustin/go-humanize@v1.0.0;downloadfilename=github-com-dustin-go-humanize-1.0.0.zip;name=github-com-dustin-go-humanize"
-SRC_URI[github-com-dustin-go-humanize.sha256sum] = "e01916e082a6646ea12d7800d77af43045c27284ff2a0a77e3484509989cc107"
+SRC_URI += "https://proxy.golang.org/github.com/dustin/go-humanize/@v/v1.0.1.zip;srcoutput=github.com/dustin/go-humanize;srcinput=github.com/dustin/go-humanize@v1.0.1;downloadfilename=github-com-dustin-go-humanize-1.0.1.zip;name=github-com-dustin-go-humanize"
+SRC_URI[github-com-dustin-go-humanize.sha256sum] = "319404ea84c8a4e2d3d83f30988b006e7dd04976de3e1a1a90484ad94679fa46"
 
 GOSRC_LICENSE += "\
     MIT \
