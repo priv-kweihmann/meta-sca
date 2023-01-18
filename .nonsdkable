@@ -36,6 +36,7 @@
 .*/recipes-python/python-packageurl-python-native/.*
 .*/recipes-python/python-parameter-expansion-patched-native/.*
 .*/recipes-python/python-pefile-native/.*
+.*/recipes-python/python-picobuild-native/.*
 .*/recipes-python/python-pip-requirements-parser-native/.*
 .*/recipes-python/python-pkginfo-native/.*
 .*/recipes-python/python-plugincode-native/.*
