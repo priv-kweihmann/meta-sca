@@ -9,8 +9,8 @@ DEPENDS += "libmodule-build-perl-native"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/W/WY/WYANT/PPIx-Regexp-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "56cd5355dde5d4fa5fb985ead093d4e6"
-SRC_URI[sha256sum] = "36bd2dfdf321394d11433fa3eec76c70b7fc4625bd1209316395a2c895dc3933"
+SRC_URI[md5sum] = "9271c960c3ae78ba6b91d238763adf8e"
+SRC_URI[sha256sum] = "66130fd8dd43c7629b3923bc19bad2557c9b40a34f2979a0bbf67637305e54c0"
 
 S = "${WORKDIR}/PPIx-Regexp-${PV}"
 
