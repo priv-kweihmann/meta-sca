@@ -12,7 +12,6 @@ EXTRA_DEPENDS += "\
     nativesdk-github.com-hashicorp-hcl \
     nativesdk-github.com-magiconair-properties \
     nativesdk-github.com-mitchellh-mapstructure \
-    nativesdk-github.com-pelletier-go-toml \
     nativesdk-github.com-pelletier-go-toml-v2 \
     nativesdk-github.com-sagikazarmark-crypt \
     nativesdk-github.com-spf13-afero \
@@ -21,7 +20,6 @@ EXTRA_DEPENDS += "\
     nativesdk-github.com-spf13-pflag \
     nativesdk-github.com-subosito-gotenv \
     nativesdk-gopkg.in-ini.v1 \
-    nativesdk-gopkg.in-yaml.v2 \
     nativesdk-gopkg.in-yaml.v3 \
 "
 GO_IMPORT = "github.com/spf13/viper"
