@@ -8,8 +8,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.rst;md5=29242a70410a4eeff488a28164e7ab93"
 PYPI_PACKAGE = "pycryptodome"
 PYPI_PACKAGE_EXT = "zip"
 
-SRC_URI[md5sum] = "e11ed8c51a05c1c43c47ae4319c0e603"
-SRC_URI[sha256sum] = "0e45d2d852a66ecfb904f090c3f87dc0dfb89a499570abad8590f10d9cffb350"
+SRC_URI[md5sum] = "4596bf2c6cc6b6f9305f7bae1780e0fc"
+SRC_URI[sha256sum] = "bce2e2d8e82fcf972005652371a3e8731956a0c1fbb719cc897943b3695ad91b"
 
 inherit pypi
 inherit setuptools3
