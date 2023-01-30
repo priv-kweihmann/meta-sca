@@ -19,8 +19,16 @@ PYPI_PACKAGE = "astroid"
 SRC_URI[md5sum] = "673af3faecf67432992eda41232ad2ce"
 SRC_URI[sha256sum] = "1493fe8bd3dfd73dc35bd53c9d5b6e49ead98497c47b2307662556a5692d29d7"
 
+do_configure:prepend() {
+    # remove the version pinning on build tools
+    # jeez some projects need to be make it even more complicated than
+    # it needs to be
+    sed -i "s#setuptools~=#setuptools>=#g" ${S}/pyproject.toml
+    sed -i "s#wheel~=#wheel>=#g" ${S}/pyproject.toml
+}
+
 inherit pypi
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit nativesdk
 
 RDEPENDS:${PN}:class-nativesdk += "\
