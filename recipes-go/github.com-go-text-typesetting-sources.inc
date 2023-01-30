@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/go-text/typesetting/@v/v0.0.0-20230104230035-6cdafd18ca27.zip;srcoutput=github.com/go-text/typesetting;srcinput=github.com/go-text/typesetting@v0.0.0-20230104230035-6cdafd18ca27;downloadfilename=github-com-go-text-typesetting-0.0.0-20230104230035-6cdafd18ca27.zip;name=github-com-go-text-typesetting"
-SRC_URI[github-com-go-text-typesetting.sha256sum] = "71bf90f030ad1bd21f9013779b98896f905428526b27e69709b2e070ee6d3cf2"
+SRC_URI += "https://proxy.golang.org/github.com/go-text/typesetting/@v/v0.0.0-20230122153906-bd3bf1820a88.zip;srcoutput=github.com/go-text/typesetting;srcinput=github.com/go-text/typesetting@v0.0.0-20230122153906-bd3bf1820a88;downloadfilename=github-com-go-text-typesetting-0.0.0-20230122153906-bd3bf1820a88.zip;name=github-com-go-text-typesetting"
+SRC_URI[github-com-go-text-typesetting.sha256sum] = "21080b67a70dbce7ae58ceaccd33e67d51db91dd0ff4feb12af80d4b3dadba27"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
@@ -12,4 +12,5 @@ LIC_FILES_CHKSUM += "\
 GOSRC_INCLUDEGUARD += "github.com-go-text-typesetting-sources.inc"
 
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-benoitkugler-textlayout-sources.inc', '', 'github.com-benoitkugler-textlayout-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-go-text-typesetting-utils-sources.inc', '', 'github.com-go-text-typesetting-utils-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-image-sources.inc', '', 'golang.org-x-image-sources.inc', d)}
