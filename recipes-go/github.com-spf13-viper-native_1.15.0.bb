@@ -12,7 +12,6 @@ EXTRA_DEPENDS += "\
     github.com-hashicorp-hcl-native \
     github.com-magiconair-properties-native \
     github.com-mitchellh-mapstructure-native \
-    github.com-pelletier-go-toml-native \
     github.com-pelletier-go-toml-v2-native \
     github.com-sagikazarmark-crypt-native \
     github.com-spf13-afero-native \
@@ -21,7 +20,6 @@ EXTRA_DEPENDS += "\
     github.com-spf13-pflag-native \
     github.com-subosito-gotenv-native \
     gopkg.in-ini.v1-native \
-    gopkg.in-yaml.v2-native \
     gopkg.in-yaml.v3-native \
 "
 
