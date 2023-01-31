@@ -18,7 +18,7 @@ SRC_URI = "\
     file://0001-diable-goto-gcc-regression-tests.patch \
 "
 
-SRCREV = "3d8c1f891e09a969071dc87d01991b95a9b4a037"
+SRCREV = "db721b26a41348f22e9d79f363216054264e6d8d"
 SRC_URI[minisat2.sha256sum] = "e54afa3c192c1753bc8075c0c7e126d5c495d9066e3f90a2588091149ac9ca40"
 
 UPSTREAM_CHECK_GITTAGREGEX = "cbmc-(?P<pver>[\d\.a-f]+)"
@@ -34,6 +34,7 @@ SCA_TOOL_DESCRIPTION = "cbmc"
 EXTRA_OECMAKE += "\
     -DWITH_JBMC=OFF \
     -DWITH_MEMORY_ANALYZER=ON \
+    -DWITH_RUST_API=OFF \
     -Denable_cbmc_tests=OFF \
     -Dsat_impl=minisat2 \
 "
