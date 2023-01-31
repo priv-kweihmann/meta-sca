@@ -1,5 +1,5 @@
 SUMMARY = "Extension for flake8 which uses pydocstyle to check docstrings"
-HOMEPAGE = "https://gitlab.com/pycqa/flake8-docstrings"
+HOMEPAGE = "https://github.com/pycqa/flake8-docstrings"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
@@ -9,10 +9,13 @@ DEPENDS += "\
     nativesdk-python3-flake8 \
     nativesdk-python3-pydocstyle \
 "
-SRC_URI[md5sum] = "ef95e19755f21a0a32d79cea8af73c45"
-SRC_URI[sha256sum] = "9fe7c6a306064af8e62a055c2f61e9eb1da55f84bb39caef2b84ce53708ac34b"
+SRC_URI[sha256sum] = "4c8cc748dc16e6869728699e5d0d685da9a10b0ea718e090b1ba088e67a941af"
 
-PYPI_PACKAGE = "flake8-docstrings"
+SRC_URI:append = " file://0001-docstrings-allow-pydocstyle-dev-versions.patch"
+
+PYPI_PACKAGE = "flake8_docstrings"
+
+UPSTREAM_CHECK_REGEX ?= "/flake8-docstrings/(?P<pver>(\d+[\.\-_]*)+)"
 
 inherit pypi
 inherit setuptools3

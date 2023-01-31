@@ -1,0 +1,42 @@
+From 02581eaa54a740babf7cd3271973acd3dac296af Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Tue, 31 Jan 2023 11:01:58 +0000
+Subject: [PATCH] docstrings: allow pydocstyle dev versions
+
+if pydocstyle is build from a git clone the version parsing fails
+as the version is something like '0.0.0-dev'.
+First fix the parsing of 0-dev by falling back to 0 and then
+set all supports_* flags to true in case 0.0.0 is detected
+
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+Upstream-Status: Submitted [https://github.com/PyCQA/flake8-docstrings/pull/49]
+---
+ flake8_docstrings.py | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/flake8_docstrings.py b/flake8_docstrings.py
+index 3d74d9e..1520a36 100644
+--- a/flake8_docstrings.py
++++ b/flake8_docstrings.py
+@@ -14,11 +14,14 @@ try:
+     module_name = "pydocstyle"
+ 
+     pydocstyle_version = tuple(
+-        int(num) for num in pep257.__version__.split(".")
++        int(num) if num.isdigit() else 0 for num in pep257.__version__.split(".")
+     )
+-    supports_ignore_inline_noqa = pydocstyle_version >= (6, 0, 0)
+-    supports_property_decorators = pydocstyle_version >= (6, 2, 0)
+-    supports_ignore_self_only_init = pydocstyle_version >= (6, 3, 0)
++    supports_ignore_inline_noqa = pydocstyle_version >= (
++        6, 0, 0) or pydocstyle_version == (0, 0, 0)
++    supports_property_decorators = pydocstyle_version >= (
++        6, 2, 0) or pydocstyle_version == (0, 0, 0)
++    supports_ignore_self_only_init = pydocstyle_version >= (
++        6, 3, 0) or pydocstyle_version == (0, 0, 0)
+ except ImportError:
+     import pep257
+ 
+-- 
+2.34.1
+
