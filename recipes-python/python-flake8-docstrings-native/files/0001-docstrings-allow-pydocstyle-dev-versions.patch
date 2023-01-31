@@ -9,7 +9,12 @@ First fix the parsing of 0-dev by falling back to 0 and then
 set all supports_* flags to true in case 0.0.0 is detected
 
 Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
-Upstream-Status: Submitted [https://github.com/PyCQA/flake8-docstrings/pull/49]
+Upstream-Status: Denied
+
+Upstream thinks this is not a valid use case, as they intent
+to support only release versions - let them figure that out
+themselves - this patch still unblocks the functionality
+so all is good
 ---
  flake8_docstrings.py | 11 +++++++----
  1 file changed, 7 insertions(+), 4 deletions(-)
