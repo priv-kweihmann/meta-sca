@@ -12,8 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "tenacity"
 
-SRC_URI[md5sum] = "b6a0ac63bcdcbb7340eff579b8b83313"
-SRC_URI[sha256sum] = "e48c437fdf9340f5666b92cd7990e96bc5fc955e1298baf4a907e3972067a445"
+SRC_URI[md5sum] = "7b28e49ee421655c44841edd57bb75fc"
+SRC_URI[sha256sum] = "a43bcd8910406e0884ca0db3db7bed581f389c1d05165e992a1ddabfc81df05e"
 
 inherit pypi
 inherit setuptools3
