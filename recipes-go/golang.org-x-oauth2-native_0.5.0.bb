@@ -9,7 +9,6 @@ require golang.org-x-oauth2-sources.inc
 
 EXTRA_DEPENDS += "\
     cloud.google.com-go-compute-metadata-native \
-    golang.org-x-net-native \
     google.golang.org-appengine-native \
 "
 

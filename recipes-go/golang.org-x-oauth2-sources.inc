@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/golang.org/x/oauth2/@v/v0.4.0.zip;srcoutput=golang.org/x/oauth2;srcinput=golang.org/x/oauth2@v0.4.0;downloadfilename=golang-org-x-oauth2-0.4.0.zip;name=golang-org-x-oauth2"
-SRC_URI[golang-org-x-oauth2.sha256sum] = "e1a8ffaef686e54a9e9e4ec6a7d4060b21455fe38a75dca4755ab50556b0f701"
+SRC_URI += "https://proxy.golang.org/golang.org/x/oauth2/@v/v0.5.0.zip;srcoutput=golang.org/x/oauth2;srcinput=golang.org/x/oauth2@v0.5.0;downloadfilename=golang-org-x-oauth2-0.5.0.zip;name=golang-org-x-oauth2"
+SRC_URI[golang-org-x-oauth2.sha256sum] = "4d9d9ce8d2f55b7d2ffb3697ed811a54606e881bb7fbbd84d3d9c42fc404ae3c"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
@@ -11,5 +11,4 @@ LIC_FILES_CHKSUM += "\
 GOSRC_INCLUDEGUARD += "golang.org-x-oauth2-sources.inc"
 
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-compute-metadata-sources.inc', '', 'cloud.google.com-go-compute-metadata-sources.inc', d)}
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-net-sources.inc', '', 'golang.org-x-net-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-appengine-sources.inc', '', 'google.golang.org-appengine-sources.inc', d)}
