@@ -9,7 +9,6 @@ require golang.org-x-oauth2-sources.inc
 
 EXTRA_DEPENDS += "\
     nativesdk-cloud.google.com-go-compute-metadata \
-    nativesdk-golang.org-x-net \
     nativesdk-google.golang.org-appengine \
 "
 GO_IMPORT = "golang.org/x/oauth2"
