@@ -1,14 +1,17 @@
 SUMMARY = "simple regex-based small language lexers and parsers"
 HOMEPAGE = "https://github.com/nexB/pygmars"
 
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://apache-2.0.LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
+
 DEPENDS += "\
     python3-setuptools-scm-native \
     python3-toml-native \
 "
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://apache-2.0.LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
+
+SRC_URI:append = " file://0001-setup.cfg-fix-invalid-version-spec.patch"
 
 PYPI_PACKAGE = "pygmars"
 

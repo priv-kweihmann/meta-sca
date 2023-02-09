@@ -1,0 +1,32 @@
+From ec3f7e632a55a9f059672f4a31ef932d9c4309ac Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Thu, 9 Feb 2023 18:48:26 +0000
+Subject: [PATCH] setup.cfg: fix invalid version spec
+
+after PEP440 support has been removed in newer setuptools
+(v66+) this would otherwise result in an error like
+setuptools.extern.packaging.specifiers.InvalidSpecifier:
+Invalid specifier: '>=3.6.*'
+
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+Upstream-Status: Submitted [https://github.com/nexB/pygmars/pull/9]
+---
+ setup.cfg | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.cfg b/setup.cfg
+index a37fcc5..587c03f 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -29,7 +29,7 @@ packages = find:
+ include_package_data = true
+ zip_safe = false
+ setup_requires = setuptools_scm[toml] >= 4
+-python_requires = >=3.6.*
++python_requires = >=3.6
+ install_requires = 
+ 
+ [options.packages.find]
+-- 
+2.34.1
+
