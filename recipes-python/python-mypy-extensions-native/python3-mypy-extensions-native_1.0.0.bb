@@ -9,8 +9,8 @@ PYPI_PACKAGE = "mypy_extensions"
 
 UPSTREAM_CHECK_REGEX ?= "/mypy-extensions/(?P<pver>(\d+[\.\-_]*)+)"
 
-SRC_URI[md5sum] = "4163ff73d0db8631c0a78bb55b551c84"
-SRC_URI[sha256sum] = "2d82818f5bb3e369420cb3c4060a7970edba416647068eb4c5343488a6c604a8"
+SRC_URI[md5sum] = "5b77a3cafc7e9749a0157533c0915b5d"
+SRC_URI[sha256sum] = "75dbf8955dc00442a438fc4d0666508a9a97b6bd41aa2f0ffe9d2f2725af0782"
 
 
 inherit pypi
