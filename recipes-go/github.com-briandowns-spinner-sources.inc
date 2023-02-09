@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/briandowns/spinner/@v/v1.20.0.zip;srcoutput=github.com/briandowns/spinner;srcinput=github.com/briandowns/spinner@v1.20.0;downloadfilename=github-com-briandowns-spinner-1.20.0.zip;name=github-com-briandowns-spinner"
-SRC_URI[github-com-briandowns-spinner.sha256sum] = "e00a5c3676d9ea45592d9428d2559728c20fc7a0a152343e5ccb99c912a00bb2"
+SRC_URI += "https://proxy.golang.org/github.com/briandowns/spinner/@v/v1.21.0.zip;srcoutput=github.com/briandowns/spinner;srcinput=github.com/briandowns/spinner@v1.21.0;downloadfilename=github-com-briandowns-spinner-1.21.0.zip;name=github-com-briandowns-spinner"
+SRC_URI[github-com-briandowns-spinner.sha256sum] = "5f08e8dfdfac817ff11fd4edcca596f45dd79f01f789e13315d3fac7e87876cf"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
