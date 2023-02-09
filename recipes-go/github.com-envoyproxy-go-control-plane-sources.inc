@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/envoyproxy/go-control-plane/@v/v0.10.3.zip;srcoutput=github.com/envoyproxy/go-control-plane;srcinput=github.com/envoyproxy/go-control-plane@v0.10.3;downloadfilename=github-com-envoyproxy-go-control-plane-0.10.3.zip;name=github-com-envoyproxy-go-control-plane"
-SRC_URI[github-com-envoyproxy-go-control-plane.sha256sum] = "aa0530fbbbe2d4683035547b14d58a7318f408398e10092637f20642de82c9ff"
+SRC_URI += "https://proxy.golang.org/github.com/envoyproxy/go-control-plane/@v/v0.11.0.zip;srcoutput=github.com/envoyproxy/go-control-plane;srcinput=github.com/envoyproxy/go-control-plane@v0.11.0;downloadfilename=github-com-envoyproxy-go-control-plane-0.11.0.zip;name=github-com-envoyproxy-go-control-plane"
+SRC_URI[github-com-envoyproxy-go-control-plane.sha256sum] = "414095f9392b04286379ee96dd628c8ff5655c34c318f29ba037253f58492d20"
 GOSRC_REMOVEDIRS += "github.com/envoyproxy/go-control-plane/pkg/integration"
 GOSRC_REMOVEDIRS += "github.com/envoyproxy/go-control-plane/envoy/extensions/access_loggers/open_telemetry"
 
