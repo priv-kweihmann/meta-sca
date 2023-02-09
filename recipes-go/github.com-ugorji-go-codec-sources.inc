@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/ugorji/go/codec/@v/v1.2.8.zip;srcoutput=github.com/ugorji/go/codec;srcinput=github.com/ugorji/go/codec@v1.2.8;downloadfilename=github-com-ugorji-go-codec-1.2.8.zip;name=github-com-ugorji-go-codec"
-SRC_URI[github-com-ugorji-go-codec.sha256sum] = "84c316abdd34485620c2e06fb50e128a8632e2102c1304d8592a523d902d661f"
+SRC_URI += "https://proxy.golang.org/github.com/ugorji/go/codec/@v/v1.2.9.zip;srcoutput=github.com/ugorji/go/codec;srcinput=github.com/ugorji/go/codec@v1.2.9;downloadfilename=github-com-ugorji-go-codec-1.2.9.zip;name=github-com-ugorji-go-codec"
+SRC_URI[github-com-ugorji-go-codec.sha256sum] = "41c155a8c9959b77d459c552db2a688ca4e793d0ef90d4eb9eddb425f52efd1e"
 
 GOSRC_LICENSE += "\
     MIT \
