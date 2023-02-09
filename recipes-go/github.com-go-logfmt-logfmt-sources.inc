@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/go-logfmt/logfmt/@v/v0.5.1.zip;srcoutput=github.com/go-logfmt/logfmt;srcinput=github.com/go-logfmt/logfmt@v0.5.1;downloadfilename=github-com-go-logfmt-logfmt-0.5.1.zip;name=github-com-go-logfmt-logfmt"
-SRC_URI[github-com-go-logfmt-logfmt.sha256sum] = "9e030cd09b584e59a2f5baaa24cf600520757d732af0f8993cc412dd3086703a"
+SRC_URI += "https://proxy.golang.org/github.com/go-logfmt/logfmt/@v/v0.6.0.zip;srcoutput=github.com/go-logfmt/logfmt;srcinput=github.com/go-logfmt/logfmt@v0.6.0;downloadfilename=github-com-go-logfmt-logfmt-0.6.0.zip;name=github-com-go-logfmt-logfmt"
+SRC_URI[github-com-go-logfmt-logfmt.sha256sum] = "a49c00cff30c02d9c09a4974ce91215bfe37f528a74f129576697869a1b8c630"
 
 GOSRC_LICENSE += "\
     MIT \
