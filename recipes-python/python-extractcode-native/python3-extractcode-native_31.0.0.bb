@@ -19,15 +19,9 @@ PYPI_PACKAGE = "extractcode"
 SRC_URI[md5sum] = "428c307fc9199dfef2c3a284cacc03b0"
 SRC_URI[sha256sum] = "80819392e9bcf8129f74d8904fe8a98c0dfed2782356842737282c0283113d88"
 
+SRC_URI:append = " file://0001-setup.cfg-fix-invalid-version-spec.patch"
+
 inherit pypi
 inherit setuptools3
 inherit native
 
-RDEPENDS:${PN}:class-nativesdk += "\
-    nativesdk-python3-commoncode \
-    nativesdk-python3-extractcode-7z-system-provided \
-    nativesdk-python3-extractcode-libarchive-system-provided \
-    nativesdk-python3-patch \
-    nativesdk-python3-plugincode \
-    nativesdk-python3-typecode \
-"

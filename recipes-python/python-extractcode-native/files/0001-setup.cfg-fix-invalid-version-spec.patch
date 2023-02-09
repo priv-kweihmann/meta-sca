@@ -1,0 +1,32 @@
+From fd200c8a9cc4fe608a9b26dc3b86afb0b9cd9d52 Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Thu, 9 Feb 2023 20:36:43 +0000
+Subject: [PATCH] setup.cfg: fix invalid version spec
+
+after PEP440 support has been removed in newer setuptools
+(v66+) this would otherwise result in an error like
+setuptools.extern.packaging.specifiers.InvalidSpecifier:
+Invalid specifier: '>=3.6.*'
+
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+Upstream-Status: Submitted [https://github.com/nexB/extractcode/pull/46]
+---
+ setup.cfg | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.cfg b/setup.cfg
+index 676422e..6298316 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -60,7 +60,7 @@ package_dir =
+ packages = find:
+ include_package_data = true
+ zip_safe = false
+-python_requires = >=3.6.*
++python_requires = >=3.6
+ install_requires = 
+ 	attrs >= 18.1, !=20.1.0
+ 	commoncode >= 30.2.0
+-- 
+2.34.1
+

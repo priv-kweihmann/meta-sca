@@ -23,16 +23,9 @@ PYPI_PACKAGE = "typecode"
 SRC_URI[md5sum] = "fa8ff162e21720d990885ac1755f2651"
 SRC_URI[sha256sum] = "a5118b53fc73410a8364c22caead45cbb560188a458e71eda663bec8beede20f"
 
+SRC_URI:append = " file://0001-setup.cfg-fix-invalid-version-spec.patch"
+
 inherit pypi
 inherit setuptools3
 inherit native
 
-RDEPENDS:${PN}:class-nativesdk += "\
-    nativesdk-python3-attrs \
-    nativesdk-python3-binaryornot \
-    nativesdk-python3-commoncode \
-    nativesdk-python3-pdfminer-six \
-    nativesdk-python3-plugincode \
-    nativesdk-python3-six \
-    nativesdk-python3-typecode-libmagic-system-provided \
-"

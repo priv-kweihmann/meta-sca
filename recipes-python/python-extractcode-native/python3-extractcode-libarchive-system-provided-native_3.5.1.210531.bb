@@ -23,5 +23,3 @@ inherit native
 
 UPSTREAM_CHECK_URI = "https://pypi.org/project/extractcode-libarchive-system-provided/"
 UPSTREAM_CHECK_REGEX = "/extractcode-libarchive-system-provided/(?P<pver>(\d+[\.\-_]*)+)/"
-
-RDEPENDS:${PN}:class-nativesdk += "nativesdk-libarchive"

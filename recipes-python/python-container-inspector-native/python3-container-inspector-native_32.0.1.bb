@@ -15,6 +15,7 @@ DEPENDS += "\
 PYPI_PACKAGE = "container-inspector"
 
 SRC_URI[sha256sum] = "6049eacf79f39c85c8dd7a6ce23a9466df4db7a7e69746fb203477080457c826"
+SRC_URI:append = " file://0001-setup.cfg-fix-invalid-version-spec.patch"
 
 inherit pypi
 inherit setuptools3
