@@ -10,6 +10,7 @@ inherit sca-description
 
 inherit python3-dir
 inherit nativesdk
+
 PACKAGECONFIG ??= "\
                    2020 \
                    comprehensions \
@@ -23,6 +24,7 @@ PACKAGECONFIG ??= "\
                    mutable \
                    quotes \
                    requirements \
+                   secure-coding-standard \
                    strict \
                    string-format \
                    variables-names \
@@ -40,6 +42,7 @@ PACKAGECONFIG[import-order] = ",,nativesdk-python3-flake8-import-order"
 PACKAGECONFIG[mutable] = ",,nativesdk-python3-flake8-mutable"
 PACKAGECONFIG[quotes] = ",,nativesdk-python3-flake8-quotes"
 PACKAGECONFIG[requirements] = ",,nativesdk-python3-flake8-requirements"
+PACKAGECONFIG[secure-coding-standard] = ",,nativesdk-python3-flake8-secure-coding-standard"
 PACKAGECONFIG[strict] = ",,nativesdk-python3-flake8-strict"
 PACKAGECONFIG[string-format] = ",,nativesdk-python3-flake8-string-format"
 PACKAGECONFIG[variables-names] = ",,nativesdk-python3-flake8-variables-names"
