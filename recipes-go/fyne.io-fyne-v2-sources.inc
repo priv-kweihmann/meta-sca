@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/fyne.io/fyne/v2/@v/v2.3.0.zip;srcoutput=fyne.io/fyne/v2;srcinput=fyne.io/fyne/v2@v2.3.0;downloadfilename=fyne-io-fyne-v2-2.3.0.zip;name=fyne-io-fyne-v2"
-SRC_URI[fyne-io-fyne-v2.sha256sum] = "3fa9972be00284fa4c68ffc4b70ee1f45a1f6215ec0462dc198fd4a50b15f379"
+SRC_URI += "https://proxy.golang.org/fyne.io/fyne/v2/@v/v2.3.1.zip;srcoutput=fyne.io/fyne/v2;srcinput=fyne.io/fyne/v2@v2.3.1;downloadfilename=fyne-io-fyne-v2-2.3.1.zip;name=fyne-io-fyne-v2"
+SRC_URI[fyne-io-fyne-v2.sha256sum] = "7d3c49fc15a8596d14298c600e8cc9d5e7c8ab244795f9f885343f50742b4e5b"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
