@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=ca9b0a3e473327024be9af47bc41fb14"
 
 PYPI_PACKAGE = "polib"
 
-SRC_URI[md5sum] = "d6528d4711cb3eb4c7c5a61f2f3564a7"
-SRC_URI[sha256sum] = "e02c355ae5e054912e3b0d16febc56510eff7e49d60bf22aecb463bd2f2a2dfa"
+SRC_URI[md5sum] = "3832de1c54ee8c9dac47b4a970d15fb0"
+SRC_URI[sha256sum] = "f3ef94aefed6e183e342a8a269ae1fc4742ba193186ad76f175938621dbfc26b"
 
 inherit pypi
 inherit setuptools3
