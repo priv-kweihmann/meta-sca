@@ -12,8 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "Babel"
 
-SRC_URI[md5sum] = "9ee7784fd452d456206ecd3a12694010"
-SRC_URI[sha256sum] = "5ef4b3226b0180dedded4229651c8b0e1a3a6a2837d45a073272f313e4cf97f6"
+SRC_URI[md5sum] = "9ac7d8aac42c17a1e6d922017058d2c8"
+SRC_URI[sha256sum] = "cc2d99999cd01d44420ae725a21c9e3711b3aadc7976d6147f622d8581963455"
 
 inherit pypi
 inherit setuptools3
