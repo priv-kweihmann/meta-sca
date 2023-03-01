@@ -7,7 +7,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-go-text-typesetting-utils-sources.inc
 
-EXTRA_DEPENDS += "nativesdk-golang.org-x-tools"
+EXTRA_DEPENDS += "\
+    nativesdk-golang.org-x-text \
+    nativesdk-golang.org-x-tools \
+"
 GO_IMPORT = "github.com/go-text/typesetting-utils"
 inherit gosrc
 inherit nativesdk
