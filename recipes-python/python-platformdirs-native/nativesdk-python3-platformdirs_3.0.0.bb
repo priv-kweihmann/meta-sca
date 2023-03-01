@@ -2,8 +2,8 @@ SUMMARY = "A small Python module for determining appropriate platform-specific d
 HOMEPAGE = "https://github.com/platformdirs/platformdirs"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=282c970bb844954c8535dd6e9733db7f"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=ea4f5a41454746a9ed111e3d8723d17a"
 
 DEPENDS += "\
     python3-hatch-vcs-native \
@@ -13,17 +13,19 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "platformdirs"
 
-SRC_URI[md5sum] = "2301a8a29c3082a49ee293073d893887"
-SRC_URI[sha256sum] = "58c8abb07dcb441e6ee4b11d8df0ac856038f944ab98b7be6b27b2a3c7feef19"
+SRC_URI[md5sum] = "4fc8d90dbaf7ae3c24706d3922a4bb06"
+SRC_URI[sha256sum] = "8a1228abb1ef82d788f74139988b137e78692984ec7b08eaa6c65f1723af28f9"
 
 inherit pypi
-
 inherit python_hatchling
 inherit nativesdk
+
 do_compile:prepend() {
     export SETUPTOOLS_SCM_PRETEND_VERSION="${PV}"
 }
+
 FILES:${PN} += "${datadir} ${prefix}"
+
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \
     nativesdk-python3-ctypes \
