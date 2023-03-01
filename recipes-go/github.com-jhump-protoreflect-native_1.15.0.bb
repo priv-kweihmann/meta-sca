@@ -8,10 +8,10 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require github.com-jhump-protoreflect-sources.inc
 
 EXTRA_DEPENDS += "\
+    github.com-bufbuild-protocompile-native \
     github.com-golang-protobuf-native \
     github.com-jhump-gopoet-native \
     github.com-jhump-goprotoc-native \
-    google.golang.org-genproto-native \
     google.golang.org-grpc-native \
     google.golang.org-protobuf-native \
 "
