@@ -8,6 +8,7 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require github.com-go-text-typesetting-utils-sources.inc
 
 EXTRA_DEPENDS += "\
+    golang.org-x-text-native \
     golang.org-x-tools-native \
 "
 
