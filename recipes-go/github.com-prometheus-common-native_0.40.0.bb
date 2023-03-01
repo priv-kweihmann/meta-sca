@@ -10,6 +10,7 @@ require github.com-prometheus-common-sources.inc
 EXTRA_DEPENDS += "\
     github.com-go-kit-log-native \
     github.com-golang-protobuf-native \
+    github.com-json-iterator-go-native \
     github.com-julienschmidt-httprouter-native \
     github.com-matttproud-golang-protobuf-extensions-native \
     github.com-mwitkow-go-conntrack-native \
