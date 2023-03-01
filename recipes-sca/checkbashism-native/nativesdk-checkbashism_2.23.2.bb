@@ -5,26 +5,23 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=faa39cbd7a7cded9a1436248295de3c2"
 
-DEPENDS += "perl-native"
+DEPENDS += "nativesdk-perl"
 
 SRC_URI:append = " \
     http://deb.debian.org/debian/pool/main/d/devscripts/devscripts_${PV}.tar.xz \
     file://checkbashism.sca.description \
 "
 
-SRC_URI[sha256sum] = "54eb392b18818460e56c052e40602bc9a1ba33c5349a58017c57b1d312b3ed9a"
+SRC_URI[sha256sum] = "d526c10e7324f695d47161847aafbb200653073d7310fc3e4015eee68e08ced1"
 
 S = "${WORKDIR}/devscripts"
 UPSTREAM_CHECK_REGEX = "devscripts_(?P<pver>\d+\.\d+\.\d+)"
 
 inherit sca-description
-inherit native
-
+inherit nativesdk
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
-
 SCA_TOOL_DESCRIPTION = "checkbashism"
-
 do_install() {
     install -d ${D}${bindir}
 
@@ -33,7 +30,5 @@ do_install() {
     # enforce usage of sysroot perl instead of host sided
     sed -i "s|/usr/bin/perl|/usr/bin/env perl|g" ${D}${bindir}/checkbashisms.pl
 }
-
 FILES:${PN} += "${bindir}"
-
 RDEPENDS:${PN}:class-nativesdk += "nativesdk-perl"
