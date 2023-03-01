@@ -12,8 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "zipp"
 
-SRC_URI[md5sum] = "6cc740ee6b1c7e80262e914d1d5d7e79"
-SRC_URI[sha256sum] = "a3cac813d40993596b39ea9e93a18e8a2076d5c378b8bc88ec32ab264e04ad02"
+SRC_URI[md5sum] = "6e06bc2894588451a9787b9f22f9b0ba"
+SRC_URI[sha256sum] = "112929ad649da941c23de50f356a2b5570c954b65150642bccdd66bf194d224b"
 
 inherit pypi
 inherit setuptools3
