@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/lucor/goinfo/@v/v0.0.0-20210802170112-c078a2b0f08b.zip;srcoutput=github.com/lucor/goinfo;srcinput=github.com/lucor/goinfo@v0.0.0-20210802170112-c078a2b0f08b;downloadfilename=github-com-lucor-goinfo-0.0.0-20210802170112-c078a2b0f08b.zip;name=github-com-lucor-goinfo"
-SRC_URI[github-com-lucor-goinfo.sha256sum] = "b7ff071518fbfa133e30f98f7ecd9dbd25609821cc809e762c33f988b3d7b6e7"
+SRC_URI += "https://proxy.golang.org/github.com/lucor/goinfo/@v/v0.0.0-20230226084616-00a3782edfe9.zip;srcoutput=github.com/lucor/goinfo;srcinput=github.com/lucor/goinfo@v0.0.0-20230226084616-00a3782edfe9;downloadfilename=github-com-lucor-goinfo-0.0.0-20230226084616-00a3782edfe9.zip;name=github-com-lucor-goinfo"
+SRC_URI[github-com-lucor-goinfo.sha256sum] = "f64387ffd090bb3f3b075c4a1cfa6d66fec3c8a38b3beb4298f019870e4c2c5f"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
