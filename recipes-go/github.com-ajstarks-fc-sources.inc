@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/ajstarks/fc/@v/v0.0.0-20221108203508-3143285ef3fe.zip;srcoutput=github.com/ajstarks/fc;srcinput=github.com/ajstarks/fc@v0.0.0-20221108203508-3143285ef3fe;downloadfilename=github-com-ajstarks-fc-0.0.0-20221108203508-3143285ef3fe.zip;name=github-com-ajstarks-fc"
-SRC_URI[github-com-ajstarks-fc.sha256sum] = "729008cf33252af10d8b7d483dfb87522e72b42a6e77b6187c51e217a0be9a7a"
+SRC_URI += "https://proxy.golang.org/github.com/ajstarks/fc/@v/v0.0.0-20230224115617-3b03de75e177.zip;srcoutput=github.com/ajstarks/fc;srcinput=github.com/ajstarks/fc@v0.0.0-20230224115617-3b03de75e177;downloadfilename=github-com-ajstarks-fc-0.0.0-20230224115617-3b03de75e177.zip;name=github-com-ajstarks-fc"
+SRC_URI[github-com-ajstarks-fc.sha256sum] = "ad1909a6a45da3da1fd4624e5ff49d603d670b3936794036dfe868215eb71d50"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
