@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/tqdm/tqdm"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT & MPL-2.0"
-LIC_FILES_CHKSUM = "file://LICENCE;md5=1672e2674934fd93a31c09cf17f34100"
+LIC_FILES_CHKSUM = "file://LICENCE;md5=cfdbc9dcca7dc9fb600347958b7d5c4f"
 
 DEPENDS += "\
     python3-setuptools-scm-native \
@@ -13,8 +13,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "tqdm"
 
-SRC_URI[md5sum] = "5822af464d77ea156ad1167c23e1bdac"
-SRC_URI[sha256sum] = "5f4f682a004951c1b450bc753c710e9280c5746ce6ffedee253ddbcbf54cf1e4"
+SRC_URI[md5sum] = "a6f3177ac10c0c6e3f5e972852154146"
+SRC_URI[sha256sum] = "1871fb68a86b8fb3b59ca4cdd3dcccbc7e6d613eeed31f4c332531977b89beb5"
 
 inherit pypi
 inherit setuptools3
