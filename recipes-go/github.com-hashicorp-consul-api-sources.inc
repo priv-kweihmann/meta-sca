@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/hashicorp/consul/api/@v/v1.19.1.zip;srcoutput=github.com/hashicorp/consul/api;srcinput=github.com/hashicorp/consul/api@v1.19.1;downloadfilename=github-com-hashicorp-consul-api-1.19.1.zip;name=github-com-hashicorp-consul-api"
-SRC_URI[github-com-hashicorp-consul-api.sha256sum] = "f8054532a775cb25d833533268eab4e6a2fc18952cf65764fcd8a174c062f19e"
+SRC_URI += "https://proxy.golang.org/github.com/hashicorp/consul/api/@v/v1.20.0.zip;srcoutput=github.com/hashicorp/consul/api;srcinput=github.com/hashicorp/consul/api@v1.20.0;downloadfilename=github-com-hashicorp-consul-api-1.20.0.zip;name=github-com-hashicorp-consul-api"
+SRC_URI[github-com-hashicorp-consul-api.sha256sum] = "7deb2cb9da3bb36170428cca5c926afea00852a4c5d58c8fa431993fa737f6a6"
 
 GOSRC_LICENSE += "\
     MPL-2.0 \
