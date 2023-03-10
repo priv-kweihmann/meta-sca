@@ -8,9 +8,9 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require github.com-prometheus-common-sources.inc
 
 EXTRA_DEPENDS += "\
+    nativesdk-github.com-alecthomas-kingpin-v2 \
     nativesdk-github.com-go-kit-log \
     nativesdk-github.com-golang-protobuf \
-    nativesdk-github.com-json-iterator-go \
     nativesdk-github.com-julienschmidt-httprouter \
     nativesdk-github.com-matttproud-golang-protobuf-extensions \
     nativesdk-github.com-mwitkow-go-conntrack \
@@ -18,7 +18,6 @@ EXTRA_DEPENDS += "\
     nativesdk-github.com-prometheus-client-model \
     nativesdk-golang.org-x-net \
     nativesdk-golang.org-x-oauth2 \
-    nativesdk-gopkg.in-alecthomas-kingpin.v2 \
     nativesdk-gopkg.in-yaml.v2 \
 "
 GO_IMPORT = "github.com/prometheus/common"
