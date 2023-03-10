@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/go-latex/latex/@v/v0.0.0-20210823091927-c0d11ff05a81.zip;srcoutput=github.com/go-latex/latex;srcinput=github.com/go-latex/latex@v0.0.0-20210823091927-c0d11ff05a81;downloadfilename=github-com-go-latex-latex-0.0.0-20210823091927-c0d11ff05a81.zip;name=github-com-go-latex-latex"
-SRC_URI[github-com-go-latex-latex.sha256sum] = "c58be686b31679ad0a51a5d70e60df92fb4bb50a16727caa58b4a67b33f16509"
+SRC_URI += "https://proxy.golang.org/github.com/go-latex/latex/@v/v0.0.0-20230307184459-12ec69307ad9.zip;srcoutput=github.com/go-latex/latex;srcinput=github.com/go-latex/latex@v0.0.0-20230307184459-12ec69307ad9;downloadfilename=github-com-go-latex-latex-0.0.0-20230307184459-12ec69307ad9.zip;name=github-com-go-latex-latex"
+SRC_URI[github-com-go-latex-latex.sha256sum] = "b61ffef542287b4694f0c8c29da809ed025057aab9cb042457e2bdb07db97e70"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
