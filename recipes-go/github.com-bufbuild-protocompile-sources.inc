@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/bufbuild/protocompile/@v/v0.3.0.zip;srcoutput=github.com/bufbuild/protocompile;srcinput=github.com/bufbuild/protocompile@v0.3.0;downloadfilename=github-com-bufbuild-protocompile-0.3.0.zip;name=github-com-bufbuild-protocompile"
-SRC_URI[github-com-bufbuild-protocompile.sha256sum] = "94681e2e3e65eda22cc0f0957f0f04f369b19631ae5cbfe97626234000629541"
+SRC_URI += "https://proxy.golang.org/github.com/bufbuild/protocompile/@v/v0.5.1.zip;srcoutput=github.com/bufbuild/protocompile;srcinput=github.com/bufbuild/protocompile@v0.5.1;downloadfilename=github-com-bufbuild-protocompile-0.5.1.zip;name=github-com-bufbuild-protocompile"
+SRC_URI[github-com-bufbuild-protocompile.sha256sum] = "733b25c9a3d484be55ea77fc22f2b91814d1b5ff80a4dee9be6a171db92957b4"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
