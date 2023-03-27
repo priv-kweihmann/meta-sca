@@ -9,8 +9,8 @@ DEPENDS += "nativesdk-python3-soupsieve"
 
 PYPI_PACKAGE = "beautifulsoup4"
 
-SRC_URI[md5sum] = "5f235c26c86084c2696b1333264ed566"
-SRC_URI[sha256sum] = "bc4bdda6717de5a2987436fb8d72f45dc90dd856bdfd512a1314ce90349a0106"
+SRC_URI[md5sum] = "428d2737d94d238b146081c03d3b2b87"
+SRC_URI[sha256sum] = "c5fceeaec29d09c84970e47c65f2f0efe57872f7cff494c9691a26ec0ff13234"
 
 inherit pypi
 inherit setuptools3
