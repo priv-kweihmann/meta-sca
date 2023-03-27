@@ -7,10 +7,12 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=dd54c94e040946267bc2300dbc7d7e6d"
 
 DEPENDS += "nativesdk-python3-flake8"
 
-PYPI_PACKAGE = "flake8-comprehensions"
+PYPI_PACKAGE = "flake8_comprehensions"
 
-SRC_URI[md5sum] = "03406f2897bc9fcfab197c4509ca0b8b"
-SRC_URI[sha256sum] = "412052ac4a947f36b891143430fef4859705af11b2572fbb689f90d372cf26ab"
+SRC_URI[md5sum] = "3257a0a79760a4ec16a05e1854974103"
+SRC_URI[sha256sum] = "31d6386c125e325d7c84290d71f5354295dbbf5a8d47259708fa349aa0969523"
+
+UPSTREAM_CHECK_REGEX ?= "/flake8-comprehensions/(?P<pver>(\d+[\.\-_]*)+)"
 
 inherit pypi
 inherit python_setuptools_build_meta
