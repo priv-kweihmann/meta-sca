@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/googleapis/gax-go/v2/@v/v2.7.1.zip;srcoutput=github.com/googleapis/gax-go/v2;srcinput=github.com/googleapis/gax-go/v2@v2.7.1;downloadfilename=github-com-googleapis-gax-go-v2-2.7.1.zip;name=github-com-googleapis-gax-go-v2"
-SRC_URI[github-com-googleapis-gax-go-v2.sha256sum] = "b9bdfe36843cdc62b1eb2ba66ac1410164c2478c88c6bfe16c9ce2859922ee80"
+SRC_URI += "https://proxy.golang.org/github.com/googleapis/gax-go/v2/@v/v2.8.0.zip;srcoutput=github.com/googleapis/gax-go/v2;srcinput=github.com/googleapis/gax-go/v2@v2.8.0;downloadfilename=github-com-googleapis-gax-go-v2-2.8.0.zip;name=github-com-googleapis-gax-go-v2"
+SRC_URI[github-com-googleapis-gax-go-v2.sha256sum] = "832a15612e71adea2a7ee119ed1295bed08b46618fd68b214e53445fd3e03069"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
