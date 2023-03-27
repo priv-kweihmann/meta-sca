@@ -9,7 +9,7 @@ require github.com-envoyproxy-protoc-gen-validate-sources.inc
 
 EXTRA_DEPENDS += "\
     nativesdk-github.com-iancoleman-strcase \
-    nativesdk-github.com-lyft-protoc-gen-star \
+    nativesdk-github.com-lyft-protoc-gen-star-v2 \
     nativesdk-golang.org-x-lint \
     nativesdk-golang.org-x-net \
     nativesdk-golang.org-x-tools \
