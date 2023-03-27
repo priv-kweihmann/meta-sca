@@ -18,7 +18,7 @@ SRC_URI = "\
     file://0001-diable-goto-gcc-regression-tests.patch \
 "
 
-SRCREV = "a8abbf157233e33347dee68e6e3bfee1e385d208"
+SRCREV = "4af9c8a54867ca76e8c22d218d4eca2eedbf8d5f"
 SRC_URI[minisat2.sha256sum] = "e54afa3c192c1753bc8075c0c7e126d5c495d9066e3f90a2588091149ac9ca40"
 
 UPSTREAM_CHECK_GITTAGREGEX = "cbmc-(?P<pver>[\d\.a-f]+)"
