@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/google.golang.org/grpc/@v/v1.53.0.zip;srcoutput=google.golang.org/grpc;srcinput=google.golang.org/grpc@v1.53.0;downloadfilename=google-golang-org-grpc-1.53.0.zip;name=google-golang-org-grpc"
-SRC_URI[google-golang-org-grpc.sha256sum] = "27eac6302376021eee524ddce487571a0686eb3868aaf93981ea6767e1929d6b"
+SRC_URI += "https://proxy.golang.org/google.golang.org/grpc/@v/v1.54.0.zip;srcoutput=google.golang.org/grpc;srcinput=google.golang.org/grpc@v1.54.0;downloadfilename=google-golang-org-grpc-1.54.0.zip;name=google-golang-org-grpc"
+SRC_URI[google-golang-org-grpc.sha256sum] = "8e279a7a36347098a00debb5f76ef75b981939c282cd7771cc22b9b576065d84"
 GOSRC_REMOVEDIRS += "google.golang.org/grpc/xds"
 
 GOSRC_LICENSE += "\
