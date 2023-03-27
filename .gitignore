@@ -1,6 +1,7 @@
-__pycache__
-.vscode
 *.pyc
-recipes-foo/foo/*
-scripts/go-gen-ignore.json
+.vscode
 TODO
+__pycache__
+recipes-foo/foo/*
+scripts/failure.log
+scripts/go-gen-ignore.json

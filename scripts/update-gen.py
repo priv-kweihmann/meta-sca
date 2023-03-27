@@ -9,22 +9,13 @@ import urllib.request
 
 import git
 
+failure_log = os.path.join(os.path.dirname(__file__), 'failure.log')
+
 
 def create_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("repo", help="Repo path")
     return parser.parse_args()
-
-
-def get_real_package_name_npm(_args, recipe):
-    try:
-        out = subprocess.check_output(
-            ["/bin/sh", "-c", "bitbake -e {} | grep ^NPM_PKGNAME=".format(recipe)], universal_newlines=True)
-        out = out.replace("NPM_PKGNAME=", "", 1).strip('" \n')
-    except subprocess.CalledProcessError as e:
-        print(e)
-        out = ""
-    return out
 
 
 def get_real_package_name_go(_args, recipe):
@@ -41,7 +32,7 @@ def get_real_package_name_go(_args, recipe):
 def run_package_update_pypi(_args, packagename, version):
     try:
         subprocess.check_call(["python3", os.path.join(_args.repo, "scripts", "pypi-update.py"),
-                               _args.repo, packagename, version], universal_newlines=True)
+                               f'--faillog={failure_log}', _args.repo, packagename, version], universal_newlines=True)
         return (True, 1)
     except:
         return (False, 1)
@@ -50,7 +41,7 @@ def run_package_update_pypi(_args, packagename, version):
 def run_package_update_perl(_args, packagename, version):
     try:
         subprocess.check_call(["python3", os.path.join(_args.repo, "scripts", "perl-update.py"),
-                               _args.repo, packagename, version], universal_newlines=True)
+                               f'--faillog={failure_log}', _args.repo, packagename, version], universal_newlines=True)
         return (True, 1)
     except:
         return (False, 1)
@@ -201,6 +192,8 @@ def get_issues(_args):
 _args = create_parser()
 data = get_issues(_args)
 _updated_items = 0
+with open(failure_log, 'w') as o:
+    o.write('')
 for item in data:
     if item["state"] == "open" and is_updateable(_args, item["title"]):
         if any(x["name"] == "Postponed" for x in item["labels"]):
