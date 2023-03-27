@@ -10,6 +10,7 @@ require github.com-fatih-color-sources.inc
 EXTRA_DEPENDS += "\
     github.com-mattn-go-colorable-native \
     github.com-mattn-go-isatty-native \
+    golang.org-x-sys-native \
 "
 
 GO_IMPORT = "github.com/fatih/color"

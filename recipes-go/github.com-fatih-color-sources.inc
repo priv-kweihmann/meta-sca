@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/fatih/color/@v/v1.14.1.zip;srcoutput=github.com/fatih/color;srcinput=github.com/fatih/color@v1.14.1;downloadfilename=github-com-fatih-color-1.14.1.zip;name=github-com-fatih-color"
-SRC_URI[github-com-fatih-color.sha256sum] = "e4938e4f8e9ece6f5e95aaa25dc0fe7753718e041584333a17d102a6447e0331"
+SRC_URI += "https://proxy.golang.org/github.com/fatih/color/@v/v1.15.0.zip;srcoutput=github.com/fatih/color;srcinput=github.com/fatih/color@v1.15.0;downloadfilename=github-com-fatih-color-1.15.0.zip;name=github-com-fatih-color"
+SRC_URI[github-com-fatih-color.sha256sum] = "5aa7c7c5e0f12febbeb3f4f57fbca13eabf16caa1cd5a89315e7b8e187652ad9"
 
 GOSRC_LICENSE += "\
     MIT \
@@ -12,3 +12,4 @@ GOSRC_INCLUDEGUARD += "github.com-fatih-color-sources.inc"
 
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-mattn-go-colorable-sources.inc', '', 'github.com-mattn-go-colorable-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-mattn-go-isatty-sources.inc', '', 'github.com-mattn-go-isatty-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-sys-sources.inc', '', 'golang.org-x-sys-sources.inc', d)}
