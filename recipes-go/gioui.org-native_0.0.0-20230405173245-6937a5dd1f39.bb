@@ -10,7 +10,6 @@ require gioui.org-sources.inc
 EXTRA_DEPENDS += "\
     gioui.org-cpu-native \
     gioui.org-shader-native \
-    github.com-benoitkugler-textlayout-native \
     github.com-go-text-typesetting-native \
     golang.org-x-exp-native \
     golang.org-x-exp-shiny-native \
