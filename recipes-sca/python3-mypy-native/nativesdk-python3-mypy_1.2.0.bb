@@ -12,8 +12,8 @@ DEPENDS += "\
     python3-tomli-native \
 "
 
-SRC_URI[md5sum] = "7c5bcf138bff4e54785a95de8d917397"
-SRC_URI[sha256sum] = "ae9ceae0f5b9059f33dbc62dea087e942c0ccab4b7a003719cb70f9b8abfa32f"
+SRC_URI[md5sum] = "80e2ae0c98f18d1ec24d4630329d1728"
+SRC_URI[sha256sum] = "f70a40410d774ae23fcb4afbbeca652905a04de7948eaf0b1789c8d1426b72d1"
 
 PYPI_PACKAGE = "mypy"
 
