@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=42b280e18423c22b76d77cbbc6f59b47"
 DEPENDS += "python3-license-expression-native"
 
 SRC_URI = "git://github.com/priv-kweihmann/licensecheck.git;branch=master;protocol=https"
-SRCREV = "a24e2e589665da87a944e2f5061b27f82a5206ad"
+SRCREV = "ce2b092cd9613981d546f7699c06f5ec315f90a2"
 
 S = "${WORKDIR}/git"
 
