@@ -15,8 +15,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "tempora"
 
-SRC_URI[md5sum] = "a4b09c1285680f8491c4a574ae7201db"
-SRC_URI[sha256sum] = "b7176486c5948a75201e8d0b21ef2c23ca808474060df47218c92295bdce5276"
+SRC_URI[md5sum] = "1669df924e6445ee681a349ff507fdbf"
+SRC_URI[sha256sum] = "98ee27bc528c91a236f9a5d612ede4ef391b01f7862bf11b483ce549053651c1"
 
 inherit pypi
 inherit python_setuptools_build_meta
