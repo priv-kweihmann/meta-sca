@@ -1,5 +1,5 @@
 SRC_URI += "git://github.com/microsoft/go-winio;nobranch=1;protocol=https;srcinput=github.com/Microsoft/go-winio;srcoutput=github.com/Microsoft/go-winio;destsuffix=github.com/Microsoft/go-winio;name=github-com-microsoft-go-winio"
-SRCREV_github-com-microsoft-go-winio = "376b2013fee695d54f9b21db81716426a8a736d9"
+SRCREV_github-com-microsoft-go-winio = "070c828abb873da9e71c7247740253b50f7cf049"
 
 GOSRC_LICENSE += "\
     MIT \
