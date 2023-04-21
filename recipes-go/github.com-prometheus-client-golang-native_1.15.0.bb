@@ -11,7 +11,6 @@ EXTRA_DEPENDS += "\
     github.com-beorn7-perks-native \
     github.com-cespare-xxhash-v2-native \
     github.com-davecgh-go-spew-native \
-    github.com-golang-protobuf-native \
     github.com-json-iterator-go-native \
     github.com-prometheus-client-model-native \
     github.com-prometheus-common-native \
