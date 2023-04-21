@@ -9,8 +9,8 @@ DEPENDS += "nativesdk-python3-flake8"
 
 PYPI_PACKAGE = "flake8_comprehensions"
 
-SRC_URI[md5sum] = "3257a0a79760a4ec16a05e1854974103"
-SRC_URI[sha256sum] = "31d6386c125e325d7c84290d71f5354295dbbf5a8d47259708fa349aa0969523"
+SRC_URI[md5sum] = "e442da8ed9b6c9991fce946e0ba15fda"
+SRC_URI[sha256sum] = "419ef1a6e8de929203791a5e8ff5e3906caeba13eb3290eebdbf88a9078d502e"
 
 UPSTREAM_CHECK_REGEX ?= "/flake8-comprehensions/(?P<pver>(\d+[\.\-_]*)+)"
 
