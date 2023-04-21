@@ -3,7 +3,7 @@ HOMEPAGE = "https://metacpan.org/pod/Module::Build::Tiny"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0-only & Artistic-1.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=57b8100f0b648cd37fbc3725fe3c111a"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=6374136f6774db2f51cc116f5efbf705"
 
 DEPENDS += "\
             perl-extutils-config-native \
@@ -13,8 +13,8 @@ DEPENDS += "\
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "2332c90c17454107fea3f2614e11a3a9"
-SRC_URI[sha256sum] = "7d580ff6ace0cbe555bf36b86dc8ea232581530cbeaaea09bccb57b55797f11c"
+SRC_URI[md5sum] = "916d2701a87a159df7f01c612c1c9dbe"
+SRC_URI[sha256sum] = "68f4e4620e8a75124ce2dadee48d2ba5160b9167012924588d6fb242ff2d7206"
 
 S = "${WORKDIR}/Module-Build-Tiny-${PV}"
 
