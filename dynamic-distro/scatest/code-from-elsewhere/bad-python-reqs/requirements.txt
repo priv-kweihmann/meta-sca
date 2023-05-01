@@ -9,7 +9,7 @@ cycler==0.10.0
 decorator==4.3.0
 defusedxml==0.5.0
 entrypoints==0.2.3
-Flask==1.0.2
+Flask==2.3.2
 google==2.0.1
 google-cloud==0.34.0
 gtfs-realtime-bindings==0.0.5
