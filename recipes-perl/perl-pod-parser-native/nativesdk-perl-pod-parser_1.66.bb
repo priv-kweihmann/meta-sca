@@ -3,12 +3,12 @@ HOMEPAGE = "https://metacpan.org/pod/Pod-Parser"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0-only & Artistic-1.0"
-LIC_FILES_CHKSUM = "file://README;beginline=84;endline=131;md5=ab4a103dd819bcc3dc34bced058717d1"
+LIC_FILES_CHKSUM = "file://README;beginline=84;endline=131;md5=788bc73c4211553b7f78c9b0cc62a7e5"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/M/MA/MAREKR/Pod-Parser-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "cba18cb7ebe7d3d8af888c57dbb3884b"
-SRC_URI[sha256sum] = "3ba7bdec659416a51fe2a7e59f0883e9c6a3b21bc9d001042c1d6a32d401b28a"
+SRC_URI[md5sum] = "c1d20031bc2b75ea0fe7bf6d313b1d30"
+SRC_URI[sha256sum] = "22928a7bffe61b452c05bbbb8f5216d4b9cf9fe2a849b776c25500d24d20df7c"
 
 S = "${WORKDIR}/Pod-Parser-${PV}"
 
