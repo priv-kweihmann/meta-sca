@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/go-fonts/liberation/@v/v0.3.0.zip;srcoutput=github.com/go-fonts/liberation;srcinput=github.com/go-fonts/liberation@v0.3.0;downloadfilename=github-com-go-fonts-liberation-0.3.0.zip;name=github-com-go-fonts-liberation"
-SRC_URI[github-com-go-fonts-liberation.sha256sum] = "aa657434fcfaef5c461ac683fcb18d125f8991823817d8a18453fd27f9f8172b"
+SRC_URI += "https://proxy.golang.org/github.com/go-fonts/liberation/@v/v0.3.1.zip;srcoutput=github.com/go-fonts/liberation;srcinput=github.com/go-fonts/liberation@v0.3.1;downloadfilename=github-com-go-fonts-liberation-0.3.1.zip;name=github-com-go-fonts-liberation"
+SRC_URI[github-com-go-fonts-liberation.sha256sum] = "d1d7e790ba393f8aed9b566166f560cf3a1f3ec6e55c823aebe06c32b4cd61e8"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
