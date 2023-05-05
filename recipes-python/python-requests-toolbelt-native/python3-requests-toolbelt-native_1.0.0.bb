@@ -11,8 +11,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "requests-toolbelt"
 
-SRC_URI[md5sum] = "636d226d03632d013269aebbc85f4f4b"
-SRC_URI[sha256sum] = "62e09f7ff5ccbda92772a29f394a49c3ad6cb181d568b1337626b2abb628a63d"
+SRC_URI[md5sum] = "6a8348cfc9991b44e499345db1c6f925"
+SRC_URI[sha256sum] = "7681a0a3d047012b5bdc0ee37d7f8f07ebe76ab08caeccfc3921ce23c88d5bc6"
 
 inherit pypi
 inherit setuptools3
