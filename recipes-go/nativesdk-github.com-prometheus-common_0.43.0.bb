@@ -10,7 +10,6 @@ require github.com-prometheus-common-sources.inc
 EXTRA_DEPENDS += "\
     nativesdk-github.com-alecthomas-kingpin-v2 \
     nativesdk-github.com-go-kit-log \
-    nativesdk-github.com-golang-protobuf \
     nativesdk-github.com-julienschmidt-httprouter \
     nativesdk-github.com-matttproud-golang-protobuf-extensions \
     nativesdk-github.com-mwitkow-go-conntrack \
@@ -18,6 +17,7 @@ EXTRA_DEPENDS += "\
     nativesdk-github.com-prometheus-client-model \
     nativesdk-golang.org-x-net \
     nativesdk-golang.org-x-oauth2 \
+    nativesdk-google.golang.org-protobuf \
     nativesdk-gopkg.in-yaml.v2 \
 "
 GO_IMPORT = "github.com/prometheus/common"
