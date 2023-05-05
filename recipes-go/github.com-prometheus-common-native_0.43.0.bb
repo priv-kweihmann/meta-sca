@@ -10,7 +10,6 @@ require github.com-prometheus-common-sources.inc
 EXTRA_DEPENDS += "\
     github.com-alecthomas-kingpin-v2-native \
     github.com-go-kit-log-native \
-    github.com-golang-protobuf-native \
     github.com-julienschmidt-httprouter-native \
     github.com-matttproud-golang-protobuf-extensions-native \
     github.com-mwitkow-go-conntrack-native \
@@ -18,6 +17,7 @@ EXTRA_DEPENDS += "\
     github.com-prometheus-client-model-native \
     golang.org-x-net-native \
     golang.org-x-oauth2-native \
+    google.golang.org-protobuf-native \
     gopkg.in-yaml.v2-native \
 "
 
