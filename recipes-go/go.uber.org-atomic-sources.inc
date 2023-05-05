@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/go.uber.org/atomic/@v/v1.10.0.zip;srcoutput=go.uber.org/atomic;srcinput=go.uber.org/atomic@v1.10.0;downloadfilename=go-uber-org-atomic-1.10.0.zip;name=go-uber-org-atomic"
-SRC_URI[go-uber-org-atomic.sha256sum] = "1a3a7303a5d7372db8184404b09f3142bf206e3a0001be468be2fc2540893d7a"
+SRC_URI += "https://proxy.golang.org/go.uber.org/atomic/@v/v1.11.0.zip;srcoutput=go.uber.org/atomic;srcinput=go.uber.org/atomic@v1.11.0;downloadfilename=go-uber-org-atomic-1.11.0.zip;name=go-uber-org-atomic"
+SRC_URI[go-uber-org-atomic.sha256sum] = "8109325abe17488245878b07f3c35b10ba7d1aa3310f792968f5b9deba432e2c"
 
 GOSRC_LICENSE += "\
     MIT \
