@@ -7,7 +7,7 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-prometheus-client-model-sources.inc
 
-EXTRA_DEPENDS += "nativesdk-github.com-golang-protobuf"
+EXTRA_DEPENDS += "nativesdk-google.golang.org-protobuf"
 GO_IMPORT = "github.com/prometheus/client_model"
 inherit gosrc
 inherit nativesdk
