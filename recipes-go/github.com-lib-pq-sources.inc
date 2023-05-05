@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/lib/pq/@v/v1.10.8.zip;srcoutput=github.com/lib/pq;srcinput=github.com/lib/pq@v1.10.8;downloadfilename=github-com-lib-pq-1.10.8.zip;name=github-com-lib-pq"
-SRC_URI[github-com-lib-pq.sha256sum] = "8164d43b70f441834ce6b80c7c52bc1c786158c5d5cf7f145a734d9263885163"
+SRC_URI += "https://proxy.golang.org/github.com/lib/pq/@v/v1.10.9.zip;srcoutput=github.com/lib/pq;srcinput=github.com/lib/pq@v1.10.9;downloadfilename=github-com-lib-pq-1.10.9.zip;name=github-com-lib-pq"
+SRC_URI[github-com-lib-pq.sha256sum] = "6791a7af67f846a86335350012c4efadd0850096ebf22350b7b20e01e216e6f2"
 
 GOSRC_LICENSE += "\
     MIT \
