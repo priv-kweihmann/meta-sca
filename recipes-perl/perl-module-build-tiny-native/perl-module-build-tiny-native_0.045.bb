@@ -13,8 +13,8 @@ DEPENDS += "\
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "916d2701a87a159df7f01c612c1c9dbe"
-SRC_URI[sha256sum] = "68f4e4620e8a75124ce2dadee48d2ba5160b9167012924588d6fb242ff2d7206"
+SRC_URI[md5sum] = "5d897e7adda77642dd4c27f2ebbf0a2d"
+SRC_URI[sha256sum] = "d20692eee246d0b329b7f7659f36286b14ae0696fe91078a64b7078f8876d300"
 
 S = "${WORKDIR}/Module-Build-Tiny-${PV}"
 
