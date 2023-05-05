@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/golang.org/x/exp/shiny/@v/v0.0.0-20230420155640-133eef4313cb.zip;srcoutput=golang.org/x/exp/shiny;srcinput=golang.org/x/exp/shiny@v0.0.0-20230420155640-133eef4313cb;downloadfilename=golang-org-x-exp-shiny-0.0.0-20230420155640-133eef4313cb.zip;name=golang-org-x-exp-shiny"
-SRC_URI[golang-org-x-exp-shiny.sha256sum] = "f95e1b7e6f01c3aebef08b08993c2a61a4e9bb12e9caf0f7688ed2a3a71d0ca1"
+SRC_URI += "https://proxy.golang.org/golang.org/x/exp/shiny/@v/v0.0.0-20230425010034-47ecfdc1ba53.zip;srcoutput=golang.org/x/exp/shiny;srcinput=golang.org/x/exp/shiny@v0.0.0-20230425010034-47ecfdc1ba53;downloadfilename=golang-org-x-exp-shiny-0.0.0-20230425010034-47ecfdc1ba53.zip;name=golang-org-x-exp-shiny"
+SRC_URI[golang-org-x-exp-shiny.sha256sum] = "c4ac01c9cde81e4e977bae6e090833bb4693063fce47470df0b762790cb26ee9"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
