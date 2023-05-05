@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/go-text/typesetting-utils/@v/v0.0.0-20230412163830-89e4bcfa3ecc.zip;srcoutput=github.com/go-text/typesetting-utils;srcinput=github.com/go-text/typesetting-utils@v0.0.0-20230412163830-89e4bcfa3ecc;downloadfilename=github-com-go-text-typesetting-utils-0.0.0-20230412163830-89e4bcfa3ecc.zip;name=github-com-go-text-typesetting-utils"
-SRC_URI[github-com-go-text-typesetting-utils.sha256sum] = "d8a21daff97766e0e886afc0a6bd7e863f21b44fdcc773e797a2ae508dae8f2b"
+SRC_URI += "https://proxy.golang.org/github.com/go-text/typesetting-utils/@v/v0.0.0-20230502123501-67af746df262.zip;srcoutput=github.com/go-text/typesetting-utils;srcinput=github.com/go-text/typesetting-utils@v0.0.0-20230502123501-67af746df262;downloadfilename=github-com-go-text-typesetting-utils-0.0.0-20230502123501-67af746df262.zip;name=github-com-go-text-typesetting-utils"
+SRC_URI[github-com-go-text-typesetting-utils.sha256sum] = "24c8cef34a7ff9005bf77bf97228924595b6d0af1603d09f1feb54bab98621db"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
@@ -18,5 +18,6 @@ LIC_FILES_CHKSUM += "\
 
 GOSRC_INCLUDEGUARD += "github.com-go-text-typesetting-utils-sources.inc"
 
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-net-sources.inc', '', 'golang.org-x-net-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-text-sources.inc', '', 'golang.org-x-text-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-tools-sources.inc', '', 'golang.org-x-tools-sources.inc', d)}
