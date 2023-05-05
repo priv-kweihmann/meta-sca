@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/jackmordaunt/icns/v2/@v/v2.2.4.zip;srcoutput=github.com/jackmordaunt/icns/v2;srcinput=github.com/jackmordaunt/icns/v2@v2.2.4;downloadfilename=github-com-jackmordaunt-icns-v2-2.2.4.zip;name=github-com-jackmordaunt-icns-v2"
-SRC_URI[github-com-jackmordaunt-icns-v2.sha256sum] = "d1e607c5a5fdc5584afe54dff26db56b05b12f5a4f3a87df4f38fd2e2b56fcbd"
+SRC_URI += "https://proxy.golang.org/github.com/jackmordaunt/icns/v2/@v/v2.2.6.zip;srcoutput=github.com/jackmordaunt/icns/v2;srcinput=github.com/jackmordaunt/icns/v2@v2.2.6;downloadfilename=github-com-jackmordaunt-icns-v2-2.2.6.zip;name=github-com-jackmordaunt-icns-v2"
+SRC_URI[github-com-jackmordaunt-icns-v2.sha256sum] = "07a96e8a31da3a329d569c8961bec75cd5ad6b0da12f682ef28f1a107a67cc0b"
 
 GOSRC_LICENSE += "\
     MIT \
