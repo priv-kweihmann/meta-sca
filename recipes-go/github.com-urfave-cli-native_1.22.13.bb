@@ -10,6 +10,7 @@ require github.com-urfave-cli-sources.inc
 EXTRA_DEPENDS += "\
     github.com-burntsushi-toml-native \
     github.com-cpuguy83-go-md2man-v2-native \
+    github.com-stretchr-testify-native \
     gopkg.in-yaml.v2-native \
 "
 
