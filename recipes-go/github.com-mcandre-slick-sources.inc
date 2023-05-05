@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/mcandre/slick/@v/v0.0.3.zip;srcoutput=github.com/mcandre/slick;srcinput=github.com/mcandre/slick@v0.0.3;downloadfilename=github-com-mcandre-slick-0.0.3.zip;name=github-com-mcandre-slick"
-SRC_URI[github-com-mcandre-slick.sha256sum] = "617b3ed78e6b00ed8ad3f6a4db9ae0c6d30d6f0646fa38e1f5312b7ceaa8634a"
+SRC_URI += "https://proxy.golang.org/github.com/mcandre/slick/@v/v0.0.6.zip;srcoutput=github.com/mcandre/slick;srcinput=github.com/mcandre/slick@v0.0.6;downloadfilename=github-com-mcandre-slick-0.0.6.zip;name=github-com-mcandre-slick"
+SRC_URI[github-com-mcandre-slick.sha256sum] = "38f7fbc6d2da688304eec21a571e89a95a5a5826cad421d0ca852f020511da40"
 
 GOSRC_LICENSE += "\
     BSD-2-Clause-Views \
@@ -10,4 +10,6 @@ LIC_FILES_CHKSUM += "\
 
 GOSRC_INCLUDEGUARD += "github.com-mcandre-slick-sources.inc"
 
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-magefile-mage-sources.inc', '', 'github.com-magefile-mage-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-mcandre-mage-extras-sources.inc', '', 'github.com-mcandre-mage-extras-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'mvdan.cc-sh-sources.inc', '', 'mvdan.cc-sh-sources.inc', d)}
