@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/sirupsen/logrus/@v/v1.9.0.zip;srcoutput=github.com/sirupsen/logrus;srcinput=github.com/sirupsen/logrus@v1.9.0;downloadfilename=github-com-sirupsen-logrus-1.9.0.zip;name=github-com-sirupsen-logrus"
-SRC_URI[github-com-sirupsen-logrus.sha256sum] = "bf01c93f49912b88ee2e95dc99cab91a503ec3b526d1c756145391d555b98d14"
+SRC_URI += "https://proxy.golang.org/github.com/sirupsen/logrus/@v/v1.9.2.zip;srcoutput=github.com/sirupsen/logrus;srcinput=github.com/sirupsen/logrus@v1.9.2;downloadfilename=github-com-sirupsen-logrus-1.9.2.zip;name=github-com-sirupsen-logrus"
+SRC_URI[github-com-sirupsen-logrus.sha256sum] = "2e305bbafb5140bd2918b296886244349e317568e542bfe842e34a0e2b3dd6c1"
 
 GOSRC_LICENSE += "\
     MIT \
