@@ -8,6 +8,7 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require git.sr.ht--sbinet-gg-sources.inc
 
 EXTRA_DEPENDS += "\
+    github.com-campoy-embedmd-native \
     github.com-golang-freetype-native \
     golang.org-x-image-native \
 "

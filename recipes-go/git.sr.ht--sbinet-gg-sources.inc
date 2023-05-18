@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/git.sr.ht/~sbinet/gg/@v/v0.3.1.zip;srcoutput=git.sr.ht/~sbinet/gg;srcinput=git.sr.ht/~sbinet/gg@v0.3.1;downloadfilename=git-sr-ht--sbinet-gg-0.3.1.zip;name=git-sr-ht--sbinet-gg"
-SRC_URI[git-sr-ht--sbinet-gg.sha256sum] = "435103529c4f24aecf7e4550bc816db2482dda4ee0123d337daba99971a8c498"
+SRC_URI += "https://proxy.golang.org/git.sr.ht/~sbinet/gg/@v/v0.5.0.zip;srcoutput=git.sr.ht/~sbinet/gg;srcinput=git.sr.ht/~sbinet/gg@v0.5.0;downloadfilename=git-sr-ht--sbinet-gg-0.5.0.zip;name=git-sr-ht--sbinet-gg"
+SRC_URI[git-sr-ht--sbinet-gg.sha256sum] = "b73149ec2597c8c569f436da7fa16bbfeebcdd3cdc00b8275b19e77c130a50ba"
 
 GOSRC_LICENSE += "\
     MIT \
@@ -10,5 +10,6 @@ LIC_FILES_CHKSUM += "\
 
 GOSRC_INCLUDEGUARD += "git.sr.ht--sbinet-gg-sources.inc"
 
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-campoy-embedmd-sources.inc', '', 'github.com-campoy-embedmd-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-golang-freetype-sources.inc', '', 'github.com-golang-freetype-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-image-sources.inc', '', 'golang.org-x-image-sources.inc', d)}
