@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/fyne-io/gl-js/@v/v0.0.0-20220802150000-8e339395f381.zip;srcoutput=github.com/fyne-io/gl-js;srcinput=github.com/fyne-io/gl-js@v0.0.0-20220802150000-8e339395f381;downloadfilename=github-com-fyne-io-gl-js-0.0.0-20220802150000-8e339395f381.zip;name=github-com-fyne-io-gl-js"
-SRC_URI[github-com-fyne-io-gl-js.sha256sum] = "c1c8748ad8cc04afadf9702b00c31cd62931354b078a192e2ca8b4a565bc32b6"
+SRC_URI += "https://proxy.golang.org/github.com/fyne-io/gl-js/@v/v0.0.0-20230506162202-1fdaa286a934.zip;srcoutput=github.com/fyne-io/gl-js;srcinput=github.com/fyne-io/gl-js@v0.0.0-20230506162202-1fdaa286a934;downloadfilename=github-com-fyne-io-gl-js-0.0.0-20230506162202-1fdaa286a934.zip;name=github-com-fyne-io-gl-js"
+SRC_URI[github-com-fyne-io-gl-js.sha256sum] = "5908d356964c52f437b68f54083885d10bdf4d52892ac39efef23d8ba17fb0ba"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
