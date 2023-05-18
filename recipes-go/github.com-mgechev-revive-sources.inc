@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/mgechev/revive/@v/v1.3.1.zip;srcoutput=github.com/mgechev/revive;srcinput=github.com/mgechev/revive@v1.3.1;downloadfilename=github-com-mgechev-revive-1.3.1.zip;name=github-com-mgechev-revive"
-SRC_URI[github-com-mgechev-revive.sha256sum] = "f9f142bf1ad07d09d3d31e856f0baa342208ca1e1e0715af4dbf6a51a9727d1d"
+SRC_URI += "https://proxy.golang.org/github.com/mgechev/revive/@v/v1.3.2.zip;srcoutput=github.com/mgechev/revive;srcinput=github.com/mgechev/revive@v1.3.2;downloadfilename=github-com-mgechev-revive-1.3.2.zip;name=github-com-mgechev-revive"
+SRC_URI[github-com-mgechev-revive.sha256sum] = "d75f7d9a082a19d7f6ae734856bd7f74ea2677c646afc73e0ecaf7859a51c5e7"
 
 GOSRC_LICENSE += "\
     MIT \
