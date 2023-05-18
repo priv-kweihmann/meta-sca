@@ -1,16 +1,13 @@
-SUMMARY = "go.mod: git.sr.ht/~sbinet/gg"
-HOMEPAGE = "https://pkg.go.dev/git.sr.ht/~sbinet/gg"
+SUMMARY = "go.mod: github.com/campoy/embedmd"
+HOMEPAGE = "https://pkg.go.dev/github.com/campoy/embedmd"
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 # License is determined by the modules included and will be therefore computed
 LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '').split(' ') if x)))}"
 
 # inject the needed sources
-require git.sr.ht--sbinet-gg-sources.inc
+require github.com-campoy-embedmd-sources.inc
 
-EXTRA_DEPENDS += "\
-    nativesdk-github.com-golang-freetype \
-    nativesdk-golang.org-x-image \
-"
-GO_IMPORT = "git.sr.ht/~sbinet/gg"
+EXTRA_DEPENDS += "nativesdk-github.com-pmezard-go-difflib"
+GO_IMPORT = "github.com/campoy/embedmd"
 inherit gosrc
 inherit nativesdk
