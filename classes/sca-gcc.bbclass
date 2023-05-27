@@ -10,6 +10,10 @@ SCA_GCC_HARDENING ?= "1"
 ## Enable static analyzer support
 SCA_GCC_ANALYZER ?= "1"
 
+# this is a temporary workaround until gcc 13 has the needed
+# patches to allow running analyzer on busybox again
+SCA_GCC_ANALYZER:pn-busybox ?= "0"
+
 SCA_RAW_RESULT_FILE[gcc] = "txt"
 
 inherit sca-conv-to-export
