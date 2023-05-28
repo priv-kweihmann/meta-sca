@@ -11,8 +11,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "Deprecated"
 
-SRC_URI[md5sum] = "2b7a15b559af0b9b499737d70e171b4b"
-SRC_URI[sha256sum] = "43ac5335da90c31c24ba028af536a91d41d53f9e6901ddb021bcc572ce44e38d"
+SRC_URI[md5sum] = "57e0ded86d04f22c65033dea230ad035"
+SRC_URI[sha256sum] = "e5323eb936458dccc2582dc6f9c322c852a775a27065ff2b0c4970b9d53d01b3"
 
 inherit pypi
 inherit setuptools3
