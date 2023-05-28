@@ -526,6 +526,9 @@
         ]
     },
     "github.com/goki/freetype": {
+        "extramods": [
+            "golang.org/x/image"
+        ],
         "licenseignore": [
             "testdata/COPYING"
         ]

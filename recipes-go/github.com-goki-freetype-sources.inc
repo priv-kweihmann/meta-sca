@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/goki/freetype/@v/v0.0.0-20220119013949-7a161fd3728c.zip;srcoutput=github.com/goki/freetype;srcinput=github.com/goki/freetype@v0.0.0-20220119013949-7a161fd3728c;downloadfilename=github-com-goki-freetype-0.0.0-20220119013949-7a161fd3728c.zip;name=github-com-goki-freetype"
-SRC_URI[github-com-goki-freetype.sha256sum] = "687ec8f84dcff1375ee6677116caaf39c1e6e510e4dd75bcafe653e7c5d74e9d"
+SRC_URI += "https://proxy.golang.org/github.com/goki/freetype/@v/v1.0.1.zip;srcoutput=github.com/goki/freetype;srcinput=github.com/goki/freetype@v1.0.1;downloadfilename=github-com-goki-freetype-1.0.1.zip;name=github-com-goki-freetype"
+SRC_URI[github-com-goki-freetype.sha256sum] = "deddff668e0e208ab923bbd9fb1dde5b5b4060ae0dba464591b9f34983a051cb"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
