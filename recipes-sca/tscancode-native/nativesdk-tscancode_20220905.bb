@@ -24,6 +24,8 @@ do_configure:prepend() {
     # it should be done as a patch, but due to line ending
     # messed up in the project a sed call is more convenient
     sed -i "s#SIGSTKSZ;#8192;#g" ${S}/cli/tscexecutor.cpp
+
+    sed -i "/#include <iostream>/a #include <cstdint>" ${S}/cli/tscthreadexecutor.cpp
 }
 do_install() {
     install -d ${D}/${bindir}
