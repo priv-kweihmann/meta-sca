@@ -92,6 +92,23 @@
             "do_compile[noexec] = \"1\""
         ]
     },
+    "gioui.org/x": {
+        "recipeextra": [
+            "# needs cgo",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "git.sr.ht/~jackmordaunt/go-toast": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"git.sr.ht/~jackmordaunt/go-toast/examples\""
+        ]
+    },
+    "git.wow.st/gmp/jni": {
+        "recipeextra": [
+            "# requires java headers",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
     "github.com/AndreasBriese/bbloom": {
         "branch": "master",
         "recipeextra": [

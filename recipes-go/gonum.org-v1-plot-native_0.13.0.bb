@@ -9,8 +9,10 @@ require gonum.org-v1-plot-sources.inc
 
 EXTRA_DEPENDS += "\
     gioui.org-native \
+    gioui.org-x-native \
     git.sr.ht--sbinet-gg-native \
     github.com-ajstarks-svgo-native \
+    github.com-andybalholm-stroke-native \
     github.com-go-fonts-liberation-native \
     github.com-go-latex-latex-native \
     github.com-go-pdf-fpdf-native \
