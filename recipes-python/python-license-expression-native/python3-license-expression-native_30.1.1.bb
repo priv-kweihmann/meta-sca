@@ -16,8 +16,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "license-expression"
 
-SRC_URI[md5sum] = "37a93065d65d511ea70c7b93d01f8cf0"
-SRC_URI[sha256sum] = "943b1d2cde251bd30a166b509f78990fdd060be9750f3f1a324571e804857a53"
+SRC_URI[md5sum] = "4068ad06ea4256f846c18ea77729b55c"
+SRC_URI[sha256sum] = "42375df653ad85e6f5b4b0385138b2dbea1f5d66360783d8625c3e4f97f11f0c"
 
 inherit pypi
 inherit setuptools3
