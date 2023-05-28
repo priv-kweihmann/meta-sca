@@ -8,6 +8,7 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require github.com-yoheimuta-protolint-sources.inc
 
 EXTRA_DEPENDS += "\
+    nativesdk-github.com-chavacava-garif \
     nativesdk-github.com-gertd-go-pluralize \
     nativesdk-github.com-golang-protobuf \
     nativesdk-github.com-hashicorp-go-hclog \

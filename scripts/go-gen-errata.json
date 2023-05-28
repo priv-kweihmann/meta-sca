@@ -822,6 +822,11 @@
             "golang.org/x/crypto"
         ]
     },
+    "github.com/yoheimuta/protolint": {
+        "extramods": [
+            "github.com/chavacava/garif"
+        ]
+    },
     "github.com/yuin/goldmark": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"github.com/yuin/goldmark/fuzz\""
