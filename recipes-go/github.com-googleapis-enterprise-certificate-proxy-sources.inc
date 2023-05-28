@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/googleapis/enterprise-certificate-proxy/@v/v0.1.0.zip;srcoutput=github.com/googleapis/enterprise-certificate-proxy;srcinput=github.com/googleapis/enterprise-certificate-proxy@v0.1.0;downloadfilename=github-com-googleapis-enterprise-certificate-proxy-0.1.0.zip;name=github-com-googleapis-enterprise-certificate-proxy"
-SRC_URI[github-com-googleapis-enterprise-certificate-proxy.sha256sum] = "ca1f9b8e2603fa806684476d4ff4d3a85b23c74ede314e613c008f6144b60642"
+SRC_URI += "https://proxy.golang.org/github.com/googleapis/enterprise-certificate-proxy/@v/v0.2.3.zip;srcoutput=github.com/googleapis/enterprise-certificate-proxy;srcinput=github.com/googleapis/enterprise-certificate-proxy@v0.2.3;downloadfilename=github-com-googleapis-enterprise-certificate-proxy-0.2.3.zip;name=github-com-googleapis-enterprise-certificate-proxy"
+SRC_URI[github-com-googleapis-enterprise-certificate-proxy.sha256sum] = "e3a5b32ca7fc4f8bc36274d87c3547975a2b0603b2a1e4b1129530504d9ddeb7"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
