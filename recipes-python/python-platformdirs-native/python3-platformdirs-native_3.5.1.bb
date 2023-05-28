@@ -13,12 +13,11 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "platformdirs"
 
-SRC_URI[md5sum] = "8431910dc5d07366515a274acdbc8511"
-SRC_URI[sha256sum] = "d5b638ca397f25f979350ff789db335903d7ea010ab28903f57b27e1b16c2b08"
+SRC_URI[sha256sum] = "412dae91f52a6f84830f39a8078cecd0e866cb72294a5c66808e74d5e88d251f"
 
 inherit pypi
 inherit python_hatchling
-inherit nativesdk
+inherit native
 
 do_compile:prepend() {
     export SETUPTOOLS_SCM_PRETEND_VERSION="${PV}"
