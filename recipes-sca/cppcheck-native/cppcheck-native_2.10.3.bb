@@ -11,7 +11,11 @@ LIC_FILES_CHKSUM = "\
     file://externals/picojson/LICENSE;md5=29d6d693711f69885bbfe08072624f2e \
 "
 
-SRC_URI = "git://github.com/danmar/cppcheck.git;protocol=https;nobranch=1"
+SRC_URI = "\
+    git://github.com/danmar/cppcheck.git;protocol=https;nobranch=1 \
+    file://0001-cleaned-up-includes-based-on-include-what-you-use-45.patch \
+    file://0002-Add-missing-rebinding-trait-to-TaggedAllocator.patch \
+"
 SRCREV = "59030ef53dff61885c058583d2aef94f970ffdc8"
 
 S = "${WORKDIR}/git"
