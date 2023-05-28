@@ -13,6 +13,8 @@ inherit pkgconfig
 inherit sca-description
 inherit native
 
+DEBUG_PREFIX_MAP:remove = "-fcanon-prefix-map"
+
 SCA_TOOL_DESCRIPTION = "sparse"
 
 do_compile() {

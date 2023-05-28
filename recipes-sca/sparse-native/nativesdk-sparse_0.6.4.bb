@@ -14,6 +14,9 @@ inherit pkgconfig
 inherit sca-description
 inherit nativesdk
 SCA_TOOL_DESCRIPTION = "sparse"
+
+DEBUG_PREFIX_MAP:remove = "-fcanon-prefix-map"
+
 do_compile() {
     oe_runmake
 }
