@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/bigquery/@v/v1.45.0.zip;srcoutput=cloud.google.com/go/bigquery;srcinput=cloud.google.com/go/bigquery@v1.45.0;downloadfilename=cloud-google-com-go-bigquery-1.45.0.zip;name=cloud-google-com-go-bigquery"
-SRC_URI[cloud-google-com-go-bigquery.sha256sum] = "c60a22eaf1f92dec5e19bf8b071950cdfb5c4a12ff0207efb37800174984759f"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/bigquery/@v/v1.51.2.zip;srcoutput=cloud.google.com/go/bigquery;srcinput=cloud.google.com/go/bigquery@v1.51.2;downloadfilename=cloud-google-com-go-bigquery-1.51.2.zip;name=cloud-google-com-go-bigquery"
+SRC_URI[cloud-google-com-go-bigquery.sha256sum] = "f83823e673a4a6f01173b2c0c5cf344d7d1ac5b64c8bed83c1b3a84a583e90b0"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
@@ -12,6 +12,7 @@ GOSRC_INCLUDEGUARD += "cloud.google.com-go-bigquery-sources.inc"
 
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-iam-sources.inc', '', 'cloud.google.com-go-iam-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-sources.inc', '', 'cloud.google.com-go-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-apache-arrow-go-v12-sources.inc', '', 'github.com-apache-arrow-go-v12-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-google-uuid-sources.inc', '', 'github.com-google-uuid-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-googleapis-gax-go-v2-sources.inc', '', 'github.com-googleapis-gax-go-v2-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'go.opencensus.io-sources.inc', '', 'go.opencensus.io-sources.inc', d)}

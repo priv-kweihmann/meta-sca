@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/asset/@v/v1.9.0.zip;srcoutput=cloud.google.com/go/asset;srcinput=cloud.google.com/go/asset@v1.9.0;downloadfilename=cloud-google-com-go-asset-1.9.0.zip;name=cloud-google-com-go-asset"
-SRC_URI[cloud-google-com-go-asset.sha256sum] = "a69b16e3dea56d0143e34d05390d734652485317b7e2eb5988d8487af60bc43d"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/asset/@v/v1.13.1.zip;srcoutput=cloud.google.com/go/asset;srcinput=cloud.google.com/go/asset@v1.13.1;downloadfilename=cloud-google-com-go-asset-1.13.1.zip;name=cloud-google-com-go-asset"
+SRC_URI[cloud-google-com-go-asset.sha256sum] = "040fc9d6d40e320af267f7f796380adbaa8d31de105467b513187cf157f3ff28"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
@@ -10,8 +10,11 @@ LIC_FILES_CHKSUM += "\
 
 GOSRC_INCLUDEGUARD += "cloud.google.com-go-asset-sources.inc"
 
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-sources.inc', '', 'cloud.google.com-go-sources.inc', d)}
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-golang-protobuf-sources.inc', '', 'github.com-golang-protobuf-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-accesscontextmanager-sources.inc', '', 'cloud.google.com-go-accesscontextmanager-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-iam-sources.inc', '', 'cloud.google.com-go-iam-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-longrunning-sources.inc', '', 'cloud.google.com-go-longrunning-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-orgpolicy-sources.inc', '', 'cloud.google.com-go-orgpolicy-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-osconfig-sources.inc', '', 'cloud.google.com-go-osconfig-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-googleapis-gax-go-v2-sources.inc', '', 'github.com-googleapis-gax-go-v2-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-api-sources.inc', '', 'google.golang.org-api-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-genproto-sources.inc', '', 'google.golang.org-genproto-sources.inc', d)}

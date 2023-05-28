@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/golang/protobuf/@v/v1.5.2.zip;srcoutput=github.com/golang/protobuf;srcinput=github.com/golang/protobuf@v1.5.2;downloadfilename=github-com-golang-protobuf-1.5.2.zip;name=github-com-golang-protobuf"
-SRC_URI[github-com-golang-protobuf.sha256sum] = "5d1c817bebc1202ab3b42a418e584e0008e8027baf212ce69c2ae3e9e7b8c64b"
+SRC_URI += "https://proxy.golang.org/github.com/golang/protobuf/@v/v1.5.3.zip;srcoutput=github.com/golang/protobuf;srcinput=github.com/golang/protobuf@v1.5.3;downloadfilename=github-com-golang-protobuf-1.5.3.zip;name=github-com-golang-protobuf"
+SRC_URI[github-com-golang-protobuf.sha256sum] = "93bda6e88d4a0a493a98b481de67a10000a755d15f16a800b49a6b96d1bd6f81"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \

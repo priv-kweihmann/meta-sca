@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/mattn/go-isatty/@v/v0.0.18.zip;srcoutput=github.com/mattn/go-isatty;srcinput=github.com/mattn/go-isatty@v0.0.18;downloadfilename=github-com-mattn-go-isatty-0.0.18.zip;name=github-com-mattn-go-isatty"
-SRC_URI[github-com-mattn-go-isatty.sha256sum] = "5484892c645beb53b7120549baa8ca3297b5cd2fd57158603441e71ea7c3d511"
+SRC_URI += "https://proxy.golang.org/github.com/mattn/go-isatty/@v/v0.0.19.zip;srcoutput=github.com/mattn/go-isatty;srcinput=github.com/mattn/go-isatty@v0.0.19;downloadfilename=github-com-mattn-go-isatty-0.0.19.zip;name=github-com-mattn-go-isatty"
+SRC_URI[github-com-mattn-go-isatty.sha256sum] = "ba8bc1b864325972dc436089351b9dea6262e7fabffdc88e96afb7130ce63da3"
 
 GOSRC_LICENSE += "\
     MIT \

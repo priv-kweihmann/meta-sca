@@ -2,6 +2,9 @@
     "cloud.google.com/go": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"cloud.google.com/go/analytics/admin/apiv1alpha/\""
+        ],
+        "extramods": [
+            "cloud.google.com/go/longrunning"
         ]
     },
     "cloud.google.com/go/bigquery": {
@@ -20,6 +23,20 @@
     "cloud.google.com/go/pubsub": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"cloud.google.com/go/pubsub/internal/longtest\""
+        ]
+    },
+    "cloud.google.com/go/recaptchaenterprise": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"cloud.google.com/go/recaptchaenterprise/apiv1\""
+        ],
+        "recipeextra": [
+            "# version is somehow broken",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "cloud.google.com/go/spanner": {
+        "extramods": [
+            "google.golang.org/grpc"
         ]
     },
     "contrib.go.opencensus.io/exporter/stackdriver": {
@@ -130,6 +147,11 @@
         "striplevel": 1,
         "url": "git://github.com/HdrHistogram/hdrhistogram-go",
         "version": "v1.1.2"
+    },
+    "github.com/JohnCGriffin/overflow": {
+        "striplevel": 1,
+        "url": "git://github.com/JohnCGriffin/overflow",
+        "version": "46fa312c352cdb9517817d04f2067d49f418e332"
     },
     "github.com/Joker/hpp": {
         "branch": "master",
@@ -497,6 +519,12 @@
         "url": "git://github.com/gobuffalo/pop",
         "version": "v5.3.4"
     },
+    "github.com/goccy/go-json": {
+        "recipeextra": [
+            "# needs CGO",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
     "github.com/goki/freetype": {
         "licenseignore": [
             "testdata/COPYING"
@@ -539,6 +567,12 @@
         ],
         "recipeextra": [
             "# trillian integration is completely broken",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
+    "github.com/google/flatbuffers": {
+        "recipeextra": [
+            "# needs CGO",
             "do_compile[noexec] = \"1\""
         ]
     },
@@ -657,6 +691,12 @@
             "# windows only",
             "do_compile[noexec] = \"1\"",
             "UPSTREAM_CHECK_GITHUB_TAGS = \"1\""
+        ]
+    },
+    "github.com/minio/c2goasm": {
+        "recipeextra": [
+            "# needs CGO",
+            "do_compile[noexec] = \"1\""
         ]
     },
     "github.com/montanaflynn/stats": {
@@ -873,12 +913,17 @@
     "google.golang.org/api": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"google.golang.org/api/integration-tests/byoid google.golang.org/api/integration-tests/downscope\""
+        ],
+        "extramods": [
+            "google.golang.org/genproto/googleapis/bytestream"
+        ]
+    },
+    "google.golang.org/genproto": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"google.golang.org/genproto/googleapis/analytics/admin/v1alpha google.golang.org/genproto/googleapis/cloud/tasks/v2beta google.golang.org/genproto/googleapis/cloud/tasks/v2beta2\""
         ]
     },
     "google.golang.org/grpc": {
-        "extra": [
-            "GOSRC_REMOVEDIRS += \"google.golang.org/grpc/xds\""
-        ],
         "recipeextra": [
             "# version is somehow broken",
             "do_compile[noexec] = \"1\""
@@ -913,6 +958,16 @@
         "striplevel": 1,
         "url": "git://github.com/dominikh/go-tools",
         "version": "2022.1.2"
+    },
+    "modernc.org/sqlite": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"modernc.org/sqlite/functest\""
+        ]
+    },
+    "modernc.org/z": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"modernc.org/z/internal/example_linux_amd64.go\""
+        ]
     },
     "mvdan.cc/sh": {
         "recipeextra": [
