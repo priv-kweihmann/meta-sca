@@ -20,10 +20,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "typecode"
 
-SRC_URI[md5sum] = "fa8ff162e21720d990885ac1755f2651"
-SRC_URI[sha256sum] = "a5118b53fc73410a8364c22caead45cbb560188a458e71eda663bec8beede20f"
-
-SRC_URI:append = " file://0001-setup.cfg-fix-invalid-version-spec.patch"
+SRC_URI[md5sum] = "befb0c6baabc34b5d42ae7e61dacc562"
+SRC_URI[sha256sum] = "1a57394224d5afffdebb299e353c4637e15568e11ae9c5311c6c86a3d6d0ac97"
 
 inherit pypi
 inherit setuptools3
