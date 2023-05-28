@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/prometheus/procfs/@v/v0.9.0.zip;srcoutput=github.com/prometheus/procfs;srcinput=github.com/prometheus/procfs@v0.9.0;downloadfilename=github-com-prometheus-procfs-0.9.0.zip;name=github-com-prometheus-procfs"
-SRC_URI[github-com-prometheus-procfs.sha256sum] = "eefd7d453dbfe586b5b0f7888a7b5487e2ed2582c58a8ea26e116d0e4fe536b8"
+SRC_URI += "https://proxy.golang.org/github.com/prometheus/procfs/@v/v0.10.0.zip;srcoutput=github.com/prometheus/procfs;srcinput=github.com/prometheus/procfs@v0.10.0;downloadfilename=github-com-prometheus-procfs-0.10.0.zip;name=github-com-prometheus-procfs"
+SRC_URI[github-com-prometheus-procfs.sha256sum] = "11ed56828976b973f787b1a723822e04efea8991d5aad87ac67c3096bad7ba7a"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
