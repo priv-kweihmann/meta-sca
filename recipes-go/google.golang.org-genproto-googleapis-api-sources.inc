@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/google.golang.org/genproto/googleapis/api/@v/v0.0.0-20230526203410-71b5a4ffd15e.zip;srcoutput=google.golang.org/genproto/googleapis/api;srcinput=google.golang.org/genproto/googleapis/api@v0.0.0-20230526203410-71b5a4ffd15e;downloadfilename=google-golang-org-genproto-googleapis-api-0.0.0-20230526203410-71b5a4ffd15e.zip;name=google-golang-org-genproto-googleapis-api"
-SRC_URI[google-golang-org-genproto-googleapis-api.sha256sum] = "e633bddb308dd8b2aa1c6bb1f386e4748426ec593d044ed4d392a1048c3b08a6"
+SRC_URI += "https://proxy.golang.org/google.golang.org/genproto/googleapis/api/@v/v0.0.0-20230530153820-e85fd2cbaebc.zip;srcoutput=google.golang.org/genproto/googleapis/api;srcinput=google.golang.org/genproto/googleapis/api@v0.0.0-20230530153820-e85fd2cbaebc;downloadfilename=google-golang-org-genproto-googleapis-api-0.0.0-20230530153820-e85fd2cbaebc.zip;name=google-golang-org-genproto-googleapis-api"
+SRC_URI[google-golang-org-genproto-googleapis-api.sha256sum] = "d333a83d96e079da343c56b2b24a90ef4a67effe75a2e453a4a62ca0d4249884"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
