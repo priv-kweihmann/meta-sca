@@ -19,7 +19,6 @@ EXTRA_DEPENDS += "\
     golang.org-x-sync-native \
     google.golang.org-appengine-native \
     google.golang.org-genproto-googleapis-bytestream-native \
-    google.golang.org-genproto-native \
     google.golang.org-grpc-native \
 "
 
