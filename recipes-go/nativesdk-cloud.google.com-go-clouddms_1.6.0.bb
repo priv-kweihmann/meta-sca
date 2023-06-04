@@ -8,10 +8,13 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require cloud.google.com-go-clouddms-sources.inc
 
 EXTRA_DEPENDS += "\
+    nativesdk-cloud.google.com-go-iam \
     nativesdk-cloud.google.com-go-longrunning \
     nativesdk-github.com-googleapis-gax-go-v2 \
     nativesdk-google.golang.org-api \
     nativesdk-google.golang.org-genproto \
+    nativesdk-google.golang.org-genproto-googleapis-api \
+    nativesdk-google.golang.org-genproto-googleapis-rpc \
     nativesdk-google.golang.org-grpc \
     nativesdk-google.golang.org-protobuf \
 "
