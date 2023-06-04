@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/klauspost/cpuid/v2/@v/v2.2.4.zip;srcoutput=github.com/klauspost/cpuid/v2;srcinput=github.com/klauspost/cpuid/v2@v2.2.4;downloadfilename=github-com-klauspost-cpuid-v2-2.2.4.zip;name=github-com-klauspost-cpuid-v2"
-SRC_URI[github-com-klauspost-cpuid-v2.sha256sum] = "9fd457b4101e17361a36d5ea92123dfe3b17456a48fac8b31b6d6f07c3c010ca"
+SRC_URI += "https://proxy.golang.org/github.com/klauspost/cpuid/v2/@v/v2.2.5.zip;srcoutput=github.com/klauspost/cpuid/v2;srcinput=github.com/klauspost/cpuid/v2@v2.2.5;downloadfilename=github-com-klauspost-cpuid-v2-2.2.5.zip;name=github-com-klauspost-cpuid-v2"
+SRC_URI[github-com-klauspost-cpuid-v2.sha256sum] = "47d1be8934e0df4b670694305fba671729f79670487f80b8dce00622db66d85d"
 
 GOSRC_LICENSE += "\
     MIT \
