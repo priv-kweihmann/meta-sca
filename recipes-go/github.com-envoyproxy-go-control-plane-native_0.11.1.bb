@@ -13,6 +13,8 @@ EXTRA_DEPENDS += "\
     github.com-envoyproxy-protoc-gen-validate-native \
     github.com-golang-protobuf-native \
     github.com-prometheus-client-model-native \
+    google.golang.org-genproto-googleapis-api-native \
+    google.golang.org-genproto-googleapis-rpc-native \
     google.golang.org-genproto-native \
     google.golang.org-grpc-native \
     google.golang.org-protobuf-native \
