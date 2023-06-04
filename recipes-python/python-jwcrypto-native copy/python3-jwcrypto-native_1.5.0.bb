@@ -12,8 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "jwcrypto"
 
-SRC_URI[md5sum] = "8c1832e28f9832ed2ce78f8de519758d"
-SRC_URI[sha256sum] = "80a35e9ed1b3b2c43ce03d92c5d48e6d0b6647e2aa2618e4963448923d78a37b"
+SRC_URI[md5sum] = "7a5511484efde92f01f18584a01cc469"
+SRC_URI[sha256sum] = "2c1dc51cf8e38ddf324795dfe9426dee9dd46caf47f535ccbc18781fba810b8d"
 
 inherit pypi
 inherit setuptools3
