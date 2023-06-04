@@ -73,6 +73,10 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
           target: linux-yocto
+      - name: build (go-tools)
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
+        with:
+          target: "golicensecheck-sca-native golint-sca-native licensecheck-sca-native protolint-sca-native revive-sca-native slick-sca-native stank-sca-native"
       - name: build
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
