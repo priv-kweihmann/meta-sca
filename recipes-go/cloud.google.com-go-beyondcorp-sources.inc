@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/beyondcorp/@v/v0.5.1.zip;srcoutput=cloud.google.com/go/beyondcorp;srcinput=cloud.google.com/go/beyondcorp@v0.5.1;downloadfilename=cloud-google-com-go-beyondcorp-0.5.1.zip;name=cloud-google-com-go-beyondcorp"
-SRC_URI[cloud-google-com-go-beyondcorp.sha256sum] = "7b512b60115610c4eb75bf502f0a107e3f7c98243186d84c0e9f41c7349364d5"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/beyondcorp/@v/v0.6.0.zip;srcoutput=cloud.google.com/go/beyondcorp;srcinput=cloud.google.com/go/beyondcorp@v0.6.0;downloadfilename=cloud-google-com-go-beyondcorp-0.6.0.zip;name=cloud-google-com-go-beyondcorp"
+SRC_URI[cloud-google-com-go-beyondcorp.sha256sum] = "258e705e535f77686e8012660e2369562bee10a116ce92a25ec93ca363912220"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
@@ -14,6 +14,7 @@ require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-iam-sour
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-longrunning-sources.inc', '', 'cloud.google.com-go-longrunning-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-googleapis-gax-go-v2-sources.inc', '', 'github.com-googleapis-gax-go-v2-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-api-sources.inc', '', 'google.golang.org-api-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-genproto-googleapis-api-sources.inc', '', 'google.golang.org-genproto-googleapis-api-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-genproto-sources.inc', '', 'google.golang.org-genproto-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-grpc-sources.inc', '', 'google.golang.org-grpc-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-protobuf-sources.inc', '', 'google.golang.org-protobuf-sources.inc', d)}
