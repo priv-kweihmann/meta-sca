@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/networkconnectivity/@v/v1.11.1.zip;srcoutput=cloud.google.com/go/networkconnectivity;srcinput=cloud.google.com/go/networkconnectivity@v1.11.1;downloadfilename=cloud-google-com-go-networkconnectivity-1.11.1.zip;name=cloud-google-com-go-networkconnectivity"
-SRC_URI[cloud-google-com-go-networkconnectivity.sha256sum] = "f6321b0fee71f0e4ce4a9b122d876af9e5558802da0d0a256f133ad387a12af8"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/networkconnectivity/@v/v1.12.0.zip;srcoutput=cloud.google.com/go/networkconnectivity;srcinput=cloud.google.com/go/networkconnectivity@v1.12.0;downloadfilename=cloud-google-com-go-networkconnectivity-1.12.0.zip;name=cloud-google-com-go-networkconnectivity"
+SRC_URI[cloud-google-com-go-networkconnectivity.sha256sum] = "26994e0dbd3ee0c3c3b46c6ca2811019df961217ed82fbe9672cf5d70ad2db86"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
@@ -14,6 +14,7 @@ require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-iam-sour
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'cloud.google.com-go-longrunning-sources.inc', '', 'cloud.google.com-go-longrunning-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-googleapis-gax-go-v2-sources.inc', '', 'github.com-googleapis-gax-go-v2-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-api-sources.inc', '', 'google.golang.org-api-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-genproto-googleapis-api-sources.inc', '', 'google.golang.org-genproto-googleapis-api-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-genproto-sources.inc', '', 'google.golang.org-genproto-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-grpc-sources.inc', '', 'google.golang.org-grpc-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-protobuf-sources.inc', '', 'google.golang.org-protobuf-sources.inc', d)}
