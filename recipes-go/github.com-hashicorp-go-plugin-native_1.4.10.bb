@@ -13,7 +13,6 @@ EXTRA_DEPENDS += "\
     github.com-hashicorp-yamux-native \
     github.com-mitchellh-go-testing-interface-native \
     github.com-oklog-run-native \
-    golang.org-x-net-native \
     google.golang.org-grpc-native \
 "
 
