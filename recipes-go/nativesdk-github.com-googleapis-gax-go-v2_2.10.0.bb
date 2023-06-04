@@ -9,7 +9,7 @@ require github.com-googleapis-gax-go-v2-sources.inc
 
 EXTRA_DEPENDS += "\
     nativesdk-google.golang.org-api \
-    nativesdk-google.golang.org-genproto \
+    nativesdk-google.golang.org-genproto-googleapis-rpc \
     nativesdk-google.golang.org-grpc \
     nativesdk-google.golang.org-protobuf \
 "
