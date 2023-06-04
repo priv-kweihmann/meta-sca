@@ -14,6 +14,8 @@ EXTRA_DEPENDS += "\
     nativesdk-github.com-golang-protobuf \
     nativesdk-github.com-prometheus-client-model \
     nativesdk-google.golang.org-genproto \
+    nativesdk-google.golang.org-genproto-googleapis-api \
+    nativesdk-google.golang.org-genproto-googleapis-rpc \
     nativesdk-google.golang.org-grpc \
     nativesdk-google.golang.org-protobuf \
 "
