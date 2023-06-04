@@ -15,7 +15,8 @@ EXTRA_DEPENDS += "\
     nativesdk-github.com-rogpeppe-fastuuid \
     nativesdk-golang.org-x-oauth2 \
     nativesdk-golang.org-x-text \
-    nativesdk-google.golang.org-genproto \
+    nativesdk-google.golang.org-genproto-googleapis-api \
+    nativesdk-google.golang.org-genproto-googleapis-rpc \
     nativesdk-google.golang.org-grpc \
     nativesdk-google.golang.org-protobuf \
     nativesdk-gopkg.in-yaml.v3 \
