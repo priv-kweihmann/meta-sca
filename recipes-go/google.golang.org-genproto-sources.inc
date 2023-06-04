@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/google.golang.org/genproto/@v/v0.0.0-20230526203410-71b5a4ffd15e.zip;srcoutput=google.golang.org/genproto;srcinput=google.golang.org/genproto@v0.0.0-20230526203410-71b5a4ffd15e;downloadfilename=google-golang-org-genproto-0.0.0-20230526203410-71b5a4ffd15e.zip;name=google-golang-org-genproto"
-SRC_URI[google-golang-org-genproto.sha256sum] = "ead75de8301fd701aab62f76559bc115f09076844cde0a66e7e271c6d0f5dbdf"
+SRC_URI += "https://proxy.golang.org/google.golang.org/genproto/@v/v0.0.0-20230530153820-e85fd2cbaebc.zip;srcoutput=google.golang.org/genproto;srcinput=google.golang.org/genproto@v0.0.0-20230530153820-e85fd2cbaebc;downloadfilename=google-golang-org-genproto-0.0.0-20230530153820-e85fd2cbaebc.zip;name=google-golang-org-genproto"
+SRC_URI[google-golang-org-genproto.sha256sum] = "aef9c5e2e180545376c7a95ffa72f8e45a014a2239450e7facc405da95563a07"
 GOSRC_REMOVEDIRS += "google.golang.org/genproto/googleapis/analytics/admin/v1alpha google.golang.org/genproto/googleapis/cloud/tasks/v2beta google.golang.org/genproto/googleapis/cloud/tasks/v2beta2"
 
 GOSRC_LICENSE += "\
