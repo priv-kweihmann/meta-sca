@@ -987,6 +987,16 @@
     "modernc.org/sqlite": {
         "extra": [
             "GOSRC_REMOVEDIRS += \"modernc.org/sqlite/functest\""
+        ],
+        "licenses": [
+            {
+                "file": "LICENSE",
+                "spdx": "BSD-3-Clause"
+            },
+            {
+                "file": "SQLITE-LICENSE",
+                "spdx": "PD"
+            }
         ]
     },
     "modernc.org/z": {

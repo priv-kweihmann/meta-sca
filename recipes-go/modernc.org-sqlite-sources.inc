@@ -4,7 +4,7 @@ GOSRC_REMOVEDIRS += "modernc.org/sqlite/functest"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
-    UNKNOWN \
+    PD \
 "
 LIC_FILES_CHKSUM += "\
     file://src/modernc.org/sqlite/LICENSE;md5=3cd92e5f84bae63802a058f3ff54fbe7 \
