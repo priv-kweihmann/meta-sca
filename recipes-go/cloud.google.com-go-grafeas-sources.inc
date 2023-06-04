@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/grafeas/@v/v0.2.1.zip;srcoutput=cloud.google.com/go/grafeas;srcinput=cloud.google.com/go/grafeas@v0.2.1;downloadfilename=cloud-google-com-go-grafeas-0.2.1.zip;name=cloud-google-com-go-grafeas"
-SRC_URI[cloud-google-com-go-grafeas.sha256sum] = "892fc47e867e462a329866a06112668fe818ba472f688f25cd646e30b31aef05"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/grafeas/@v/v0.3.0.zip;srcoutput=cloud.google.com/go/grafeas;srcinput=cloud.google.com/go/grafeas@v0.3.0;downloadfilename=cloud-google-com-go-grafeas-0.3.0.zip;name=cloud-google-com-go-grafeas"
+SRC_URI[cloud-google-com-go-grafeas.sha256sum] = "e6a8e9872cc3306558dd60fe8bb5eed6afe6cca0d18bbd4136cc25e906d6a512"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
