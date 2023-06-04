@@ -13,7 +13,6 @@ EXTRA_DEPENDS += "\
     nativesdk-github.com-hashicorp-yamux \
     nativesdk-github.com-mitchellh-go-testing-interface \
     nativesdk-github.com-oklog-run \
-    nativesdk-golang.org-x-net \
     nativesdk-google.golang.org-grpc \
 "
 GO_IMPORT = "github.com/hashicorp/go-plugin"
