@@ -1,9 +1,10 @@
-SRC_URI += "https://proxy.golang.org/modernc.org/sqlite/@v/v1.22.1.zip;srcoutput=modernc.org/sqlite;srcinput=modernc.org/sqlite@v1.22.1;downloadfilename=modernc-org-sqlite-1.22.1.zip;name=modernc-org-sqlite"
-SRC_URI[modernc-org-sqlite.sha256sum] = "aa0faad607865676ad2bb419f2e0ff0e3c80d81fa1039249728b0aa4baeda401"
+SRC_URI += "https://proxy.golang.org/modernc.org/sqlite/@v/v1.23.0.zip;srcoutput=modernc.org/sqlite;srcinput=modernc.org/sqlite@v1.23.0;downloadfilename=modernc-org-sqlite-1.23.0.zip;name=modernc-org-sqlite"
+SRC_URI[modernc-org-sqlite.sha256sum] = "5c97517a2bdf53567a8d84c8d8bed79e9efe6a1e6304e08f2f0ef399afac1cce"
 GOSRC_REMOVEDIRS += "modernc.org/sqlite/functest"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
+    UNKNOWN \
 "
 LIC_FILES_CHKSUM += "\
     file://src/modernc.org/sqlite/LICENSE;md5=3cd92e5f84bae63802a058f3ff54fbe7 \
