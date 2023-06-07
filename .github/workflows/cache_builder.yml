@@ -3,6 +3,7 @@ name: "[master]-cache-build"
 on:
   schedule:
     - cron: "30 10 * * *"
+  workflow_dispatch:
 
 jobs:
   buildrun:
@@ -69,6 +70,10 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
           target: glibc
+      - name: build (rust)
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
+        with:
+          target: "rust-llvm-native rust-native"
       - name: build (kernel)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
@@ -77,10 +82,6 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
           target: "golicensecheck-sca-native golint-sca-native licensecheck-sca-native protolint-sca-native revive-sca-native slick-sca-native stank-sca-native"
-      - name: build (rust)
-        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
-        with:
-          target: "rust-llvm-native rust-native"
       - name: build
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
