@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/modernc.org/ccgo/v3/@v/v3.16.13.zip;srcoutput=modernc.org/ccgo/v3;srcinput=modernc.org/ccgo/v3@v3.16.13;downloadfilename=modernc-org-ccgo-v3-3.16.13.zip;name=modernc-org-ccgo-v3"
-SRC_URI[modernc-org-ccgo-v3.sha256sum] = "bfc293300cd1ce656ba0ce0cee1f508afec2518bc4214a6b10ccfad6e8e6046e"
+SRC_URI += "https://proxy.golang.org/modernc.org/ccgo/v3/@v/v3.16.14.zip;srcoutput=modernc.org/ccgo/v3;srcinput=modernc.org/ccgo/v3@v3.16.14;downloadfilename=modernc-org-ccgo-v3-3.16.14.zip;name=modernc-org-ccgo-v3"
+SRC_URI[modernc-org-ccgo-v3.sha256sum] = "3178d17f431bfe21e226d021842eaf4137ef698c622368c9100cf2bfbcf1c6a5"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
