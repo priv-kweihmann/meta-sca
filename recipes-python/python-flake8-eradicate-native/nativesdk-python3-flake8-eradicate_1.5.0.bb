@@ -11,13 +11,15 @@ DEPENDS += "\
     nativesdk-python3-flake8 \
 "
 
-PYPI_PACKAGE = "flake8-eradicate"
+PYPI_PACKAGE = "flake8_eradicate"
 
-SRC_URI[md5sum] = "a144d2aeedbf2efabde60d0a2587513c"
-SRC_URI[sha256sum] = "3088cfd6717d1c9c6c3ac45ef2e5f5b6c7267f7504d5a74b781500e95cb9c7e1"
+UPSTREAM_CHECK_REGEX ?= "/flake8-eradicate/(?P<pver>(\d+[\.\-_]*)+)"
+
+SRC_URI[md5sum] = "e2aca5337289e2279b3463365e2c0169"
+SRC_URI[sha256sum] = "aee636cb9ecb5594a7cd92d67ad73eb69909e5cc7bd81710cf9d00970f3983a6"
 
 inherit pypi
-inherit setuptools3
+inherit python_poetry_core
 inherit nativesdk
 
 RDEPENDS:${PN}:class-nativesdk += "\
