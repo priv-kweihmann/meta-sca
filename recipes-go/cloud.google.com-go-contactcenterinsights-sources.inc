@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/contactcenterinsights/@v/v1.8.0.zip;srcoutput=cloud.google.com/go/contactcenterinsights;srcinput=cloud.google.com/go/contactcenterinsights@v1.8.0;downloadfilename=cloud-google-com-go-contactcenterinsights-1.8.0.zip;name=cloud-google-com-go-contactcenterinsights"
-SRC_URI[cloud-google-com-go-contactcenterinsights.sha256sum] = "fc91727a262e9301ddff7817d87693cdb282cc8041776f658edd47366cca235a"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/contactcenterinsights/@v/v1.9.0.zip;srcoutput=cloud.google.com/go/contactcenterinsights;srcinput=cloud.google.com/go/contactcenterinsights@v1.9.0;downloadfilename=cloud-google-com-go-contactcenterinsights-1.9.0.zip;name=cloud-google-com-go-contactcenterinsights"
+SRC_URI[cloud-google-com-go-contactcenterinsights.sha256sum] = "01cfc7785727927bb8fb9c88b3c52131d39f6912e945c2390406cd602dbceab2"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
