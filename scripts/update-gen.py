@@ -119,8 +119,8 @@ def run_unused(_args):
         _pargs = [os.path.join(_args.repo, "..", "meta-buildutils", "scripts", "unused"),
                   "--remove", _args.repo]
         subprocess.check_call(_pargs, universal_newlines=True)
-    except:
-        pass
+    except Exception as e:
+        print(e)
 
 
 def update_packages(_args, _input, number):
