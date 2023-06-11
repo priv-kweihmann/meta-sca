@@ -36,13 +36,15 @@ DEPENDS += "\
     nativesdk-python3-typing-extensions \
 "
 
-PYPI_PACKAGE = "wemake-python-styleguide"
+PYPI_PACKAGE = "wemake_python_styleguide"
 
-SRC_URI[md5sum] = "06a384338bb082f7de3de910565fcf95"
-SRC_URI[sha256sum] = "c8869fac392019c2bb3eae4287399245d10d2726b23f1b3c68d1564909c3a71a"
+SRC_URI[md5sum] = "6d99e5965e9921b93116dcbad05c7756"
+SRC_URI[sha256sum] = "69139858cf5b2a9ba09dac136e2873a4685515768f68fdef2684ebefd7b1dafd"
+
+UPSTREAM_CHECK_REGEX ?= "/wemake-python-styleguide/(?P<pver>(\d+[\.\-_]*)+)"
 
 inherit pypi
-inherit setuptools3
+inherit python_poetry_core
 inherit nativesdk
 
 RDEPENDS:${PN}:class-nativesdk += "\
