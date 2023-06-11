@@ -3,12 +3,12 @@ HOMEPAGE = "https://github.com/myint/eradicate"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://eradicate;beginline=3;endline=23;md5=4665a3ee1ecb347243801ec86697f8a0"
+LIC_FILES_CHKSUM = "file://eradicate.py;endline=21;md5=4665a3ee1ecb347243801ec86697f8a0"
 
 PYPI_PACKAGE = "eradicate"
 
-SRC_URI[md5sum] = "c848e8fde89f57782b3da4314201d908"
-SRC_URI[sha256sum] = "c329a05def6a4b558dab58bb1b694f5209706b7c99ba174d226dfdb69a5ba0da"
+SRC_URI[md5sum] = "a66b08ef034cac011866debb84ba1a60"
+SRC_URI[sha256sum] = "06df115be3b87d0fc1c483db22a2ebb12bcf40585722810d809cc770f5031c37"
 
 inherit pypi
 inherit setuptools3
