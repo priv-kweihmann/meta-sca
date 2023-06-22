@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/apache/arrow/go/v12/@v/v12.0.0.zip;srcoutput=github.com/apache/arrow/go/v12;srcinput=github.com/apache/arrow/go/v12@v12.0.0;downloadfilename=github-com-apache-arrow-go-v12-12.0.0.zip;name=github-com-apache-arrow-go-v12"
-SRC_URI[github-com-apache-arrow-go-v12.sha256sum] = "a4543b87114bfb9779ff1f0dc16a08016e061e4d0d24ff0ffc9bee95665e8ab1"
+SRC_URI += "https://proxy.golang.org/github.com/apache/arrow/go/v12/@v/v12.0.1.zip;srcoutput=github.com/apache/arrow/go/v12;srcinput=github.com/apache/arrow/go/v12@v12.0.1;downloadfilename=github-com-apache-arrow-go-v12-12.0.1.zip;name=github-com-apache-arrow-go-v12"
+SRC_URI[github-com-apache-arrow-go-v12.sha256sum] = "5eb05ed9c2c5e164503b00912b7b2456400578de29e7e8a8956a41acd861ab5b"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
