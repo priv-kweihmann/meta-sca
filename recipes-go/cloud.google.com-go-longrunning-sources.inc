@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/longrunning/@v/v0.5.0.zip;srcoutput=cloud.google.com/go/longrunning;srcinput=cloud.google.com/go/longrunning@v0.5.0;downloadfilename=cloud-google-com-go-longrunning-0.5.0.zip;name=cloud-google-com-go-longrunning"
-SRC_URI[cloud-google-com-go-longrunning.sha256sum] = "8f443440c73c09c1b8c3dda3f8880c9fa0df747d4fabfdd34295d40aa715a168"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/longrunning/@v/v0.5.1.zip;srcoutput=cloud.google.com/go/longrunning;srcinput=cloud.google.com/go/longrunning@v0.5.1;downloadfilename=cloud-google-com-go-longrunning-0.5.1.zip;name=cloud-google-com-go-longrunning"
+SRC_URI[cloud-google-com-go-longrunning.sha256sum] = "b8ea9a94c0303a84caf2abdbef573cfafb55d56ec66716105f5aa9695626a496"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
