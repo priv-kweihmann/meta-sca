@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/go-text/typesetting-utils/@v/v0.0.0-20230502123501-67af746df262.zip;srcoutput=github.com/go-text/typesetting-utils;srcinput=github.com/go-text/typesetting-utils@v0.0.0-20230502123501-67af746df262;downloadfilename=github-com-go-text-typesetting-utils-0.0.0-20230502123501-67af746df262.zip;name=github-com-go-text-typesetting-utils"
-SRC_URI[github-com-go-text-typesetting-utils.sha256sum] = "24c8cef34a7ff9005bf77bf97228924595b6d0af1603d09f1feb54bab98621db"
+SRC_URI += "https://proxy.golang.org/github.com/go-text/typesetting-utils/@v/v0.0.0-20230619144037-0468015c41af.zip;srcoutput=github.com/go-text/typesetting-utils;srcinput=github.com/go-text/typesetting-utils@v0.0.0-20230619144037-0468015c41af;downloadfilename=github-com-go-text-typesetting-utils-0.0.0-20230619144037-0468015c41af.zip;name=github-com-go-text-typesetting-utils"
+SRC_URI[github-com-go-text-typesetting-utils.sha256sum] = "df713bb7145d1ddb98b61a5faee5ef2c2b77f8e96a8cbe0b3291b574fa3daabb"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
