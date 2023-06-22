@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/billing/@v/v1.15.0.zip;srcoutput=cloud.google.com/go/billing;srcinput=cloud.google.com/go/billing@v1.15.0;downloadfilename=cloud-google-com-go-billing-1.15.0.zip;name=cloud-google-com-go-billing"
-SRC_URI[cloud-google-com-go-billing.sha256sum] = "ed6db14e06845fd5bf1b475a7f0cb2e2c9a142ce5661664aa89dbfaecde4c29f"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/billing/@v/v1.16.0.zip;srcoutput=cloud.google.com/go/billing;srcinput=cloud.google.com/go/billing@v1.16.0;downloadfilename=cloud-google-com-go-billing-1.16.0.zip;name=cloud-google-com-go-billing"
+SRC_URI[cloud-google-com-go-billing.sha256sum] = "6ae5fad25dbc11c0a0554c8b0e0d42c7c08e22a8446c1569f52b3a6afd22dcef"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
