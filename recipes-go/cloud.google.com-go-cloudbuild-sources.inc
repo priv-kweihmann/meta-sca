@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/cloudbuild/@v/v1.10.0.zip;srcoutput=cloud.google.com/go/cloudbuild;srcinput=cloud.google.com/go/cloudbuild@v1.10.0;downloadfilename=cloud-google-com-go-cloudbuild-1.10.0.zip;name=cloud-google-com-go-cloudbuild"
-SRC_URI[cloud-google-com-go-cloudbuild.sha256sum] = "e8d543d98abff20274cdb60bc2a37ac1281af888045eeeb24398fd229c3dfdae"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/cloudbuild/@v/v1.10.1.zip;srcoutput=cloud.google.com/go/cloudbuild;srcinput=cloud.google.com/go/cloudbuild@v1.10.1;downloadfilename=cloud-google-com-go-cloudbuild-1.10.1.zip;name=cloud-google-com-go-cloudbuild"
+SRC_URI[cloud-google-com-go-cloudbuild.sha256sum] = "60083c0276555919396ccd4c8f8ef8c80a84f8eaedf52cab8243b63edcf14449"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
