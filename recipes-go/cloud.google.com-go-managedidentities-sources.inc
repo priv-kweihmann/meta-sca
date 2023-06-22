@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/managedidentities/@v/v1.6.0.zip;srcoutput=cloud.google.com/go/managedidentities;srcinput=cloud.google.com/go/managedidentities@v1.6.0;downloadfilename=cloud-google-com-go-managedidentities-1.6.0.zip;name=cloud-google-com-go-managedidentities"
-SRC_URI[cloud-google-com-go-managedidentities.sha256sum] = "e1ca651988f08942395c702e6c141b372cf0f567831e3abd4a99e5a9bff27102"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/managedidentities/@v/v1.6.1.zip;srcoutput=cloud.google.com/go/managedidentities;srcinput=cloud.google.com/go/managedidentities@v1.6.1;downloadfilename=cloud-google-com-go-managedidentities-1.6.1.zip;name=cloud-google-com-go-managedidentities"
+SRC_URI[cloud-google-com-go-managedidentities.sha256sum] = "4ccd2e8c0c21d023cab92b3208ab14d7c72be31b6ba0bd3b2c4eb9ff1b43c657"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
