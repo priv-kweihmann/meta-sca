@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/dataplex/@v/v1.8.0.zip;srcoutput=cloud.google.com/go/dataplex;srcinput=cloud.google.com/go/dataplex@v1.8.0;downloadfilename=cloud-google-com-go-dataplex-1.8.0.zip;name=cloud-google-com-go-dataplex"
-SRC_URI[cloud-google-com-go-dataplex.sha256sum] = "ea328ae72f25669ea68db0a201651136f34101a71d5707c25bced2d0d1940b6f"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/dataplex/@v/v1.8.1.zip;srcoutput=cloud.google.com/go/dataplex;srcinput=cloud.google.com/go/dataplex@v1.8.1;downloadfilename=cloud-google-com-go-dataplex-1.8.1.zip;name=cloud-google-com-go-dataplex"
+SRC_URI[cloud-google-com-go-dataplex.sha256sum] = "291d7a1a171aa3f052158838b0ac8ffc3895aefca7bab06f8ad2dbf7a7505cd2"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
