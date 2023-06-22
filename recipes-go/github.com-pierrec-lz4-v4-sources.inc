@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/pierrec/lz4/v4/@v/v4.1.17.zip;srcoutput=github.com/pierrec/lz4/v4;srcinput=github.com/pierrec/lz4/v4@v4.1.17;downloadfilename=github-com-pierrec-lz4-v4-4.1.17.zip;name=github-com-pierrec-lz4-v4"
-SRC_URI[github-com-pierrec-lz4-v4.sha256sum] = "e79e3d8780c9ebe83d511ccef6fa2e708a5cdbb3e29ddc49ab912f1693978d12"
+SRC_URI += "https://proxy.golang.org/github.com/pierrec/lz4/v4/@v/v4.1.18.zip;srcoutput=github.com/pierrec/lz4/v4;srcinput=github.com/pierrec/lz4/v4@v4.1.18;downloadfilename=github-com-pierrec-lz4-v4-4.1.18.zip;name=github-com-pierrec-lz4-v4"
+SRC_URI[github-com-pierrec-lz4-v4.sha256sum] = "b397db34ff05610125e7c9de6de067a174a70ba3ba7dac81ba8ce4f22b1c0933"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
