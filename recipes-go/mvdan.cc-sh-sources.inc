@@ -1,5 +1,5 @@
 SRC_URI += "git://github.com/mvdan/sh;nobranch=1;protocol=https;srcinput=mvdan.cc/sh;srcoutput=mvdan.cc/sh;destsuffix=mvdan.cc/sh;name=mvdan-cc-sh"
-SRCREV_mvdan-cc-sh = "dff439234c282d85bd1cf16a9957f28924a8cf6f"
+SRCREV_mvdan-cc-sh = "d3fa14772d78bd15e242a5d7bd1f5c3899191cd2"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
