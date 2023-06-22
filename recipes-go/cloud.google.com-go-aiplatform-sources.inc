@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/aiplatform/@v/v1.44.0.zip;srcoutput=cloud.google.com/go/aiplatform;srcinput=cloud.google.com/go/aiplatform@v1.44.0;downloadfilename=cloud-google-com-go-aiplatform-1.44.0.zip;name=cloud-google-com-go-aiplatform"
-SRC_URI[cloud-google-com-go-aiplatform.sha256sum] = "738736a4e0306c94f837e5893c712c841d7a71353331f4980e3cce69401a29c6"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/aiplatform/@v/v1.45.0.zip;srcoutput=cloud.google.com/go/aiplatform;srcinput=cloud.google.com/go/aiplatform@v1.45.0;downloadfilename=cloud-google-com-go-aiplatform-1.45.0.zip;name=cloud-google-com-go-aiplatform"
+SRC_URI[cloud-google-com-go-aiplatform.sha256sum] = "ab1c948254954610b5384c3eb8e29a1783f439dd211839c382a048735c268ac2"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
