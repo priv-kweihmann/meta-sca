@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/mediatranslation/@v/v0.8.0.zip;srcoutput=cloud.google.com/go/mediatranslation;srcinput=cloud.google.com/go/mediatranslation@v0.8.0;downloadfilename=cloud-google-com-go-mediatranslation-0.8.0.zip;name=cloud-google-com-go-mediatranslation"
-SRC_URI[cloud-google-com-go-mediatranslation.sha256sum] = "f64d198a090fc85434b95d699a2d34fe05e43380a28ac5770cc21ffc90ce095d"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/mediatranslation/@v/v0.8.1.zip;srcoutput=cloud.google.com/go/mediatranslation;srcinput=cloud.google.com/go/mediatranslation@v0.8.1;downloadfilename=cloud-google-com-go-mediatranslation-0.8.1.zip;name=cloud-google-com-go-mediatranslation"
+SRC_URI[cloud-google-com-go-mediatranslation.sha256sum] = "c5877f84310b88a778211c2f6b1e5d8c5952833771f858399657d9ba5c176efb"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
