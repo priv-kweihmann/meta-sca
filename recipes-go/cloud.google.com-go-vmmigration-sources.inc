@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/vmmigration/@v/v1.7.0.zip;srcoutput=cloud.google.com/go/vmmigration;srcinput=cloud.google.com/go/vmmigration@v1.7.0;downloadfilename=cloud-google-com-go-vmmigration-1.7.0.zip;name=cloud-google-com-go-vmmigration"
-SRC_URI[cloud-google-com-go-vmmigration.sha256sum] = "80d39988077be9fb386488506057e1d571d42a1a0462ffb14409642331f98016"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/vmmigration/@v/v1.7.1.zip;srcoutput=cloud.google.com/go/vmmigration;srcinput=cloud.google.com/go/vmmigration@v1.7.1;downloadfilename=cloud-google-com-go-vmmigration-1.7.1.zip;name=cloud-google-com-go-vmmigration"
+SRC_URI[cloud-google-com-go-vmmigration.sha256sum] = "dbf07019e158c0d7cae628c7341cef0d937deaa8c2a839ef20b2f582b8e223fe"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
