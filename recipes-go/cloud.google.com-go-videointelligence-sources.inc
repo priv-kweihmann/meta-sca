@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/videointelligence/@v/v1.11.0.zip;srcoutput=cloud.google.com/go/videointelligence;srcinput=cloud.google.com/go/videointelligence@v1.11.0;downloadfilename=cloud-google-com-go-videointelligence-1.11.0.zip;name=cloud-google-com-go-videointelligence"
-SRC_URI[cloud-google-com-go-videointelligence.sha256sum] = "f360f0af1ba27d289e815f3bba1d5f0f0f335c757ad9478589023b036acc365a"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/videointelligence/@v/v1.11.1.zip;srcoutput=cloud.google.com/go/videointelligence;srcinput=cloud.google.com/go/videointelligence@v1.11.1;downloadfilename=cloud-google-com-go-videointelligence-1.11.1.zip;name=cloud-google-com-go-videointelligence"
+SRC_URI[cloud-google-com-go-videointelligence.sha256sum] = "a9be75c6ab5691585dce062e1f7714d8c97df4040526074caf78ba8159cd49fb"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
