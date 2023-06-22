@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/datacatalog/@v/v1.14.0.zip;srcoutput=cloud.google.com/go/datacatalog;srcinput=cloud.google.com/go/datacatalog@v1.14.0;downloadfilename=cloud-google-com-go-datacatalog-1.14.0.zip;name=cloud-google-com-go-datacatalog"
-SRC_URI[cloud-google-com-go-datacatalog.sha256sum] = "6fa0ce43c053e1a4708e2c202700cbc09229f54c6c526f3c725f0deca2ea337c"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/datacatalog/@v/v1.14.1.zip;srcoutput=cloud.google.com/go/datacatalog;srcinput=cloud.google.com/go/datacatalog@v1.14.1;downloadfilename=cloud-google-com-go-datacatalog-1.14.1.zip;name=cloud-google-com-go-datacatalog"
+SRC_URI[cloud-google-com-go-datacatalog.sha256sum] = "6fa82ec5c999a65bb0b50ebb5f8aa039d02f7ad57ca48568ea2033fdf54a4e49"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
