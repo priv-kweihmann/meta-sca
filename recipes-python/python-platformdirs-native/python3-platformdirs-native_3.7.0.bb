@@ -13,7 +13,7 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "platformdirs"
 
-SRC_URI[sha256sum] = "e48fabd87db8f3a7df7150a4a5ea22c546ee8bc39bc2473244730d4b56d2cc4e"
+SRC_URI[sha256sum] = "87fbf6473e87c078d536980ba970a472422e94f17b752cfad17024c18876d481"
 
 inherit pypi
 inherit python_hatchling
