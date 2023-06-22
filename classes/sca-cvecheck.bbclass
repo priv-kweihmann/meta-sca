@@ -68,8 +68,15 @@ python do_cve_check() {
     Check recipe for patched and unpatched CVEs
     """
 
+    try:
+        # starting in mickledore, get_patches_cves() moved to library and was renamed
+        from oe.cve_check import get_patched_cves
+    except Exception as e:
+        # otherwise should still be in cve-check bbclass but with old name
+        get_patched_cves = get_patches_cves
+
     if os.path.exists(d.getVar("CVE_CHECK_DB_FILE")):
-        patched_cves = get_patches_cves(d)
+        patched_cves = get_patched_cves(d)
         _ret_cve_check = check_cves(d, patched_cves)
         if len(_ret_cve_check) == 3:
             _, patched, unpatched = check_cves(d, patched_cves)
