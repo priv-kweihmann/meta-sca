@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/websecurityscanner/@v/v1.6.0.zip;srcoutput=cloud.google.com/go/websecurityscanner;srcinput=cloud.google.com/go/websecurityscanner@v1.6.0;downloadfilename=cloud-google-com-go-websecurityscanner-1.6.0.zip;name=cloud-google-com-go-websecurityscanner"
-SRC_URI[cloud-google-com-go-websecurityscanner.sha256sum] = "d983037bb754887214c4dbfe8617091fdcfbd505dd2e00b5a059c755521e8083"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/websecurityscanner/@v/v1.6.1.zip;srcoutput=cloud.google.com/go/websecurityscanner;srcinput=cloud.google.com/go/websecurityscanner@v1.6.1;downloadfilename=cloud-google-com-go-websecurityscanner-1.6.1.zip;name=cloud-google-com-go-websecurityscanner"
+SRC_URI[cloud-google-com-go-websecurityscanner.sha256sum] = "27ce2c9ab4d97eb7b260870d3e20a61b6c27dd78c6fb1adedcf2fee137f1981c"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
