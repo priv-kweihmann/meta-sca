@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/datalabeling/@v/v0.8.0.zip;srcoutput=cloud.google.com/go/datalabeling;srcinput=cloud.google.com/go/datalabeling@v0.8.0;downloadfilename=cloud-google-com-go-datalabeling-0.8.0.zip;name=cloud-google-com-go-datalabeling"
-SRC_URI[cloud-google-com-go-datalabeling.sha256sum] = "04be07f5178bfdb27d51dce48fdd7c34ec04f0fe94ab2f9008ce5049b8867685"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/datalabeling/@v/v0.8.1.zip;srcoutput=cloud.google.com/go/datalabeling;srcinput=cloud.google.com/go/datalabeling@v0.8.1;downloadfilename=cloud-google-com-go-datalabeling-0.8.1.zip;name=cloud-google-com-go-datalabeling"
+SRC_URI[cloud-google-com-go-datalabeling.sha256sum] = "bd88c6b9dff0d12c23f52cc9adecc84993a6899b568f5807d99da74d82d956c0"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
