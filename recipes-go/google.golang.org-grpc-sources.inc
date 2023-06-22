@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/google.golang.org/grpc/@v/v1.55.0.zip;srcoutput=google.golang.org/grpc;srcinput=google.golang.org/grpc@v1.55.0;downloadfilename=google-golang-org-grpc-1.55.0.zip;name=google-golang-org-grpc"
-SRC_URI[google-golang-org-grpc.sha256sum] = "cfef3258097d8e6639049e67bdc9e70d2e2b20163d3e780c5d84cc3026484aa2"
+SRC_URI += "https://proxy.golang.org/google.golang.org/grpc/@v/v1.56.1.zip;srcoutput=google.golang.org/grpc;srcinput=google.golang.org/grpc@v1.56.1;downloadfilename=google-golang-org-grpc-1.56.1.zip;name=google-golang-org-grpc"
+SRC_URI[google-golang-org-grpc.sha256sum] = "f2c4eb3aa6878417332371ad79d32b56b85a5eeef847168d30258e6dc5096a46"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
