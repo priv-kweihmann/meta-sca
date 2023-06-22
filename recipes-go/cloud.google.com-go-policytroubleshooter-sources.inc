@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/policytroubleshooter/@v/v1.7.0.zip;srcoutput=cloud.google.com/go/policytroubleshooter;srcinput=cloud.google.com/go/policytroubleshooter@v1.7.0;downloadfilename=cloud-google-com-go-policytroubleshooter-1.7.0.zip;name=cloud-google-com-go-policytroubleshooter"
-SRC_URI[cloud-google-com-go-policytroubleshooter.sha256sum] = "099501dcbbaed573791ca3a875c43e69129643bd5102ca60836f15c9201133c6"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/policytroubleshooter/@v/v1.7.1.zip;srcoutput=cloud.google.com/go/policytroubleshooter;srcinput=cloud.google.com/go/policytroubleshooter@v1.7.1;downloadfilename=cloud-google-com-go-policytroubleshooter-1.7.1.zip;name=cloud-google-com-go-policytroubleshooter"
+SRC_URI[cloud-google-com-go-policytroubleshooter.sha256sum] = "ee121c3d8b811d89cd618d4854c833fe0708db535a655e0e0e6d5109c6eb9da1"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
