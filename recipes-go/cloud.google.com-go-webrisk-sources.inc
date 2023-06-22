@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/webrisk/@v/v1.9.0.zip;srcoutput=cloud.google.com/go/webrisk;srcinput=cloud.google.com/go/webrisk@v1.9.0;downloadfilename=cloud-google-com-go-webrisk-1.9.0.zip;name=cloud-google-com-go-webrisk"
-SRC_URI[cloud-google-com-go-webrisk.sha256sum] = "d05d0c61044534e7ac28853374f8016e5a32c2573df25ca83b1536dbbbef0156"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/webrisk/@v/v1.9.1.zip;srcoutput=cloud.google.com/go/webrisk;srcinput=cloud.google.com/go/webrisk@v1.9.1;downloadfilename=cloud-google-com-go-webrisk-1.9.1.zip;name=cloud-google-com-go-webrisk"
+SRC_URI[cloud-google-com-go-webrisk.sha256sum] = "fd332dacae8863344b8427b901371ccfe3ae41fdec4b1d35710e083aaeabbd7d"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
