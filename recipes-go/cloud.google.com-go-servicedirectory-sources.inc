@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/servicedirectory/@v/v1.10.0.zip;srcoutput=cloud.google.com/go/servicedirectory;srcinput=cloud.google.com/go/servicedirectory@v1.10.0;downloadfilename=cloud-google-com-go-servicedirectory-1.10.0.zip;name=cloud-google-com-go-servicedirectory"
-SRC_URI[cloud-google-com-go-servicedirectory.sha256sum] = "e514b870eeded3709540122db4702a828e00e7e9d87082cc301ce25e2223fb44"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/servicedirectory/@v/v1.10.1.zip;srcoutput=cloud.google.com/go/servicedirectory;srcinput=cloud.google.com/go/servicedirectory@v1.10.1;downloadfilename=cloud-google-com-go-servicedirectory-1.10.1.zip;name=cloud-google-com-go-servicedirectory"
+SRC_URI[cloud-google-com-go-servicedirectory.sha256sum] = "d4f431ddce3f53a870fec29e68c79296027bf2278267da7cb5debbbff708dffe"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
