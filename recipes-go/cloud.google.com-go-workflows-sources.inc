@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/workflows/@v/v1.11.0.zip;srcoutput=cloud.google.com/go/workflows;srcinput=cloud.google.com/go/workflows@v1.11.0;downloadfilename=cloud-google-com-go-workflows-1.11.0.zip;name=cloud-google-com-go-workflows"
-SRC_URI[cloud-google-com-go-workflows.sha256sum] = "3f2db26995a8f193e6db4769e053b795945b4057f4bfca99c21087cc9d7381a8"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/workflows/@v/v1.11.1.zip;srcoutput=cloud.google.com/go/workflows;srcinput=cloud.google.com/go/workflows@v1.11.1;downloadfilename=cloud-google-com-go-workflows-1.11.1.zip;name=cloud-google-com-go-workflows"
+SRC_URI[cloud-google-com-go-workflows.sha256sum] = "610db8ba1d298c7c1ca9499742f4e7033f1f780b0246b2e050e9fe2687b620a0"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
