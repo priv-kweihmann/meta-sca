@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/cloudtasks/@v/v1.11.0.zip;srcoutput=cloud.google.com/go/cloudtasks;srcinput=cloud.google.com/go/cloudtasks@v1.11.0;downloadfilename=cloud-google-com-go-cloudtasks-1.11.0.zip;name=cloud-google-com-go-cloudtasks"
-SRC_URI[cloud-google-com-go-cloudtasks.sha256sum] = "0902533c3a51c69bcb45eea0f4f0df207882fcb2600a824ca2f3835c4a39c3cf"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/cloudtasks/@v/v1.11.1.zip;srcoutput=cloud.google.com/go/cloudtasks;srcinput=cloud.google.com/go/cloudtasks@v1.11.1;downloadfilename=cloud-google-com-go-cloudtasks-1.11.1.zip;name=cloud-google-com-go-cloudtasks"
+SRC_URI[cloud-google-com-go-cloudtasks.sha256sum] = "08baddbad9e1f9505d8e2e500c1553ca9c07e842f356d5f38154753bf9ae2b14"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
