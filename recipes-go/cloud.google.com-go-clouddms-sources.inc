@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/clouddms/@v/v1.6.0.zip;srcoutput=cloud.google.com/go/clouddms;srcinput=cloud.google.com/go/clouddms@v1.6.0;downloadfilename=cloud-google-com-go-clouddms-1.6.0.zip;name=cloud-google-com-go-clouddms"
-SRC_URI[cloud-google-com-go-clouddms.sha256sum] = "59f822bbf88065f9551c7860208a0d9c758c69f0ec21eafd2dea2ef75b0675e0"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/clouddms/@v/v1.6.1.zip;srcoutput=cloud.google.com/go/clouddms;srcinput=cloud.google.com/go/clouddms@v1.6.1;downloadfilename=cloud-google-com-go-clouddms-1.6.1.zip;name=cloud-google-com-go-clouddms"
+SRC_URI[cloud-google-com-go-clouddms.sha256sum] = "267d2cee79724e27d894137ad514bbd783f0fd9db2388daca674701f2516dbc9"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
