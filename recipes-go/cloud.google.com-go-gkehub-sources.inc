@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/gkehub/@v/v0.14.0.zip;srcoutput=cloud.google.com/go/gkehub;srcinput=cloud.google.com/go/gkehub@v0.14.0;downloadfilename=cloud-google-com-go-gkehub-0.14.0.zip;name=cloud-google-com-go-gkehub"
-SRC_URI[cloud-google-com-go-gkehub.sha256sum] = "4885f732b55050618f8d43729ad91eeb686b2f7c9d892ada3268e914bb270df3"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/gkehub/@v/v0.14.1.zip;srcoutput=cloud.google.com/go/gkehub;srcinput=cloud.google.com/go/gkehub@v0.14.1;downloadfilename=cloud-google-com-go-gkehub-0.14.1.zip;name=cloud-google-com-go-gkehub"
+SRC_URI[cloud-google-com-go-gkehub.sha256sum] = "ed7b0c0017b06dc3fb0b2593f21eaee6b5bcb8e764c9a98204591caa153a8f4c"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
