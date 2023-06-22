@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/vmwareengine/@v/v0.4.0.zip;srcoutput=cloud.google.com/go/vmwareengine;srcinput=cloud.google.com/go/vmwareengine@v0.4.0;downloadfilename=cloud-google-com-go-vmwareengine-0.4.0.zip;name=cloud-google-com-go-vmwareengine"
-SRC_URI[cloud-google-com-go-vmwareengine.sha256sum] = "2f17f95cffbc3e58b2d8132468bdc4883858926c62e7ea2bfd1c0835de0145ce"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/vmwareengine/@v/v0.4.1.zip;srcoutput=cloud.google.com/go/vmwareengine;srcinput=cloud.google.com/go/vmwareengine@v0.4.1;downloadfilename=cloud-google-com-go-vmwareengine-0.4.1.zip;name=cloud-google-com-go-vmwareengine"
+SRC_URI[cloud-google-com-go-vmwareengine.sha256sum] = "a0106b37e1538b4d850a6a3f0ed6afc0fe2effd7974378a42ceda11674452cee"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
