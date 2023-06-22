@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/texttospeech/@v/v1.7.0.zip;srcoutput=cloud.google.com/go/texttospeech;srcinput=cloud.google.com/go/texttospeech@v1.7.0;downloadfilename=cloud-google-com-go-texttospeech-1.7.0.zip;name=cloud-google-com-go-texttospeech"
-SRC_URI[cloud-google-com-go-texttospeech.sha256sum] = "5f4677c25afa173b0a38d93644e04a2913d3f5e903c0d1a744a20594253d75f4"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/texttospeech/@v/v1.7.1.zip;srcoutput=cloud.google.com/go/texttospeech;srcinput=cloud.google.com/go/texttospeech@v1.7.1;downloadfilename=cloud-google-com-go-texttospeech-1.7.1.zip;name=cloud-google-com-go-texttospeech"
+SRC_URI[cloud-google-com-go-texttospeech.sha256sum] = "74a37b359d9f4af72adfffbc3cbdbea747dd56edc2e4a598bec68a4f81c5fb01"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
