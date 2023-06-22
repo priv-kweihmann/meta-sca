@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/accessapproval/@v/v1.7.0.zip;srcoutput=cloud.google.com/go/accessapproval;srcinput=cloud.google.com/go/accessapproval@v1.7.0;downloadfilename=cloud-google-com-go-accessapproval-1.7.0.zip;name=cloud-google-com-go-accessapproval"
-SRC_URI[cloud-google-com-go-accessapproval.sha256sum] = "7c29a95bf61187b8966c45184023bd7bf10f26624d49993fc7342e857f2dd0ef"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/accessapproval/@v/v1.7.1.zip;srcoutput=cloud.google.com/go/accessapproval;srcinput=cloud.google.com/go/accessapproval@v1.7.1;downloadfilename=cloud-google-com-go-accessapproval-1.7.1.zip;name=cloud-google-com-go-accessapproval"
+SRC_URI[cloud-google-com-go-accessapproval.sha256sum] = "df25c3ab9acf4099af92f78353906a87bb903a8f20031bd2ac6921795b46cbe1"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
