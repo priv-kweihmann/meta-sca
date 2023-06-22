@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/apigateway/@v/v1.6.0.zip;srcoutput=cloud.google.com/go/apigateway;srcinput=cloud.google.com/go/apigateway@v1.6.0;downloadfilename=cloud-google-com-go-apigateway-1.6.0.zip;name=cloud-google-com-go-apigateway"
-SRC_URI[cloud-google-com-go-apigateway.sha256sum] = "e1821d9802f9a757c565fa5eadf1b3d3ab875187f4047345a97cd2e83f0286f6"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/apigateway/@v/v1.6.1.zip;srcoutput=cloud.google.com/go/apigateway;srcinput=cloud.google.com/go/apigateway@v1.6.1;downloadfilename=cloud-google-com-go-apigateway-1.6.1.zip;name=cloud-google-com-go-apigateway"
+SRC_URI[cloud-google-com-go-apigateway.sha256sum] = "e061e6fd05907378381e0c2beed8f428c6306fffdd1fdfb8de10ba465d514160"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
