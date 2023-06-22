@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/privatecatalog/@v/v0.9.0.zip;srcoutput=cloud.google.com/go/privatecatalog;srcinput=cloud.google.com/go/privatecatalog@v0.9.0;downloadfilename=cloud-google-com-go-privatecatalog-0.9.0.zip;name=cloud-google-com-go-privatecatalog"
-SRC_URI[cloud-google-com-go-privatecatalog.sha256sum] = "32177986157b6a6c82682849ea8994fdb4bbc6e8c67dc08de829b3d6688ed692"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/privatecatalog/@v/v0.9.1.zip;srcoutput=cloud.google.com/go/privatecatalog;srcinput=cloud.google.com/go/privatecatalog@v0.9.1;downloadfilename=cloud-google-com-go-privatecatalog-0.9.1.zip;name=cloud-google-com-go-privatecatalog"
+SRC_URI[cloud-google-com-go-privatecatalog.sha256sum] = "09673d146977a1ac4b5f02c1110c0e8266f6292dcec0eb568cb645f057a11c1b"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
