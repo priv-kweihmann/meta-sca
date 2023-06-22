@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/recommendationengine/@v/v0.8.0.zip;srcoutput=cloud.google.com/go/recommendationengine;srcinput=cloud.google.com/go/recommendationengine@v0.8.0;downloadfilename=cloud-google-com-go-recommendationengine-0.8.0.zip;name=cloud-google-com-go-recommendationengine"
-SRC_URI[cloud-google-com-go-recommendationengine.sha256sum] = "bda9ba06c202b23a96def940feaef4e96e165626255d32b1a4a82b3150197548"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/recommendationengine/@v/v0.8.1.zip;srcoutput=cloud.google.com/go/recommendationengine;srcinput=cloud.google.com/go/recommendationengine@v0.8.1;downloadfilename=cloud-google-com-go-recommendationengine-0.8.1.zip;name=cloud-google-com-go-recommendationengine"
+SRC_URI[cloud-google-com-go-recommendationengine.sha256sum] = "b7ef78b58540db8222070b092368fa81b249f2174300442bbd3d3f90206d6cb2"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
