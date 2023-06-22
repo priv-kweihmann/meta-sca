@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/apigeeregistry/@v/v0.7.0.zip;srcoutput=cloud.google.com/go/apigeeregistry;srcinput=cloud.google.com/go/apigeeregistry@v0.7.0;downloadfilename=cloud-google-com-go-apigeeregistry-0.7.0.zip;name=cloud-google-com-go-apigeeregistry"
-SRC_URI[cloud-google-com-go-apigeeregistry.sha256sum] = "c4baec82f3fd1bc4b7f41adae87631bb288d7683fa2409f24c7ca96c674d21d3"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/apigeeregistry/@v/v0.7.1.zip;srcoutput=cloud.google.com/go/apigeeregistry;srcinput=cloud.google.com/go/apigeeregistry@v0.7.1;downloadfilename=cloud-google-com-go-apigeeregistry-0.7.1.zip;name=cloud-google-com-go-apigeeregistry"
+SRC_URI[cloud-google-com-go-apigeeregistry.sha256sum] = "1c5cb51ba2b8c33edb1be00b8b07257b2934685010cff4af3b7c8d328e7304cc"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
