@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/iot/@v/v1.7.0.zip;srcoutput=cloud.google.com/go/iot;srcinput=cloud.google.com/go/iot@v1.7.0;downloadfilename=cloud-google-com-go-iot-1.7.0.zip;name=cloud-google-com-go-iot"
-SRC_URI[cloud-google-com-go-iot.sha256sum] = "bf94bc8efe5452e88da3cdd6ff23241b825e5f0ade420cbef4c4f1826c3b00fe"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/iot/@v/v1.7.1.zip;srcoutput=cloud.google.com/go/iot;srcinput=cloud.google.com/go/iot@v1.7.1;downloadfilename=cloud-google-com-go-iot-1.7.1.zip;name=cloud-google-com-go-iot"
+SRC_URI[cloud-google-com-go-iot.sha256sum] = "a9c4da3d0641fb620c18da6e2a3ab16bb54423e7597d319745922ed1059a6b2b"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
