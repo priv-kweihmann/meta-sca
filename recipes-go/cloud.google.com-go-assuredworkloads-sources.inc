@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/assuredworkloads/@v/v1.11.0.zip;srcoutput=cloud.google.com/go/assuredworkloads;srcinput=cloud.google.com/go/assuredworkloads@v1.11.0;downloadfilename=cloud-google-com-go-assuredworkloads-1.11.0.zip;name=cloud-google-com-go-assuredworkloads"
-SRC_URI[cloud-google-com-go-assuredworkloads.sha256sum] = "b00eb280c92f5bdedd002e60f97840f2330ac1a2be8d3f834882793660f05d85"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/assuredworkloads/@v/v1.11.1.zip;srcoutput=cloud.google.com/go/assuredworkloads;srcinput=cloud.google.com/go/assuredworkloads@v1.11.1;downloadfilename=cloud-google-com-go-assuredworkloads-1.11.1.zip;name=cloud-google-com-go-assuredworkloads"
+SRC_URI[cloud-google-com-go-assuredworkloads.sha256sum] = "145e66b119e857713ddb78591e237ddc224b666680fdb56de5779241ff6c8889"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
