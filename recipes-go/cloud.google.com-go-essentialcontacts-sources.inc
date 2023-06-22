@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/essentialcontacts/@v/v1.6.0.zip;srcoutput=cloud.google.com/go/essentialcontacts;srcinput=cloud.google.com/go/essentialcontacts@v1.6.0;downloadfilename=cloud-google-com-go-essentialcontacts-1.6.0.zip;name=cloud-google-com-go-essentialcontacts"
-SRC_URI[cloud-google-com-go-essentialcontacts.sha256sum] = "080f7bc9e7acdd3dac2f2dd4ad9fa2ff4923663ea28c29ba2c7898858920fa0b"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/essentialcontacts/@v/v1.6.1.zip;srcoutput=cloud.google.com/go/essentialcontacts;srcinput=cloud.google.com/go/essentialcontacts@v1.6.1;downloadfilename=cloud-google-com-go-essentialcontacts-1.6.1.zip;name=cloud-google-com-go-essentialcontacts"
+SRC_URI[cloud-google-com-go-essentialcontacts.sha256sum] = "fd3746314cbb18e3fec2ec941fcd2cd6911cd8d717867e4eb5636c883610e9c5"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
