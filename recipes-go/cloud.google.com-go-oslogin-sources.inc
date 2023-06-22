@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/oslogin/@v/v1.10.0.zip;srcoutput=cloud.google.com/go/oslogin;srcinput=cloud.google.com/go/oslogin@v1.10.0;downloadfilename=cloud-google-com-go-oslogin-1.10.0.zip;name=cloud-google-com-go-oslogin"
-SRC_URI[cloud-google-com-go-oslogin.sha256sum] = "dbcb7358b028beb138b8bdd4e3454c96d8afd34f4058d617beed547cb9ae72aa"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/oslogin/@v/v1.10.1.zip;srcoutput=cloud.google.com/go/oslogin;srcinput=cloud.google.com/go/oslogin@v1.10.1;downloadfilename=cloud-google-com-go-oslogin-1.10.1.zip;name=cloud-google-com-go-oslogin"
+SRC_URI[cloud-google-com-go-oslogin.sha256sum] = "6e85a7394c0fc1c5a1af5a71ff801f6b3c22f2c6c153f3d7f89b4d866c4a3b82"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
