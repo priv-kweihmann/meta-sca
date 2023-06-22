@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/apigeeconnect/@v/v1.6.0.zip;srcoutput=cloud.google.com/go/apigeeconnect;srcinput=cloud.google.com/go/apigeeconnect@v1.6.0;downloadfilename=cloud-google-com-go-apigeeconnect-1.6.0.zip;name=cloud-google-com-go-apigeeconnect"
-SRC_URI[cloud-google-com-go-apigeeconnect.sha256sum] = "9fd8d9b1c0e9a3da35840b79f9630ef4f7ee6d32d97930ffcadb74203ab3cf38"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/apigeeconnect/@v/v1.6.1.zip;srcoutput=cloud.google.com/go/apigeeconnect;srcinput=cloud.google.com/go/apigeeconnect@v1.6.1;downloadfilename=cloud-google-com-go-apigeeconnect-1.6.1.zip;name=cloud-google-com-go-apigeeconnect"
+SRC_URI[cloud-google-com-go-apigeeconnect.sha256sum] = "d57331a3c702a2a354078afb6b1d91d7682223029f342c275a77d4b7176b1666"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
