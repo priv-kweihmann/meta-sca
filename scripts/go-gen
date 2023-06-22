@@ -579,6 +579,8 @@ def main():
     for mod in args.mod:
         create_module(args, pbar, mod, args.version,
                       args.recursionlevel, args.force)
+    # clean up tmpdir
+    shutil.rmtree(args.tmpdir, ignore_errors=True)
 
 
 if __name__ == '__main__':
