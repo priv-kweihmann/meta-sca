@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/gkemulticloud/@v/v0.6.0.zip;srcoutput=cloud.google.com/go/gkemulticloud;srcinput=cloud.google.com/go/gkemulticloud@v0.6.0;downloadfilename=cloud-google-com-go-gkemulticloud-0.6.0.zip;name=cloud-google-com-go-gkemulticloud"
-SRC_URI[cloud-google-com-go-gkemulticloud.sha256sum] = "c856011a7df9f4c05e231b7cde736a677df76257e22871f13cabc392922d87df"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/gkemulticloud/@v/v0.6.1.zip;srcoutput=cloud.google.com/go/gkemulticloud;srcinput=cloud.google.com/go/gkemulticloud@v0.6.1;downloadfilename=cloud-google-com-go-gkemulticloud-0.6.1.zip;name=cloud-google-com-go-gkemulticloud"
+SRC_URI[cloud-google-com-go-gkemulticloud.sha256sum] = "0b80b37d049006146fe3a7fce7675393d63f9afab93467034c145d1639cd6fce"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
