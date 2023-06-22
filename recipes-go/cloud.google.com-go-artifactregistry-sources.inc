@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/artifactregistry/@v/v1.14.0.zip;srcoutput=cloud.google.com/go/artifactregistry;srcinput=cloud.google.com/go/artifactregistry@v1.14.0;downloadfilename=cloud-google-com-go-artifactregistry-1.14.0.zip;name=cloud-google-com-go-artifactregistry"
-SRC_URI[cloud-google-com-go-artifactregistry.sha256sum] = "a586f5a058c35683953e14da3b59c692038758b89864975caf163546c0cd9331"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/artifactregistry/@v/v1.14.1.zip;srcoutput=cloud.google.com/go/artifactregistry;srcinput=cloud.google.com/go/artifactregistry@v1.14.1;downloadfilename=cloud-google-com-go-artifactregistry-1.14.1.zip;name=cloud-google-com-go-artifactregistry"
+SRC_URI[cloud-google-com-go-artifactregistry.sha256sum] = "af95e43bf0f0a183f0bb308c49d2628c356370441adae60f47e92283c9293a6f"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
