@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/phishingprotection/@v/v0.8.0.zip;srcoutput=cloud.google.com/go/phishingprotection;srcinput=cloud.google.com/go/phishingprotection@v0.8.0;downloadfilename=cloud-google-com-go-phishingprotection-0.8.0.zip;name=cloud-google-com-go-phishingprotection"
-SRC_URI[cloud-google-com-go-phishingprotection.sha256sum] = "d07e1fe79eae80e7d55c60bf08ab39f3beaac8144a9d1a3503d070f84d3814fa"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/phishingprotection/@v/v0.8.1.zip;srcoutput=cloud.google.com/go/phishingprotection;srcinput=cloud.google.com/go/phishingprotection@v0.8.1;downloadfilename=cloud-google-com-go-phishingprotection-0.8.1.zip;name=cloud-google-com-go-phishingprotection"
+SRC_URI[cloud-google-com-go-phishingprotection.sha256sum] = "b274878b0daf512de243c2856d3cf504c1eadad31b01d69a6d902a891af2e2d9"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
