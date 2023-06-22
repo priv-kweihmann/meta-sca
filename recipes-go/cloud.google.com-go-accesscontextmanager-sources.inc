@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/accesscontextmanager/@v/v1.8.0.zip;srcoutput=cloud.google.com/go/accesscontextmanager;srcinput=cloud.google.com/go/accesscontextmanager@v1.8.0;downloadfilename=cloud-google-com-go-accesscontextmanager-1.8.0.zip;name=cloud-google-com-go-accesscontextmanager"
-SRC_URI[cloud-google-com-go-accesscontextmanager.sha256sum] = "79208dee8fd4ee265e94f6c9326ed569e60e3b3c8ea47de2dc48d561b1fe3a0c"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/accesscontextmanager/@v/v1.8.1.zip;srcoutput=cloud.google.com/go/accesscontextmanager;srcinput=cloud.google.com/go/accesscontextmanager@v1.8.1;downloadfilename=cloud-google-com-go-accesscontextmanager-1.8.1.zip;name=cloud-google-com-go-accesscontextmanager"
+SRC_URI[cloud-google-com-go-accesscontextmanager.sha256sum] = "cda67d7597255c6254bec47841dccc554609eef61975d7ac44d6e19c2b99b68e"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
