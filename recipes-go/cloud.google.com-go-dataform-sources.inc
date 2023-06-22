@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/dataform/@v/v0.8.0.zip;srcoutput=cloud.google.com/go/dataform;srcinput=cloud.google.com/go/dataform@v0.8.0;downloadfilename=cloud-google-com-go-dataform-0.8.0.zip;name=cloud-google-com-go-dataform"
-SRC_URI[cloud-google-com-go-dataform.sha256sum] = "66fdfbf817a5701af2a4782bdb7daffbd7083dd6611c07d28084fa5802deab84"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/dataform/@v/v0.8.1.zip;srcoutput=cloud.google.com/go/dataform;srcinput=cloud.google.com/go/dataform@v0.8.1;downloadfilename=cloud-google-com-go-dataform-0.8.1.zip;name=cloud-google-com-go-dataform"
+SRC_URI[cloud-google-com-go-dataform.sha256sum] = "56a0481b5e980cfa4570c9a4ba963fdf3e80b716d5ff29d5f264d135ef89b470"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
