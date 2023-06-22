@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/dataqna/@v/v0.8.0.zip;srcoutput=cloud.google.com/go/dataqna;srcinput=cloud.google.com/go/dataqna@v0.8.0;downloadfilename=cloud-google-com-go-dataqna-0.8.0.zip;name=cloud-google-com-go-dataqna"
-SRC_URI[cloud-google-com-go-dataqna.sha256sum] = "76ee1218b87f4d147e97ab42354d7a0bc9f9423f7abe22a9e0776dc8a0b2fea8"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/dataqna/@v/v0.8.1.zip;srcoutput=cloud.google.com/go/dataqna;srcinput=cloud.google.com/go/dataqna@v0.8.1;downloadfilename=cloud-google-com-go-dataqna-0.8.1.zip;name=cloud-google-com-go-dataqna"
+SRC_URI[cloud-google-com-go-dataqna.sha256sum] = "119489bf90c61bf7d37a19db4b03ef5bf5f2d9357b622e90b9d2a89a67232878"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
