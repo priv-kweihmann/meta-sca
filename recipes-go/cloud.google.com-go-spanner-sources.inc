@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/spanner/@v/v1.46.0.zip;srcoutput=cloud.google.com/go/spanner;srcinput=cloud.google.com/go/spanner@v1.46.0;downloadfilename=cloud-google-com-go-spanner-1.46.0.zip;name=cloud-google-com-go-spanner"
-SRC_URI[cloud-google-com-go-spanner.sha256sum] = "267dabb1c4724939d23f07af52f2ab19f37587fbaa4e98d259f17ec60b75d3c6"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/spanner/@v/v1.47.0.zip;srcoutput=cloud.google.com/go/spanner;srcinput=cloud.google.com/go/spanner@v1.47.0;downloadfilename=cloud-google-com-go-spanner-1.47.0.zip;name=cloud-google-com-go-spanner"
+SRC_URI[cloud-google-com-go-spanner.sha256sum] = "bd1cb72e116706fa1aa70200f407eeff143827105ff3d7960d4d1fb26fb54e8d"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
@@ -18,6 +18,8 @@ require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-googleapis-gax-go
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'go.opencensus.io-sources.inc', '', 'go.opencensus.io-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'golang.org-x-xerrors-sources.inc', '', 'golang.org-x-xerrors-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-api-sources.inc', '', 'google.golang.org-api-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-genproto-googleapis-api-sources.inc', '', 'google.golang.org-genproto-googleapis-api-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-genproto-googleapis-rpc-sources.inc', '', 'google.golang.org-genproto-googleapis-rpc-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-genproto-sources.inc', '', 'google.golang.org-genproto-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-grpc-sources.inc', '', 'google.golang.org-grpc-sources.inc', d)}
 require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'google.golang.org-protobuf-sources.inc', '', 'google.golang.org-protobuf-sources.inc', d)}
