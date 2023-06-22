@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/secretmanager/@v/v1.11.0.zip;srcoutput=cloud.google.com/go/secretmanager;srcinput=cloud.google.com/go/secretmanager@v1.11.0;downloadfilename=cloud-google-com-go-secretmanager-1.11.0.zip;name=cloud-google-com-go-secretmanager"
-SRC_URI[cloud-google-com-go-secretmanager.sha256sum] = "920ea8cdb8268c8c16af01c1ddb9be234fc0cf10b1a07efad30a00d3394372eb"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/secretmanager/@v/v1.11.1.zip;srcoutput=cloud.google.com/go/secretmanager;srcinput=cloud.google.com/go/secretmanager@v1.11.1;downloadfilename=cloud-google-com-go-secretmanager-1.11.1.zip;name=cloud-google-com-go-secretmanager"
+SRC_URI[cloud-google-com-go-secretmanager.sha256sum] = "8bbffbc8c28d40a7011e296001e68cb7fe34088d2aa79a9668128a37435f99e0"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
