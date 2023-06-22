@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/datafusion/@v/v1.7.0.zip;srcoutput=cloud.google.com/go/datafusion;srcinput=cloud.google.com/go/datafusion@v1.7.0;downloadfilename=cloud-google-com-go-datafusion-1.7.0.zip;name=cloud-google-com-go-datafusion"
-SRC_URI[cloud-google-com-go-datafusion.sha256sum] = "23b9cc64527fd8f9c0c4368c7c5acaa8743f4e3df0e986045818f5b301bcaa96"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/datafusion/@v/v1.7.1.zip;srcoutput=cloud.google.com/go/datafusion;srcinput=cloud.google.com/go/datafusion@v1.7.1;downloadfilename=cloud-google-com-go-datafusion-1.7.1.zip;name=cloud-google-com-go-datafusion"
+SRC_URI[cloud-google-com-go-datafusion.sha256sum] = "3fc121b021134e63ab3d4266d93b3e0fe77313482542542577a2d2d73abbe3b1"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
