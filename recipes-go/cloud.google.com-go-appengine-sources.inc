@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/appengine/@v/v1.8.0.zip;srcoutput=cloud.google.com/go/appengine;srcinput=cloud.google.com/go/appengine@v1.8.0;downloadfilename=cloud-google-com-go-appengine-1.8.0.zip;name=cloud-google-com-go-appengine"
-SRC_URI[cloud-google-com-go-appengine.sha256sum] = "3c805dcf78892ca5d743236b6905c1beb0468d841f85d24b235a9154cfd9f17f"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/appengine/@v/v1.8.1.zip;srcoutput=cloud.google.com/go/appengine;srcinput=cloud.google.com/go/appengine@v1.8.1;downloadfilename=cloud-google-com-go-appengine-1.8.1.zip;name=cloud-google-com-go-appengine"
+SRC_URI[cloud-google-com-go-appengine.sha256sum] = "78918f54eb16d338d53986daf171ab8aab045562741a6e2229869944963e7471"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
