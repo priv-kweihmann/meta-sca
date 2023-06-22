@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/gaming/@v/v1.10.0.zip;srcoutput=cloud.google.com/go/gaming;srcinput=cloud.google.com/go/gaming@v1.10.0;downloadfilename=cloud-google-com-go-gaming-1.10.0.zip;name=cloud-google-com-go-gaming"
-SRC_URI[cloud-google-com-go-gaming.sha256sum] = "8329ac03da7a8c46ba23ed90ea010dc7f51e1403d57257b16ac0b463e7a49ed2"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/gaming/@v/v1.10.1.zip;srcoutput=cloud.google.com/go/gaming;srcinput=cloud.google.com/go/gaming@v1.10.1;downloadfilename=cloud-google-com-go-gaming-1.10.1.zip;name=cloud-google-com-go-gaming"
+SRC_URI[cloud-google-com-go-gaming.sha256sum] = "d7864d1a76ccd83a8a3047e861ccd1d5f2d23cc4c4894e52722d8995c15b3a9f"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
