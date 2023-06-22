@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/eventarc/@v/v1.12.0.zip;srcoutput=cloud.google.com/go/eventarc;srcinput=cloud.google.com/go/eventarc@v1.12.0;downloadfilename=cloud-google-com-go-eventarc-1.12.0.zip;name=cloud-google-com-go-eventarc"
-SRC_URI[cloud-google-com-go-eventarc.sha256sum] = "cb886e07a175f9647544e9623a002613a2a444d09d337c2317a4b5b36baaeb32"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/eventarc/@v/v1.12.1.zip;srcoutput=cloud.google.com/go/eventarc;srcinput=cloud.google.com/go/eventarc@v1.12.1;downloadfilename=cloud-google-com-go-eventarc-1.12.1.zip;name=cloud-google-com-go-eventarc"
+SRC_URI[cloud-google-com-go-eventarc.sha256sum] = "2b1d3f93eacdfff7c72efe7c4595a5e813f42a33f84624e7e3c750578d568da9"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
