@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/analytics/@v/v0.21.0.zip;srcoutput=cloud.google.com/go/analytics;srcinput=cloud.google.com/go/analytics@v0.21.0;downloadfilename=cloud-google-com-go-analytics-0.21.0.zip;name=cloud-google-com-go-analytics"
-SRC_URI[cloud-google-com-go-analytics.sha256sum] = "8d378baf3ab29622545c0ee74da5f41c225a195f8f5136ce25e50c1fb7495c7e"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/analytics/@v/v0.21.1.zip;srcoutput=cloud.google.com/go/analytics;srcinput=cloud.google.com/go/analytics@v0.21.1;downloadfilename=cloud-google-com-go-analytics-0.21.1.zip;name=cloud-google-com-go-analytics"
+SRC_URI[cloud-google-com-go-analytics.sha256sum] = "a164d08538c26c14d4b7f61e6262959093086f10a53a7d6010d2658b8962b7f1"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
