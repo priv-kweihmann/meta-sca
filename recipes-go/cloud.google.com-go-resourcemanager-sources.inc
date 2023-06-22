@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/resourcemanager/@v/v1.9.0.zip;srcoutput=cloud.google.com/go/resourcemanager;srcinput=cloud.google.com/go/resourcemanager@v1.9.0;downloadfilename=cloud-google-com-go-resourcemanager-1.9.0.zip;name=cloud-google-com-go-resourcemanager"
-SRC_URI[cloud-google-com-go-resourcemanager.sha256sum] = "eafc6b66eafecaca3c954e80b7f65f68b53244e03409f1d4165755874158d068"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/resourcemanager/@v/v1.9.1.zip;srcoutput=cloud.google.com/go/resourcemanager;srcinput=cloud.google.com/go/resourcemanager@v1.9.1;downloadfilename=cloud-google-com-go-resourcemanager-1.9.1.zip;name=cloud-google-com-go-resourcemanager"
+SRC_URI[cloud-google-com-go-resourcemanager.sha256sum] = "60eee0105434be0753784ac5a7e17d2f605c10c66f09824ea1e7ad61df46a0bf"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
