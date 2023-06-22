@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/beyondcorp/@v/v0.6.0.zip;srcoutput=cloud.google.com/go/beyondcorp;srcinput=cloud.google.com/go/beyondcorp@v0.6.0;downloadfilename=cloud-google-com-go-beyondcorp-0.6.0.zip;name=cloud-google-com-go-beyondcorp"
-SRC_URI[cloud-google-com-go-beyondcorp.sha256sum] = "258e705e535f77686e8012660e2369562bee10a116ce92a25ec93ca363912220"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/beyondcorp/@v/v0.6.1.zip;srcoutput=cloud.google.com/go/beyondcorp;srcinput=cloud.google.com/go/beyondcorp@v0.6.1;downloadfilename=cloud-google-com-go-beyondcorp-0.6.1.zip;name=cloud-google-com-go-beyondcorp"
+SRC_URI[cloud-google-com-go-beyondcorp.sha256sum] = "de4972a1b2b6b319dfa8bb07316317c7d4bf86ff74bab2ae579645d6b0c8dd15"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
