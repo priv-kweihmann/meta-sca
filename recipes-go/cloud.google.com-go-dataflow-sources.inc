@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/dataflow/@v/v0.9.0.zip;srcoutput=cloud.google.com/go/dataflow;srcinput=cloud.google.com/go/dataflow@v0.9.0;downloadfilename=cloud-google-com-go-dataflow-0.9.0.zip;name=cloud-google-com-go-dataflow"
-SRC_URI[cloud-google-com-go-dataflow.sha256sum] = "a0c2dc69f8a168ffa452cb55438b8547fc3114296de93c557c99cbb109ed9436"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/dataflow/@v/v0.9.1.zip;srcoutput=cloud.google.com/go/dataflow;srcinput=cloud.google.com/go/dataflow@v0.9.1;downloadfilename=cloud-google-com-go-dataflow-0.9.1.zip;name=cloud-google-com-go-dataflow"
+SRC_URI[cloud-google-com-go-dataflow.sha256sum] = "7b2825b40108baf407a7732969d1b2727b948318a8b843b06e4f4bba8816d1be"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
