@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/automl/@v/v1.13.0.zip;srcoutput=cloud.google.com/go/automl;srcinput=cloud.google.com/go/automl@v1.13.0;downloadfilename=cloud-google-com-go-automl-1.13.0.zip;name=cloud-google-com-go-automl"
-SRC_URI[cloud-google-com-go-automl.sha256sum] = "2bea10c959ca132d9cdc83df43cd7f9ddf8c432b3ab0057bda0f0344749fff33"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/automl/@v/v1.13.1.zip;srcoutput=cloud.google.com/go/automl;srcinput=cloud.google.com/go/automl@v1.13.1;downloadfilename=cloud-google-com-go-automl-1.13.1.zip;name=cloud-google-com-go-automl"
+SRC_URI[cloud-google-com-go-automl.sha256sum] = "c8d2d07bbda49bd37e960d693d174eecf9fffecb19950e38e0b777a9f1b026c7"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
