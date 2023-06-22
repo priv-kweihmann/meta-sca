@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/metastore/@v/v1.11.0.zip;srcoutput=cloud.google.com/go/metastore;srcinput=cloud.google.com/go/metastore@v1.11.0;downloadfilename=cloud-google-com-go-metastore-1.11.0.zip;name=cloud-google-com-go-metastore"
-SRC_URI[cloud-google-com-go-metastore.sha256sum] = "ae4a4fbebc5e6f27d5e827d42f06a64fb3291f3e0ef5b44a778cc58a3accd105"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/metastore/@v/v1.11.1.zip;srcoutput=cloud.google.com/go/metastore;srcinput=cloud.google.com/go/metastore@v1.11.1;downloadfilename=cloud-google-com-go-metastore-1.11.1.zip;name=cloud-google-com-go-metastore"
+SRC_URI[cloud-google-com-go-metastore.sha256sum] = "1d9650fb1a055c49676fdac15953f4b3e81d582228ee5fca7d066447ad3bf089"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
