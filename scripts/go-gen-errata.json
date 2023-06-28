@@ -596,6 +596,11 @@
             "do_compile[noexec] = \"1\""
         ]
     },
+    "github.com/google/go-pkcs11": {
+        "licenseignore": [
+            "third_party/pkcs11/LICENSE"
+        ]
+    },
     "github.com/google/licenseclassifier": {
         "licenseignore": [
             "license_type.go",
@@ -622,6 +627,13 @@
             "# who ever made that weird mix of test/internal and cross reference should get fired",
             "# version is simply not compilable",
             "do_compile[noexec] = \"1\""
+        ]
+    },
+    "github.com/googleapis/enterprise-certificate-proxy": {
+        "extra": [
+            "GOSRC_REMOVEDIRS += \"github.com/googleapis/enterprise-certificate-proxy/internal/signer/darwin\"",
+            "GOSRC_REMOVEDIRS += \"github.com/googleapis/enterprise-certificate-proxy/internal/signer/windows\"",
+            "GOSRC_REMOVEDIRS += \"github.com/googleapis/enterprise-certificate-proxy/windows\""
         ]
     },
     "github.com/gopherjs/gopherjs": {

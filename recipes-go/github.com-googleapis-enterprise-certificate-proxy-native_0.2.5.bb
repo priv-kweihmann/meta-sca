@@ -7,6 +7,13 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-googleapis-enterprise-certificate-proxy-sources.inc
 
+EXTRA_DEPENDS += "\
+    github.com-google-go-pkcs11-native \
+    golang.org-x-crypto-native \
+    golang.org-x-sys-native \
+"
+
 GO_IMPORT = "github.com/googleapis/enterprise-certificate-proxy"
+
 inherit gosrc
-inherit nativesdk
+inherit native
