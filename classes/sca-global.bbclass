@@ -97,7 +97,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           flawfinder \
                           flint \
                           gcc \
-                          golicensecheck \
                           golint \
                           it \
                           jsonlint \
@@ -111,7 +110,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           perl \
                           perlcritic \
                           pkgqaenc \
-                          protolint \
                           pscan \
                           pylint \
                           pysymcheck \

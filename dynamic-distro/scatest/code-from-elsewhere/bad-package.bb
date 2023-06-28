@@ -116,4 +116,4 @@ INSANE_SKIP:${PN} += "already-stripped arch"
 inherit sca
 inherit python3-dir
 
-SCA_ENABLED_MODULES = "bitbake golicensecheck pkgqaenc licensecheck reuse scancode"
+SCA_ENABLED_MODULES = "bitbake pkgqaenc licensecheck reuse scancode"

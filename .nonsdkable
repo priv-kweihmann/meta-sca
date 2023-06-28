@@ -1,7 +1,6 @@
 .*/dynamic-distro/.*
 .*/recipes-go/github.com-boyter-lc-native_.*
 .*/recipes-go/github.com-briandowns-spinner-native_.*
-.*/recipes-go/github.com-go-enry-go-license-detector-v4-native_.*
 .*/recipes-go/github.com-go-git-go-git-v5-native_.*
 .*/recipes-go/github.com-urfave-cli-native_.*
 .*/recipes-go/google.golang.org-api-native_.*
@@ -58,7 +57,6 @@
 .*/recipes-sca-rules/sca-recipe-cbmc-rules-native/.*
 .*/recipes-sca-rules/sca-recipe-cmake-rules-native/.*
 .*/recipes-sca-rules/sca-recipe-gcc-rules-native/.*
-.*/recipes-sca-rules/sca-recipe-golicensecheck-rules-native/.*
 .*/recipes-sca-rules/sca-recipe-licensecheck-rules-native/.*
 .*/recipes-sca-rules/sca-recipe-oelint-rules-native/.*
 .*/recipes-sca-rules/sca-recipe-pkgqaenc-rules-native/.*
@@ -69,7 +67,6 @@
 .*/recipes-sca/cbmc-native/.*
 .*/recipes-sca/cmake-sca-native/.*
 .*/recipes-sca/gcc-sca-native/.*
-.*/recipes-sca/golicensecheck-sca-native/.*
 .*/recipes-sca/licensecheck-helper/.*
 .*/recipes-sca/licensecheck-sca-native/.*
 .*/recipes-sca/linux-smart-enumeration/.*

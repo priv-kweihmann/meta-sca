@@ -26,7 +26,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             flawfinder \
                             flint \
                             gcc \
-                            golicensecheck \
                             golint \
                             it \
                             jsonlint \
@@ -40,7 +39,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             perl \
                             perlcritic \
                             pkgqaenc \
-                            protolint \
                             pscan \
                             pylint \
                             pysymcheck \
