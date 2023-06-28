@@ -14,8 +14,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "jaraco.functools"
 
-SRC_URI[md5sum] = "2488bcb8d88dcc3a35a784de40b2c796"
-SRC_URI[sha256sum] = "685dc06075696697edc9c4ef89af33f0fd2570a6ff57767332dbf4165e5ffbb3"
+SRC_URI[md5sum] = "e97dd60cb4c23307bd08158cd3d90864"
+SRC_URI[sha256sum] = "cb5635ae5cc953d35d8ab6744f1a73723074b31eb6be16edee7960261a79b724"
 
 inherit pypi
 inherit python_setuptools_build_meta
