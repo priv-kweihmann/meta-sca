@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/cloud.google.com/go/kms/@v/v1.11.0.zip;srcoutput=cloud.google.com/go/kms;srcinput=cloud.google.com/go/kms@v1.11.0;downloadfilename=cloud-google-com-go-kms-1.11.0.zip;name=cloud-google-com-go-kms"
-SRC_URI[cloud-google-com-go-kms.sha256sum] = "76562ba13ad935937ec0bbf196c17523b8555c47c439755ca5531becfeb34a94"
+SRC_URI += "https://proxy.golang.org/cloud.google.com/go/kms/@v/v1.12.1.zip;srcoutput=cloud.google.com/go/kms;srcinput=cloud.google.com/go/kms@v1.12.1;downloadfilename=cloud-google-com-go-kms-1.12.1.zip;name=cloud-google-com-go-kms"
+SRC_URI[cloud-google-com-go-kms.sha256sum] = "64434436bcc0bdd95a69a171413b43a5d1e5321a9ef193d31e415b937524360c"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
