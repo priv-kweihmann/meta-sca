@@ -9,8 +9,8 @@ PYPI_PACKAGE = "typed_ast"
 
 UPSTREAM_CHECK_REGEX ?= "/typed-ast/(?P<pver>(\d+[\.\-_]*)+)"
 
-SRC_URI[md5sum] = "1b0183d362a886a447d8314a97bc37b3"
-SRC_URI[sha256sum] = "39e21ceb7388e4bb37f4c679d72707ed46c2fbf2a5609b8b8ebc4b067d977df2"
+SRC_URI[md5sum] = "7cd7a8c0635ad35aa709641046c04972"
+SRC_URI[sha256sum] = "94282f7a354f36ef5dbce0ef3467ebf6a258e370ab33d5b40c249fa996e590dd"
 
 inherit pypi
 inherit setuptools3
