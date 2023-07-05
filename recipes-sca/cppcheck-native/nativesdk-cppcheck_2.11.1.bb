@@ -14,29 +14,23 @@ LIC_FILES_CHKSUM = "\
 SRC_URI = "\
     git://github.com/danmar/cppcheck.git;protocol=https;nobranch=1 \
 "
-SRCREV = "f156b1ecb20af834d6d70a20b9485533e2b5bdaf"
+SRCREV = "13746898140fa229018b57acdb18091942c8ea05"
 
 S = "${WORKDIR}/git"
 
 inherit pkgconfig
+
 inherit sca-description
-inherit native
-
-LIBZ3 = "z3-native"
-
+inherit nativesdk
+LIBZ3 = "nativesdk-z3"
 PACKAGECONFIG ??= "z3"
 PACKAGECONFIG[z3] = "USE_Z3=yes,,${LIBZ3}"
-
 SCA_TOOL_DESCRIPTION = "cppcheck"
-
 do_compile() {
     oe_runmake ${PACKAGECONFIG_CONFARGS} FILESDIR=.
 }
-
 do_install() {
     oe_runmake install DESTDIR=${D} FILESDIR=${datadir} PREFIX=${prefix}
 }
-
 FILES:${PN} = "${bindir} ${datadir}"
-
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+(\.\d+)*)$"
