@@ -9,8 +9,8 @@ DEPENDS += "python3-jsonschema-native"
 
 PYPI_PACKAGE = "jsonmerge"
 
-SRC_URI[md5sum] = "c4fc601d805a31a16df6bdba74cd7dec"
-SRC_URI[sha256sum] = "a2d1f80021c5c1d70a49e31f862b5f068f9db066080d8561e80654de74a3584d"
+SRC_URI[md5sum] = "14ee150c8dafdd770fcf531073a19b7f"
+SRC_URI[sha256sum] = "99c04b4b3c5882d5fb3a0a2578a4a720fc913b640cde7df9ae52b33898bb687d"
 
 inherit pypi
 inherit setuptools3
