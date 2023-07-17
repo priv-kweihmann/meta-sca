@@ -1,0 +1,26 @@
+From bccd9b3fb7496f82fb2fa898b2843edeb0f4f558 Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Mon, 17 Jul 2023 05:43:41 +0000
+Subject: [PATCH] Use poetry-core for pyproject based builds
+
+https://github.com/python-poetry/poetry-core#why-is-this-required
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+---
+ pyproject.toml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 82d8891..ad0e053 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -26,5 +26,5 @@ pytest-mock = "^3.6"
+ unify = "^0.5"
+ 
+ [build-system]
+-requires = ["poetry>=1.0"]
+-build-backend = "poetry.masonry.api"
++requires = ["poetry-core>=1.0"]
++build-backend = "poetry.core.masonry.api"
+-- 
+2.34.1
+

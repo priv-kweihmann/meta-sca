@@ -24,6 +24,7 @@ PACKAGECONFIG ??= "\
                    mutable \
                    quotes \
                    requirements \
+                   return \
                    secure-coding-standard \
                    strict \
                    string-format \
@@ -42,6 +43,7 @@ PACKAGECONFIG[functions] = ",,python3-flake8-functions-native"
 PACKAGECONFIG[import-order] = ",,python3-flake8-import-order-native"
 PACKAGECONFIG[mutable] = ",,python3-flake8-mutable-native"
 PACKAGECONFIG[quotes] = ",,python3-flake8-quotes-native"
+PACKAGECONFIG[return] = ",,python3-flake8-return-native"
 PACKAGECONFIG[requirements] = ",,python3-flake8-requirements-native"
 PACKAGECONFIG[secure-coding-standard] = ",,python3-flake8-secure-coding-standard-native"
 PACKAGECONFIG[strict] = ",,python3-flake8-strict-native"
