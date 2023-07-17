@@ -34,6 +34,7 @@ def do_sca_conv_flake8(d):
         "VNE": "info",
         "YTT": "warning",
         "SCS": "warning",
+        "DTZ": "warning",
         "A": "warning",
         "B": "warning",
         "C": "warning",
