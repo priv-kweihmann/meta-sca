@@ -9,9 +9,9 @@ DEPENDS += "nativesdk-python3-flake8"
 inherit sca-description
 inherit python3-dir
 inherit nativesdk
-
 PACKAGECONFIG ??= "\
                    2020 \
+                   async \
                    comprehensions \
                    datetimez \
                    dlint \
@@ -33,6 +33,7 @@ PACKAGECONFIG ??= "\
                   "
 
 PACKAGECONFIG[2020] = ",,nativesdk-python3-flake8-2020"
+PACKAGECONFIG[async] = ",,nativesdk-python3-flake8-async"
 PACKAGECONFIG[comprehensions] = ",,nativesdk-python3-flake8-comprehensions"
 PACKAGECONFIG[datetimez] = ",,nativesdk-python3-flake8-datetimez"
 PACKAGECONFIG[dlint] = ",,nativesdk-python3-flake8-dlint"

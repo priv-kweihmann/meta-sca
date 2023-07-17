@@ -12,6 +12,7 @@ inherit native
 
 PACKAGECONFIG ??= "\
                    2020 \
+                   async \
                    comprehensions \
                    datetimez \
                    dlint \
@@ -32,6 +33,7 @@ PACKAGECONFIG ??= "\
                    wemake-python \
                   "
 PACKAGECONFIG[2020] = ",,python3-flake8-2020-native"
+PACKAGECONFIG[async] = ",,python3-flake8-async-native"
 PACKAGECONFIG[comprehensions] = ",,python3-flake8-comprehensions-native"
 PACKAGECONFIG[datetimez] = ",,python3-flake8-datetimez-native"
 PACKAGECONFIG[dlint] = ",,python3-flake8-dlint-native"
