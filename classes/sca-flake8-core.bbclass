@@ -35,6 +35,7 @@ def do_sca_conv_flake8(d):
         "YTT": "warning",
         "SCS": "warning",
         "DTZ": "warning",
+        "FS": "warning",
         "R5": "warning",
         "ASYNC": "warning",
         "A": "warning",

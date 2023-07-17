@@ -29,6 +29,7 @@ PACKAGECONFIG ??= "\
                    secure-coding-standard \
                    strict \
                    string-format \
+                   use-fstring \
                    variables-names \
                    wemake-python \
                   "
@@ -50,6 +51,7 @@ PACKAGECONFIG[requirements] = ",,python3-flake8-requirements-native"
 PACKAGECONFIG[secure-coding-standard] = ",,python3-flake8-secure-coding-standard-native"
 PACKAGECONFIG[strict] = ",,python3-flake8-strict-native"
 PACKAGECONFIG[string-format] = ",,python3-flake8-string-format-native"
+PACKAGECONFIG[use-fstring] = ",,python3-flake8-use-fstring-native"
 PACKAGECONFIG[variables-names] = ",,python3-flake8-variables-names-native"
 PACKAGECONFIG[wemake-python] = ",,python3-wemake-python-styleguide-native"
 
