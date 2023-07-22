@@ -60,12 +60,12 @@ jobs:
         with:
           variable: SSTATE_DIR
           value: /opt/build/sstate-cache
-      - name: setup (rm_work_and_downloads)
+      - name: setup (rm_work)
         uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
         with:
           variable: INHERIT
           operation: " += "
-          value: "rm_work_and_downloads"
+          value: "rm_work"
       - name: build (glibc)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
