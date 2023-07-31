@@ -11,7 +11,7 @@ PYPI_PACKAGE = "oelint_parser"
 
 UPSTREAM_CHECK_REGEX ?= "/oelint-parser/(?P<pver>(\d+[\.\-_]*)+)"
 
-SRC_URI[sha256sum] = "a62f5ac4f34e4cd88a243f120ee0caeba9e79f12324338148ef0ed203b3f1634"
+SRC_URI[sha256sum] = "f89fd15803b43b5cae68c8d6cf90ddcf9c3fe2bcc974b29cbf06e4749cef9e1a"
 
 inherit pypi
 inherit setuptools3
