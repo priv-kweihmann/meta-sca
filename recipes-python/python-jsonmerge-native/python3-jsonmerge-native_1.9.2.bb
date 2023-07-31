@@ -3,14 +3,14 @@ HOMEPAGE = "https://github.com/avian2/jsonmerge"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=0b1debcb9e8a791ff69fb3d931cba8bf"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=d26b79702d8fc46d62b2c0406fc8a909"
 
 DEPENDS += "python3-jsonschema-native"
 
 PYPI_PACKAGE = "jsonmerge"
 
-SRC_URI[md5sum] = "14ee150c8dafdd770fcf531073a19b7f"
-SRC_URI[sha256sum] = "99c04b4b3c5882d5fb3a0a2578a4a720fc913b640cde7df9ae52b33898bb687d"
+SRC_URI[md5sum] = "f4b9c8f6889d226ea7acfd91b3ba1c4c"
+SRC_URI[sha256sum] = "c43757e0180b0e19b7ae4c130ad42a07cc580c31912f61f4823e8eaf2fa394a3"
 
 inherit pypi
 inherit setuptools3
