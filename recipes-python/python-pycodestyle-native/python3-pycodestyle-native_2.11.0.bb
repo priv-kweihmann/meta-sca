@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=a8546d0e77f416fb05a26acd89c8b3bd"
 
 PYPI_PACKAGE = "pycodestyle"
 
-SRC_URI[md5sum] = "1cf8f9d96de0940f9e56d1e395292a42"
-SRC_URI[sha256sum] = "2c9607871d58c76354b697b42f5d57e1ada7d261c261efac224b664affdc5785"
+SRC_URI[md5sum] = "e8185700fa67ab415570e4fe941ebe2a"
+SRC_URI[sha256sum] = "259bcc17857d8a8b3b4a2327324b79e5f020a13c16074670f9c8c8f872ea76d0"
 
 inherit pypi
 inherit setuptools3
