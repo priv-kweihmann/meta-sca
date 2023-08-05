@@ -74,7 +74,7 @@ jobs:
       - name: build (rust)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
-          target: "rust-llvm-native rust-native"
+          target: "rust-llvm-native rust-native cargo cargo-native"
           ignore-exit-codes: 124 137
       - name: build (kernel)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
