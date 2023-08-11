@@ -74,20 +74,10 @@ jobs:
         with:
           variable: SSTATE_DIR
           value: /opt/build/sstate-cache
-      - name: setup (rm_work)
-        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
-        with:
-          variable: INHERIT
-          operation: " += "
-          value: rm_work
       - name: build (glibc)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
           target: glibc
-      - name: build (kernel)
-        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
-        with:
-          target: linux-yocto
       - name: build (qemu-system)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
@@ -117,3 +107,6 @@ jobs:
           parameter-file: ${{ matrix.BUILD_PARAMFILE }}
           branch: ${{ env.SCM_BRANCH }}
           deploy-token: ${{ secrets.WEBDEPLOY }}
+      - name: print disk usage
+        if: always()
+        uses: priv-kweihmann/meta-sca-ci-utils/diskusage@latest

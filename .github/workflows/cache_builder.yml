@@ -60,34 +60,21 @@ jobs:
         with:
           variable: SSTATE_DIR
           value: /opt/build/sstate-cache
-      - name: setup (rm_work)
-        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
-        with:
-          variable: INHERIT
-          operation: " += "
-          value: "rm_work"
       - name: build (glibc)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
           target: glibc
-          ignore-exit-codes: 124 137
+          ignore-exit-codes: 124 137 1
       - name: build (rust)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
           target: "rust-llvm-native rust-native cargo cargo-native"
-          ignore-exit-codes: 124 137
-      - name: build (kernel)
-        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
-        with:
-          target: linux-yocto
-          ignore-exit-codes: 124 137
-      - name: build (go-tools)
-        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
-        with:
-          target: "golint-sca-native licensecheck-sca-native revive-sca-native slick-sca-native stank-sca-native"
-          ignore-exit-codes: 124 137
+          ignore-exit-codes: 124 137 1
       - name: build
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
           target: "core-image-minimal-scatest bad-go bad-package qemu-system-native"
-          ignore-exit-codes: 124 137
+          ignore-exit-codes: 124 137 1
+      - name: print disk usage
+        if: always()
+        uses: priv-kweihmann/meta-sca-ci-utils/diskusage@latest

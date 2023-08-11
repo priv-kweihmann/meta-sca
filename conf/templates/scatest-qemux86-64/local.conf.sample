@@ -2,7 +2,14 @@ CONF_VERSION = "2"
 
 MACHINE = "qemux86-64"
 
-BB_DISKMON_DIRS = ""
+BB_DISKMON_DIRS = "\
+    STOPTASKS,${TMPDIR},1G,100K \
+    STOPTASKS,${DL_DIR},1G,100K \
+    STOPTASKS,${SSTATE_DIR},1G,100K \
+    STOPTASKS,/tmp,100M,100K \
+    HALT,${TMPDIR},100M,1K \
+    HALT,${DL_DIR},100M,1K \
+    HALT,${SSTATE_DIR},100M,1K"
 BB_GENERATE_SHALLOW_TARBALLS = "1"
 BB_GIT_SHALLOW = "1"
 EXTRA_IMAGE_FEATURES = "debug-tweaks"
@@ -12,3 +19,7 @@ PATCHRESOLVE = "noop"
 SCA_VERBOSE_OUTPUT = "1"
 
 INHERIT += "rm_work"
+
+# Disable heavy llvm build, we really don't need for a headless qemu
+PACKAGECONFIG:remove:pn-mesa-native = "gallium-llvm"
+PACKAGECONFIG:remove:pn-mesa-gl-native = "gallium-llvm"
