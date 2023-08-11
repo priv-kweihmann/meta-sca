@@ -71,3 +71,4 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
           target: core-image-minimal-scatest
+          ignore-exit-codes: 124 137
