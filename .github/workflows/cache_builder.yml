@@ -78,3 +78,10 @@ jobs:
       - name: print disk usage
         if: always()
         uses: priv-kweihmann/meta-sca-ci-utils/diskusage@latest
+      - name: cleanup workspace
+        if: always()
+        run: |
+          # to have enough disk space left to compress the caches
+          # we need to remove a bit of the stuff we don't need
+          # anymore, such as TMPDIR
+          rm -rf /opt/build/build/tmp
