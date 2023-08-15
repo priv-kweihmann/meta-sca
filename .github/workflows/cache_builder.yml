@@ -73,7 +73,7 @@ jobs:
       - name: build (rust 2/4)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
-          target: "rust-native cargo cargo-native"
+          target: "rust-native"
           ignore-exit-codes: 124 137 1
       - name: build (rust 3/4)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
