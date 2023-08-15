@@ -65,15 +65,40 @@ jobs:
         with:
           target: glibc
           ignore-exit-codes: 124 137 1
-      - name: build (rust)
+      - name: build (rust 1/4)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
-          target: "rust-llvm-native rust-native cargo cargo-native"
+          target: "rust-llvm-native"
+          ignore-exit-codes: 124 137 1
+      - name: build (rust 2/4)
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
+        with:
+          target: "rust-native cargo cargo-native"
+          ignore-exit-codes: 124 137 1
+      - name: build (rust 3/4)
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
+        with:
+          target: "cargo-native"
+          ignore-exit-codes: 124 137 1
+      - name: build (rust 4/4)
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
+        with:
+          target: "cargo"
+          ignore-exit-codes: 124 137 1
+      - name: build (tools 1/2)
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
+        with:
+          target: "openssl perl"
+          ignore-exit-codes: 124 137 1
+      - name: build (tools 2/2)
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
+        with:
+          target: "qemu-system-native"
           ignore-exit-codes: 124 137 1
       - name: build
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
-          target: "core-image-minimal-scatest bad-go bad-package qemu-system-native"
+          target: "core-image-minimal-scatest bad-go bad-package"
           ignore-exit-codes: 124 137 1
       - name: print disk usage
         if: always()
