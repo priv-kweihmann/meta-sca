@@ -15,7 +15,7 @@ DEPENDS += "\
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 
 SRC_URI = "git://github.com/priv-kweihmann/shellexeclist.git;branch=master;protocol=https"
-SRCREV = "30a21093023e033915e8825e5430c6f5311a87c6"
+SRCREV = "5cc78ea52bae2767e21b2bfaf653e22e29e2479f"
 
 S = "${WORKDIR}/git"
 
