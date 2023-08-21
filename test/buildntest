@@ -12,6 +12,7 @@ echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> ${_pwd}/conf/local.conf
 
 _targets=$(${_thispath}/get_buildmodules $@)
 if [ ! -z "${_targets}" ]; then
+    echo "Building the following recipes: ${_targets}"
     if [ -z "${BUILDNTEST_PRESERVECACHE}" ]; then
         bitbake ${_targets} -c cleansstate || exit 1
         # Remove all previously exported files

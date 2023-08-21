@@ -88,10 +88,16 @@ jobs:
           parameter-file: ${{ matrix.BUILD_PARAMFILE }}
         env:
           BUILDNTEST_NOSDK: 1
+      - name: build (sca-modules)
+        uses: priv-kweihmann/meta-sca-ci-utils/buildmodules@latest
+        with:
+          parameter-file: kernel
+        env:
+          BUILDNTEST_NOSDK: 1
       - name: test (sca results)
         uses: priv-kweihmann/meta-sca-ci-utils/testresults@latest
         with:
-          parameter-file: ${{ matrix.BUILD_PARAMFILE }}
+          parameter-file: standard
       - if: env.BUILD_EXPORT == '1'
         name: checkout (webpage)
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest

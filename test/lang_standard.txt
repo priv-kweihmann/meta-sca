@@ -17,7 +17,6 @@ gcc
 golint
 it
 jsonlint
-kconfighard
 licensecheck
 looong
 msgcheck
