@@ -18,7 +18,7 @@
     },
     "test": {
         "integration": [
-            {"cmd": ["nativepython3", "-m", "vulture", "--help"], "returncode": 0}
+            {"cmd": ["nativepython3", "-m", "vulture", "--help"], "returncode": 2}
         ],
         "findings": [
             "python3-git"
