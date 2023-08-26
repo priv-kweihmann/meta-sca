@@ -82,19 +82,23 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
           target: qemu-system-native
-      - name: build (sca-modules)
-        uses: priv-kweihmann/meta-sca-ci-utils/buildmodules@latest
-        with:
-          parameter-file: ${{ matrix.BUILD_PARAMFILE }}
-        env:
-          BUILDNTEST_NOSDK: 1
-      - name: build (sca-modules)
+      - name: build (sca-modules/kernel)
         uses: priv-kweihmann/meta-sca-ci-utils/buildmodules@latest
         with:
           parameter-file: kernel
         env:
           BUILDNTEST_NOSDK: 1
-      - name: test (sca results)
+      - name: test (sca results/kernel)
+        uses: priv-kweihmann/meta-sca-ci-utils/testresults@latest
+        with:
+          parameter-file: kernel
+      - name: build (sca-modules/others)
+        uses: priv-kweihmann/meta-sca-ci-utils/buildmodules@latest
+        with:
+          parameter-file: ${{ matrix.BUILD_PARAMFILE }}
+        env:
+          BUILDNTEST_NOSDK: 1
+      - name: test (sca results/others)
         uses: priv-kweihmann/meta-sca-ci-utils/testresults@latest
         with:
           parameter-file: standard
