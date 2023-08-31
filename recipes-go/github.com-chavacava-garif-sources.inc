@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/chavacava/garif/@v/v0.0.0-20230531072157-8144c224b063.zip;srcoutput=github.com/chavacava/garif;srcinput=github.com/chavacava/garif@v0.0.0-20230531072157-8144c224b063;downloadfilename=github-com-chavacava-garif-0.0.0-20230531072157-8144c224b063.zip;name=github-com-chavacava-garif"
-SRC_URI[github-com-chavacava-garif.sha256sum] = "ae344644dfe4f3a47bb87d0e8331e8bc76aec45497cbe8d422db173c79da8219"
+SRC_URI += "https://proxy.golang.org/github.com/chavacava/garif/@v/v0.0.0-20230608123814-4bd63c2919ab.zip;srcoutput=github.com/chavacava/garif;srcinput=github.com/chavacava/garif@v0.0.0-20230608123814-4bd63c2919ab;downloadfilename=github-com-chavacava-garif-0.0.0-20230608123814-4bd63c2919ab.zip;name=github-com-chavacava-garif"
+SRC_URI[github-com-chavacava-garif.sha256sum] = "3be9bb32fb9e1e43c94b3887924097b551b37ff13d07948e8ca716a375bddbc5"
 
 GOSRC_LICENSE += "\
     MIT \
