@@ -21,10 +21,12 @@ jobs:
 
     strategy:
       matrix:
-        testset: [standard]
+        testset: [standard, kernel]
         include:
         - testset: standard
           BUILD_PARAMFILE: standard
+        - testset: kernel
+          BUILD_PARAMFILE: kernel
     container:
       image: privkweihmann/yocto-sca-minimal:2004
       env:
@@ -82,16 +84,11 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         with:
           target: qemu-system-native
-      - name: build (sca-modules/kernel)
-        uses: priv-kweihmann/meta-sca-ci-utils/buildmodules@latest
+      - name: build (kernel)
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
+        if: ${{ matrix.BUILD_PARAMFILE }} != 'kernel'
         with:
-          parameter-file: kernel
-        env:
-          BUILDNTEST_NOSDK: 1
-      - name: test (sca results/kernel)
-        uses: priv-kweihmann/meta-sca-ci-utils/testresults@latest
-        with:
-          parameter-file: kernel
+          target: linux-yocto
       - name: build (sca-modules/others)
         uses: priv-kweihmann/meta-sca-ci-utils/buildmodules@latest
         with:
@@ -101,7 +98,7 @@ jobs:
       - name: test (sca results/others)
         uses: priv-kweihmann/meta-sca-ci-utils/testresults@latest
         with:
-          parameter-file: standard
+          parameter-file: ${{ matrix.BUILD_PARAMFILE }}
       - if: env.BUILD_EXPORT == '1'
         name: checkout (webpage)
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
