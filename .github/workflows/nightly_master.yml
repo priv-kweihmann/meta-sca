@@ -21,12 +21,20 @@ jobs:
 
     strategy:
       matrix:
-        testset: [standard, kernel]
+        testset: [standard, kernel, cpp, license]
         include:
         - testset: standard
           BUILD_PARAMFILE: standard
+          WITH_KERNEL: 1
         - testset: kernel
           BUILD_PARAMFILE: kernel
+          WITH_KERNEL: 0
+        - testset: cpp
+          BUILD_PARAMFILE: cpp
+          WITH_KERNEL: 0
+        - testset: license
+          BUILD_PARAMFILE: license
+          WITH_KERNEL: 0
     container:
       image: privkweihmann/yocto-sca-minimal:2004
       env:
@@ -86,16 +94,16 @@ jobs:
           target: qemu-system-native
       - name: build (kernel)
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
-        if: ${{ matrix.BUILD_PARAMFILE }} != 'kernel'
+        if: ${{ matrix.WITH_KERNEL }} == '1'
         with:
           target: linux-yocto
-      - name: build (sca-modules/others)
+      - name: build (sca-modules)
         uses: priv-kweihmann/meta-sca-ci-utils/buildmodules@latest
         with:
           parameter-file: ${{ matrix.BUILD_PARAMFILE }}
         env:
           BUILDNTEST_NOSDK: 1
-      - name: test (sca results/others)
+      - name: test (sca results)
         uses: priv-kweihmann/meta-sca-ci-utils/testresults@latest
         with:
           parameter-file: ${{ matrix.BUILD_PARAMFILE }}

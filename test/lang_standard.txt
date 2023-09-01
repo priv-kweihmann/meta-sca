@@ -1,10 +1,8 @@
 bandit
 bashate
 bitbake
-cbmc
 checkbashism
 cmake
-cppcheck
 cpplint
 cvecheck
 darglint
@@ -17,7 +15,6 @@ gcc
 golint
 it
 jsonlint
-licensecheck
 looong
 msgcheck
 multimetric
@@ -30,9 +27,7 @@ pscan
 pylint
 pysymcheck
 rats
-reuse
 revive
-scancode
 setuptoolslint
 shellcheck
 slick
