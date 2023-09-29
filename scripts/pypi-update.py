@@ -54,8 +54,19 @@ def update_pkg(args):
     _pkg = re.sub(r'\n|\s|"', "", _pkg[0].replace(
         'PYPI_PACKAGE = "', "")).strip()
 
-    res = requests.get(
-        "https://pypi.org/pypi/{pkg}/json".format(pkg=_pkg)).json()
+    okay = 20
+    while okay > 0:
+        try:
+            res = requests.get(
+                "https://pypi.org/pypi/{pkg}/json".format(pkg=_pkg)).json()
+            break
+        except Exception:
+            import time
+            time.sleep(1)
+            okay -= 1
+    
+    if okay < 1:
+        raise Exception("Something went wrong while fetching pypi info")
 
     _updated = False
 
