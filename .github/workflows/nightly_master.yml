@@ -21,7 +21,7 @@ jobs:
 
     strategy:
       matrix:
-        testset: [standard, kernel, cpp, license]
+        testset: [standard, kernel, cbmc, cppcheck, license]
         include:
         - testset: standard
           BUILD_PARAMFILE: standard
@@ -29,8 +29,11 @@ jobs:
         - testset: kernel
           BUILD_PARAMFILE: kernel
           WITH_KERNEL: 0
-        - testset: cpp
-          BUILD_PARAMFILE: cpp
+        - testset: cbmc
+          BUILD_PARAMFILE: cbmc
+          WITH_KERNEL: 0
+        - testset: cppcheck
+          BUILD_PARAMFILE: cppcheck
           WITH_KERNEL: 0
         - testset: license
           BUILD_PARAMFILE: license
