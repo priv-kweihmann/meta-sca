@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=7742d436e18716a43014253ae9f16b7e"
 
 DEPENDS += "python3-toml-native"
 
-SRC_URI[md5sum] = "79088b5fd3ca49175ec3edfab4329b78"
-SRC_URI[sha256sum] = "b6a2aa632b6fd51488a8eeac650ab4a509bb1a032e81943817a8a2e6a63a30b3"
+SRC_URI[md5sum] = "50c8719470c064b19841a742e6ded772"
+SRC_URI[sha256sum] = "2a5c3160bffba77595b6e6dfcc412016bd2a09cd4b66cdf7fbba913684899f6f"
 
 PYPI_PACKAGE = "vulture"
 
