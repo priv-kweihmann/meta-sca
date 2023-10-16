@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/python/mypy"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=6ba8ec528da02073b7e1f4124c0f836f"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=8d62fd8f8648cb018e52857347e340b9"
 
 DEPENDS += "\
     nativesdk-python3-mypy-extensions \
@@ -12,8 +12,8 @@ DEPENDS += "\
     python3-tomli-native \
 "
 
-SRC_URI[md5sum] = "0ed28fc85bc4198c22ccc72281d2e04c"
-SRC_URI[sha256sum] = "b031b9601f1060bf1281feab89697324726ba0c0bae9d7cd7ab4b690940f0b92"
+SRC_URI[md5sum] = "f32203b38d35db3227cf74b12d46d5b7"
+SRC_URI[sha256sum] = "4f3d27537abde1be6d5f2c96c29a454da333a2a271ae7d5bc7110e6d4b7beb3f"
 
 PYPI_PACKAGE = "mypy"
 
