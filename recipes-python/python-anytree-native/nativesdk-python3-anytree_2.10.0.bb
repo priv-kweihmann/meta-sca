@@ -8,8 +8,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e"
 
 DEPENDS += "nativesdk-python3-six"
 
-SRC_URI = "git://github.com/c0fec0de/anytree.git;branch=2.x.x;protocol=https"
-SRCREV = "814da5904dacd1ba564be7188e0d9508ec95f67b"
+SRC_URI = "git://github.com/c0fec0de/anytree.git;branch=stable;protocol=https"
+SRCREV = "a7c93b8f70a4ccd576ede1aa86f64e5ed88606a2"
 
 S = "${WORKDIR}/git"
 
