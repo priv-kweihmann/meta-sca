@@ -8,6 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2f7219b033913ae167adef13f25265b5"
 DEPENDS += "\
             python3-banal-native \
             python3-chardet-native \
+            python3-setuptools-scm-native \
             python3-text-unidecode-native \
            "
 
