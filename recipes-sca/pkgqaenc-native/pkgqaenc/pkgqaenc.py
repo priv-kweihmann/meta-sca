@@ -207,6 +207,14 @@ def walk_dir(_args):
                 if file_md5(_filename) in _args.config["__checksums"].values():
                     warning("direct-copy", rel_path(root, f, _args),
                             "File was directly copied from sources. That's not allowed by current configuration")
+            
+            if _args.config["acceptableDirs"]:
+                if not any([rel_path_self(root, f, _args).lstrip("/").startswith(x.lstrip("/")) for x in _args.config["acceptableDirs"]]):
+                    warning("unacceptable-dir", rel_path(root, f, _args),
+                            "Directory is not in acceptable paths")
+            if any([rel_path_self(root, f, _args).lstrip("/").startswith(x.lstrip("/")) for x in _args.config["blacklistDirs"]]):
+                warning("blacklist-dir", rel_path(root, f, _args),
+                        "Directory is blacklisted")
 
             if any([x in _args.config["whitelistFiles"] for x in [_mime, _ext, _basename]]):
                 continue
