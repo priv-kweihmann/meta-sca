@@ -28,6 +28,7 @@ SCA_PKGQAENC_HASHDOG_EXCL ?= "\
     sbindir_native \
     sbindir_nativesdk \
     sysconfdir_native \
+    TOPDIR \
 "
 
 inherit sca-pkgqaenc-helper
