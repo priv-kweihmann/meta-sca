@@ -5,9 +5,12 @@ SCA_SYSTEMDLINT_EXTRA_SUPPRESS ?= ""
 SCA_SYSTEMDLINT_EXTRA_FATAL ?= ""
 SCA_SYSTEMDLINT_SYSTEMD_VERSION ?= ""
 SCA_SYSTEMDLINT_FILES ?= ".automount .conf .link .mount .network .path .service .slice .socket .swap .target .timer"
-SCA_SYSTEMDLINT_PATHS ?= "${SCA_SYSTEMDLINT_SOURCES_DIR}/${sysconfdir}/systemd \
-                          ${SCA_SYSTEMDLINT_SOURCES_DIR}/${libdir}/systemd \
-                          ${SCA_SYSTEMDLINT_SOURCES_DIR}/run/systemd"
+SCA_SYSTEMDLINT_PATHS ?= "${SCA_SYSTEMDLINT_SOURCES_DIR}${sysconfdir}/systemd \
+                          ${SCA_SYSTEMDLINT_SOURCES_DIR}${libdir}/systemd \
+                          ${SCA_SYSTEMDLINT_SOURCES_DIR}/lib/systemd \
+                          ${SCA_SYSTEMDLINT_SOURCES_DIR}/run/systemd \
+                          ${SCA_SYSTEMDLINT_SOURCES_DIR}${systemd_system_unitdir} \
+                          ${SCA_SYSTEMDLINT_SOURCES_DIR}${systemd_user_unitdir}"
 
 SCA_RAW_RESULT_FILE[systemdlint] = "txt"
 
@@ -80,7 +83,7 @@ python do_sca_systemdlint() {
         _args += d.getVar("SCA_SYSTEMDLINT_EXTRA_ARGS").split(" ")
     _files = []
     for path in clean_split(d, "SCA_SYSTEMDLINT_PATHS"):
-        _files += get_files_by_extention(d, path,  d.getVar("SCA_SYSTEMDLINT_FILES"), \
+        _files += get_files_by_extention(d, path, d.getVar("SCA_SYSTEMDLINT_FILES"), \
                                             sca_filter_files(d, d.getVar("SCA_SYSTEMDLINT_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     cmd_output = exec_wrap_check_output(d, _args, _files)
