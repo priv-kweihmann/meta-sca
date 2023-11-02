@@ -125,6 +125,18 @@ def do_sca_pkgqaenc_core(d, package):
     import json
     from urllib.parse import unquote
 
+    def pkg_spec_or_default(d, key, suffix):
+        _val = d.getVar(f"{key}{suffix}")
+        if isinstance(_val, str) and _val.strip():
+            return [x for x in _val.split(" ") if x]
+        return [x for x in d.getVar(f"{key}").split(" ") if x]
+    
+    def pkg_spec_or_default_varflag(d, key, suffix):
+        _val = d.getVarFlags(f"{key}{suffix}")
+        if _val:
+            return [x for x in _val.split(" ") if x]
+        return d.getVarFlags(f"{key}")
+
     _config_tmp = os.path.join(d.getVar("T"), "pkgqaenc.conf")
     try:
         os.remove(_config_tmp)
@@ -156,13 +168,13 @@ def do_sca_pkgqaenc_core(d, package):
         if "minMask" not in conf:
             conf["minMask"] = {}
         conf["minMask"][k.replace("_", "/")] = v
-    conf["acceptableDirs"] = [x for x in (d.getVar("SCA_PKGQAENC_ACCEPTABLE_DIRS{}".format(_suffix)) or "").split(" ") if x]
-    conf["blacklistDirs"] = [x for x in (d.getVar("SCA_PKGQAENC_BLOCKLIST_DIRS{}".format(_suffix)) or "").split(" ") if x]
-    conf["acceptableShebang"] = [unquote(x) for x in (d.getVar("SCA_PKGQAENC_ACCEPTABLE_SHEBANG{}".format(_suffix)) or "").split(" ") if x]
-    conf["blacklistShebang"] = [unquote(x) for x in (d.getVar("SCA_PKGQAENC_BLOCKLIST_SHEBANG{}".format(_suffix)) or "").split(" ") if x]
-    conf["blacklistFiles"] = [x for x in (d.getVar("SCA_PKGQAENC_BLOCKLIST_FILES{}".format(_suffix)) or "").split(" ") if x]
-    conf["whitelistFiles"] = [x for x in (d.getVar("SCA_PKGQAENC_ALLOWLIST_FILES{}".format(_suffix)) or "").split(" ") if x]
-    conf["execCheck"] = [x for x in (d.getVar("SCA_PKGQAENC_EXEC_CHECK{}".format(_suffix)) or "").split(" ") if x]
+    conf["acceptableDirs"] = pkg_spec_or_default(d, "SCA_PKGQAENC_ACCEPTABLE_DIRS", _suffix)
+    conf["blacklistDirs"] = pkg_spec_or_default(d, "SCA_PKGQAENC_BLOCKLIST_DIRS", _suffix)
+    conf["acceptableShebang"] = [unquote(x) for x in pkg_spec_or_default(d, "SCA_PKGQAENC_ACCEPTABLE_SHEBANG", _suffix) if x]
+    conf["blacklistShebang"] = [unquote(x) for x in pkg_spec_or_default(d, "SCA_PKGQAENC_BLOCKLIST_SHEBANG", _suffix) if x]
+    conf["blacklistFiles"] = pkg_spec_or_default(d, "SCA_PKGQAENC_BLOCKLIST_FILES", _suffix)
+    conf["whitelistFiles"] = pkg_spec_or_default(d, "SCA_PKGQAENC_ALLOWLIST_FILES", _suffix)
+    conf["execCheck"] = pkg_spec_or_default(d, "SCA_PKGQAENC_EXEC_CHECK", _suffix)
     if not any(bb.data.inherits_class(x, d) for x in clean_split(d, "SCA_PKGQAENC_NO_COPY_NO_CHECK_CLASSES")):
         conf["nocopyCheck"] = clean_split(d, "SCA_PKGQAENC_NO_COPY_CHECK{}".format(_suffix))
     with open(_config_tmp, "w") as o:
