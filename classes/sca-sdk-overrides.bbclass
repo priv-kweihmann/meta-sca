@@ -8,7 +8,6 @@ inherit sca-helper
 
 def sca_conv_dm_console_sdk(d, tool):
     import json
-    import os
     import sys
 
     res = []
@@ -17,17 +16,11 @@ def sca_conv_dm_console_sdk(d, tool):
 
     filenames = list(set([x.File for x in _items]))
 
-    for _file in filenames:
-        _firstItem = [x for x in _items if x.File == _file ]
-        if any(_firstItem):
-            _firstItem = _firstItem[0]
-        else:
-            continue
     for i in _items:
-        res.append("[{}] {}:{}:{} - {} - [{}]".format(i.Severity, i.GetPath(), i.Line, i.Column, i.Message, i.GetFormattedID()))
-        sys.stderr.write(res[-1] + "\n")
+        res.append(i.GetFormattedID())
+        sys.stderr.write("[{}] {}:{}:{} - {} - [{}]\n".format(i.Severity, i.GetPath(), i.Line, i.Column, i.Message, i.GetFormattedID()))
 
-    return "\n".join(res)
+    return res
 
 def sca_conv_to_export_sdk(d, tool):
     return sca_conv_dm_console_sdk(d, tool)
@@ -55,4 +48,16 @@ def sca_raw_result_file_sdk(d, tool):
     return os.path.join("/tmp", "sca_raw_{}".format(tool))
 
 def sca_task_aftermath_sdk(d, tool, fatals=None):
-    sca_conv_to_export(d, tool)
+    import sys
+    def _get_fatal_from_result(in_, fatal_ids):
+        import re
+        res = set()
+        for i in in_:
+            if any(x for x in fatal_ids if re.match(x, i)):
+                res.add(i)
+        return res
+    res = sca_conv_to_export(d, tool)
+    fatals_found = _get_fatal_from_result(res, fatals)
+    if any(fatals_found):
+        sys.stderr.write("SCA found fatal errors!\n")
+        sys.exit(1)
