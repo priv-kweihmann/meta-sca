@@ -227,7 +227,8 @@ python do_sca_sdk_script_gen:class-nativesdk() {
         _target_file = d.expand("${WORKDIR}/sca.${SCA_TOOL_DESCRIPTION}.sh")
         os.makedirs(os.path.dirname(_target_file), exist_ok=True)
         with open(_target_file, "w") as o:
-            o.write("#!/bin/sh\n")
+            o.write("#!/bin/bash\n")
+            o.write("set -o pipefail\n")
             o.write("\n".join(res))
 }
 
@@ -238,6 +239,8 @@ do_install:append:class-nativesdk() {
         install -m 0755 ${WORKDIR}/sca.run.* ${D}${bindir} || true
     fi
 }
+
+RDEPENDS:${PN}:append:class-nativesdk = " nativesdk-bash"
 
 FILES:${PN}:append:class-nativesdk = " \
     ${bindir}/sca.run.* \

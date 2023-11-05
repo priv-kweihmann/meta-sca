@@ -1,6 +1,14 @@
 #!/bin/sh
+ret=0
 IFS=:
 for dir in $PATH; do
     [ ! -e "${dir}" ] && continue
-    find "${dir}" -type f -name "sca.*.sh" -exec {} \;
+    if ! ls ${dir}/sca.*.sh 1> /dev/null 2>&1; then
+        continue
+    fi
+    for script in ${dir}/sca.*.sh; do
+        ${script} || ret=1
+    done
 done
+
+exit $ret
