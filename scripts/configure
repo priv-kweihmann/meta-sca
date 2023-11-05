@@ -1,18 +1,19 @@
 #! /usr/bin/env python3
-## SPDX-License-Identifier: BSD-2-Clause
-## Copyright (c) 2019, Konrad Weihmann
+# SPDX-License-Identifier: BSD-2-Clause
+# Copyright (c) 2019, Konrad Weihmann
 
 import glob
 import os
 import json
 import argparse
 
+
 class ToolDescriptions(object):
 
     def __init__(self, rootpath):
         self.__autoValues = {"online": False}
         self.__tools = self.__getTools(rootpath)
-    
+
     def __getTools(self, rootpath):
         data = {}
         for item in glob.glob(os.path.join(rootpath, "**/*.sca.description"), recursive=True):
@@ -50,7 +51,6 @@ class ToolDescriptions(object):
                     res.append(k)
         return sorted(list(set(res)))
 
-
     def ListTools(self, key):
         res = []
         for k, v in self.__tools.items():
@@ -61,7 +61,7 @@ class ToolDescriptions(object):
                 else:
                     res.append(val)
         return sorted(list(set(res)))
-    
+
     def ListToolsRange(self, key):
         res = []
         for k, v in self.__tools.items():
@@ -72,9 +72,10 @@ class ToolDescriptions(object):
                 else:
                     res.append(val)
         return list(range(min(res), max(res) + 1))
-    
+
     def List(self):
         return json.dumps(self.__tools, indent=4, sort_keys=True)
+
 
 class InputElement(object):
     def __init__(self, title, dataobj, dataget=None, dataset=None, endkey=None):
@@ -84,7 +85,7 @@ class InputElement(object):
         self.__title = title
         self.__endkey = endkey
         self.__answer = []
-    
+
     def __get_pdata(self):
         res = []
         _data = self.__dataobj
@@ -94,10 +95,12 @@ class InputElement(object):
             _data = getattr(self.__dataobj, k)(v)
         if isinstance(_data, list) or isinstance(_data, tuple):
             for i in _data:
-                res.append({"Key": i, "Value": i, "Checked": i in self.__answer})
+                res.append(
+                    {"Key": i, "Value": i, "Checked": i in self.__answer})
         elif isinstance(_data, dict):
-            for k,v in _data.items():
-                res.append({"Key": k, "Value": v, "Checked": v in self.__answer})
+            for k, v in _data.items():
+                res.append(
+                    {"Key": k, "Value": v, "Checked": v in self.__answer})
         return res
 
     def __present(self, data):
@@ -111,7 +114,6 @@ class InputElement(object):
         if self.__endkey is not None:
             print("    [{}]: Done".format(self.__endkey))
         return input("Enter a choice: ")
-
 
     def Present(self):
         okay = False
@@ -139,6 +141,7 @@ class InputElement(object):
                     self.__answer = list(set(res))
                 return self.__answer
 
+
 class RawInputElement(object):
     def __init__(self, title, dataobj):
         self.__dataobj = dataobj
@@ -152,9 +155,29 @@ class RawInputElement(object):
             self.__dataobj = val
         return self.__dataobj
 
+
+class RawInputElementIfNotSet(object):
+    def __init__(self, title, dataobj, notifset, questiondata):
+        self.__dataobj = dataobj
+        self.__title = title
+        self.__notifset = notifset
+        self.__questiond = questiondata
+
+    def Present(self):
+        if self.__questiond.get(self.__notifset):
+            return self.__dataobj
+        print("### {} ###".format(self.__title))
+        print("    current setting: {}".format(self.__dataobj))
+        val = input("Enter a choice: ")
+        if val:
+            self.__dataobj = val
+        return self.__dataobj
+
+
 def create_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument("thisdir", help="path to meta-sca layer, like '/media/foo/meta-sca'")
+    parser.add_argument(
+        "thisdir", help="path to meta-sca layer, like '/media/foo/meta-sca'")
     x = parser.parse_args()
     if not os.path.isabs(x.thisdir):
         x.thisdir = os.path.abspath(x.thisdir)
@@ -164,9 +187,12 @@ def create_parser():
 if __name__ == '__main__':
     _args = create_parser()
     _tools = ToolDescriptions(_args.thisdir)
+    _data = {
 
-    _questions = {
-        "SCA_AVAILABLE_MODULES": [
+    }
+
+    _questions = [
+        ("SCA_AVAILABLE_MODULES", [
             InputElement("Do you have online access while building?", dataobj=_tools, dataget={
                          "ListTools": "online"}, dataset={"GetTools": "languages"}),
             InputElement("What content to you want to check?", dataobj=_tools, dataget={
@@ -179,26 +205,34 @@ if __name__ == '__main__':
                          "ListToolsRange": "execspeed"}, dataset={"GetToolsGE": "execspeed"}),
             InputElement("What quality do you expect of the tools? [0=error-prone, 10=always-true]", dataobj=_tools, dataget={
                          "ListToolsRange": "quality"}, dataset={"GetToolsGE": "quality"}),
-        ],
-        "SCA_AUTO_INH_ON_IMAGE": InputElement("Do you want to check images?", dataobj={"yes": "1", "no": "0"}),
-        "SCA_AUTO_INH_ON_RECIPE": InputElement("Do you want to check recipes?", dataobj={"yes": "1", "no": "0"}),
-        "SCA_WARNING_LEVEL": InputElement("From which priority on the findings should be reported?", dataobj=["error", "warning", "info"]),
-        "SCA_AUTO_LICENSE_FILTER": RawInputElement("Enter a license filter", dataobj=".*"),
-        "SCA_EXPORT_FINDING_SRC": InputElement("Do you want export the findings to Jenkins?", dataobj={"yes": "1", "no": "0"}),
-        "SCA_TRACEFILES_MODE": InputElement("What kind input files should be considered?", 
-                                            dataobj={
-                                                "All": "full", 
-                                                "Only things deployed to the image": "strict", 
-                                                "Deployed and a few support files": "loose"}
-                                           ),
-        "SCA_SPARE_LAYER": RawInputElement("Name the layers which should NOT be checked (e.g. core). Use spaces for seperating multiple items", dataobj=""),
-        "SCA_BACKTRACK": InputElement("Do you want findings from image being tracked back to their original recipes?", dataobj={"yes": "1", "no": "0"}),
-        "SCA_VERBOSE_OUTPUT": InputElement("Enable verbose console output?", dataobj={"yes": "1", "no": "0"}),
-    }
-    _data = {
-
-    }
-    for k,v in sorted(_questions.items()):
+        ]),
+        ("SCA_AUTO_INH_ON_IMAGE", InputElement(
+            "Do you want to check images?", dataobj={"yes": "1", "no": "0"})),
+        ("SCA_AUTO_INH_ON_RECIPE", InputElement(
+            "Do you want to check recipes?", dataobj={"yes": "1", "no": "0"})),
+        ("SCA_WARNING_LEVEL", InputElement(
+            "From which priority on the findings should be reported?", dataobj=["error", "warning", "info"])),
+        ("SCA_AUTO_LICENSE_FILTER", RawInputElement(
+            "Enter a license filter", dataobj=".*")),
+        ("SCA_EXPORT_FINDING_SRC", InputElement(
+            "Do you want export the findings to Jenkins?", dataobj={"yes": "1", "no": "0"})),
+        ("SCA_TRACEFILES_MODE", InputElement("What kind input files should be considered?",
+                                             dataobj={
+                                                 "All": "full",
+                                                 "Only things deployed to the image": "strict",
+                                                 "Deployed and a few support files": "loose"}
+                                             )),
+        ("SCA_SPARE_LAYER", RawInputElement(
+            "Name the layers which should NOT be checked (e.g. core). Use spaces for separating multiple items", dataobj="")),
+        ("SCA_ALLOW_LAYER", RawInputElementIfNotSet("Name the layers which should ONLY be checked (e.g. core). Use spaces for separating multiple items",
+         dataobj="", notifset="SCA_SPARE_LAYER", questiondata=_data)),
+        ("SCA_BACKTRACK", InputElement(
+            "Do you want findings from image being tracked back to their original recipes?", dataobj={"yes": "1", "no": "0"})),
+        ("SCA_VERBOSE_OUTPUT", InputElement(
+            "Enable verbose console output?", dataobj={"yes": "1", "no": "0"})),
+    ]
+    for item in _questions:
+        k, v = item
         val = []
         if isinstance(v, list):
             for vv in v:
@@ -215,5 +249,5 @@ if __name__ == '__main__':
             _data[k] = val
     os.system("clear")
     print("### Summary: Insert this into your local.conf or distro.conf ####")
-    for k,v in sorted(_data.items()):
+    for k, v in sorted(_data.items()):
         print("{} = \"{}\"".format(k, v))
