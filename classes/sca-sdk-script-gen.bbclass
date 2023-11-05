@@ -234,8 +234,8 @@ python do_sca_sdk_script_gen:class-nativesdk() {
 do_install:append:class-nativesdk() {
     if [ -n "${SCA_SDKGEN_TASKS}" ]; then
         install -d ${D}${bindir}
-        install -m 0755 ${WORKDIR}/sca.*.sh ${D}${bindir}
-        install -m 0755 ${WORKDIR}/sca.run.* ${D}${bindir}
+        install -m 0755 ${WORKDIR}/sca.*.sh ${D}${bindir} || bbwarn "Please clean the sstate cache and run again"
+        install -m 0755 ${WORKDIR}/sca.run.* ${D}${bindir} || true
     fi
 }
 
