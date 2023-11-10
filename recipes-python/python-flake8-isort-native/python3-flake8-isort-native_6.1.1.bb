@@ -12,12 +12,12 @@ DEPENDS += "\
             python3-testfixtures-native \
             "
 
-SRC_URI[sha256sum] = "d4639343bac540194c59fb1618ac2c285b3e27609f353bef6f50904d40c1643e"
+SRC_URI[sha256sum] = "c1f82f3cf06a80c13e1d09bfae460e9666255d5c780b859f19f8318d420370b3"
 
-PYPI_PACKAGE = "flake8-isort"
+PYPI_PACKAGE = "flake8_isort"
 
 inherit pypi
-inherit setuptools3
+inherit python_hatchling
 inherit native
 
 RDEPENDS:${PN}:class-nativesdk += "\
