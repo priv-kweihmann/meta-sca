@@ -7,13 +7,15 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 DEPENDS += "python3-flake8-native"
 
-PYPI_PACKAGE = "flake8-pep3101"
+PYPI_PACKAGE = "flake8_pep3101"
 
-SRC_URI[md5sum] = "1aaee8192088962faea260d9b736ea70"
-SRC_URI[sha256sum] = "ae2ee1758734a473ca971b4bf9ff09c961b6099916db91fdb6b9718328dfcacb"
+UPSTREAM_CHECK_REGEX = "project/flake8_pep3101/(?P<pver>(\d+[\.]*)+)"
+
+SRC_URI[md5sum] = "54314b591034e79d2379fc44aee748ed"
+SRC_URI[sha256sum] = "1b84b61685f1e631f2f710e5d5ed3ca68b5fc45fb9402fa8ae1b8a9a058a3387"
 
 inherit pypi
-inherit setuptools3
+inherit python_hatchling
 inherit native
 
 RDEPENDS:${PN}:class-nativesdk += "\
