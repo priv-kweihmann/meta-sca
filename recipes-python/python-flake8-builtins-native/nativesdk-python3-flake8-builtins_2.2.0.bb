@@ -12,13 +12,13 @@ DEPENDS += "\
     nativesdk-python3-pyflakes \
 "
 
-PYPI_PACKAGE = "flake8-builtins"
+PYPI_PACKAGE = "flake8_builtins"
 
-SRC_URI[md5sum] = "4663ee2a1f0d65aef3c57b74e07952d3"
-SRC_URI[sha256sum] = "12ff1ee96dd4e1f3141141ee6c45a5c7d3b3c440d0949e9b8d345c42b39c51d4"
+SRC_URI[md5sum] = "55b77ca583696c4a96ba350d0ae6796a"
+SRC_URI[sha256sum] = "392d5af3a0720c5a863aa93dc47f48c879081345a143fe9f20d995fe9ff5686a"
 
 inherit pypi
-inherit setuptools3
+inherit python_hatchling
 inherit nativesdk
 
 RDEPENDS:${PN}:class-nativesdk += "\
