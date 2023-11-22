@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e"
 
 DEPENDS += "python3-six-native"
 
-SRC_URI[sha256sum] = "0dde0365cc8b1f3531e927694f39b903c360eadab2be09c50f3426ecca967949"
+SRC_URI[sha256sum] = "244def434ccf31b668ed282954e5d315b4e066c4940b94aff4a7962d85947830"
 
 PYPI_PACKAGE = "anytree"
 
