@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=8fe3d55921813400e0e295e623a5c2ae"
 PYPI_PACKAGE = "stdlib_list"
 UPSTREAM_CHECK_REGEX ?= "/stdlib-list/(?P<pver>(\d+[\.\-_]*)+)"
 
-SRC_URI[sha256sum] = "98eb66135976c96b4ee3f4c0ef0552ebb5a9977ce3028433db79f4738b02af26"
+SRC_URI[sha256sum] = "6519c50d645513ed287657bfe856d527f277331540691ddeaf77b25459964a14"
 
 inherit pypi
 inherit native
