@@ -6,7 +6,7 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f45999e825d6792e32a1cbadd968b1b7"
 
-SRC_URI = "git://github.com/TH3xACE/SUDO_KILLER.git;branch=master;protocol=https"
+SRC_URI = "git://github.com/TH3xACE/SUDO_KILLER.git;protocol=https;branch=V2"
 SRCREV = "51e3de24c921b9d89b8925e0d00e228575ea5ae9"
 UPSTREAM_CHECK_COMMITS = "1"
 
