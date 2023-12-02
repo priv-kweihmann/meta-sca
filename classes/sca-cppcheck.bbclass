@@ -22,6 +22,8 @@ SCA_CPPCHECK_RUNMODE ?= "fast"
 SCA_CPPCHECK_MAX_CONFIG ?= "1"
 ## Config to use
 SCA_CPPCHECK_LIBRARY ?= "std.cfg"
+## Check level - normal or exhaustive
+SCA_CPPCHECK_CHECKLEVEL ?= "normal"
 
 SCA_RAW_RESULT_FILE[cppcheck] = "xml"
 
@@ -127,6 +129,7 @@ python do_sca_cppcheck() {
         _args += ["--max-configs={}".format(d.getVar("SCA_CPPCHECK_MAX_CONFIG"))]
         _args += ["--enable=warning,style,performance,portability,information"]
         _args += ["-j", d.getVar("BB_NUMBER_THREADS")]
+    _args += ["--check-level={}".format(d.getVar("SCA_CPPCHECK_CHECKLEVEL"))]
     _args += ["--inline-suppr"]
     _args += ["-I", d.getVar("STAGING_INCDIR")]
     for item in _add_include:
