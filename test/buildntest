@@ -27,8 +27,11 @@ if [ ! -z "${_targets}" ]; then
 fi
 
 # test scabot implementation
-bitbake python3-scabot-native -caddto_recipe_sysroot
-oe-run-native python3-scabot-native scabot --help > /dev/null || exit 1
+if [ -z "${BUILDNTEST_NOSCABOT}" ]; then
+    bitbake python3-scabot-native
+    bitbake python3-scabot-native -caddto_recipe_sysroot
+    oe-run-native python3-scabot-native scabot --help > /dev/null || exit 1
+fi
 
 if [ -z "${BUILDNTEST_NOTEST}" ]; then
     ${_thispath}/check_results ${_pwd}/tmp/deploy/images/*/sca ${mods} || exit 1

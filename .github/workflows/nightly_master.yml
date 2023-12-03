@@ -29,15 +29,19 @@ jobs:
         - testset: kernel
           BUILD_PARAMFILE: kernel
           WITH_KERNEL: 0
+          BUILDNTEST_NOSCABOT: 1
         - testset: cbmc
           BUILD_PARAMFILE: cbmc
           WITH_KERNEL: 0
+          BUILDNTEST_NOSCABOT: 1
         - testset: cppcheck
           BUILD_PARAMFILE: cppcheck
           WITH_KERNEL: 0
+          BUILDNTEST_NOSCABOT: 1
         - testset: license
           BUILD_PARAMFILE: license
           WITH_KERNEL: 0
+          BUILDNTEST_NOSCABOT: 1
     container:
       image: privkweihmann/yocto-sca-minimal:2004
       env:
@@ -110,6 +114,8 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/testresults@latest
         with:
           parameter-file: ${{ matrix.BUILD_PARAMFILE }}
+        env:
+          BUILDNTEST_NOSCABOT: ${{ matrix.BUILDNTEST_NOSCABOT }}
       - if: env.BUILD_EXPORT == '1'
         name: checkout (webpage)
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
