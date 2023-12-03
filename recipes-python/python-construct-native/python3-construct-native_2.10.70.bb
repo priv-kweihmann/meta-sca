@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=202b39559c1c79fe4715ce81e9e0ac02"
 
 PYPI_PACKAGE = "construct"
 
-SRC_URI[sha256sum] = "08573d1573827a6fe6b846756d54270650e221a6cec6a72e06b582cde775599e"
+SRC_URI[sha256sum] = "4d2472f9684731e58cc9c56c463be63baa1447d674e0d66aeb5627b22f512c29"
 
 inherit pypi
 inherit setuptools3
