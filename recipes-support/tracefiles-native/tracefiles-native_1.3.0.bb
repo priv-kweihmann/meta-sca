@@ -6,7 +6,7 @@ LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=42b280e18423c22b76d77cbbc6f59b47"
 
 SRC_URI = "git://github.com/priv-kweihmann/tracefiles.git;protocol=https;branch=master"
-SRCREV = "dcc9609ad4813556b2bd7303ecc85ddb4ecda50d"
+SRCREV = "306c68ca03b65510c04a5e2bad754a852db8f5f6"
 
 S = "${WORKDIR}/git"
 
