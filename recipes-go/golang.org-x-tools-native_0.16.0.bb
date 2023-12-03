@@ -12,7 +12,6 @@ EXTRA_DEPENDS += "\
     golang.org-x-mod-native \
     golang.org-x-net-native \
     golang.org-x-sync-native \
-    golang.org-x-sys-native \
 "
 
 GO_IMPORT = "golang.org/x/tools"
