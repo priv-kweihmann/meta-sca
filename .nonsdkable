@@ -56,6 +56,7 @@
 .*/recipes-python/python-pyahocorasick-native/.*
 .*/recipes-python/python-pycryptodome-native/.*
 .*/recipes-python/python-pygmars-native/.*
+.*/recipes-python/python-pyjwt-native/.*
 .*/recipes-python/python-pymaven-patch-native/.*
 .*/recipes-python/python-python-dateutil-native/.*
 .*/recipes-python/python-python-gitlab-native/.*
