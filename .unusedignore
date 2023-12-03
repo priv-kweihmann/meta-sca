@@ -1,5 +1,14 @@
 [
     "dynamic-distro/",
-    "recipes-python/python-scabot-native/python3-scabot-native_git.bb",
-    "packagegroups/nativesdk-sca-tools.bb"
+    "packagegroups/nativesdk-sca-tools.bb",
+    "recipes-python/python-deprecated-native/",
+    "recipes-python/python-github3-py-native/",
+    "recipes-python/python-jwcrypto-native/",
+    "recipes-python/python-python-dateutil-native/",
+    "recipes-python/python-python-gitlab-native/",
+    "recipes-python/python-requests-toolbelt-native/",
+    "recipes-python/python-scabot-native/",
+    "recipes-python/python-tenacity-native/",
+    "recipes-python/python-unidiff-native/",
+    "recipes-python/python-uritemplate-native/"
 ]
