@@ -103,6 +103,12 @@ python do_cve_check() {
     sca_task_aftermath(d, "cvecheck")
 }
 
+do_cve_check[vardeps] += "\
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
+
 do_sca_deploy[depends] += "${PN}:do_cve_check"
 
 DEPENDS += "cvecheck-sca-native"

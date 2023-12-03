@@ -92,6 +92,17 @@ python do_sca_msgcheck() {
                         d.expand("${STAGING_DATADIR_NATIVE}/msgcheck-${SCA_MODE}-fatal")))
 }
 
+do_sca_msgcheck[vardeps] += "\
+    SCA_FILE_FILTER_EXTRA \
+    SCA_LOCAL_FILE_FILTER \
+    SCA_MSGCHECK_EXTRA_FATAL \
+    SCA_MSGCHECK_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
+
+
 do_sca_msgcheck[doc] = "Lint i18n files"
 addtask do_sca_msgcheck after do_configure before do_sca_deploy
 

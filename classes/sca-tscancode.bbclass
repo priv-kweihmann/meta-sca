@@ -139,6 +139,12 @@ python do_sca_tscancode() {
     os.chdir(_curdir)
 }
 
+do_sca_tscancode[vardeps] += "\
+    SCA_FILE_FILTER_EXTRA \
+    SCA_LOCAL_FILE_FILTER \
+    SCA_TSCANCODE_FILE_FILTER \
+"
+
 python do_sca_tscancode_report() {
     import os
     ## Create data model
@@ -150,6 +156,14 @@ python do_sca_tscancode_report() {
     sca_task_aftermath(d, "tscancode", get_fatal_entries(d, clean_split(d, "SCA_TSCANCODE_EXTRA_FATAL"),
                        d.expand("${STAGING_DATADIR_NATIVE}/tscancode-${SCA_MODE}-fatal")))
 }
+
+do_sca_tscancode_report[vardeps] += "\
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+    SCA_TSCANCODE_EXTRA_FATAL \
+    SCA_TSCANCODE_EXTRA_SUPPRESS \
+"
 
 do_sca_tscancode[doc] = "Lint C/C++ files with tscancode"
 do_sca_tscancode_report[doc] = "Report findings of do_sca_tscancode"

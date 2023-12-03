@@ -79,7 +79,7 @@ python do_sca_perlcritic() {
 
     _files = get_files_by_extention_or_shebang(d,
                                                 d.getVar("SCA_SOURCES_DIR"),
-                                                ".*/perlcritic",
+                                                ".*/perl",
                                                 clean_split(d, "SCA_PERLCRITIC_FILE_FILTER"),
                                                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
@@ -89,6 +89,12 @@ python do_sca_perlcritic() {
     with open(sca_raw_result_file(d, "perlcritic"), "w") as o:
         o.write(cmd_output)
 }
+
+do_sca_perlcritic[vardeps] += "\
+    SCA_FILE_FILTER_EXTRA \
+    SCA_LOCAL_FILE_FILTER \
+    SCA_PERLCRITIC_FILE_FILTER \
+"
 
 python do_sca_perlcritic_report() {
     import os
@@ -101,6 +107,14 @@ python do_sca_perlcritic_report() {
     sca_task_aftermath(d, "perlcritic", get_fatal_entries(d, clean_split(d, "SCA_PERLCRITIC_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/perlcritic-${SCA_MODE}-fatal")))
 }
+
+do_sca_perlcritic_report[vardeps] += "\
+    SCA_PERLCRITIC_EXTRA_FATAL \
+    SCA_PERLCRITIC_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
 
 do_sca_perlcritic[doc] = "Lint perl scripts with perlcritic in workspace"
 do_sca_perlcritic_report[doc] = "Report findings from do_sca_perlcritic"

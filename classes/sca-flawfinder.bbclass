@@ -85,6 +85,12 @@ python do_sca_flawfinder() {
         o.write(cmd_output)
 }
 
+do_sca_flawfinder[vardeps] += "\
+    SCA_FILE_FILTER_EXTRA \
+    SCA_FLAWFINDER_FILE_FILTER \
+    SCA_LOCAL_FILE_FILTER \
+"
+
 python do_sca_flawfinder_report() {
     import os
     ## Create data model
@@ -96,6 +102,14 @@ python do_sca_flawfinder_report() {
     sca_task_aftermath(d, "flawfinder", get_fatal_entries(d, clean_split(d, "SCA_FLAWFINDER_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/flawfinder-${SCA_MODE}-fatal")))
 }
+
+do_sca_flawfinder_report[vardeps] += "\
+    SCA_FLAWFINDER_EXTRA_FATAL \
+    SCA_FLAWFINDER_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
 
 do_sca_flawfinder[doc] = "Find insecure C/C++ code"
 do_sca_flawfinder_report[doc] = "Report findings of do_sca_flawfinder"

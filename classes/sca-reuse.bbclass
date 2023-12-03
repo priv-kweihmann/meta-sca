@@ -117,6 +117,14 @@ python do_sca_reuse_report() {
                        d.expand("${STAGING_DATADIR_NATIVE}/reuse-${SCA_MODE}-fatal")))
 }
 
+do_sca_reuse_report[vardeps] += "\
+    SCA_REUSE_EXTRA_FATAL \
+    SCA_REUSE_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
+
 do_sca_reuse[doc] = "License compliance with reuse"
 do_sca_reuse_report[doc] = "Report findings of do_sca_reuse"
 do_sca_reuse[nosdkgen] = "1"

@@ -209,6 +209,26 @@ python do_sca_pkgqaenc() {
                         d.expand("${STAGING_DATADIR_NATIVE}/pkgqaenc-${SCA_MODE}-fatal")))
 }
 
+do_sca_pkgqaenc[vardeps] += "\
+    PACKAGES \
+    SCA_PKGQAENC_ACCEPTABLE_DIRS \
+    SCA_PKGQAENC_ACCEPTABLE_SHEBANG \
+    SCA_PKGQAENC_ALLOWLIST_FILES \
+    SCA_PKGQAENC_BLOCKLIST_DIRS \
+    SCA_PKGQAENC_BLOCKLIST_FILES \
+    SCA_PKGQAENC_BLOCKLIST_SHEBANG \
+    SCA_PKGQAENC_EXEC_CHECK \
+    SCA_PKGQAENC_EXTRA_FATAL \
+    SCA_PKGQAENC_EXTRA_SUPPRESS \
+    SCA_PKGQAENC_NO_COPY_NO_CHECK_CLASSES \
+    SCA_PKGQAENC_PERM_MAX_MASK \
+    SCA_PKGQAENC_PERM_MIN_MASK \
+    SCA_PKGQAENC_PYIDENT_BUILTINS \
+    SCA_PKGQAENC_SHELLIDENT_SHELLS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
 
 do_sca_pkgqaenc[doc] = "Lint produced packages"
 do_sca_pkgqaenc[depends] += "python3-native:do_populate_sysroot ${PN}:do_prepare_recipe_sysroot"

@@ -88,6 +88,7 @@ python do_sca_bashate_core() {
     with open(sca_raw_result_file(d, "bashate"), "w") as o:
         o.write(cmd_output)
 }
+do_sca_bashate_core[vardeps] += "SCA_FILE_FILTER_EXTRA SCA_LOCAL_FILE_FILTER"
 
 python do_sca_bashate_core_report() {
     import os
@@ -100,5 +101,13 @@ python do_sca_bashate_core_report() {
     sca_task_aftermath(d, "bashate", get_fatal_entries(d, clean_split(d, "SCA_BASHATE_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/bashate-${SCA_MODE}-fatal")))
 }
+
+do_sca_bashate_core_report[vardeps] += "\
+    SCA_BASHATE_EXTRA_FATAL \
+    SCA_BASHATE_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
 
 DEPENDS += "python3-bashate-native"

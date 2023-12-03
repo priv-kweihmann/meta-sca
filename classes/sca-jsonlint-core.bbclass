@@ -74,6 +74,12 @@ python do_sca_jsonlint_core() {
                 o.write("{}:{}:{}:error:jsonlint.parsererror:{}\n".format(_f, e.lineno, e.colno, e.msg))
 }
 
+do_sca_jsonlint_core[vardeps] += "\
+    SCA_FILE_FILTER_EXTRA \
+    SCA_JSONLINT_FILE_FILTER \
+    SCA_LOCAL_FILE_FILTER \
+"
+
 python do_sca_jsonlint_core_report() {
     import os
     ## Create data model
@@ -85,5 +91,12 @@ python do_sca_jsonlint_core_report() {
     sca_task_aftermath(d, "jsonlint", get_fatal_entries(d, clean_split(d, "SCA_JSONLINT_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/jsonlint-${SCA_MODE}-fatal")))
 }
+
+do_sca_jsonlint_core_report[vardeps] += "\
+    SCA_JSONLINT_EXTRA_FATAL \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
 
 DEPENDS += "jsonlint-sca-native"

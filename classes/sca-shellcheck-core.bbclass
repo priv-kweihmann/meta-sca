@@ -1,6 +1,9 @@
 ## SPDX-License-Identifier: BSD-2-Clause
 ## Copyright (c) 2019, Konrad Weihmann
 
+SCA_SHELLCHECK_EXTRA_SUPPRESS ?= ""
+SCA_SHELLCHECK_EXTRA_FATAL ?= ""
+
 SCA_RAW_RESULT_FILE[shellcheck] = "xml"
 
 inherit sca-conv-to-export
@@ -70,7 +73,7 @@ python do_sca_shellcheck_core() {
     _args += ["-a"]
 
     xml_output = ""
-    for k,v in { "bash": ".*/bash", "sh": ".*/sh", "ksh": ".*/ksh"}.items():
+    for k, v in { "bash": ".*/bash", "sh": ".*/sh", "ksh": ".*/ksh" }.items():
         _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), v, ".sh",
                                                    sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"),
                                                    clean_split(d, "SCA_FILE_FILTER_EXTRA")))
@@ -80,6 +83,11 @@ python do_sca_shellcheck_core() {
     with open(sca_raw_result_file(d, "shellcheck"), "w") as o:
         o.write(xml_output)
 }
+
+do_sca_shellcheck_core[vardeps] += "\
+    SCA_FILE_FILTER_EXTRA \
+    SCA_LOCAL_FILE_FILTER \
+"
 
 python do_sca_shellcheck_core_report() {
     import os
@@ -92,5 +100,13 @@ python do_sca_shellcheck_core_report() {
     sca_task_aftermath(d, "shellcheck", get_fatal_entries(d, clean_split(d, "SCA_SHELLCHECK_EXTRA_FATAL"),
                        d.expand("${STAGING_DATADIR_NATIVE}/shellcheck-${SCA_MODE}-fatal")))
 }
+
+do_sca_shellcheck_core_report[vardeps] += "\
+    SCA_SHELLCHECK_EXTRA_FATAL \
+    SCA_SHELLCHECK_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
 
 DEPENDS += "shellcheck-native"

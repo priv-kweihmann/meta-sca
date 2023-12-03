@@ -77,6 +77,12 @@ python do_sca_golint() {
         o.write(cmd_output)
 }
 
+do_sca_golint[vardeps] += "\
+    SCA_FILE_FILTER_EXTRA \
+    SCA_GOLINT_FILE_FILTER \
+    SCA_LOCAL_FILE_FILTER \
+"
+
 python do_sca_golint_report() {
     import os
     ## Create data model
@@ -88,6 +94,14 @@ python do_sca_golint_report() {
     sca_task_aftermath(d, "golint", get_fatal_entries(d, clean_split(d, "SCA_GOLINT_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/golint-${SCA_MODE}-fatal")))
 }
+
+do_sca_golint_report[vardeps] += "\
+    SCA_GOLINT_EXTRA_FATAL \
+    SCA_GOLINT_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
 
 do_sca_golint[doc] = "Lint go files with golint"
 do_sca_golint_report[doc] = "Report findings of do_sca_golint"

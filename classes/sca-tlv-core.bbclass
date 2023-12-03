@@ -76,6 +76,11 @@ python do_sca_tlv_core() {
         o.write(cmd_output)
 }
 
+do_sca_tlv_core[vardeps] += "\
+    SCA_FILE_FILTER_EXTRA \
+    SCA_LOCAL_FILE_FILTER \
+"
+
 python do_sca_tlv_core_report() {
     import os
     ## Create data model
@@ -86,5 +91,11 @@ python do_sca_tlv_core_report() {
 
     sca_task_aftermath(d, "tlv", get_fatal_entries(d, clean_split(d, ""), None))
 }
+
+do_sca_tlv_core_report[vardeps] += "\
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
 
 DEPENDS += "python3-tlv-native"

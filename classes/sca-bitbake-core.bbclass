@@ -136,4 +136,12 @@ python do_sca_bitbake () {
     sca_task_aftermath(d, "bitbake", get_fatal_entries(d, clean_split(d, ""), None))
 }
 
+do_sca_bitbake[vardeps] += "\
+    IMAGE_FEATURES \
+    SCA_BITBAKE_HARDENING \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
+
 DEPENDS += "bitbake-sca-native"

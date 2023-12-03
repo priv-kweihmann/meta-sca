@@ -80,7 +80,7 @@ python do_sca_setuptoolslint() {
         if os.path.exists(f):
             try:
                 os.chdir(d.getVar("T"))
-                # Lint using a fake package, as we only need to first stage of
+                # Lint using a fake package, as we only need to get to first stage of
                 # linting, as pylint is already run by a different module
                 tmp_output = subprocess.check_output(_args + [f, "--dry-run", "lint", "--lint-packages=2107066c996809c8e5cec0a3ce1b10cfe4ab1fbf"], universal_newlines=True, stderr=subprocess.STDOUT)
             except subprocess.CalledProcessError as e:
@@ -100,6 +100,15 @@ python do_sca_setuptoolslint() {
     sca_task_aftermath(d, "setuptoolslint", get_fatal_entries(d, clean_split(d, "SCA_SETUPTOOLSLINT_EXTRA_FATAL"),
                        d.expand("${STAGING_DATADIR_NATIVE}/setuptoolslint-${SCA_MODE}-fatal")))
 }
+
+do_sca_setuptoolslint[vardeps] += "\
+    SCA_SCOPE_FILTER \
+    SCA_SETUPTOOLSLINT_EXTRA_FATAL \
+    SCA_SETUPTOOLSLINT_EXTRA_SUPPRESS \
+    SCA_SETUPTOOLSLINT_FILES \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
 
 do_sca_setuptoolslint[doc] = "Lint python library installation"
 addtask do_sca_setuptoolslint before do_sca_deploy after do_compile

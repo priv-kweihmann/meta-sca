@@ -38,7 +38,7 @@ SCA_MULTIMETRIC_EXTRA_FATAL ?= ""
 # tiobe_standard
 # tiobe
 
-SCA_MULTIMETRIC_COMPILER_MODULES = "gcc"
+SCA_MULTIMETRIC_COMPILER_MODULES ?= ""
 
 SCA_RAW_RESULT_FILE[multimetric] = "json"
 
@@ -226,6 +226,13 @@ python do_sca_multimetric_core() {
         o.write(cmd_output)
 }
 
+do_sca_multimetric_core[vardeps] += "\
+    SCA_FILE_FILTER_EXTRA \
+    SCA_LOCAL_FILE_FILTER \
+    SCA_MULTIMETRIC_COMPILER_MODULES \
+    SCA_MULTIMETRIC_FILE_FILTER \
+"
+
 python do_sca_multimetric_core_report() {
     import os
     # Create data model
@@ -236,5 +243,113 @@ python do_sca_multimetric_core_report() {
     sca_task_aftermath(d, "multimetric", get_fatal_entries(d, clean_split(d, "SCA_MULTIMETRIC_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/multimetric-${SCA_MODE}-fatal")))
 }
+
+do_sca_multimetric_core_report[vardeps] += "\
+    SCA_MULTIMETRIC_ERROR_comment_ratio_gt \
+    SCA_MULTIMETRIC_ERROR_comment_ratio_lt \
+    SCA_MULTIMETRIC_ERROR_cyclomatic_complexity_gt \
+    SCA_MULTIMETRIC_ERROR_cyclomatic_complexity_lt \
+    SCA_MULTIMETRIC_ERROR_fanout_external_gt \
+    SCA_MULTIMETRIC_ERROR_fanout_external_lt \
+    SCA_MULTIMETRIC_ERROR_fanout_internal_gt \
+    SCA_MULTIMETRIC_ERROR_fanout_internal_lt \
+    SCA_MULTIMETRIC_ERROR_halstead_bugprop_gt \
+    SCA_MULTIMETRIC_ERROR_halstead_bugprop_lt \
+    SCA_MULTIMETRIC_ERROR_halstead_difficulty_gt \
+    SCA_MULTIMETRIC_ERROR_halstead_difficulty_lt \
+    SCA_MULTIMETRIC_ERROR_halstead_effort_gt \
+    SCA_MULTIMETRIC_ERROR_halstead_effort_lt \
+    SCA_MULTIMETRIC_ERROR_halstead_timerequired_gt \
+    SCA_MULTIMETRIC_ERROR_halstead_timerequired_lt \
+    SCA_MULTIMETRIC_ERROR_halstead_volume_gt \
+    SCA_MULTIMETRIC_ERROR_halstead_volume_lt \
+    SCA_MULTIMETRIC_ERROR_loc_gt \
+    SCA_MULTIMETRIC_ERROR_loc_lt \
+    SCA_MULTIMETRIC_ERROR_maintainability_index_gt \
+    SCA_MULTIMETRIC_ERROR_maintainability_index_lt \
+    SCA_MULTIMETRIC_ERROR_operands_sum_gt \
+    SCA_MULTIMETRIC_ERROR_operands_sum_lt \
+    SCA_MULTIMETRIC_ERROR_operands_uniq_gt \
+    SCA_MULTIMETRIC_ERROR_operands_uniq_lt \
+    SCA_MULTIMETRIC_ERROR_operators_sum_gt \
+    SCA_MULTIMETRIC_ERROR_operators_sum_lt \
+    SCA_MULTIMETRIC_ERROR_operators_uniq_gt \
+    SCA_MULTIMETRIC_ERROR_operators_uniq_lt \
+    SCA_MULTIMETRIC_ERROR_pylint_gt \
+    SCA_MULTIMETRIC_ERROR_pylint_lt \
+    SCA_MULTIMETRIC_ERROR_tiobe_compiler_gt \
+    SCA_MULTIMETRIC_ERROR_tiobe_compiler_lt \
+    SCA_MULTIMETRIC_ERROR_tiobe_complexity_gt \
+    SCA_MULTIMETRIC_ERROR_tiobe_complexity_lt \
+    SCA_MULTIMETRIC_ERROR_tiobe_coverage_gt \
+    SCA_MULTIMETRIC_ERROR_tiobe_coverage_lt \
+    SCA_MULTIMETRIC_ERROR_tiobe_duplication_gt \
+    SCA_MULTIMETRIC_ERROR_tiobe_duplication_lt \
+    SCA_MULTIMETRIC_ERROR_tiobe_fanout_gt \
+    SCA_MULTIMETRIC_ERROR_tiobe_fanout_lt \
+    SCA_MULTIMETRIC_ERROR_tiobe_functional_gt \
+    SCA_MULTIMETRIC_ERROR_tiobe_functional_lt \
+    SCA_MULTIMETRIC_ERROR_tiobe_gt \
+    SCA_MULTIMETRIC_ERROR_tiobe_lt \
+    SCA_MULTIMETRIC_ERROR_tiobe_security_gt \
+    SCA_MULTIMETRIC_ERROR_tiobe_security_lt \
+    SCA_MULTIMETRIC_ERROR_tiobe_standard_gt \
+    SCA_MULTIMETRIC_ERROR_tiobe_standard_lt \
+    SCA_MULTIMETRIC_EXTRA_FATAL \
+    SCA_MULTIMETRIC_EXTRA_SUPPRESS \
+    SCA_MULTIMETRIC_WARN_comment_ratio_gt \
+    SCA_MULTIMETRIC_WARN_comment_ratio_lt \
+    SCA_MULTIMETRIC_WARN_cyclomatic_complexity_gt \
+    SCA_MULTIMETRIC_WARN_cyclomatic_complexity_lt \
+    SCA_MULTIMETRIC_WARN_fanout_external_gt \
+    SCA_MULTIMETRIC_WARN_fanout_external_lt \
+    SCA_MULTIMETRIC_WARN_fanout_internal_gt \
+    SCA_MULTIMETRIC_WARN_fanout_internal_lt \
+    SCA_MULTIMETRIC_WARN_halstead_bugprop_gt \
+    SCA_MULTIMETRIC_WARN_halstead_bugprop_lt \
+    SCA_MULTIMETRIC_WARN_halstead_difficulty_gt \
+    SCA_MULTIMETRIC_WARN_halstead_difficulty_lt \
+    SCA_MULTIMETRIC_WARN_halstead_effort_gt \
+    SCA_MULTIMETRIC_WARN_halstead_effort_lt \
+    SCA_MULTIMETRIC_WARN_halstead_timerequired_gt \
+    SCA_MULTIMETRIC_WARN_halstead_timerequired_lt \
+    SCA_MULTIMETRIC_WARN_halstead_volume_gt \
+    SCA_MULTIMETRIC_WARN_halstead_volume_lt \
+    SCA_MULTIMETRIC_WARN_loc_gt \
+    SCA_MULTIMETRIC_WARN_loc_lt \
+    SCA_MULTIMETRIC_WARN_maintainability_index_gt \
+    SCA_MULTIMETRIC_WARN_maintainability_index_lt \
+    SCA_MULTIMETRIC_WARN_operands_sum_gt \
+    SCA_MULTIMETRIC_WARN_operands_sum_lt \
+    SCA_MULTIMETRIC_WARN_operands_uniq_gt \
+    SCA_MULTIMETRIC_WARN_operands_uniq_lt \
+    SCA_MULTIMETRIC_WARN_operators_sum_gt \
+    SCA_MULTIMETRIC_WARN_operators_sum_lt \
+    SCA_MULTIMETRIC_WARN_operators_uniq_gt \
+    SCA_MULTIMETRIC_WARN_operators_uniq_lt \
+    SCA_MULTIMETRIC_WARN_pylint_gt \
+    SCA_MULTIMETRIC_WARN_pylint_lt \
+    SCA_MULTIMETRIC_WARN_tiobe_compiler_gt \
+    SCA_MULTIMETRIC_WARN_tiobe_compiler_lt \
+    SCA_MULTIMETRIC_WARN_tiobe_complexity_gt \
+    SCA_MULTIMETRIC_WARN_tiobe_complexity_lt \
+    SCA_MULTIMETRIC_WARN_tiobe_coverage_gt \
+    SCA_MULTIMETRIC_WARN_tiobe_coverage_lt \
+    SCA_MULTIMETRIC_WARN_tiobe_duplication_gt \
+    SCA_MULTIMETRIC_WARN_tiobe_duplication_lt \
+    SCA_MULTIMETRIC_WARN_tiobe_fanout_gt \
+    SCA_MULTIMETRIC_WARN_tiobe_fanout_lt \
+    SCA_MULTIMETRIC_WARN_tiobe_functional_gt \
+    SCA_MULTIMETRIC_WARN_tiobe_functional_lt \
+    SCA_MULTIMETRIC_WARN_tiobe_gt \
+    SCA_MULTIMETRIC_WARN_tiobe_lt \
+    SCA_MULTIMETRIC_WARN_tiobe_security_gt \
+    SCA_MULTIMETRIC_WARN_tiobe_security_lt \
+    SCA_MULTIMETRIC_WARN_tiobe_standard_gt \
+    SCA_MULTIMETRIC_WARN_tiobe_standard_lt \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
 
 DEPENDS += "python3-multimetric-native"

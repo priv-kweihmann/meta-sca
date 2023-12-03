@@ -75,6 +75,12 @@ python do_sca_it() {
         o.write(cmd_output)
 }
 
+do_sca_it[vardeps] += "\
+    SCA_FILE_FILTER_EXTRA \
+    SCA_LOCAL_FILE_FILTER \
+"
+do_sca_it[vardepsexlcude] += "BB_NUMBER_THREADS"
+
 python do_sca_it_report() {
     import os
     ## Create data model
@@ -86,6 +92,15 @@ python do_sca_it_report() {
     sca_task_aftermath(d, "it", get_fatal_entries(d, clean_split(d, "SCA_IT_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/it-${SCA_MODE}-fatal")))
 }
+
+do_sca_it_report[vardeps] += "\
+    SCA_IT_EXTRA_FATAL \
+    SCA_IT_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
+
 
 do_sca_it[doc] = "Lint python files"
 do_sca_it_report[doc] = "Report findings of do_sca_it"

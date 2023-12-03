@@ -87,6 +87,12 @@ python do_sca_flint() {
     os.chdir(cur_dir)
 }
 
+do_sca_flint[vardeps] += "\
+    SCA_FILE_FILTER_EXTRA \
+    SCA_FLINT_FILE_FILTER \
+    SCA_LOCAL_FILE_FILTER \
+"
+
 python do_sca_flint_report() {
     import os
     ## Create data model
@@ -98,6 +104,14 @@ python do_sca_flint_report() {
     sca_task_aftermath(d, "flint", get_fatal_entries(d, clean_split(d, "SCA_FLINT_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/flint-${SCA_MODE}-fatal")))
 }
+
+do_sca_flint_report[vardeps] += "\
+    SCA_FLINT_EXTRA_FATAL \
+    SCA_FLINT_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
 
 do_sca_flint[doc] = "Lint C/C++ files with flint++"
 do_sca_flint_report[doc] = "Report findings of do_sca_flint"

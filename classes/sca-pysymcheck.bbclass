@@ -91,6 +91,16 @@ python do_sca_pysymcheck() {
                         d.expand("${STAGING_DATADIR_NATIVE}/pysymcheck-${SCA_MODE}-fatal")))
 }
 
+do_sca_pysymcheck[vardeps] += "\
+    SCA_FILE_FILTER_EXTRA \
+    SCA_LOCAL_FILE_FILTER \
+    SCA_PYSYMCHECK_EXTRA_FATAL \
+    SCA_PYSYMCHECK_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
+
 do_sca_pysymcheck[doc] = "Find forbidden function linkage"
 addtask do_sca_pysymcheck after do_install before do_sca_deploy
 

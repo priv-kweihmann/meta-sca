@@ -99,6 +99,16 @@ python do_sca_dennis() {
                        d.expand("${STAGING_DATADIR_NATIVE}/dennis-${SCA_MODE}-fatal")))
 }
 
+do_sca_dennis[vardeps] += "\
+    SCA_DENNIS_EXTRA_FATAL \
+    SCA_DENNIS_EXTRA_SUPPRESS \
+    SCA_FILE_FILTER_EXTRA \
+    SCA_LOCAL_FILE_FILTER \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
+
 do_sca_dennis[doc] = "Lint i18n files"
 addtask do_sca_dennis after do_configure before do_sca_deploy
 

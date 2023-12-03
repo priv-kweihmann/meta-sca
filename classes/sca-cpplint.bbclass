@@ -87,6 +87,12 @@ python do_sca_cpplint() {
         o.write(cmd_output)
 }
 
+do_sca_cpplint[vardeps] += "\
+    SCA_CPPLINT_FILE_FILTER \
+    SCA_FILE_FILTER_EXTRA \
+    SCA_LOCAL_FILE_FILTER \
+"
+
 python do_sca_cpplint_report() {
     import os
     ## Create data model
@@ -98,6 +104,14 @@ python do_sca_cpplint_report() {
     sca_task_aftermath(d, "cpplint", get_fatal_entries(d, clean_split(d, "SCA_CPPLINT_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/cpplint-${SCA_MODE}-fatal")))
 }
+
+do_sca_cpplint_report[vardeps] += "\
+    SCA_CPPLINT_EXTRA_FATAL \
+    SCA_CPPLINT_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
 
 do_sca_cpplint[doc] = "Lint C/C++ files with cpplint"
 do_sca_cpplint_report[doc] = "Report findings of do_sca_cpplint"

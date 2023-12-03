@@ -75,6 +75,12 @@ python do_sca_revive() {
         o.write(cmd_output)
 }
 
+do_sca_revive[vardeps] += "\
+    SCA_FILE_FILTER_EXTRA \
+    SCA_LOCAL_FILE_FILTER \
+    SCA_REVIVE_FILE_FILTER \
+"
+
 python do_sca_revive_report() {
     import os
     ## Create data model
@@ -86,6 +92,14 @@ python do_sca_revive_report() {
     sca_task_aftermath(d, "revive", get_fatal_entries(d, clean_split(d, "SCA_REVIVE_EXTRA_FATAL"),
                        d.expand("${STAGING_DATADIR_NATIVE}/revive-${SCA_MODE}-fatal")))
 }
+
+do_sca_revive_report[vardeps] += "\
+    SCA_REVIVE_EXTRA_FATAL \
+    SCA_REVIVE_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
 
 do_sca_revive[doc] = "Lint go code with revive"
 do_sca_revive_report[doc] = "Report findings of do_sca_revive"

@@ -121,6 +121,14 @@ python do_sca_licensecheck_report() {
                        d.expand("${STAGING_DATADIR_NATIVE}/licensecheck-${SCA_MODE}-fatal")))
 }
 
+do_sca_licensecheck_report[vardeps] += "\
+    SCA_LICENSECHECK_EXTRA_FATAL \
+    SCA_LICENSECHECK_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
+
 do_sca_licensecheck[doc] = "Scan license information in workspace"
 do_sca_licensecheck_report[doc] = "Report findings of do_sca_licensecheck"
 addtask do_sca_licensecheck after do_compile before do_sca_tracefiles

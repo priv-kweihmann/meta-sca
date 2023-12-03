@@ -85,6 +85,11 @@ python do_sca_looong() {
         o.write(escaped.sub('', cmd_output))
 }
 
+do_sca_looong[vardeps] += "\
+    SCA_FILE_FILTER_EXTRA \
+    SCA_LOCAL_FILE_FILTER \
+"
+
 python do_sca_looong_report() {
     import os
     ## Create data model
@@ -96,6 +101,13 @@ python do_sca_looong_report() {
     sca_task_aftermath(d, "looong", get_fatal_entries(d, clean_split(d, "SCA_LOOONG_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/looong-${SCA_MODE}-fatal")))
 }
+
+do_sca_looong_report[vardeps] += "\
+    SCA_LOOONG_EXTRA_FATAL \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
 
 do_sca_looong[doc] = "Find python function to be refactored"
 do_sca_looong_report[doc] = "Report findings of do_sca_looong"

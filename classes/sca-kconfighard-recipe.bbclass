@@ -49,7 +49,7 @@ def do_sca_conv_kconfighard(d):
                     result_fail = m.group("result").strip().startswith("FAIL:")
                     if not result_fail:
                         continue
-                    clean_result = m.group("result").strip().replace("FAIL:", "").replace("OK:", "").replace("\"", "").strip()
+                    clean_result = m.group("result").strip().replace("FAIL:", "").replace("OK:", "").replace('\"', "").strip()
 
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
@@ -79,7 +79,7 @@ python do_sca_kconfighard() {
     import os
     import subprocess
 
-    if d.getVar("PN") == "linux-yocto":
+    if bb.data.inherits_class('kernel', d):
         if not os.path.exists(os.path.join(d.getVar("B"), "config")):
             os.symlink(os.path.join(d.getVar("B"), ".config"), os.path.join(d.getVar("B"), "config"))
 
@@ -109,6 +109,14 @@ python do_sca_kconfighard() {
         sca_task_aftermath(d, "kconfighard", get_fatal_entries(d, clean_split(d, "SCA_KCONFIGHARD_EXTRA_FATAL"),
                             d.expand("${STAGING_DATADIR_NATIVE}/kconfighard-${SCA_MODE}-fatal")))
 }
+
+do_sca_kconfighard[vardeps] += "\
+    SCA_KCONFIGHARD_EXTRA_FATAL \
+    SCA_KCONFIGHARD_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
 
 do_sca_kconfighard[doc] = "Scan for kernel config hardening options"
 addtask do_sca_kconfighard before do_sca_deploy after do_configure

@@ -101,4 +101,15 @@ python do_sca_systemdlint() {
                        d.expand("${STAGING_DATADIR_NATIVE}/systemdlint-${SCA_MODE}-fatal")))
 }
 
+do_sca_systemdlint[vardeps] += "\
+    SCA_FILE_FILTER_EXTRA \
+    SCA_LOCAL_FILE_FILTER \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+    SCA_SYSTEMDLINT_EXTRA_FATAL \
+    SCA_SYSTEMDLINT_EXTRA_SUPPRESS \
+    SCA_SYSTEMDLINT_PATHS \
+"
+
 do_sca_systemdlint[doc] = "Lint systemd unit files in image"

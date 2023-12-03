@@ -289,6 +289,15 @@ python do_sca_gcc_report() {
                          d.expand("${STAGING_DATADIR_NATIVE}/gcc-${SCA_MODE}-fatal")))
 }
 
+do_sca_gcc_report[vardeps] += "\
+    SCA_GCC_EXTRA_FATAL \
+    SCA_GCC_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
+
+
 do_sca_gcc[doc] = "Get compiler warnings and hardening potentials"
 do_sca_gcc_report[doc] = "Report findings of do_sca_gcc"
 addtask do_sca_gcc after do_compile before do_sca_tracefiles

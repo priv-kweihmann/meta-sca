@@ -143,6 +143,16 @@ python do_sca_scancode_report() {
                        d.expand("${STAGING_DATADIR_NATIVE}/scancode-${SCA_MODE}-fatal")))
 }
 
+do_sca_scancode_report[vardeps] += "\
+    LIC_FILES_CHKSUM \
+    SCA_SCANCODE_EXTRA_FATAL \
+    SCA_SCANCODE_EXTRA_SUPPRESS \
+    SCA_SCANCODE_LICENSE_FILE_EXCEPTIONS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
+
 do_sca_scancode[doc] = "License compliance with scancode"
 do_sca_scancode_report[doc] = "Report findings of do_sca_scancode"
 do_sca_scancode[nosdkgen] = "1"

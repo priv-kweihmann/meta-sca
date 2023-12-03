@@ -94,6 +94,13 @@ python do_sca_sparse() {
         o.write(cmd_output)
 }
 
+do_sca_sparse[vardeps] += "\
+    SCA_FILE_FILTER_EXTRA \
+    SCA_LOCAL_FILE_FILTER \
+    SCA_SPARSE_FILE_FILTER \
+    SCA_SPARSE_WARNINGS \
+"
+
 python do_sca_sparse_report() {
     import os
     ## Create data model
@@ -105,6 +112,14 @@ python do_sca_sparse_report() {
     sca_task_aftermath(d, "sparse", get_fatal_entries(d, clean_split(d, "SCA_SPARSE_EXTRA_FATAL"),
                        d.expand("${STAGING_DATADIR_NATIVE}/sparse-${SCA_MODE}-fatal")))
 }
+
+do_sca_sparse_report[vardeps] += "\
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SPARSE_EXTRA_FATAL \
+    SCA_SPARSE_EXTRA_SUPPRESS \
+    SCA_SUPPRESS_LOCALS \
+"
 
 do_sca_sparse[doc] = "Lint C files with sparse"
 do_sca_sparse_report[doc] = "Report findings of do_sca_sparse"

@@ -82,6 +82,12 @@ python do_sca_pscan() {
         o.write(cmd_output)
 }
 
+do_sca_pscan[vardeps] += "\
+    SCA_FILE_FILTER_EXTRA \
+    SCA_LOCAL_FILE_FILTER \
+    SCA_PSCAN_FILE_FILTER \
+"
+
 python do_sca_pscan_report() {
     import os
     ## Create data model
@@ -93,6 +99,14 @@ python do_sca_pscan_report() {
     sca_task_aftermath(d, "pscan", get_fatal_entries(d, clean_split(d, "SCA_PSCAN_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/pscan-${SCA_MODE}-fatal")))
 }
+
+do_sca_pscan_report[vardeps] += "\
+    SCA_PSCAN_EXTRA_FATAL \
+    SCA_PSCAN_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
 
 do_sca_pscan[doc] = "Lint (s|v|f)print usage in c files"
 do_sca_pscan_report[doc] = "Report findings of do_sca_pscan"

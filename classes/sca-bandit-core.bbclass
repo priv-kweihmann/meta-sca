@@ -102,6 +102,11 @@ python do_sca_bandit_core() {
         o.write(cmd_output)
 }
 
+do_sca_bandit_core[vardeps] += "\
+    SCA_FILE_FILTER_EXTRA \
+    SCA_LOCAL_FILE_FILTER \
+"
+
 python do_sca_bandit_core_report() {
     import os
     ## Create data model
@@ -110,6 +115,14 @@ python do_sca_bandit_core_report() {
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "bandit", get_fatal_entries(d, clean_split(d, "SCA_BANDIT_EXTRA_SUPPRESS"),
+    sca_task_aftermath(d, "bandit", get_fatal_entries(d, clean_split(d, "SCA_BANDIT_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/bandit-${SCA_MODE}-fatal")))
 }
+
+do_sca_bandit_core_report[vardeps] += "\
+    SCA_BANDIT_EXTRA_FATAL \
+    SCA_BANDIT_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"

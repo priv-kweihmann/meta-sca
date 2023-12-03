@@ -130,3 +130,19 @@ python do_sca_oelint_core() {
     sca_task_aftermath(d, "oelint", get_fatal_entries(d, clean_split(d, "SCA_OELINT_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/oelint-${SCA_MODE}-fatal")))
 }
+
+do_sca_oelint_core[vardeps] += "\
+    SCA_OELINT_CUSTOM_RULES \
+    SCA_OELINT_EXTRA_FATAL \
+    SCA_OELINT_EXTRA_KNOWN_MACHINES \
+    SCA_OELINT_EXTRA_KNOWN_MIRRORS \
+    SCA_OELINT_EXTRA_KNOWN_VARS \
+    SCA_OELINT_EXTRA_MANDATORY_VARS \
+    SCA_OELINT_EXTRA_PROTECTED_APPEND_VARS \
+    SCA_OELINT_EXTRA_PROTECTED_VARS \
+    SCA_OELINT_EXTRA_SUGGESTED_VARS \
+    SCA_OELINT_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"

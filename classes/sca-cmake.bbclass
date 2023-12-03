@@ -93,6 +93,14 @@ python do_sca_cmake_report() {
                          d.expand("${STAGING_DATADIR_NATIVE}/cmake-${SCA_MODE}-fatal")))
 }
 
+do_sca_cmake_report[vardeps] += "\
+    SCA_CMAKE_EXTRA_FATAL \
+    SCA_CMAKE_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
+
 do_sca_cmake[doc] = "Get cmake errors and warnings"
 do_sca_cmake_report[doc] = "Report findings of do_sca_cmake"
 addtask do_sca_cmake after ${SCA_CMAKE_LOGFILES} before do_sca_tracefiles

@@ -92,6 +92,11 @@ python do_sca_pylint_core() {
     os.chdir(cur_dir)
 }
 
+do_sca_pylint_core[vardeps] += "\
+    SCA_FILE_FILTER_EXTRA \
+    SCA_LOCAL_FILE_FILTER \
+"
+
 python do_sca_pylint_core_report() {
     import os
     ## Create data model
@@ -103,5 +108,13 @@ python do_sca_pylint_core_report() {
     sca_task_aftermath(d, "pylint", get_fatal_entries(d, clean_split(d, "SCA_PYLINT_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/pylint-${SCA_MODE}-fatal")))
 }
+
+do_sca_pylint_core_report[vardeps] += "\
+    SCA_PYLINT_EXTRA_FATAL \
+    SCA_PYLINT_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
 
 DEPENDS += "python3-pylint-native"

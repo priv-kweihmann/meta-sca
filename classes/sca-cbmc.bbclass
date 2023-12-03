@@ -138,6 +138,13 @@ python do_sca_cbmc() {
     with open(sca_raw_result_file(d, "cbmc"), "w") as o:
         o.write(cmd_output)
 }
+do_sca_cbmc[vardeps] += "\
+    SCA_CBMC_EXTRA_OPTIONS \
+    SCA_CBMC_FILE_FILTER \
+    SCA_CBMC_MODULES \
+    SCA_FILE_FILTER_EXTRA \
+    SCA_LOCAL_FILE_FILTER \
+"
 
 python do_sca_cbmc_report() {
     import os
@@ -151,6 +158,14 @@ python do_sca_cbmc_report() {
     sca_task_aftermath(d, "cbmc", get_fatal_entries(d, clean_split(d, "SCA_CBMC_EXTRA_FATAL"),
                         d.expand("${STAGING_DATADIR_NATIVE}/cbmc-${SCA_MODE}-fatal")))
 }
+
+do_sca_cbmc_report[vardeps] += "\
+    SCA_CBMC_EXTRA_FATAL \
+    SCA_CBMC_EXTRA_SUPPRESS \
+    SCA_SCOPE_FILTER \
+    SCA_SEVERITY_TRANSFORM \
+    SCA_SUPPRESS_LOCALS \
+"
 
 do_sca_cbmc[doc] = "Lint c files with cmbc"
 do_sca_cbmc_report[doc] = "Report findings of do_sca_cbmc"
