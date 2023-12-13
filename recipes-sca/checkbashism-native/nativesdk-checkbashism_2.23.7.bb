@@ -12,9 +12,9 @@ SRC_URI:append = " \
     file://checkbashism.sca.description \
 "
 
-SRC_URI[sha256sum] = "358b6072348954eca333120801bf7d7a7eeb1e917224e6f49c0c68dd9f1854b1"
+SRC_URI[sha256sum] = "9ce9e5135472d8647e2ffb56655e00391e8e99aa7a4a8ae605cf0e1ffd9f3609"
 
-S = "${WORKDIR}/devscripts-${PV}"
+S = "${WORKDIR}/devscripts"
 UPSTREAM_CHECK_REGEX = "devscripts_(?P<pver>\d+\.\d+\.\d+)"
 
 inherit sca-description
