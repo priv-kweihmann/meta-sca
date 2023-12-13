@@ -6,9 +6,8 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5f03ad1486a2e4ce71200ce0f9721557"
 SRC_URI = "\
     git://github.com/Z3Prover/z3;branch=master;protocol=https \
-    file://gcc-13-fix.patch \
 "
-SRCREV = "e417f7d78509b2d0c9ebc911fee7632e6ef546b6"
+SRCREV = "dce2f3d88ff7b8671bd5d843f4f3f353e7089a45"
 
 S = "${WORKDIR}/git"
 
@@ -16,4 +15,4 @@ UPSTREAM_CHECK_GITTAGREGEX = "z3-(?P<pver>\d+\.\d+\.\d+)"
 
 inherit cmake
 inherit python3native
-inherit nativesdk
+inherit native
