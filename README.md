@@ -32,7 +32,7 @@ Support for these branches, including quality control, has to be done fully by t
   - [Kas](#kas)
 - [Web monitor](#web-monitor)
 - [Support](#support)
-    - [Releases](#releases)
+  - [Releases](#releases)
   - [Compatibility](#compatibility)
 - [Licensing](#licensing)
 - [Zero impact](#zero-impact)
@@ -53,6 +53,12 @@ All results are stored to __SCA_EXPORT_DIR__ (which defaults to __${DEPLOY_DIR_I
 ## Getting started
 
 For a quick start how to use this layer see [getting started guide](docs/getting_started.md)
+
+You can also watch the following talk
+
+[![Watch the video](https://img.youtube.com/vi/41XtNkwi6cc/default.jpg)](https://youtu.be/41XtNkwi6cc)
+
+I gave for YS2023.11 to get started.
 
 ## Installation
 
@@ -105,7 +111,7 @@ Status of the branches is described at [SECURITY.md](SECURITY.md).
 
 It's advised to use the tagged source versions in productive environment.
 
-#### Releases
+### Releases
 
 See [SECURITY.md](SECURITY.md) for details
 
