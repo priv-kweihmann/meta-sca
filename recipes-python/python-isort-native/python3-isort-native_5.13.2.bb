@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=197c46995787b46a2dbf0d519c1754cf"
 
 PYPI_PACKAGE = "isort"
 
-SRC_URI[md5sum] = "5153f92984efe4429c15b9686bfb40af"
-SRC_URI[sha256sum] = "aaed790b463e8703fb1eddb831dfa8e8616bacde2c083bd557ef73c8189b7263"
+SRC_URI[md5sum] = "a4d791bf2a42d1fbaeb1f5cb2c9147b2"
+SRC_URI[sha256sum] = "48fdfcb9face5d58a4f6dde2e72a1fb8dcaf8ab26f95ab49fab84c2ddefb0109"
 
 inherit pypi
 inherit setuptools3
