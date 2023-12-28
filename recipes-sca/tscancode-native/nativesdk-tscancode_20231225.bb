@@ -7,19 +7,17 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=17f3d09aae7e567139cf4c67db
 
 SRC_URI = "git://github.com/Tencent/TscanCode.git;protocol=https;branch=master"
 
-SRCREV = "29db885e4e7fcdb78b1a4090ff246fdcf40b11a5"
+SRCREV = "3e3b6b66a7e39283d99add581fb9d54ee80c48f5"
 UPSTREAM_CHECK_COMMITS = "1"
 
 S = "${WORKDIR}/git/trunk"
 
 inherit autotools-brokensep
+
 inherit sca-description
-inherit native
-
+inherit nativesdk
 SCA_TOOL_DESCRIPTION = "tscancode"
-
 BUILD_CXXFLAGS += "-std=c++11"
-
 do_configure:prepend() {
     # SIGSTKSZ isn't a constant in newer gcc's so we override
     # the value here
@@ -29,12 +27,10 @@ do_configure:prepend() {
 
     sed -i "/#include <iostream>/a #include <cstdint>" ${S}/cli/tscthreadexecutor.cpp
 }
-
 do_install() {
     install -d ${D}/${bindir}
     install -d ${D}/${datadir}/tscancode
     install ${B}/tscancode ${D}${bindir}/
     cp -R ${B}/cfg/* ${D}/${datadir}/tscancode/
 }
-
 FILES:${PN} = "${bindir} ${datadir}"
