@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/mcandre/factorio/@v/v0.0.3.zip;srcoutput=github.com/mcandre/factorio;srcinput=github.com/mcandre/factorio@v0.0.3;downloadfilename=github-com-mcandre-factorio-0.0.3.zip;name=github-com-mcandre-factorio"
-SRC_URI[github-com-mcandre-factorio.sha256sum] = "ae71c0260df1d9b0d642f5c2dcc71580dee04e167c27d38afc4a2c8b222b3ca6"
+SRC_URI += "https://proxy.golang.org/github.com/mcandre/factorio/@v/v0.0.4.zip;srcoutput=github.com/mcandre/factorio;srcinput=github.com/mcandre/factorio@v0.0.4;downloadfilename=github-com-mcandre-factorio-0.0.4.zip;name=github-com-mcandre-factorio"
+SRC_URI[github-com-mcandre-factorio.sha256sum] = "9331ff73a663af4b808190f1dddada312a43359beba1e78b01a6233dd374c3fe"
 
 GOSRC_LICENSE += "\
     BSD-2-Clause-Views \
