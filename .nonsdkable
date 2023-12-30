@@ -63,6 +63,7 @@
 .*/recipes-python/python-python-magic-native/.*
 .*/recipes-python/python-requests-toolbelt-native/.*
 .*/recipes-python/python-scabot-native/.*
+.*/recipes-python/python-setuptools-git-versioning-native/.*
 .*/recipes-python/python-shellexeclist-native/python3-shellexeclist-native.*
 .*/recipes-python/python-simplejson-native/.*
 .*/recipes-python/python-sortedcontainers-native/.*
