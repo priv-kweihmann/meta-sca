@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/mcandre/zipc/@v/v0.0.7.zip;srcoutput=github.com/mcandre/zipc;srcinput=github.com/mcandre/zipc@v0.0.7;downloadfilename=github-com-mcandre-zipc-0.0.7.zip;name=github-com-mcandre-zipc"
-SRC_URI[github-com-mcandre-zipc.sha256sum] = "46424abeef29fcdc204c52565a1fbd27f56c69254cbab746cbc8cd94ce0feb5d"
+SRC_URI += "https://proxy.golang.org/github.com/mcandre/zipc/@v/v0.0.8.zip;srcoutput=github.com/mcandre/zipc;srcinput=github.com/mcandre/zipc@v0.0.8;downloadfilename=github-com-mcandre-zipc-0.0.8.zip;name=github-com-mcandre-zipc"
+SRC_URI[github-com-mcandre-zipc.sha256sum] = "d4d889db5135bc4e7dada1ca0fd2674aa111e5c720a264acb35c0b187c47e99e"
 
 GOSRC_LICENSE += "\
     BSD-2-Clause-Views \
