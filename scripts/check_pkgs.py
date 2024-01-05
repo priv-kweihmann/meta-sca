@@ -85,7 +85,7 @@ def get_updates(_blacklist, _args):
                                                    stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             devtool_out = e.stdout or ""
-        pattern = r"^INFO:\s+(?P<recipe>[A-Za-z0-9\+\.\-_]+)\s+(?P<curversion>[A-Za-z0-9\.\-_]+)\s+(?P<nextversion>[A-Za-z0-9\.\-_]+)\s+.*"
+        pattern = r"^(INFO:\s+)*(?P<recipe>[A-Za-z0-9\+\.\-_]+)\s+(?P<curversion>[A-Za-z0-9\.\-_]+)\s+(?P<nextversion>[A-Za-z0-9\.\-_]+)\s+.*"
         for m in re.finditer(pattern, devtool_out, re.MULTILINE):
             if m.group("nextversion") not in ["UNKNOWN_BROKEN", "new"]:
                 if m.group("nextversion").rstrip(".") == m.group("curversion"):
