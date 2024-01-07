@@ -9,8 +9,8 @@ DEPENDS += "python3-wheel-native"
 
 PYPI_PACKAGE = "packageurl-python"
 
-SRC_URI[md5sum] = "181d866579fa9e8a603b77a94c2a60ac"
-SRC_URI[sha256sum] = "84f8053f4b85294b98b3b78715475847fb48f4525ec302d06dc35b26a9b3078a"
+SRC_URI[md5sum] = "c34b1f171664642904dd0796ce1efd6d"
+SRC_URI[sha256sum] = "63514d3b72f22a9c092913b3fa7b4670e479998dff3d93597863c413735e2ec7"
 
 inherit pypi
 inherit setuptools3
