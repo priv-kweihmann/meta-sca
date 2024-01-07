@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://README;beginline=84;endline=131;md5=788bc73c4211553b7
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/M/MA/MAREKR/Pod-Parser-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "c1d20031bc2b75ea0fe7bf6d313b1d30"
-SRC_URI[sha256sum] = "22928a7bffe61b452c05bbbb8f5216d4b9cf9fe2a849b776c25500d24d20df7c"
+SRC_URI[md5sum] = "8ef9384e522e201400a73780348e4f79"
+SRC_URI[sha256sum] = "5deccbf55d750ce65588cd211c1a03fa1ef3aaa15d1ac2b8d85383a42c1427ea"
 
 S = "${WORKDIR}/Pod-Parser-${PV}"
 
