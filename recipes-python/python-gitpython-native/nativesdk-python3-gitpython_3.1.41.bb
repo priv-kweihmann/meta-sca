@@ -9,8 +9,8 @@ DEPENDS += "nativesdk-python3-gitdb"
 
 PYPI_PACKAGE = "GitPython"
 
-SRC_URI[md5sum] = "db4f2a27c8abc4a7e25504e3aeab4a84"
-SRC_URI[sha256sum] = "22b126e9ffb671fdd0c129796343a02bf67bf2994b35449ffc9321aa755e18a4"
+SRC_URI[md5sum] = "d03494fa7c4336058ae9cf42d88a2890"
+SRC_URI[sha256sum] = "ed66e624884f76df22c8e16066d567aaa5a37d5b5fa19db2c6df6f7156db9048"
 
 inherit pypi
 inherit setuptools3
