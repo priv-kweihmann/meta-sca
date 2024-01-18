@@ -9,8 +9,6 @@ require github.com-mcandre-mage-extras-sources.inc
 
 EXTRA_DEPENDS += "\
     github.com-magefile-mage-native \
-    github.com-mcandre-factorio-native \
-    github.com-mcandre-zipc-native \
 "
 
 GO_IMPORT = "github.com/mcandre/mage-extras"
