@@ -1,7 +1,10 @@
 SUMMARY = "alternative parser for bitbake recipes"
 HOMEPAGE = "https://github.com/priv-kweihmann/oelint-parser"
 
-DEPENDS += "python3-regex-native"
+DEPENDS += "\
+    python3-deprecated-native \
+    python3-regex-native \
+"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
@@ -11,10 +14,13 @@ PYPI_PACKAGE = "oelint_parser"
 
 UPSTREAM_CHECK_REGEX ?= "/oelint-parser/(?P<pver>(\d+[\.\-_]*)+)"
 
-SRC_URI[sha256sum] = "4d766914fe80491e978dc3178651d9ded588898986889432b9a69311dcdfa8fc"
+SRC_URI[sha256sum] = "abb123dc2efbcdf12e7874f356038de5042a85b395aa0298586076e7f0f0a2e3"
 
 inherit pypi
 inherit setuptools3
 inherit native
 
-RDEPENDS:${PN}:class-nativesdk += "nativesdk-python3-regex"
+RDEPENDS:${PN}:class-nativesdk += "\
+    nativesdk-python3-deprecated \
+    nativesdk-python3-regex \
+"
