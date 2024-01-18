@@ -10,7 +10,7 @@ require github.com-mcandre-stank-sources.inc
 EXTRA_DEPENDS += "\
     github.com-magefile-mage-native \
     github.com-mcandre-mage-extras-native \
-    mvdan.cc-sh-native \
+    mvdan.cc-sh-v3-native \
 "
 
 GO_IMPORT = "github.com/mcandre/stank"
