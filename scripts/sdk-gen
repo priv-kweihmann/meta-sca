@@ -9,9 +9,8 @@ import glob
 import os
 import re
 
+from oelint_parser.cls_item import Inherit, Variable
 from oelint_parser.cls_stash import Stash
-from oelint_parser.cls_item import Variable
-from oelint_parser.helper_files import guess_recipe_name
 
 _notranlate = [
     "bison-native",
@@ -88,12 +87,11 @@ def find_older_recipes(_input):
 
 
 def translate_items(tree, _table, recipe):
-    for sitem in tree.GetItemsFor():
-        if sitem.CLASSIFIER != Variable.CLASSIFIER:
-            continue
+    for sitem in tree.GetItemsFor(classifier=Variable.CLASSIFIER):
+        sitem: Variable = sitem
         if sitem.VarName == "COMPATIBLE_HOST":
             sitem.RealRaw = 'DEPENDS += "{recipe}"\n'.format(recipe=recipe)
-        
+
         # if they are already scope specific skip here
         if "class-nativesdk" in sitem.SubItems:
             continue
@@ -111,10 +109,21 @@ def translate_items(tree, _table, recipe):
                 sitem.VarValue = re.sub(
                     titem.get('value', '(.*)'), titem.get('to', r'\1'), sitem.VarValue)
                 sitem.VarValue = native_to_sdk_convert(sitem.VarValue)
-                _op = sitem.VarOp if sitem.VarName != 'inherit' else ' '
                 _varname = titem.get('rename', None) or sitem.VarNameComplete
                 sitem.RealRaw = '{name}{op}{value}\n'.format(
-                    name=_varname, op=_op, value=sitem.VarValue)
+                    name=_varname, op=sitem.VarOp, value=sitem.VarValue)
+    for sitem in tree.GetItemsFor(classifier=Inherit.CLASSIFIER):
+        sitem: Inherit = sitem
+        for titem in _table:
+            if not re.match(titem.get('name', '.*'), sitem.Statement):
+                continue
+            if not re.match(titem.get('value', '.*'), sitem.Class):
+                continue
+            value = re.sub(titem.get('value', '(.*)'),
+                           titem.get('to', r'\1'), sitem.Class)
+            value = native_to_sdk_convert(value)
+            sitem.RealRaw = '{name} {value}\n'.format(
+                name=sitem.Statement, value=value)
 
 
 _translate = [
@@ -139,13 +148,13 @@ def create_recipe(args, _file):
 
         # run translation table
         translate_items(_res['_inputtree'], _translate,
-                        guess_recipe_name(_file))
+                        _res['_inputtree'].GuessRecipeName(_file))
         # dump content
         _res['output'] = ''.join([x.RealRaw for x in sorted(
             _res['_inputtree'].GetItemsFor(filename=_file, nolink=True), key=lambda k: k.Line)])
 
         # prettify
-        _res['output']= re.sub(r'\n{3,}', '\n\n', _res['output'])
+        _res['output'] = re.sub(r'\n{3,}', '\n\n', _res['output'])
 
         print('Creating {}'.format(_res['outputfile']))
         with open(_res['outputfile'], 'w') as o:
@@ -156,7 +165,7 @@ def create_recipe(args, _file):
 
 
 def main():
-    args= create_parser()
+    args = create_parser()
     for f in glob.glob(os.path.join(args.root, '**', '*.bb'), recursive=True):
         if "-native" not in os.path.basename(f):
             continue
