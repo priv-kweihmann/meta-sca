@@ -10,6 +10,7 @@ SCA_OELINT_EXTRA_MANDATORY_VARS ?= ""
 SCA_OELINT_EXTRA_PROTECTED_VARS ?= ""
 SCA_OELINT_EXTRA_PROTECTED_APPEND_VARS ?= ""
 SCA_OELINT_EXTRA_SUGGESTED_VARS ?= ""
+SCA_OELINT_RELEASE ?= "${LAYERSERIES_COMPAT_core}"
 # Note: format is mirror:replacement without any ${} framing
 SCA_OELINT_EXTRA_KNOWN_MIRRORS ?= ""
 SCA_OELINT_CUSTOM_RULES ?= "${STAGING_DATADIR_NATIVE}/oelint-rules"
@@ -84,27 +85,36 @@ python do_sca_oelint_core() {
     import glob
     import json
 
+    def create_dict(d, var, sep=':'):
+        res = {}
+        for item in clean_split(d, var):
+            k, v = item.split(sep)
+            if k and v:
+                res[f'${{{k}}}'] = v
+        return res
+
     _constantfile = os.path.join(d.getVar("T"), "oelint-constants.json")
     _contantcontent = {
-        "known_machines": clean_split(d, "SCA_OELINT_EXTRA_KNOWN_MACHINES"),
-        "known_vars": clean_split(d, "SCA_OELINT_EXTRA_KNOWN_VARS"),
-        "mandatory_vars": clean_split(d, "SCA_OELINT_EXTRA_MANDATORY_VARS"),
-        "protected_vars": clean_split(d, "SCA_OELINT_EXTRA_PROTECTED_VARS"),
-        "protected_append_vars": clean_split(d, "SCA_OELINT_EXTRA_PROTECTED_APPEND_VARS"),
-        "protected_vars": clean_split(d, "SCA_OELINT_EXTRA_SUGGESTED_VARS"),
-        "known_mirrors": {}
+        "replacements": {
+            "machines": clean_split(d, "SCA_OELINT_EXTRA_KNOWN_MACHINES"),
+            "mirrors": create_dict(d, "SCA_OELINT_EXTRA_KNOWN_MIRRORS"),
+        },
+        "variables": {
+            "known": clean_split(d, "SCA_OELINT_EXTRA_KNOWN_VARS"),
+            "mandatory": clean_split(d, "SCA_OELINT_EXTRA_MANDATORY_VARS"),
+            "protected": clean_split(d, "SCA_OELINT_EXTRA_PROTECTED_VARS"),
+            "protected-append": clean_split(d, "SCA_OELINT_EXTRA_PROTECTED_APPEND_VARS"),
+            "suggested": clean_split(d, "SCA_OELINT_EXTRA_SUGGESTED_VARS"),
+        }
     }
-    for x in clean_split(d, "SCA_OELINT_EXTRA_KNOWN_MIRRORS"):
-        chunks = x.split(":")
-        if len(chunks) > 1:
-            _contantcontent["known_mirrors"]["${{{}}}".format(chunks[0])] = ":".join(chunks[1:])
 
     with open(_constantfile, "w") as o:
         json.dump(_contantcontent, o)
 
     _args = ['nativepython3', '-m', 'oelint_adv']
     _args += ["--quiet"]
-    _args += ["--constantfile={}".format(_constantfile)]
+    _args += ['--release={}'.format(d.getVar('SCA_OELINT_RELEASE'))]
+    _args += ["--constantmods=+{}".format(_constantfile)]
     if bb.data.inherits_class('image', d):
         # On images we don't need certain rules
         _args += ["--suppress=oelint.var.mandatoryvar"]
@@ -142,6 +152,7 @@ do_sca_oelint_core[vardeps] += "\
     SCA_OELINT_EXTRA_PROTECTED_VARS \
     SCA_OELINT_EXTRA_SUGGESTED_VARS \
     SCA_OELINT_EXTRA_SUPPRESS \
+    SCA_OELINT_RELEASE \
     SCA_SCOPE_FILTER \
     SCA_SEVERITY_TRANSFORM \
     SCA_SUPPRESS_LOCALS \
