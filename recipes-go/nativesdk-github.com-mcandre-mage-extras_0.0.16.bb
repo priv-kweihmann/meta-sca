@@ -7,11 +7,7 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-mcandre-mage-extras-sources.inc
 
-EXTRA_DEPENDS += "\
-    nativesdk-github.com-magefile-mage \
-    nativesdk-github.com-mcandre-factorio \
-    nativesdk-github.com-mcandre-zipc \
-"
+EXTRA_DEPENDS += "nativesdk-github.com-magefile-mage"
 GO_IMPORT = "github.com/mcandre/mage-extras"
 inherit gosrc
 inherit nativesdk
