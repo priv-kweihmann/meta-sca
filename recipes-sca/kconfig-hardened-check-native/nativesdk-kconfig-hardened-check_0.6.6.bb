@@ -5,22 +5,20 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d32239bcb673463ab874e80d47fae504"
 
-DEPENDS += "python3-native"
+DEPENDS += "nativesdk-python3"
 
 SRC_URI = "\
     git://github.com/a13xp0p0v/kconfig-hardened-check.git;protocol=https;branch=master \
 "
-SRCREV = "295a293b0f21b016b1a9ec0eae1f29e52e70cff1"
+SRCREV = "70ae2b93be46efe3f1356c025426cd0b43595c0a"
 S = "${WORKDIR}/git"
 
 inherit setuptools3
+
 inherit sca-description
-inherit native
-
+inherit nativesdk
 SCA_TOOL_DESCRIPTION = "kconfighard"
-
 FILES:${PN} += "${bindir}"
-
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \
     nativesdk-python3-json \
