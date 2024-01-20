@@ -6,7 +6,7 @@ Subject: [PATCH] adapt to pylint API changes
 make_options was replaced by lint.base_options._make_linter_options().
 remove user_options method
 
-Upstream-Status: Pending
+Upstream-Status: Inactive-Upstream [lastcommit: 14.09.2018]
 Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
 ---
  src/setuptools_lint/setuptools_command.py | 17 +++--------------

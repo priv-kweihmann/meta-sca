@@ -1,0 +1,42 @@
+From b670926b33639d75581795c7a21d8e5cf6be4287 Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Sat, 20 Jan 2024 10:26:01 +0100
+Subject: [PATCH] command: switch to setuptools
+
+as distutils has been removed with python 3.12
+
+Upstream-Status: Inactive-Upstream [lastcommit: 14.09.2018]
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+---
+ src/setuptools_lint/setuptools_command.py | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/setuptools_lint/setuptools_command.py b/src/setuptools_lint/setuptools_command.py
+index 69fb84b..08390b4 100644
+--- a/src/setuptools_lint/setuptools_command.py
++++ b/src/setuptools_lint/setuptools_command.py
+@@ -2,7 +2,7 @@ import os
+ import re
+ import sys
+ import setuptools
+-from distutils.errors import DistutilsSetupError, DistutilsError
++from setuptools.errors import SetupError, BaseError
+ from pylint import lint
+ from pylint.__pkginfo__ import numversion as pylint_version
+ from pkg_resources import *
+@@ -22,10 +22,10 @@ def user_options():
+ 
+ def validate_rcfile(dist, attr, value):
+     if not os.path.exists(value):
+-        raise DistutilsSetupError("Cannot find PyLint configuration file %s" % value)
++        raise SetupError("Cannot find PyLint configuration file %s" % value)
+ 
+ 
+-class DistutilsPylintError(DistutilsError):
++class DistutilsPylintError(BaseError):
+     pass
+ 
+ 
+-- 
+2.34.1
+
