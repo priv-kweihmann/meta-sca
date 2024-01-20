@@ -51,7 +51,6 @@ import dbm
 import decimal
 import difflib
 import dis
-import distutils
 import doctest
 import email
 import ensurepip
@@ -157,7 +156,6 @@ import shlex
 import shutil
 import signal
 import site
-import smtpd
 import smtplib
 import sndhdr
 import socket

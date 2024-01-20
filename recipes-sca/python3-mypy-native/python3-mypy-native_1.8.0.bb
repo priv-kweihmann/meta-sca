@@ -28,7 +28,6 @@ RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \
     nativesdk-python3-crypt \
     nativesdk-python3-difflib \
-    nativesdk-python3-distutils \
     nativesdk-python3-io \
     nativesdk-python3-json \
     nativesdk-python3-multiprocessing \

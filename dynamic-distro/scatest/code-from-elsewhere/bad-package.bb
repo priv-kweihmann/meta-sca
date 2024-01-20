@@ -71,7 +71,6 @@ RDEPENDS:${PN}-strangepath += "\
     python3-db \
     python3-debugger \
     python3-difflib \
-    python3-distutils \
     python3-doctest \
     python3-email \
     python3-fcntl \
@@ -96,7 +95,6 @@ RDEPENDS:${PN}-strangepath += "\
     python3-pydoc \
     python3-resource \
     python3-shell \
-    python3-smtpd \
     python3-sqlite3 \
     python3-stringold \
     python3-syslog \

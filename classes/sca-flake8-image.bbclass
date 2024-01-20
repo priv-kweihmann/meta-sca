@@ -28,8 +28,6 @@ _SCA_FLAKE_PYTHON_STDLIB_PKGS = "\
                                   python3-debugger \
                                   python3-dev \
                                   python3-difflib \
-                                  python3-distutils \
-                                  python3-distutils-windows \
                                   python3-doctest \
                                   python3-email \
                                   python3-fcntl \
@@ -57,7 +55,6 @@ _SCA_FLAKE_PYTHON_STDLIB_PKGS = "\
                                   python3-pydoc \
                                   python3-resource \
                                   python3-shell \
-                                  python3-smtpd \
                                   python3-sqlite3 \
                                   python3-stringold \
                                   python3-syslog \
