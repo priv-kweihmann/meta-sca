@@ -8,6 +8,8 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 SRC_URI[md5sum] = "1971946229672a7c7185963745f8001b"
 SRC_URI[sha256sum] = "a1e1ab603798ebc895333f3753019a4be34a73e8eda7dc5f911916889a838cb2"
 
+SRC_URI:append = " file://0001-main-replace-distutils.strtobool.patch"
+
 PYPI_PACKAGE = "it"
 
 inherit pypi
@@ -20,7 +22,6 @@ SCA_TOOL_DESCRIPTION = "it"
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-asyncio \
     nativesdk-python3-core \
-    nativesdk-python3-distutils \
     nativesdk-python3-json \
     nativesdk-python3-logging \
     nativesdk-python3-multiprocessing \

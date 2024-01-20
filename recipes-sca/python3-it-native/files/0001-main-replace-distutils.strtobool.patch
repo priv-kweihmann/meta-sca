@@ -1,0 +1,49 @@
+From 3f07c58798a92a05e922d41f984890c5b04fbbb2 Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Sat, 20 Jan 2024 09:59:23 +0100
+Subject: [PATCH 1/2] main: replace distutils.strtobool
+
+from python 3.10 on distutils is flagged for removal,
+which happened with lately released python 3.12.
+
+As strtobool is the only functionality used from that
+package, just add an inline emulation to __main__.py.
+
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+Upstream-Status: Submitted [https://github.com/three-headed-giant/it/pull/29]
+---
+ it/__main__.py | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/it/__main__.py b/it/__main__.py
+index 6428459..24a53fa 100644
+--- a/it/__main__.py
++++ b/it/__main__.py
+@@ -1,6 +1,5 @@
+ import argparse
+ import sys
+-from distutils.util import strtobool
+ from pathlib import Path
+ 
+ from it.plugin import Plugin
+@@ -9,6 +8,17 @@ from it.session import Session
+ from it.utils import logger, prepare_logger, traverse_paths
+ 
+ 
++def strtobool(val):
++    try:
++        if val.lower() in ('y', 'yes', 't', 'true', 'on', '1'):
++            return True
++        elif val.lower() in ('n', 'no', 'f', 'false', 'off', '0'):
++            return False
++        raise ValueError()
++    except ValueError:
++        raise argparse.ArgumentTypeError('Invalid truth value %s' % str(val))
++
++
+ def prepare_parser(session):
+     parser = argparse.ArgumentParser(description="InspectorTiger")
+     parser.add_argument(
+-- 
+2.34.1
+
