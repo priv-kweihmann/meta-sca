@@ -15,7 +15,7 @@ DEPENDS += "\
             python3-stevedore-native \
            "
 
-SRC_URI[sha256sum] = "72ce7bc9741374d96fb2f1c9a8960829885f1243ffde743de70a19cee353e8f3"
+SRC_URI[sha256sum] = "527906bec6088cb499aae31bc962864b4e77569e9d529ee51df3a93b4b8ab28a"
 
 PYPI_PACKAGE = "bandit"
 
