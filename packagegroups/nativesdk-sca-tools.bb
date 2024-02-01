@@ -41,6 +41,6 @@ RDEPENDS:${PN} += "\
     ${@oe.utils.ifelse('tscancode' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-tscancode nativesdk-sca-recipe-tscancode-rules', '')} \
     ${@oe.utils.ifelse('vulture' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-python3-vulture nativesdk-sca-recipe-vulture-rules', '')} \
     ${@oe.utils.ifelse('xmllint' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-xmllint-sca nativesdk-sca-recipe-xmllint-rules', '')} \
-    ${@oe.utils.ifelse('yamllint' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-python3-yamllint nativesdk-sca-recipe-yamllint-rules', '')} \
+    ${@oe.utils.ifelse('yamllint' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-python3-yamllint-sca nativesdk-sca-recipe-yamllint-rules', '')} \
     nativesdk-sca-runall \
 "

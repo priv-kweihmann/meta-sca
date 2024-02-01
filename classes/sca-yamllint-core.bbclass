@@ -18,7 +18,7 @@ inherit sca-image-backtrack
 
 inherit python3native
 
-DEPENDS += "python3-yamllint-native"
+DEPENDS += "python3-yamllint-sca-native"
 
 def do_sca_conv_yamllint(d):
     import os
