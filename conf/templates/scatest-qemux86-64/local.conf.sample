@@ -26,3 +26,12 @@ PACKAGECONFIG:remove:pn-mesa-gl-native = "gallium-llvm"
 
 # choose smallest possible kernel
 PREFERRED_PROVIDER_virtual/kernel = "linux-yocto-tiny"
+
+# Limit rust-llvm targets
+RUST_LLVM_TARGETS:pn-rust-llvm-native = "X86"
+RUST_LLVM_TARGETS:pn-rust-llvm = "X86"
+RUST_LLVM_TARGETS:pn-nativesdk-rust-llvm = "X86"
+
+# Limit qemu targets
+QEMU_TARGETS = "x86_64"
+QEMU_TARGETS_STATIC = "x86_64-linux-user"
