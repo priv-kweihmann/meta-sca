@@ -103,7 +103,7 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
         if: ${{ matrix.WITH_KERNEL }} == '1'
         with:
-          target: linux-yocto
+          target: linux-yocto-tiny
       - name: build (sca-modules)
         uses: priv-kweihmann/meta-sca-ci-utils/buildmodules@latest
         with:
