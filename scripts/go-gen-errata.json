@@ -924,6 +924,12 @@
             "GOSRC_REMOVEDIRS += \"golang.org/x/net/http2/h2demo\""
         ]
     },
+    "golang.org/x/telemetry": {
+        "recipeextra": [
+            "# needs CGO",
+            "do_compile[noexec] = \"1\""
+        ]
+    },
     "golang.org/x/tools": {
         "licenseignore": [
             "internal/lsp/cmd/usage/licenses.hlp"

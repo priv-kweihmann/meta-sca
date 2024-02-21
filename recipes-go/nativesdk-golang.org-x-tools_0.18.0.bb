@@ -8,16 +8,14 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require golang.org-x-tools-sources.inc
 
 EXTRA_DEPENDS += "\
-    github.com-yuin-goldmark-native \
-    golang.org-x-mod-native \
-    golang.org-x-net-native \
-    golang.org-x-sync-native \
+    nativesdk-github.com-yuin-goldmark \
+    nativesdk-golang.org-x-mod \
+    nativesdk-golang.org-x-net \
+    nativesdk-golang.org-x-sync \
+    nativesdk-golang.org-x-telemetry \
 "
-
 GO_IMPORT = "golang.org/x/tools"
-
 # needs CGO
 do_compile[noexec] = "1"
-
 inherit gosrc
-inherit native
+inherit nativesdk
