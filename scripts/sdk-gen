@@ -25,6 +25,7 @@ _notranlate = [
     "perl-file-sharedir-native",
     "perl-list-moreutils-native",
     "perl-module-build-tiny-native",
+    "python3-cython-native",
     "python3-distro-native",
     "python3-hatch-vcs-native",
     "python3-nose-native",
