@@ -3,12 +3,12 @@ HOMEPAGE = "https://github.com/PythonCharmers/python-future"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=a253924061f8ecc41ad7a2ba1560e8e7"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=ce268d4c2f911490f47ac5473a24bb89"
 
 PYPI_PACKAGE = "future"
 
-SRC_URI[md5sum] = "dedcb70d14b23388670d54145aab8be4"
-SRC_URI[sha256sum] = "34a17436ed1e96697a86f9de3d15a3b0be01d8bc8de9c1dffd59fb8234ed5307"
+SRC_URI[md5sum] = "028bd8af5a7dd853fd12c8bf627236a9"
+SRC_URI[sha256sum] = "bd2968309307861edae1458a4f8a4f3598c03be43b97521076aebf5d94c07b05"
 
 inherit pypi
 inherit setuptools3
