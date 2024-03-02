@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5f03ad1486a2e4ce71200ce0f9721557"
 SRC_URI = "\
     git://github.com/Z3Prover/z3;branch=master;protocol=https \
 "
-SRCREV = "a7b564cafe3b96c8a868388bc4b96b319facea44"
+SRCREV = "fa2c0e027894a8d55d2b841e27cbeecc99692a3f"
 
 S = "${WORKDIR}/git"
 
