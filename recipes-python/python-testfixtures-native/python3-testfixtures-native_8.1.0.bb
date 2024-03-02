@@ -9,8 +9,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=ef9ea9bec729a33fef60ec5ef45edd22"
 
 PYPI_PACKAGE = "testfixtures"
 
-SRC_URI[md5sum] = "a78a0caf57e58085bb9fc4ae294fcffc"
-SRC_URI[sha256sum] = "b8d61206c7426545443edaee714553cd8d2d1203276c6a6b36282a86667e6d4e"
+SRC_URI[md5sum] = "8fbbf1473628f2fb955c2d5cd7eac041"
+SRC_URI[sha256sum] = "80848990304859c3a2b68dfe4bcaf77b6e6425a3925047bc25a52755277bfa6d"
 
 inherit pypi
 inherit setuptools3
