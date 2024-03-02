@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/stretchr/objx/@v/v0.5.1.zip;srcoutput=github.com/stretchr/objx;srcinput=github.com/stretchr/objx@v0.5.1;downloadfilename=github-com-stretchr-objx-0.5.1.zip;name=github-com-stretchr-objx"
-SRC_URI[github-com-stretchr-objx.sha256sum] = "4c5e1aea52fde7fc97dc4a17d0ab50c390739d4d01d3d7edc2b067a50c6731e0"
+SRC_URI += "https://proxy.golang.org/github.com/stretchr/objx/@v/v0.5.2.zip;srcoutput=github.com/stretchr/objx;srcinput=github.com/stretchr/objx@v0.5.2;downloadfilename=github-com-stretchr-objx-0.5.2.zip;name=github-com-stretchr-objx"
+SRC_URI[github-com-stretchr-objx.sha256sum] = "3c22c1d1c4c4024eb16a12f0187775640bf35d51b0a06649febc7797119451c0"
 
 GOSRC_LICENSE += "\
     MIT \
