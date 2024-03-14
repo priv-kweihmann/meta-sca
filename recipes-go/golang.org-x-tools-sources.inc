@@ -1,12 +1,11 @@
-SRC_URI += "https://proxy.golang.org/golang.org/x/tools/@v/v0.18.0.zip;srcoutput=golang.org/x/tools;srcinput=golang.org/x/tools@v0.18.0;downloadfilename=golang-org-x-tools-0.18.0.zip;name=golang-org-x-tools"
-SRC_URI[golang-org-x-tools.sha256sum] = "e78f5eb33f21ca0f604da3bac5a23f107d2504a03251cff1eeea15274fb84444"
+SRC_URI += "https://proxy.golang.org/golang.org/x/tools/@v/v0.19.0.zip;srcoutput=golang.org/x/tools;srcinput=golang.org/x/tools@v0.19.0;downloadfilename=golang-org-x-tools-0.19.0.zip;name=golang-org-x-tools"
+SRC_URI[golang-org-x-tools.sha256sum] = "71373fffd96ad5671b1479dfdc06f049f3e168244dfde7926ea4ba27f51c29df"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
 "
 LIC_FILES_CHKSUM += "\
     file://src/golang.org/x/tools/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707 \
-    file://src/golang.org/x/tools/cmd/getgo/LICENSE;md5=4ac66f7dea41d8d116cb7fb28aeff2ab \
 "
 
 GOSRC_INCLUDEGUARD += "golang.org-x-tools-sources.inc"
