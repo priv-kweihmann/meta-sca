@@ -13,7 +13,7 @@ DEPENDS += "\
 "
 
 SRC_URI = "git://github.com/priv-kweihmann/scabot.git;branch=master;protocol=https"
-SRCREV = "0e0cd5abd639474a618341fdb3f1e2a98f144701"
+SRCREV = "a904c02439affbeee9d21371f4a8597db5273510"
 
 S = "${WORKDIR}/git"
 
