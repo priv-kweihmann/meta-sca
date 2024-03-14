@@ -27,9 +27,9 @@ def shellcheck_arch_map(d):
 
 SRC_URI = "https://github.com/koalaman/shellcheck/releases/download/v${PV}/shellcheck-v${PV}.linux.${@shellcheck_arch_map(d)}.tar.xz;name=blob_${@shellcheck_arch_map(d)}"
 
-SRC_URI[blob_x86_64.sha256sum] = "700324c6dd0ebea0117591c6cc9d7350d9c7c5c287acbad7630fa17b1d4d9e2f"
-SRC_URI[blob_aarch64.sha256sum] = "179c579ef3481317d130adebede74a34dbbc2df961a70916dd4039ebf0735fae"
-SRC_URI[blob_armv6hf.sha256sum] = "03deed9ded9dd66434ccf9649815bcde7d275d6c9f6dcf665b83391673512c75"
+SRC_URI[blob_x86_64.sha256sum] = "6c881ab0698e4e6ea235245f22832860544f17ba386442fe7e9d629f8cbedf87"
+SRC_URI[blob_aarch64.sha256sum] = "324a7e89de8fa2aed0d0c28f3dab59cf84c6d74264022c00c22af665ed1a09bb"
+SRC_URI[blob_armv6hf.sha256sum] = "1c89cb51e1412b580d7ba8aac240251ffb0b829788f83d2daa4a82da42d275e4"
 
 S = "${WORKDIR}/shellcheck-v${PV}"
 
