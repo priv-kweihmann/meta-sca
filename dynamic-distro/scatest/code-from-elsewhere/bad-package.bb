@@ -3,7 +3,6 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "CLOSED& GPL-2.0-or-later |MIT"
 
 SRC_URI += "\
-            http://www.magicermine.com/demos/curl/curl/curl-7.30.0.ermine.tar.bz2;subdir=source;name=curl \
             file://test1/LICENSE;subdir=source \
             file://test1/LICENSE.gpl2;subdir=source \
             file://test2/LICENSE;subdir=source \
@@ -15,7 +14,6 @@ SRC_URI += "\
             https://files.pythonhosted.org/packages/39/11/8076571afd97303dfeb6e466f27187ca4970918d4b36d5326725514d3ed3/Jinja2-3.0.1.tar.gz;subdir=source/jinja2;name=pypkg \
            "
 LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=a4a2bbea1db029f21b3a328c7a059172"
-SRC_URI[curl.sha256sum] = "9b6a127173cfdca7db0b95ceef2a7946ad592ec23e193dc65ac3d302edc21264"
 SRC_URI[shell.sha256sum] = "3f8b5e53d3383a9c75fe76a384c0f1c13291ae367b55bd7df3b5bb21f677e40e"
 SRC_URI[pypkg.sha256sum] = "703f484b47a6af502e743c9122595cc812b0271f661722403114f71a79d0f5a4"
 
@@ -43,8 +41,6 @@ do_install() {
     install -d ${D}${datadir}/myhiddensources
     install -m 0644 ${S}/simple-hello-world.c ${D}${datadir}/myhiddensources
     install -m 0644 ${S}/K01speech-dispatcher ${D}${datadir}/myhiddensources
-
-    install -m 0455 ${S}/curl-7.30.0.ermine/curl.ermine ${D}${bindir}/curl.ermine
 
     install -d ${D}${PYTHON_SITEPACKAGES_DIR}/jinja2
     cp -R ${S}/jinja2/* ${D}${PYTHON_SITEPACKAGES_DIR}/jinja2
