@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=416a9fa49f36fac8c5fd8a52cc755a59"
 
 PYPI_PACKAGE = "pyahocorasick"
 
-SRC_URI[md5sum] = "32d4eb1053c0c84a47b1bd3b77c8797c"
-SRC_URI[sha256sum] = "2985cac6d99c0e9165617fe154b4db0b50c4c2819791c2ad5f0aac0c6a6e58c5"
+SRC_URI[md5sum] = "4c4e820880e359b3cf86bb63a67f00f5"
+SRC_URI[sha256sum] = "4df4845c1149e9fa4aa33f0f0aa35f5a42957a43a3d6e447c9b44e679e2672ea"
 
 inherit pypi
 inherit setuptools3
