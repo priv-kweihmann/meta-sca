@@ -15,6 +15,7 @@ SRC_URI[sha256sum] = "c62073f356cff054c8ac24496f1a3d7cfa137835c31e9af39a9f5292fd
 inherit pypi
 
 SRC_URI = "${PYPI_SRC_URI};subdir=${PYPI_PACKAGE}-${PV}"
+SRC_URI:append = " file://invalid-escape-sequences.patch"
 
 do_configure:prepend() {
     sed -i "s#distutils.core#setuptools#g" ${S}/setup.py

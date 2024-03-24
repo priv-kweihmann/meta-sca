@@ -1,0 +1,43 @@
+From 249e2af7f372d4b6e6621902e6d3c2a2dfbe5e5d Mon Sep 17 00:00:00 2001
+From: Karthikeyan Singaravelan <tir.karthi@gmail.com>
+Date: Sun, 23 Feb 2020 21:04:45 +0530
+Subject: [PATCH] Fix deprecation warnings due to invalid escape sequences.
+
+Upstream-Status: Backport [https://github.com/techtonik/python-patch/commit/249e2af7f372d4b6e6621902e6d3c2a2dfbe5e5d]
+Signed-off-by: Karthikeyan Singaravelan <tir.karthi@gmail.com>
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+---
+ patch.py | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/patch.py b/patch.py
+index 4b82af0..4775d70 100755
+--- a/patch.py
++++ b/patch.py
+@@ -337,7 +337,7 @@ def lineno(self):
+     hunkparsed = False # state after successfully parsed hunk
+ 
+     # regexp to match start of hunk, used groups - 1,3,4,6
+-    re_hunk_start = re.compile(b"^@@ -(\d+)(,(\d+))? \+(\d+)(,(\d+))? @@")
++    re_hunk_start = re.compile(br"^@@ -(\d+)(,(\d+))? \+(\d+)(,(\d+))? @@")
+     
+     self.errors = 0
+     # temp buffers for header and filenames info
+@@ -516,7 +516,7 @@ def lineno(self):
+             filenames = False
+             headscan = True
+           else:
+-            re_filename = b"^\+\+\+ ([^\t]+)"
++            re_filename = br"^\+\+\+ ([^\t]+)"
+             match = re.match(re_filename, line)
+             if not match:
+               warning("skipping invalid patch - no target filename at line %d" % (lineno+1))
+@@ -542,7 +542,7 @@ def lineno(self):
+               continue
+ 
+       if hunkhead:
+-        match = re.match(b"^@@ -(\d+)(,(\d+))? \+(\d+)(,(\d+))? @@(.*)", line)
++        match = re.match(br"^@@ -(\d+)(,(\d+))? \+(\d+)(,(\d+))? @@(.*)", line)
+         if not match:
+           if not p.hunks:
+             warning("skipping invalid patch with no hunks for file %s" % p.source)
