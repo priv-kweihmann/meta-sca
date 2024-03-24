@@ -13,8 +13,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "pymaven-patch"
 
-SRC_URI[md5sum] = "71b24a50f893f75a379dae5b2f84a41b"
-SRC_URI[sha256sum] = "d55b29bd4aeef3510904a12885eb6856b5bd48f3e29925a123461429f9ad85c0"
+SRC_URI[md5sum] = "95bff7bf04a69aafaefae7e91c942f94"
+SRC_URI[sha256sum] = "0cf7c93e89f01f0408eb656eec58cb4a228c95e03b3d47cb73d31f899055cd50"
 
 inherit pypi
 inherit setuptools3
