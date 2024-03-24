@@ -90,8 +90,7 @@ DEPENDS += "\
         "
 
 SRC_URI = "git://github.com/nexB/scancode-toolkit.git;protocol=https;nobranch=1"
-SRC_URI:append = " file://spdx-tools.patch"
-SRCREV = "26ace5253f2b5a58d979606c83d7b6f55a6228fc"
+SRCREV = "cafcbcf606bf30f0b5a62f27493d8aeec25fdcf8"
 
 S = "${WORKDIR}/git"
 
