@@ -9,12 +9,13 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e926c89aceef6c1a4247d5df08f94533"
 
 DEPENDS += "\
             python3-anytree-native \
+            python3-argcomplete-native \
             python3-colorama-native \
             python3-oelint-parser-native \
             python3-urllib3-native \
             "
 
-SRC_URI[sha256sum] = "62fd060b3d2f65356b9c58c71489785c5fe36d50f80c9e09e95ebe5f9225949f"
+SRC_URI[sha256sum] = "ff822cd85b3d772446efe0d459d4a90844b2a43f0c679afba06050441b04d8f7"
 
 PYPI_PACKAGE = "oelint_adv"
 UPSTREAM_CHECK_REGEX ?= "/oelint-adv/(?P<pver>(\d+[\.\-_]*)+)"

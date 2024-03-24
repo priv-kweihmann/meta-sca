@@ -18,6 +18,7 @@
 .*/recipes-perl/perl-file-sharedir-native/.*
 .*/recipes-perl/perl-list-moreutils-native/.*
 .*/recipes-perl/perl-module-build-tiny-native/.*
+.*/recipes-python/python-argcomplete-native/.*
 .*/recipes-python/python-binaryornot-native/.*
 .*/recipes-python/python-commoncode-native/.*
 .*/recipes-python/python-construct-native/.*
