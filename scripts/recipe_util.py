@@ -3,11 +3,8 @@ import sys
 try:
     from oelint_parser.cls_item import Variable
     from oelint_parser.cls_stash import Stash
-    from oelint_parser.const_vars import get_base_varset
-    from oelint_parser.helper_files import expand_term
-    from oelint_parser.helper_files import guess_recipe_name
 except ImportError:
-    sys.stderr.write("Can't import 'oelint-parser'. Please run 'pip install oelint-parser' to enable this script here\n")
+    sys.stderr.write("Can't import 'oelint-parser'. Please run 'pip install oelint-parser>=3.0' to enable this script here\n")
 
 def __get_info_from_stash(_filepath):
     _rdepends = set()
@@ -17,12 +14,12 @@ def __get_info_from_stash(_filepath):
     _stash.AddFile(_filepath)
            
     for item in _stash.GetItemsFor(attribute=Variable.ATTR_VAR, attributeValue="RDEPENDS"):
-        _rdepends.update([expand_term(_stash, _filepath, y)
+        _rdepends.update([_stash.ExpandTerm(_filepath, y)
                             for y in item.get_items()])
 
     # Get build time dependencies
     for item in _stash.GetItemsFor(attribute=Variable.ATTR_VAR, attributeValue="DEPENDS"):
-        _depends.update([expand_term(_stash, _filepath, y)
+        _depends.update([_stash.ExpandTerm(_filepath, y)
                             for y in item.get_items()])
 
     return (_depends, _rdepends)
