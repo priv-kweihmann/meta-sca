@@ -38,8 +38,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "wemake_python_styleguide"
 
-SRC_URI[md5sum] = "6d99e5965e9921b93116dcbad05c7756"
-SRC_URI[sha256sum] = "69139858cf5b2a9ba09dac136e2873a4685515768f68fdef2684ebefd7b1dafd"
+SRC_URI[md5sum] = "e8e305fbd496bfed62bd3a5dc7d90051"
+SRC_URI[sha256sum] = "850fe70e6d525fd37ac51778e552a121a489f1bd057184de96ffd74a09aef414"
 
 UPSTREAM_CHECK_REGEX ?= "/wemake-python-styleguide/(?P<pver>(\d+[\.\-_]*)+)"
 
