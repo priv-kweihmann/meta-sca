@@ -55,6 +55,10 @@ def create_parser():
                                                           "..", ".nonsdkable"), help='file with non-SDK-able recipes')
     parser.add_argument('root', help='base path to the repo')
     x = parser.parse_args()
+    if not os.path.isabs(x.root):
+        x.root = os.path.abspath(x.root)
+    if not os.path.isabs(x.ignores):
+        x.ignores = os.path.abspath(x.ignores)
     x.ignores = read_ignores(x)
     return x
 
