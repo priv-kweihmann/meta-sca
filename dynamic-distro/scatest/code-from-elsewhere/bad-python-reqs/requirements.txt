@@ -14,7 +14,7 @@ google==2.0.1
 google-cloud==0.34.0
 gtfs-realtime-bindings==0.0.5
 html5lib==1.0.1
-idna==2.7
+idna==3.7
 ipykernel==5.0.0
 ipython==7.1.1
 ipython-genutils==0.2.0
