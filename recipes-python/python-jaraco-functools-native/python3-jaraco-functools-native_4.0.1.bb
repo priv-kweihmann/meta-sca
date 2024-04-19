@@ -12,10 +12,10 @@ DEPENDS += "\
             python3-wheel-native \
            "
 
-PYPI_PACKAGE = "jaraco.functools"
+PYPI_PACKAGE = "jaraco_functools"
 
-SRC_URI[md5sum] = "6683d6f56930d4f0b34157b083813cf3"
-SRC_URI[sha256sum] = "c279cb24c93d694ef7270f970d499cab4d3813f4e08273f95398651a634f0925"
+SRC_URI[md5sum] = "7bc3fe47d508077b0ddbc32f84dc1374"
+SRC_URI[sha256sum] = "d33fa765374c0611b52f8b3a795f8900869aa88c84769d4d1746cd68fb28c3e8"
 
 inherit pypi
 inherit python_setuptools_build_meta
