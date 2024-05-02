@@ -22,6 +22,7 @@ SCA_ENABLED_MODULES_IMAGE ?= "\
                             mypy \
                             oelint \
                             pylint \
+                            ruff \
                             shellcheck \
                             slick \
                             stank \

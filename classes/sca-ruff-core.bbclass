@@ -1,7 +1,7 @@
 ## SPDX-License-Identifier: BSD-2-Clause
-## Copyright (c) 2019, Konrad Weihmann
+## Copyright (c) 2024, Konrad Weihmann
 
-SCA_RAW_RESULT_FILE[flake8] = "txt"
+SCA_RAW_RESULT_FILE[ruff] = "txt"
 
 inherit sca-conv-to-export
 inherit sca-datamodel
@@ -13,7 +13,7 @@ inherit sca-image-backtrack
 
 inherit python3native
 
-def do_sca_conv_flake8(d):
+def do_sca_conv_ruff(d):
     import os
     import re
 
@@ -23,54 +23,23 @@ def do_sca_conv_flake8(d):
     pattern = r"^(?P<file>.*):(?P<line>\d+):(?P<col>\d+):\s*(?P<severity>[A-Z]+)(?P<id>\d+)\s+(?P<message>.*)"
 
     severity_map = {
-        "CFQ": "warning",
-        "DAR": "warning",
-        "DUO": "warning",
-        "ECE": "warning",
-        "EXE": "error",
-        "RST": "warning",
-        "TAE": "warning",
-        "WPS": "warning",
-        "VNE": "info",
-        "YTT": "warning",
-        "SCS": "warning",
-        "DTZ": "warning",
-        "FS": "warning",
-        "R5": "warning",
-        "ASYNC": "warning",
-        "A": "warning",
-        "B": "warning",
-        "C": "warning",
-        "D": "warning",
-        "E": "error",
-        "F": "error",
-        "G": "warning",
-        "H": "warning",
-        "I": "warning",
-        "M": "warning",
-        "N": "warning",
-        "P": "error",
-        "Q": "warning",
-        "R": "info",
-        "S": "error",
-        "T": "warning",
-        "W": "warning",
     }
     _findings = []
-    _suppress = sca_suppress_init(d, clean_split(d, "SCA_FLAKE8_EXTRA_SUPPRESS"),
-                                  d.expand("${STAGING_DATADIR_NATIVE}/flake8-${SCA_MODE}-suppress"))
+    _suppress = sca_suppress_init(d, clean_split(d, "SCA_RUFF_EXTRA_SUPPRESS"),
+                                  d.expand("${STAGING_DATADIR_NATIVE}/ruff-${SCA_MODE}-suppress"))
 
-    if os.path.exists(sca_raw_result_file(d, "flake8")):
-        with open(sca_raw_result_file(d, "flake8"), "r") as f:
+    if os.path.exists(sca_raw_result_file(d, "ruff")):
+        with open(sca_raw_result_file(d, "ruff"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
                     if severity_map.get(m.group("severity"), "warning") not in sca_allowed_warning_level(d):
                         continue
+                    _file = os.path.join(d.getVar("TOPDIR"), m.group("file"))
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
-                                            Tool="flake8",
+                                            Tool="ruff",
                                             BuildPath=buildpath,
-                                            File=m.group("file"),
+                                            File=_file,
                                             Line=str(int(m.group("line")) + 1),
                                             Column=m.group("col"),
                                             Message=m.group("message"),
@@ -87,15 +56,14 @@ def do_sca_conv_flake8(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
-do_sca_flake8_core[vardepsexclude] += "BB_NUMBER_THREADS"
-python do_sca_flake8_core() {
+do_sca_ruff_core[vardepsexclude] += "BB_NUMBER_THREADS"
+python do_sca_ruff_core() {
     import os
     import subprocess
 
-    _args = [os.environ.get("PYTHON", "python3"), "-m", "flake8"]
-    _args += ["--isolated"]
-    _args += ["--ignore="] ## enable all warning by default
-    _args += ["-j", d.getVar("BB_NUMBER_THREADS")]
+    _args = ['ruff', 'check', '--no-cache']
+    _args += ['--select=ALL']
+    _args += ['--isolated']
 
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_PYTHON_SHEBANG"), ".py",
                                                sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
@@ -103,33 +71,33 @@ python do_sca_flake8_core() {
     ## Run
     cmd_output = exec_wrap_check_output(d, _args, _files)
 
-    with open(sca_raw_result_file(d, "flake8"), "w") as o:
+    with open(sca_raw_result_file(d, "ruff"), "w") as o:
         o.write(cmd_output)
 }
 
-do_sca_flake8_core[vardeps] += "\
+do_sca_ruff_core[vardeps] += "\
     SCA_FILE_FILTER_EXTRA \
     SCA_LOCAL_FILE_FILTER \
 "
 
-python do_sca_flake8_core_report() {
+python do_sca_ruff_core_report() {
     import os
     ## Create data model
-    d.setVar("SCA_DATAMODEL_STORAGE", "{}/flake8.dm".format(d.getVar("T")))
-    dm_output = do_sca_conv_flake8(d)
+    d.setVar("SCA_DATAMODEL_STORAGE", "{}/ruff.dm".format(d.getVar("T")))
+    dm_output = do_sca_conv_ruff(d)
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
-    sca_task_aftermath(d, "flake8", get_fatal_entries(d, clean_split(d, "SCA_FLAKE8_EXTRA_FATAL"),
-                       d.expand("${STAGING_DATADIR_NATIVE}/flake8-${SCA_MODE}-fatal")))
+    sca_task_aftermath(d, "ruff", get_fatal_entries(d, clean_split(d, "SCA_RUFF_EXTRA_FATAL"),
+                       d.expand("${STAGING_DATADIR_NATIVE}/ruff-${SCA_MODE}-fatal")))
 }
 
-do_sca_flake8_core_report[vardeps] += "\
-    SCA_FLAKE8_EXTRA_FATAL \
-    SCA_FLAKE8_EXTRA_SUPPRESS \
+do_sca_ruff_core_report[vardeps] += "\
+    SCA_RUFF_EXTRA_FATAL \
+    SCA_RUFF_EXTRA_SUPPRESS \
     SCA_SCOPE_FILTER \
     SCA_SEVERITY_TRANSFORM \
     SCA_SUPPRESS_LOCALS \
 "
 
-DEPENDS += "python3-flake8-sca-native"
+DEPENDS += "python3-ruff-native"

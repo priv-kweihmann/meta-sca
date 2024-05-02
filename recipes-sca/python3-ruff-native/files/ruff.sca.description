@@ -1,0 +1,30 @@
+{
+    "buildspeed": 5,
+    "execspeed": 10,
+    "languages": [
+        "python"
+    ],
+    "uses": [
+        "@python"
+    ],
+    "quality": 8,
+    "scope": [
+        "style"
+    ],
+    "score": {
+        "functional": [
+            "ruff.ruff..*"
+        ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["ruff", "--help"], "returncode": 0}
+        ],
+        "findings": [
+            "python3-git"
+        ],
+        "no-findings": [
+            "busybox"
+        ]
+    }
+}

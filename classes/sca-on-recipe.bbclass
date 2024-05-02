@@ -45,6 +45,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             rats \
                             reuse \
                             revive \
+                            ruff \
                             scancode \
                             setuptoolslint \
                             shellcheck \

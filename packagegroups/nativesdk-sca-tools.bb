@@ -31,6 +31,7 @@ RDEPENDS:${PN} += "\
     ${@oe.utils.ifelse('pysymbolcheck' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-python3-pysymbolcheck nativesdk-sca-recipe-pysymcheck-rules', '')} \
     ${@oe.utils.ifelse('rats' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-rats nativesdk-sca-recipe-rats-rules', '')} \
     ${@oe.utils.ifelse('revive' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-revive-sca nativesdk-sca-recipe-revive-rules', '')} \
+    ${@oe.utils.ifelse('ruff' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-python3-ruff nativesdk-sca-recipe-ruff-rules', '')} \
     ${@oe.utils.ifelse('setuptoolslint' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-python3-setuptools-lint nativesdk-python3-setuptools nativesdk-sca-recipe-setuptoolslint-rules', '')} \
     ${@oe.utils.ifelse('shellcheck' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-shellcheck nativesdk-sca-recipe-shellcheck-rules', '')} \
     ${@oe.utils.ifelse('slick' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-slick-sca nativesdk-sca-recipe-slick-rules', '')} \

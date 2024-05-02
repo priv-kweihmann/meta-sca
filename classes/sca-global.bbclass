@@ -116,6 +116,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           rats \
                           reuse \
                           revive \
+                          ruff \
                           scancode \
                           setuptoolslint \
                           shellcheck \
