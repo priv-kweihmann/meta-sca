@@ -1,10 +1,14 @@
 import argparse
 import glob
-import requests
-import json
-import re
+import io
 import os
+import re
+import subprocess
 import sys
+import tarfile
+import tempfile
+
+import requests
 
 
 def failure_log(path, msg):
@@ -64,11 +68,13 @@ def update_pkg(args):
             import time
             time.sleep(1)
             okay -= 1
-    
+
     if okay < 1:
         raise Exception("Something went wrong while fetching pypi info")
 
     _updated = False
+
+    _url = ''
 
     if "releases" in res and args.version in res["releases"]:
         for item in res["releases"][args.version]:
@@ -76,6 +82,7 @@ def update_pkg(args):
                 continue
             _md5 = item["digests"]["md5"]
             _sha256 = item["digests"]["sha256"]
+            _url = item["url"]
 
             for index, value in enumerate(_lines):
                 if value.startswith("SRC_URI[md5sum] ="):
@@ -93,6 +100,18 @@ def update_pkg(args):
 
     with open(_recipe_newname, "w") as o:
         o.write("".join(_lines))
+
+    if _url:
+        with tempfile.TemporaryDirectory() as o:
+            data = requests.get(_url).content
+            f = io.BytesIO(data)
+            with tarfile.open(fileobj=f) as i:
+                i.extractall(o)
+            try:
+                subprocess.check_call(
+                    [os.path.join(os.path.dirname(__file__)), 'crates-update', o, _recipe_newname])
+            except subprocess.CalledProcessError:
+                pass
 
     if _updated:
         os.remove(_recipe_oldname)

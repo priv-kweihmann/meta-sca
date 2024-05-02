@@ -1,0 +1,107 @@
+#!/usr/bin/env python3
+
+import argparse
+import os
+import sys
+
+import tomli
+from oelint_parser.cls_item import Variable, FlagAssignment
+from oelint_parser.cls_stash import Stash
+
+
+def create_parser():
+    parser = argparse.ArgumentParser(
+        description='Crates list updater')
+    parser.add_argument("--faillog", default=None, help="Path to failure log")
+    parser.add_argument("sources", help="path to the sources dir")
+    parser.add_argument("recipe", help="name of the python package")
+    return parser.parse_args()
+
+
+def parse_crates(filepath, self_provided: list):
+    res = []
+    checksums = {}
+    with open(filepath, 'rb') as i:
+        cnt = tomli.load(i)
+        for item in cnt.get('package', []):
+            name = item.get('name', '')
+            version = item.get('version', '')
+            checksum = item.get('checksum')
+            if not version or not name or not checksum:
+                continue
+            if name in self_provided or version in ['0.0.0']:
+                continue
+            res.append(f'crate://crates.io/{name}/{version}')
+            checksums[f'{name}-{version}'] = item.get('checksum')
+    return (sorted(res), checksums)
+
+
+def get_crates(args):
+    res = []
+    checksums = {}
+    self_provided = set()
+    for root, dirs, _ in os.walk(args.sources):
+        for dir in dirs:
+            fullpath = os.path.join(root, dir)
+            parent = os.path.basename(os.path.dirname(fullpath))
+            if parent in ['crates']:
+                self_provided.add(os.path.basename(fullpath))
+    for root, _, files in os.walk(args.sources):
+        for file in files:
+            fullpath = os.path.join(root, file)
+            if file in ['Cargo.lock'] and '/crates/' not in fullpath:
+                res, checksums = parse_crates(fullpath, self_provided)
+    return (res, checksums)
+
+
+def update_crates(args):
+    _stash = Stash(new_style_override_syntax=True, quiet=True)
+    _stash.AddFile(args.recipe)
+    _stash.Finalize()
+
+    items = _stash.GetItemsFor(classifier=Variable.CLASSIFIER,
+                               attribute=Variable.ATTR_VAR, attributeValue='CRATES_LIST')
+    flags = _stash.GetItemsFor(classifier=FlagAssignment.CLASSIFIER,
+                               attribute=FlagAssignment.ATTR_NAME, attributeValue='SRC_URI')
+    if not items:
+        return True
+
+    needle = items[0].RealRaw
+
+    crates, checksums = get_crates(args)
+    if not crates:
+        return True
+
+    crates_list = 'CRATES_LIST = "\\\n'
+    for x in crates:
+        crates_list += f'    {x} \\\n'
+    crates_list += '"\n'
+
+    with open(args.recipe) as i:
+        raw_recipe = i.read()
+
+    raw_recipe = raw_recipe.replace(needle, crates_list)
+
+    # get replacement of all crates SRC_URI[...] flag settings
+    checksum_needle = ''.join(x.RealRaw for x in sorted(
+        flags, key=lambda y: y.Line) if x.Flag not in ['sha256sum', 'md5sum'])
+    # assemble new
+    checksum_replacement = ''
+    for name, data in checksums.items():
+        checksum_replacement += f'SRC_URI[{name}.sha256sum] = "{data}"\n'
+
+    raw_recipe = raw_recipe.replace(checksum_needle, checksum_replacement)
+
+    with open(args.recipe, 'w') as o:
+        o.write(raw_recipe)
+
+    return True
+
+
+def main():
+    args = create_parser()
+    sys.exit(0 if update_crates(args) else 1)
+
+
+if __name__ == '__main__':
+    main()
