@@ -1,5 +1,5 @@
-SUMMARY = "SCA ruleset for flake8 at recipes"
-DESCRIPTION = "Rules to configure how flake8 is affecting the build"
+SUMMARY = "SCA ruleset for ruff at recipes"
+DESCRIPTION = "Rules to configure how ruff is affecting the build"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
@@ -12,8 +12,8 @@ inherit native
 
 do_install() {
     install -d "${D}${datadir}"
-    install "${WORKDIR}/fatal" "${D}${datadir}/flake8-recipe-fatal"
-    install "${WORKDIR}/suppress" "${D}${datadir}/flake8-recipe-suppress"
+    install "${WORKDIR}/fatal" "${D}${datadir}/ruff-recipe-fatal"
+    install "${WORKDIR}/suppress" "${D}${datadir}/ruff-recipe-suppress"
 }
 
 FILES:${PN} = "${datadir}"
