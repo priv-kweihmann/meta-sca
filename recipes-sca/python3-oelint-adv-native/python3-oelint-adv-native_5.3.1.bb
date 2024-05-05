@@ -15,7 +15,7 @@ DEPENDS += "\
             python3-urllib3-native \
             "
 
-SRC_URI[sha256sum] = "47252d1cc9d68325768fa62c02199cab7f6300b5cbe82bd3c19e63934ea3d348"
+SRC_URI[sha256sum] = "f1f7ed1d0a6fd866618b76435d8506eee0225aeb97efd767b4601b288befe0a7"
 
 PYPI_PACKAGE = "oelint_adv"
 UPSTREAM_CHECK_REGEX ?= "/oelint-adv/(?P<pver>(\d+[\.\-_]*)+)"
