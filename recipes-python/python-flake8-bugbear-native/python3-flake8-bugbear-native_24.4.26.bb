@@ -10,10 +10,10 @@ DEPENDS += "\
             python3-flake8-native \
             "
 
-PYPI_PACKAGE = "flake8-bugbear"
+PYPI_PACKAGE = "flake8_bugbear"
 
-SRC_URI[md5sum] = "86895a129a42143f93aaf943c96957d1"
-SRC_URI[sha256sum] = "f9cb5f2a9e792dd80ff68e89a14c12eed8620af8b41a49d823b7a33064ac9658"
+SRC_URI[md5sum] = "eb28d98c44e7de37b60936ccc6861274"
+SRC_URI[sha256sum] = "ff8d4ba5719019ebf98e754624c30c05cef0dadcf18a65d91c7567300e52a130"
 
 inherit pypi
 inherit setuptools3
