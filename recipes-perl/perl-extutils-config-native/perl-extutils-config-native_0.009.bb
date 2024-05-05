@@ -3,12 +3,12 @@ HOMEPAGE = "https://metacpan.org/pod/ExtUtils::Config"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0-only & Artistic-1.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=1932ab4d8b84c25fd7967aa18088e57e"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=ddb4d526cd95b017e23486893490883e"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-Config-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "565a7b09c7cac5907a25bbe2c959a717"
-SRC_URI[sha256sum] = "ae5104f634650dce8a79b7ed13fb59d67a39c213a6776cfdaa3ee749e62f1a8c"
+SRC_URI[md5sum] = "4333113089815c2aa92573b151bb43cb"
+SRC_URI[sha256sum] = "4ef84e73aad50a3be332885d2a3b12f3cab1b1e0bad24e88297a123b4f39f3ce"
 
 S = "${WORKDIR}/ExtUtils-Config-${PV}"
 
