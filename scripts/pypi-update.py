@@ -109,7 +109,7 @@ def update_pkg(args):
                 i.extractall(o)
             try:
                 subprocess.check_call(
-                    [os.path.join(os.path.dirname(__file__)), 'crates-update', o, _recipe_newname])
+                    [os.path.join(os.path.dirname(__file__), 'crates-update'), o, _recipe_newname])
             except subprocess.CalledProcessError:
                 pass
 
