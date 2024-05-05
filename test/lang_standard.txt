@@ -28,6 +28,7 @@ pylint
 pysymcheck
 rats
 revive
+ruff
 setuptoolslint
 shellcheck
 slick
