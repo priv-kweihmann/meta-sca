@@ -3,16 +3,17 @@ HOMEPAGE = "https://github.com/PyCQA/flake8-commas/"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=c816149279ec41ec9d1cba44cbd47b03"
+# does not provide a license file
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
 DEPENDS += "python3-flake8-native"
 
-SRC_URI = "git://github.com/PyCQA/flake8-commas.git;branch=master;protocol=https"
-SRCREV = "f19499b91d8408abd47b3fc070fa230f53c0c8ac"
-S = "${WORKDIR}/git"
-PIP_INSTALL_PACKAGE = "flake8_commas"
+SRC_URI[sha256sum] = "940441ab8ee544df564ae3b3f49f20462d75d5c7cac2463e0b27436e2050f263"
+
+PYPI_PACKAGE = "flake8-commas"
 
 inherit setuptools3
+inherit pypi
 inherit native
 
 RDEPENDS:${PN}:class-nativesdk += "\
