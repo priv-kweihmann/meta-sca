@@ -16,8 +16,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "astroid"
 
-SRC_URI[md5sum] = "75c5ffd8edd0d2d74a6407db704a2e20"
-SRC_URI[sha256sum] = "ac248253bfa4bd924a0de213707e7ebeeb3138abeb48d798784ead1e56d419d4"
+SRC_URI[md5sum] = "95091b8798bbffcc43e33a32e274ae26"
+SRC_URI[sha256sum] = "f7f829f8506ade59f1b3c6c93d8fac5b1ebc721685fa9af23e9794daf1d450a3"
 
 do_configure:prepend() {
     # remove the version pinning on build tools
