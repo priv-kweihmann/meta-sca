@@ -12,7 +12,7 @@ DEPENDS += "\
            "
 
 SRC_URI = "git://github.com/Yelp/detect-secrets.git;branch=master;protocol=https"
-SRCREV = "001e16323a2f0162336345f4ceb6d72c204980b5"
+SRCREV = "01886c8a910c64595c47f186ca1ffc0b77fa5458"
 S = "${WORKDIR}/git"
 
 inherit sca-description
