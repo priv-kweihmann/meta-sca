@@ -6,19 +6,21 @@ LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1e0b805e34c99594e846fa46c20d8b9b"
 
 DEPENDS += "\
-    nativesdk-python3-chardet \
-    nativesdk-python3-pygments \
+    python3-chardet-native \
+    python3-pygments-native \
 "
 
 SRC_URI = "git://github.com/priv-kweihmann/tlv.git;protocol=https;branch=master"
-SRCREV = "fa3c263d7db05c4aaa8c5b0803f2ec254f6973c6"
+SRCREV = "22c7e34478763c0fa21d00db21bb6fc106723f30"
 S = "${WORKDIR}/git"
 
 inherit sca-description
 inherit setuptools3
-inherit nativesdk
+inherit native
+
 SCA_TOOL_DESCRIPTION = "tlv"
 PIP_INSTALL_PACKAGE = "tlv"
+
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-chardet \
     nativesdk-python3-pygments \
