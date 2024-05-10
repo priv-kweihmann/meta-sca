@@ -139,7 +139,7 @@ CRATES_LIST = "\
     crate://crates.io/lexical-parse-float/0.8.5 \
     crate://crates.io/lexical-parse-integer/0.8.6 \
     crate://crates.io/lexical-util/0.8.5 \
-    crate://crates.io/libc/0.2.153 \
+    crate://crates.io/libc/0.2.154 \
     crate://crates.io/libcst/1.3.1 \
     crate://crates.io/libcst_derive/1.3.1 \
     crate://crates.io/libmimalloc-sys/0.1.37 \
@@ -230,8 +230,8 @@ CRATES_LIST = "\
     crate://crates.io/scopeguard/1.2.0 \
     crate://crates.io/seahash/4.1.0 \
     crate://crates.io/serde-wasm-bindgen/0.6.5 \
-    crate://crates.io/serde/1.0.199 \
-    crate://crates.io/serde_derive/1.0.199 \
+    crate://crates.io/serde/1.0.200 \
+    crate://crates.io/serde_derive/1.0.200 \
     crate://crates.io/serde_derive_internals/0.29.0 \
     crate://crates.io/serde_json/1.0.116 \
     crate://crates.io/serde_repr/0.1.19 \
@@ -352,7 +352,7 @@ CRATES_LIST = "\
     crate://crates.io/zeroize/1.7.0 \
 "
 
-SRC_URI[sha256sum] = "ff0a3ef2e3c4b6d133fbedcf9586abfbe38d076041f2dc18ffb2c7e0485d5a07"
+SRC_URI[sha256sum] = "f87ea42d5cdebdc6a69761a9d0bc83ae9b3b30d0ad78952005ba6568d6c022af"
 
 SRC_URI[Inflector-0.11.4.sha256sum] = "fe438c63458706e03479442743baae6c88256498e6431708f6dfc520a26515d3"
 SRC_URI[adler-1.0.2.sha256sum] = "f26201604c87b1e01bd3d98f8d5d9a8fcbb815e8cedb41ffccbeb4bf593a35fe"
@@ -501,7 +501,7 @@ SRC_URI[lazy_static-1.4.0.sha256sum] = "e2abad23fbc42b3700f2f279844dc832adb2b2eb
 SRC_URI[lexical-parse-float-0.8.5.sha256sum] = "683b3a5ebd0130b8fb52ba0bdc718cc56815b6a097e28ae5a6997d0ad17dc05f"
 SRC_URI[lexical-parse-integer-0.8.6.sha256sum] = "6d0994485ed0c312f6d965766754ea177d07f9c00c9b82a5ee62ed5b47945ee9"
 SRC_URI[lexical-util-0.8.5.sha256sum] = "5255b9ff16ff898710eb9eb63cb39248ea8a5bb036bea8085b1a767ff6c4e3fc"
-SRC_URI[libc-0.2.153.sha256sum] = "9c198f91728a82281a64e1f4f9eeb25d82cb32a5de251c6bd1b5154d63a8e7bd"
+SRC_URI[libc-0.2.154.sha256sum] = "ae743338b92ff9146ce83992f766a31066a91a8c84a45e0e9f21e7cf6de6d346"
 SRC_URI[libcst-1.3.1.sha256sum] = "6f1e25d1b119ab5c2f15a6e081bb94a8d547c5c2ad065f5fd0dbb683f31ced91"
 SRC_URI[libcst_derive-1.3.1.sha256sum] = "4a5011f2d59093de14a4a90e01b9d85dee9276e58a25f0107dcee167dd601be0"
 SRC_URI[libmimalloc-sys-0.1.35.sha256sum] = "3979b5c37ece694f1f5e51e7ecc871fdb0f517ed04ee45f88d15d6d553cb9664"
@@ -608,11 +608,9 @@ SRC_URI[schemars_derive-0.8.17.sha256sum] = "83263746fe5e32097f06356968a077f9608
 SRC_URI[scoped-tls-1.0.1.sha256sum] = "e1cf6437eb19a8f4a6cc0f7dca544973b0b78843adbfeb3683d1a94a0024a294"
 SRC_URI[scopeguard-1.2.0.sha256sum] = "94143f37725109f92c262ed2cf5e59bce7498c01bcc1502d7b9afe439a4e9f49"
 SRC_URI[seahash-4.1.0.sha256sum] = "1c107b6f4780854c8b126e228ea8869f4d7b71260f962fefb57b996b8959ba6b"
-SRC_URI[serde-1.0.197.sha256sum] = "3fb1c873e1b9b056a4dc4c0c198b24c3ffa059243875552b2bd0933b1aee4ce2"
-SRC_URI[serde-1.0.199.sha256sum] = "0c9f6e76df036c77cd94996771fb40db98187f096dd0b9af39c6c6e452ba966a"
+SRC_URI[serde-1.0.200.sha256sum] = "ddc6f9cc94d67c0e21aaf7eda3a010fd3af78ebf6e096aa6e2e13c79749cce4f"
 SRC_URI[serde-wasm-bindgen-0.6.5.sha256sum] = "8302e169f0eddcc139c70f139d19d6467353af16f9fce27e8c30158036a1e16b"
-SRC_URI[serde_derive-1.0.197.sha256sum] = "7eb0b34b42edc17f6b7cac84a52a1c5f0e1bb2227e997ca9011ea3dd34e8610b"
-SRC_URI[serde_derive-1.0.199.sha256sum] = "11bd257a6541e141e42ca6d24ae26f7714887b47e89aa739099104c7e4d3b7fc"
+SRC_URI[serde_derive-1.0.200.sha256sum] = "856f046b9400cee3c8c94ed572ecdb752444c24528c035cd35882aad6f492bcb"
 SRC_URI[serde_derive_internals-0.26.0.sha256sum] = "85bf8229e7920a9f636479437026331ce11aa132b4dde37d121944a44d6e5f3c"
 SRC_URI[serde_derive_internals-0.29.0.sha256sum] = "330f01ce65a3a5fe59a60c82f3c9a024b573b8a6e875bd233fe5f934e71d54e3"
 SRC_URI[serde_json-1.0.115.sha256sum] = "12dc5c46daa8e9fdf4f5e71b6cf9a53f2487da0e86e55808e2d35539666497dd"
