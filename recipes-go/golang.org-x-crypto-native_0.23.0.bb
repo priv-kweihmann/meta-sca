@@ -16,4 +16,4 @@ EXTRA_DEPENDS += "\
 GO_IMPORT = "golang.org/x/crypto"
 
 inherit gosrc
-inherit native
+inherit_defer native

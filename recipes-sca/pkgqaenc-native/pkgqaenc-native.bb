@@ -11,7 +11,7 @@ SRC_URI = "file://pkgqaenc.py"
 S = "${WORKDIR}"
 
 inherit sca-description
-inherit native
+inherit_defer native
 
 SCA_TOOL_DESCRIPTION = "pkgqaenc"
 

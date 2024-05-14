@@ -16,4 +16,4 @@ EXTRA_DEPENDS += "\
 GO_IMPORT = "github.com/briandowns/spinner"
 
 inherit gosrc
-inherit native
+inherit_defer native

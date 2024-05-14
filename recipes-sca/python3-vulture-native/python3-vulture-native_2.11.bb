@@ -15,7 +15,7 @@ PYPI_PACKAGE = "vulture"
 inherit pypi
 inherit sca-description
 inherit setuptools3
-inherit native
+inherit_defer native
 
 SCA_TOOL_DESCRIPTION = "vulture"
 

@@ -14,4 +14,4 @@ EXTRA_DEPENDS += "\
 "
 GO_IMPORT = "github.com/fatih/color"
 inherit gosrc
-inherit nativesdk
+inherit_defer nativesdk

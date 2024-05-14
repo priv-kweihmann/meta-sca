@@ -10,4 +10,4 @@ require golang.org-x-sync-sources.inc
 GO_IMPORT = "golang.org/x/sync"
 
 inherit gosrc
-inherit native
+inherit_defer native

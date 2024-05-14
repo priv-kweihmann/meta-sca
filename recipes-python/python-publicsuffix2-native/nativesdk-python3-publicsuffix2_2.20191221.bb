@@ -17,7 +17,7 @@ SRC_URI[sha256sum] = "00f8cc31aa8d0d5592a5ced19cccba7de428ebca985db26ac852d920dd
 
 inherit pypi
 inherit setuptools3
-inherit nativesdk
+inherit_defer nativesdk
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-charset-normalizer \

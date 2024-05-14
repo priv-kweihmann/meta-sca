@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=a4a2bbea1db029f21b3a328c7
 SRC_URI = "file://fatal \
            file://suppress"
 
-inherit native
+inherit_defer native
 
 do_install() {
     install -d "${D}${datadir}"

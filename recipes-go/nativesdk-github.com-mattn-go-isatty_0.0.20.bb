@@ -10,4 +10,4 @@ require github.com-mattn-go-isatty-sources.inc
 EXTRA_DEPENDS += "nativesdk-golang.org-x-sys"
 GO_IMPORT = "github.com/mattn/go-isatty"
 inherit gosrc
-inherit nativesdk
+inherit_defer nativesdk

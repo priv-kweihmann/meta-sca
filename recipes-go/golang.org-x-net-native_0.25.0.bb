@@ -17,4 +17,4 @@ EXTRA_DEPENDS += "\
 GO_IMPORT = "golang.org/x/net"
 
 inherit gosrc
-inherit native
+inherit_defer native

@@ -18,7 +18,7 @@ S = "${WORKDIR}/devscripts"
 UPSTREAM_CHECK_REGEX = "devscripts_(?P<pver>\d+\.\d+\.\d+)"
 
 inherit sca-description
-inherit nativesdk
+inherit_defer nativesdk
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 SCA_TOOL_DESCRIPTION = "checkbashism"

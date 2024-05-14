@@ -11,4 +11,4 @@ require gopkg.in-yaml.v2-sources.inc
 GO_IMPORT = "gopkg.in/yaml.v2"
 
 inherit gosrc
-inherit native
+inherit_defer native

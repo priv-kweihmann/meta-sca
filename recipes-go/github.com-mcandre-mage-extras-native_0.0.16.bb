@@ -14,4 +14,4 @@ EXTRA_DEPENDS += "\
 GO_IMPORT = "github.com/mcandre/mage-extras"
 
 inherit gosrc
-inherit native
+inherit_defer native

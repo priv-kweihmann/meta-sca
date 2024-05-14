@@ -11,4 +11,4 @@ require github.com-davecgh-go-spew-sources.inc
 GO_IMPORT = "github.com/davecgh/go-spew"
 
 inherit gosrc
-inherit native
+inherit_defer native

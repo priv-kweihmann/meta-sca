@@ -13,7 +13,7 @@ SRC_URI[sha256sum] = "6550bf722585eb97dffa8343b0f1c372101f5c4ab5b07ebf0edd1c7988
 
 inherit pypi
 inherit setuptools3
-inherit nativesdk
+inherit_defer nativesdk
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \

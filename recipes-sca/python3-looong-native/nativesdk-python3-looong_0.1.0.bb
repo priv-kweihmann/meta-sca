@@ -16,7 +16,7 @@ S = "${WORKDIR}/git"
 
 inherit sca-description
 inherit setuptools3
-inherit nativesdk
+inherit_defer nativesdk
 SCA_TOOL_DESCRIPTION = "looong"
 PIP_INSTALL_PACKAGE = "looong"
 RDEPENDS:${PN}:class-nativesdk += "nativesdk-python3-core"

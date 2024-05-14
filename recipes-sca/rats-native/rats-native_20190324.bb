@@ -17,7 +17,7 @@ S = "${WORKDIR}/git"
 
 inherit autotools-brokensep
 inherit sca-description
-inherit native
+inherit_defer native
 
 SCA_TOOL_DESCRIPTION = "rats"
 

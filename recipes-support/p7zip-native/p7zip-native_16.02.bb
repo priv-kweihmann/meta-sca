@@ -51,7 +51,7 @@ do_install() {
 	ln -s 7za ${D}${bindir}/7z
 }
 
-inherit native
+inherit_defer native
 
 UPSTREAM_CHECK_URI = "https://sourceforge.net/projects/p7zip/files/p7zip/"
 UPSTREAM_CHECK_REGEX = "/projects/p7zip/files/p7zip/(?P<pver>\d+\.\d+)"

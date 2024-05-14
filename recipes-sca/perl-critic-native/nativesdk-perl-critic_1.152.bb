@@ -44,7 +44,7 @@ UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>1\.\d{3})"
 inherit cpan_build
 
 inherit sca-description
-inherit nativesdk
+inherit_defer nativesdk
 SCA_TOOL_DESCRIPTION = "perlcritic"
 do_compile () {
     perl Build verbose=1

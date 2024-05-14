@@ -19,7 +19,7 @@ SRC_URI[sha256sum] = "a55133e972b81c4a3bf8b6dc419f262f94a4fd6f636297046f74d35c93
 
 inherit pypi
 inherit python_setuptools_build_meta
-inherit nativesdk
+inherit_defer nativesdk
 
 do_install:append() {
     # remove test files

@@ -11,4 +11,4 @@ require github.com-mitchellh-go-homedir-sources.inc
 GO_IMPORT = "github.com/mitchellh/go-homedir"
 
 inherit gosrc
-inherit native
+inherit_defer native

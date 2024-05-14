@@ -14,4 +14,4 @@ EXTRA_DEPENDS += "\
 GO_IMPORT = "github.com/cpuguy83/go-md2man/v2"
 
 inherit gosrc
-inherit native
+inherit_defer native

@@ -23,7 +23,7 @@ SRC_URI[sha256sum] = "ebcfbc17064f10bd3b6d2122cdbc97b71a494af0ebbafaf9a8ceadfe8b
 
 inherit pypi
 inherit setuptools3
-inherit native
+inherit_defer native
 
 UPSTREAM_CHECK_URI = "https://pypi.org/project/debian-inspector/"
 UPSTREAM_CHECK_REGEX = "/debian-inspector/(?P<pver>(\d+[\.\-_]*)+)/"

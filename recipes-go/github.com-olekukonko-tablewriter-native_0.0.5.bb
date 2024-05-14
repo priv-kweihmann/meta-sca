@@ -15,4 +15,4 @@ EXTRA_DEPENDS += "\
 GO_IMPORT = "github.com/olekukonko/tablewriter"
 
 inherit gosrc
-inherit native
+inherit_defer native

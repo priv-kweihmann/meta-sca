@@ -14,4 +14,4 @@ EXTRA_DEPENDS += "\
 GO_IMPORT = "github.com/mattn/go-colorable"
 
 inherit gosrc
-inherit native
+inherit_defer native

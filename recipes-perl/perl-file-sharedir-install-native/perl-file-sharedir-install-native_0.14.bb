@@ -13,4 +13,4 @@ SRC_URI[sha256sum] = "8f9533b198f2d4a9a5288cbc7d224f7679ad05a7a8573745599789428b
 S = "${WORKDIR}/File-ShareDir-Install-${PV}"
 
 inherit cpan
-inherit native
+inherit_defer native

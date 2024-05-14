@@ -15,7 +15,7 @@ PYPI_PACKAGE = "flake8-async"
 
 inherit pypi
 inherit setuptools3
-inherit native
+inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \

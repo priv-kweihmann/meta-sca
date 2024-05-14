@@ -10,4 +10,4 @@ require github.com-chavacava-garif-sources.inc
 GO_IMPORT = "github.com/chavacava/garif"
 
 inherit gosrc
-inherit native
+inherit_defer native

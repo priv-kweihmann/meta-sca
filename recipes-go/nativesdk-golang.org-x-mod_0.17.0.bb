@@ -9,4 +9,4 @@ require golang.org-x-mod-sources.inc
 
 GO_IMPORT = "golang.org/x/mod"
 inherit gosrc
-inherit nativesdk
+inherit_defer nativesdk

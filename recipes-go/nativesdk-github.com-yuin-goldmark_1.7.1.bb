@@ -9,4 +9,4 @@ require github.com-yuin-goldmark-sources.inc
 
 GO_IMPORT = "github.com/yuin/goldmark"
 inherit gosrc
-inherit nativesdk
+inherit_defer nativesdk

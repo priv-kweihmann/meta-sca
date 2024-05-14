@@ -22,7 +22,7 @@ S = "${WORKDIR}/git"
 
 inherit sca-description
 inherit setuptools3
-inherit nativesdk
+inherit_defer nativesdk
 SCA_TOOL_DESCRIPTION = "cpplint"
 do_configure:prepend() {
     sed -i "s#pytest-runner==5.2#pytest-runner>=5.2#g" ${S}/setup.py

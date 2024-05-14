@@ -10,4 +10,4 @@ require github.com-pkg-diff-sources.inc
 
 GO_IMPORT = "github.com/pkg/diff"
 inherit gosrc
-inherit nativesdk
+inherit_defer nativesdk

@@ -10,4 +10,4 @@ require mvdan.cc-editorconfig-sources.inc
 
 GO_IMPORT = "mvdan.cc/editorconfig"
 inherit gosrc
-inherit nativesdk
+inherit_defer nativesdk

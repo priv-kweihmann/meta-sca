@@ -14,6 +14,6 @@ SRC_URI[sha256sum] = "74e3d1928edc070d21748185c46e3fb33490f22f52a3addee9aee0f4f7
 
 inherit pypi
 inherit python_hatchling
-inherit native
+inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "nativesdk-python3-soupsieve"

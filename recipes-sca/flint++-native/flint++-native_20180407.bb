@@ -14,7 +14,7 @@ S = "${WORKDIR}/git"
 
 inherit pkgconfig
 inherit sca-description
-inherit native
+inherit_defer native
 
 SCA_TOOL_DESCRIPTION = "flint"
 

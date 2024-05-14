@@ -10,4 +10,4 @@ require golang.org-x-term-sources.inc
 EXTRA_DEPENDS += "nativesdk-golang.org-x-sys"
 GO_IMPORT = "golang.org/x/term"
 inherit gosrc
-inherit nativesdk
+inherit_defer nativesdk

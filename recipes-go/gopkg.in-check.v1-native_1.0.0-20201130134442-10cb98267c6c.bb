@@ -15,4 +15,4 @@ EXTRA_DEPENDS += "\
 GO_IMPORT = "gopkg.in/check.v1"
 
 inherit gosrc
-inherit native
+inherit_defer native

@@ -18,7 +18,7 @@ SRC_URI[sha256sum] = "3bb2a20ba35df958dc0a4f2306fc05d903d8b8c4de3c8beefce17739d2
 S = "${WORKDIR}/File-ShareDir-${PV}"
 
 inherit cpan
-inherit native
+inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-perl-class-inspector \

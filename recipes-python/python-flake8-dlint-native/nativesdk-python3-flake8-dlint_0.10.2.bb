@@ -15,7 +15,7 @@ S = "${WORKDIR}/git"
 PIP_INSTALL_PACKAGE = "dlint"
 
 inherit setuptools3
-inherit nativesdk
+inherit_defer nativesdk
 
 do_install:append() {
     ## This otherwise collides with other modules

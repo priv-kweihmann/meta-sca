@@ -18,4 +18,4 @@ EXTRA_DEPENDS += "\
 GO_IMPORT = "github.com/boyter/lc"
 
 inherit gosrc
-inherit native
+inherit_defer native

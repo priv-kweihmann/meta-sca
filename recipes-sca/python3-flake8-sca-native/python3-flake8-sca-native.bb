@@ -8,7 +8,7 @@ DEPENDS += "python3-flake8-native"
 
 inherit sca-description
 inherit python3-dir
-inherit native
+inherit_defer native
 
 PACKAGECONFIG ??= "\
                    2020 \

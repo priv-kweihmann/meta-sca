@@ -14,7 +14,7 @@ S = "${WORKDIR}/git"
 PIP_INSTALL_PACKAGE = "flake8_variables_names"
 
 inherit setuptools3
-inherit nativesdk
+inherit_defer nativesdk
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \

@@ -45,7 +45,7 @@ UPSTREAM_CHECK_REGEX ?= "/wemake-python-styleguide/(?P<pver>(\d+[\.\-_]*)+)"
 
 inherit pypi
 inherit python_poetry_core
-inherit native
+inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-astor \

@@ -20,7 +20,7 @@ SRC_URI[sha256sum] = "87c79f83b6876e206051965d5019d2507c551f819a86750080ec7ec43b
 S = "${WORKDIR}/PPI-${PV}"
 
 inherit cpan
-inherit native
+inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-perl-clone \

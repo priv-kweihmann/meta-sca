@@ -13,4 +13,4 @@ SRC_URI[sha256sum] = "30f1ec3f2cf9ff66ae96f973333f23c5f558915bb6266881eac7423f52
 S = "${WORKDIR}/Params-Util-${PV}"
 
 inherit cpan
-inherit nativesdk
+inherit_defer nativesdk

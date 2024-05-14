@@ -8,7 +8,7 @@ DEPENDS += "nativesdk-python3-flake8"
 
 inherit sca-description
 inherit python3-dir
-inherit nativesdk
+inherit_defer nativesdk
 PACKAGECONFIG ??= "\
                    2020 \
                    async \

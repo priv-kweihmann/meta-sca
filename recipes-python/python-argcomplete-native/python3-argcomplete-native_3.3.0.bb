@@ -12,4 +12,4 @@ PYPI_PACKAGE = "argcomplete"
 
 inherit pypi
 inherit setuptools3
-inherit native
+inherit_defer native

@@ -14,7 +14,7 @@ PYPI_PACKAGE = "flake8-commas"
 
 inherit setuptools3
 inherit pypi
-inherit native
+inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \

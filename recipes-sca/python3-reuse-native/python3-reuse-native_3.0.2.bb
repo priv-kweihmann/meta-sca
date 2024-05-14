@@ -29,7 +29,7 @@ PYPI_PACKAGE = "reuse"
 inherit pypi
 inherit sca-description
 inherit python_poetry_core
-inherit native
+inherit_defer native
 
 python_pep517_do_compile () {
     nativepython3 -m picobuild --source ${PEP517_SOURCE_PATH} --dest ${PEP517_WHEEL_PATH} --wheel ${PEP517_BUILD_OPTS}

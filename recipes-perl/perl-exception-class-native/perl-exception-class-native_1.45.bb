@@ -13,4 +13,4 @@ SRC_URI[sha256sum] = "5482a77ef027ca1f9f39e1f48c558356e954936fc8fbbdee6c811c5127
 S = "${WORKDIR}/Exception-Class-${PV}"
 
 inherit cpan
-inherit native
+inherit_defer native

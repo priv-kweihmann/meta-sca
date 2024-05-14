@@ -23,5 +23,5 @@ SRC_URI:append = " file://0001-setup.cfg-fix-invalid-version-spec.patch"
 
 inherit pypi
 inherit setuptools3
-inherit native
+inherit_defer native
 

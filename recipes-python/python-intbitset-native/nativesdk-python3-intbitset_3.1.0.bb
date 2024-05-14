@@ -17,7 +17,7 @@ SRC_URI[sha256sum] = "6e83c5ba7fda2520aa8565428bbaf842deb7293d665f3cd8281cb39254
 
 inherit pypi
 inherit setuptools3
-inherit nativesdk
+inherit_defer nativesdk
 
 do_compile:prepend() {
     # enforce generation of pyx objects matching the python code version

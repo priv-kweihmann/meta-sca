@@ -17,7 +17,7 @@ SRC_URI[sha256sum] = "619fe023e00c3d8e5113521d7200e1ebb04587c12d157f9a2fb167feb8
 
 inherit pypi
 inherit setuptools3
-inherit nativesdk
+inherit_defer nativesdk
 
 # put any LICENSE file into doc pkg
 FILES:${PN}-doc += "${datadir}/LICENSE ${datadir}/COPYING*"

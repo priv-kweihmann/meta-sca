@@ -15,4 +15,4 @@ SRC_URI[sha256sum] = "65969d3ad8a3a2ea8ef5b4213ed5c2c83961bb5bd12f7ad35128f6bd5b
 S = "${WORKDIR}/ExtUtils-InstallPaths-${PV}"
 
 inherit cpan
-inherit native
+inherit_defer native

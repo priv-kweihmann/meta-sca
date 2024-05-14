@@ -17,7 +17,7 @@ S = "${WORKDIR}/git"
 
 inherit sca-description
 inherit setuptools3
-inherit native
+inherit_defer native
 
 SCA_TOOL_DESCRIPTION = "detectsecrets"
 PIP_INSTALL_PACKAGE = "detect_secrets"

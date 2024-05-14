@@ -38,7 +38,7 @@ do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
 inherit sca-description
-inherit native
+inherit_defer native
 
 SCA_TOOL_DESCRIPTION = "shellcheck"
 

@@ -11,4 +11,4 @@ require github.com-russross-blackfriday-v2-sources.inc
 GO_IMPORT = "github.com/russross/blackfriday/v2"
 
 inherit gosrc
-inherit native
+inherit_defer native

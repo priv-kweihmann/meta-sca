@@ -21,7 +21,7 @@ inherit pypi
 
 inherit sca-description
 inherit setuptools3
-inherit nativesdk
+inherit_defer nativesdk
 SCA_TOOL_DESCRIPTION = "dennis"
 do_install:append() {
     ## This otherwise collides with other modules

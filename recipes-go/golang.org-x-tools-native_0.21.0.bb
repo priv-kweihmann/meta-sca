@@ -21,4 +21,4 @@ GO_IMPORT = "golang.org/x/tools"
 do_compile[noexec] = "1"
 
 inherit gosrc
-inherit native
+inherit_defer native

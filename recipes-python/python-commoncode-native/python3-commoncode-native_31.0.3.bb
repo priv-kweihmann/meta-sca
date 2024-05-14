@@ -25,7 +25,7 @@ SRCREV = "24d436c3af2b4a4ee5a51a7e32868616977449b1"
 S = "${WORKDIR}/git"
 
 inherit setuptools3
-inherit native
+inherit_defer native
 
 PIP_INSTALL_PACKAGE = "commoncode"
 

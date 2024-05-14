@@ -10,7 +10,7 @@ SRC_URI = "\
     file://fatal \
 "
 
-inherit native
+inherit_defer native
 
 do_install() {
     install -d "${D}${datadir}"

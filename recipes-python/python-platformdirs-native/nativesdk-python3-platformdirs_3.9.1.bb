@@ -17,7 +17,7 @@ SRC_URI[sha256sum] = "1b42b450ad933e981d56e59f1b97495428c9bd60698baab9f3eb3d00d5
 
 inherit pypi
 inherit python_hatchling
-inherit nativesdk
+inherit_defer nativesdk
 
 do_compile:prepend() {
     export SETUPTOOLS_SCM_PRETEND_VERSION="${PV}"

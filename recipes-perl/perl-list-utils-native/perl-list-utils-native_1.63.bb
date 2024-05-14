@@ -13,4 +13,4 @@ SRC_URI[sha256sum] = "cafbdf212f6827dc9a0dd3b57b6ee50e860586d7198228a33262d55c55
 S = "${WORKDIR}/Scalar-List-Utils-${PV}"
 
 inherit cpan
-inherit native
+inherit_defer native

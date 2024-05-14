@@ -18,7 +18,7 @@ PYPI_PACKAGE = "flake8_isort"
 
 inherit pypi
 inherit python_hatchling
-inherit nativesdk
+inherit_defer nativesdk
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \

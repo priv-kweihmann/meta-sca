@@ -14,6 +14,6 @@ PYPI_PACKAGE = "rich"
 
 inherit pypi
 inherit python_poetry_core
-inherit nativesdk
+inherit_defer nativesdk
 
 RDEPENDS:${PN}:class-nativesdk += "nativesdk-python3-pygments"

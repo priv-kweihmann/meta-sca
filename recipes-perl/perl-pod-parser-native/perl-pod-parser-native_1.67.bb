@@ -13,7 +13,7 @@ SRC_URI[sha256sum] = "5deccbf55d750ce65588cd211c1a03fa1ef3aaa15d1ac2b8d85383a42c
 S = "${WORKDIR}/Pod-Parser-${PV}"
 
 inherit cpan
-inherit native
+inherit_defer native
 
 do_install:append() {
     # remove as it's supplied by perl itself

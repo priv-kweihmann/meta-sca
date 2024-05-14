@@ -13,4 +13,4 @@ SRC_URI[sha256sum] = "6f295e2cbffb1dbc15bdb9dadc341671c1e0cd2bdf2d312b17526273c3
 S = "${WORKDIR}/Exporter-Tiny-${PV}"
 
 inherit cpan
-inherit native
+inherit_defer native

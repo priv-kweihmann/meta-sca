@@ -29,7 +29,7 @@ do_configure:prepend() {
 
 inherit pypi
 inherit python_setuptools_build_meta
-inherit native
+inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \

@@ -10,4 +10,4 @@ require github.com-mgechev-dots-sources.inc
 
 GO_IMPORT = "github.com/mgechev/dots"
 inherit gosrc
-inherit nativesdk
+inherit_defer nativesdk

@@ -23,6 +23,6 @@ UPSTREAM_CHECK_REGEX ?= "/oelint-adv/(?P<pver>(\d+[\.\-_]*)+)"
 inherit sca-description
 inherit setuptools3
 inherit pypi
-inherit native
+inherit_defer native
 
 SCA_TOOL_DESCRIPTION = "oelint"

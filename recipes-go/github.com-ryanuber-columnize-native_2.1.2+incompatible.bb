@@ -11,4 +11,4 @@ require github.com-ryanuber-columnize-sources.inc
 GO_IMPORT = "github.com/ryanuber/columnize"
 
 inherit gosrc
-inherit native
+inherit_defer native

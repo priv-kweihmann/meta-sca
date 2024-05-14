@@ -17,4 +17,4 @@ EXTRA_DEPENDS += "\
 GO_IMPORT = "github.com/stretchr/testify"
 
 inherit gosrc
-inherit native
+inherit_defer native

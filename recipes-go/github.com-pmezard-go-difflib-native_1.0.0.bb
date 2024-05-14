@@ -11,4 +11,4 @@ require github.com-pmezard-go-difflib-sources.inc
 GO_IMPORT = "github.com/pmezard/go-difflib"
 
 inherit gosrc
-inherit native
+inherit_defer native

@@ -15,6 +15,6 @@ SRC_URI[sha256sum] = "3184ccdc513221983e503ac00e1aa504a2aa8f84e5de673c46b0b6eee9
 
 inherit pypi
 inherit setuptools3
-inherit native
+inherit_defer native
 
 UPSTREAM_CHECK_REGEX ?= "/dockerfile-parse/(?P<pver>(\d+[\.\-_]*)+)"

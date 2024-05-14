@@ -14,4 +14,4 @@ EXTRA_DEPENDS += "\
 GO_IMPORT = "gopkg.in/yaml.v3"
 
 inherit gosrc
-inherit native
+inherit_defer native

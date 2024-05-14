@@ -11,4 +11,4 @@ require github.com-olekukonko-tablewriter-sources.inc
 EXTRA_DEPENDS += "nativesdk-github.com-mattn-go-runewidth"
 GO_IMPORT = "github.com/olekukonko/tablewriter"
 inherit gosrc
-inherit nativesdk
+inherit_defer nativesdk

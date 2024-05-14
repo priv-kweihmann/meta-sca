@@ -15,7 +15,7 @@ SRC_URI[sha256sum] = "4b23542491af010d44a5c7c861244738acc74ababae6b8838d354dfb19
 S = "${WORKDIR}/Readonly-${PV}"
 
 inherit cpan_build
-inherit native
+inherit_defer native
 
 do_install:append() {
     # Remove .packlist file, as it contains host specific paths

@@ -15,4 +15,4 @@ EXTRA_DEPENDS += "\
 GO_IMPORT = "github.com/kr/text"
 
 inherit gosrc
-inherit native
+inherit_defer native

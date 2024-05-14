@@ -13,7 +13,7 @@ SRCREV = "ce7f87da3d2ea265ad27bbdf10828532c8e3a028"
 S = "${WORKDIR}/git"
 
 inherit sca-description
-inherit nativesdk
+inherit_defer nativesdk
 SCA_TOOL_DESCRIPTION = "pscan"
 do_configure[noexec] = "1"
 do_compile() {

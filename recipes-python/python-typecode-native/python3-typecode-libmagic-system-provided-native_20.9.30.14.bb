@@ -18,7 +18,7 @@ SRC_URI[sha256sum] = "5ba9631648216a3ddec70de90fad357c9c7feb6cd8f9364fe8b895c7ac
 
 inherit pypi
 inherit setuptools3
-inherit native
+inherit_defer native
 
 UPSTREAM_CHECK_URI = "https://pypi.org/project/typecode-libmagic-system-provided/"
 UPSTREAM_CHECK_REGEX = "/typecode-libmagic-system-provided/(?P<pver>(\d+[\.\-_]*)+)/"

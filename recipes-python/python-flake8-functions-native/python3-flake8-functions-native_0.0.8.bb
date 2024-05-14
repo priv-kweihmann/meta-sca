@@ -17,7 +17,7 @@ UPSTREAM_CHECK_REGEX ?= "/flake8-functions/(?P<pver>(\d+[\.\-_]*)+)"
 SRC_URI[sha256sum] = "5446626673a9faecbf389fb411b90bdc87b002c387b72dc097b208e7a58f2a1c"
 
 inherit pypi
-inherit native
+inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \

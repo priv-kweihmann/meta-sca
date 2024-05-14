@@ -16,7 +16,7 @@ S = "${WORKDIR}/git"
 inherit setuptools3
 
 inherit sca-description
-inherit nativesdk
+inherit_defer nativesdk
 SCA_TOOL_DESCRIPTION = "kconfighard"
 FILES:${PN} += "${bindir}"
 RDEPENDS:${PN}:class-nativesdk += "\

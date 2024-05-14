@@ -1,6 +1,7 @@
 SUMMARY = "SCA tools packaged for nativesdk"
 
-inherit sca-global packagegroup nativesdk
+inherit sca-global packagegroup
+inherit_defer nativesdk
 
 PACKAGEGROUP_DISABLE_COMPLEMENTARY = "1"
 

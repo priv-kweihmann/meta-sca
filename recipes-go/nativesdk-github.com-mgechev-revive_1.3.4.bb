@@ -20,4 +20,4 @@ EXTRA_DEPENDS += "\
 "
 GO_IMPORT = "github.com/mgechev/revive"
 inherit gosrc
-inherit nativesdk
+inherit_defer nativesdk

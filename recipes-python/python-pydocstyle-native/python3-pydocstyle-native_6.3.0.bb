@@ -15,6 +15,6 @@ S = "${WORKDIR}/git"
 PIP_INSTALL_PACKAGE = "pydocstyle"
 
 inherit python_poetry_core
-inherit native
+inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "nativesdk-python3-snowballstemmer"

@@ -10,4 +10,4 @@ require github.com-burntsushi-toml-sources.inc
 GO_IMPORT = "github.com/BurntSushi/toml"
 
 inherit gosrc
-inherit native
+inherit_defer native

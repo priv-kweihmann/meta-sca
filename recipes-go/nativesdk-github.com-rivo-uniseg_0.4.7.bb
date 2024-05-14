@@ -9,4 +9,4 @@ require github.com-rivo-uniseg-sources.inc
 
 GO_IMPORT = "github.com/rivo/uniseg"
 inherit gosrc
-inherit nativesdk
+inherit_defer nativesdk

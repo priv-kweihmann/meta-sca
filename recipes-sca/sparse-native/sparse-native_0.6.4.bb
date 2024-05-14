@@ -11,7 +11,7 @@ S = "${WORKDIR}/git"
 
 inherit pkgconfig
 inherit sca-description
-inherit native
+inherit_defer native
 
 DEBUG_PREFIX_MAP:remove = "-fcanon-prefix-map"
 

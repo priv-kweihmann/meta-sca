@@ -13,7 +13,7 @@ SRCREV = "ce7f87da3d2ea265ad27bbdf10828532c8e3a028"
 S = "${WORKDIR}/git"
 
 inherit sca-description
-inherit native
+inherit_defer native
 
 SCA_TOOL_DESCRIPTION = "pscan"
 

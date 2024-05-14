@@ -11,6 +11,6 @@ SRC_URI[sha256sum] = "fa177819ac4a8aa810fd9a31769887125d63e94bc2f27f154627ba2899
 
 inherit pypi
 inherit setuptools3
-inherit native
+inherit_defer native
 
 UPSTREAM_CHECK_REGEX = "/${PYPI_PACKAGE}/(?P<pver>(\d+[\.\-_]*)+(b\d+))/"

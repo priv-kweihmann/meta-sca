@@ -10,4 +10,4 @@ require github.com-stretchr-objx-sources.inc
 GO_IMPORT = "github.com/stretchr/objx"
 
 inherit gosrc
-inherit native
+inherit_defer native

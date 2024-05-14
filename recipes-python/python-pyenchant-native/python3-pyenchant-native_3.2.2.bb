@@ -14,7 +14,7 @@ SRC_URI[sha256sum] = "1cf830c6614362a78aab78d50eaf7c6c93831369c52e1bb64ffae1df03
 
 inherit pypi
 inherit setuptools3
-inherit native
+inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-enchant2 \

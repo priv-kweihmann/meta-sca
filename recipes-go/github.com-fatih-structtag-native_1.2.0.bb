@@ -11,4 +11,4 @@ require github.com-fatih-structtag-sources.inc
 GO_IMPORT = "github.com/fatih/structtag"
 
 inherit gosrc
-inherit native
+inherit_defer native

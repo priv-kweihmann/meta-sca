@@ -21,7 +21,7 @@ inherit pypi
 
 inherit sca-description
 inherit setuptools3
-inherit nativesdk
+inherit_defer nativesdk
 SCA_TOOL_DESCRIPTION = "setuptoolslint"
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \

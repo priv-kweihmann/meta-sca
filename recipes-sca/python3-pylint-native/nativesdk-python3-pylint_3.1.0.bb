@@ -27,7 +27,7 @@ inherit pypi
 
 inherit sca-description
 inherit python_setuptools_build_meta
-inherit nativesdk
+inherit_defer nativesdk
 SCA_TOOL_DESCRIPTION = "pylint"
 do_configure:prepend() {
     sed -i 's#setuptools~=#setuptools>=#g' ${S}/pyproject.toml

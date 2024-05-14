@@ -15,7 +15,7 @@ UPSTREAM_CHECK_COMMITS = "1"
 S = "${WORKDIR}/git"
 
 inherit setuptools3
-inherit nativesdk
+inherit_defer nativesdk
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \

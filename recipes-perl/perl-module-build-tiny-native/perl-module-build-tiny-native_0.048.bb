@@ -18,4 +18,4 @@ SRC_URI[sha256sum] = "79a73e506fb7badabdf79137a45c6c5027daaf6f9ac3dcfb9d4ffcce92
 S = "${WORKDIR}/Module-Build-Tiny-${PV}"
 
 inherit cpan_build
-inherit native
+inherit_defer native

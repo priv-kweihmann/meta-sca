@@ -10,4 +10,4 @@ require github.com-pkg-errors-sources.inc
 
 GO_IMPORT = "github.com/pkg/errors"
 inherit gosrc
-inherit nativesdk
+inherit_defer nativesdk

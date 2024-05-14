@@ -20,7 +20,7 @@ S = "${WORKDIR}/git"
 
 inherit pkgconfig
 inherit sca-description
-inherit native
+inherit_defer native
 
 LIBZ3 = "z3-native"
 

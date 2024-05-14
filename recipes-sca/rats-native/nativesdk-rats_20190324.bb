@@ -18,7 +18,7 @@ S = "${WORKDIR}/git"
 inherit autotools-brokensep
 
 inherit sca-description
-inherit nativesdk
+inherit_defer nativesdk
 SCA_TOOL_DESCRIPTION = "rats"
 do_install() {
     install -d ${D}/${bindir}

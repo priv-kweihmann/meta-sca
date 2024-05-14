@@ -7,6 +7,6 @@ LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=a4a2bbea1db029f21b3a328c7
 DEPENDS += "nativesdk-github.com-mcandre-stank"
 
 inherit sca-description
-inherit nativesdk
+inherit_defer nativesdk
 SCA_TOOL_DESCRIPTION = "stank"
 RDEPENDS:${PN}:class-nativesdk += "nativesdk-github.com-mcandre-stank"

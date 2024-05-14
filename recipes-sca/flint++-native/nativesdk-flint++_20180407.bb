@@ -15,7 +15,7 @@ S = "${WORKDIR}/git"
 inherit pkgconfig
 
 inherit sca-description
-inherit nativesdk
+inherit_defer nativesdk
 SCA_TOOL_DESCRIPTION = "flint"
 ## we don't need debug packages
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"

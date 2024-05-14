@@ -16,4 +16,4 @@ EXTRA_DEPENDS += "\
 GO_IMPORT = "github.com/mcandre/slick"
 
 inherit gosrc
-inherit native
+inherit_defer native

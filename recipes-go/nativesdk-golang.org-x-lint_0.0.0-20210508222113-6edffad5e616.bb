@@ -11,4 +11,4 @@ require golang.org-x-lint-sources.inc
 EXTRA_DEPENDS += "nativesdk-golang.org-x-tools"
 GO_IMPORT = "golang.org/x/lint"
 inherit gosrc
-inherit nativesdk
+inherit_defer nativesdk

@@ -11,4 +11,4 @@ PYPI_PACKAGE = "javaproperties"
 
 inherit pypi
 inherit python_setuptools_build_meta
-inherit native
+inherit_defer native

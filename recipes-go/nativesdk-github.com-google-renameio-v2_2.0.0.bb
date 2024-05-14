@@ -9,4 +9,4 @@ require github.com-google-renameio-v2-sources.inc
 
 GO_IMPORT = "github.com/google/renameio/v2"
 inherit gosrc
-inherit nativesdk
+inherit_defer nativesdk

@@ -17,7 +17,7 @@ SRCREV = "752581c0c9bef18136d04f65547fe8a3a58d97b1"
 S = "${WORKDIR}/git"
 
 inherit setuptools3
-inherit native
+inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \

@@ -16,7 +16,7 @@ S = "${WORKDIR}/git"
 
 inherit sca-description
 inherit setuptools3
-inherit nativesdk
+inherit_defer nativesdk
 SCA_TOOL_DESCRIPTION = "tlv"
 PIP_INSTALL_PACKAGE = "tlv"
 RDEPENDS:${PN}:class-nativesdk += "\

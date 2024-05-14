@@ -9,7 +9,7 @@ DEPENDS += "nativesdk-python3-yamllint"
 PYPI_PACKAGE = "yamllint"
 
 inherit sca-description
-inherit nativesdk
+inherit_defer nativesdk
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 SCA_TOOL_DESCRIPTION = "yamllint"

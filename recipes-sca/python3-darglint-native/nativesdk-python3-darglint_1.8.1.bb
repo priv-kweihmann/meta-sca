@@ -12,7 +12,7 @@ S = "${WORKDIR}/git"
 
 inherit sca-description
 inherit setuptools3
-inherit nativesdk
+inherit_defer nativesdk
 SCA_TOOL_DESCRIPTION = "darglint"
 PIP_INSTALL_PACKAGE = "darglint"
 RDEPENDS:${PN}:class-nativesdk += "\

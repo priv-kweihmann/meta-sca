@@ -18,7 +18,7 @@ PYPI_PACKAGE = "flake8_bandit"
 
 inherit pypi
 inherit setuptools3
-inherit native
+inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-bandit \

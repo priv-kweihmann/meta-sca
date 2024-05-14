@@ -11,4 +11,4 @@ require github.com-boyter-golangvectorspace-sources.inc
 GO_IMPORT = "github.com/boyter/golangvectorspace"
 
 inherit gosrc
-inherit native
+inherit_defer native

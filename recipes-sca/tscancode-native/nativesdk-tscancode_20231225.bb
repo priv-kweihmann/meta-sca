@@ -15,7 +15,7 @@ S = "${WORKDIR}/git/trunk"
 inherit autotools-brokensep
 
 inherit sca-description
-inherit nativesdk
+inherit_defer nativesdk
 SCA_TOOL_DESCRIPTION = "tscancode"
 BUILD_CXXFLAGS += "-std=c++11"
 do_configure:prepend() {

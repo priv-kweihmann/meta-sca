@@ -15,4 +15,4 @@ UPSTREAM_CHECK_GITTAGREGEX = "z3-(?P<pver>\d+\.\d+\.\d+)"
 
 inherit cmake
 inherit python3native
-inherit native
+inherit_defer native

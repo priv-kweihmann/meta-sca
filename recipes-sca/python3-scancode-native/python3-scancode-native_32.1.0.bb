@@ -96,6 +96,6 @@ S = "${WORKDIR}/git"
 
 inherit sca-description
 inherit python_setuptools_build_meta
-inherit native
+inherit_defer native
 
 SCA_TOOL_DESCRIPTION = "scancode"

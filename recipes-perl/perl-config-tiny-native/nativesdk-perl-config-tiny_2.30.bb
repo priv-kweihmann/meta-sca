@@ -13,4 +13,4 @@ SRC_URI[sha256sum] = "b2f7345619b3b8e636dd39ea010731c9dc2bfb8f022bcbd86ae6ad1786
 S = "${WORKDIR}/Config-Tiny-${PV}"
 
 inherit cpan
-inherit nativesdk
+inherit_defer nativesdk

@@ -15,7 +15,7 @@ SRC_URI[sha256sum] = "3576a3149d2c53e07e9737b7892be5cfb84a499a6ef1df090b713b0544
 S = "${WORKDIR}/PPIx-QuoteLike-${PV}"
 
 inherit cpan_build
-inherit nativesdk
+inherit_defer nativesdk
 
 do_install:append() {
     # Remove .packlist file, as it contains host specific paths

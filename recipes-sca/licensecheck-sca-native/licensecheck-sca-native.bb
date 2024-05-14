@@ -12,7 +12,7 @@ DEPENDS += "\
 S = "${WORKDIR}"
 
 inherit sca-description
-inherit native
+inherit_defer native
 
 SCA_TOOL_DESCRIPTION = "licensecheck"
 

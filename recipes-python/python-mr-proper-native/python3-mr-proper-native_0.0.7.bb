@@ -17,7 +17,7 @@ UPSTREAM_CHECK_REGEX ?= "/mr-proper/(?P<pver>(\d+[\.\-_]*)+)"
 SRC_URI[sha256sum] = "03b517b19e617537f711ce418b125e5f2efd82ec881539cdee83195c78c14a02"
 
 inherit pypi
-inherit native
+inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-click \

@@ -20,4 +20,4 @@ SRC_URI[sha256sum] = "30d571076753efc389edc7f9aaef338a4fcb24b54d8968d5f39b1342f4
 
 inherit pypi
 inherit python_hatchling
-inherit native
+inherit_defer native

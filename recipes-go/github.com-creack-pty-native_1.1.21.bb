@@ -10,4 +10,4 @@ require github.com-creack-pty-sources.inc
 GO_IMPORT = "github.com/creack/pty"
 
 inherit gosrc
-inherit native
+inherit_defer native

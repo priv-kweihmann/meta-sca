@@ -9,4 +9,4 @@ require github.com-magefile-mage-sources.inc
 
 GO_IMPORT = "github.com/magefile/mage"
 inherit gosrc
-inherit nativesdk
+inherit_defer nativesdk

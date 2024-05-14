@@ -20,7 +20,7 @@ SRC_URI[sha256sum] = "aee636cb9ecb5594a7cd92d67ad73eb69909e5cc7bd81710cf9d00970f
 
 inherit pypi
 inherit python_poetry_core
-inherit native
+inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-attrs \

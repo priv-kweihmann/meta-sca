@@ -10,4 +10,4 @@ require github.com-mattn-go-colorable-sources.inc
 EXTRA_DEPENDS += "nativesdk-github.com-mattn-go-isatty"
 GO_IMPORT = "github.com/mattn/go-colorable"
 inherit gosrc
-inherit nativesdk
+inherit_defer nativesdk

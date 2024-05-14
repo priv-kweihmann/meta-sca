@@ -13,4 +13,4 @@ SRC_URI[sha256sum] = "85e0238179dd43997e58c66bd51611182bc7d533505029a2db0d3232ed
 S = "${WORKDIR}/Text-ParseWords-${PV}"
 
 inherit cpan
-inherit native
+inherit_defer native

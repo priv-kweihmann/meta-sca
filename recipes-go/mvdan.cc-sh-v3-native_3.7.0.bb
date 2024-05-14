@@ -19,4 +19,4 @@ EXTRA_DEPENDS += "\
 GO_IMPORT = "mvdan.cc/sh/v3"
 
 inherit gosrc
-inherit native
+inherit_defer native

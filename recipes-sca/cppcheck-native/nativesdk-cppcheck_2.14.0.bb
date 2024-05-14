@@ -21,7 +21,7 @@ S = "${WORKDIR}/git"
 inherit pkgconfig
 
 inherit sca-description
-inherit nativesdk
+inherit_defer nativesdk
 LIBZ3 = "nativesdk-z3"
 PACKAGECONFIG ??= "z3"
 PACKAGECONFIG[z3] = "USE_Z3=yes,,${LIBZ3}"

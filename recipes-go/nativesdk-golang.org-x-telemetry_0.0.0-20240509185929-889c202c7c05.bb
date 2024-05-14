@@ -16,4 +16,4 @@ GO_IMPORT = "golang.org/x/telemetry"
 # needs CGO
 do_compile[noexec] = "1"
 inherit gosrc
-inherit nativesdk
+inherit_defer nativesdk

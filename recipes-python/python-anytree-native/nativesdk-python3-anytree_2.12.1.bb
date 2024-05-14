@@ -14,7 +14,7 @@ PYPI_PACKAGE = "anytree"
 
 inherit pypi
 inherit python_poetry_core
-inherit nativesdk
+inherit_defer nativesdk
 
 # put any LICENSE file into doc pkg
 FILES:${PN}-doc += "${datadir}/LICENSE ${prefix}/LICENSE"

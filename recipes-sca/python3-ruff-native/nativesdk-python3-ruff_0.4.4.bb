@@ -757,7 +757,7 @@ SRC_URI[zeroize-1.7.0.sha256sum] = "525b4ec142c6b68a2d10f01f7bbf6755599ca3f81ea5
 inherit sca-description
 inherit pypi
 inherit python_maturin
-inherit nativesdk
+inherit_defer nativesdk
 SRC_URI:append = " ${CRATES_LIST}"
 SCA_TOOL_DESCRIPTION = "ruff"
 INSANE_SKIP:${PN} += "already-stripped"

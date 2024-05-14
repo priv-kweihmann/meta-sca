@@ -19,7 +19,7 @@ SRC_URI[sha256sum] = "2d4f7aecfb5b7466216d48610c7d6bad1c3990c29cdd392ad08259b161
 
 inherit pypi
 inherit setuptools3
-inherit native
+inherit_defer native
 
 do_install:append() {
     ## This otherwise collides with other modules

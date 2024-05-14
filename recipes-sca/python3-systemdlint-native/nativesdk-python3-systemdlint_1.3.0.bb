@@ -16,7 +16,7 @@ S = "${WORKDIR}/git/systemdlint"
 
 inherit sca-description
 inherit setuptools3
-inherit nativesdk
+inherit_defer nativesdk
 SCA_TOOL_DESCRIPTION = "systemdlint"
 PIP_INSTALL_PACKAGE = "systemdlint"
 RDEPENDS:${PN}:class-nativesdk += "\

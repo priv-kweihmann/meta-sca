@@ -22,4 +22,4 @@ do_configure:prepend() {
 }
 
 inherit setuptools3
-inherit native
+inherit_defer native

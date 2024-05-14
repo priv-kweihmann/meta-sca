@@ -37,7 +37,7 @@ do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
 inherit sca-description
-inherit nativesdk
+inherit_defer nativesdk
 SCA_TOOL_DESCRIPTION = "shellcheck"
 WRAPPER_LIBPATH:class-native = "${STAGING_LIBDIR_NATIVE}"
 WRAPPER_LIBPATH:class-nativesdk = "${libdir}"

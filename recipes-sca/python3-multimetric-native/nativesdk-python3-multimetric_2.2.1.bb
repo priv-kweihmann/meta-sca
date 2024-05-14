@@ -17,7 +17,7 @@ SRC_URI[sha256sum] = "a12bb18aea0a5cb3d71d2368c10ee46185c4de615636de12fb0fce1645
 inherit sca-description
 inherit pypi
 inherit setuptools3
-inherit nativesdk
+inherit_defer nativesdk
 SCA_TOOL_DESCRIPTION = "multimetric"
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-chardet \

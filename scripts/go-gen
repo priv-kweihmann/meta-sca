@@ -432,7 +432,7 @@ GO_IMPORT = "%name%"
 %recipeextra%
 
 inherit gosrc
-inherit native
+inherit_defer native
 """
     _tpl = _tpl.strip() + "\n"
     _recipe_fn = __name_to_recipe_native_fn(desc["name"], desc["version"])

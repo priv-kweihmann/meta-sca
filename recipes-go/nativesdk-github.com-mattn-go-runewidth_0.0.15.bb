@@ -10,4 +10,4 @@ require github.com-mattn-go-runewidth-sources.inc
 EXTRA_DEPENDS += "nativesdk-github.com-rivo-uniseg"
 GO_IMPORT = "github.com/mattn/go-runewidth"
 inherit gosrc
-inherit nativesdk
+inherit_defer nativesdk
