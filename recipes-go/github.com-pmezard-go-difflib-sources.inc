@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     BSD-3-Clause \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/pmezard/go-difflib/LICENSE;md5=e9a2ebb8de779a07500ddecca806145e \
+    file://github.com/pmezard/go-difflib/LICENSE;md5=e9a2ebb8de779a07500ddecca806145e \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-pmezard-go-difflib-sources.inc"

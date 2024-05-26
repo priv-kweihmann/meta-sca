@@ -11,7 +11,8 @@ DEPENDS += "python3-flake8-native"
 SRC_URI = "git://github.com/duo-labs/dlint.git;branch=master;protocol=https"
 SRCREV = "b6029c48345e0d2383fdf01dc4ffb9ac417980f9"
 
-S = "${WORKDIR}/git"
+UNPACKDIR ??= "${WORKDIR}"
+S = "${UNPACKDIR}/git"
 PIP_INSTALL_PACKAGE = "dlint"
 
 inherit setuptools3

@@ -11,7 +11,8 @@ SRC_URI = "\
 "
 SRCREV = "df8014c2ba6216e351b80e0cb1057d275db69873"
 
-S = "${WORKDIR}/git"
+UNPACKDIR ??= "${WORKDIR}"
+S = "${UNPACKDIR}/git"
 
 inherit setuptools3
 inherit_defer native

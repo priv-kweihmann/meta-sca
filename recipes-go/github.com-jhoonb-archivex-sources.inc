@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     BSD-3-Clause \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/jhoonb/archivex/LICENSE;md5=eed6747e7211322f3930da9dbb9ffc16 \
+    file://github.com/jhoonb/archivex/LICENSE;md5=eed6747e7211322f3930da9dbb9ffc16 \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-jhoonb-archivex-sources.inc"

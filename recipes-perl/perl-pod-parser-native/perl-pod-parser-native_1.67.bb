@@ -10,7 +10,8 @@ SRC_URI = "https://cpan.metacpan.org/authors/id/M/MA/MAREKR/Pod-Parser-${PV}.tar
 SRC_URI[md5sum] = "8ef9384e522e201400a73780348e4f79"
 SRC_URI[sha256sum] = "5deccbf55d750ce65588cd211c1a03fa1ef3aaa15d1ac2b8d85383a42c1427ea"
 
-S = "${WORKDIR}/Pod-Parser-${PV}"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/Pod-Parser-${PV}"
 
 inherit cpan
 inherit_defer native

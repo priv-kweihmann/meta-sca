@@ -10,7 +10,8 @@ SRC_URI = "https://cpan.metacpan.org/authors/id/R/RU/RURBAN/B-Keywords-${PV}.tar
 SRC_URI[md5sum] = "0cea59c1a2381310fd6d7619be85d038"
 SRC_URI[sha256sum] = "2daa155d2f267fb0dedd87f8a4c4fb5663879fc106517b1ee258353ef87aed34"
 
-S = "${WORKDIR}/B-Keywords-${PV}"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/B-Keywords-${PV}"
 
 inherit cpan
 inherit_defer native

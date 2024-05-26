@@ -8,7 +8,8 @@ SRC_URI = "file://requirements.txt;subdir=source \
            file://foo.py;subdir=source \
            "
 
-S = "${WORKDIR}/source"
-B = "${WORKDIR}/source"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/source"
+B = "${UNPACKDIR}/source"
 
 inherit sca

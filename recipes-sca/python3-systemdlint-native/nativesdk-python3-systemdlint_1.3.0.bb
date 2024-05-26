@@ -3,7 +3,8 @@ HOMEPAGE = "https://github.com/priv-kweihmann/systemdlint"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=1e0b805e34c99594e846fa46c20d8b9b"
+UNPACKDIR ??= "${WORKDIR}"
+LIC_FILES_CHKSUM = "file://${UNPACKDIR}/git/LICENSE;md5=1e0b805e34c99594e846fa46c20d8b9b"
 
 DEPENDS += "\
     nativesdk-python3-anytree \
@@ -12,7 +13,8 @@ DEPENDS += "\
 
 SRC_URI = "git://github.com/priv-kweihmann/systemdlint.git;protocol=https;branch=master"
 SRCREV = "fe8336fbb3906e34ea8dfcc646d5630ea60c9468"
-S = "${WORKDIR}/git/systemdlint"
+UNPACKDIR ??= "${WORKDIR}"
+S = "${UNPACKDIR}/git/systemdlint"
 
 inherit sca-description
 inherit setuptools3

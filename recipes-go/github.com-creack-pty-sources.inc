@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     MIT \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/creack/pty/LICENSE;md5=93958070863d769117fa33b129020050 \
+    file://github.com/creack/pty/LICENSE;md5=93958070863d769117fa33b129020050 \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-creack-pty-sources.inc"

@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     MIT \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/fatih/color/LICENSE.md;md5=316e6d590bdcde7993fb175662c0dd5a \
+    file://github.com/fatih/color/LICENSE.md;md5=316e6d590bdcde7993fb175662c0dd5a \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-fatih-color-sources.inc"

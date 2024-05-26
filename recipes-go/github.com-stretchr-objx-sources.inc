@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     MIT \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/stretchr/objx/LICENSE;md5=d023fd31d3ca39ec61eec65a91732735 \
+    file://github.com/stretchr/objx/LICENSE;md5=d023fd31d3ca39ec61eec65a91732735 \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-stretchr-objx-sources.inc"

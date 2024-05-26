@@ -10,7 +10,8 @@ SRC_URI = "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Deep-${PV}.tar.gz
 SRC_URI[md5sum] = "fcff296434cd92538ae9de9d1744705f"
 SRC_URI[sha256sum] = "b6591f6ccdd853c7efc9ff3c5756370403211cffe46047f082b1cd1611a84e5f"
 
-S = "${WORKDIR}/Test-Deep-${PV}"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/Test-Deep-${PV}"
 
 inherit cpan
 inherit_defer nativesdk

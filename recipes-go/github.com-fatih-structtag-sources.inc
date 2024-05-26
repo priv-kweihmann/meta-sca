@@ -6,7 +6,7 @@ GOSRC_LICENSE += "\
     CC-BY-3.0 \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/fatih/structtag/LICENSE;md5=7cd9e46c722ee0e2532709c7ab80abaf \
+    file://github.com/fatih/structtag/LICENSE;md5=7cd9e46c722ee0e2532709c7ab80abaf \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-fatih-structtag-sources.inc"

@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     Apache-2.0 \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/google/renameio/v2/LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57 \
+    file://github.com/google/renameio/v2/LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57 \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-google-renameio-v2-sources.inc"

@@ -15,7 +15,8 @@ SRC_URI = "git://github.com/smarkets/flake8-strict.git;branch=master;protocol=ht
 SRCREV = "7c40ad30ecb6d8a31ac384ed49bb8107cfd5023e"
 UPSTREAM_CHECK_COMMITS = "1"
 
-S = "${WORKDIR}/git"
+UNPACKDIR ??= "${WORKDIR}"
+S = "${UNPACKDIR}/git"
 PIP_INSTALL_PACKAGE = "flake8_strict"
 
 inherit setuptools3

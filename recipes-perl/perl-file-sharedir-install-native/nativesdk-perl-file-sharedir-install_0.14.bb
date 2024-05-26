@@ -10,7 +10,8 @@ SRC_URI = "https://cpan.metacpan.org/authors/id/E/ET/ETHER/File-ShareDir-Install
 SRC_URI[md5sum] = "bac4d924f3d863b00648ab56ec0dcbdc"
 SRC_URI[sha256sum] = "8f9533b198f2d4a9a5288cbc7d224f7679ad05a7a8573745599789428bc5aea0"
 
-S = "${WORKDIR}/File-ShareDir-Install-${PV}"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/File-ShareDir-Install-${PV}"
 
 inherit cpan
 inherit_defer nativesdk

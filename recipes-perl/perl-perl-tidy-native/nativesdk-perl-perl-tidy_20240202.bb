@@ -9,7 +9,8 @@ SRC_URI = "https://cpan.metacpan.org/authors/id/S/SH/SHANCOCK/Perl-Tidy-${PV}.ta
 
 SRC_URI[sha256sum] = "9451adde47c2713652d39b150fb3eeb3ccc702add46913e989125184cd7ec57d"
 
-S = "${WORKDIR}/Perl-Tidy-${PV}"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/Perl-Tidy-${PV}"
 
 inherit cpan
 inherit_defer nativesdk

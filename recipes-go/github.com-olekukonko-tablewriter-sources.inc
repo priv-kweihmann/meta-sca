@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     MIT \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/olekukonko/tablewriter/LICENSE.md;md5=0b3be5790ce7a5a6c959f60a5ce4c138 \
+    file://github.com/olekukonko/tablewriter/LICENSE.md;md5=0b3be5790ce7a5a6c959f60a5ce4c138 \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-olekukonko-tablewriter-sources.inc"

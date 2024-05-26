@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     BSD-2-Clause \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/gopkg.in/check.v1/LICENSE;md5=598d6673548efc92a7d6dfb739add1ed \
+    file://gopkg.in/check.v1/LICENSE;md5=598d6673548efc92a7d6dfb739add1ed \
 "
 
 GOSRC_INCLUDEGUARD += "gopkg.in-check.v1-sources.inc"

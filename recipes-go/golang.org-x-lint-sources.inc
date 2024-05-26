@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     BSD-3-Clause \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/golang.org/x/lint/LICENSE;md5=4c728948788b1a02f33ae4e906546eef \
+    file://golang.org/x/lint/LICENSE;md5=4c728948788b1a02f33ae4e906546eef \
 "
 
 GOSRC_INCLUDEGUARD += "golang.org-x-lint-sources.inc"

@@ -224,7 +224,7 @@ python do_sca_sdk_script_gen:class-nativesdk() {
         res.append(sdkgen_get_expanded_function(d, item))
     
     if res:
-        _target_file = d.expand("${WORKDIR}/sca.${SCA_TOOL_DESCRIPTION}.sh")
+        _target_file = d.expand("${UNPACKDIR}/sca.${SCA_TOOL_DESCRIPTION}.sh")
         os.makedirs(os.path.dirname(_target_file), exist_ok=True)
         with open(_target_file, "w") as o:
             o.write("#!/bin/bash\n")
@@ -235,8 +235,8 @@ python do_sca_sdk_script_gen:class-nativesdk() {
 do_install:append:class-nativesdk() {
     if [ -n "${SCA_SDKGEN_TASKS}" ]; then
         install -d ${D}${bindir}
-        install -m 0755 ${WORKDIR}/sca.*.sh ${D}${bindir} || bbwarn "Please clean the sstate cache and run again"
-        install -m 0755 ${WORKDIR}/sca.run.* ${D}${bindir} || true
+        install -m 0755 ${UNPACKDIR}/sca.*.sh ${D}${bindir} || bbwarn "Please clean the sstate cache and run again"
+        install -m 0755 ${UNPACKDIR}/sca.run.* ${D}${bindir} || true
     fi
 }
 

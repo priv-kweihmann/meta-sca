@@ -6,8 +6,8 @@ GOSRC_LICENSE += "\
     MIT \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/gopkg.in/yaml.v2/LICENSE.libyaml;md5=d0b68be4a2dc957aaf09144970bc6696 \
-    file://src/gopkg.in/yaml.v2/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e \
+    file://gopkg.in/yaml.v2/LICENSE.libyaml;md5=d0b68be4a2dc957aaf09144970bc6696 \
+    file://gopkg.in/yaml.v2/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e \
 "
 
 GOSRC_INCLUDEGUARD += "gopkg.in-yaml.v2-sources.inc"

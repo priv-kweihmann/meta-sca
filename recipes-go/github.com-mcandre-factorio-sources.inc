@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     BSD-2-Clause-Views \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/mcandre/factorio/LICENSE.md;md5=df97b9c993d8fa7d8ea65d0c6f97fb0c \
+    file://github.com/mcandre/factorio/LICENSE.md;md5=df97b9c993d8fa7d8ea65d0c6f97fb0c \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-mcandre-factorio-sources.inc"

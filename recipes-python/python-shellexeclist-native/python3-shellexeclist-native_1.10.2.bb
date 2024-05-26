@@ -17,7 +17,8 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 SRC_URI = "git://github.com/priv-kweihmann/shellexeclist.git;branch=master;protocol=https"
 SRCREV = "60042c68b05dd19caed0752bdf00107d3360860c"
 
-S = "${WORKDIR}/git"
+UNPACKDIR ??= "${WORKDIR}"
+S = "${UNPACKDIR}/git"
 
 inherit setuptools3
 inherit_defer native

@@ -17,7 +17,8 @@ SRC_URI = "https://cpan.metacpan.org/authors/id/M/MI/MITHALDU/PPI-${PV}.tar.gz"
 SRC_URI[md5sum] = "dda3e4d5542a42d7dc102523fda81bd3"
 SRC_URI[sha256sum] = "87c79f83b6876e206051965d5019d2507c551f819a86750080ec7ec43b2e0af8"
 
-S = "${WORKDIR}/PPI-${PV}"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/PPI-${PV}"
 
 inherit cpan
 inherit_defer nativesdk

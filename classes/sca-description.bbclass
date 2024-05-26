@@ -5,14 +5,16 @@ inherit sca-sdk-script-gen
 
 SCA_TOOL_DESCRIPTION ?= ""
 
-SRC_URI:append = " file://${SCA_TOOL_DESCRIPTION}.sca.description"
+S ?= "${WORKDIR}/${BP}"
+UNPACKDIR ??= "${WORKDIR}/${BP}"
+SRC_URI:append = " file://${SCA_TOOL_DESCRIPTION}.sca.description;destsuffix=${BP}"
 
 python do_sca_tool_description() {
     import json
     import glob
     import re
 
-    for item in glob.glob(d.expand("${WORKDIR}/${SCA_TOOL_DESCRIPTION}.sca.description")):
+    for item in glob.glob(d.expand("${UNPACKDIR}/${SCA_TOOL_DESCRIPTION}.sca.description")):
         cnt = {}
         with open(item) as i:
             cnt = json.load(i)
@@ -31,8 +33,8 @@ addtask do_sca_tool_description after do_patch before do_install
 
 do_install:append() {
     install -d ${D}${datadir}
-    if [ -e ${WORKDIR}/${SCA_TOOL_DESCRIPTION}.sca.description ]; then
-        install -m 0644 ${WORKDIR}/${SCA_TOOL_DESCRIPTION}.sca.description ${D}${datadir}
+    if [ -e ${UNPACKDIR}/${SCA_TOOL_DESCRIPTION}.sca.description ]; then
+        install -m 0644 ${UNPACKDIR}/${SCA_TOOL_DESCRIPTION}.sca.description ${D}${datadir}
     fi
 }
 

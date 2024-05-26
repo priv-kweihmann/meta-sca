@@ -12,7 +12,8 @@ SRCREV = "2080fe13950f8c3f2bff1197a4e4dafa9ab4bd6d"
 
 UPSTREAM_CHECK_COMMITS = "1"
 
-S = "${WORKDIR}/git"
+UNPACKDIR ??= "${WORKDIR}"
+S = "${UNPACKDIR}/git"
 
 inherit setuptools3
 inherit_defer native

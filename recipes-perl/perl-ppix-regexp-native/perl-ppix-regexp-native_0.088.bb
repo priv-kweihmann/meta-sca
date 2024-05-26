@@ -12,7 +12,8 @@ SRC_URI = "https://cpan.metacpan.org/authors/id/W/WY/WYANT/PPIx-Regexp-${PV}.tar
 SRC_URI[md5sum] = "1ca3eba38a8e9a5fcfb0458f8ed64eac"
 SRC_URI[sha256sum] = "885433f9b102fad4fd36b21c7320bb036036111caf998131bf416f7cd5ee9764"
 
-S = "${WORKDIR}/PPIx-Regexp-${PV}"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/PPIx-Regexp-${PV}"
 
 inherit cpan_build
 inherit_defer native

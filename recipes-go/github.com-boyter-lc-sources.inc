@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     MIT \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/boyter/lc/LICENSE;md5=c80dc78b1efbb79817c0b2699aa1b357 \
+    file://github.com/boyter/lc/LICENSE;md5=c80dc78b1efbb79817c0b2699aa1b357 \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-boyter-lc-sources.inc"

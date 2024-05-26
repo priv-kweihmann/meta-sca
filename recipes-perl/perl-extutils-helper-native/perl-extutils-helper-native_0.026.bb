@@ -10,7 +10,8 @@ SRC_URI = "https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-Helpers-${PV
 SRC_URI[md5sum] = "83b00c1e401321c425ae5db6b2b2fd12"
 SRC_URI[sha256sum] = "de901b6790a4557cf4ec908149e035783b125bf115eb9640feb1bc1c24c33416"
 
-S = "${WORKDIR}/ExtUtils-Helpers-${PV}"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/ExtUtils-Helpers-${PV}"
 
 inherit cpan
 inherit_defer native

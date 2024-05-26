@@ -11,7 +11,8 @@ SRC_URI = "\
     git://github.com/a13xp0p0v/kconfig-hardened-check.git;protocol=https;branch=master \
 "
 SRCREV = "70ae2b93be46efe3f1356c025426cd0b43595c0a"
-S = "${WORKDIR}/git"
+UNPACKDIR ??= "${WORKDIR}"
+S = "${UNPACKDIR}/git"
 
 inherit setuptools3
 inherit sca-description

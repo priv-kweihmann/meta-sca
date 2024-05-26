@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     MIT \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/ryanuber/columnize/LICENSE;md5=2dcf22ecbbb7a43c2280f859bdb4bc76 \
+    file://github.com/ryanuber/columnize/LICENSE;md5=2dcf22ecbbb7a43c2280f859bdb4bc76 \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-ryanuber-columnize-sources.inc"

@@ -16,7 +16,8 @@ SRC_URI = "\
 "
 SRCREV = "9c4ed8fa58aed48a8a364ee8193ac9ab50a92602"
 
-S = "${WORKDIR}/git"
+UNPACKDIR ??= "${WORKDIR}"
+S = "${UNPACKDIR}/git"
 
 inherit pkgconfig
 inherit sca-description

@@ -6,16 +6,17 @@ LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=a4a2bbea1db029f21b3a328c7a059172"
 
 SRC_URI = "\
-    file://suppress \
-    file://fatal \
+    file://suppress;destsuffix=${BP}\
+    file://fatal;destsuffix=${BP} \
 "
 
 inherit_defer native
 
+UNPACKDIR ??= "${WORKDIR}/${BP}"
 do_install() {
     install -d "${D}${datadir}"
-    install "${WORKDIR}/suppress" "${D}${datadir}/cppcheck-recipe-suppress"
-    install "${WORKDIR}/fatal" "${D}${datadir}/cppcheck-recipe-fatal"
+    install "${UNPACKDIR}/suppress" "${D}${datadir}/cppcheck-recipe-suppress"
+    install "${UNPACKDIR}/fatal" "${D}${datadir}/cppcheck-recipe-fatal"
 }
 
 FILES:${PN} = "${datadir}"
