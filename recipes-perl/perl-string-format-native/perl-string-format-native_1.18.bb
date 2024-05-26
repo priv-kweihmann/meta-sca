@@ -10,7 +10,8 @@ SRC_URI = "https://cpan.metacpan.org/authors/id/S/SR/SREZIC/String-Format-${PV}.
 SRC_URI[md5sum] = "64174b4fac230228cadfa2be4410ef1a"
 SRC_URI[sha256sum] = "9e417a8f8d9ea623beea2d13a47c0d5a696fc8602c0509b826cd45f97b76e778"
 
-S = "${WORKDIR}/String-Format-${PV}"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/String-Format-${PV}"
 
 inherit cpan
 inherit_defer native

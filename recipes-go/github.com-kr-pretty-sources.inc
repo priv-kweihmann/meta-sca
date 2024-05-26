@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     MIT \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/kr/pretty/License;md5=449bfedd81a372635934cf9ce004c0cf \
+    file://github.com/kr/pretty/License;md5=449bfedd81a372635934cf9ce004c0cf \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-kr-pretty-sources.inc"

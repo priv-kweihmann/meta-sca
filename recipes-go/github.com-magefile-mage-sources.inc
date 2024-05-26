@@ -6,9 +6,9 @@ GOSRC_LICENSE += "\
     MIT \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/magefile/mage/LICENSE;md5=02754c9de112baaa49870a35979afec1 \
-    file://src/github.com/magefile/mage/site/themes/learn/LICENSE.md;md5=d85a9508f412725ab2557c84c0ddd70d \
-    file://src/github.com/magefile/mage/site/themes/learn/exampleSite/LICENSE.md;md5=5d215825f58f54752ee9f60fb0034941 \
+    file://github.com/magefile/mage/LICENSE;md5=02754c9de112baaa49870a35979afec1 \
+    file://github.com/magefile/mage/site/themes/learn/LICENSE.md;md5=d85a9508f412725ab2557c84c0ddd70d \
+    file://github.com/magefile/mage/site/themes/learn/exampleSite/LICENSE.md;md5=5d215825f58f54752ee9f60fb0034941 \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-magefile-mage-sources.inc"

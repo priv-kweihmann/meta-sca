@@ -13,7 +13,8 @@ SRC_URI = "git://github.com/redNixon/rats.git;protocol=https;branch=master \
 SRCREV = "6bb2d62938156ecd16afb4ee4af9eeb98d9b5f06"
 UPSTREAM_CHECK_COMMITS = "1"
 
-S = "${WORKDIR}/git"
+UNPACKDIR ??= "${WORKDIR}"
+S = "${UNPACKDIR}/git"
 
 inherit autotools-brokensep
 

@@ -10,7 +10,8 @@ SRC_URI = "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/Clone-${PV}.tar.gz"
 SRC_URI[md5sum] = "b101333499b638658f89e29458cd83c0"
 SRC_URI[sha256sum] = "cbb6ee348afa95432e4878893b46752549e70dc68fe6d9e430d1d2e99079a9e6"
 
-S = "${WORKDIR}/Clone-${PV}"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/Clone-${PV}"
 
 inherit cpan
 inherit_defer nativesdk

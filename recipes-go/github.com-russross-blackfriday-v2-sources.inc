@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     BSD-2-Clause \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/russross/blackfriday/v2/LICENSE.txt;md5=ecf8a8a60560c35a862a4a545f2db1b3 \
+    file://github.com/russross/blackfriday/v2/LICENSE.txt;md5=ecf8a8a60560c35a862a4a545f2db1b3 \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-russross-blackfriday-v2-sources.inc"

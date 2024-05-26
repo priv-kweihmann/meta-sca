@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     Apache-2.0 \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/briandowns/spinner/LICENSE;md5=5335066555b14d832335aa4660d6c376 \
+    file://github.com/briandowns/spinner/LICENSE;md5=5335066555b14d832335aa4660d6c376 \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-briandowns-spinner-sources.inc"

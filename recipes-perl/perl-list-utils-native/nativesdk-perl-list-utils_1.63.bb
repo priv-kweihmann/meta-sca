@@ -10,7 +10,8 @@ SRC_URI = "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-${
 SRC_URI[md5sum] = "bf0470460a4c1d20fb2ae0c5862be315"
 SRC_URI[sha256sum] = "cafbdf212f6827dc9a0dd3b57b6ee50e860586d7198228a33262d55c559eb2a9"
 
-S = "${WORKDIR}/Scalar-List-Utils-${PV}"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/Scalar-List-Utils-${PV}"
 
 inherit cpan
 inherit_defer nativesdk

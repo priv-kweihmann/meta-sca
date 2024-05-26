@@ -9,7 +9,8 @@ DEPENDS += "python3-native"
 
 SRC_URI += "git://github.com/david-a-wheeler/flawfinder.git;nobranch=1;protocol=https"
 SRCREV = "c57197cd6061453f10a496f30a732bc1905918d1"
-S = "${WORKDIR}/git"
+UNPACKDIR ??= "${WORKDIR}"
+S = "${UNPACKDIR}/git"
 
 inherit sca-description
 inherit setuptools3

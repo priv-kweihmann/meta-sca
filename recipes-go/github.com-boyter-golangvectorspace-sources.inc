@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     MIT \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/boyter/golangvectorspace/LICENCE;md5=2e03a9c45ba188fd78617966f0b4602f \
+    file://github.com/boyter/golangvectorspace/LICENCE;md5=2e03a9c45ba188fd78617966f0b4602f \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-boyter-golangvectorspace-sources.inc"

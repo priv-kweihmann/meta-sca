@@ -23,7 +23,8 @@ SRC_URI[minisat2.sha256sum] = "e54afa3c192c1753bc8075c0c7e126d5c495d9066e3f90a25
 
 UPSTREAM_CHECK_GITTAGREGEX = "cbmc-(?P<pver>[\d\.a-f]+)"
 
-S = "${WORKDIR}/git"
+UNPACKDIR ??= "${WORKDIR}"
+S = "${UNPACKDIR}/git"
 
 inherit cmake
 inherit sca-description
@@ -43,7 +44,7 @@ CXXFLAGS += "-Wno-error=maybe-uninitialized"
 do_configure:prepend () {
     # make minisat2 visible to cmake implementation
     install -d ${B}/minisat2-download/minisat2-download-prefix/src/
-    cp ${WORKDIR}/minisat2_${MINISAT_VERSION}.orig.tar.gz ${B}/minisat2-download/minisat2-download-prefix/src/
+    cp ${UNPACKDIR}/minisat2_${MINISAT_VERSION}.orig.tar.gz ${B}/minisat2-download/minisat2-download-prefix/src/
 }
 
 do_install() {

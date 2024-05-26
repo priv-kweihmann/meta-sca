@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     ISC \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/davecgh/go-spew/LICENSE;md5=c06795ed54b2a35ebeeb543cd3a73e56 \
+    file://github.com/davecgh/go-spew/LICENSE;md5=c06795ed54b2a35ebeeb543cd3a73e56 \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-davecgh-go-spew-sources.inc"

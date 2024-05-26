@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     BSD-2-Clause-Views \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/mcandre/mage-extras/LICENSE.md;md5=ee3d9cef7abda52cae7b1355acf6a9f4 \
+    file://github.com/mcandre/mage-extras/LICENSE.md;md5=ee3d9cef7abda52cae7b1355acf6a9f4 \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-mcandre-mage-extras-sources.inc"

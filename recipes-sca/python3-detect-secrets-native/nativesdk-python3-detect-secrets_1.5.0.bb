@@ -13,7 +13,8 @@ DEPENDS += "\
 
 SRC_URI = "git://github.com/Yelp/detect-secrets.git;branch=master;protocol=https"
 SRCREV = "01886c8a910c64595c47f186ca1ffc0b77fa5458"
-S = "${WORKDIR}/git"
+UNPACKDIR ??= "${WORKDIR}"
+S = "${UNPACKDIR}/git"
 
 inherit sca-description
 inherit setuptools3

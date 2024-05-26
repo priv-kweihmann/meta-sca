@@ -3,14 +3,16 @@ HOMEPAGE = "https://github.com/Tencent/TscanCode"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-3.0-only"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=17f3d09aae7e567139cf4c67db039584"
+UNPACKDIR ??= "${WORKDIR}"
+LIC_FILES_CHKSUM = "file://${UNPACKDIR}/git/LICENSE;md5=17f3d09aae7e567139cf4c67db039584"
 
 SRC_URI = "git://github.com/Tencent/TscanCode.git;protocol=https;branch=master"
 
 SRCREV = "3e3b6b66a7e39283d99add581fb9d54ee80c48f5"
 UPSTREAM_CHECK_COMMITS = "1"
 
-S = "${WORKDIR}/git/trunk"
+UNPACKDIR ??= "${WORKDIR}"
+S = "${UNPACKDIR}/git/trunk"
 
 inherit autotools-brokensep
 inherit sca-description

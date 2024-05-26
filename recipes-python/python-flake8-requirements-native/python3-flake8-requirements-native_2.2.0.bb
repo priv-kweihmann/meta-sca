@@ -14,7 +14,8 @@ DEPENDS += "\
 SRC_URI = "git://github.com/Arkq/flake8-requirements.git;branch=master;protocol=https"
 SRCREV = "752581c0c9bef18136d04f65547fe8a3a58d97b1"
 
-S = "${WORKDIR}/git"
+UNPACKDIR ??= "${WORKDIR}"
+S = "${UNPACKDIR}/git"
 
 inherit setuptools3
 inherit_defer native

@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     BSD-2-Clause-Views \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/mcandre/slick/LICENSE.md;md5=6a55da1ae5d911566ba1a841e39c5a42 \
+    file://github.com/mcandre/slick/LICENSE.md;md5=6a55da1ae5d911566ba1a841e39c5a42 \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-mcandre-slick-sources.inc"

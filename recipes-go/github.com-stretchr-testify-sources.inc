@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     MIT \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/stretchr/testify/LICENSE;md5=188f01994659f3c0d310612333d2a26f \
+    file://github.com/stretchr/testify/LICENSE;md5=188f01994659f3c0d310612333d2a26f \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-stretchr-testify-sources.inc"

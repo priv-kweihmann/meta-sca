@@ -243,7 +243,7 @@ def __get_license_from_root(args, name, path):
         _lic = __get_license(args, f, default=[])
         if _lic:
             res.append(
-                (_lic, "file://src/{}/{};md5={}".format(_suffix_out, _relpath, __get_md5sum(f))))
+                (_lic, "file://{}/{};md5={}".format(_suffix_out, _relpath, __get_md5sum(f))))
     return res
 
 
@@ -258,7 +258,7 @@ def __get_license_file(args, name, path):
             _relpath = lic["file"]
             _fullpath = os.path.join(path, _relpath)
             res.append(([lic["spdx"]],
-                        "file://src/{}/{};md5={}".format(_suffix_out, _relpath, __get_md5sum(_fullpath))))
+                        "file://{}/{};md5={}".format(_suffix_out, _relpath, __get_md5sum(_fullpath))))
     else:
         for root, dirs, files in os.walk(path, topdown=True):
             for f in files:
@@ -269,7 +269,7 @@ def __get_license_file(args, name, path):
                     continue
                 if re.match(r"(license.*|copying.*|licence.*|.*-license)", _filename, re.IGNORECASE):
                     res.append((__get_license(args, _fullpath),
-                                "file://src/{}/{};md5={}".format(_suffix_out, _relpath, __get_md5sum(_fullpath))))
+                                "file://{}/{};md5={}".format(_suffix_out, _relpath, __get_md5sum(_fullpath))))
         if not res:
             res = __get_license_from_root(args, name, path)
         if not res:

@@ -15,7 +15,8 @@ SRC_URI = "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-${P
 
 SRC_URI[sha256sum] = "79a73e506fb7badabdf79137a45c6c5027daaf6f9ac3dcfb9d4ffcce92eb36bd"
 
-S = "${WORKDIR}/Module-Build-Tiny-${PV}"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/Module-Build-Tiny-${PV}"
 
 inherit cpan_build
 inherit_defer native

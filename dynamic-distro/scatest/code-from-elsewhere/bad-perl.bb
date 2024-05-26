@@ -9,7 +9,8 @@ SRC_URI = "\
             file://mailto.pl;subdir=source \
           "
 
-S = "${WORKDIR}/source"
-B = "${WORKDIR}/source"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/source"
+B = "${UNPACKDIR}/source"
 
 inherit sca

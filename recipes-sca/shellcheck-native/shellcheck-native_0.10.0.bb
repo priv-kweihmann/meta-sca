@@ -31,7 +31,8 @@ SRC_URI[blob_x86_64.sha256sum] = "6c881ab0698e4e6ea235245f22832860544f17ba386442
 SRC_URI[blob_aarch64.sha256sum] = "324a7e89de8fa2aed0d0c28f3dab59cf84c6d74264022c00c22af665ed1a09bb"
 SRC_URI[blob_armv6hf.sha256sum] = "1c89cb51e1412b580d7ba8aac240251ffb0b829788f83d2daa4a82da42d275e4"
 
-S = "${WORKDIR}/shellcheck-v${PV}"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/shellcheck-v${PV}"
 
 do_patch[noexec] = "1"
 do_configure[noexec] = "1"

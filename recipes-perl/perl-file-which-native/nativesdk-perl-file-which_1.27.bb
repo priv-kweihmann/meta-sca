@@ -10,7 +10,8 @@ SRC_URI = "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-${PV}.t
 SRC_URI[md5sum] = "d5c9154262b93398f0750ec364207639"
 SRC_URI[sha256sum] = "3201f1a60e3f16484082e6045c896842261fc345de9fb2e620fd2a2c7af3a93a"
 
-S = "${WORKDIR}/File-Which-${PV}"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/File-Which-${PV}"
 
 inherit cpan
 inherit_defer nativesdk

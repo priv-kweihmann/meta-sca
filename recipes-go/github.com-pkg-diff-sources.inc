@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     BSD-3-Clause \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/pkg/diff/LICENSE;md5=d0250703509998b3201f5dd7f26e8c35 \
+    file://github.com/pkg/diff/LICENSE;md5=d0250703509998b3201f5dd7f26e8c35 \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-pkg-diff-sources.inc"

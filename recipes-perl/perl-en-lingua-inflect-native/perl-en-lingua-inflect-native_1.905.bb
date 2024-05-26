@@ -11,7 +11,8 @@ SRC_URI = "https://cpan.metacpan.org/authors/id/D/DC/DCONWAY/Lingua-EN-Inflect-$
 SRC_URI[md5sum] = "6c2665abc4c1d62103324c30984a20e7"
 SRC_URI[sha256sum] = "05c29ec3482e572313a60da2181b0b30c5db7cf01f8ae7616ad67e1b66263296"
 
-S = "${WORKDIR}/Lingua-EN-Inflect-${PV}"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/Lingua-EN-Inflect-${PV}"
 
 inherit cpan
 inherit_defer native

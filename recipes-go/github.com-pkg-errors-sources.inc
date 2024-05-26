@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     BSD-2-Clause \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/pkg/errors/LICENSE;md5=6fe682a02df52c6653f33bd0f7126b5a \
+    file://github.com/pkg/errors/LICENSE;md5=6fe682a02df52c6653f33bd0f7126b5a \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-pkg-errors-sources.inc"

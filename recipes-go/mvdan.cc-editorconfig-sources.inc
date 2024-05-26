@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     BSD-3-Clause \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/mvdan.cc/editorconfig/LICENSE;md5=5d1b329cf2d09f301b0d604f96046e5a \
+    file://mvdan.cc/editorconfig/LICENSE;md5=5d1b329cf2d09f301b0d604f96046e5a \
 "
 
 GOSRC_INCLUDEGUARD += "mvdan.cc-editorconfig-sources.inc"

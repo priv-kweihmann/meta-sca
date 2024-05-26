@@ -1,11 +1,12 @@
-## SPDX-License-Identifier: BSD-2-Clause
-## Copyright (c) 2021, Konrad Weihmann
+## SPDX-License-Identifier: BSD-2-Clause AND MIT
+## Copyright (c) 2024, Konrad Weihmann
+## Copyright (c) 2024, OpenEmbedded Contributors
 
 inherit go
 
 HOMEPAGE ?= "https://${GO_IMPORT}"
 
-S = "${WORKDIR}"
+S = "${WORKDIR}/src"
 
 export GO111MODULE = "auto"
 
@@ -21,7 +22,7 @@ python gosrc_do_unpack() {
     # move all from an arbitrary sources-dir into
     # the real S tree using the mapping
 
-    # ${WORKDIR}/sources/${name}@v${ver} -> ${S}/src/${name}
+    # ${WORKDIR}/sources/${name}@v${ver} -> ${B}/src/${name}
     _mapping = {}
 
     fetcher = bb.fetch2.Fetch(src_uri, d)
@@ -29,7 +30,7 @@ python gosrc_do_unpack() {
         _srcinput = fetcher.ud[url].parm.get('srcinput')
         _srcoutput = fetcher.ud[url].parm.get('srcoutput')
         if _srcinput and _srcoutput:  
-            _mapping[d.expand("${S}/src/" + _srcoutput)] = \
+            _mapping[d.expand("${S}/" + _srcoutput)] = \
                 d.expand("${WORKDIR}/sources/" + _srcinput)
     fetcher.unpack(d.expand('${WORKDIR}/sources'))
 
@@ -43,10 +44,31 @@ python gosrc_do_unpack() {
             else:
                 shutil.copy(os.path.join(v, f), os.path.join(k, f))
 }
-gosrc_do_unpack[dirs] += "${WORKDIR}/sources ${WORKDIR}/src ${B}"
+gosrc_do_unpack[dirs] += "${WORKDIR}/sources ${WORKDIR}/src"
 gosrc_do_unpack[cleandirs] += "${WORKDIR}/sources ${WORKDIR}/src"
-do_unpack[dirs] += "${WORKDIR}/sources ${WORKDIR}/src ${B}"
+do_unpack[dirs] += "${WORKDIR}/sources ${WORKDIR}/src"
 do_unpack[cleandirs] += "${WORKDIR}/sources ${WORKDIR}/src"
+
+gosrc_do_configure() {
+    # patched variant of go.bbclass do_configure
+    # but with updated ${S}
+	ln -snf ${S} ${B}/
+}
+
+gosrc_do_install() {
+    # patched variant of go.bbclass do_configure
+    # but with updated ${S}
+	install -d ${D}${libdir}/go/src/${GO_IMPORT}
+	tar -C ${S}/${GO_IMPORT} -cf - --exclude-vcs --exclude '*.test' --exclude 'testdata' . | \
+		tar -C ${D}${libdir}/go/src/${GO_IMPORT} --no-same-owner -xf -
+	tar -C ${B} -cf - --exclude-vcs --exclude '*.test' --exclude 'testdata' pkg | \
+		tar -C ${D}${libdir}/go --no-same-owner -xf -
+
+	if ls ${B}/${GO_BUILD_BINDIR}/* >/dev/null 2>/dev/null ; then
+		install -d ${D}${bindir}
+		install -m 0755 ${B}/${GO_BUILD_BINDIR}/* ${D}${bindir}/
+	fi
+}
 
 python remove_testdirs() {
     import os
@@ -66,15 +88,15 @@ python remove_testdirs() {
 python create_pseudo_mod() {
     import os
     # create a pseudo go.mod in case none could be found
-    _path = d.expand("${WORKDIR}/src/${GO_IMPORT}/go.mod")
+    _path = d.expand("${B}/src/${GO_IMPORT}/go.mod")
     if not os.path.exists(_path):
         with open(_path, "w") as o:
             o.write("module {}\n".format(d.getVar("GO_IMPORT")))
 }
 
-do_compile[prefuncs] += "remove_testdirs create_pseudo_mod"
+#do_compile[prefuncs] += "remove_testdirs create_pseudo_mod"
 
-EXPORT_FUNCTIONS do_unpack
+EXPORT_FUNCTIONS do_configure do_unpack do_install
 
 UPSTREAM_CHECK_IMPORT_SUFFIX ?= ""
 UPSTREAM_CHECK_GITHUB_TAGS ?= "0"

@@ -10,7 +10,8 @@ SRC_URI = "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Task-Weaken-${PV}.tar
 SRC_URI[md5sum] = "5645d2aceb2336b5d55a61388fee5966"
 SRC_URI[sha256sum] = "2383fedb9dbaef646468ea824afbf7c801076720cfba0df2a7a074726dcd66be"
 
-S = "${WORKDIR}/Task-Weaken-${PV}"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/Task-Weaken-${PV}"
 
 inherit cpan
 inherit_defer native

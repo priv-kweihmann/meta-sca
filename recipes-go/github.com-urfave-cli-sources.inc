@@ -5,7 +5,7 @@ GOSRC_LICENSE += "\
     MIT \
 "
 LIC_FILES_CHKSUM += "\
-    file://src/github.com/urfave/cli/LICENSE;md5=75d9e324acacf92aca82397b81c225b0 \
+    file://github.com/urfave/cli/LICENSE;md5=75d9e324acacf92aca82397b81c225b0 \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-urfave-cli-sources.inc"

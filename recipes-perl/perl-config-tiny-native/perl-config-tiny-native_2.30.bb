@@ -10,7 +10,8 @@ SRC_URI = "https://cpan.metacpan.org/authors/id/R/RS/RSAVAGE/Config-Tiny-${PV}.t
 SRC_URI[md5sum] = "b497217a7b7f41007ce215c3d47ad7a1"
 SRC_URI[sha256sum] = "b2f7345619b3b8e636dd39ea010731c9dc2bfb8f022bcbd86ae6ad17866e110d"
 
-S = "${WORKDIR}/Config-Tiny-${PV}"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/Config-Tiny-${PV}"
 
 inherit cpan
 inherit_defer native

@@ -10,7 +10,8 @@ SRC_URI = "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Exception-Class-${P
 SRC_URI[md5sum] = "1e564d20b374a99fdf660ba3f36b0098"
 SRC_URI[sha256sum] = "5482a77ef027ca1f9f39e1f48c558356e954936fc8fbbdee6c811c512701b249"
 
-S = "${WORKDIR}/Exception-Class-${PV}"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/Exception-Class-${PV}"
 
 inherit cpan
 inherit_defer native

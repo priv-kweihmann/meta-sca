@@ -14,7 +14,8 @@ SRC_URI:append = " \
 
 SRC_URI[sha256sum] = "9ce9e5135472d8647e2ffb56655e00391e8e99aa7a4a8ae605cf0e1ffd9f3609"
 
-S = "${WORKDIR}/devscripts"
+UNPACKDIR ??= "${WORKDIR}/sources"
+S = "${UNPACKDIR}/devscripts"
 UPSTREAM_CHECK_REGEX = "devscripts_(?P<pver>\d+\.\d+\.\d+)"
 
 inherit sca-description

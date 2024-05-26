@@ -92,7 +92,8 @@ DEPENDS += "\
 SRC_URI = "git://github.com/nexB/scancode-toolkit.git;protocol=https;nobranch=1"
 SRCREV = "cafcbcf606bf30f0b5a62f27493d8aeec25fdcf8"
 
-S = "${WORKDIR}/git"
+UNPACKDIR ??= "${WORKDIR}"
+S = "${UNPACKDIR}/git"
 
 inherit sca-description
 inherit python_setuptools_build_meta
