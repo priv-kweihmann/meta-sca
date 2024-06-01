@@ -9,7 +9,7 @@ DEPENDS += "nativesdk-python3-flake8"
 
 SRC_URI = "git://github.com/xZise/flake8-string-format.git;branch=master;protocol=https"
 SRCREV = "356b9109f1e2ce6ae9f8179a52f1f909f99a9eb8"
-UNPACKDIR ??= "${WORKDIR}"
+UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
 
 PIP_INSTALL_PACKAGE = "flake8_string_format"

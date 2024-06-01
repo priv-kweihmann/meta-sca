@@ -9,7 +9,7 @@ SRC_URI = "\
 "
 SRCREV = "3049f578a8f98a0b0992eca193afe57a73b30ca3"
 
-UNPACKDIR ??= "${WORKDIR}"
+UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
 
 UPSTREAM_CHECK_GITTAGREGEX = "z3-(?P<pver>\d+\.\d+\.\d+)"

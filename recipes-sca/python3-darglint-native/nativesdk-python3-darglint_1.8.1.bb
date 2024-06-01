@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=909f5d1d9b02b61f9a881c944b0ec36a"
 
 SRC_URI += "git://github.com/terrencepreilly/darglint.git;branch=master;protocol=https"
 SRCREV = "abc26b768cd7135d848223ba53f68323593c33d5"
-UNPACKDIR ??= "${WORKDIR}"
+UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
 
 inherit sca-description

@@ -10,7 +10,7 @@ DEPENDS += "flex-native"
 SRC_URI = "git://github.com/priv-kweihmann/pscan.git;branch=master;protocol=https"
 SRCREV = "ce7f87da3d2ea265ad27bbdf10828532c8e3a028"
 
-UNPACKDIR ??= "${WORKDIR}"
+UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
 
 inherit sca-description

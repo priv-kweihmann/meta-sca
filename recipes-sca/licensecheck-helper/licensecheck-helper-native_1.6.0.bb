@@ -10,7 +10,7 @@ DEPENDS += "python3-license-expression-native"
 SRC_URI = "git://github.com/priv-kweihmann/licensecheck.git;branch=master;protocol=https"
 SRCREV = "db4cb126a1a7f31cbd9df28c5a24a84cea0a79dc"
 
-UNPACKDIR ??= "${WORKDIR}"
+UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
 
 inherit setuptools3

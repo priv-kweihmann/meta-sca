@@ -11,7 +11,7 @@ DEPENDS += "nativesdk-python3-flake8"
 SRC_URI = "git://github.com/duo-labs/dlint.git;branch=master;protocol=https"
 SRCREV = "b6029c48345e0d2383fdf01dc4ffb9ac417980f9"
 
-UNPACKDIR ??= "${WORKDIR}"
+UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
 PIP_INSTALL_PACKAGE = "dlint"
 

@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://${UNPACKDIR}/git/LICENSE.txt;md5=c678957b0c8e964aa6c7
 
 SRC_URI = "git://github.com/flashcode/msgcheck.git;branch=master;protocol=https"
 SRCREV = "08eb80622a5dedf4739c3942b3c22e7ed33d3507"
-UNPACKDIR ??= "${WORKDIR}"
+UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git/tests"
 
 inherit sca

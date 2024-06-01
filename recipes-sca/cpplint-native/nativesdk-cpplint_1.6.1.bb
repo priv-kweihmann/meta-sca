@@ -18,7 +18,7 @@ SRC_URI = "git://github.com/cpplint/cpplint.git;protocol=https;branch=master \
            file://cpplint-multi"
 SRCREV = "adfa11cf7584ae3c57cb77489b5af1681002f47d"
 
-UNPACKDIR ??= "${WORKDIR}"
+UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
 
 inherit sca-description
