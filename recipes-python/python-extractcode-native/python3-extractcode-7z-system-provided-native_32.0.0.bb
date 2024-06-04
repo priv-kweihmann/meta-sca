@@ -14,8 +14,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "extractcode_7z_system_provided"
 
-SRC_URI[md5sum] = "e1b4f42e05c5a46941dbe390e66fc01b"
-SRC_URI[sha256sum] = "e26a8ca74737251a0380068ff5c2c5c94d65eae557281350104bd7198e1b6385"
+SRC_URI[md5sum] = "5b61ae1e656a7cae5a84c53ba29097f9"
+SRC_URI[sha256sum] = "1cbcfba7263e56b548764475b12a0da717181a04ea358d4a8c1e3475917a8acd"
 
 inherit pypi
 inherit setuptools3
