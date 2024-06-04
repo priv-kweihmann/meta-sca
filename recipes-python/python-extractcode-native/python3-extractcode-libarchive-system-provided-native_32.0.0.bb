@@ -14,8 +14,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "extractcode_libarchive_system_provided"
 
-SRC_URI[md5sum] = "d4ec53e8e6038d991c87cd703df0f3c5"
-SRC_URI[sha256sum] = "10ba69bdcf0ff718ff2825546dafd43a9f6d6d9ea91987c671a510868940cff0"
+SRC_URI[md5sum] = "591d2827a2fde6993bfb6276847c898e"
+SRC_URI[sha256sum] = "d789f00c03e33a1084487d36ccad4a36759cba191c79ffe1e87cf2e7665ee771"
 
 inherit pypi
 inherit setuptools3
