@@ -10,9 +10,9 @@ DEPENDS += "\
             python3-requests-toolbelt-native \
            "
 
-PYPI_PACKAGE = "python-gitlab"
+PYPI_PACKAGE = "python_gitlab"
 
-SRC_URI[sha256sum] = "1d117bf7b433ae8255e5d74e72c660978f50ee85eb62248c9fb52ef43c3e3814"
+SRC_URI[sha256sum] = "b56ae363890374caede853ef552e92c41551d605800de1c64ba61bcf25f237b0"
 
 inherit pypi
 inherit python_setuptools_build_meta
