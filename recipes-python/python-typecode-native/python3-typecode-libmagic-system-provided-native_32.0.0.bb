@@ -11,10 +11,10 @@ DEPENDS += "\
     python3-toml-native \
 "
 
-PYPI_PACKAGE = "typecode_libmagic-system-provided"
+PYPI_PACKAGE = "typecode_libmagic_system_provided"
 
-SRC_URI[md5sum] = "65522130a321cf2a821183a7202161c6"
-SRC_URI[sha256sum] = "5ba9631648216a3ddec70de90fad357c9c7feb6cd8f9364fe8b895c7acf20c38"
+SRC_URI[md5sum] = "11a0c0582d0548a060222a4ff80a4c1a"
+SRC_URI[sha256sum] = "2d5d331f97a0de972a553ea7f1873eb8e165772936ac914d48125b4b5f0a033d"
 
 inherit pypi
 inherit setuptools3
