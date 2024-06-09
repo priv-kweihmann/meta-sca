@@ -7,20 +7,22 @@ UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 LIC_FILES_CHKSUM = "file://${UNPACKDIR}/git/LICENSE;md5=1e0b805e34c99594e846fa46c20d8b9b"
 
 DEPENDS += "\
-    nativesdk-python3-anytree \
-    nativesdk-python3-systemdunitparser \
-"
+            python3-anytree-native \
+            python3-systemdunitparser-native \
+           "
 
 SRC_URI = "git://github.com/priv-kweihmann/systemdlint.git;protocol=https;branch=master"
-SRCREV = "fe8336fbb3906e34ea8dfcc646d5630ea60c9468"
+SRCREV = "826e29413aa86ef5b5f9ffe580116cab7ac7fc7a"
 UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git/systemdlint"
 
 inherit sca-description
 inherit setuptools3
-inherit_defer nativesdk
+inherit_defer native
+
 SCA_TOOL_DESCRIPTION = "systemdlint"
 PIP_INSTALL_PACKAGE = "systemdlint"
+
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-anytree \
     nativesdk-python3-core \
