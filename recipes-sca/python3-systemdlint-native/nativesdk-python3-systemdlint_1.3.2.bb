@@ -12,7 +12,7 @@ DEPENDS += "\
 "
 
 SRC_URI = "git://github.com/priv-kweihmann/systemdlint.git;protocol=https;branch=master"
-SRCREV = "826e29413aa86ef5b5f9ffe580116cab7ac7fc7a"
+SRCREV = "15980470c73ad21a55c5d362b86ccd2d9e4a6836"
 UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git/systemdlint"
 
