@@ -4,6 +4,7 @@ Date: Mon, 17 Jul 2023 05:46:15 +0000
 Subject: [PATCH] Use poetry-core for pyproject based builds
 
 https://github.com/python-poetry/poetry-core#why-is-this-required
+Upstream-Status: Inappropriate [oe-specific]
 Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
 ---
  pyproject.toml | 4 ++--
