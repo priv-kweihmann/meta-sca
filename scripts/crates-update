@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: BSD-2-Clause
+# Copyright (c) 2024, Konrad Weihmann
 
 import argparse
 import os
+import re
 import sys
+from urllib.parse import urlparse
 
 import tomli
-from oelint_parser.cls_item import Variable, FlagAssignment
+from oelint_parser.cls_item import FlagAssignment, Variable
 from oelint_parser.cls_stash import Stash
 
 
@@ -19,21 +23,31 @@ def create_parser():
 
 
 def parse_crates(filepath, self_provided: list):
-    res = []
+    res = set()
     checksums = {}
+    git_source_format = ''
     with open(filepath, 'rb') as i:
         cnt = tomli.load(i)
         for item in cnt.get('package', []):
             name = item.get('name', '')
             version = item.get('version', '')
             checksum = item.get('checksum')
-            if not version or not name or not checksum:
+            source = item.get('source', '')
+            if not version or not name:
                 continue
             if name in self_provided or version in ['0.0.0']:
                 continue
-            res.append(f'crate://crates.io/{name}/{version}')
-            checksums[f'{name}-{version}'] = item.get('checksum')
-    return (sorted(res), checksums)
+            parsed = urlparse(source)
+            if 'git' in parsed.scheme:
+                resname = parsed.path.replace("/", "-")
+                res.add(
+                    f'git://{parsed.hostname}{parsed.path};protocol=https;rev={parsed.fragment};nobranch=1;destsuffix=cargo_home/bitbake/{name}-{version}')
+                if resname not in git_source_format:
+                    git_source_format += f'-{resname}'
+            else:
+                res.add(f'crate://crates.io/{name}/{version}')
+                checksums[f'{name}-{version}'] = checksum
+    return (sorted(res), checksums, git_source_format)
 
 
 def get_crates(args):
@@ -50,8 +64,9 @@ def get_crates(args):
         for file in files:
             fullpath = os.path.join(root, file)
             if file in ['Cargo.lock'] and '/crates/' not in fullpath:
-                res, checksums = parse_crates(fullpath, self_provided)
-    return (res, checksums)
+                res, checksums, git_source_format = parse_crates(
+                    fullpath, self_provided)
+    return (res, checksums, git_source_format)
 
 
 def update_crates(args):
@@ -63,12 +78,14 @@ def update_crates(args):
                                attribute=Variable.ATTR_VAR, attributeValue='CRATES_LIST')
     flags = _stash.GetItemsFor(classifier=FlagAssignment.CLASSIFIER,
                                attribute=FlagAssignment.ATTR_NAME, attributeValue='SRC_URI')
+    srcrev_format = _stash.GetItemsFor(classifier=Variable.CLASSIFIER,
+                                       attribute=Variable.ATTR_VAR, attributeValue='SRCREV_FORMAT')
     if not items:
         return True
 
     needle = items[0].RealRaw
 
-    crates, checksums = get_crates(args)
+    crates, checksums, git_source_format = get_crates(args)
     if not crates:
         return True
 
@@ -83,12 +100,26 @@ def update_crates(args):
     raw_recipe = raw_recipe.replace(needle, crates_list)
 
     # get replacement of all crates SRC_URI[...] flag settings
-    checksum_needle = ''.join(x.RealRaw for x in sorted(
-        flags, key=lambda y: y.Line) if x.Flag not in ['sha256sum', 'md5sum'])
+    for index, line in enumerate([x.RealRaw for x in sorted(
+            flags, key=lambda y: y.Line) if re.search(r'.*\.(sha256sum|md5sum)', x.Flag)]):
+        if index == 0:
+            raw_recipe = raw_recipe.replace(line, '### !!CHECKSUM!! ###')
+        else:
+            raw_recipe = raw_recipe.replace(line, '')
+    checksum_needle = '### !!CHECKSUM!! ###'
+
     # assemble new
     checksum_replacement = ''
     for name, data in checksums.items():
         checksum_replacement += f'SRC_URI[{name}.sha256sum] = "{data}"\n'
+
+    if git_source_format:
+        if any(srcrev_format):
+            for item in srcrev_format:
+                raw_recipe = raw_recipe.replace(
+                    item.RealRaw, f'SRCREV_FORMAT = "{git_source_format}"\n')
+        else:
+            checksum_replacement += f'\n\nSRCREV_FORMAT = "{git_source_format}"\n'
 
     raw_recipe = raw_recipe.replace(checksum_needle, checksum_replacement)
 
