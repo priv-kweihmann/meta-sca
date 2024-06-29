@@ -78,7 +78,7 @@ python remove_testdirs() {
     for _dir in (d.getVar("GOSRC_REMOVEDIRS") or "").split(" "):
         if not _dir:
             continue
-        _path = os.path.join(d.getVar("WORKDIR"), "src", _dir)
+        _path = os.path.join(d.getVar("B"), "src", _dir)
         if os.path.isdir(_path):
             shutil.rmtree(_path, ignore_errors=True)
         elif os.path.isfile(_path):
@@ -94,7 +94,7 @@ python create_pseudo_mod() {
             o.write("module {}\n".format(d.getVar("GO_IMPORT")))
 }
 
-#do_compile[prefuncs] += "remove_testdirs create_pseudo_mod"
+do_compile[prefuncs] += "remove_testdirs create_pseudo_mod"
 
 EXPORT_FUNCTIONS do_configure do_unpack do_install
 
