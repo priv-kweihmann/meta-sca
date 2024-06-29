@@ -6,19 +6,19 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=8e37d68747f8cd3c0ec28d12f1492271"
 
 DEPENDS += "\
-            python3-flake8-native \
-            python3-pytest-runner-native \
-            python3-toml-native \
-            "
+    nativesdk-python3-flake8 \
+    python3-pytest-runner-native \
+    python3-toml-native \
+"
 
 SRC_URI = "git://github.com/Arkq/flake8-requirements.git;branch=master;protocol=https"
-SRCREV = "752581c0c9bef18136d04f65547fe8a3a58d97b1"
+SRCREV = "eb38c11a323b780987b895d1200ffd9d64c48b8b"
 
 UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
 
 inherit setuptools3
-inherit_defer native
+inherit_defer nativesdk
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \
