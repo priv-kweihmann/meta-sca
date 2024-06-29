@@ -12,8 +12,8 @@ DEPENDS += "\
             python3-typing-extensions-native \
             "
 
-SRC_URI[md5sum] = "fc3dad1171168682b7ddd185cba15cca"
-SRC_URI[sha256sum] = "3d087fcbec056c4ee34974da493a826ce316947485cef3901f511848e687c131"
+SRC_URI[md5sum] = "90a800294f8cd6013987cb04a8cf8abd"
+SRC_URI[sha256sum] = "1f8f492d7db9e3593ef42d4f115f04e556130f2819ad33ab84551403e97dd4c0"
 
 PYPI_PACKAGE = "mypy"
 
