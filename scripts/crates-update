@@ -44,7 +44,7 @@ def parse_crates(filepath, self_provided: list):
                     f'git://{parsed.hostname}{parsed.path};protocol=https;rev={parsed.fragment};nobranch=1;destsuffix=cargo_home/bitbake/{name}-{version}')
                 if resname not in git_source_format:
                     git_source_format += f'-{resname}'
-            else:
+            elif source:
                 res.add(f'crate://crates.io/{name}/{version}')
                 checksums[f'{name}-{version}'] = checksum
     return (sorted(res), checksums, git_source_format)
