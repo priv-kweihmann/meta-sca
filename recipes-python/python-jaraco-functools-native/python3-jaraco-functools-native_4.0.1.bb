@@ -13,6 +13,7 @@ DEPENDS += "\
            "
 
 PYPI_PACKAGE = "jaraco_functools"
+UPSTREAM_CHECK_REGEX ?= "/jaraco.functools/(?P<pver>(\d+[\.\-_]*)+)"
 
 SRC_URI[md5sum] = "7bc3fe47d508077b0ddbc32f84dc1374"
 SRC_URI[sha256sum] = "d33fa765374c0611b52f8b3a795f8900869aa88c84769d4d1746cd68fb28c3e8"
