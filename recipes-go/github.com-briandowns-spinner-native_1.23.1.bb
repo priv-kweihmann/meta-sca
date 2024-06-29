@@ -9,7 +9,6 @@ require github.com-briandowns-spinner-sources.inc
 
 EXTRA_DEPENDS += "\
     github.com-fatih-color-native \
-    github.com-mattn-go-isatty-native \
     golang.org-x-term-native \
 "
 
