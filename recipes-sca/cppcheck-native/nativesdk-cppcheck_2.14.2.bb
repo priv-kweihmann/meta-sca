@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/danmar/cppcheck"
 BUGTRACKER = "https://trac.cppcheck.net/"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-LICENSE = "GPL-3.0-only & BSD-2-Clause & BSD-3-Clause & BSD-0-Clause"
+LICENSE = "GPL-3.0-only & BSD-2-Clause & BSD-3-Clause & 0BSD"
 LIC_FILES_CHKSUM = "\
     file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \
     file://externals/simplecpp/LICENSE;md5=df43620d67c1dceec49343b0b17c385d \

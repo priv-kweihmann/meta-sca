@@ -64,7 +64,7 @@ If permitted files from 3rd can be added, if
 - the terms and licenses are added as comment at the beginning of the file
 - the original license it added in `SPDX` notation
 - the original license allows the usage in combination with `MIT` and `BSD-2-Clause`
-  - currently that should be `BSD-0-Clause`, `BSD-2-Clause`, `BSD-3-Clause`, `MIT` and `Apache-2.0`
+  - currently that should be `0BSD`, `BSD-2-Clause`, `BSD-3-Clause`, `MIT` and `Apache-2.0`
 
 if you feel unsure about licensing, please reach out before opening a pull request
 
