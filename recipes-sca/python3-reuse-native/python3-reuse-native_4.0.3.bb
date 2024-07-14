@@ -11,6 +11,7 @@ LIC_FILES_CHKSUM = "\
                     "
 
 DEPENDS += "\
+            python3-attrs-native \
             python3-binaryornot-native \
             python3-booleanpy-native \
             python3-debian-native \
@@ -19,10 +20,11 @@ DEPENDS += "\
             python3-picobuild-native \
             python3-requests-native \
             python3-setuptools-scm-native \
+            python3-tomlkit-native \
             "
 
-SRC_URI[md5sum] = "bef3f940f9ab807284924cf663ccf2df"
-SRC_URI[sha256sum] = "73eb8262b84527a90822404e7504f69081854759806830d402ea1e92176f32a6"
+SRC_URI[md5sum] = "20d517b5b5d01a76aec69f0175bbe329"
+SRC_URI[sha256sum] = "4f2c3e1213ec644e5febc50d8322d18982e4e1102af8a51d9493bfc2164a0eac"
 
 PYPI_PACKAGE = "reuse"
 
