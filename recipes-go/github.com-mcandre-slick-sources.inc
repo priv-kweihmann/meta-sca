@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/mcandre/slick/@v/v0.0.8.zip;srcoutput=github.com/mcandre/slick;srcinput=github.com/mcandre/slick@v0.0.8;downloadfilename=github-com-mcandre-slick-0.0.8.zip;name=github-com-mcandre-slick"
-SRC_URI[github-com-mcandre-slick.sha256sum] = "44eedee4646a58724209b440d9f5de1461748150fe6d718dd0446637f9602b4e"
+SRC_URI += "https://proxy.golang.org/github.com/mcandre/slick/@v/v0.0.9.zip;srcoutput=github.com/mcandre/slick;srcinput=github.com/mcandre/slick@v0.0.9;downloadfilename=github-com-mcandre-slick-0.0.9.zip;name=github-com-mcandre-slick"
+SRC_URI[github-com-mcandre-slick.sha256sum] = "b1a3f9f6f2c7c7f34dfdcbc3a373c827c2301836d33e8ae5d38c4197e495acff"
 
 GOSRC_LICENSE += "\
     BSD-2-Clause-Views \
