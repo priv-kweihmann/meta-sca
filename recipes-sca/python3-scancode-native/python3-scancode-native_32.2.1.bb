@@ -90,7 +90,7 @@ DEPENDS += "\
         "
 
 SRC_URI = "git://github.com/nexB/scancode-toolkit.git;protocol=https;nobranch=1"
-SRCREV = "cafcbcf606bf30f0b5a62f27493d8aeec25fdcf8"
+SRCREV = "e26187aee6bfece5b0f0a134bacd5d1d86f5172a"
 
 UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
