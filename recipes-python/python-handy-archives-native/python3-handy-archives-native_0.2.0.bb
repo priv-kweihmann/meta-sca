@@ -11,4 +11,8 @@ inherit pypi
 inherit python_flit_core
 inherit_defer native
 
+# fix pending upstream bug
+# nooelint: oelint.vars.dependsclass
+DEPENDS:remove = "python3"
+
 PYPI_PACKAGE = "handy_archives"
