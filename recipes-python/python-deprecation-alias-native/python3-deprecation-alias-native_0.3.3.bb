@@ -1,6 +1,6 @@
 SUMMARY = "A wrapper around 'deprecation' providing support for deprecated aliases."
 HOMEPAGE = "https://github.com/domdfcoding/deprecation-alias"
-LICENSE = "Apache"
+LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b5649ee3559093f2fd471058ae867a8c"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
