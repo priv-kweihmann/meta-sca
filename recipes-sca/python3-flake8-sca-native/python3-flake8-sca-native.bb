@@ -16,6 +16,7 @@ PACKAGECONFIG ??= "\
                    comprehensions \
                    datetimez \
                    dlint \
+                   encodings \
                    eradicate \
                    executable \
                    expression-complexity \
@@ -27,6 +28,7 @@ PACKAGECONFIG ??= "\
                    requirements \
                    return \
                    secure-coding-standard \
+                   strftime \
                    strict \
                    string-format \
                    use-fstring \
@@ -38,6 +40,7 @@ PACKAGECONFIG[async] = ",,python3-flake8-async-native"
 PACKAGECONFIG[comprehensions] = ",,python3-flake8-comprehensions-native"
 PACKAGECONFIG[datetimez] = ",,python3-flake8-datetimez-native"
 PACKAGECONFIG[dlint] = ",,python3-flake8-dlint-native"
+PACKAGECONFIG[encodings] = ",,python3-flake8-encodings-native"
 PACKAGECONFIG[eradicate] = ",,python3-flake8-eradicate-native"
 PACKAGECONFIG[executable] = ",,python3-flake8-executable-native"
 PACKAGECONFIG[expression-complexity] = ",,python3-flake8-expression-complexity-native"
@@ -49,6 +52,7 @@ PACKAGECONFIG[quotes] = ",,python3-flake8-quotes-native"
 PACKAGECONFIG[return] = ",,python3-flake8-return-native"
 PACKAGECONFIG[requirements] = ",,python3-flake8-requirements-native"
 PACKAGECONFIG[secure-coding-standard] = ",,python3-flake8-secure-coding-standard-native"
+PACKAGECONFIG[strftime] = ",,python3-flake8-strftime-native"
 PACKAGECONFIG[strict] = ",,python3-flake8-strict-native"
 PACKAGECONFIG[string-format] = ",,python3-flake8-string-format-native"
 PACKAGECONFIG[use-fstring] = ",,python3-flake8-use-fstring-native"
