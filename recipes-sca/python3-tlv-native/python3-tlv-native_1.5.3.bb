@@ -6,6 +6,7 @@ LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1e0b805e34c99594e846fa46c20d8b9b"
 
 DEPENDS += "\
+    python3-native \
     python3-chardet-native \
     python3-pygments-native \
 "
