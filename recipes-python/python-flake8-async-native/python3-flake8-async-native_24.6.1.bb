@@ -1,17 +1,18 @@
 SUMMARY = "A flake8 plugin that checks bad async / asyncio practices"
-HOMEPAGE = "https://github.com/cooperlees/flake8-async"
+HOMEPAGE = "https://github.com/python-trio/flake8-async"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=05d061bd936abacc3bb6f41de66200d4"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=218979ab483d4a6d1512d8978a38ce7c"
 
 DEPENDS += "\
     python3-flake8-native \
+    python3-libcst-native \
 "
 
-SRC_URI[sha256sum] = "b4db2d55883653b47d4bfd946fdf506e8958bb4ca35974790b8c3e620fc1abff"
+SRC_URI[sha256sum] = "efc71339510c1321eb7a131cb51140ad077f2d348b97e07db408be775795a923"
 
-PYPI_PACKAGE = "flake8-async"
+PYPI_PACKAGE = "flake8_async"
 
 inherit pypi
 inherit setuptools3
@@ -21,4 +22,5 @@ RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \
     nativesdk-python3-flake8 \
     nativesdk-python3-flake8-polyfill \
+    nativesdk-python3-libcst-native \
 "
