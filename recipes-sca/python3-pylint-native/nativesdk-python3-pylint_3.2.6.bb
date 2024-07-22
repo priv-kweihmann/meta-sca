@@ -18,8 +18,8 @@ DEPENDS += "\
     python3-toml-native \
 "
 
-SRC_URI[md5sum] = "ddbe1fbc3512460bf6278cf4c97e0d2a"
-SRC_URI[sha256sum] = "e9b7171e242dcc6ebd0aaa7540481d1a72860748a0a7816b8fe6cf6c80a6fe7e"
+SRC_URI[md5sum] = "3cd485969f568beb516e3e1c1a9019aa"
+SRC_URI[sha256sum] = "a5d01678349454806cff6d886fb072294f56a58c4761278c97fb557d708e1eb3"
 
 PYPI_PACKAGE = "pylint"
 
@@ -30,7 +30,8 @@ inherit python_setuptools_build_meta
 inherit_defer nativesdk
 SCA_TOOL_DESCRIPTION = "pylint"
 do_configure:prepend() {
-    sed -i 's#setuptools~=#setuptools>=#g' ${S}/pyproject.toml
+    sed -i 's#setuptools~=[[:digit:]]\+\.[[:digit:]]\+\.[[:digit:]]\+#setuptools>=1.0.0#g' ${S}/pyproject.toml
+    sed -i 's#setuptools>=[[:digit:]]\+\.[[:digit:]]\+\.[[:digit:]]\+#setuptools>=1.0.0#g' ${S}/pyproject.toml
     sed -i 's#wheel~=#wheel>=#g' ${S}/pyproject.toml
 }
 ## A python file with /usr/bin/python-shebang is
