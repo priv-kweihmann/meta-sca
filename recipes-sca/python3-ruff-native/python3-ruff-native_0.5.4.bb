@@ -37,7 +37,7 @@ CRATES_LIST = "\
     crate://crates.io/cachedir/0.3.1 \
     crate://crates.io/camino/1.1.7 \
     crate://crates.io/cast/0.3.0 \
-    crate://crates.io/castaway/0.2.2 \
+    crate://crates.io/castaway/0.2.3 \
     crate://crates.io/cc/1.0.95 \
     crate://crates.io/cfg-if/1.0.0 \
     crate://crates.io/cfg_aliases/0.1.1 \
@@ -46,12 +46,11 @@ CRATES_LIST = "\
     crate://crates.io/ciborium-io/0.2.2 \
     crate://crates.io/ciborium-ll/0.2.2 \
     crate://crates.io/ciborium/0.2.2 \
-    crate://crates.io/clap/4.5.8 \
-    crate://crates.io/clap_builder/4.5.8 \
+    crate://crates.io/clap/4.5.9 \
+    crate://crates.io/clap_builder/4.5.9 \
     crate://crates.io/clap_complete/4.5.2 \
-    crate://crates.io/clap_complete_command/0.5.1 \
-    crate://crates.io/clap_complete_fig/4.5.0 \
-    crate://crates.io/clap_complete_nushell/0.1.11 \
+    crate://crates.io/clap_complete_command/0.6.1 \
+    crate://crates.io/clap_complete_nushell/4.5.2 \
     crate://crates.io/clap_derive/4.5.8 \
     crate://crates.io/clap_lex/0.7.0 \
     crate://crates.io/clearscreen/3.0.0 \
@@ -59,7 +58,7 @@ CRATES_LIST = "\
     crate://crates.io/codspeed/2.6.0 \
     crate://crates.io/colorchoice/1.0.0 \
     crate://crates.io/colored/2.1.0 \
-    crate://crates.io/compact_str/0.7.1 \
+    crate://crates.io/compact_str/0.8.0 \
     crate://crates.io/console/0.15.8 \
     crate://crates.io/console_error_panic_hook/0.1.7 \
     crate://crates.io/console_log/1.0.0 \
@@ -108,7 +107,6 @@ CRATES_LIST = "\
     crate://crates.io/glob/0.3.1 \
     crate://crates.io/globset/0.4.14 \
     crate://crates.io/half/2.4.1 \
-    crate://crates.io/hashbrown/0.12.3 \
     crate://crates.io/hashbrown/0.14.5 \
     crate://crates.io/hashlink/0.8.4 \
     crate://crates.io/heck/0.5.0 \
@@ -120,7 +118,7 @@ CRATES_LIST = "\
     crate://crates.io/ident_case/1.0.1 \
     crate://crates.io/idna/0.5.0 \
     crate://crates.io/ignore/0.4.22 \
-    crate://crates.io/imara-diff/0.1.5 \
+    crate://crates.io/imara-diff/0.1.6 \
     crate://crates.io/imperative/1.0.5 \
     crate://crates.io/indexmap/2.2.6 \
     crate://crates.io/indicatif/0.17.8 \
@@ -155,7 +153,7 @@ CRATES_LIST = "\
     crate://crates.io/lsp-server/0.7.6 \
     crate://crates.io/matchers/0.1.0 \
     crate://crates.io/matches/0.1.10 \
-    crate://crates.io/matchit/0.8.3 \
+    crate://crates.io/matchit/0.8.4 \
     crate://crates.io/memchr/2.7.4 \
     crate://crates.io/mimalloc/0.1.43 \
     crate://crates.io/minimal-lexical/0.2.1 \
@@ -173,6 +171,7 @@ CRATES_LIST = "\
     crate://crates.io/once_cell/1.19.0 \
     crate://crates.io/oorandom/11.1.3 \
     crate://crates.io/option-ext/0.2.0 \
+    crate://crates.io/ordermap/0.5.0 \
     crate://crates.io/os_str_bytes/6.6.1 \
     crate://crates.io/overload/0.1.1 \
     crate://crates.io/parking_lot/0.12.3 \
@@ -220,9 +219,9 @@ CRATES_LIST = "\
     crate://crates.io/rustc-hash/1.1.0 \
     crate://crates.io/rustc-hash/2.0.0 \
     crate://crates.io/rustix/0.38.34 \
-    crate://crates.io/rustls-pki-types/1.5.0 \
-    crate://crates.io/rustls-webpki/0.102.3 \
-    crate://crates.io/rustls/0.22.4 \
+    crate://crates.io/rustls-pki-types/1.7.0 \
+    crate://crates.io/rustls-webpki/0.102.5 \
+    crate://crates.io/rustls/0.23.10 \
     crate://crates.io/rustversion/1.0.15 \
     crate://crates.io/ryu/1.0.17 \
     crate://crates.io/same-file/1.0.6 \
@@ -232,15 +231,15 @@ CRATES_LIST = "\
     crate://crates.io/scopeguard/1.2.0 \
     crate://crates.io/seahash/4.1.0 \
     crate://crates.io/serde-wasm-bindgen/0.6.5 \
-    crate://crates.io/serde/1.0.203 \
-    crate://crates.io/serde_derive/1.0.203 \
+    crate://crates.io/serde/1.0.204 \
+    crate://crates.io/serde_derive/1.0.204 \
     crate://crates.io/serde_derive_internals/0.29.0 \
-    crate://crates.io/serde_json/1.0.119 \
+    crate://crates.io/serde_json/1.0.120 \
     crate://crates.io/serde_repr/0.1.19 \
     crate://crates.io/serde_spanned/0.6.6 \
     crate://crates.io/serde_test/1.0.176 \
-    crate://crates.io/serde_with/3.8.2 \
-    crate://crates.io/serde_with_macros/3.8.2 \
+    crate://crates.io/serde_with/3.9.0 \
+    crate://crates.io/serde_with_macros/3.9.0 \
     crate://crates.io/sharded-slab/0.1.7 \
     crate://crates.io/shellexpand/3.1.0 \
     crate://crates.io/similar/2.5.0 \
@@ -254,7 +253,7 @@ CRATES_LIST = "\
     crate://crates.io/strum/0.26.3 \
     crate://crates.io/strum_macros/0.26.4 \
     crate://crates.io/subtle/2.5.0 \
-    crate://crates.io/syn/2.0.68 \
+    crate://crates.io/syn/2.0.71 \
     crate://crates.io/synstructure/0.13.1 \
     crate://crates.io/tempfile/3.10.1 \
     crate://crates.io/terminal_size/0.3.0 \
@@ -262,11 +261,11 @@ CRATES_LIST = "\
     crate://crates.io/test-case-core/3.3.1 \
     crate://crates.io/test-case-macros/3.3.1 \
     crate://crates.io/test-case/3.3.1 \
-    crate://crates.io/thiserror-impl/1.0.61 \
-    crate://crates.io/thiserror/1.0.61 \
+    crate://crates.io/thiserror-impl/1.0.62 \
+    crate://crates.io/thiserror/1.0.62 \
     crate://crates.io/thread_local/1.1.8 \
-    crate://crates.io/tikv-jemalloc-sys/0.5.4+5.3.0-patched \
-    crate://crates.io/tikv-jemallocator/0.5.4 \
+    crate://crates.io/tikv-jemalloc-sys/0.6.0+5.3.0-1-ge13ca993e8ccb9ba9847cc330696e02839f328f7 \
+    crate://crates.io/tikv-jemallocator/0.6.0 \
     crate://crates.io/tinytemplate/1.2.1 \
     crate://crates.io/tinyvec/1.6.0 \
     crate://crates.io/tinyvec_macros/0.1.1 \
@@ -294,7 +293,7 @@ CRATES_LIST = "\
     crate://crates.io/unicode_names2_generator/1.2.2 \
     crate://crates.io/unscanny/0.1.0 \
     crate://crates.io/untrusted/0.9.0 \
-    crate://crates.io/ureq/2.9.7 \
+    crate://crates.io/ureq/2.10.0 \
     crate://crates.io/url/2.5.2 \
     crate://crates.io/utf8parse/0.2.1 \
     crate://crates.io/uuid-macro-internal/1.9.1 \
@@ -358,7 +357,7 @@ CRATES_LIST = "\
     git://github.com/salsa-rs/salsa.git;protocol=https;rev=a1bf3a613f451af7fc0a59411c56abc47fe8e8e1;nobranch=1;destsuffix=cargo_home/bitbake/salsa-macros-0.18.0 \
 "
 
-SRC_URI[sha256sum] = "3164488aebd89b1745b47fd00604fb4358d774465f20d1fcd907f9c0fc1b0655"
+SRC_URI[sha256sum] = "2795726d5f71c4f4e70653273d1c23a8182f07dd8e48c12de5d867bfb7557eed"
 
 SRC_URI[Inflector-0.11.4.sha256sum] = "fe438c63458706e03479442743baae6c88256498e6431708f6dfc520a26515d3"
 SRC_URI[adler-1.0.2.sha256sum] = "f26201604c87b1e01bd3d98f8d5d9a8fcbb815e8cedb41ffccbeb4bf593a35fe"
@@ -390,7 +389,7 @@ SRC_URI[byteorder-1.5.0.sha256sum] = "1fd0f2584146f6f2ef48085050886acf353beff730
 SRC_URI[cachedir-0.3.1.sha256sum] = "4703f3937077db8fa35bee3c8789343c1aec2585f0146f09d658d4ccc0e8d873"
 SRC_URI[camino-1.1.7.sha256sum] = "e0ec6b951b160caa93cc0c7b209e5a3bff7aae9062213451ac99493cd844c239"
 SRC_URI[cast-0.3.0.sha256sum] = "37b2a672a2cb129a2e41c10b1224bb368f9f37a2b16b612598138befd7b37eb5"
-SRC_URI[castaway-0.2.2.sha256sum] = "8a17ed5635fc8536268e5d4de1e22e81ac34419e5f052d4d51f4e01dcc263fcc"
+SRC_URI[castaway-0.2.3.sha256sum] = "0abae9be0aaf9ea96a3b1b8b1b55c602ca751eba1b1500220cea4ecbafe7c0d5"
 SRC_URI[cc-1.0.95.sha256sum] = "d32a725bc159af97c3e629873bb9f88fb8cf8a4867175f76dc987815ea07c83b"
 SRC_URI[cfg-if-1.0.0.sha256sum] = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 SRC_URI[cfg_aliases-0.1.1.sha256sum] = "fd16c4719339c4530435d38e511904438d07cce7950afa3718a84ac36c10e89e"
@@ -399,12 +398,11 @@ SRC_URI[chrono-0.4.38.sha256sum] = "a21f936df1771bf62b77f047b726c4625ff2e8aa607c
 SRC_URI[ciborium-0.2.2.sha256sum] = "42e69ffd6f0917f5c029256a24d0161db17cea3997d185db0d35926308770f0e"
 SRC_URI[ciborium-io-0.2.2.sha256sum] = "05afea1e0a06c9be33d539b876f1ce3692f4afea2cb41f740e7743225ed1c757"
 SRC_URI[ciborium-ll-0.2.2.sha256sum] = "57663b653d948a338bfb3eeba9bb2fd5fcfaecb9e199e87e1eda4d9e8b240fd9"
-SRC_URI[clap-4.5.8.sha256sum] = "84b3edb18336f4df585bc9aa31dd99c036dfa5dc5e9a2939a722a188f3a8970d"
-SRC_URI[clap_builder-4.5.8.sha256sum] = "c1c09dd5ada6c6c78075d6fd0da3f90d8080651e2d6cc8eb2f1aaa4034ced708"
+SRC_URI[clap-4.5.9.sha256sum] = "64acc1846d54c1fe936a78dc189c34e28d3f5afc348403f28ecf53660b9b8462"
+SRC_URI[clap_builder-4.5.9.sha256sum] = "6fb8393d67ba2e7bfaf28a23458e4e2b543cc73a99595511eb207fdb8aede942"
 SRC_URI[clap_complete-4.5.2.sha256sum] = "dd79504325bf38b10165b02e89b4347300f855f273c4cb30c4a3209e6583275e"
-SRC_URI[clap_complete_command-0.5.1.sha256sum] = "183495371ea78d4c9ff638bfc6497d46fed2396e4f9c50aebc1278a4a9919a3d"
-SRC_URI[clap_complete_fig-4.5.0.sha256sum] = "54b3e65f91fabdd23cac3d57d39d5d938b4daabd070c335c006dccb866a61110"
-SRC_URI[clap_complete_nushell-0.1.11.sha256sum] = "5d02bc8b1a18ee47c4d2eec3fb5ac034dc68ebea6125b1509e9ccdffcddce66e"
+SRC_URI[clap_complete_command-0.6.1.sha256sum] = "da8e198c052315686d36371e8a3c5778b7852fc75cc313e4e11eeb7a644a1b62"
+SRC_URI[clap_complete_nushell-4.5.2.sha256sum] = "1accf1b463dee0d3ab2be72591dccdab8bef314958340447c882c4c72acfe2a3"
 SRC_URI[clap_derive-4.5.8.sha256sum] = "2bac35c6dafb060fd4d275d9a4ffae97917c13a6327903a8be2153cd964f7085"
 SRC_URI[clap_lex-0.7.0.sha256sum] = "98cc8fbded0c607b7ba9dd60cd98df59af97e84d24e49c8557331cfc26d301ce"
 SRC_URI[clearscreen-3.0.0.sha256sum] = "2f8c93eb5f77c9050c7750e14f13ef1033a40a0aac70c6371535b6763a01438c"
@@ -412,7 +410,7 @@ SRC_URI[codspeed-2.6.0.sha256sum] = "3a104ac948e0188b921eb3fcbdd55dcf62e542df4c7
 SRC_URI[codspeed-criterion-compat-2.6.0.sha256sum] = "722c36bdc62d9436d027256ce2627af81ac7a596dfc7d13d849d0d212448d7fe"
 SRC_URI[colorchoice-1.0.0.sha256sum] = "acbf1af155f9b9ef647e42cdc158db4b64a1b61f743629225fde6f3e0be2a7c7"
 SRC_URI[colored-2.1.0.sha256sum] = "cbf2150cce219b664a8a70df7a1f933836724b503f8a413af9365b4dcc4d90b8"
-SRC_URI[compact_str-0.7.1.sha256sum] = "f86b9c4c00838774a6d902ef931eff7470720c51d90c2e32cfe15dc304737b3f"
+SRC_URI[compact_str-0.8.0.sha256sum] = "6050c3a16ddab2e412160b31f2c871015704239bca62f72f6e5f0be631d3f644"
 SRC_URI[console-0.15.8.sha256sum] = "0e1f83fc076bd6dd27517eacdf25fef6c4dfe5f1d7448bafaaf3a26f13b5e4eb"
 SRC_URI[console_error_panic_hook-0.1.7.sha256sum] = "a06aeb73f470f66dcdbf7223caeebb85984942f22f1adb2a088cf9668146bbbc"
 SRC_URI[console_log-1.0.0.sha256sum] = "be8aed40e4edbf4d3b4431ab260b63fdc40f5780a4766824329ea0f1eefe3c0f"
@@ -461,7 +459,6 @@ SRC_URI[getrandom-0.2.14.sha256sum] = "94b22e06ecb0110981051723910cbf0b5f5e09a20
 SRC_URI[glob-0.3.1.sha256sum] = "d2fabcfbdc87f4758337ca535fb41a6d701b65693ce38287d856d1674551ec9b"
 SRC_URI[globset-0.4.14.sha256sum] = "57da3b9b5b85bd66f31093f8c408b90a74431672542466497dcbdfdc02034be1"
 SRC_URI[half-2.4.1.sha256sum] = "6dd08c532ae367adf81c312a4580bc67f1d0fe8bc9c460520283f4c0ff277888"
-SRC_URI[hashbrown-0.12.3.sha256sum] = "8a9ee70c43aaf417c914396645a0fa852624801b24ebb7ae78fe8272889ac888"
 SRC_URI[hashbrown-0.14.5.sha256sum] = "e5274423e17b7c9fc20b6e7e208532f9b19825d82dfd615708b70edd83df41f1"
 SRC_URI[hashlink-0.8.4.sha256sum] = "e8094feaf31ff591f651a2664fb9cfd92bba7a60ce3197265e9482ebe753c8f7"
 SRC_URI[heck-0.5.0.sha256sum] = "2304e00983f87ffb38b55b444b5e3b60a884b5d30c0fca7d82fe33449bbe55ea"
@@ -473,7 +470,7 @@ SRC_URI[iana-time-zone-haiku-0.1.2.sha256sum] = "f31827a206f56af32e590ba56d5d2d0
 SRC_URI[ident_case-1.0.1.sha256sum] = "b9e0384b61958566e926dc50660321d12159025e767c18e043daf26b70104c39"
 SRC_URI[idna-0.5.0.sha256sum] = "634d9b1461af396cad843f47fdba5597a4f9e6ddd4bfb6ff5d85028c25cb12f6"
 SRC_URI[ignore-0.4.22.sha256sum] = "b46810df39e66e925525d6e38ce1e7f6e1d208f72dc39757880fcb66e2c58af1"
-SRC_URI[imara-diff-0.1.5.sha256sum] = "e98c1d0ad70fc91b8b9654b1f33db55e59579d3b3de2bffdced0fdb810570cb8"
+SRC_URI[imara-diff-0.1.6.sha256sum] = "af13c8ceb376860ff0c6a66d83a8cdd4ecd9e464da24621bbffcd02b49619434"
 SRC_URI[imperative-1.0.5.sha256sum] = "8b70798296d538cdaa6d652941fcc795963f8b9878b9e300c9fab7a522bd2fc0"
 SRC_URI[indexmap-2.2.6.sha256sum] = "168fb715dda47215e360912c096649d23d58bf392ac62f73919e831745e40f26"
 SRC_URI[indicatif-0.17.8.sha256sum] = "763a5a8f45087d6bcea4222e7b72c291a054edf80e4ef6efd2a4979878c7bea3"
@@ -508,7 +505,7 @@ SRC_URI[log-0.4.22.sha256sum] = "a7a70ba024b9dc04c27ea2f0c0548feb474ec5c54bba33a
 SRC_URI[lsp-server-0.7.6.sha256sum] = "248f65b78f6db5d8e1b1604b4098a28b43d21a8eb1deeca22b1c421b276c7095"
 SRC_URI[matchers-0.1.0.sha256sum] = "8263075bb86c5a1b1427b5ae862e8889656f126e9f77c484496e8b47cf5c5558"
 SRC_URI[matches-0.1.10.sha256sum] = "2532096657941c2fea9c289d370a250971c689d4f143798ff67113ec042024a5"
-SRC_URI[matchit-0.8.3.sha256sum] = "8d3c2fcf089c060eb333302d80c5f3ffa8297abecf220f788e4a09ef85f59420"
+SRC_URI[matchit-0.8.4.sha256sum] = "47e1ffaa40ddd1f3ed91f717a33c8c0ee23fff369e3aa8772b9605cc1d22f4c3"
 SRC_URI[memchr-2.7.4.sha256sum] = "78ca9ab1a0babb1e7d5695e3530886289c18cf2f87ec19a575a0abdce112e3a3"
 SRC_URI[mimalloc-0.1.43.sha256sum] = "68914350ae34959d83f732418d51e2427a794055d0b9529f48259ac07af65633"
 SRC_URI[minimal-lexical-0.2.1.sha256sum] = "68354c5c6bd36d73ff3feceb05efa59b6acb7626617f4962be322a825e61f79a"
@@ -526,6 +523,7 @@ SRC_URI[number_prefix-0.4.0.sha256sum] = "830b246a0e5f20af87141b25c173cd1b609bd7
 SRC_URI[once_cell-1.19.0.sha256sum] = "3fdb12b2476b595f9358c5161aa467c2438859caa136dec86c26fdd2efe17b92"
 SRC_URI[oorandom-11.1.3.sha256sum] = "0ab1bc2a289d34bd04a330323ac98a1b4bc82c9d9fcb1e66b63caa84da26b575"
 SRC_URI[option-ext-0.2.0.sha256sum] = "04744f49eae99ab78e0d5c0b603ab218f515ea8cfe5a456d7629ad883a3b6e7d"
+SRC_URI[ordermap-0.5.0.sha256sum] = "ab5a8e22be64dfa1123429350872e7be33594dbf5ae5212c90c5890e71966d1d"
 SRC_URI[os_str_bytes-6.6.1.sha256sum] = "e2355d85b9a3786f481747ced0e0ff2ba35213a1f9bd406ed906554d7af805a1"
 SRC_URI[overload-0.1.1.sha256sum] = "b15813163c1d831bf4a13c3610c05c0d03b39feb07f7e09fa234dac9b15aaf39"
 SRC_URI[parking_lot-0.12.3.sha256sum] = "f1bf18183cf54e8d6059647fc3063646a1801cf30896933ec2311622cc4b9a27"
@@ -573,9 +571,9 @@ SRC_URI[rust-stemmers-1.2.0.sha256sum] = "e46a2036019fdb888131db7a4c847a1063a749
 SRC_URI[rustc-hash-1.1.0.sha256sum] = "08d43f7aa6b08d49f382cde6a7982047c3426db949b1424bc4b7ec9ae12c6ce2"
 SRC_URI[rustc-hash-2.0.0.sha256sum] = "583034fd73374156e66797ed8e5b0d5690409c9226b22d87cb7f19821c05d152"
 SRC_URI[rustix-0.38.34.sha256sum] = "70dc5ec042f7a43c4a73241207cecc9873a06d45debb38b329f8541d85c2730f"
-SRC_URI[rustls-0.22.4.sha256sum] = "bf4ef73721ac7bcd79b2b315da7779d8fc09718c6b3d2d1b2d94850eb8c18432"
-SRC_URI[rustls-pki-types-1.5.0.sha256sum] = "beb461507cee2c2ff151784c52762cf4d9ff6a61f3e80968600ed24fa837fa54"
-SRC_URI[rustls-webpki-0.102.3.sha256sum] = "f3bce581c0dd41bce533ce695a1437fa16a7ab5ac3ccfa99fe1a620a7885eabf"
+SRC_URI[rustls-0.23.10.sha256sum] = "05cff451f60db80f490f3c182b77c35260baace73209e9cdbbe526bfe3a4d402"
+SRC_URI[rustls-pki-types-1.7.0.sha256sum] = "976295e77ce332211c0d24d92c0e83e50f5c5f046d11082cea19f3df13a3562d"
+SRC_URI[rustls-webpki-0.102.5.sha256sum] = "f9a6fccd794a42c2c105b513a2f62bc3fd8f3ba57a4593677ceb0bd035164d78"
 SRC_URI[rustversion-1.0.15.sha256sum] = "80af6f9131f277a45a3fba6ce8e2258037bb0477a67e610d3c1fe046ab31de47"
 SRC_URI[ryu-1.0.17.sha256sum] = "e86697c916019a8588c99b5fac3cead74ec0b4b819707a682fd4d23fa0ce1ba1"
 SRC_URI[same-file-1.0.6.sha256sum] = "93fc1dc3aaa9bfed95e02e6eadabb4baf7e3078b0bd1b4d7b6b0b68378900502"
@@ -584,16 +582,16 @@ SRC_URI[schemars_derive-0.8.21.sha256sum] = "b1eee588578aff73f856ab961cd2f79e36b
 SRC_URI[scoped-tls-1.0.1.sha256sum] = "e1cf6437eb19a8f4a6cc0f7dca544973b0b78843adbfeb3683d1a94a0024a294"
 SRC_URI[scopeguard-1.2.0.sha256sum] = "94143f37725109f92c262ed2cf5e59bce7498c01bcc1502d7b9afe439a4e9f49"
 SRC_URI[seahash-4.1.0.sha256sum] = "1c107b6f4780854c8b126e228ea8869f4d7b71260f962fefb57b996b8959ba6b"
-SRC_URI[serde-1.0.203.sha256sum] = "7253ab4de971e72fb7be983802300c30b5a7f0c2e56fab8abfc6a214307c0094"
+SRC_URI[serde-1.0.204.sha256sum] = "bc76f558e0cbb2a839d37354c575f1dc3fdc6546b5be373ba43d95f231bf7c12"
 SRC_URI[serde-wasm-bindgen-0.6.5.sha256sum] = "8302e169f0eddcc139c70f139d19d6467353af16f9fce27e8c30158036a1e16b"
-SRC_URI[serde_derive-1.0.203.sha256sum] = "500cbc0ebeb6f46627f50f3f5811ccf6bf00643be300b4c3eabc0ef55dc5b5ba"
+SRC_URI[serde_derive-1.0.204.sha256sum] = "e0cd7e117be63d3c3678776753929474f3b04a43a080c744d6b0ae2a8c28e222"
 SRC_URI[serde_derive_internals-0.29.0.sha256sum] = "330f01ce65a3a5fe59a60c82f3c9a024b573b8a6e875bd233fe5f934e71d54e3"
-SRC_URI[serde_json-1.0.119.sha256sum] = "e8eddb61f0697cc3989c5d64b452f5488e2b8a60fd7d5076a3045076ffef8cb0"
+SRC_URI[serde_json-1.0.120.sha256sum] = "4e0d21c9a8cae1235ad58a00c11cb40d4b1e5c784f1ef2c537876ed6ffd8b7c5"
 SRC_URI[serde_repr-0.1.19.sha256sum] = "6c64451ba24fc7a6a2d60fc75dd9c83c90903b19028d4eff35e88fc1e86564e9"
 SRC_URI[serde_spanned-0.6.6.sha256sum] = "79e674e01f999af37c49f70a6ede167a8a60b2503e56c5599532a65baa5969a0"
 SRC_URI[serde_test-1.0.176.sha256sum] = "5a2f49ace1498612d14f7e0b8245519584db8299541dfe31a06374a828d620ab"
-SRC_URI[serde_with-3.8.2.sha256sum] = "079f3a42cd87588d924ed95b533f8d30a483388c4e400ab736a7058e34f16169"
-SRC_URI[serde_with_macros-3.8.2.sha256sum] = "bc03aad67c1d26b7de277d51c86892e7d9a0110a2fe44bf6b26cc569fba302d6"
+SRC_URI[serde_with-3.9.0.sha256sum] = "69cecfa94848272156ea67b2b1a53f20fc7bc638c4a46d2f8abde08f05f4b857"
+SRC_URI[serde_with_macros-3.9.0.sha256sum] = "a8fee4991ef4f274617a51ad4af30519438dacb2f56ac773b08a1922ff743350"
 SRC_URI[sharded-slab-0.1.7.sha256sum] = "f40ca3c46823713e0d4209592e8d6e826aa57e928f09752619fc696c499637f6"
 SRC_URI[shellexpand-3.1.0.sha256sum] = "da03fa3b94cc19e3ebfc88c4229c49d8f08cdbd1228870a45f0ffdf84988e14b"
 SRC_URI[similar-2.5.0.sha256sum] = "fa42c91313f1d05da9b26f267f931cf178d4aba455b4c4622dd7355eb80c6640"
@@ -607,7 +605,7 @@ SRC_URI[strsim-0.11.1.sha256sum] = "7da8b5736845d9f2fcb837ea5d9e2628564b3b043a70
 SRC_URI[strum-0.26.3.sha256sum] = "8fec0f0aef304996cf250b31b5a10dee7980c85da9d759361292b8bca5a18f06"
 SRC_URI[strum_macros-0.26.4.sha256sum] = "4c6bee85a5a24955dc440386795aa378cd9cf82acd5f764469152d2270e581be"
 SRC_URI[subtle-2.5.0.sha256sum] = "81cdd64d312baedb58e21336b31bc043b77e01cc99033ce76ef539f78e965ebc"
-SRC_URI[syn-2.0.68.sha256sum] = "901fa70d88b9d6c98022e23b4136f9f3e54e4662c3bc1bd1d84a42a9a0f0c1e9"
+SRC_URI[syn-2.0.71.sha256sum] = "b146dcf730474b4bcd16c311627b31ede9ab149045db4d6088b3becaea046462"
 SRC_URI[synstructure-0.13.1.sha256sum] = "c8af7666ab7b6390ab78131fb5b0fce11d6b7a6951602017c35fa82800708971"
 SRC_URI[tempfile-3.10.1.sha256sum] = "85b77fafb263dd9d05cbeac119526425676db3784113aa9295c88498cbf8bff1"
 SRC_URI[terminal_size-0.3.0.sha256sum] = "21bebf2b7c9e0a515f6e0f8c51dc0f8e4696391e6f1ff30379559f8365fb0df7"
@@ -615,11 +613,11 @@ SRC_URI[terminfo-0.8.0.sha256sum] = "666cd3a6681775d22b200409aad3b089c5b99fb11ec
 SRC_URI[test-case-3.3.1.sha256sum] = "eb2550dd13afcd286853192af8601920d959b14c401fcece38071d53bf0768a8"
 SRC_URI[test-case-core-3.3.1.sha256sum] = "adcb7fd841cd518e279be3d5a3eb0636409487998a4aff22f3de87b81e88384f"
 SRC_URI[test-case-macros-3.3.1.sha256sum] = "5c89e72a01ed4c579669add59014b9a524d609c0c88c6a585ce37485879f6ffb"
-SRC_URI[thiserror-1.0.61.sha256sum] = "c546c80d6be4bc6a00c0f01730c08df82eaa7a7a61f11d656526506112cc1709"
-SRC_URI[thiserror-impl-1.0.61.sha256sum] = "46c3384250002a6d5af4d114f2845d37b57521033f30d5c3f46c4d70e1197533"
+SRC_URI[thiserror-1.0.62.sha256sum] = "f2675633b1499176c2dff06b0856a27976a8f9d436737b4cf4f312d4d91d8bbb"
+SRC_URI[thiserror-impl-1.0.62.sha256sum] = "d20468752b09f49e909e55a5d338caa8bedf615594e9d80bc4c565d30faf798c"
 SRC_URI[thread_local-1.1.8.sha256sum] = "8b9ef9bad013ada3808854ceac7b46812a6465ba368859a37e2100283d2d719c"
-SRC_URI[tikv-jemalloc-sys-0.5.4+5.3.0-patched.sha256sum] = "9402443cb8fd499b6f327e40565234ff34dbda27460c5b47db0db77443dd85d1"
-SRC_URI[tikv-jemallocator-0.5.4.sha256sum] = "965fe0c26be5c56c94e38ba547249074803efd52adfb66de62107d95aab3eaca"
+SRC_URI[tikv-jemalloc-sys-0.6.0+5.3.0-1-ge13ca993e8ccb9ba9847cc330696e02839f328f7.sha256sum] = "cd3c60906412afa9c2b5b5a48ca6a5abe5736aec9eb48ad05037a677e52e4e2d"
+SRC_URI[tikv-jemallocator-0.6.0.sha256sum] = "4cec5ff18518d81584f477e9bfdf957f5bb0979b0bac3af4ca30b5b3ae2d2865"
 SRC_URI[tinytemplate-1.2.1.sha256sum] = "be4d6b5f19ff7664e8c98d03e2139cb510db9b0a60b55f8e8709b689d939b6bc"
 SRC_URI[tinyvec-1.6.0.sha256sum] = "87cc5ceb3875bb20c2890005a4e226a4651264a5c75edb2421b52861a0a0cb50"
 SRC_URI[tinyvec_macros-0.1.1.sha256sum] = "1f3ccbac311fea05f86f61904b462b55fb3df8837a366dfc601a0161d0532f20"
@@ -647,7 +645,7 @@ SRC_URI[unicode_names2-1.2.2.sha256sum] = "addeebf294df7922a1164f729fb27ebbbcea9
 SRC_URI[unicode_names2_generator-1.2.2.sha256sum] = "f444b8bba042fe3c1251ffaca35c603f2dc2ccc08d595c65a8c4f76f3e8426c0"
 SRC_URI[unscanny-0.1.0.sha256sum] = "e9df2af067a7953e9c3831320f35c1cc0600c30d44d9f7a12b01db1cd88d6b47"
 SRC_URI[untrusted-0.9.0.sha256sum] = "8ecb6da28b8a351d773b68d5825ac39017e680750f980f3a1a85cd8dd28a47c1"
-SRC_URI[ureq-2.9.7.sha256sum] = "d11a831e3c0b56e438a28308e7c810799e3c118417f342d30ecec080105395cd"
+SRC_URI[ureq-2.10.0.sha256sum] = "72139d247e5f97a3eff96229a7ae85ead5328a39efe76f8bf5a06313d505b6ea"
 SRC_URI[url-2.5.2.sha256sum] = "22784dbdf76fdde8af1aeda5622b546b422b6fc585325248a2bf9f5e41e94d6c"
 SRC_URI[utf8parse-0.2.1.sha256sum] = "711b9620af191e0cdc7468a8d14e709c3dcdb115b36f838e601583af800a370a"
 SRC_URI[uuid-1.9.1.sha256sum] = "5de17fd2f7da591098415cff336e12965a28061ddace43b59cb3c430179c9439"
@@ -703,6 +701,11 @@ SRC_URI[zerocopy-0.7.32.sha256sum] = "74d4d3961e53fa4c9a25a8637fc2bfaf2595b3d3ae
 SRC_URI[zerocopy-derive-0.7.32.sha256sum] = "9ce1b18ccd8e73a9321186f97e46f9f04b778851177567b1975109d26a08d2a6"
 SRC_URI[zeroize-1.7.0.sha256sum] = "525b4ec142c6b68a2d10f01f7bbf6755599ca3f81ea53b8431b7dd348f5fdb2d"
 SRC_URI[zip-0.6.6.sha256sum] = "760394e246e4c28189f19d488c058bf16f564016aefac5d32bb1f3b51d5e9261"
+SRC_URI[zstd-0.11.2+zstd.1.5.2.sha256sum] = "20cc960326ece64f010d2d2107537f26dc589a6573a316bd5b1dba685fa5fde4"
+SRC_URI[zstd-safe-5.0.2+zstd.1.5.2.sha256sum] = "1d2a5585e04f9eea4b2a3d1eca508c4dee9592a89ef6f450c11719da0726f4db"
+SRC_URI[zstd-sys-2.0.11+zstd.1.5.6.sha256sum] = "75652c55c0b6f3e6f12eb786fe1bc960396bf05a1eb3bf1f3691c3610ac2e6d4"
+SRC_URI[tikv-jemalloc-sys-0.5.4+5.3.0-patched.sha256sum] = "9402443cb8fd499b6f327e40565234ff34dbda27460c5b47db0db77443dd85d1"
+SRC_URI[wasi-0.11.0+wasi-snapshot-preview1.sha256sum] = "9c8d87e72b64a3b4db28d11ce29237c246188f4f51057d65a7eab63b7987e423"
 SRC_URI[zstd-0.11.2+zstd.1.5.2.sha256sum] = "20cc960326ece64f010d2d2107537f26dc589a6573a316bd5b1dba685fa5fde4"
 SRC_URI[zstd-safe-5.0.2+zstd.1.5.2.sha256sum] = "1d2a5585e04f9eea4b2a3d1eca508c4dee9592a89ef6f450c11719da0726f4db"
 SRC_URI[zstd-sys-2.0.11+zstd.1.5.6.sha256sum] = "75652c55c0b6f3e6f12eb786fe1bc960396bf05a1eb3bf1f3691c3610ac2e6d4"
