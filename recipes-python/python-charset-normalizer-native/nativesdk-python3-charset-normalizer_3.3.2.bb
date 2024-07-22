@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=0974a390827087287db39928f7c524b5"
 
 PYPI_PACKAGE = "charset-normalizer"
 
-SRC_URI[sha256sum] = "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
+SRC_URI[sha256sum] = "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
 
 inherit pypi
 inherit setuptools3
-inherit_defer native
+inherit_defer nativesdk
