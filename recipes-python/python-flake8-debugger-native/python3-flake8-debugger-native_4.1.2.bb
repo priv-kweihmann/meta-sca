@@ -13,8 +13,13 @@ SRC_URI[md5sum] = "f5e7dbd23d72358d83942f97d8b68707"
 SRC_URI[sha256sum] = "52b002560941e36d9bf806fca2523dc7fb8560a295d5f1a6e15ac2ded7a73840"
 
 inherit pypi
-inherit setuptools3
+inherit python_poetry_core
 inherit_defer native
+
+do_install:append() {
+    mv -f ${D}${PYTHON_SITEPACKAGES_DIR}/LICENCE ${D}${PYTHON_SITEPACKAGES_DIR}/LICENCE.${PN}
+    rm -f ${D}${PYTHON_SITEPACKAGES_DIR}/pyproject.toml
+}
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \

@@ -12,8 +12,14 @@ UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
 
 inherit sca-description
-inherit setuptools3
+inherit python_poetry_core
 inherit_defer nativesdk
+
+do_configure:prepend() {
+    sed -i 's#poetry.masonry.api#poetry.core.masonry.api#g' ${S}/pyproject.toml
+    sed -i 's#poetry>=#poetry_core>=#g' ${S}/pyproject.toml
+}
+
 SCA_TOOL_DESCRIPTION = "darglint"
 PIP_INSTALL_PACKAGE = "darglint"
 RDEPENDS:${PN}:class-nativesdk += "\

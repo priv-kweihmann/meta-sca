@@ -9,6 +9,8 @@ DEPENDS += "\
             python3-mypy-extensions-native \
             python3-tomli-native \
             python3-typed-ast-native \
+            python3-types-psutil-native \
+            python3-types-setuptools-native \
             python3-typing-extensions-native \
             "
 
@@ -19,7 +21,7 @@ PYPI_PACKAGE = "mypy"
 
 inherit pypi
 inherit sca-description
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit_defer native
 
 SCA_TOOL_DESCRIPTION = "mypy"
@@ -40,6 +42,8 @@ RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-tests \
     nativesdk-python3-threading \
     nativesdk-python3-typed-ast \
+    nativesdk-python3-types-psutil \
+    nativesdk-python3-types-setuptools \
     nativesdk-python3-typing-extensions \
     nativesdk-python3-unittest \
 "

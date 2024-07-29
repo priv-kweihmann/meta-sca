@@ -25,7 +25,7 @@ SRCREV = "b1183542d374e8f6c87e4c5390f493a8f5b7ac76"
 UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
 
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit_defer native
 
 PIP_INSTALL_PACKAGE = "commoncode"

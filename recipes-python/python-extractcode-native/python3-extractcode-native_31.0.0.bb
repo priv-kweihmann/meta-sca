@@ -22,6 +22,6 @@ SRC_URI[sha256sum] = "80819392e9bcf8129f74d8904fe8a98c0dfed2782356842737282c0283
 SRC_URI:append = " file://0001-setup.cfg-fix-invalid-version-spec.patch"
 
 inherit pypi
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit_defer native
 

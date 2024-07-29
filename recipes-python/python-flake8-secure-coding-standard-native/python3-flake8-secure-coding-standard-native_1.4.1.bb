@@ -16,7 +16,7 @@ PYPI_PACKAGE = "flake8-secure-coding-standard"
 SRC_URI[sha256sum] = "75590fba3af46028a908bad7c11e789b6c1bf78805be54f92229d3c490009bf2"
 
 inherit pypi
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\

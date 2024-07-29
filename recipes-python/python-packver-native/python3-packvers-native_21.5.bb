@@ -16,5 +16,5 @@ PYPI_PACKAGE = "packvers"
 SRC_URI[sha256sum] = "2d2758fc09d2c325414354b8478d649f878b52c38598517fba51c8623526ca79"
 
 inherit pypi
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit_defer native

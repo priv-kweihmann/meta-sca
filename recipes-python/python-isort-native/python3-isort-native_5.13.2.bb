@@ -11,7 +11,7 @@ SRC_URI[md5sum] = "a4d791bf2a42d1fbaeb1f5cb2c9147b2"
 SRC_URI[sha256sum] = "48fdfcb9face5d58a4f6dde2e72a1fb8dcaf8ab26f95ab49fab84c2ddefb0109"
 
 inherit pypi
-inherit setuptools3
+inherit python_poetry_core
 inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\

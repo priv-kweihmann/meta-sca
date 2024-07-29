@@ -22,7 +22,7 @@ SRC_URI[md5sum] = "bc819b1bc1d207e8687e258fbc0cbddb"
 SRC_URI[sha256sum] = "ebcfbc17064f10bd3b6d2122cdbc97b71a494af0ebbafaf9a8ceadfe8b164f99"
 
 inherit pypi
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit_defer native
 
 UPSTREAM_CHECK_URI = "https://pypi.org/project/debian-inspector/"

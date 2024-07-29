@@ -10,7 +10,7 @@ PYPI_PACKAGE = "dill"
 SRC_URI[sha256sum] = "3ebe3c479ad625c4553aca177444d89b486b1d84982eeacded644afc0cf797ca"
 
 inherit pypi
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit_defer nativesdk
 
 RDEPENDS:${PN}:class-nativesdk += "\

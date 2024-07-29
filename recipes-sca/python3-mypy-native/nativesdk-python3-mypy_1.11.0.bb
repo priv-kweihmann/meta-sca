@@ -8,6 +8,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=8d62fd8f8648cb018e52857347e340b9"
 DEPENDS += "\
     nativesdk-python3-mypy-extensions \
     nativesdk-python3-typed-ast \
+    nativesdk-python3-types-psutil \
+    nativesdk-python3-types-setuptools \
     nativesdk-python3-typing-extensions \
     python3-tomli-native \
 "
@@ -20,7 +22,7 @@ PYPI_PACKAGE = "mypy"
 inherit pypi
 
 inherit sca-description
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit_defer nativesdk
 SCA_TOOL_DESCRIPTION = "mypy"
 RDEPENDS:${PN}:class-nativesdk += "\
@@ -39,6 +41,8 @@ RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-tests \
     nativesdk-python3-threading \
     nativesdk-python3-typed-ast \
+    nativesdk-python3-types-psutil \
+    nativesdk-python3-types-setuptools \
     nativesdk-python3-typing-extensions \
     nativesdk-python3-unittest \
 "

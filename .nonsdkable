@@ -48,6 +48,7 @@
 .*/recipes-python/python-dom-toml-native/.*
 .*/recipes-python/python-domdf-python-tools-native/.*
 .*/recipes-python/python-dparse-native/.*
+.*/recipes-python/python-dunamai-native/.*
 .*/recipes-python/python-extractcode-native/.*
 .*/recipes-python/python-fasteners-native/.*
 .*/recipes-python/python-fingerprints-native/.*
@@ -80,6 +81,7 @@
 .*/recipes-python/python-pip-requirements-parser-native/.*
 .*/recipes-python/python-pkginfo-native/.*
 .*/recipes-python/python-plugincode-native/.*
+.*/recipes-python/python-poetry-dynamic-versioning-native/.*
 .*/recipes-python/python-pyahocorasick-native/.*
 .*/recipes-python/python-pycryptodome-native/.*
 .*/recipes-python/python-pygmars-native/.*
