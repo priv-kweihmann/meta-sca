@@ -23,5 +23,6 @@ inherit_defer nativesdk
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \
     nativesdk-python3-flake8 \
+    nativesdk-python3-logging \
     nativesdk-python3-toml \
 "
