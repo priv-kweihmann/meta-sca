@@ -44,11 +44,11 @@ def do_sca_pkgqaenc_shelllist(d, package):
                         prov_string = "one of {}".format(",".join(sorted(pkgs)))
                     else:
                         prov_string = ",".join(pkgs)
-                    res += do_sca_pkgqaenc_warning("pkgqaenc.pkgqaenc.missingprodiver", file, 
+                    res += do_sca_pkgqaenc_warning("pkgqaenc.pkgqaenc.missingprovider", file, 
                                                 "Package {pkg} uses {bin}, that requires {prov} set in RDEPENDS:{pkg}".format(
                                                     bin=bin, pkg=package, prov=prov_string))
             elif not do_sca_pkgqaenc_is_provided_by_self(d, bin, package):
-                res += do_sca_pkgqaenc_warning("pkgqaenc.pkgqaenc.missingprodiver", file, 
+                res += do_sca_pkgqaenc_warning("pkgqaenc.pkgqaenc.missingprovider", file, 
                                                 "Package {pkg} uses {bin}, but no provider for this file can be found".format(
                                                     bin=bin, pkg=package))
     return res

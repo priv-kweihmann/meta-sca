@@ -125,7 +125,7 @@ SCA_PKGQAENC_BLOCKLIST_FILES-dev ?= "\
 * pkgqaenc.pkgqaenc.blacklisted-file - File is blacklisted
 * pkgqaenc.pkgqaenc.blacklist-dir - Directory is blacklisted
 * pkgqaenc.pkgqaenc.acceptableDirs - Directory is non-standard
-* pkgqaenc.pkgqaenc.missingprodiver - Package is missing a providing package in RDEPENDS
+* pkgqaenc.pkgqaenc.missingprovider - Package is missing a providing package in RDEPENDS
 * pkgqaenc.pkgqaenc.notsstatesafe - Recipe is not safe to use with sstate cache
 
 ## Checking scope
