@@ -39,7 +39,7 @@ def do_sca_conv_mypy(d):
                                             PackageName=package_name,
                                             Tool="mypy",
                                             BuildPath=buildpath,
-                                            File=os.path.join(d.getVar("TOPDIR"), m.group("file")),
+                                            File=m.group("file"),
                                             Line=m.group("line"),
                                             Message=m.group("message"),
                                             ID=hashlib.md5(str.encode(m.group("message"))).hexdigest(),
@@ -72,10 +72,14 @@ python do_sca_mypy_core() {
                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run
+    cur_dir = os.getcwd()
+    os.chdir(d.getVar("SCA_SOURCES_DIR"))
+
     cmd_output = exec_wrap_check_output(d, _args, _files)
 
     with open(sca_raw_result_file(d, "mypy"), "w") as o:
         o.write(cmd_output)
+    os.chdir(cur_dir)
 }
 
 do_sca_mypy_core[vardeps] += "\
