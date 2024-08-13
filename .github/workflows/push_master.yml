@@ -1,6 +1,7 @@
 name: "[master]-push"
 
 on:
+  pull_request:
   push:
     branches:
       - master
