@@ -14,7 +14,6 @@ DEPENDS += "\
             python3-saneyaml-native \
             python3-setuptools-scm-native \
             python3-text-unidecode-native \
-            python3-toml-native \
            "
 
 SRC_URI = "\

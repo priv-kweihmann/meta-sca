@@ -15,7 +15,6 @@ DEPENDS += "\
     nativesdk-python3-six \
     nativesdk-python3-tomlkit \
     python3-pytest-runner-native \
-    python3-toml-native \
 "
 
 SRC_URI[md5sum] = "3cd485969f568beb516e3e1c1a9019aa"

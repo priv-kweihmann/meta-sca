@@ -13,7 +13,6 @@ DEPENDS += "\
             python3-attrs-native \
             python3-chardet-native \
             python3-setuptools-scm-native \
-            python3-toml-native \
            "
 
 PYPI_PACKAGE = "debian_inspector"

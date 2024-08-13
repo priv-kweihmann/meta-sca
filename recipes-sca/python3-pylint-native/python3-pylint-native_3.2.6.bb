@@ -14,7 +14,6 @@ DEPENDS += "\
             python3-platformdirs-native \
             python3-pytest-runner-native \
             python3-six-native \
-            python3-toml-native \
             python3-tomlkit-native \
             "
 

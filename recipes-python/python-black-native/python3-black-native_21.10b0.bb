@@ -11,7 +11,6 @@ DEPENDS += "\
             python3-click-native \
             python3-packaging-native \
             python3-setuptools-scm-native \
-            python3-toml-native \
             python3-typed-ast-native \
             "
 

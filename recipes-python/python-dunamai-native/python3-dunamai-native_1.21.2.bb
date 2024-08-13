@@ -5,7 +5,6 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=059eed55dbfd3fea022510ea62c95dc1"
 
 DEPENDS += "\
-    python3-importlib-metadata-native \
     python3-packaging-native \
 "
 

@@ -11,7 +11,6 @@ DEPENDS += "\
     nativesdk-python3-types-psutil \
     nativesdk-python3-types-setuptools \
     nativesdk-python3-typing-extensions \
-    python3-tomli-native \
 "
 
 SRC_URI[md5sum] = "656a6e5c58e91a7eab4db97b7cc80baf"

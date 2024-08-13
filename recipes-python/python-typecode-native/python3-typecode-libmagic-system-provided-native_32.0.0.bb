@@ -8,7 +8,6 @@ LIC_FILES_CHKSUM = "file://apache-2.0.LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd
 DEPENDS += "\
     file-replacement-native \
     python3-setuptools-scm-native \
-    python3-toml-native \
 "
 
 PYPI_PACKAGE = "typecode_libmagic_system_provided"

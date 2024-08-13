@@ -37,7 +37,6 @@ DEPENDS += "\
         python3-gemfileparser-native \
         python3-html5lib-native \
         python3-idna-native \
-        python3-importlib-metadata-native \
         python3-inflection-native \
         python3-intbitset-native \
         python3-isodate-native \

@@ -13,7 +13,6 @@ DEPENDS += "\
              python3-plugincode-native \
              python3-setuptools-scm-native \
              python3-six-native \
-             python3-toml-native \
              python3-typecode-libmagic-system-provided-native \
              python3-wheel-native \
             "

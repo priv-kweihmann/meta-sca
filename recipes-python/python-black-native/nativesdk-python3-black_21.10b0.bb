@@ -12,7 +12,6 @@ DEPENDS += "\
     nativesdk-python3-packaging \
     nativesdk-python3-typed-ast \
     python3-setuptools-scm-native \
-    python3-toml-native \
 "
 
 PYPI_PACKAGE = "black"

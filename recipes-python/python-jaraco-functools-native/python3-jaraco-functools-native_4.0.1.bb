@@ -8,7 +8,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=141643e11c48898150daa83802dbc65f"
 DEPENDS += "\
             python3-more-itertools-native \
             python3-setuptools-scm-native \
-            python3-toml-native \
             python3-wheel-native \
            "
 

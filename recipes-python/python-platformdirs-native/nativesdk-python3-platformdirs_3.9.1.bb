@@ -8,7 +8,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=ea4f5a41454746a9ed111e3d8723d17a"
 DEPENDS += "\
     python3-hatch-vcs-native \
     python3-setuptools-scm-native \
-    python3-toml-native \
 "
 
 PYPI_PACKAGE = "platformdirs"
