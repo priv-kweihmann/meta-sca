@@ -9,6 +9,10 @@ inherit pypi
 inherit python_flit_core
 inherit_defer native
 
+# fix pending upstream bug
+# nooelint: oelint.vars.dependsclass
+DEPENDS:remove = "python3"
+
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 SRC_URI[sha256sum] = "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
 
