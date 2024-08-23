@@ -79,9 +79,9 @@ python do_cve_check() {
         patched_cves = get_patched_cves(d)
         _data, _ = check_cves(d, patched_cves)
         if _data:
-            cve_data = get_cve_info(d, _data)
+            get_cve_info(d, _data)
 
-            output = sca_create_data_file(d, cve_data)
+            output = sca_create_data_file(d, _data)
         else:
             output = sca_create_data_file(d, [])
     else:
