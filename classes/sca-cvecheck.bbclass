@@ -30,16 +30,10 @@ def sca_create_data_file(d, cve_data):
     Write CVE information in WORKDIR; and to CVE_CHECK_DIR, and
     CVE manifest if enabled.
     """
-
-    cve_file = d.getVar("CVE_CHECK_LOG")
     nvd_link = "https://web.nvd.nist.gov/view/vuln/detail?vulnId="
-    write_string = ""
-    unpatched_cves = []
-    bb.utils.mkdirhier(os.path.dirname(cve_file))
 
     package_name = d.getVar("PN")
     _suppress = sca_suppress_init(d, clean_split(d, ""), None, file_trace=False)
-    items = []
     _findings = []
 
     for cve in sorted(cve_data):
