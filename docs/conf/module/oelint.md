@@ -19,6 +19,7 @@
 | SCA_OELINT_EXTRA_SUGGESTED_VARS | Additional suggested variable that should be set in a recipe | space-separated-list | ""
 | SCA_OELINT_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_OELINT_IGNORE_SPARED_LAYER | Ignore findings from spared layer | 1 = yes, 0 = no | "1"
+| SCA_OELINT_MODE | Check mode | fast or all | "fast"
 | SCA_OELINT_RELEASE | Release of YP to check against | core layer compat name | "${LAYERSERIES_COMPAT_core}"
 
 ## Supports
@@ -48,7 +49,7 @@ __TBD__
 ## Statistics
 
 * ⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ 05/10 Build Speed
-* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10 Execution Speed
+* ⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ 05/10 Execution Speed
 * ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 09/10 Quality
 
 ## Score mapping

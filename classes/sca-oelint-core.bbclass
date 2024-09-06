@@ -11,6 +11,8 @@ SCA_OELINT_EXTRA_PROTECTED_VARS ?= ""
 SCA_OELINT_EXTRA_PROTECTED_APPEND_VARS ?= ""
 SCA_OELINT_EXTRA_SUGGESTED_VARS ?= ""
 SCA_OELINT_RELEASE ?= "${LAYERSERIES_COMPAT_core}"
+# check mode - fast or all
+SCA_OELINT_MODE ?= "fast"
 # Note: format is mirror:replacement without any ${} framing
 SCA_OELINT_EXTRA_KNOWN_MIRRORS ?= ""
 SCA_OELINT_CUSTOM_RULES ?= "${STAGING_DATADIR_NATIVE}/oelint-rules"
@@ -115,6 +117,7 @@ python do_sca_oelint_core() {
     _args += ["--quiet"]
     _args += ['--release={}'.format(d.getVar('SCA_OELINT_RELEASE'))]
     _args += ["--constantmods=+{}".format(_constantfile)]
+    _args += ["--mode={}".format(d.getVar('SCA_OELINT_MODE'))]
     if bb.data.inherits_class('image', d):
         # On images we don't need certain rules
         _args += ["--suppress=oelint.var.mandatoryvar"]
@@ -122,7 +125,21 @@ python do_sca_oelint_core() {
         _args += ["--suppress=oelint.var.bbclassextend"]
     for x in clean_split(d, "SCA_OELINT_CUSTOM_RULES"):
         _args += ["--customrules={}".format(x)]
-    _files = [x.strip() for x in d.getVar("BBINCLUDED").split(" ") if x.strip().endswith(".bb") or x.strip().endswith(".bbappend")]
+
+    def applicable_files(f):
+        import fnmatch
+        _, ext = os.path.splitext(f)
+        if ext in ['.bb', '.bbappend']:
+            return True
+        if fnmatch.fnmatch(f, '*/distro/*.conf'):
+            return True
+        if fnmatch.fnmatch(f, '*/machine/*.conf'):
+            return True
+        if fnmatch.fnmatch(f, '*/layer.conf'):
+            return True
+        return False
+        
+    _files = list(set(x.strip() for x in d.getVar("BBINCLUDED").split(" ") if applicable_files(x.strip()) and os.path.exists(x.strip())))
 
     # Prevent loading of user config
     os.environ["HOME"] = d.getVar("T")
