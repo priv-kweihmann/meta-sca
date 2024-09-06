@@ -10,7 +10,7 @@ DEPENDS += "python3-native"
 SRC_URI = "\
     git://github.com/a13xp0p0v/kconfig-hardened-check.git;protocol=https;branch=master \
 "
-SRCREV = "70ae2b93be46efe3f1356c025426cd0b43595c0a"
+SRCREV = "f4dbe258ff3d37489962ea9cf210192ae7ff9280"
 UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
 

@@ -37,22 +37,15 @@ def do_sca_conv_kconfighard(d):
             try:
                 j = json.load(f)
                 for item in j:
-                    # "CONFIG_INPUT_EVBUG",
-                    # "kconfig",
-                    # "is not set",
-                    # "my",
-                    # "cut_attack_surface",
-                    # "OK"
-                    symbol, list, exp, _, why, res = item
-                    if res != "OK":
+                    if not item['check_result_bool']:
                         g = sca_get_model_class(d,
                                                 PackageName=package_name,
                                                 Tool="kconfighard",
                                                 File=".config",
                                                 BuildPath=d.getVar("B"),
-                                                Message="{} should be '{}'".format(symbol, exp),
+                                                Message="{} should be '{}'".format(item['option_name'], item['desired_val']),
                                                 Severity="warning",
-                                                ID=symbol)
+                                                ID=item['option_name'])
                         if _suppress.Suppressed(g):
                             continue
                         if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
