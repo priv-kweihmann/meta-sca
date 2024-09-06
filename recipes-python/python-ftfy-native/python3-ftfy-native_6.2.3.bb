@@ -9,8 +9,8 @@ DEPENDS += "python3-wcwidth-native"
 
 PYPI_PACKAGE = "ftfy"
 
-SRC_URI[md5sum] = "295d15c09dd55eab191a5521c323d2b0"
-SRC_URI[sha256sum] = "5e42143c7025ef97944ca2619d6b61b0619fc6654f98771d39e862c1424c75c0"
+SRC_URI[md5sum] = "f8e7253d43facd1e9737a24dd9959d83"
+SRC_URI[sha256sum] = "79b505988f29d577a58a9069afe75553a02a46e42de6091c0660cdc67812badc"
 
 inherit pypi
 inherit python_poetry_core
