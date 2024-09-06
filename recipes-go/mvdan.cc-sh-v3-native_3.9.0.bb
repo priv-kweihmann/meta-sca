@@ -8,13 +8,16 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require mvdan.cc-sh-v3-sources.inc
 
 EXTRA_DEPENDS += "\
-    nativesdk-github.com-google-renameio-v2 \
-    nativesdk-github.com-pkg-diff \
-    nativesdk-golang.org-x-sync \
-    nativesdk-golang.org-x-sys \
-    nativesdk-golang.org-x-term \
-    nativesdk-mvdan.cc-editorconfig \
+    github.com-google-renameio-v2-native \
+    github.com-muesli-cancelreader-native \
+    github.com-rogpeppe-go-internal-native \
+    golang.org-x-sync-native \
+    golang.org-x-sys-native \
+    golang.org-x-term-native \
+    mvdan.cc-editorconfig-native \
 "
+
 GO_IMPORT = "mvdan.cc/sh/v3"
+
 inherit gosrc
-inherit_defer nativesdk
+inherit_defer native
