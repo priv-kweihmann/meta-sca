@@ -22,5 +22,5 @@ RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \
     nativesdk-python3-flake8 \
     nativesdk-python3-flake8-polyfill \
-    nativesdk-python3-libcst-native \
+    nativesdk-python3-libcst \
 "
