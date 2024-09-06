@@ -14,12 +14,11 @@ inherit sca-image-backtrack
 def do_sca_conv_mypy(d):
     import os
     import re
-    import hashlib
 
     package_name = d.getVar("PN")
     buildpath = d.getVar("SCA_SOURCES_DIR")
 
-    pattern = r"^(?P<file>.*):(?P<line>\d+):\s+(?P<severity>\w+):\s+(?P<message>.*)"
+    pattern = r"^(?P<file>.*):(?P<line>\d+):\s+(?P<severity>\w+):\s+(?P<message>.*)\s*\[(?P<id>.*)\]"
 
     severity_map = {
         "error" : "error",
@@ -39,11 +38,11 @@ def do_sca_conv_mypy(d):
                                             PackageName=package_name,
                                             Tool="mypy",
                                             BuildPath=buildpath,
-                                            File=os.path.join(d.getVar("TOPDIR"), m.group("file")),
+                                            File=m.group("file"),
                                             Line=m.group("line"),
                                             Message=m.group("message"),
-                                            ID=hashlib.md5(str.encode(m.group("message"))).hexdigest(),
-                                            Severity=severity_map[m.group("severity")])
+                                            ID=m.group("id"),
+                                            Severity=severity_map.get(m.group("severity"), 'warning'))
                     if _suppress.Suppressed(g):
                         continue
                     if g.Scope not in clean_split(d, "SCA_SCOPE_FILTER"):
@@ -63,16 +62,21 @@ python do_sca_mypy_core() {
     import subprocess
 
     os.environ["MYPY_CACHE_DIR"] = os.path.join(d.getVar("T"), "mypy_cache")
-    _args = ["python3", "-m", "mypy"]
+    _args = ["mypy"]
     _args += ["--strict"]
     _args += ["--no-incremental"]
+    _args += ["--show-absolute-path"]
+    _args += ["--show-error-code-links"]
     _args += ["--python-version", d.getVar("PYTHON_BASEVERSION")]
 
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_PYTHON_SHEBANG"), ".py",
                 sca_filter_files(d, d.getVar("SCA_SOURCES_DIR"), clean_split(d, "SCA_FILE_FILTER_EXTRA")))
 
     ## Run
+    cur_dir = os.getcwd()
+    os.chdir(d.getVar("SCA_SOURCES_DIR"))
     cmd_output = exec_wrap_check_output(d, _args, _files)
+    os.chdir(cur_dir)
 
     with open(sca_raw_result_file(d, "mypy"), "w") as o:
         o.write(cmd_output)
