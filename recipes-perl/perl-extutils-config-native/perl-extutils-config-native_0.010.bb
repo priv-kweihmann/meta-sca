@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=ddb4d526cd95b017e23486893490883e"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-Config-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "4333113089815c2aa92573b151bb43cb"
-SRC_URI[sha256sum] = "4ef84e73aad50a3be332885d2a3b12f3cab1b1e0bad24e88297a123b4f39f3ce"
+SRC_URI[md5sum] = "f455b5743db7b73c80e88133effa3551"
+SRC_URI[sha256sum] = "82e7e4e90cbe380e152f5de6e3e403746982d502dd30197a123652e46610c66d"
 
 UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/ExtUtils-Config-${PV}"
