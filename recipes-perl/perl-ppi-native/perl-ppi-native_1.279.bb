@@ -14,8 +14,8 @@ DEPENDS += "\
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/M/MI/MITHALDU/PPI-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "dda3e4d5542a42d7dc102523fda81bd3"
-SRC_URI[sha256sum] = "87c79f83b6876e206051965d5019d2507c551f819a86750080ec7ec43b2e0af8"
+SRC_URI[md5sum] = "a29c3bd660070a30dc6f1d4773d3ed98"
+SRC_URI[sha256sum] = "f69f4cc2c56d6e92183b80b1dd7337957623c509377ad5578edf1a3b467efa5a"
 
 UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/PPI-${PV}"
