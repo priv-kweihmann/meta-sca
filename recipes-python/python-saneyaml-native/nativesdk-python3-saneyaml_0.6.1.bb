@@ -12,8 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "saneyaml"
 
-SRC_URI[md5sum] = "7369bae2778042790470462963c0c0a0"
-SRC_URI[sha256sum] = "b2309f7836623cd6db932574ebbc43e3f65c743e7635179e64beecb0d1626e44"
+SRC_URI[md5sum] = "0ab1ec694c2c004035d1d42c17ac47b0"
+SRC_URI[sha256sum] = "19cfbd8bf94d730998162c790fe5cec9abb5300cc5890fe37dc6dbcaa8fb16bb"
 
 inherit pypi
 inherit python_setuptools_build_meta
