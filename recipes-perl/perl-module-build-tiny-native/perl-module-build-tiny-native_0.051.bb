@@ -13,7 +13,7 @@ DEPENDS += "\
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-${PV}.tar.gz"
 
-SRC_URI[sha256sum] = "8010be2fa1cad8cc971f6c727034b53ee21a95497384b9c2eb071b7b00ea0b5c"
+SRC_URI[sha256sum] = "74fdce35e8cd4d787bc2d4fc1d43a291b7bbced4e94dc5fc592bd81ca93a98e9"
 
 UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/Module-Build-Tiny-${PV}"
