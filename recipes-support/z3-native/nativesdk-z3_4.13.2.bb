@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5f03ad1486a2e4ce71200ce0f9721557"
 SRC_URI = "\
     git://github.com/Z3Prover/z3;branch=master;protocol=https \
 "
-SRCREV = "3049f578a8f98a0b0992eca193afe57a73b30ca3"
+SRCREV = "9a8ff74924561557f2b0e748f95a7764540e866a"
 
 UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
@@ -16,4 +16,4 @@ UPSTREAM_CHECK_GITTAGREGEX = "z3-(?P<pver>\d+\.\d+\.\d+)"
 
 inherit cmake
 inherit python3native
-inherit_defer native
+inherit_defer nativesdk
