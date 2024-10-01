@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/rogpeppe/go-internal/@v/v1.12.0.zip;srcoutput=github.com/rogpeppe/go-internal;srcinput=github.com/rogpeppe/go-internal@v1.12.0;downloadfilename=github-com-rogpeppe-go-internal-1.12.0.zip;name=github-com-rogpeppe-go-internal"
-SRC_URI[github-com-rogpeppe-go-internal.sha256sum] = "d4539e716c2b7f2824584e4c4a17f64c508bd6e5359106a406a7e23e77109cde"
+SRC_URI += "https://proxy.golang.org/github.com/rogpeppe/go-internal/@v/v1.13.1.zip;srcoutput=github.com/rogpeppe/go-internal;srcinput=github.com/rogpeppe/go-internal@v1.13.1;downloadfilename=github-com-rogpeppe-go-internal-1.13.1.zip;name=github-com-rogpeppe-go-internal"
+SRC_URI[github-com-rogpeppe-go-internal.sha256sum] = "cc0746bf67c2d5d536d305db9f7c5cbe8ffa84928fd90262fb447685db0f1bc2"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
