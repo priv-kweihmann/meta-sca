@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b5f0b94fbc94f5ad9ae4efcf8a778303"
 
 DEPENDS += "python3-pygments-native"
 
-SRC_URI[sha256sum] = "8260cda28e3db6bf04d2d1ef4dbc03ba80a824c88b0e7668a0f23126a424844a"
+SRC_URI[sha256sum] = "097cffdf85db1babe30cc7deba5ab3a29e1b9885047dab24c57e9a7f8a9c1466"
 
 PYPI_PACKAGE = "rich"
 
