@@ -1,0 +1,242 @@
+# New
+
+- #11647 - flake8-encodings - FEATURE REQUEST,PYTHON
+- #11880 - ruff - FEATURE REQUEST
+
+# Deprecations
+
+- #12163 - pkgqaenc.pkgqaenc.missingprodiver contains typo - ENHANCEMENT,DEPRECATION,TECH DEBT
+
+# Updates
+
+- #10541 - Update python3-charset-normalizer-native to 3.3.2 - PACKAGE UPDATE
+- #11937 - Update mvdan.cc-sh-native to 3.8.0 - PACKAGE UPDATE
+- #11978 - Update python3-flake8-async-native to 24.6.1 - PACKAGE UPDATE
+- #12017 - Update python3-reuse-native to 3.0.2 - PACKAGE UPDATE
+- #12018 - Update python3-setuptools-git-versioning-native to 2.0.0 - PACKAGE UPDATE
+- #12019 - Update python3-flake8-builtins-native to 2.5.0 - PACKAGE UPDATE
+- #12021 - Update python3-argcomplete-native to 3.3.0 - PACKAGE UPDATE
+- #12022 - Update python3-oelint-adv-native to 5.2.0 - PACKAGE UPDATE
+- #12023 - Update python3-regex-native to 2024.4.16 - PACKAGE UPDATE
+- #12024 - Update python3-oelint-parser-native to 3.4.1 - PACKAGE UPDATE
+- #12025 - Update python3-jaraco-functools-native to 4.0.1 - PACKAGE UPDATE
+- #12026 - Update python3-oelint-parser-native to 3.5.1 - PACKAGE UPDATE
+- #12027 - Update python3-oelint-adv-native to 5.3.1 - PACKAGE UPDATE
+- #12028 - Update cppcheck-native to 2.14.0 - PACKAGE UPDATE
+- #12029 - Update python3-flake8-bugbear-native to 24.4.26 - PACKAGE UPDATE
+- #12031 - Update python3-mypy-native to 1.10.0 - PACKAGE UPDATE
+- #12032 - Update perl-extutils-config-native to 0.009 - PACKAGE UPDATE
+- #12033 - Update perl-extutils-installpaths-native to 0.013 - PACKAGE UPDATE
+- #12034 - Update github.com-urfave-cli-native to 1.22.15 - PACKAGE UPDATE
+- #12035 - Update perl-module-build-tiny-native to 0.048 - PACKAGE UPDATE
+- #12036 - Update python3-regex-native to 2024.4.28 - PACKAGE UPDATE
+- #12037 - Update python3-testfixtures-native to 8.2.0 - PACKAGE UPDATE
+- #12038 - Update python3-ruff-native to 0.4.3 - PACKAGE UPDATE
+- #12039 - Update golang.org-x-sys-native to 0.20.0 - PACKAGE UPDATE
+- #12040 - Update golang.org-x-text-native to 0.15.0 - PACKAGE UPDATE
+- #12041 - Update golang.org-x-telemetry-native to 0.0.0-20240509185929-889c202c7c05 - PACKAGE UPDATE
+- #12042 - Update python3-flake8-commas-native to 4.0.0 - PACKAGE UPDATE
+- #12043 - Update golang.org-x-term-native to 0.20.0 - PACKAGE UPDATE
+- #12044 - Update python3-tlv-native to 1.5.3 - PACKAGE UPDATE
+- #12046 - Update python3-detect-secrets-native to 1.5.0 - PACKAGE UPDATE
+- #12047 - Update golang.org-x-net-native to 0.25.0 - PACKAGE UPDATE
+- #12048 - Update golang.org-x-tools-native to 0.21.0 - PACKAGE UPDATE
+- #12049 - Update golang.org-x-crypto-native to 0.23.0 - PACKAGE UPDATE
+- #12050 - Update python3-multimetric-native to 2.2.1 - PACKAGE UPDATE
+- #12051 - Update python3-scabot-native to 1.5.5 - PACKAGE UPDATE
+- #12052 - Update python3-astroids-native to 3.2.0 - PACKAGE UPDATE
+- #12053 - Update python3-tenacity-native to 8.3.0 - PACKAGE UPDATE
+- #12054 - Update python3-flake8-requirements-native to 2.2.0 - PACKAGE UPDATE
+- #12055 - Update python3-tomlkit-native to 0.12.5 - PACKAGE UPDATE
+- #12056 - Update perl-path-tiny-native to 0.146 - PACKAGE UPDATE
+- #12057 - Update python3-ruff-native to 0.4.4 - PACKAGE UPDATE
+- #12058 - Update python3-regex-native to 2024.5.10 - PACKAGE UPDATE
+- #12059 - Update golang.org-x-telemetry-native to 0.0.0-20240603224550-f2b69109f79b - PACKAGE UPDATE
+- #12060 - Update perl-perl-tidy-native to 20240511 - PACKAGE UPDATE
+- #12061 - Update python3-oelint-parser-native to 3.5.3 - PACKAGE UPDATE
+- #12067 - Update github.com-fatih-color-native to 1.17.0 - PACKAGE UPDATE
+- #12068 - Update python3-pylint-native to 3.2.2 - PACKAGE UPDATE
+- #12069 - Update python3-python-gitlab-native to 4.6.0 - PACKAGE UPDATE
+- #12070 - Update python3-scabot-native to 1.5.8 - PACKAGE UPDATE
+- #12071 - Update python3-regex-native to 2024.5.15 - PACKAGE UPDATE
+- #12072 - Update python3-extractcode-libarchive-system-provided-native to 32.0.0 - PACKAGE UPDATE
+- #12073 - Update python3-extractcode-7z-system-provided-native to 32.0.0 - PACKAGE UPDATE
+- #12074 - Update python3-commoncode-native to 31.2.1 - PACKAGE UPDATE
+- #12075 - Update python3-typecode-libmagic-system-provided-native to 32.0.0 - PACKAGE UPDATE
+- #12076 - Update python3-astroids-native to 3.2.2 - PACKAGE UPDATE
+- #12077 - Update python3-pep8-naming-native to 0.14.1 - PACKAGE UPDATE
+- #12078 - Update python3-oelint-adv-native to 5.4.0 - PACKAGE UPDATE
+- #12079 - Update python3-container-inspector-native to 33.0.0 - PACKAGE UPDATE
+- #12083 - Update python3-ruff-native to 0.4.10 - PACKAGE UPDATE
+- #12084 - Update github.com-burntsushi-toml-native to 1.4.0 - PACKAGE UPDATE
+- #12085 - Update cppcheck-native to 2.14.1 - PACKAGE UPDATE
+- #12086 - Update perl-b-keywords-native to 1.27 - PACKAGE UPDATE
+- #12088 - Update python3-oelint-adv-native to 5.5.0 - PACKAGE UPDATE
+- #12089 - Update golang.org-x-text-native to 0.16.0 - PACKAGE UPDATE
+- #12090 - Update golang.org-x-sys-native to 0.21.0 - PACKAGE UPDATE
+- #12091 - Update golang.org-x-mod-native to 0.18.0 - PACKAGE UPDATE
+- #12092 - Update golang.org-x-term-native to 0.21.0 - PACKAGE UPDATE
+- #12093 - Update golang.org-x-telemetry-native to 0.0.0-20240607193123-221703e18637 - PACKAGE UPDATE
+- #12094 - Update golang.org-x-crypto-native to 0.24.0 - PACKAGE UPDATE
+- #12095 - Update golang.org-x-net-native to 0.26.0 - PACKAGE UPDATE
+- #12096 - Update golang.org-x-tools-native to 0.22.0 - PACKAGE UPDATE
+- #12097 - Update python3-pylint-native to 3.2.3 - PACKAGE UPDATE
+- #12099 - Update python3-testfixtures-native to 8.3.0 - PACKAGE UPDATE
+- #12100 - Update python3-systemdlint-native to 1.3.1 - PACKAGE UPDATE
+- #12101 - Update golang.org-x-telemetry-native to 0.0.0-20240625154800-2e7d7fd037b9 - PACKAGE UPDATE
+- #12102 - Update python3-bandit-native to 1.7.9 - PACKAGE UPDATE
+- #12103 - Update python3-packageurl-python-native to 0.15.1 - PACKAGE UPDATE
+- #12104 - Update github.com-briandowns-spinner-native to 1.23.1 - PACKAGE UPDATE
+- #12105 - Update github.com-yuin-goldmark-native to 1.7.4 - PACKAGE UPDATE
+- #12106 - Update python3-oelint-adv-native to 5.7.0 - PACKAGE UPDATE
+- #12107 - Update python3-pycodestyle-native to 2.12.0 - PACKAGE UPDATE
+- #12108 - Update python3-flake8-native to 7.1.0 - PACKAGE UPDATE
+- #12109 - Update python3-argcomplete-native to 3.4.0 - PACKAGE UPDATE
+- #12110 - Update python3-tenacity-native to 8.4.2 - PACKAGE UPDATE
+- #12112 - Update cppcheck-native to 2.14.2 - PACKAGE UPDATE
+- #12113 - Update cbmc-native to 6.0.1 - PACKAGE UPDATE
+- #12114 - Update perl-extutils-helper-native to 0.027 - PACKAGE UPDATE
+- #12115 - Update python3-scancode-native to 32.2.1 - PACKAGE UPDATE
+- #12116 - Update python3-scabot-native to 1.5.10 - PACKAGE UPDATE
+- #12117 - Update python3-flake8-requirements-native to 2.2.1 - PACKAGE UPDATE
+- #12118 - Update python3-mypy-native to 1.10.1 - PACKAGE UPDATE
+- #12119 - Update python3-pylint-native to 3.2.5 - PACKAGE UPDATE
+- #12120 - Update python3-ruff-native to 0.5.0 - PACKAGE UPDATE
+- #12121 - Update python3-python-gitlab-native to 4.7.0 - PACKAGE UPDATE
+- #12122 - Update python3-flake8-comprehensions-native to 3.15.0 - PACKAGE UPDATE
+- #12123 - Update golang.org-x-telemetry-native to 0.0.0-20240712210958-268b4a8ec2d7 - PACKAGE UPDATE
+- #12124 - Update python3-reuse-native to 4.0.3 - PACKAGE UPDATE
+- #12125 - Update python3-oelint-parser-native to 3.5.4 - PACKAGE UPDATE
+- #12126 - Update python3-packageurl-python-native to 0.15.3 - PACKAGE UPDATE
+- #12127 - Update golang.org-x-mod-native to 0.19.0 - PACKAGE UPDATE
+- #12128 - Update golang.org-x-sys-native to 0.22.0 - PACKAGE UPDATE
+- #12129 - Update golang.org-x-term-native to 0.22.0 - PACKAGE UPDATE
+- #12130 - Update python3-tenacity-native to 8.5.0 - PACKAGE UPDATE
+- #12131 - Update golang.org-x-crypto-native to 0.25.0 - PACKAGE UPDATE
+- #12132 - Update golang.org-x-net-native to 0.27.0 - PACKAGE UPDATE
+- #12133 - Update python3-scabot-native to 1.5.11 - PACKAGE UPDATE
+- #12134 - Update python3-ruff-native to 0.5.1 - PACKAGE UPDATE
+- #12135 - Update python3-pdfminer-six-native to 20240706 - PACKAGE UPDATE
+- #12136 - Update golang.org-x-tools-native to 0.23.0 - PACKAGE UPDATE
+- #12137 - Update python3-tomlkit-native to 0.13.0 - PACKAGE UPDATE
+- #12138 - Update python3-astroids-native to 3.2.3 - PACKAGE UPDATE
+- #12139 - Update github.com-mcandre-mage-extras-native to 0.0.17 - PACKAGE UPDATE
+- #12140 - Update github.com-mcandre-stank-native to 0.0.28 - PACKAGE UPDATE
+- #12141 - Update github.com-mcandre-slick-native to 0.0.9 - PACKAGE UPDATE
+- #12142 - Update licensecheck-helper-native to 1.7.0 - PACKAGE UPDATE
+- #12143 - Update python3-ruff-native to 0.5.4 - PACKAGE UPDATE
+- #12144 - Update python3-packageurl-python-native to 0.15.4 - PACKAGE UPDATE
+- #12145 - Update golang.org-x-telemetry-native to 0.0.0-20240719210628-a33788e0e685 - PACKAGE UPDATE
+- #12146 - Update python3-python-gitlab-native to 4.8.0 - PACKAGE UPDATE
+- #12147 - Update python3-scabot-native to 1.5.12 - PACKAGE UPDATE
+- #12149 - Update mvdan.cc-editorconfig-native to 0.3.0 - PACKAGE UPDATE
+- #12150 - Update python3-mypy-native to 1.11.0 - PACKAGE UPDATE
+- #12151 - Update python3-astroids-native to 3.2.4 - PACKAGE UPDATE
+- #12152 - Update python3-pylint-native to 3.2.6 - PACKAGE UPDATE
+- #12154 - Update github.com-mattn-go-runewidth-native to 0.0.16 - PACKAGE UPDATE
+- #12155 - Update cbmc-native to 6.1.0 - PACKAGE UPDATE
+- #12156 - Update golang.org-x-telemetry-native to 0.0.0-20240724210143-b54ba84a8489 - PACKAGE UPDATE
+- #12157 - Update python3-packageurl-python-native to 0.15.6 - PACKAGE UPDATE
+- #12158 - Update python3-regex-native to 2024.7.24 - PACKAGE UPDATE
+- #12159 - Update python3-consolekit-native to 1.7.1 - PACKAGE UPDATE
+- #12160 - Update python3-ruff-native to 0.5.5 - PACKAGE UPDATE
+- #12161 - Update python3-oelint-parser-native to 3.5.5 - PACKAGE UPDATE
+- #12164 - Update python3-tenacity-native to 9.0.0 - PACKAGE UPDATE
+- #12165 - Update cbmc-native to 6.2.0 - PACKAGE UPDATE
+- #12168 - Update python3-scabot-native to 1.5.16 - PACKAGE UPDATE
+- #12169 - Update python3-mypy-native to 1.11.2 - PACKAGE UPDATE
+- #12170 - Update python3-oelint-adv-native to 6.0.0 - PACKAGE UPDATE
+- #12171 - Update python3-pyjwt-native to 2.9.0 - PACKAGE UPDATE
+- #12172 - Update python3-jaraco-functools-native to 4.0.2 - PACKAGE UPDATE
+- #12173 - Update perl-list-utils-native to 1.65 - PACKAGE UPDATE
+- #12174 - Update python3-ruff-native to 0.6.4 - PACKAGE UPDATE
+- #12175 - Update golang.org-x-mod-native to 0.21.0 - PACKAGE UPDATE
+- #12176 - Update python3-astroids-native to 3.3.2 - PACKAGE UPDATE
+- #12177 - Update golang.org-x-sync-native to 0.8.0 - PACKAGE UPDATE
+- #12178 - Update golang.org-x-sys-native to 0.25.0 - PACKAGE UPDATE
+- #12179 - Update python3-pycodestyle-native to 2.12.1 - PACKAGE UPDATE
+- #12180 - Update python3-flake8-native to 7.1.1 - PACKAGE UPDATE
+- #12181 - Update golang.org-x-telemetry-native to 0.0.0-20240904183051-94f817d1df79 - PACKAGE UPDATE
+- #12182 - Update python3-ftfy-native to 6.2.3 - PACKAGE UPDATE
+- #12183 - Update python3-types-setuptools-native to 74.1.0.20240906 - PACKAGE UPDATE
+- #12184 - Update python3-python-gitlab-native to 4.10.0 - PACKAGE UPDATE
+- #12185 - Update python3-argcomplete-native to 3.5.0 - PACKAGE UPDATE
+- #12186 - Update golang.org-x-net-native to 0.29.0 - PACKAGE UPDATE
+- #12187 - Update golang.org-x-term-native to 0.24.0 - PACKAGE UPDATE
+- #12188 - Update golang.org-x-text-native to 0.18.0 - PACKAGE UPDATE
+- #12189 - Update golang.org-x-crypto-native to 0.27.0 - PACKAGE UPDATE
+- #12190 - Update golang.org-x-tools-native to 0.24.0 - PACKAGE UPDATE
+- #12191 - Update python3-typecode-native to 30.0.2 - PACKAGE UPDATE
+- #12192 - Update python3-dunamai-native to 1.22.0 - PACKAGE UPDATE
+- #12193 - Update python3-flake8-async-native to 24.9.1 - PACKAGE UPDATE
+- #12194 - Update python3-license-expression-native to 30.3.1 - PACKAGE UPDATE
+- #12195 - Update python3-soupsieve-native to 2.6 - PACKAGE UPDATE
+- #12196 - Update github.com-creack-pty-native to 1.1.23 - PACKAGE UPDATE
+- #12197 - Update python3-saneyaml-native to 0.6.1 - PACKAGE UPDATE
+- #12198 - Update github.com-mcandre-mage-extras-native to 0.0.18 - PACKAGE UPDATE
+- #12199 - Update python3-tomlkit-native to 0.13.2 - PACKAGE UPDATE
+- #12200 - Update python3-pygmars-native to 0.9.0 - PACKAGE UPDATE
+- #12201 - Update perl-extutils-config-native to 0.010 - PACKAGE UPDATE
+- #12202 - Update mvdan.cc-sh-v3-native to 3.9.0 - PACKAGE UPDATE
+- #12203 - Update perl-clone-native to 0.47 - PACKAGE UPDATE
+- #12204 - Update python3-flake8-bugbear-native to 24.8.19 - PACKAGE UPDATE
+- #12206 - Update python3-stevedore-native to 5.3.0 - PACKAGE UPDATE
+- #12207 - Update perl-ppi-native to 1.279 - PACKAGE UPDATE
+- #12208 - Update python3-rich-native to 13.8.0 - PACKAGE UPDATE
+- #12209 - Update python3-pefile-native to 2024.8.26 - PACKAGE UPDATE
+- #12210 - Update python3-pbr-native to 6.1.0 - PACKAGE UPDATE
+- #12211 - Update cppcheck-native to 2.15.0 - PACKAGE UPDATE
+- #12212 - Update python3-pylint-native to 3.2.7 - PACKAGE UPDATE
+- #12213 - Update python3-types-psutil-native to 6.0.0.20240901 - PACKAGE UPDATE
+- #12214 - Update kconfig-hardened-check-native to 0.6.10 - PACKAGE UPDATE
+- #12215 - Update perl-extutils-helper-native to 0.028 - PACKAGE UPDATE
+- #12216 - Update python3-oelint-parser-native to 4.0.1 - PACKAGE UPDATE
+- #12217 - Update perl-perl-tidy-native to 20240903 - PACKAGE UPDATE
+- #12218 - Update perl-module-build-tiny-native to 0.050 - PACKAGE UPDATE
+- #12219 - Update python3-commoncode-native to 32.0.0 - PACKAGE UPDATE
+- #12220 - Update perl-module-build-tiny-native to 0.051 - PACKAGE UPDATE
+- #12221 - Update golang.org-x-telemetry-native to 0.0.0-20240916140951-1b7b43a8aaf2 - PACKAGE UPDATE
+- #12222 - Update python3-types-setuptools-native to 75.1.0.20240917 - PACKAGE UPDATE
+- #12223 - Update golang.org-x-tools-native to 0.25.0 - PACKAGE UPDATE
+- #12224 - Update python3-flake8-async-native to 24.9.4 - PACKAGE UPDATE
+- #12225 - Update python3-rich-native to 13.8.1 - PACKAGE UPDATE
+- #12226 - Update perl-extutils-installpaths-native to 0.014 - PACKAGE UPDATE
+- #12227 - Update python3-poetry-dynamic-versioning-native to 1.4.1 - PACKAGE UPDATE
+- #12228 - Update python3-regex-native to 2024.9.11 - PACKAGE UPDATE
+- #12229 - Update python3-oelint-parser-native to 5.0.0 - PACKAGE UPDATE
+- #12230 - Update python3-python-gitlab-native to 4.11.1 - PACKAGE UPDATE
+- #12231 - Update python3-ruff-native to 0.6.7 - PACKAGE UPDATE
+- #12232 - Update python3-scabot-native to 1.5.17 - PACKAGE UPDATE
+- #12233 - Update github.com-cpuguy83-go-md2man-v2-native to 2.0.5 - PACKAGE UPDATE
+- #12234 - Update python3-vulture-native to 2.12 - PACKAGE UPDATE
+- #12235 - Update checkbashism-native to 2.24.1 - PACKAGE UPDATE
+- #12236 - Update cbmc-native to 6.3.1 - PACKAGE UPDATE
+- #12237 - Update perl-list-utils-native to 1.66 - PACKAGE UPDATE
+- #12238 - Update python3-astroids-native to 3.3.3 - PACKAGE UPDATE
+- #12239 - Update python3-pylint-native to 3.3.0 - PACKAGE UPDATE
+- #12240 - Update python3-oelint-adv-native to 6.1.0 - PACKAGE UPDATE
+- #12241 - Update github.com-rogpeppe-go-internal-native to 1.13.1 - PACKAGE UPDATE
+- #12242 - Update python3-astroids-native to 3.3.4 - PACKAGE UPDATE
+- #12243 - Update python3-bandit-native to 1.7.10 - PACKAGE UPDATE
+- #12244 - Update python3-pylint-native to 3.3.1 - PACKAGE UPDATE
+- #12246 - Update python3-flake8-async-native to 24.9.5 - PACKAGE UPDATE
+- #12247 - Update python3-ruff-native to 0.6.8 - PACKAGE UPDATE
+- #12249 - Update z3-native to 4.13.2 - PACKAGE UPDATE
+- #12250 - Update python3-jaraco-functools-native to 4.1.0 - PACKAGE UPDATE
+- #12251 - Update golang.org-x-telemetry-native to 0.0.0-20240927214544-e9e6960092dd - PACKAGE UPDATE
+- #12252 - Update python3-python-gitlab-native to 4.12.1 - PACKAGE UPDATE
+- #12253 - Update python3-dill-native to 0.3.9 - PACKAGE UPDATE
+- #12254 - Update python3-scabot-native to 1.5.18 - PACKAGE UPDATE
+
+# Bugfixes
+
+- #12082 - UNPACKDIR support breaks everything - BUG
+- #12166 - mypy not executed from $SCA_SOURCES_DIR, sources erroneously suppressed - BUG
+
+# Misc
+
+- #12163 - pkgqaenc.pkgqaenc.missingprodiver contains typo - ENHANCEMENT,DEPRECATION,TECH DEBT
+
+# Thanks to
+
+- @djoyner
