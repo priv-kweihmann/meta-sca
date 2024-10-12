@@ -25,7 +25,7 @@ SCA_ALLOW_LAYER ?= ""
 # lead SCA to be invoked
 SCA_SPARE_IGNORE_BBAPPEND ?= "0"
 
-## Valid values are 
+## Valid values are
 ## 'checkstyle'
 ## 'codeclimate'
 ## 'console'
