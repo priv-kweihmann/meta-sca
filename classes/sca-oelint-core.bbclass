@@ -29,14 +29,12 @@ inherit sca-suppress
 inherit sca-image-backtrack
 inherit python3native
 
-def do_sca_conv_oelint(d, _files):
+def do_sca_conv_oelint(d):
     import os
     import re
 
     package_name = d.getVar("PN")
-    buildpath = d.getVar("SCA_SOURCES_DIR")
 
-    items = []
     pattern = r"^(?P<file>.*?):(?P<line>\d+):(?P<severity>(warning|error|info)):(?P<id>.*?):(?P<message>.*)$"
 
     severity_map = {
@@ -48,17 +46,16 @@ def do_sca_conv_oelint(d, _files):
     _suppress = sca_suppress_init(d, clean_split(d, "SCA_OELINT_EXTRA_SUPPRESS"),
                                   d.expand("${STAGING_DATADIR_NATIVE}/oelint-${SCA_MODE}-suppress"),
                                   file_trace=False)
-    _applicable_files = _files
-    if d.getVar("SCA_OELINT_IGNORE_SPARED_LAYER") == "1":
-        _applicable_files = sca_applicable(d, _files)
 
     if os.path.exists(sca_raw_result_file(d, "oelint")):
         with open(sca_raw_result_file(d, "oelint"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
                 try:
-                    if m.group("file") not in _applicable_files:
-                        # if sca is not applicable skip here
-                        continue
+                    if d.getVar("SCA_OELINT_IGNORE_SPARED_LAYER") == "1":
+                        if m.group("file") not in sca_applicable(d, [m.group("file")]):
+                            # if sca is not applicable skip here
+                            sca_log_note(d, f'{m.group("file")} is not applicable')
+                            continue
                     g = sca_get_model_class(d,
                                             PackageName=package_name,
                                             BuildPath=sca_get_layer_path_for_file(d, m.group("file")),
@@ -150,7 +147,7 @@ python do_sca_oelint_core() {
 
     ## Create data model
     d.setVar("SCA_DATAMODEL_STORAGE", "{}/oelint.dm".format(d.getVar("T")))
-    dm_output = do_sca_conv_oelint(d, _files)
+    dm_output = do_sca_conv_oelint(d)
     with open(d.getVar("SCA_DATAMODEL_STORAGE"), "w") as o:
         o.write(dm_output)
 
