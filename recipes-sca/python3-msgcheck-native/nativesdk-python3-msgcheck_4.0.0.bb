@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=c678957b0c8e964aa6c70fd77641a71e"
 
 DEPENDS += "nativesdk-python3-pyenchant"
 
-SRC_URI = "git://github.com/flashcode/msgcheck.git;branch=master;protocol=https"
+SRC_URI = "git://github.com/flashcode/msgcheck.git;branch=main;protocol=https"
 SRCREV = "ab02cd50d262ef4cb94736ead1844255e1d082e6"
 UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
