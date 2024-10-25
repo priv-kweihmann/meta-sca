@@ -68,7 +68,7 @@ urllib3==1.23
 virtualenv==16.0.0
 wcwidth==0.1.7
 webencodings==0.5.1
-Werkzeug==0.14.1
+Werkzeug==3.0.6
 widgetsnbextension==3.4.2
 xlrd==1.1.0
 pysandbox==1.0.1
