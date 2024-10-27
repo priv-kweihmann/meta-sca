@@ -28,7 +28,6 @@ PACKAGECONFIG ??= "\
                    return \
                    secure-coding-standard \
                    strftime \
-                   strict \
                    string-format \
                    use-fstring \
                    variables-names \
@@ -53,7 +52,6 @@ PACKAGECONFIG[return] = ",,nativesdk-python3-flake8-return"
 PACKAGECONFIG[requirements] = ",,nativesdk-python3-flake8-requirements"
 PACKAGECONFIG[secure-coding-standard] = ",,nativesdk-python3-flake8-secure-coding-standard"
 PACKAGECONFIG[strftime] = ",,nativesdk-python3-flake8-strftime"
-PACKAGECONFIG[strict] = ",,nativesdk-python3-flake8-strict"
 PACKAGECONFIG[string-format] = ",,nativesdk-python3-flake8-string-format"
 PACKAGECONFIG[use-fstring] = ",,nativesdk-python3-flake8-use-fstring"
 PACKAGECONFIG[variables-names] = ",,nativesdk-python3-flake8-variables-names"
