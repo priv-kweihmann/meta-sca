@@ -13,7 +13,6 @@ SCA_FLAKE8_EXTRA_FATAL ?= ""
 
 # python3 stdlib packages to filter out in image mode
 _SCA_FLAKE_PYTHON_STDLIB_PKGS = "\
-                                  python3-2to3 \
                                   python3-asyncio \
                                   python3-audio \
                                   python3-codecs \
