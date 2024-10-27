@@ -8,7 +8,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=d4540bac589ba237d0f9238a399607ca"
 DEPENDS += "\
     nativesdk-python3-colorama \
     nativesdk-python3-flake8-polyfill \
-    nativesdk-python3-future \
     nativesdk-python3-mando \
 "
 
@@ -26,7 +25,6 @@ RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \
     nativesdk-python3-crypt \
     nativesdk-python3-flake8-polyfill \
-    nativesdk-python3-future \
     nativesdk-python3-json \
     nativesdk-python3-mando \
     nativesdk-python3-pytest \
