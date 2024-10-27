@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/mvdan.cc/sh/v3/@v/v3.9.0.zip;srcoutput=mvdan.cc/sh/v3;srcinput=mvdan.cc/sh/v3@v3.9.0;downloadfilename=mvdan-cc-sh-v3-3.9.0.zip;name=mvdan-cc-sh-v3"
-SRC_URI[mvdan-cc-sh-v3.sha256sum] = "c5024f5778e8d02906639a0bd98b2214b67908cfb2a1298b7f5be10880b9f461"
+SRC_URI += "https://proxy.golang.org/mvdan.cc/sh/v3/@v/v3.10.0.zip;srcoutput=mvdan.cc/sh/v3;srcinput=mvdan.cc/sh/v3@v3.10.0;downloadfilename=mvdan-cc-sh-v3-3.10.0.zip;name=mvdan-cc-sh-v3"
+SRC_URI[mvdan-cc-sh-v3.sha256sum] = "f0583c88844c6f942dd94901d238ebb3349c40a5956cde1d4c662a49339a3d2a"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
