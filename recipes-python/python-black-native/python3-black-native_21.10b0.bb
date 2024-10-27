@@ -11,7 +11,6 @@ DEPENDS += "\
             python3-click-native \
             python3-packaging-native \
             python3-setuptools-scm-native \
-            python3-typed-ast-native \
             "
 
 PYPI_PACKAGE = "black"
@@ -43,5 +42,4 @@ RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-pickle \
     nativesdk-python3-profile \
     nativesdk-python3-setuptools \
-    nativesdk-python3-typed-ast \
 "

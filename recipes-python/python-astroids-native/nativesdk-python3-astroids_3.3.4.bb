@@ -8,7 +8,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=a70cf540abf41acb644ac3b621b2fad1"
 DEPENDS += "\
     nativesdk-python3 \
     nativesdk-python3-pylazy-object-proxy \
-    nativesdk-python3-typed-ast \
     nativesdk-python3-typing-extensions \
     nativesdk-python3-wrapt \
     python3-pytest-runner-native \
@@ -38,7 +37,6 @@ RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-pprint \
     nativesdk-python3-pylazy-object-proxy \
     nativesdk-python3-pytest \
-    nativesdk-python3-typed-ast \
     nativesdk-python3-typing-extensions \
     nativesdk-python3-wrapt \
 "

@@ -7,7 +7,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=8d62fd8f8648cb018e52857347e340b9"
 
 DEPENDS += "\
             python3-mypy-extensions-native \
-            python3-typed-ast-native \
             python3-types-psutil-native \
             python3-types-setuptools-native \
             python3-typing-extensions-native \
@@ -40,7 +39,6 @@ RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-stringold \
     nativesdk-python3-tests \
     nativesdk-python3-threading \
-    nativesdk-python3-typed-ast \
     nativesdk-python3-types-psutil \
     nativesdk-python3-types-setuptools \
     nativesdk-python3-typing-extensions \

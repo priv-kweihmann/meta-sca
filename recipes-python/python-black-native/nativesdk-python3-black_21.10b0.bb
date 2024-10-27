@@ -10,7 +10,6 @@ DEPENDS += "\
     nativesdk-python3-attrs \
     nativesdk-python3-click \
     nativesdk-python3-packaging \
-    nativesdk-python3-typed-ast \
     python3-setuptools-scm-native \
 "
 
@@ -43,5 +42,4 @@ RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-pickle \
     nativesdk-python3-profile \
     nativesdk-python3-setuptools \
-    nativesdk-python3-typed-ast \
 "

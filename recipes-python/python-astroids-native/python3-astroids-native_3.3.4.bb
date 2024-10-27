@@ -9,7 +9,6 @@ DEPENDS += "\
     python3-native \
     python3-pylazy-object-proxy-native \
     python3-pytest-runner-native \
-    python3-typed-ast-native \
     python3-typing-extensions-native \
     python3-wrapt-native \
 "
@@ -38,7 +37,6 @@ RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-pprint \
     nativesdk-python3-pylazy-object-proxy \
     nativesdk-python3-pytest \
-    nativesdk-python3-typed-ast \
     nativesdk-python3-typing-extensions \
     nativesdk-python3-wrapt \
 "
