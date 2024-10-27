@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://setup.py;beginline=2;endline=27;md5=a0de0126e2ca03c5e
 
 PYPI_PACKAGE = "isodate"
 
-SRC_URI[md5sum] = "1a310658b30a48641bafb5652ad91c40"
-SRC_URI[sha256sum] = "48c5881de7e8b0a0d648cb024c8062dc84e7b840ed81e864c7614fd3c127bde9"
+SRC_URI[md5sum] = "5ce182fd7f6152cda19ec605b6740687"
+SRC_URI[sha256sum] = "4cd1aa0f43ca76f4a6c6c0292a85f40b35ec2e43e315b59f06e6d32171a953e6"
 
 inherit pypi
 inherit setuptools3
