@@ -33,7 +33,6 @@ DEPENDS += "\
         python3-fasteners-native \
         python3-fingerprints-native \
         python3-ftfy-native \
-        python3-future-native \
         python3-gemfileparser-native \
         python3-html5lib-native \
         python3-idna-native \
