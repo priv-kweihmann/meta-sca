@@ -9,8 +9,10 @@ inherit pypi
 inherit python_flit_core
 inherit_defer native
 
+PYPI_PACKAGE = "tomli"
+
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-SRC_URI[sha256sum] = "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
+SRC_URI[sha256sum] = "d46d457a85337051c36524bc5349dd91b1877838e2979ac5ced3e710ed8a60ed"
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-datetime \
