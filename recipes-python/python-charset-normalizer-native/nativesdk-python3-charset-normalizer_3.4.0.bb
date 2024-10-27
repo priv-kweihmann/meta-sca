@@ -5,9 +5,11 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=0974a390827087287db39928f7c524b5"
 
-PYPI_PACKAGE = "charset-normalizer"
+PYPI_PACKAGE = "charset_normalizer"
 
-SRC_URI[sha256sum] = "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+UPSTREAM_CHECK_REGEX ?= "/charset-normalizer/(?P<pver>(\d+[\.\-_]*)+)"
+
+SRC_URI[sha256sum] = "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
 
 inherit pypi
 inherit setuptools3
