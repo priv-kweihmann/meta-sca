@@ -10,6 +10,8 @@ PYPI_PACKAGE = "systemdunitparser"
 SRC_URI[md5sum] = "4bb9d1a8495ef5024bde1ab1785c14e4"
 SRC_URI[sha256sum] = "1a072a4e55fc5573823e0a910497164db96d9e16648b0f540d546cd5591de90e"
 
+SRC_URI:append = " file://0001-SystemdUnitParser-fixes-for-cython-3.13.patch"
+
 inherit pypi
 inherit setuptools3
 inherit_defer native
