@@ -6,14 +6,14 @@ LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e6a600fd5e1d9cbde2d983680233ad02"
 
 DEPENDS += "\
-    python3-cython-native \
     nativesdk-python3-six \
+    python3-cython-native \
 "
 
 PYPI_PACKAGE = "intbitset"
 
-SRC_URI[md5sum] = "2ad2ac9ebff923a33574188216c8e1ee"
-SRC_URI[sha256sum] = "6e83c5ba7fda2520aa8565428bbaf842deb7293d665f3cd8281cb39254d2ff71"
+SRC_URI[md5sum] = "a625dceef38d3d7d803b45ac5c24d843"
+SRC_URI[sha256sum] = "c141edaa1c17b91c2987537e269d955ab6bdc3966af3deb6e1e0d20edbd09dd2"
 
 inherit pypi
 inherit setuptools3
