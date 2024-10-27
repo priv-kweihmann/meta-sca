@@ -76,9 +76,6 @@ python do_sca_stank_core() {
     import subprocess
 
     _args = [
-        ["rosy", "-kame"],
-        ["rosy", "-ahiru"],
-        ["rosy", "-usagi"],
         ["funk", "-modulino"],
     ]
 

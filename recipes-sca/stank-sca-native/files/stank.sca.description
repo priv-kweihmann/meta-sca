@@ -22,7 +22,6 @@
     },
     "test": {
         "integration": [
-            {"cmd": ["rosy", "--help"], "returncode": 0},
             {"cmd": ["funk", "--help"], "returncode": 0}
         ],
         "findings": [
