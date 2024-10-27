@@ -9,8 +9,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=a3c8e41bdf640795815537c1ce89a3aa"
 
 PYPI_PACKAGE = "mando"
 
-SRC_URI[md5sum] = "b45233627e6eb72893993a7254737acc"
-SRC_URI[sha256sum] = "18baa999b4b613faefb00eac4efadcf14f510b59b924b66e08289aa1de8c3500"
+SRC_URI[md5sum] = "f39593e6f5adad58c4d6583b06cdd9e2"
+SRC_URI[sha256sum] = "539659d9a2fdc6c9a188211c58f381e0dafe9597085174c5472eb1ed0224b6b5"
 
 inherit pypi
 inherit setuptools3
