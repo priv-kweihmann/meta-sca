@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/mcandre/mage-extras/@v/v0.0.18.zip;srcoutput=github.com/mcandre/mage-extras;srcinput=github.com/mcandre/mage-extras@v0.0.18;downloadfilename=github-com-mcandre-mage-extras-0.0.18.zip;name=github-com-mcandre-mage-extras"
-SRC_URI[github-com-mcandre-mage-extras.sha256sum] = "c062d8702bc83d6dc7fa47bca50f77aab521c7eca89532a6be4e3b274aa4c21f"
+SRC_URI += "https://proxy.golang.org/github.com/mcandre/mage-extras/@v/v0.0.21.zip;srcoutput=github.com/mcandre/mage-extras;srcinput=github.com/mcandre/mage-extras@v0.0.21;downloadfilename=github-com-mcandre-mage-extras-0.0.21.zip;name=github-com-mcandre-mage-extras"
+SRC_URI[github-com-mcandre-mage-extras.sha256sum] = "3605094fd3cefcd524cd8aa4efaeee5d014c86b79ee1e84455ac669b08e9b509"
 
 GOSRC_LICENSE += "\
     BSD-2-Clause-Views \
