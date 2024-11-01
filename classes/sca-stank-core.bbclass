@@ -29,23 +29,29 @@ def do_sca_conv_stank(d):
     pattern = r"^(?P<msg>.*):\s+(?P<file>.*)"
 
     _severity_map = {
-        "CR/CRLF line ending detected"                                      : ["LineEnding", "warning"],
-        "Clarify interpreter with a shebang line"                           : ["MissingShebang", "error"],
-        "Configuration features executable permissions"                     : ["ConfigExecBits", "info"],
-        "Configuration features shebang"                                    : ["ConfigShebang", "info"],
-        "Interpreter mismatch between shebang and extension"                : ["ShebangMismatch", "warning"],
-        "Leading BOM reduces portability"                                   : ["Portability", "info"],
-        "Missing final end of line sequence"                                : ["EOLMissing", "info"],
-        "Missing shebang"                                                   : ["MissingShebang", "error"],
+        "Ambiguous launch style. Either feature a file extensions, or else feature executable bits": ["AmbiguousLaunchStyle", "warning"],
+        "CR/CRLF line ending detected": ["LineEnding", "warning"],"CR/CRLF line ending detected": ["LineEnding", "warning"],
+        "Clarify interpreter with a shebang line": ["MissingShebang", "error"],
+        "Configuration features executable permissions": ["ConfigExecBits", "info"],
+        "Configuration features shebang": ["ConfigShebang", "info"],
+        "Control program flow like `set -eu` at the top of executable scripts": ["ControlFlow", "warning"],
+        "Interpreter mismatch between shebang and extension": ["ShebangMismatch", "warning"],
+        "Leading BOM reduces portability": ["Portability", "info"],
+        "List traps deprecated in favor of function trap": ["ListTrap", "warning"],
+        "Missing `set -E` / `set -o errtrace` to guard traps": ["SetETrap", "warning"],
+        "Missing final end of line sequence": ["EOLMissing", "info"],
+        "Missing shebang": ["MissingShebang", "error"],
         "Modulino ambiguity. Either have owner executable permissions with no extension, or else remove executable bits and use an extension like .lib.sh": ["ModulinoAmbiguity", "warning"],
-        "Rewrite in pure POSIX sh for portability"                          : ["Portability", "info"],
+        "Rewrite in pure POSIX sh for portability": ["Portability", "info"],
         "Rewrite script in ksh, bash, zsh, etc., and enable debugging flags for robustness": ["Robustness", "info"],
-        "Rewrite script in sh, ksh, posh, dash, etc. for performance boost" : ["PortabilityShell", "info"],
-        "Tokenize like `unset IFS` at the top of executable scripts" : ["Tokenize", "warning"],
-        "Control program flow like `set -eu` at the top of executable scripts" : ["ControlFlow", "warning"],
-        "Ambiguous launch style. Either feature a file extensions, or else feature executable bits" : ["AmbiguousLaunchStyle", "warning"],
-        "Risk of parse error for interpreter space / secondary argument. Any safety flags will be ignored on `sh <script>` launch" : ["RiskyOp", "warning"],
+        "Rewrite script in sh, ksh, posh, dash, etc. for performance boost": ["PortabilityShell", "info"],
+        "Risk of parse error for interpreter space / secondary argument. Any safety flags will be ignored on `sh <script>` launch": ["RiskyOp", "warning"],
+        "Sourceable script features executable mode bits": ["LibScript", "warning"],
+        "Tokenize like `unset IFS` at the top of executable scripts": ["Tokenize", "warning"],
+        "Traps may reset in subshells": ["TrapSubShell", "warning"],
+        "exec discards traps": ["ExecTrap", "warning"],
     }
+
     if os.path.exists(sca_raw_result_file(d, "stank")):
         with open(sca_raw_result_file(d, "stank"), "r") as f:
             for m in re.finditer(pattern, f.read(), re.MULTILINE):
@@ -77,6 +83,8 @@ python do_sca_stank_core() {
 
     _args = [
         ["funk", "-modulino"],
+        ["stink", "-pp"],
+        ["stink", "-cr"],
     ]
 
     _files = get_files_by_extention_or_shebang(d, d.getVar("SCA_SOURCES_DIR"), d.getVar("SCA_STANK_SHEBANG"), d.getVar("SCA_STANK_FILE_FILTER"),
