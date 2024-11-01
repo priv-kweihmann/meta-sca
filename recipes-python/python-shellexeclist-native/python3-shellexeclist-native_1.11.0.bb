@@ -15,7 +15,7 @@ DEPENDS += "\
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 
 SRC_URI = "git://github.com/priv-kweihmann/shellexeclist.git;branch=master;protocol=https"
-SRCREV = "60042c68b05dd19caed0752bdf00107d3360860c"
+SRCREV = "f4a4aec60bff0154d111a9c7faf4538343e1c26d"
 
 UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
