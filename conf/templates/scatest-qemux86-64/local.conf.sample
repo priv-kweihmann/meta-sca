@@ -12,7 +12,12 @@ BB_DISKMON_DIRS = "\
     HALT,${SSTATE_DIR},100M,1K"
 BB_GENERATE_SHALLOW_TARBALLS = "1"
 BB_GIT_SHALLOW = "1"
-EXTRA_IMAGE_FEATURES = "debug-tweaks"
+EXTRA_IMAGE_FEATURES = "\
+    allow-empty-password \
+    allow-root-login \
+    empty-root-password \
+    post-install-logging \
+"
 PACKAGE_CLASSES = "package_rpm"
 PACKAGECONFIG:append:pn-qemu-system-native = " sdl"
 PATCHRESOLVE = "noop"
