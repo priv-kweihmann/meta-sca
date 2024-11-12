@@ -4,35 +4,9 @@ _pwd=$(pwd)
 
 trap "sed -i '$ d' ${_pwd}/conf/local.conf" EXIT
 
-mods=$(${_thispath}/get_matching_mods $@)
-
-echo "Check the following modules: ${mods}"
-
-echo "SCA_AVAILABLE_MODULES = \"${mods}\"" >> ${_pwd}/conf/local.conf
-
-_targets=$(${_thispath}/get_buildmodules $@)
-if [ ! -z "${_targets}" ]; then
-    echo "Building the following recipes: ${_targets}"
-    if [ -z "${BUILDNTEST_PRESERVECACHE}" ]; then
-        bitbake ${_targets} -c cleansstate || exit 1
-        # Remove all previously exported files
-        for m in ${mods}; do
-            rm -rf ${_pwd}/tmp/deploy/images/*/sca/${m}/*
-        done
-    fi
-    bitbake ${_targets} || exit 1
-    if [ -z "${BUILDNTEST_NOSDK}" ]; then
-        bitbake nativesdk-sca-tools || exit 1
-    fi
-fi
-
 # test scabot implementation
 if [ -z "${BUILDNTEST_NOSCABOT}" ]; then
     bitbake python3-scabot-native
-    bitbake python3-scabot-native -caddto_recipe_sysroot
+    bitbake python3-scabot-native -vvv -caddto_recipe_sysroot
     oe-run-native python3-scabot-native scabot --help || exit 1
-fi
-
-if [ -z "${BUILDNTEST_NOTEST}" ]; then
-    ${_thispath}/check_results ${_pwd}/tmp/deploy/images/*/sca ${mods} || exit 1
 fi

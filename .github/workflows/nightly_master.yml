@@ -15,34 +15,40 @@ jobs:
       LANG: en_US.UTF-8
       LANGUAGE: en_US.UTF-8
       BUILD_EXPORT: 1
-      SCM_BRANCH: master
+      SCM_BRANCH: test
       BUILD_MAXRUNTIME: 21000
 
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
         testset: [standard, kernel, cbmc, cppcheck, license]
         include:
         - testset: standard
           BUILD_PARAMFILE: standard
           WITH_KERNEL: 1
+          ref: 330720015aa0974082905eefb3f5fc25309291f5
         - testset: kernel
           BUILD_PARAMFILE: kernel
           WITH_KERNEL: 0
           BUILDNTEST_NOSCABOT: 1
+          ref: 79f193ffa0394301242d25800a715b970c2a0b95
         - testset: cbmc
           BUILD_PARAMFILE: cbmc
           WITH_KERNEL: 0
           BUILDNTEST_NOSCABOT: 1
+          ref: f8f45ebde4ffa60ec1777976cb8b0020cdc11929
         - testset: cppcheck
           BUILD_PARAMFILE: cppcheck
           WITH_KERNEL: 0
           BUILDNTEST_NOSCABOT: 1
+          ref: 9500cf65a7c4e18ae4b994037f5b6b41af4b6dd9
         - testset: license
           BUILD_PARAMFILE: license
           WITH_KERNEL: 0
           BUILDNTEST_NOSCABOT: 1
+          ref: fc027ef55fa5e03b6fd6241161fa46b3e1bd10d2
     container:
       image: privkweihmann/yocto-sca-minimal:2004
       env:
@@ -60,7 +66,8 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
         with:
           repo: git://git.yoctoproject.org/poky.git
-          branch: ${{ env.SCM_BRANCH }}
+          branch: master
+          ref: ${{ matrix.ref }}
           add-layer: "0"
       - name: checkout (meta-sca)
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
@@ -92,19 +99,6 @@ jobs:
         with:
           variable: SSTATE_DIR
           value: /opt/build/sstate-cache
-      - name: build (glibc)
-        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
-        with:
-          target: glibc
-      - name: build (qemu-system)
-        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
-        with:
-          target: qemu-system-native
-      - name: build (kernel)
-        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
-        if: ${{ matrix.WITH_KERNEL }} == '1'
-        with:
-          target: linux-yocto-tiny
       - name: build (sca-modules)
         uses: priv-kweihmann/meta-sca-ci-utils/buildmodules@latest
         with:
@@ -117,21 +111,6 @@ jobs:
           parameter-file: ${{ matrix.BUILD_PARAMFILE }}
         env:
           BUILDNTEST_NOSCABOT: ${{ matrix.BUILDNTEST_NOSCABOT }}
-      - if: env.BUILD_EXPORT == '1'
-        name: checkout (webpage)
-        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
-        with:
-          repo: https://github.com/priv-kweihmann/priv-kweihmann.github.io.git
-          branch: master
-          add-layer: "0"
-          remove-git: "0"
-      - if: env.BUILD_EXPORT == '1'
-        name: build (webpage)
-        uses: priv-kweihmann/meta-sca-ci-utils/exportresults@latest
-        with:
-          parameter-file: ${{ matrix.BUILD_PARAMFILE }}
-          branch: ${{ env.SCM_BRANCH }}
-          deploy-token: ${{ secrets.WEBDEPLOY }}
       - name: print disk usage
         if: always()
         uses: priv-kweihmann/meta-sca-ci-utils/diskusage@latest
