@@ -3,6 +3,7 @@ name: "[master]-nightly"
 on:
   schedule:
     - cron: "30 18 * * *"
+  workflow_dispatch: 
 
 jobs:
   qemux86:
