@@ -43,11 +43,6 @@ jobs:
         with:
           repo: https://github.com/priv-kweihmann/meta-sca.git
           branch: master
-      - name: setup (bitbake config)
-        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
-        with:
-          variable: BB_DANGLINGAPPENDS_WARNONLY
-          value: 1
       - name: setup layer prio (bitbake config)
         uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
         with:
