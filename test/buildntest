@@ -30,6 +30,10 @@ fi
 if [ -z "${BUILDNTEST_NOSCABOT}" ]; then
     bitbake python3-scabot-native
     bitbake python3-scabot-native -caddto_recipe_sysroot
+    # https://bugzilla.yoctoproject.org/show_bug.cgi?id=15648
+    # we need to wait because bitbake doesn't sync on exit
+    # and people can't be arsed to fix that
+    sleep 5
     oe-run-native python3-scabot-native scabot --help || exit 1
 fi
 

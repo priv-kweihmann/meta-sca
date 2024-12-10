@@ -7,6 +7,7 @@ import json
 import os
 import pathlib
 import subprocess
+import time
 import sys
 
 
@@ -30,6 +31,10 @@ def test_integration(tmppath, recipe, tool, name):
     if "integration" not in tool["test"]:
         return
     subprocess.check_call(["bitbake", recipe, "-caddto_recipe_sysroot"], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
+    # https://bugzilla.yoctoproject.org/show_bug.cgi?id=15648
+    # we need to wait because bitbake doesn't sync on exit
+    # and people can't be arsed to fix that
+    time.sleep(5.0)
     for item in tool["test"]["integration"]:
         if "env" in item:
             for env in item["env"]:
