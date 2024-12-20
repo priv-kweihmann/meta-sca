@@ -12,6 +12,7 @@ LIC_FILES_CHKSUM = "\
 
 DEPENDS += "\
             python3-attrs-native \
+            python3-click-native \
             python3-binaryornot-native \
             python3-booleanpy-native \
             python3-debian-native \
