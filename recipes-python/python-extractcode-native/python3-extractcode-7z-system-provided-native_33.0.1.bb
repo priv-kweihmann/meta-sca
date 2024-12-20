@@ -14,8 +14,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "extractcode-7z-system-provided"
 
-SRC_URI[md5sum] = "1a581e121f8ea972f8d450805d986144"
-SRC_URI[sha256sum] = "35a438a044a34ddd045037f48dd6ffd5a3e759c6bf5dda5d66de2503fab3e02c"
+SRC_URI[md5sum] = "67375aacdaa2886b795ede956ee1e104"
+SRC_URI[sha256sum] = "fdb36a946bf7f5cd33732503fa975bc94f0102a11b3b6585cb1181b1f2d487de"
 
 inherit pypi
 inherit pypi-old
