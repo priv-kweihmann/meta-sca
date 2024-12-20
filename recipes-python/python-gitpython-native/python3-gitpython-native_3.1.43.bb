@@ -17,6 +17,11 @@ inherit pypi-old
 inherit python_setuptools_build_meta
 inherit_defer native
 
+PYPI_PACKAGE_OLD_LOWER = "${@d.getVar('PYPI_PACKAGE_OLD').lower()}"
+PYPI_DOWNLOADNAME = "${PYPI_ARCHIVE_NAME_PREFIX}${PYPI_PACKAGE}-${PV}.${PYPI_PACKAGE_EXT}"
+PYPI_SRC_URI = "https://files.pythonhosted.org/packages/source/g/${PYPI_PACKAGE_OLD_LOWER}/${PYPI_PACKAGE}-${PV}.${PYPI_PACKAGE_EXT};downloadfilename=${PYPI_DOWNLOADNAME}"
+S = "${WORKDIR}/${PYPI_PACKAGE}-${PV}"
+
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \
     nativesdk-python3-datetime \
