@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/golang.org/x/lint/@v/v0.0.0-20210508222113-6edffad5e616.zip;srcoutput=golang.org/x/lint;srcinput=golang.org/x/lint@v0.0.0-20210508222113-6edffad5e616;downloadfilename=golang-org-x-lint-0.0.0-20210508222113-6edffad5e616.zip;name=golang-org-x-lint"
-SRC_URI[golang-org-x-lint.sha256sum] = "0a4a5ebd2b1d79e7f480cbf5a54b45a257ae1ec9d11f01688efc5c35268d4603"
+SRC_URI += "https://proxy.golang.org/golang.org/x/lint/@v/v0.0.0-20241112194109-818c5a804067.zip;srcoutput=golang.org/x/lint;srcinput=golang.org/x/lint@v0.0.0-20241112194109-818c5a804067;downloadfilename=golang-org-x-lint-0.0.0-20241112194109-818c5a804067.zip;name=golang-org-x-lint"
+SRC_URI[golang-org-x-lint.sha256sum] = "0a94e5c77d96cfa828964f56de5434bbf5af7821c42e17ed13f96c31effd41c1"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
