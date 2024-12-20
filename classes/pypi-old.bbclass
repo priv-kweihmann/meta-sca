@@ -23,6 +23,8 @@ def pypi_normalize_alt(d):
     res = [d.getVar('UPSTREAM_CHECK_PYPI_PACKAGE')]
     for item in [(r"[-_.]+", "-"), (r"[-_]+", "-"), (r"[-_.]+", "_"), (r"[-_]+", "_")]:
         res.append(re.sub(item[0], item[1], pkg).lower())
+    for item in [(r"[-_.]+", "-"), (r"[-_]+", "-"), (r"[-_.]+", "_"), (r"[-_]+", "_")]:
+        res.append(re.sub(item[0], item[1], pkg))
     return res
 
 UPSTREAM_CHECK_REGEX = "(${@'|'.join(pypi_normalize_alt(d))})-(?P<pver>(\d+[\.\-_]*)+).(tar\.gz|tgz|zip|tar\.bz2)"
