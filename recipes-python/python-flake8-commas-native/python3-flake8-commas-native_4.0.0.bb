@@ -9,10 +9,11 @@ DEPENDS += "python3-flake8-native"
 
 SRC_URI[sha256sum] = "a68834b42a9a31c94ca790efe557a932c0eae21a3479c6b9a23c4dc077e3ea96"
 
-PYPI_PACKAGE = "flake8_commas"
+PYPI_PACKAGE = "flake8-commas"
 
 inherit setuptools3
 inherit pypi
+inherit pypi-old
 inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\

@@ -10,12 +10,13 @@ DEPENDS += "\
             python3-flake8-native \
             "
 
-PYPI_PACKAGE = "flake8_bugbear"
+PYPI_PACKAGE = "flake8-bugbear"
 
 SRC_URI[md5sum] = "e6ca6333a7c4f0f211642f30efbe4105"
 SRC_URI[sha256sum] = "435b531c72b27f8eff8d990419697956b9fd25c6463c5ba98b3991591de439db"
 
 inherit pypi
+inherit pypi-old
 inherit python_setuptools_build_meta
 inherit_defer native
 

@@ -14,9 +14,10 @@ DEPENDS += "\
 
 SRC_URI[sha256sum] = "c1f82f3cf06a80c13e1d09bfae460e9666255d5c780b859f19f8318d420370b3"
 
-PYPI_PACKAGE = "flake8_isort"
+PYPI_PACKAGE = "flake8-isort"
 
 inherit pypi
+inherit pypi-old
 inherit python_hatchling
 inherit_defer native
 

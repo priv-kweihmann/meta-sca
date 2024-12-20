@@ -13,11 +13,10 @@ SRC_URI[sha256sum] = "4c8cc748dc16e6869728699e5d0d685da9a10b0ea718e090b1ba088e67
 
 SRC_URI:append = " file://0001-docstrings-allow-pydocstyle-dev-versions.patch"
 
-PYPI_PACKAGE = "flake8_docstrings"
-
-UPSTREAM_CHECK_REGEX ?= "/flake8-docstrings/(?P<pver>(\d+[\.\-_]*)+)"
+PYPI_PACKAGE = "flake8-docstrings"
 
 inherit pypi
+inherit pypi-old
 inherit setuptools3
 inherit_defer native
 

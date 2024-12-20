@@ -11,14 +11,13 @@ DEPENDS += "\
             python3-flake8-native \
             "
 
-PYPI_PACKAGE = "flake8_eradicate"
-
-UPSTREAM_CHECK_REGEX ?= "/flake8-eradicate/(?P<pver>(\d+[\.\-_]*)+)"
+PYPI_PACKAGE = "flake8-eradicate"
 
 SRC_URI[md5sum] = "e2aca5337289e2279b3463365e2c0169"
 SRC_URI[sha256sum] = "aee636cb9ecb5594a7cd92d67ad73eb69909e5cc7bd81710cf9d00970f3983a6"
 
 inherit pypi
+inherit pypi-old
 inherit python_poetry_core
 inherit_defer native
 

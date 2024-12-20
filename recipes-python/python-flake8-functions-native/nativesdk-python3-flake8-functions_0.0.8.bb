@@ -11,12 +11,12 @@ DEPENDS += "\
     nativesdk-python3-setuptools \
 "
 
-PYPI_PACKAGE = "flake8_functions"
-UPSTREAM_CHECK_REGEX ?= "/flake8-functions/(?P<pver>(\d+[\.\-_]*)+)"
+PYPI_PACKAGE = "flake8-functions"
 
 SRC_URI[sha256sum] = "5446626673a9faecbf389fb411b90bdc87b002c387b72dc097b208e7a58f2a1c"
 
 inherit pypi
+inherit pypi-old
 inherit_defer nativesdk
 
 RDEPENDS:${PN}:class-nativesdk += "\

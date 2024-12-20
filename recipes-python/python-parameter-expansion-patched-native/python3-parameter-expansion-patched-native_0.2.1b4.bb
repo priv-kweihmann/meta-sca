@@ -12,7 +12,6 @@ SRC_URI[md5sum] = "c50685466a9ffeae0892a6cd1a896655"
 SRC_URI[sha256sum] = "fa177819ac4a8aa810fd9a31769887125d63e94bc2f27f154627ba2899861aee"
 
 inherit pypi
+inherit pypi-old
 inherit python_poetry_core
 inherit_defer native
-
-UPSTREAM_CHECK_REGEX = "/${PYPI_PACKAGE}/(?P<pver>(\d+[\.\-_]*)+(b\d+))/"

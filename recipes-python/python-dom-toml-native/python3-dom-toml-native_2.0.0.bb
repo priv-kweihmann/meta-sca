@@ -13,7 +13,8 @@ DEPENDS += "\
 SRC_URI[sha256sum] = "3c07e8436538994974127b1ae037661d1a779ac915c44fd06b3ab5fe140ff589"
 
 inherit pypi
+inherit pypi-old
 inherit python_flit_core
 inherit_defer native
 
-PYPI_PACKAGE = "dom_toml"
+PYPI_PACKAGE = "dom-toml"

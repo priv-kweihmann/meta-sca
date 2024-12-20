@@ -12,14 +12,12 @@ DEPENDS += "\
     libarchive-native \
 "
 
-PYPI_PACKAGE = "extractcode_libarchive_system_provided"
+PYPI_PACKAGE = "extractcode-libarchive-system-provided"
 
 SRC_URI[md5sum] = "b3faf22012e6fbfa88862faa93e1ae7f"
 SRC_URI[sha256sum] = "ae75adb22532086e9cf6a2bcaf26ca2d246af8e40e4d6809c643a7e104d570eb"
 
 inherit pypi
+inherit pypi-old
 inherit setuptools3
 inherit_defer native
-
-UPSTREAM_CHECK_URI = "https://pypi.org/project/extractcode-libarchive-system-provided/"
-UPSTREAM_CHECK_REGEX = "/extractcode-libarchive-system-provided/(?P<pver>(\d+[\.\-_]*)+)/"

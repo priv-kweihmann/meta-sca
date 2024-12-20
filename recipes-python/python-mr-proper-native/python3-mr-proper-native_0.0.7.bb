@@ -11,12 +11,12 @@ DEPENDS += "\
             python3-stdlib-list-native \
             "
 
-PYPI_PACKAGE = "mr_proper"
-UPSTREAM_CHECK_REGEX ?= "/mr-proper/(?P<pver>(\d+[\.\-_]*)+)"
+PYPI_PACKAGE = "mr-proper"
 
 SRC_URI[sha256sum] = "03b517b19e617537f711ce418b125e5f2efd82ec881539cdee83195c78c14a02"
 
 inherit pypi
+inherit pypi-old
 inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\

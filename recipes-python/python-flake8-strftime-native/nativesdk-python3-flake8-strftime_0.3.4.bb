@@ -13,6 +13,7 @@ DEPENDS += "\
 SRC_URI[sha256sum] = "db6b641a6c4562285d879d595481c612893bb8729d96ef4da356583c38a1013f"
 
 inherit pypi
+inherit pypi-old
 inherit python_pep517
 inherit python3native
 inherit setuptools3-base
@@ -27,7 +28,7 @@ do_install:append() {
     find ${D} -type f -exec sed -i "s#STRFTIME#SFT#g" {} +
 }
 
-PYPI_PACKAGE = "flake8_strftime"
+PYPI_PACKAGE = "flake8-strftime"
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \

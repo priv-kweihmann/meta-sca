@@ -12,14 +12,12 @@ DEPENDS += "\
     p7zip-native \
 "
 
-PYPI_PACKAGE = "extractcode_7z_system_provided"
+PYPI_PACKAGE = "extractcode-7z-system-provided"
 
 SRC_URI[md5sum] = "1a581e121f8ea972f8d450805d986144"
 SRC_URI[sha256sum] = "35a438a044a34ddd045037f48dd6ffd5a3e759c6bf5dda5d66de2503fab3e02c"
 
 inherit pypi
+inherit pypi-old
 inherit setuptools3
 inherit_defer native
-
-UPSTREAM_CHECK_URI = "https://pypi.org/project/extractcode-7z-system-provided/"
-UPSTREAM_CHECK_REGEX = "/extractcode-7z-system-provided/(?P<pver>(\d+[\.\-_]*)+)/"

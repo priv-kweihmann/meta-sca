@@ -14,7 +14,8 @@ DEPENDS += "\
 SRC_URI[sha256sum] = "5de72ed3d00cc9b20fea55e54b7ab8f5ef8500eb33a5368bc162a5585e238a55"
 
 inherit pypi
+inherit pypi-old
 inherit python_hatchling
 inherit_defer native
 
-PYPI_PACKAGE = "apeye_core"
+PYPI_PACKAGE = "apeye-core"

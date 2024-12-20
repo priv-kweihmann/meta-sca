@@ -12,12 +12,11 @@ DEPENDS += "\
     python3-dockerfile-parse-native \
 "
 
-PYPI_PACKAGE = "container_inspector"
+PYPI_PACKAGE = "container-inspector"
 
 SRC_URI[sha256sum] = "09260edb14549648da61260c1559b507e9dcb8296a6324368ba3803ca2011f7c"
 
 inherit pypi
+inherit pypi-old
 inherit python_setuptools_build_meta
 inherit_defer native
-
-UPSTREAM_CHECK_REGEX ?= "/container-inspector/(?P<pver>(\d+[\.\-_]*)+)"

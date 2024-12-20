@@ -12,9 +12,10 @@ DEPENDS += "\
 
 SRC_URI[sha256sum] = "7b432eff96910977cf865077909393cfbfec4c617ddd4a0b6b379075c878d8b5"
 
-PYPI_PACKAGE = "flake8_async"
+PYPI_PACKAGE = "flake8-async"
 
 inherit pypi
+inherit pypi-old
 inherit setuptools3
 inherit_defer nativesdk
 

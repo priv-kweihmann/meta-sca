@@ -10,9 +10,8 @@ SRC_URI[sha256sum] = "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b
 
 PYPI_PACKAGE = "click"
 
-UPSTREAM_CHECK_REGEX ?= "/click/(?P<pver>(\d+[\.\-_]*)+)"
-
 inherit pypi
+inherit pypi-old
 inherit setuptools3
 inherit_defer native
 

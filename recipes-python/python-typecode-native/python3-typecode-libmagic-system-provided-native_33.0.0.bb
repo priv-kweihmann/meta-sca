@@ -10,16 +10,14 @@ DEPENDS += "\
     python3-setuptools-scm-native \
 "
 
-PYPI_PACKAGE = "typecode_libmagic_system_provided"
+PYPI_PACKAGE = "typecode-libmagic-system-provided"
 
 SRC_URI[md5sum] = "335ef230b229210a987cd93673818932"
 SRC_URI[sha256sum] = "b436a24535a8f4c912c13e064ee92d26ac75747af07a63550c92289951f8b211"
 
 inherit pypi
+inherit pypi-old
 inherit setuptools3
 inherit_defer native
-
-UPSTREAM_CHECK_URI = "https://pypi.org/project/typecode-libmagic-system-provided/"
-UPSTREAM_CHECK_REGEX = "/typecode-libmagic-system-provided/(?P<pver>(\d+[\.\-_]*)+)/"
 
 RDEPENDS:${PN}:class-nativesdk += "nativesdk-file-replacement"

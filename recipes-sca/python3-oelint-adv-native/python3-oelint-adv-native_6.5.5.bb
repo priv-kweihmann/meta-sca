@@ -17,12 +17,12 @@ DEPENDS += "\
 
 SRC_URI[sha256sum] = "e75e7c2229654a3f4cff89e062b6631c0bee92df8581c3ce312c27ffa5da935c"
 
-PYPI_PACKAGE = "oelint_adv"
-UPSTREAM_CHECK_REGEX ?= "/oelint-adv/(?P<pver>(\d+[\.\-_]*)+)"
+PYPI_PACKAGE = "oelint-adv"
 
 inherit sca-description
 inherit setuptools3
 inherit pypi
+inherit pypi-old
 inherit_defer native
 
 SCA_TOOL_DESCRIPTION = "oelint"

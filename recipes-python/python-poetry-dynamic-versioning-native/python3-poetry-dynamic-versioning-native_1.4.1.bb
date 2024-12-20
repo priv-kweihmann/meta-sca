@@ -15,9 +15,10 @@ SRC_URI[sha256sum] = "21584d21ca405aa7d83d23d38372e3c11da664a8742995bdd517577e86
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 
 inherit pypi
+inherit pypi-old
 inherit python_poetry_core
 inherit_defer native
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 
-PYPI_PACKAGE = "poetry_dynamic_versioning"
+PYPI_PACKAGE = "poetry-dynamic-versioning"

@@ -12,14 +12,13 @@ DEPENDS += "\
             python3-pycodestyle-native \
             "
 
-PYPI_PACKAGE = "flake8_broken_line"
-
-UPSTREAM_CHECK_REGEX ?= "/flake8-broken-line/(?P<pver>(\d+[\.\-_]*)+)"
+PYPI_PACKAGE = "flake8-broken-line"
 
 SRC_URI[md5sum] = "5ced65c054fb299a50c401a3c095228e"
 SRC_URI[sha256sum] = "e2c6a17f8d9a129e99c1320fce89b33843e2963871025c4c2bb7b8b8d8732a85"
 
 inherit pypi
+inherit pypi-old
 inherit python_poetry_core
 inherit_defer native
 
