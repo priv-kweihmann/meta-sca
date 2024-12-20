@@ -19,7 +19,7 @@ DEPENDS += "\
 SRC_URI = "\
            git://github.com/nexB/commoncode.git;protocol=https;branch=main \
           "
-SRCREV = "878be6140deac30e2b95fb0fad9eb8feca015fc8"
+SRCREV = "395b971d6723294d0120a5be74963472c1375226"
 
 UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
