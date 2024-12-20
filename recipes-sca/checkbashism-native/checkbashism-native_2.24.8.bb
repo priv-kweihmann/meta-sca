@@ -12,7 +12,7 @@ SRC_URI:append = " \
     file://checkbashism.sca.description \
 "
 
-SRC_URI[sha256sum] = "0389da28aa6c55122ff1c3aaa1162ecb77488a7f76ecde91296d03a4a2f51d6e"
+SRC_URI[sha256sum] = "12515276c419db870c28674593825b812eb6ef068dc64ad7fa7a9d9fb778fea4"
 
 UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/devscripts"
