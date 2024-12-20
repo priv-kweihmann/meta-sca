@@ -1,21 +1,34 @@
 # a fixup class to allow also none compliant packages to be found
 
-def pypi_pkg_old(d):
+def pypi_escape_packagename(d):
     import re
-    return re.sub(r"[-_]+", "_", d.getVar('PYPI_PACKAGE')).lower()
+    return re.sub(r"[-_.]+", "_", d.getVar('PYPI_PACKAGE'))
 
-PYPI_PACKAGE_OLD ?= "${@pypi_pkg_old(d)}"
+PYPI_ESCAPE_PACKAGE_NAME ?= "1"
+PYPI_LOWERCASE_PACKAGE_NAME ?= "${PYPI_ESCAPE_PACKAGE_NAME}"
 
-def pypi_src_uri_old(d):
-    import re
-    package = d.getVar('PYPI_PACKAGE_OLD')
-    archive_name = d.expand('${PYPI_PACKAGE_OLD}-${PV}.${PYPI_PACKAGE_EXT}')
+def pypi_src_uri_patched(d):
+    if d.getVar('PYPI_ESCAPE_PACKAGE_NAME') == '1':
+        package = pypi_escape_packagename(d)
+    else:
+        package = d.getVar('PYPI_PACKAGE')
+    if d.getVar('PYPI_LOWERCASE_PACKAGE_NAME') == '1':
+        package = package.lower()
+    archive_name = package + d.expand('-${PV}.${PYPI_PACKAGE_EXT}')
     archive_downloadname = d.getVar('PYPI_ARCHIVE_NAME_PREFIX') + archive_name
-    return 'https://files.pythonhosted.org/packages/source/%s/%s/%s;downloadfilename=%s' % (package[0], package, archive_name, archive_downloadname)
+    return 'https://files.pythonhosted.org/packages/source/%s/%s/%s;downloadfilename=%s' % (package[0].lower(), package, archive_name, archive_downloadname)
 
+def pypi_src_workspace(d):
+    if d.getVar('PYPI_ESCAPE_PACKAGE_NAME') == '1':
+        package = pypi_escape_packagename(d)
+    else:
+        package = d.getVar('PYPI_PACKAGE')
+    if d.getVar('PYPI_LOWERCASE_PACKAGE_NAME') == '1':
+        package = package.lower()
+    return d.expand("${WORKDIR}/%s-${PV}" % package)
 
-PYPI_SRC_URI = "${@pypi_src_uri_old(d)}"
-S = "${WORKDIR}/${PYPI_PACKAGE_OLD}-${PV}"
+PYPI_SRC_URI = "${@pypi_src_uri_patched(d)}"
+S = "${@pypi_src_workspace(d)}"
 
 def pypi_normalize_alt(d):
     import re
