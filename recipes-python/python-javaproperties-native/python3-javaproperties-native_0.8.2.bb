@@ -3,12 +3,12 @@ HOMEPAGE = "https://github.com/jwodder/javaproperties"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=731e3f36ccd931c8aa8b40c94ad267af"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=d75dc7ac5c771ffd55eb23e2095b8702"
 
-SRC_URI[sha256sum] = "9dcba389effe67d3f906bbdcc64b8ef2ee8eac00072406784ea636bb6ba56061"
+SRC_URI[sha256sum] = "f780d17ca12d57da58519dcf9d821cbcdb6f98a8b5af661013e31a5050c59a0f"
 
 PYPI_PACKAGE = "javaproperties"
 
 inherit pypi
-inherit python_setuptools_build_meta
+inherit python_hatchling
 inherit_defer native
