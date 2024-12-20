@@ -8,7 +8,7 @@ DEPENDS += "python3-setuptools-scm-native"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 
-SRC_URI[sha256sum] = "eb1ee355aa2557bd3d0145de7b06b2a45b0ce461e1e7813f5d066039ab4177b4"
+SRC_URI[sha256sum] = "23146ed7ac4403b70bd6026402468942ceba34a6732255b9edf5b7354f68a6bb"
 
 PYPI_PACKAGE = "argcomplete"
 
