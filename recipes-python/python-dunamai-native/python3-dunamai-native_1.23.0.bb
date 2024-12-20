@@ -8,7 +8,7 @@ DEPENDS += "\
     python3-packaging-native \
 "
 
-SRC_URI[sha256sum] = "375a0b21309336f0d8b6bbaea3e038c36f462318c68795166e31f9873fdad676"
+SRC_URI[sha256sum] = "a163746de7ea5acb6dacdab3a6ad621ebc612ed1e528aaa8beedb8887fccd2c4"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 
