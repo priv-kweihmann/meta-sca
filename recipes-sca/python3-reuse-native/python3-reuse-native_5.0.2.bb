@@ -23,8 +23,8 @@ DEPENDS += "\
             python3-tomlkit-native \
             "
 
-SRC_URI[md5sum] = "20d517b5b5d01a76aec69f0175bbe329"
-SRC_URI[sha256sum] = "4f2c3e1213ec644e5febc50d8322d18982e4e1102af8a51d9493bfc2164a0eac"
+SRC_URI[md5sum] = "e5622257d047ab7da1c858f091e51da4"
+SRC_URI[sha256sum] = "878016ae5dd29c10bad4606d6676c12a268c12aa9fcfea66403598e16eed085c"
 
 PYPI_PACKAGE = "reuse"
 
