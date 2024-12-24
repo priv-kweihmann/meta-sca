@@ -38,6 +38,7 @@ DEPENDS += "\
         python3-idna-native \
         python3-inflection-native \
         python3-intbitset-native \
+        python3-importlib-metadata-native \
         python3-isodate-native \
         python3-jaraco-functools-native \
         python3-javaproperties-native \

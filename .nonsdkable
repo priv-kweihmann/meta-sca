@@ -58,6 +58,7 @@
 .*/recipes-python/python-handy-archives-native/.*
 .*/recipes-python/python-hatch-requirements-txt-native/.*
 .*/recipes-python/python-hatch-vcs-native/.*
+.*/recipes-python/python-importlib-metadata-native/.*
 .*/recipes-python/python-inflection-native/.*
 .*/recipes-python/python-jaraco-functools-native/.*
 .*/recipes-python/python-javaproperties-native/.*
