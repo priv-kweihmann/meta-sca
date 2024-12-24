@@ -12,8 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "flake8-bugbear"
 
-SRC_URI[md5sum] = "e6ca6333a7c4f0f211642f30efbe4105"
-SRC_URI[sha256sum] = "435b531c72b27f8eff8d990419697956b9fd25c6463c5ba98b3991591de439db"
+SRC_URI[md5sum] = "14eb1a03d9e5b52fd09eade23d67248a"
+SRC_URI[sha256sum] = "46273cef0a6b6ff48ca2d69e472f41420a42a46e24b2a8972e4f0d6733d12a64"
 
 inherit pypi
 inherit pypi-old
