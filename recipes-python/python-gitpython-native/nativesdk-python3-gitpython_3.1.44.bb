@@ -8,16 +8,15 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=5279a7ab369ba336989dcf2a107e5c8e"
 DEPENDS += "nativesdk-python3-gitdb"
 
 PYPI_PACKAGE = "GitPython"
-PYPI_ESCAPE_PACKAGE_NAME = "0"
 
-SRC_URI[md5sum] = "350a6dd0d1d560e0af82733592e8dbb3"
-SRC_URI[sha256sum] = "35f314a9f878467f5453cc1fee295c3e18e52f1b99f10f6cf5b1682e968a9e7c"
+SRC_URI[md5sum] = "14e2083b71e235ba4d81fa485ce9153d"
+SRC_URI[sha256sum] = "c87e30b26253bf5418b01b0660f818967f3c503193838337fe5e573331249269"
 
 inherit pypi
+
 inherit pypi-old
 inherit python_setuptools_build_meta
 inherit_defer nativesdk
-
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \
     nativesdk-python3-datetime \
