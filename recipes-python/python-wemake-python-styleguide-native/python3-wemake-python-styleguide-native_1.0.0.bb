@@ -38,8 +38,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "wemake-python-styleguide"
 
-SRC_URI[md5sum] = "e8e305fbd496bfed62bd3a5dc7d90051"
-SRC_URI[sha256sum] = "850fe70e6d525fd37ac51778e552a121a489f1bd057184de96ffd74a09aef414"
+SRC_URI[md5sum] = "f62ba1b6b8baf877f3e2354825c37c3a"
+SRC_URI[sha256sum] = "00e96dc73faf5471b21d4baa5041f457c19739cf14677832429be69e5f4f7964"
 
 inherit pypi
 inherit pypi-old
