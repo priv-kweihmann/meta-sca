@@ -14,7 +14,7 @@ DEPENDS += "\
 do_fetch[depends] += "python3-native:do_populate_sysroot"
 
 SRC_URI = "git://github.com/priv-kweihmann/tlv.git;protocol=https;branch=master"
-SRCREV = "69c3457005acd41008443cd711f1f223434c5779"
+SRCREV = "771fc53dc3d1e5ce815700ce5ba54a957ce96318"
 UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
 
