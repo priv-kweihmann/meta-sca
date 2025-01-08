@@ -18,7 +18,7 @@ jobs:
       SCM_BRANCH: master
       BUILD_MAXRUNTIME: 3600
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     strategy:
       matrix:
