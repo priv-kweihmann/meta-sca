@@ -21,7 +21,6 @@ inherit python_poetry_core
 inherit_defer nativesdk
 
 do_install:append() {
-    mv -f ${D}${PYTHON_SITEPACKAGES_DIR}/LICENCE ${D}${PYTHON_SITEPACKAGES_DIR}/LICENCE.${PN}
     rm -f ${D}${PYTHON_SITEPACKAGES_DIR}/pyproject.toml
 }
 
