@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/S/SH/SHANCOCK/Perl-Tidy-${PV}.tar.gz"
 
-SRC_URI[sha256sum] = "22fba4ba84cf2ba5fb4ade3ae65c6deb48a0ee61fe446858d3ae8c5e00f37e81"
+SRC_URI[sha256sum] = "d2cea2b909da69ab6d09f00dcb27cd9551184a5e4267d825da15d2f52e228632"
 
 UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/Perl-Tidy-${PV}"
