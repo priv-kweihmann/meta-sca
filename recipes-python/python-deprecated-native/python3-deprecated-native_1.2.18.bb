@@ -11,8 +11,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "Deprecated"
 
-SRC_URI[md5sum] = "432cf87ac5dd772b62f6f0ed7a18ca57"
-SRC_URI[sha256sum] = "683e561a90de76239796e6b6feac66b99030d2dd3fcf61ef996330f14bbb9b0d"
+SRC_URI[md5sum] = "d01ff749b9895432b67a003b6b30c4c4"
+SRC_URI[sha256sum] = "422b6f6d859da6f2ef57857761bfb392480502a64c3028ca9bbe86085d72115d"
 
 inherit pypi
 inherit pypi-old
