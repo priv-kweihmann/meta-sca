@@ -16,8 +16,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "license-expression"
 
-SRC_URI[md5sum] = "56993ab404d86a15b88c0af901fb58c2"
-SRC_URI[sha256sum] = "6464397f8ed4353cc778999caec43b099f8d8d5b335f282e26a9eb9435522f05"
+SRC_URI[md5sum] = "0a66ff031cd5e4d33567776f4a72bc97"
+SRC_URI[sha256sum] = "9f02105f9e0fcecba6a85dfbbed7d94ea1c3a70cf23ddbfb5adf3438a6f6fce0"
 
 inherit pypi
 inherit pypi-old
