@@ -7,7 +7,12 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-mattn-go-colorable-sources.inc
 
-EXTRA_DEPENDS += "nativesdk-github.com-mattn-go-isatty"
+EXTRA_DEPENDS += "\
+    nativesdk-github.com-mattn-go-isatty \
+    nativesdk-golang.org-x-sys \
+"
+
 GO_IMPORT = "github.com/mattn/go-colorable"
+
 inherit gosrc
 inherit_defer nativesdk
