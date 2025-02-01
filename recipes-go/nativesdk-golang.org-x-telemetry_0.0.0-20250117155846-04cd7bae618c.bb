@@ -12,8 +12,11 @@ EXTRA_DEPENDS += "\
     nativesdk-golang.org-x-sync \
     nativesdk-golang.org-x-sys \
 "
+
 GO_IMPORT = "golang.org/x/telemetry"
+
 # needs CGO
 do_compile[noexec] = "1"
+
 inherit gosrc
 inherit_defer nativesdk
