@@ -13,6 +13,8 @@ EXTRA_DEPENDS += "\
     nativesdk-golang.org-x-term \
     nativesdk-golang.org-x-text \
 "
+
 GO_IMPORT = "golang.org/x/net"
+
 inherit gosrc
 inherit_defer nativesdk
