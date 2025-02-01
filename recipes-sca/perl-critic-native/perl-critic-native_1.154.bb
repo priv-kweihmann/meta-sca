@@ -28,11 +28,13 @@ DEPENDS += "\
             perl-ppix-regexp-native \
             perl-ppix-utilities-native \
             perl-readonly-native \
+            perl-safe-isa-native \
             perl-string-format-native \
             perl-task-weaken-native \
             perl-term-ansicolor-native \
             perl-test-deep-native \
             perl-text-parsewords-native \
+            perl-yaml-pp-native \
             "
 
 SRC_URI = "git://github.com/Perl-Critic/Perl-Critic.git;branch=master;protocol=https"

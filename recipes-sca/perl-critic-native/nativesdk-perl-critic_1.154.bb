@@ -25,11 +25,13 @@ DEPENDS += "\
     nativesdk-perl-ppix-regexp \
     nativesdk-perl-ppix-utilities \
     nativesdk-perl-readonly \
+    nativesdk-perl-safe-isa \
     nativesdk-perl-string-format \
     nativesdk-perl-task-weaken \
     nativesdk-perl-term-ansicolor \
     nativesdk-perl-test-deep \
     nativesdk-perl-text-parsewords \
+    nativesdk-perl-yaml-pp \
     perl-b-keywords-native \
     perl-exporter-tiny-native \
     perl-list-moreutils-native \
@@ -43,20 +45,24 @@ S = "${UNPACKDIR}/git"
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>1\.\d{3})"
 
 inherit cpan_build
-
 inherit sca-description
 inherit_defer nativesdk
+
 SCA_TOOL_DESCRIPTION = "perlcritic"
+
 do_compile () {
     perl Build verbose=1
 }
+
 do_install:append() {
     sed -i "s#/.*/bin/perl#/usr/bin/env perl#g" ${D}${bindir}/perlcritic
     # Remove .packlist file, as it contains host specific paths
     # and doesn't serve a real purpose
     find ${D} -name ".packlist" -delete
 }
+
 INSANE_SKIP:${PN} += "shebang-size"
+
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-perl \
     nativesdk-perl-class-data-inheritable \
