@@ -5,21 +5,21 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=faa39cbd7a7cded9a1436248295de3c2"
 
-DEPENDS += "perl-native"
+DEPENDS += "nativesdk-perl"
 
 SRC_URI:append = " \
     http://deb.debian.org/debian/pool/main/d/devscripts/devscripts_${PV}.tar.xz \
     file://checkbashism.sca.description \
 "
 
-SRC_URI[sha256sum] = "a76b4c5fa773bc96486ff54d98a83e43889347099251ac6110af10875da5a847"
+SRC_URI[sha256sum] = "d48a66bddc6943a755173c3e25a8b9b9445ede25460af394022178243239c3ef"
 
 UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/devscripts"
 UPSTREAM_CHECK_REGEX = "devscripts_(?P<pver>\d+\.\d+\.\d+)"
 
 inherit sca-description
-inherit_defer native
+inherit_defer nativesdk
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
