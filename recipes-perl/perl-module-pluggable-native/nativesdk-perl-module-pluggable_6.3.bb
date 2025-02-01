@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://README;beginline=323;endline=326;md5=a63e0dc94502aefc
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/S/SI/SIMONW/Module-Pluggable-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "02051fa6f1473a067276ca2e26e3da45"
-SRC_URI[sha256sum] = "2743f1cb59c2cac21bf14f0f71beab5ced75a589394a1fd8ac09ecc71599299e"
+SRC_URI[md5sum] = "442bb8838a2b7053aa276a41233b0607"
+SRC_URI[sha256sum] = "58512bb9c654746d0937770b98b559b30872d85ac24073485e5830890dd1b2a0"
 
 UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/Module-Pluggable-${PV}"
