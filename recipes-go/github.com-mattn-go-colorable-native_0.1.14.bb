@@ -9,6 +9,7 @@ require github.com-mattn-go-colorable-sources.inc
 
 EXTRA_DEPENDS += "\
     github.com-mattn-go-isatty-native \
+    golang.org-x-sys-native \
 "
 
 GO_IMPORT = "github.com/mattn/go-colorable"
