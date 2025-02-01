@@ -12,6 +12,8 @@ EXTRA_DEPENDS += "\
     nativesdk-golang.org-x-sys \
     nativesdk-golang.org-x-term \
 "
+
 GO_IMPORT = "golang.org/x/crypto"
+
 inherit gosrc
 inherit_defer nativesdk
