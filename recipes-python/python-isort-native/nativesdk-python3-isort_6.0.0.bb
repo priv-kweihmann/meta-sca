@@ -5,13 +5,15 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=197c46995787b46a2dbf0d519c1754cf"
 
+DEPENDS += "python3-hatch-vcs-native"
+
 PYPI_PACKAGE = "isort"
 
-SRC_URI[md5sum] = "a4d791bf2a42d1fbaeb1f5cb2c9147b2"
-SRC_URI[sha256sum] = "48fdfcb9face5d58a4f6dde2e72a1fb8dcaf8ab26f95ab49fab84c2ddefb0109"
+SRC_URI[md5sum] = "5a8ef64a4ffbeaf90e8864a77b783554"
+SRC_URI[sha256sum] = "75d9d8a1438a9432a7d7b54f2d3b45cad9a4a0fdba43617d9873379704a8bdf1"
 
 inherit pypi
-inherit python_poetry_core
+inherit python_hatchling
 inherit_defer nativesdk
 
 RDEPENDS:${PN}:class-nativesdk += "\
