@@ -21,6 +21,8 @@ PACKAGECONFIG:append:pn-qemu-system-native = " sdl"
 PATCHRESOLVE = "noop"
 SCA_VERBOSE_OUTPUT = "1"
 
+MIRRORS:append = " https://gmplib.org/download/gmp/ https://ftp.gnu.org/gnu/gmp/"
+
 INHERIT += "rm_work"
 
 # Disable heavy llvm build, we really don't need for a headless qemu
