@@ -10,8 +10,6 @@ BB_DISKMON_DIRS = "\
     HALT,${TMPDIR},100M,1K \
     HALT,${DL_DIR},100M,1K \
     HALT,${SSTATE_DIR},100M,1K"
-BB_GENERATE_SHALLOW_TARBALLS = "1"
-BB_GIT_SHALLOW = "1"
 EXTRA_IMAGE_FEATURES = "\
     allow-empty-password \
     allow-root-login \
