@@ -9,27 +9,25 @@
 inherit sca-global
 inherit sca-blacklist
 
-def sca_files_part_of_unspared_layer(d, files):
+def sca_applicable(d, files):
     import re
     import os
-    _layer = []
-    _allow_list = d.getVar("SCA_ALLOW_LAYER").split(" ")
-    for x in d.getVar("SCA_SPARE_LAYER").split(" "):
-        if not x:
-            continue
-        if _allow_list and x not in _allow_list:
-            continue
+    _allowed = [x for x in d.getVar("SCA_ALLOW_LAYER").split(" ") if x]
+    _excluded = [x for x in d.getVar("SCA_SPARE_LAYER").split(" ") if x]
+    _all = _allowed or [x for x in d.getVar("BBFILE_COLLECTIONS").split(" ") if x]
+    _all = [x for x in _all if x not in _excluded]
+    _layer = set()
+    for x in _all:
         _tmp = d.getVar("BBFILE_PATTERN_{}".format(x))
         if _tmp:
             _tmp = _tmp.lstrip("^").rstrip("/") or ""
             _tmp = os.path.abspath(_tmp)
-            _layer.append("^{}/".format(_tmp))
-    _layer += [x for x in d.getVar("SCA_SPARE_DIRS").split(" ") if x]
-    if not any(_layer):
-        return files
+            _layer.add("^{}/".format(_tmp))
+    _exclude_dirs = [x for x in d.getVar("SCA_SPARE_DIRS").split(" ") if x]
     res = set()
     for f in files:
-        if not any([True for x in _layer if re.match(x, os.path.abspath(f))]):
+        if not any([True for x in _exclude_dirs if re.match(x, os.path.abspath(f))]) and \
+           any([True for x in _layer if re.match(x, os.path.abspath(f))]):
             res.add(os.path.abspath(f))
     return list(res)
 
@@ -39,6 +37,14 @@ def sca_mask_vars(d):
     for e in d.keys():
         if d.getVarFlag(e, 'task'):
             d.appendVarFlag(e, "vardepsexclude", " " + d.getVar("SCA_HASHEXCLUDE_VARS"))
+    for _class in ["nativesdk", "native"]:
+        if bb.data.inherits_class(_class, d):
+            # correct inherit order to avoid insane warnings
+            _cache = d.getVar('__inherit_cache', False) or []
+            _needle = [x for x in _cache if "{}.bbclass".format(_class) in x]
+            _cache = [x for x in _cache if x not in _needle]
+            _cache += _needle
+            d.setVar('__inherit_cache', _cache)
 
 def sca_force_run(d):
     _force_run = d.getVar("SCA_FORCE_RUN") != "0"
@@ -73,8 +79,7 @@ python sca_invoke_handler() {
     _files = [d.getVar("FILE")]
     if d.getVar("SCA_SPARE_IGNORE_BBAPPEND") != "1":
         _files += [x for x in bb.parse.get_file_depends(d).split(" ") if x and os.path.exists(x) and x.endswith(".bbappend")]
-    _matches = sca_files_part_of_unspared_layer(d, _files)
-    if not any(_matches):
+    if not sca_applicable(d, _files):
         # none of the files are in the match list
         # which means that all should be spared
         # so we quit here
