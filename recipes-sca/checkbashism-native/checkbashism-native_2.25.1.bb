@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=faa39cbd7a7cded9a1436248295de3c2"
 DEPENDS += "perl-native"
 
 SRC_URI:append = " \
-    http://deb.debian.org/debian/pool/main/d/devscripts/devscripts_${PV}.tar.xz \
+    https://deb.debian.org/debian/pool/main/d/devscripts/devscripts_${PV}.tar.xz \
     file://checkbashism.sca.description \
 "
 
