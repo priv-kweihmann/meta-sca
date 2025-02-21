@@ -8,15 +8,14 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=faa39cbd7a7cded9a1436248295de3c2"
 DEPENDS += "nativesdk-perl"
 
 SRC_URI:append = " \
-    https://deb.debian.org/debian/pool/main/d/devscripts/devscripts_${PV}.tar.xz \
+    git://salsa.debian.org/debian/devscripts.git;protocol=https;branch=main \
     file://checkbashism.sca.description \
 "
-
-SRC_URI[sha256sum] = "d48a66bddc6943a755173c3e25a8b9b9445ede25460af394022178243239c3ef"
+SRCREV = "0c91555a03783ba268fa0b0d781a3085b0edd990"
 
 UNPACKDIR ??= "${WORKDIR}/sources"
-S = "${UNPACKDIR}/devscripts"
-UPSTREAM_CHECK_REGEX = "devscripts_(?P<pver>\d+\.\d+\.\d+)"
+S = "${UNPACKDIR}/git"
+UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>\d+\.\d+\.\d+)"
 
 inherit sca-description
 inherit_defer nativesdk
