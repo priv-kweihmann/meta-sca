@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=1dece7821bf3fd70fe1309eaa37d52a2"
 
 PYPI_PACKAGE = "pbr"
 
-SRC_URI[md5sum] = "06361b83d178fb62dcd1b4ba9a9b418c"
-SRC_URI[sha256sum] = "788183e382e3d1d7707db08978239965e8b9e4e5ed42669bf4758186734d5f24"
+SRC_URI[md5sum] = "fbfd232f805fb892964b1050f14b5d96"
+SRC_URI[sha256sum] = "93ea72ce6989eb2eed99d0f75721474f69ad88128afdef5ac377eb797c4bf76b"
 
 inherit pypi
 inherit setuptools3
