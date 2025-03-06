@@ -5,15 +5,15 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4e19299aa28f63ae1056d6b86a4d2023"
 
-SRC_URI[sha256sum] = "1f8a96971178333a55e083e35610d7688cd7620ad2b99790164e1fc1a3614c18"
+DEPENDS += "\
+    python3-hatch-requirements-txt-native \
+"
+
+SRC_URI[sha256sum] = "2ae308d2f4f1e9145f5f4ba57f840fbfd1c2983ee26e4824347789649d3ae298"
 
 inherit pypi
 inherit pypi-old
-inherit python_setuptools_build_meta
+inherit python_hatchling
 inherit_defer native
-
-do_configure:prepend() {
-    sed -i 's#"setuptools!=.*"#"setuptools"#g' ${S}/pyproject.toml
-}
 
 PYPI_PACKAGE = "domdf-python-tools"
