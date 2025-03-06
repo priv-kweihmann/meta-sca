@@ -12,6 +12,8 @@ EXTRA_DEPENDS += "\
     nativesdk-github.com-mcandre-mage-extras \
     nativesdk-mvdan.cc-sh-v3 \
 "
+
 GO_IMPORT = "github.com/mcandre/stank"
+
 inherit gosrc
 inherit_defer nativesdk
