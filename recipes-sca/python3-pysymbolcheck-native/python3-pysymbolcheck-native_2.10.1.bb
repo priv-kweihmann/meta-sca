@@ -12,7 +12,7 @@ DEPENDS += "\
             "
 
 SRC_URI = "git://github.com/priv-kweihmann/pysymbolcheck.git;protocol=https;branch=master"
-SRCREV = "95c5ee29346e78c1eb031ca5c15e224832e80d21"
+SRCREV = "39bd7dbfd03a10e2eff7cc304f0aac0a7d2df475"
 UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
 
