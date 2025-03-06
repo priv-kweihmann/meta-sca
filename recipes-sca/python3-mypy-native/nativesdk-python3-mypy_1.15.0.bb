@@ -12,17 +12,18 @@ DEPENDS += "\
     nativesdk-python3-typing-extensions \
 "
 
-SRC_URI[md5sum] = "8297bf7865feffd704735f0fdb5a4150"
-SRC_URI[sha256sum] = "7ec88144fe9b510e8475ec2f5f251992690fcf89ccb4500b214b4226abcd32d6"
+SRC_URI[md5sum] = "7ef4185d545d0e296e8c1f12bb653a78"
+SRC_URI[sha256sum] = "404534629d51d3efea5c800ee7c42b72a6554d6c400e6a79eafe15d11341fd43"
 
 PYPI_PACKAGE = "mypy"
 
 inherit pypi
-
 inherit sca-description
 inherit python_setuptools_build_meta
 inherit_defer nativesdk
+
 SCA_TOOL_DESCRIPTION = "mypy"
+
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \
     nativesdk-python3-crypt \
