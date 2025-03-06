@@ -15,7 +15,7 @@ DEPENDS += "\
     python3-pbr-native \
 "
 
-SRC_URI[sha256sum] = "e00ad5a6bc676c0954669fe13818024d66b70e42cf5adb971480cf3b671e835f"
+SRC_URI[sha256sum] = "f5847beb654d309422985c36644649924e0ea4425c76dec2e89110b87506193a"
 
 PYPI_PACKAGE = "bandit"
 
