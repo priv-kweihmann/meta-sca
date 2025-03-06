@@ -11,6 +11,7 @@ DEPENDS += "\
             python3-anytree-native \
             python3-argcomplete-native \
             python3-colorama-native \
+            python3-oelint-data-native \
             python3-oelint-parser-native \
             python3-urllib3-native \
             "

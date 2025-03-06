@@ -70,6 +70,7 @@
 .*/recipes-python/python-nltk-native/.*
 .*/recipes-python/python-nose-native/.*
 .*/recipes-python/python-numpy-native/.*
+.*/recipes-python/python-oelint-data-native/.*
 .*/recipes-python/python-oelint-parser-native/.*
 .*/recipes-python/python-packageurl-python-native/.*
 .*/recipes-python/python-packver-native/.*
