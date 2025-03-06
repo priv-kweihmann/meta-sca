@@ -8,6 +8,8 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require golang.org-x-text-sources.inc
 
 EXTRA_DEPENDS += "nativesdk-golang.org-x-tools"
+
 GO_IMPORT = "golang.org/x/text"
+
 inherit gosrc
 inherit_defer nativesdk
