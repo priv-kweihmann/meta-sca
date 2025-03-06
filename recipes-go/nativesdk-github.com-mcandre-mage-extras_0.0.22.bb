@@ -8,6 +8,8 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require github.com-mcandre-mage-extras-sources.inc
 
 EXTRA_DEPENDS += "nativesdk-github.com-magefile-mage"
+
 GO_IMPORT = "github.com/mcandre/mage-extras"
+
 inherit gosrc
 inherit_defer nativesdk
