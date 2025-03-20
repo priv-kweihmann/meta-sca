@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     container:
-      image: privkweihmann/yocto-sca-minimal:2004
+      image: privkweihmann/yocto-sca-minimal:2204
       env:
         WORKSPACE: /opt/build
         TOPDIR: /opt/build

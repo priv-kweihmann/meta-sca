@@ -32,7 +32,7 @@ jobs:
           BUILD_GLOBALINHERIT: 1
 
     container:
-      image: privkweihmann/yocto-sca-minimal:2004
+      image: privkweihmann/yocto-sca-minimal:2204
       env:
         WORKSPACE: /opt/build
         TOPDIR: /opt/build
