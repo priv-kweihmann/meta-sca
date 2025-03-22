@@ -16,15 +16,14 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 CRATES_LIST = "\
     crate://crates.io/aho-corasick/1.0.4 \
     crate://crates.io/anes/0.1.6 \
-    crate://crates.io/annotate-snippets/0.6.1 \
-    crate://crates.io/anstyle/1.0.2 \
+    crate://crates.io/annotate-snippets/0.11.5 \
+    crate://crates.io/anstyle/1.0.10 \
     crate://crates.io/autocfg/1.1.0 \
     crate://crates.io/bitflags/2.4.0 \
     crate://crates.io/bumpalo/3.12.0 \
     crate://crates.io/cast/0.3.0 \
     crate://crates.io/cc/1.0.83 \
     crate://crates.io/cfg-if/1.0.0 \
-    crate://crates.io/chic/1.2.2 \
     crate://crates.io/ciborium-io/0.2.0 \
     crate://crates.io/ciborium-ll/0.2.0 \
     crate://crates.io/ciborium/0.2.0 \
@@ -72,11 +71,11 @@ CRATES_LIST = "\
     crate://crates.io/plotters/0.3.1 \
     crate://crates.io/portable-atomic/1.4.3 \
     crate://crates.io/proc-macro2/1.0.86 \
-    crate://crates.io/pyo3-build-config/0.22.2 \
-    crate://crates.io/pyo3-ffi/0.22.2 \
-    crate://crates.io/pyo3-macros-backend/0.22.2 \
-    crate://crates.io/pyo3-macros/0.22.2 \
-    crate://crates.io/pyo3/0.22.2 \
+    crate://crates.io/pyo3-build-config/0.23.5 \
+    crate://crates.io/pyo3-ffi/0.23.5 \
+    crate://crates.io/pyo3-macros-backend/0.23.5 \
+    crate://crates.io/pyo3-macros/0.23.5 \
+    crate://crates.io/pyo3/0.23.5 \
     crate://crates.io/quote/1.0.37 \
     crate://crates.io/rayon-core/1.12.1 \
     crate://crates.io/rayon/1.10.0 \
@@ -103,6 +102,7 @@ CRATES_LIST = "\
     crate://crates.io/toml_edit/0.22.20 \
     crate://crates.io/trybuild/1.0.99 \
     crate://crates.io/unicode-ident/1.0.1 \
+    crate://crates.io/unicode-width/0.2.0 \
     crate://crates.io/unindent/0.2.3 \
     crate://crates.io/walkdir/2.3.2 \
     crate://crates.io/wasm-bindgen-backend/0.2.81 \
@@ -127,19 +127,18 @@ CRATES_LIST = "\
     crate://crates.io/winnow/0.6.18 \
 "
 
-SRC_URI[sha256sum] = "e80ecdbe3fa43b3793cae8fa0b07a985bd9a693edbe6e9d076f5422ecadbf0db"
+SRC_URI[sha256sum] = "a63f44ffa81292f183656234c7f2848653ff45c17d867db83c9335119e28aafa"
 
 SRC_URI[aho-corasick-1.0.4.sha256sum] = "6748e8def348ed4d14996fa801f4122cd763fff530258cdc03f64b25f89d3a5a"
 SRC_URI[anes-0.1.6.sha256sum] = "4b46cbb362ab8752921c97e041f5e366ee6297bd428a31275b9fcf1e380f7299"
-SRC_URI[annotate-snippets-0.6.1.sha256sum] = "c7021ce4924a3f25f802b2cccd1af585e39ea1a363a1aa2e72afe54b67a3a7a7"
-SRC_URI[anstyle-1.0.2.sha256sum] = "15c4c2c83f81532e5845a733998b6971faca23490340a418e9b72a3ec9de12ea"
+SRC_URI[annotate-snippets-0.11.5.sha256sum] = "710e8eae58854cdc1790fcb56cca04d712a17be849eeb81da2a724bf4bae2bc4"
+SRC_URI[anstyle-1.0.10.sha256sum] = "55cc3b69f167a1ef2e161439aa98aed94e6028e5f9a59be9a6ffb47aef1651f9"
 SRC_URI[autocfg-1.1.0.sha256sum] = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
 SRC_URI[bitflags-2.4.0.sha256sum] = "b4682ae6287fcf752ecaabbfcc7b6f9b72aa33933dc23a554d853aea8eea8635"
 SRC_URI[bumpalo-3.12.0.sha256sum] = "0d261e256854913907f67ed06efbc3338dfe6179796deefc1ff763fc1aee5535"
 SRC_URI[cast-0.3.0.sha256sum] = "37b2a672a2cb129a2e41c10b1224bb368f9f37a2b16b612598138befd7b37eb5"
 SRC_URI[cc-1.0.83.sha256sum] = "f1174fb0b6ec23863f8b971027804a42614e347eafb0a95bf0b12cdae21fc4d0"
 SRC_URI[cfg-if-1.0.0.sha256sum] = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
-SRC_URI[chic-1.2.2.sha256sum] = "a5b5db619f3556839cb2223ae86ff3f9a09da2c5013be42bc9af08c9589bf70c"
 SRC_URI[ciborium-0.2.0.sha256sum] = "b0c137568cc60b904a7724001b35ce2630fd00d5d84805fbb608ab89509d788f"
 SRC_URI[ciborium-io-0.2.0.sha256sum] = "346de753af073cc87b52b2083a506b38ac176a44cfb05497b622e27be899b369"
 SRC_URI[ciborium-ll-0.2.0.sha256sum] = "213030a2b5a4e0c0892b6652260cf6ccac84827b83a85a534e178e3906c4cf1b"
@@ -187,11 +186,11 @@ SRC_URI[plotters-backend-0.3.2.sha256sum] = "d88417318da0eaf0fdcdb51a0ee6c3bed62
 SRC_URI[plotters-svg-0.3.1.sha256sum] = "521fa9638fa597e1dc53e9412a4f9cefb01187ee1f7413076f9e6749e2885ba9"
 SRC_URI[portable-atomic-1.4.3.sha256sum] = "31114a898e107c51bb1609ffaf55a0e011cf6a4d7f1170d0015a165082c0338b"
 SRC_URI[proc-macro2-1.0.86.sha256sum] = "5e719e8df665df0d1c8fbfd238015744736151d4445ec0836b8e628aae103b77"
-SRC_URI[pyo3-0.22.2.sha256sum] = "831e8e819a138c36e212f3af3fd9eeffed6bf1510a805af35b0edee5ffa59433"
-SRC_URI[pyo3-build-config-0.22.2.sha256sum] = "1e8730e591b14492a8945cdff32f089250b05f5accecf74aeddf9e8272ce1fa8"
-SRC_URI[pyo3-ffi-0.22.2.sha256sum] = "5e97e919d2df92eb88ca80a037969f44e5e70356559654962cbb3316d00300c6"
-SRC_URI[pyo3-macros-0.22.2.sha256sum] = "eb57983022ad41f9e683a599f2fd13c3664d7063a3ac5714cae4b7bee7d3f206"
-SRC_URI[pyo3-macros-backend-0.22.2.sha256sum] = "ec480c0c51ddec81019531705acac51bcdbeae563557c982aa8263bb96880372"
+SRC_URI[pyo3-0.23.5.sha256sum] = "7778bffd85cf38175ac1f545509665d0b9b92a198ca7941f131f85f7a4f9a872"
+SRC_URI[pyo3-build-config-0.23.5.sha256sum] = "94f6cbe86ef3bf18998d9df6e0f3fc1050a8c5efa409bf712e661a4366e010fb"
+SRC_URI[pyo3-ffi-0.23.5.sha256sum] = "e9f1b4c431c0bb1c8fb0a338709859eed0d030ff6daa34368d3b152a63dfdd8d"
+SRC_URI[pyo3-macros-0.23.5.sha256sum] = "fbc2201328f63c4710f68abdf653c89d8dbc2858b88c5d88b0ff38a75288a9da"
+SRC_URI[pyo3-macros-backend-0.23.5.sha256sum] = "fca6726ad0f3da9c9de093d6f116a93c1a38e417ed73bf138472cf4064f72028"
 SRC_URI[quote-1.0.37.sha256sum] = "b5b9d34b8991d19d98081b46eacdd8eb58c6f2b201139f7c5f643cc155a633af"
 SRC_URI[rayon-1.10.0.sha256sum] = "b418a60154510ca1a002a752ca9714984e21e4241e804d32555251faf8b78ffa"
 SRC_URI[rayon-core-1.12.1.sha256sum] = "1465873a3dfdaa8ae7cb14b4383657caab0b3e8a0aa9ae8e04b044854c8dfce2"
@@ -218,6 +217,7 @@ SRC_URI[toml_datetime-0.6.8.sha256sum] = "0dd7358ecb8fc2f8d014bf86f6f638ce72ba25
 SRC_URI[toml_edit-0.22.20.sha256sum] = "583c44c02ad26b0c3f3066fe629275e50627026c51ac2e595cca4c230ce1ce1d"
 SRC_URI[trybuild-1.0.99.sha256sum] = "207aa50d36c4be8d8c6ea829478be44a372c6a77669937bb39c698e52f1491e8"
 SRC_URI[unicode-ident-1.0.1.sha256sum] = "5bd2fe26506023ed7b5e1e315add59d6f584c621d037f9368fea9cfb988f368c"
+SRC_URI[unicode-width-0.2.0.sha256sum] = "1fc81956842c57dac11422a97c3b8195a1ff727f06e85c84ed2e8aa277c9a0fd"
 SRC_URI[unindent-0.2.3.sha256sum] = "c7de7d73e1754487cb58364ee906a499937a0dfabd86bcb980fa99ec8c8fa2ce"
 SRC_URI[walkdir-2.3.2.sha256sum] = "808cf2735cd4b6866113f648b791c6adc5714537bc222d9347bb203386ffda56"
 SRC_URI[wasm-bindgen-0.2.81.sha256sum] = "7c53b543413a17a202f4be280a7e5c62a1c69345f5de525ee64f8cfdbc954994"
