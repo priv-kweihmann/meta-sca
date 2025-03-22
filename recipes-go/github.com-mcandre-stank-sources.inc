@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/mcandre/stank/@v/v0.0.32.zip;srcoutput=github.com/mcandre/stank;srcinput=github.com/mcandre/stank@v0.0.32;downloadfilename=github-com-mcandre-stank-0.0.32.zip;name=github-com-mcandre-stank"
-SRC_URI[github-com-mcandre-stank.sha256sum] = "ddd1b6c010a01527fa82852927847bee654bd030e101efdf46d1cc8c3ff97ff4"
+SRC_URI += "https://proxy.golang.org/github.com/mcandre/stank/@v/v0.0.33.zip;srcoutput=github.com/mcandre/stank;srcinput=github.com/mcandre/stank@v0.0.33;downloadfilename=github-com-mcandre-stank-0.0.33.zip;name=github-com-mcandre-stank"
+SRC_URI[github-com-mcandre-stank.sha256sum] = "c4cf0462529aac6dbcaecb48be5c06dc1ad1e1f827018b269f2b514290f62abb"
 
 GOSRC_LICENSE += "\
     BSD-2-Clause-Views \
