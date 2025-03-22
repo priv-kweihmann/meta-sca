@@ -22,7 +22,7 @@ SCA_TOOL_DESCRIPTION = "tscancode"
 
 BUILD_CXXFLAGS += "-std=c++11"
 
-do_configure:prepend() {
+do_configure() {
     # SIGSTKSZ isn't a constant in newer gcc's so we override
     # the value here
     # it should be done as a patch, but due to line ending
