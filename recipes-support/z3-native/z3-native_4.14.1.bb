@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5f03ad1486a2e4ce71200ce0f9721557"
 SRC_URI = "\
     git://github.com/Z3Prover/z3;branch=master;protocol=https \
 "
-SRCREV = "3c47fd96cf5645d0c42b2c819d9e9a84380aa721"
+SRCREV = "3c0d786e6e86b6a10cbc14703c3f863c568b85dd"
 
 UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
