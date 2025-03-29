@@ -47,7 +47,7 @@ jobs:
       - name: checkout (poky)
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
         with:
-          repo: git://git.yoctoproject.org/poky.git
+          repo: https://github.com/yoctoproject/poky.git
           branch: ${{ env.SCM_BRANCH }}
           add-layer: "0"
       - name: checkout (meta-sca)
