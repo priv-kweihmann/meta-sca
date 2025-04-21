@@ -42,6 +42,7 @@ _notranlate = [
     "python3-nose-native",
     "python3-numpy-native",
     "python3-pbr-native",
+    "python3-pdm-backend-native",
     "python3-pyproject-parser-native",
     "python3-pytest-runner-native",
     "python3-scikit-build-native",
