@@ -8,5 +8,6 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require github.com-yuin-goldmark-sources.inc
 
 GO_IMPORT = "github.com/yuin/goldmark"
+
 inherit gosrc
 inherit_defer nativesdk
