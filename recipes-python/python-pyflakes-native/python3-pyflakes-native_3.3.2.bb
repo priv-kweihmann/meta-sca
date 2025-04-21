@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=690c2d09203dc9e07c4083fc45ea981f"
 
 PYPI_PACKAGE = "pyflakes"
 
-SRC_URI[md5sum] = "556adcc6980bd478657598718f2c1155"
-SRC_URI[sha256sum] = "1c61603ff154621fb2a9172037d84dca3500def8c8b630657d1701f026f8af3f"
+SRC_URI[md5sum] = "9bdc5cda9ddfa547e1e1def7a78b08f6"
+SRC_URI[sha256sum] = "6dfd61d87b97fba5dcfaaf781171ac16be16453be6d816147989e7f6e6a9576b"
 
 inherit pypi
 inherit setuptools3
