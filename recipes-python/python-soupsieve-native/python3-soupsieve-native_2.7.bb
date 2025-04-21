@@ -3,12 +3,12 @@ HOMEPAGE = "https://github.com/facelessuser/soupsieve"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.md;md5=1bdfa4c8e8b6830bcf8e78cba1669e4d"
+LIC_FILES_CHKSUM = "file://LICENSE.md;md5=a23cdb0cf58a8b6d3d25202783bd6553"
 
 PYPI_PACKAGE = "soupsieve"
 
-SRC_URI[md5sum] = "19126989f90d775ebe752b7fcacf1fc5"
-SRC_URI[sha256sum] = "e2e68417777af359ec65daac1057404a3c8a5455bb8abc36f1a9866ab1a51abb"
+SRC_URI[md5sum] = "28ca964d8f4829ebf2ec2905791c20f6"
+SRC_URI[sha256sum] = "ad282f9b6926286d2ead4750552c8a6142bc4c783fd66b0293547c8fe6ae126a"
 
 inherit pypi
 inherit python_hatchling
