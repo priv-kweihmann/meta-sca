@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d118b5feceee598ebeca76e13395c2bd"
 
 PYPI_PACKAGE = "boolean.py"
 
-SRC_URI[md5sum] = "5a8b0eae254b0c37a1bdde38c6bd5b5d"
-SRC_URI[sha256sum] = "17b9a181630e43dde1851d42bef546d616d5d9b4480357514597e78b203d06e4"
+SRC_URI[md5sum] = "1a7ec75805094c91980b9f11240853c0"
+SRC_URI[sha256sum] = "60cbc4bad079753721d32649545505362c754e121570ada4658b852a3a318d95"
 
 inherit pypi
 inherit pypi-old
