@@ -12,14 +12,13 @@ DEPENDS += "\
 "
 
 PYPI_PACKAGE = "pdfminer.six"
-PYPI_ESCAPE_PACKAGE_NAME = "0"
 
-SRC_URI[md5sum] = "641d740d555f04a17f0df1090200a2e6"
-SRC_URI[sha256sum] = "c631a46d5da957a9ffe4460c5dce21e8431dabb615fee5f9f4400603a58d95a6"
+SRC_URI[md5sum] = "830d03490d930a3d015a97a302aeada9"
+SRC_URI[sha256sum] = "30956a85f9d0add806a4e460ed0d67c2b6a48b53323c7ac87de23174596d3acd"
 
 inherit pypi
 inherit pypi-old
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\
