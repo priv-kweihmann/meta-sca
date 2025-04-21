@@ -22,7 +22,6 @@ PACKAGECONFIG ??= "\
                    expression-complexity \
                    fixme \
                    functions \
-                   import-order \
                    mutable \
                    quotes \
                    requirements \
@@ -45,7 +44,6 @@ PACKAGECONFIG[executable] = ",,python3-flake8-executable-native"
 PACKAGECONFIG[expression-complexity] = ",,python3-flake8-expression-complexity-native"
 PACKAGECONFIG[fixme] = ",,python3-flake8-fixme-native"
 PACKAGECONFIG[functions] = ",,python3-flake8-functions-native"
-PACKAGECONFIG[import-order] = ",,python3-flake8-import-order-native"
 PACKAGECONFIG[mutable] = ",,python3-flake8-mutable-native"
 PACKAGECONFIG[quotes] = ",,python3-flake8-quotes-native"
 PACKAGECONFIG[return] = ",,python3-flake8-return-native"

@@ -31,7 +31,6 @@ For python2 and python3 installations the following plugins are enabled
 
 * flake8-comprehensions
 * flake8-eradicate
-* flake8-import-order
 * flake8-mutable
 * flake8-quotes
 * flake8-string-format
