@@ -24,6 +24,15 @@ inherit_defer native
 
 SCA_TOOL_DESCRIPTION = "mypy"
 
+do_compile:prepend() {
+    # we need to remove typing_extensions build time
+    # requirement, as either this repo here
+    # or python3-build or typing_extensions misses
+    # out on exposing version information
+    # leading to a crash while compiling
+    sed -i '/typing_extensions/d' ${S}/pyproject.toml
+}
+
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \
     nativesdk-python3-crypt \
