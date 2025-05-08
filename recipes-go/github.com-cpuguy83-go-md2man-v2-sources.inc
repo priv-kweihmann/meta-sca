@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/cpuguy83/go-md2man/v2/@v/v2.0.6.zip;srcoutput=github.com/cpuguy83/go-md2man/v2;srcinput=github.com/cpuguy83/go-md2man/v2@v2.0.6;downloadfilename=github-com-cpuguy83-go-md2man-v2-2.0.6.zip;name=github-com-cpuguy83-go-md2man-v2"
-SRC_URI[github-com-cpuguy83-go-md2man-v2.sha256sum] = "b8059316e38bcfd28b69d2c2b32d34b9e800ccaa1ff4b5a61022cbe98fa7c710"
+SRC_URI += "https://proxy.golang.org/github.com/cpuguy83/go-md2man/v2/@v/v2.0.7.zip;srcoutput=github.com/cpuguy83/go-md2man/v2;srcinput=github.com/cpuguy83/go-md2man/v2@v2.0.7;downloadfilename=github-com-cpuguy83-go-md2man-v2-2.0.7.zip;name=github-com-cpuguy83-go-md2man-v2"
+SRC_URI[github-com-cpuguy83-go-md2man-v2.sha256sum] = "9ad5f2cbc644c0bb648a9b182d6b70f92e7ac4dfab5cf0ef746bbeef944fda59"
 
 GOSRC_LICENSE += "\
     MIT \
