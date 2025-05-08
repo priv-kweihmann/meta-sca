@@ -7,12 +7,12 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=0fe3219e2470a78c0d1837019b8b426e"
 
 PYPI_PACKAGE = "mypy-extensions"
 
-SRC_URI[md5sum] = "5b77a3cafc7e9749a0157533c0915b5d"
-SRC_URI[sha256sum] = "75dbf8955dc00442a438fc4d0666508a9a97b6bd41aa2f0ffe9d2f2725af0782"
+SRC_URI[md5sum] = "f59bfd7f9dca73f36c8feed12f9e8eba"
+SRC_URI[sha256sum] = "52e68efc3284861e772bbcd66823fde5ae21fd2fdb51c62a211403730b916558"
 
 inherit pypi
 inherit pypi-old
-inherit setuptools3
+inherit python_flit_core
 inherit_defer nativesdk
 
 RDEPENDS:${PN}:class-nativesdk += "nativesdk-python3-core"
