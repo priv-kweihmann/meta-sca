@@ -11,7 +11,7 @@ SRC_URI:append = " \
     git://salsa.debian.org/debian/devscripts.git;protocol=https;branch=main \
     file://checkbashism.sca.description \
 "
-SRCREV = "dc232726fd495be540af31af1cc35c553872bbd7"
+SRCREV = "fe0012576911a297c312523e62512ebe3ef95f22"
 
 UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/git"
