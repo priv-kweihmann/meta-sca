@@ -13,8 +13,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "pdfminer.six"
 
-SRC_URI[md5sum] = "830d03490d930a3d015a97a302aeada9"
-SRC_URI[sha256sum] = "30956a85f9d0add806a4e460ed0d67c2b6a48b53323c7ac87de23174596d3acd"
+SRC_URI[md5sum] = "f6762cc68a84f9dc9e1f418fe5ced91b"
+SRC_URI[sha256sum] = "b03cc8df09cf3c7aba8246deae52e0bca7ebb112a38895b5e1d4f5dd2b8ca2e7"
 
 inherit pypi
 inherit pypi-old
