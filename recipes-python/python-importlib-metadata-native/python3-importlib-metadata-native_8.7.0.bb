@@ -15,7 +15,7 @@ inherit_defer native
 
 PYPI_PACKAGE = "importlib_metadata"
 
-SRC_URI[sha256sum] = "310b41d755445d74569f993ccfc22838295d9fe005425094fad953d7f15c8580"
+SRC_URI[sha256sum] = "d13b81ad223b890aa16c5471f2ac3056cf76c5f10f82d6f9292f0b415f389000"
 
 S = "${UNPACKDIR}/importlib_metadata-${PV}"
 
