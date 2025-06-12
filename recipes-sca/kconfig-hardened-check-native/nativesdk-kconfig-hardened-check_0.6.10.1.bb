@@ -11,7 +11,7 @@ SRC_URI = "\
     git://github.com/a13xp0p0v/kconfig-hardened-check.git;protocol=https;branch=master \
     file://0001-pyproject.toml-add-file.patch \
 "
-SRCREV = "f4dbe258ff3d37489962ea9cf210192ae7ff9280"
+SRCREV = "c226caea59131f89b4118029362afdf3e3cee903"
 UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
 
