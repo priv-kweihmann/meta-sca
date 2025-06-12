@@ -15,14 +15,19 @@ DEPENDS += "\
     python3-pbr-native \
 "
 
+SRC_URI:append = " file://pyproject.toml"
 SRC_URI[sha256sum] = "f5847beb654d309422985c36644649924e0ea4425c76dec2e89110b87506193a"
 
 PYPI_PACKAGE = "bandit"
 
 inherit pypi
 inherit sca-description
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit_defer nativesdk
+
+do_configure:prepend() {
+    cp ${UNPACKDIR}/pyproject.toml ${S}
+}
 
 SCA_TOOL_DESCRIPTION = "bandit"
 
