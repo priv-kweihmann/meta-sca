@@ -13,6 +13,7 @@
 | SCA_OELINT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_OELINT_EXTRA_KNOWN_MIRRORS | additional known mirror replacements. mirror:replacement without any ${} framing space-separated-list | ""
 | SCA_OELINT_EXTRA_KNOWN_VARS | Additional known variable name | space-separated-list | ""
+| SCA_OELINT_EXTRA_LAYERS | Extra layer configuration to load | space-separated-list | layers supported by oelint-adv and present
 | SCA_OELINT_EXTRA_MANDATORY_VARS | Additional mandatory variables that should be set in a recipe | space-separated-list | ""
 | SCA_OELINT_EXTRA_PROTECTED_APPEND_VARS | Additional variables that shouldn't be set in a bbappend | space-separated-list | ""
 | SCA_OELINT_EXTRA_PROTECTED_VARS | Additional variables that shouldn't be set inside of a recipe | space-separated-list | ""

@@ -10,6 +10,31 @@ SCA_OELINT_EXTRA_MANDATORY_VARS ?= ""
 SCA_OELINT_EXTRA_PROTECTED_VARS ?= ""
 SCA_OELINT_EXTRA_PROTECTED_APPEND_VARS ?= ""
 SCA_OELINT_EXTRA_SUGGESTED_VARS ?= ""
+SCA_OELINT_EXTRA_LAYERS ?= "\
+    clang-layer \
+    core \
+    filesystems-layer \
+    flutter-layer \
+    freescale-distro \
+    freescale-layer \
+    gnome-layer \
+    intel \
+    meta-initramfs \
+    meta-python \
+    meta-sca \
+    multimedia-layer \
+    networking-layer \
+    openembedded-layer \
+    perl-layer \
+    qt6-layer \
+    rubygems \
+    virtualization-layer \
+    webkit \
+    webserver \
+    xfce-layer \
+    yocto \
+    yoctobsp \
+"
 SCA_OELINT_RELEASE ?= "${LAYERSERIES_COMPAT_core}"
 # check mode - fast or all
 SCA_OELINT_MODE ?= "fast"
@@ -77,7 +102,7 @@ def do_sca_conv_oelint(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
-do_sca_oelint_core[vardepsexclude] += "BBINCLUDED"
+do_sca_oelint_core[vardepsexclude] += "BBFILE_COLLECTIONS BBINCLUDED"
 python do_sca_oelint_core() {
     import os
     import subprocess
@@ -110,10 +135,13 @@ python do_sca_oelint_core() {
     with open(_constantfile, "w") as o:
         json.dump(_contantcontent, o)
 
+    _layer_collection = [x.strip() for x in (d.getVar('BBFILE_COLLECTIONS') or '').split(' ') if x.strip()]
+
     _args = ['nativepython3', '-m', 'oelint_adv']
     _args += ["--quiet"]
     _args += ['--release={}'.format(d.getVar('SCA_OELINT_RELEASE'))]
     _args += ["--constantmods=+{}".format(_constantfile)]
+    _args += [f"--extra-layer={x}" for x in (d.getVar('SCA_OELINT_EXTRA_LAYERS') or '').split(' ') if x in _layer_collection]
     _args += ["--mode={}".format(d.getVar('SCA_OELINT_MODE'))]
     if bb.data.inherits_class('image', d):
         # On images we don't need certain rules
