@@ -11,7 +11,7 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "oelint-data"
 
-SRC_URI[sha256sum] = "6b25201d4b11e3f5c2cda981340f34e93ad8c5d802c0c9a80f95b2b9384ea1b7"
+SRC_URI[sha256sum] = "1582cd6b875d0d800a36a84ee0f02197c1815782134d5a95e0311af465a96809"
 
 inherit pypi
 inherit pypi-old
