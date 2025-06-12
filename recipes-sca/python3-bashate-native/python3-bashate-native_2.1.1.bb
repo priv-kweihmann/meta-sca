@@ -11,6 +11,7 @@ DEPENDS += "\
             python3-pbr-native \
            "
 
+SRC_URI:append = " file://pyproject.toml"
 SRC_URI[md5sum] = "b0de3d5aead12cfd6c42d9ce221c05ea"
 SRC_URI[sha256sum] = "4bab6e977f8305a720535f8f93f1fb42c521fcbc4a6c2b3d3d7671f42f221f4c"
 
@@ -18,8 +19,12 @@ PYPI_PACKAGE = "bashate"
 
 inherit pypi
 inherit sca-description
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit_defer native
+
+do_configure:prepend() {
+    cp ${UNPACKDIR}/pyproject.toml ${S}
+}
 
 SCA_TOOL_DESCRIPTION = "bashate"
 
