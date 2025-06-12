@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://eradicate.py;endline=21;md5=4665a3ee1ecb347243801ec86
 
 PYPI_PACKAGE = "eradicate"
 
-SRC_URI[md5sum] = "a66b08ef034cac011866debb84ba1a60"
-SRC_URI[sha256sum] = "06df115be3b87d0fc1c483db22a2ebb12bcf40585722810d809cc770f5031c37"
+SRC_URI[md5sum] = "76e292925026a183f8a74507f913aebc"
+SRC_URI[sha256sum] = "b237d9f2309b181035d2a87b24385b4f11ab7bb858b75bff496964b5f453aa77"
 
 inherit pypi
 inherit setuptools3
