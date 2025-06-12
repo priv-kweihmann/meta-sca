@@ -9,17 +9,24 @@ DEPENDS += "nativesdk-python3"
 
 SRC_URI = "\
     git://github.com/a13xp0p0v/kconfig-hardened-check.git;protocol=https;branch=master \
+    file://0001-pyproject.toml-add-file.patch \
 "
 SRCREV = "f4dbe258ff3d37489962ea9cf210192ae7ff9280"
 UNPACKDIR ??= "${WORKDIR}/sources-unpack"
 S = "${UNPACKDIR}/git"
 
-inherit setuptools3
+do_compile:prepend() {
+    rm -rf ${S}/patches
+}
 
+inherit python_setuptools_build_meta
 inherit sca-description
 inherit_defer nativesdk
+
 SCA_TOOL_DESCRIPTION = "kconfighard"
+
 FILES:${PN} += "${bindir}"
+
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-core \
     nativesdk-python3-json \
