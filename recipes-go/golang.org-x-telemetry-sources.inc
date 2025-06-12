@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/golang.org/x/telemetry/@v/v0.0.0-20250507143331-155ddd5254aa.zip;srcoutput=golang.org/x/telemetry;srcinput=golang.org/x/telemetry@v0.0.0-20250507143331-155ddd5254aa;downloadfilename=golang-org-x-telemetry-0.0.0-20250507143331-155ddd5254aa.zip;name=golang-org-x-telemetry"
-SRC_URI[golang-org-x-telemetry.sha256sum] = "10edc51d5555092efb9c10b4c13d3fdfd0c0a1f283400bcfacc81721fab4d01a"
+SRC_URI += "https://proxy.golang.org/golang.org/x/telemetry/@v/v0.0.0-20250611175808-9627e99781a7.zip;srcoutput=golang.org/x/telemetry;srcinput=golang.org/x/telemetry@v0.0.0-20250611175808-9627e99781a7;downloadfilename=golang-org-x-telemetry-0.0.0-20250611175808-9627e99781a7.zip;name=golang-org-x-telemetry"
+SRC_URI[golang-org-x-telemetry.sha256sum] = "ba57d4c98b980d4b5c3c5f2d3913eb45fd6ff3b534992e21c45f42ff997b3f58"
 
 GOSRC_LICENSE += "\
     BSD-3-Clause \
