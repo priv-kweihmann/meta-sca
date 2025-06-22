@@ -5,9 +5,7 @@ LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=a4a2bbea1db029f21b3a328c7
 
 SRC_URI = "file://bad.service;subdir=source"
 
-UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/source"
-B = "${UNPACKDIR}/source"
 
 FILES:${PN} += "${sysconfdir}"
 

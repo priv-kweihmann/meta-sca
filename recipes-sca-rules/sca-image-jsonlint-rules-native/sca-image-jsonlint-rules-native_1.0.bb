@@ -5,14 +5,14 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=a4a2bbea1db029f21b3a328c7a059172"
 
-SRC_URI = "file://fatal;destsuffix=${BP}"
+SRC_URI = "file://fatal"
+S = "${UNPACKDIR}"
 
 inherit_defer native
 
-UNPACKDIR ??= "${WORKDIR}/${BP}"
 do_install() {
     install -d "${D}${datadir}"
-    install "${UNPACKDIR}/fatal" "${D}${datadir}/jsonlint-image-fatal"
+    install "${S}/fatal" "${D}${datadir}/jsonlint-image-fatal"
 }
 
 FILES:${PN} = "${datadir}"

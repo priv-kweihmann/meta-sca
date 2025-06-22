@@ -39,8 +39,6 @@ DEPENDS += "\
 
 SRC_URI = "git://github.com/Perl-Critic/Perl-Critic.git;branch=master;protocol=https"
 SRCREV = "47c8115b82f47bd27cba1af2f200694e69a1ef14"
-UNPACKDIR ??= "${WORKDIR}/sources-unpack"
-S = "${UNPACKDIR}/git"
 
 UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>1\.\d{3})"
 

@@ -9,8 +9,6 @@ DEPENDS += "python3-pyenchant-native"
 
 SRC_URI = "git://github.com/flashcode/msgcheck.git;branch=main;protocol=https"
 SRCREV = "357814bf567209becb0b6f2e28da91973a63c58e"
-UNPACKDIR ??= "${WORKDIR}/sources-unpack"
-S = "${UNPACKDIR}/git"
 
 inherit sca-description
 inherit setuptools3

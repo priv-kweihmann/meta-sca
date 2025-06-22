@@ -6,6 +6,8 @@ LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=a4a2bbea1db029f21b3a328c7
 
 DEPENDS += "python3-flake8-native"
 
+S = "${UNPACKDIR}"
+
 inherit sca-description
 inherit python3-dir
 inherit_defer native

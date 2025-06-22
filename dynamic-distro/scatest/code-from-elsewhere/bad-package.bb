@@ -17,8 +17,7 @@ LIC_FILES_CHKSUM = "file://${SCA_LAYERDIR}/LICENSE;md5=a4a2bbea1db029f21b3a328c7
 SRC_URI[shell.sha256sum] = "3f8b5e53d3383a9c75fe76a384c0f1c13291ae367b55bd7df3b5bb21f677e40e"
 SRC_URI[pypkg.sha256sum] = "703f484b47a6af502e743c9122595cc812b0271f661722403114f71a79d0f5a4"
 
-UNPACKDIR ??= "${WORKDIR}/sources"
-S = "${UNPACKDIR}/source"
+S = "${UNPACKDIR}"
 
 CUSTOM_VAR = "/dev/disk"
 
@@ -33,18 +32,18 @@ do_compile() {
 
 do_install() {
     install -d ${D}${bindir}
-    install -m 0477 ${S}/test1/test-1.sh ${D}${bindir}
+    install -m 0477 ${S}/source/test1/test-1.sh ${D}${bindir}
 
     install -d ${D}/opt/bin
-    install -m 0777 ${S}/test2/test-2.sh ${D}/opt/bin/
-    install -m 0755 ${S}/python_builtins.py ${D}/opt/bin/
+    install -m 0777 ${S}/source/test2/test-2.sh ${D}/opt/bin/
+    install -m 0755 ${S}/source/python_builtins.py ${D}/opt/bin/
 
     install -d ${D}${datadir}/myhiddensources
-    install -m 0644 ${S}/simple-hello-world.c ${D}${datadir}/myhiddensources
-    install -m 0644 ${S}/K01speech-dispatcher ${D}${datadir}/myhiddensources
+    install -m 0644 ${S}/source/simple-hello-world.c ${D}${datadir}/myhiddensources
+    install -m 0644 ${S}/source/K01speech-dispatcher ${D}${datadir}/myhiddensources
 
     install -d ${D}${PYTHON_SITEPACKAGES_DIR}/jinja2
-    cp -R ${S}/jinja2/* ${D}${PYTHON_SITEPACKAGES_DIR}/jinja2
+    cp -R ${S}/source/jinja2/* ${D}${PYTHON_SITEPACKAGES_DIR}/jinja2
 }
 
 PACKAGES =. "${PN}-strangepath ${PN}-hidden ${PN}-script "

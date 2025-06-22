@@ -25,7 +25,7 @@ def pypi_src_workspace(d):
         package = d.getVar('PYPI_PACKAGE')
     if d.getVar('PYPI_LOWERCASE_PACKAGE_NAME') == '1':
         package = package.lower()
-    return d.expand("${WORKDIR}/%s-${PV}" % package)
+    return d.expand("${UNPACKDIR}/%s-${PV}" % package)
 
 PYPI_SRC_URI = "${@pypi_src_uri_patched(d)}"
 S = "${@pypi_src_workspace(d)}"

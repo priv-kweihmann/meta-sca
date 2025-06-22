@@ -5,9 +5,8 @@ inherit sca-sdk-script-gen
 
 SCA_TOOL_DESCRIPTION ?= ""
 
-S ?= "${WORKDIR}/${BP}"
-UNPACKDIR ??= "${WORKDIR}/${BP}"
-SRC_URI:append = " file://${SCA_TOOL_DESCRIPTION}.sca.description;destsuffix=${BP}"
+S ?= "${UNPACKDIR}"
+SRC_URI:append = " file://${SCA_TOOL_DESCRIPTION}.sca.description"
 
 python do_sca_tool_description() {
     import json

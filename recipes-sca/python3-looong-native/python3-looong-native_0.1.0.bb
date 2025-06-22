@@ -12,9 +12,6 @@ SRC_URI = "\
 SRCREV = "86b9395715c774d7454a0d663dcc59a1dff2f757"
 UPSTREAM_CHECK_COMMITS = "1"
 
-UNPACKDIR ??= "${WORKDIR}/sources-unpack"
-S = "${UNPACKDIR}/git"
-
 inherit sca-description
 inherit setuptools3
 inherit_defer native

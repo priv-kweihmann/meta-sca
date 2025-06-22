@@ -18,8 +18,5 @@ PV .= "+git${SRCPV}"
 SRC_URI = "git://gitlab.com/rossburton/picobuild.git;protocol=https;branch=main"
 SRCREV = "ed3b16ce48d91df181e5f5d77b9bbc2577b3fd9d"
 
-UNPACKDIR ??= "${WORKDIR}/sources-unpack"
-S = "${UNPACKDIR}/git"
-
 inherit python_flit_core
 inherit_defer native

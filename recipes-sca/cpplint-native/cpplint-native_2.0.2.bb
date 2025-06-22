@@ -12,9 +12,6 @@ SRC_URI = "git://github.com/cpplint/cpplint.git;protocol=https;nobranch=1 \
            file://cpplint-multi"
 SRCREV = "350702a4d39395571bd118c9a3cff0a573488d61"
 
-UNPACKDIR ??= "${WORKDIR}/sources-unpack"
-S = "${UNPACKDIR}/git"
-
 inherit sca-description
 inherit python_setuptools_build_meta
 inherit_defer native

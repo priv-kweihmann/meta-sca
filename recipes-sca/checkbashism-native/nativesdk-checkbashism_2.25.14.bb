@@ -14,7 +14,6 @@ SRC_URI:append = " \
 SRCREV = "f5830eabdee49a5ffc6124535e3131ca00fe0a8b"
 
 UNPACKDIR ??= "${WORKDIR}/sources"
-S = "${UNPACKDIR}/git"
 UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>\d+\.\d+\.\d+)"
 
 inherit sca-description

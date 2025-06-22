@@ -8,6 +8,9 @@ DEPENDS += "nativesdk-perl"
 
 inherit sca-description
 inherit_defer nativesdk
+
+S = "${UNPACKDIR}"
+
 SCA_TOOL_DESCRIPTION = "perl"
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"

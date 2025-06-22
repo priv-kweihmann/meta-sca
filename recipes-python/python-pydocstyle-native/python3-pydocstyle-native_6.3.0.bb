@@ -10,9 +10,6 @@ DEPENDS += "python3-snowballstemmer-native"
 SRC_URI = "git://github.com/PyCQA/pydocstyle.git;branch=master;protocol=https"
 SRCREV = "07f6707e2c5612960347f7c00125620457f490a7"
 
-UNPACKDIR ??= "${WORKDIR}/sources-unpack"
-S = "${UNPACKDIR}/git"
-
 PIP_INSTALL_PACKAGE = "pydocstyle"
 
 inherit python_poetry_core

@@ -15,9 +15,6 @@ DEPENDS += "\
 SRC_URI = "git://github.com/priv-kweihmann/scabot.git;branch=master;protocol=https"
 SRCREV = "401f72530e248e1ddb597b0dd691813ddb00498c"
 
-UNPACKDIR ??= "${WORKDIR}/sources-unpack"
-S = "${UNPACKDIR}/git"
-
 inherit setuptools3
 inherit_defer native
 

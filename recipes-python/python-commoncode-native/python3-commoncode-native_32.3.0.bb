@@ -21,8 +21,6 @@ SRC_URI = "\
           "
 SRCREV = "30869cb2c4bf2eb3f251c4b38173e3918420b706"
 
-UNPACKDIR ??= "${WORKDIR}/sources-unpack"
-S = "${UNPACKDIR}/git"
 
 inherit python_setuptools_build_meta
 inherit_defer native

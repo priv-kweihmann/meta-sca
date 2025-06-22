@@ -16,9 +16,6 @@ SRC_URI = "\
 "
 SRCREV = "ac9db3069b9f90e81e126a090b99ad456e122cf8"
 
-UNPACKDIR ??= "${WORKDIR}/sources-unpack"
-S = "${UNPACKDIR}/git"
-
 inherit pkgconfig
 inherit sca-description
 inherit_defer native

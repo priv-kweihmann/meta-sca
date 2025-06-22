@@ -6,7 +6,7 @@ inherit go
 
 HOMEPAGE ?= "https://${GO_IMPORT}"
 
-S = "${WORKDIR}/src"
+S = "${UNPACKDIR}/src"
 
 export GO111MODULE = "auto"
 
@@ -22,17 +22,17 @@ python gosrc_do_unpack() {
     # move all from an arbitrary sources-dir into
     # the real S tree using the mapping
 
-    # ${WORKDIR}/sources/${name}@v${ver} -> ${B}/src/${name}
+    # ${UNPACKDIR}/sources/${name}@v${ver} -> ${B}/src/${name}
     _mapping = {}
 
     fetcher = bb.fetch2.Fetch(src_uri, d)
     for url in fetcher.urls:
         _srcinput = fetcher.ud[url].parm.get('srcinput')
         _srcoutput = fetcher.ud[url].parm.get('srcoutput')
-        if _srcinput and _srcoutput:  
+        if _srcinput and _srcoutput:
             _mapping[d.expand("${S}/" + _srcoutput)] = \
-                d.expand("${WORKDIR}/sources/" + _srcinput)
-    fetcher.unpack(d.expand('${WORKDIR}/sources'))
+                d.expand("${UNPACKDIR}/sources/" + _srcinput)
+    fetcher.unpack(d.expand('${UNPACKDIR}/sources'))
 
     for k,v in _mapping.items():
         os.makedirs(k, exist_ok=True)
@@ -44,10 +44,10 @@ python gosrc_do_unpack() {
             else:
                 shutil.copy(os.path.join(v, f), os.path.join(k, f))
 }
-gosrc_do_unpack[dirs] += "${WORKDIR}/sources ${WORKDIR}/src"
-gosrc_do_unpack[cleandirs] += "${WORKDIR}/sources ${WORKDIR}/src"
-do_unpack[dirs] += "${WORKDIR}/sources ${WORKDIR}/src"
-do_unpack[cleandirs] += "${WORKDIR}/sources ${WORKDIR}/src"
+gosrc_do_unpack[dirs] += "${UNPACKDIR}/sources ${UNPACKDIR}/src"
+gosrc_do_unpack[cleandirs] += "${UNPACKDIR}/sources ${UNPACKDIR}/src"
+do_unpack[dirs] += "${UNPACKDIR}/sources ${UNPACKDIR}/src"
+do_unpack[cleandirs] += "${UNPACKDIR}/sources ${UNPACKDIR}/src"
 
 gosrc_do_configure() {
     # patched variant of go.bbclass do_configure

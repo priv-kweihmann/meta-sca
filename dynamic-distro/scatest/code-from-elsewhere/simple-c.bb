@@ -8,7 +8,6 @@ SRC_URI = "file://simple-hello-world.c;subdir=sources"
 
 inherit sca
 
-UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/sources"
 
 do_compile() {
