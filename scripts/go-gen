@@ -79,8 +79,11 @@ def create_parser():
     with open(x.errata) as i:
         x.erratadict = json.load(i)
 
-    with open(x.tmpignore) as i:
-        x.ignores = json.load(i)
+    try:
+        with open(x.tmpignore) as i:
+            x.ignores = json.load(i)
+    except FileNotFoundError:
+        x.ignores = []
     return x
 
 
