@@ -12,8 +12,8 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 
 PYPI_PACKAGE = "pygmars"
 
-SRC_URI[md5sum] = "b7aa2954a06206498c1eb1c47b50f5ce"
-SRC_URI[sha256sum] = "bc486cb3c4c7a22cc3d86077c51a741d1e2631c4cd409f33484974006063ee09"
+SRC_URI[md5sum] = "a63a1f3e8705b06555376d94ef5371f2"
+SRC_URI[sha256sum] = "de5c6673941eb4c5965f219e64b6638d08237ed76aa7d412ee29819c90a93936"
 
 inherit pypi
 inherit python_setuptools_build_meta
