@@ -31,6 +31,7 @@
 .*/recipes-python/python-apeye-core-native/.*
 .*/recipes-python/python-argcomplete-native/.*
 .*/recipes-python/python-binaryornot-native/.*
+.*/recipes-python/python-coherent-licensed-native/.*
 .*/recipes-python/python-commoncode-native/.*
 .*/recipes-python/python-consolekit-native/.*
 .*/recipes-python/python-construct-native/.*
