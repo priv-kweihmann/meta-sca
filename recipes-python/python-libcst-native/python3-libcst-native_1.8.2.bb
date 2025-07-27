@@ -111,7 +111,7 @@ CRATES_LIST = "\
     crate://crates.io/winnow/0.6.18 \
 "
 
-SRC_URI[sha256sum] = "423427819409a1d905017bbd51062bd0f1e4795c74c2f9f52a6b63dd67c282d2"
+SRC_URI[sha256sum] = "66e82cedba95a6176194a817be4232c720312f8be6d2c8f3847f3317d95a0c7f"
 
 SRC_URI[aho-corasick-1.0.4.sha256sum] = "6748e8def348ed4d14996fa801f4122cd763fff530258cdc03f64b25f89d3a5a"
 SRC_URI[anes-0.1.6.sha256sum] = "4b46cbb362ab8752921c97e041f5e366ee6297bd428a31275b9fcf1e380f7299"
