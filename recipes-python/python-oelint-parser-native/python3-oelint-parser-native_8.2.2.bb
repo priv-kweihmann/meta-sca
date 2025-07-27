@@ -12,7 +12,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=297280a76099d6470990f30683c459d4"
 
 PYPI_PACKAGE = "oelint-parser"
 
-SRC_URI[sha256sum] = "7e5626bd8aabcd035d82e18bcc17fb533e0aa8eee430e5c57e6f7c3a5010183d"
+SRC_URI[sha256sum] = "616471820cb8863623ed074a6838e4bc575cad6f2c8bd303c72348b7e900f58a"
 
 inherit pypi
 inherit pypi-old
