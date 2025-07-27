@@ -16,7 +16,7 @@ DEPENDS += "\
            "
 
 SRC_URI:append = " file://pyproject.toml"
-SRC_URI[sha256sum] = "f5847beb654d309422985c36644649924e0ea4425c76dec2e89110b87506193a"
+SRC_URI[sha256sum] = "dbfe9c25fc6961c2078593de55fd19f2559f9e45b99f1272341f5b95dea4e56b"
 
 PYPI_PACKAGE = "bandit"
 
