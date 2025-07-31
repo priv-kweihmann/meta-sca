@@ -12,7 +12,7 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "python-gitlab"
 
-SRC_URI[sha256sum] = "062d6943699b09bce40f727f0d0906a0b254ca455593f81745bb1a352535ee77"
+SRC_URI[sha256sum] = "b88c79cea65dd2425922c829730ea95827ed7132d869b8532b90a8c7199cc1a6"
 
 inherit pypi
 inherit pypi-old
