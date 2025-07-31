@@ -1,5 +1,5 @@
 SUMMARY = "ScanCode is a tool to scan code for license, copyright"
-HOMEPAGE = "https://github.com/nexB/scancode-toolkit"
+HOMEPAGE = "https://github.com/aboutcode-org/scancode-toolkit"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "CC-BY-SA-4.0 & Apache-2.0"
@@ -88,8 +88,8 @@ DEPENDS += "\
         python3-zipp-native \
         "
 
-SRC_URI = "git://github.com/nexB/scancode-toolkit.git;protocol=https;nobranch=1"
-SRCREV = "e0db4dd8725f756e776a2118be3f400217e5c34d"
+SRC_URI = "git://github.com/aboutcode-org/scancode-toolkit.git;protocol=https;nobranch=1"
+SRCREV = "9c43698d456bbf055f104aad16f671a18086b801"
 
 
 inherit sca-description
