@@ -10,7 +10,7 @@ DEPENDS += "\
     python3-libcst-native \
 "
 
-SRC_URI[sha256sum] = "fdbc70b40f6a4144beae399814e0e4ac3c034307384085c4729a1e44005904b7"
+SRC_URI[sha256sum] = "1f2947f2563a4c91135436046b1aaa84dfcdb801d47bc1eb28cdd5b8b42bb59c"
 
 PYPI_PACKAGE = "flake8-async"
 
