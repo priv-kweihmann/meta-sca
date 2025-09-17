@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=a23cdb0cf58a8b6d3d25202783bd6553"
 
 PYPI_PACKAGE = "soupsieve"
 
-SRC_URI[md5sum] = "28ca964d8f4829ebf2ec2905791c20f6"
-SRC_URI[sha256sum] = "ad282f9b6926286d2ead4750552c8a6142bc4c783fd66b0293547c8fe6ae126a"
+SRC_URI[md5sum] = "111f637c4017009883667bea09b0a442"
+SRC_URI[sha256sum] = "e2dd4a40a628cb5f28f6d4b0db8800b8f581b65bb380b97de22ba5ca8d72572f"
 
 inherit pypi
 inherit python_hatchling
