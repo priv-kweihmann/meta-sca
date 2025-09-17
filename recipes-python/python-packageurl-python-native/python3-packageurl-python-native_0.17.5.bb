@@ -9,8 +9,8 @@ DEPENDS += "python3-wheel-native"
 
 PYPI_PACKAGE = "packageurl-python"
 
-SRC_URI[md5sum] = "3017492ef5a3c8d8e9cf7dfd88243718"
-SRC_URI[sha256sum] = "dc087e3a3340656c6966a3d651f12c7f689f01dc9fb8a28f1150f7be823c688e"
+SRC_URI[md5sum] = "da54f8c014c784eb22fe9d508cbddccd"
+SRC_URI[sha256sum] = "a7be3f3ba70d705f738ace9bf6124f31920245a49fa69d4b416da7037dd2de61"
 
 inherit pypi
 inherit pypi-old
