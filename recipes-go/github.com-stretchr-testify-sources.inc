@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/stretchr/testify/@v/v1.10.0.zip;srcoutput=github.com/stretchr/testify;srcinput=github.com/stretchr/testify@v1.10.0;downloadfilename=github-com-stretchr-testify-1.10.0.zip;name=github-com-stretchr-testify"
-SRC_URI[github-com-stretchr-testify.sha256sum] = "36c87573527a97ce97fc15ce2a101e65e5ebb350db142d09f633580cb8d5c839"
+SRC_URI += "https://proxy.golang.org/github.com/stretchr/testify/@v/v1.11.1.zip;srcoutput=github.com/stretchr/testify;srcinput=github.com/stretchr/testify@v1.11.1;downloadfilename=github-com-stretchr-testify-1.11.1.zip;name=github-com-stretchr-testify"
+SRC_URI[github-com-stretchr-testify.sha256sum] = "b7325b561ead5304b72b9f32aebc871ff49b3823667d530a49fd6c8f3adfc96e"
 
 GOSRC_LICENSE += "\
     MIT \
