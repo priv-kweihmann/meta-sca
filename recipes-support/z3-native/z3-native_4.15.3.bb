@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=5f03ad1486a2e4ce71200ce0f9721557"
 SRC_URI = "\
     git://github.com/Z3Prover/z3;branch=master;protocol=https \
 "
-SRCREV = "bd3e722b6b5a6e38bd4ecf44dbc789d4214350c8"
+SRCREV = "a121e6c6e95c60f50d1561f03762805dabc969e1"
 
 
 UPSTREAM_CHECK_GITTAGREGEX = "z3-(?P<pver>\d+\.\d+\.\d+)"
