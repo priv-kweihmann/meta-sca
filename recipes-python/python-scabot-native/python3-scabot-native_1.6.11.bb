@@ -13,7 +13,7 @@ DEPENDS += "\
 "
 
 SRC_URI = "git://github.com/priv-kweihmann/scabot.git;branch=master;protocol=https"
-SRCREV = "aafeb823878918fe20437facffbb46d996c6d2d8"
+SRCREV = "b0f767e556009f20e54f36426e424b21c4b3a62e"
 
 inherit setuptools3
 inherit_defer native
