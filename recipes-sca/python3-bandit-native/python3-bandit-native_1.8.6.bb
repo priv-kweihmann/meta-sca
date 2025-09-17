@@ -27,6 +27,8 @@ inherit_defer native
 
 do_configure:prepend() {
     cp ${UNPACKDIR}/pyproject.toml ${S}
+    rm -rf ${S}/logo
+    rm -rf ${S}/docker
 }
 
 SCA_TOOL_DESCRIPTION = "bandit"
