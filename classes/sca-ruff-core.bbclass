@@ -61,7 +61,7 @@ python do_sca_ruff_core() {
     import os
     import subprocess
 
-    _args = ['ruff', 'check', '--no-cache']
+    _args = ['ruff', 'check', '--no-cache', '--output-format=concise']
     _args += ['--select=ALL']
     _args += ['--isolated']
 
