@@ -87,7 +87,7 @@ Options you have from here are
 - drop one of the cherry-picked commits
 - fix the commit (maybe inject missing dependencies)
 
-In case os errors the exit code of the script would be != 0, so you can also run it as part of a CI.
+In case of errors the exit code of the script would be != 0, so you can also run it as part of a CI.
 
 ## Send upstream
 
