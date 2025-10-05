@@ -15,9 +15,9 @@ DEPENDS += "\
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 
 SRC_URI = "git://github.com/priv-kweihmann/shellexeclist.git;branch=master;protocol=https"
-SRCREV = "f4a4aec60bff0154d111a9c7faf4538343e1c26d"
+SRCREV = "999ca7a5ae9cfe85865684f5a3e274d30f853202"
 
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\
