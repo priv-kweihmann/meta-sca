@@ -16,12 +16,12 @@ DEPENDS += "\
             python3-urllib3-native \
             "
 
-SRC_URI[sha256sum] = "8684f8d5f654884e3982b7d20ac41cdfd20a9ecdc36a92b84da1c707e4f3f73b"
+SRC_URI[sha256sum] = "169c446c48d01c28bae21832d4013cacb9e867ed7b8b651a93a4fb995fa68edd"
 
 PYPI_PACKAGE = "oelint-adv"
 
 inherit sca-description
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit pypi
 inherit pypi-old
 inherit_defer native
