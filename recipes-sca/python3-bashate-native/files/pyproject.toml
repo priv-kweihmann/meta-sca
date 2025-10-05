@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bashate"
-dynamic = ["version"]
+version = "2.1.1"
 description = "A pep8 equivalent for bash scripts"
 authors = [
     {name = "OpenStack", email = "openstack-discuss@lists.openstack.org" }
@@ -35,9 +35,6 @@ homepage = "https://docs.openstack.org/bashate/latest/"
 
 [tool.setuptools.packages.find]
 where = ["."]
-
-[tool.setuptools.dynamic]
-version = {attr = "bashate.__version__"}
 
 [project.scripts]
 bashate = "bashate.bashate:main"
