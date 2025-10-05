@@ -9,8 +9,8 @@ DEPENDS += "python3-hatch-vcs-native"
 
 PYPI_PACKAGE = "isort"
 
-SRC_URI[md5sum] = "b5365c66250ac30d368eed25c3920918"
-SRC_URI[sha256sum] = "1cb5df28dfbc742e490c5e41bad6da41b805b0a8be7bc93cd0fb2a8a890ac450"
+SRC_URI[md5sum] = "13b819f06426ae48082c5cdff1382828"
+SRC_URI[sha256sum] = "9b8f96a14cfee0677e78e941ff62f03769a06d412aabb9e2a90487b3b7e8d481"
 
 inherit pypi
 inherit python_hatchling
