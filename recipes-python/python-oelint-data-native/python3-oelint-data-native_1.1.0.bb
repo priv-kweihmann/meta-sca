@@ -11,11 +11,11 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "oelint-data"
 
-SRC_URI[sha256sum] = "6f6277e29dcf142f81d0cf743c6da3f619013308c9d8225c16a9952c05d7a1ba"
+SRC_URI[sha256sum] = "0b2254024a738a4544d7569aba1d170c3d27dcd2e1934d182dd7cd7bbacf2a70"
 
 inherit pypi
 inherit pypi-old
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\
