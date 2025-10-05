@@ -17,8 +17,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "debian-inspector"
 
-SRC_URI[md5sum] = "bc819b1bc1d207e8687e258fbc0cbddb"
-SRC_URI[sha256sum] = "ebcfbc17064f10bd3b6d2122cdbc97b71a494af0ebbafaf9a8ceadfe8b164f99"
+SRC_URI[md5sum] = "abdd10afe44580aadd6eb2b02cf9d0c7"
+SRC_URI[sha256sum] = "bb216c62b6fb0fd70cd4e4339081115f4a15ef5d6e23f4c4285eadebbcfc7a05"
 
 inherit pypi
 inherit pypi-old
