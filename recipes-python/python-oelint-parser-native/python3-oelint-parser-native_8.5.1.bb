@@ -12,11 +12,11 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=297280a76099d6470990f30683c459d4"
 
 PYPI_PACKAGE = "oelint-parser"
 
-SRC_URI[sha256sum] = "638716c1ccf3a6610d6974a817f5a22113689c5d54e79671c45d0e611e5b1e2b"
+SRC_URI[sha256sum] = "24161078fc3b5697f7790133f5d3aa698305b1ab7e95948b2580d811fb104130"
 
 inherit pypi
 inherit pypi-old
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\
