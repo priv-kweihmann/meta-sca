@@ -7,11 +7,9 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-mattn-go-runewidth-sources.inc
 
-EXTRA_DEPENDS += "\
-    github.com-rivo-uniseg-native \
-"
+EXTRA_DEPENDS += "nativesdk-github.com-clipperhouse-uax29-v2"
 
 GO_IMPORT = "github.com/mattn/go-runewidth"
 
 inherit gosrc
-inherit_defer native
+inherit_defer nativesdk

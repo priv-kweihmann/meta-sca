@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/mattn/go-runewidth/@v/v0.0.16.zip;srcoutput=github.com/mattn/go-runewidth;srcinput=github.com/mattn/go-runewidth@v0.0.16;downloadfilename=github-com-mattn-go-runewidth-0.0.16.zip;name=github-com-mattn-go-runewidth"
-SRC_URI[github-com-mattn-go-runewidth.sha256sum] = "179d2d900c76ee3560fbeda60d0237a3be6acb734d0cb7423b55e5ccb0cedbca"
+SRC_URI += "https://proxy.golang.org/github.com/mattn/go-runewidth/@v/v0.0.19.zip;srcoutput=github.com/mattn/go-runewidth;srcinput=github.com/mattn/go-runewidth@v0.0.19;downloadfilename=github-com-mattn-go-runewidth-0.0.19.zip;name=github-com-mattn-go-runewidth"
+SRC_URI[github-com-mattn-go-runewidth.sha256sum] = "4a99857860b6c26557e6d275d737df8bc29a542cc28fb041d47a417515906876"
 
 GOSRC_LICENSE += "\
     MIT \
@@ -10,4 +10,4 @@ LIC_FILES_CHKSUM += "\
 
 GOSRC_INCLUDEGUARD += "github.com-mattn-go-runewidth-sources.inc"
 
-require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-rivo-uniseg-sources.inc', '', 'github.com-rivo-uniseg-sources.inc', d)}
+require ${@bb.utils.contains('GOSRC_INCLUDEGUARD', 'github.com-clipperhouse-uax29-v2-sources.inc', '', 'github.com-clipperhouse-uax29-v2-sources.inc', d)}
