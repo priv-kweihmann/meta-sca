@@ -12,10 +12,10 @@ DEPENDS += "\
             "
 
 SRC_URI = "git://github.com/priv-kweihmann/pysymbolcheck.git;protocol=https;branch=master"
-SRCREV = "fd028b3547636c0ff13769daadcf0d2265e4ba08"
+SRCREV = "e866b33d8a14e1ecf1b119e6328d2261f20a629e"
 
 inherit sca-description
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit_defer native
 
 SCA_TOOL_DESCRIPTION = "pysymcheck"
@@ -23,7 +23,7 @@ PIP_INSTALL_PACKAGE = "pysymbolcheck"
 
 do_install:append() {
     install -d ${D}${datadir}/pysymbolcheck
-    install ${S}/basic_rules.json ${D}${datadir}/pysymbolcheck
+    install ${S}/pysymbolcheck/basic_rules.json ${D}${datadir}/pysymbolcheck
 }
 
 FILES:${PN} += "${datadir}"
