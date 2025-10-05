@@ -1,4 +1,4 @@
-SUMMARY = "Too less variation - A tool to discover code duplication in various languages"
+SUMMARY = "Too little variation - A tool to discover code duplication in various languages"
 HOMEPAGE = "https://github.com/priv-kweihmann/tlv"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
@@ -6,22 +6,19 @@ LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1e0b805e34c99594e846fa46c20d8b9b"
 
 DEPENDS += "\
-    python3-native \
     python3-chardet-native \
     python3-pygments-native \
 "
 
-do_fetch[depends] += "python3-native:do_populate_sysroot"
-
-SRC_URI = "git://github.com/priv-kweihmann/tlv.git;protocol=https;branch=master"
-SRCREV = "771fc53dc3d1e5ce815700ce5ba54a957ce96318"
+SRC_URI[sha256sum] = "44a84f160ff6cfa287b28e8324b3ec9490fb2da1b5205d71e20a4ae00f3b500c"
 
 inherit sca-description
-inherit setuptools3
+inherit python_setuptools_build_meta
+inherit pypi
 inherit_defer native
 
 SCA_TOOL_DESCRIPTION = "tlv"
-PIP_INSTALL_PACKAGE = "tlv"
+PYPI_PACKAGE = "tlv"
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-chardet \
