@@ -10,7 +10,7 @@ DEPENDS += "\
     nativesdk-python3-pygments \
 "
 
-SRC_URI[sha256sum] = "44a84f160ff6cfa287b28e8324b3ec9490fb2da1b5205d71e20a4ae00f3b500c"
+SRC_URI[sha256sum] = "8f0f423d729620c1690eba558e030eba663f029508d6c1c552edddb7d95df53d"
 
 inherit sca-description
 inherit python_setuptools_build_meta
