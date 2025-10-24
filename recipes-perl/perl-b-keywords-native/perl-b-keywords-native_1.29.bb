@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=d4036f260a45870203aaf8c730d179d0"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/R/RU/RURBAN/B-Keywords-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "2ce30d5dd0562e2d098acab2f344ee03"
-SRC_URI[sha256sum] = "9e7eb67695929487c61aaf2dae8baf9dda1ad87602bb5a094f10744b12765e3e"
+SRC_URI[md5sum] = "42fe078471120b9fda9664cada845eb7"
+SRC_URI[sha256sum] = "e0aa19d3390409f0ece7342ab041c5b432c31d7cf1abf182c134b6aab78784b0"
 
 UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/B-Keywords-${PV}"
