@@ -12,7 +12,7 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "multimetric"
 
-SRC_URI[sha256sum] = "efba34c3051225319d5f5d39e7d3c5fcc8a3abd7603ba3627c5d066bfdc3830f"
+SRC_URI[sha256sum] = "0282204f3ffc48a9cff65cb36723e7f108595a369c3526afa196047640b102da"
 
 inherit sca-description
 inherit pypi
