@@ -67,6 +67,8 @@ python do_sca_reuse() {
 
     _args = ["reuse", d.expand("--root=${SCA_SOURCES_DIR}")]
 
+    os.environ['REUSE_ENCODING_MODULE'] = 'chardet'
+
     ## Run
     cmd_output = exec_wrap_check_output(d, _args, ["spdx"])
     with open(sca_raw_result_file(d, "reuse_raw"), "w") as o:
@@ -133,7 +135,7 @@ addtask do_sca_reuse after do_compile before do_sca_tracefiles
 addtask do_sca_reuse_report after do_sca_tracefiles before do_sca_deploy
 
 DEPENDS += "\
-            licensecheck-helper-native \
-            python3-reuse-native \
-            sca-recipe-reuse-rules-native \
-           "
+    licensecheck-helper-native \
+    python3-reuse-native \
+    sca-recipe-reuse-rules-native \
+"
