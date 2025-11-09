@@ -9,10 +9,17 @@ defaults:
   repos:
     refspec: master
 repos:
-  poky:
-    url: "https://git.yoctoproject.org/git/poky"
+  openembedded-core:
+    url: "https://github.com/openembedded/openembedded-core.git"
     layers:
       meta:
+  bitbake:
+    url: "https://github.com/openembedded/bitbake.git"
+    layers:
+      bitbake: excluded
+  meta-yocto:
+    url: "https://git.yoctoproject.org/meta-yocto.git"
+    layers:
       meta-poky:
       meta-yocto-bsp:
   meta-sca:

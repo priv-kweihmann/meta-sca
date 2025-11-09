@@ -12,7 +12,7 @@ git branch <branch name of the update batch>
 cd ..
 
 export TEMPLATECONF=$(pwd)/meta-sca/conf/templates/scatest-qemux86-64
-source poky/oe-init-build-env
+source openembedded-core/oe-init-build-env
 ```
 
 ### Alternatively use kas
@@ -29,7 +29,7 @@ In case a commit doesn't apply you can decide on a case to case basis to either 
 
 For testing purpose you will find the script `../meta-sca/test/buildntest`.
 This script expects the SCA module names to be build and tested as input.
-NOTE: The script needs to be run from a setup bitbake build console (`source poky/oe-init-build-env`)
+NOTE: The script needs to be run from a setup bitbake build console (`source openembedded-core/oe-init-build-env`)
 
 It supports `all` as input to test **ALL** modules (be aware that this will take quite some time).
 The script also supports language handles like `@python` to build and test all modules that use python.

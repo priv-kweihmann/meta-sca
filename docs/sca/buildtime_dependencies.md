@@ -48,6 +48,6 @@ Log data follows:
 | ModuleNotFoundError: No module named 'setuptools'
 | WARNING: exit code 1 from a shell command.
 | ERROR: Function failed: do_configure (log file is located at /home/student/projects/resy-playground/build/container-x86-64/tmp/work/core2-64-resy-linux-musl/python3-tcpclientserver/1.0.0+gitAUTOINC+a00d04e69c-r0/temp/log.do_configure.2393)
-ERROR: Task (/home/student/projects/resy-playground/sources/poky/../meta-desire/recipes-desire/python-iot/python3-tcpclientserver_git.bb:do_configure) failed with exit code '1'
+ERROR: Task (/home/student/projects/resy-playground/sources/openembedded-core/../meta-desire/recipes-desire/python-iot/python3-tcpclientserver_git.bb:do_configure) failed with exit code '1'
 NOTE: Tasks Summary: Attempted 831 tasks of which 830 didn't need to be rerun and 1 failed.
 ```

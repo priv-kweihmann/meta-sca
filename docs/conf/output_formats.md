@@ -23,7 +23,7 @@ An example output looks like this
 ```xml
 <?xml version="1.0" ?>
 <checkstyle version="4.3">
-  <file name="/mnt/mydisk/poky/build/tmp/deploy/images/qemux86/sca/sources/simple-c/simple-hello-world.c">
+  <file name="/mnt/mydisk/openembedded-core/build/tmp/deploy/images/qemux86/sca/sources/simple-c/simple-hello-world.c">
     <error column="1" line="23" message="[Package:simple-c Tool:cppcheck] Array 'c[250]' accessed at index -1, which is out of bounds." severity="error" source="cppcheck.cppcheck.negativeIndex"/>
     <error column="1" line="20" message="[Package:simple-c Tool:cppcheck] Array 'c[250]' accessed at index -1, which is out of bounds." severity="error" source="cppcheck.cppcheck.negativeIndex"/>
   </file>

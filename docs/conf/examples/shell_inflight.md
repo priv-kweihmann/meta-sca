@@ -31,9 +31,9 @@ SCA_ENABLED_MODULES_RECIPE = "\
 
 ```groovy
 def deployDir = "$WORKSPACE/tmp/deploy/images/**";
-def pokyDir = "$WORKSPACE/meta-poky/poky";
-def buildDir = "$WORKSPACE/meta-poky/poky/build";
-def pokyTarget = "fancy-company-image"
+def openembeddedcoreDir = "$WORKSPACE/meta-openembedded-core/openembedded-core";
+def buildDir = "$WORKSPACE/meta-openembedded-core/openembedded-core/build";
+def openembeddedcoreTarget = "fancy-company-image"
 
 pipeline {
     agent any
@@ -41,9 +41,9 @@ pipeline {
         stage('checkout') {
             echo "!!!Checkout your code out from your repo!!!"
         }
-        stage('poky setup') {
+        stage('openembedded-core setup') {
             sh """
-                cd ${pokyDir}
+                cd ${openembeddedcoreDir}
                 . ./oe-init-build-env
             """
             sd """
@@ -54,9 +54,9 @@ pipeline {
         stage('build') {
             steps {
                 sh """
-                cd ${pokyDir}
+                cd ${openembeddedcoreDir}
                 . ./oe-init-build-env
-                bitbake ${pokyTarget}
+                bitbake ${openembedded-coreTarget}
                 """
             }
         }

@@ -2,12 +2,12 @@
 
 ## Environment
 
-Existing code from a custom layer is build upon standard poky layer.
+Existing code from a custom layer is build upon standard openembedded-core layer.
 In the past several (sometimes severe) issues occurred to be noticed at manual regression testing of a release.
 
 The code is of high to medium quality and consists of C/C++, shell and a little python code - there are some known issues (in the sense of SCA findings), which haven't been fixed, as they deal with rare corner cases or do not have any priority to be fixed.
 
-The quality of packages that originate from standard poky-layer aren't of any importance, as release documentation from YOCTO project is enough to cover QA needs.
+The quality of packages that originate from standard openembedded-core-layer aren't of any importance, as release documentation from YOCTO project is enough to cover QA needs.
 
 All custom code is based in a layer called __meta-fancycompany__
 
@@ -132,9 +132,9 @@ Put this into __conf/local.conf__ as well.
 
 ```groovy
 def deployDir = "$WORKSPACE/tmp/deploy/images/**";
-def pokyDir = "$WORKSPACE/meta-poky/poky";
-def buildDir = "$WORKSPACE/meta-poky/poky/build";
-def pokyTarget = "fancy-company-image"
+def openembeddedcoreDir = "$WORKSPACE/meta-openembedded-core/openembedded-core";
+def buildDir = "$WORKSPACE/meta-openembedded-core/openembedded-core/build";
+def openembeddedcoreTarget = "fancy-company-image"
 
 pipeline {
     agent any
@@ -143,10 +143,10 @@ pipeline {
             echo "Check your code out from your repo "
             echo "Don't forget to check out meta-buildutils and meta-sca as well"
         }
-        stage('poky setup') {
+        stage('openembedded-core setup') {
             echo "If you haven't done it - insert paths of meta-sca and meta-buildutils into bblayer.conf"
             sh """
-                cd ${pokyDir}
+                cd ${openembeddedcoreDir}
                 . ./oe-init-build-env
             """
             sd """
@@ -165,9 +165,9 @@ pipeline {
         stage('build') {
             steps {
                 sh """
-                cd ${pokyDir}
+                cd ${openembeddedcoreDir}
                 . ./oe-init-build-env
-                bitbake ${pokyTarget}
+                bitbake ${openembeddedcoreTarget}
                 """
             }
         }

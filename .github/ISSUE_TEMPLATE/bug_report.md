@@ -12,7 +12,9 @@ A clear and concise description of what the bug is.
 
 **Used layer**
 - hash of meta-sca layer
-- poky hash
+- openembedded-core hash
+- bitbake hash
+- meta-yocto hash (* optional)
 - hashes of additional layer
 
 **Used configuration**

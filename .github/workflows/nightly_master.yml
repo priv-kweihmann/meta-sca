@@ -21,6 +21,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     strategy:
+      fail-fast: false
       matrix:
         testset: [standard, kernel, cbmc, cppcheck, license]
         include:
@@ -55,20 +56,32 @@ jobs:
 
     steps:
       - name: setup (container)
-        uses: priv-kweihmann/meta-sca-ci-utils/preparecontainer@latest
+        uses: priv-kweihmann/meta-sca-ci-utils/preparecontainer@2.0
       - name: checkout (poky)
-        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@2.0
         with:
-          repo: https://github.com/yoctoproject/poky.git
+          repo: https://github.com/openembedded/openembedded-core.git
+          branch: ${{ env.SCM_BRANCH }}
+          add-layer: "0"
+      - name: checkout (bitbake)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@2.0
+        with:
+          repo: https://github.com/openembedded/bitbake.git
+          branch: master
+          add-layer: "0"
+      - name: checkout (meta-yocto)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@2.0
+        with:
+          repo: https://git.yoctoproject.org/meta-yocto.git
           branch: ${{ env.SCM_BRANCH }}
           add-layer: "0"
       - name: checkout (meta-sca)
-        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@2.0
         with:
           repo: https://github.com/priv-kweihmann/meta-sca.git
-          branch: ${{ env.SCM_BRANCH }}
+          branch: test/ci
       - name: setup (bitbake config)
-        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
+        uses: priv-kweihmann/meta-sca-ci-utils/addvar@2.0
         with:
           variable: SCA_AVAILABLE_MODULES
           value: /opt/build/sources/meta-sca/test/lang_${{ matrix.BUILD_PARAMFILE }}.txt
@@ -88,38 +101,39 @@ jobs:
             sca-glibc-${{ steps.date.outputs.date_month }}
             sca-glibc-
       - name: activate (caches)
-        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
+        uses: priv-kweihmann/meta-sca-ci-utils/addvar@2.0
         with:
           variable: SSTATE_DIR
           value: /opt/build/sstate-cache
       - name: build (glibc)
-        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@2.0
         with:
           target: glibc
       - name: build (qemu-system)
-        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@2.0
         with:
           target: qemu-system-native
       - name: build (kernel)
-        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@latest
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@2.0
         if: ${{ matrix.WITH_KERNEL }} == '1'
         with:
-          target: linux-yocto-tiny
+          target: linux-yocto-tiny      
       - name: build (sca-modules)
-        uses: priv-kweihmann/meta-sca-ci-utils/buildmodules@latest
+        uses: priv-kweihmann/meta-sca-ci-utils/buildmodules@2.0
         with:
           parameter-file: ${{ matrix.BUILD_PARAMFILE }}
+          clean-skip: "deploy hosttools sysroots-uninative"
         env:
           BUILDNTEST_NOSDK: 1
       - name: test (sca results)
-        uses: priv-kweihmann/meta-sca-ci-utils/testresults@latest
+        uses: priv-kweihmann/meta-sca-ci-utils/testresults@2.0
         with:
           parameter-file: ${{ matrix.BUILD_PARAMFILE }}
         env:
           BUILDNTEST_NOSCABOT: ${{ matrix.BUILDNTEST_NOSCABOT }}
       - if: env.BUILD_EXPORT == '1'
         name: checkout (webpage)
-        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@2.0
         with:
           repo: https://github.com/priv-kweihmann/priv-kweihmann.github.io.git
           branch: master
@@ -127,11 +141,9 @@ jobs:
           remove-git: "0"
       - if: env.BUILD_EXPORT == '1'
         name: build (webpage)
-        uses: priv-kweihmann/meta-sca-ci-utils/exportresults@latest
+        uses: priv-kweihmann/meta-sca-ci-utils/exportresults@2.0
         with:
           parameter-file: ${{ matrix.BUILD_PARAMFILE }}
           branch: ${{ env.SCM_BRANCH }}
           deploy-token: ${{ secrets.WEBDEPLOY }}
-      - name: print disk usage
-        if: always()
-        uses: priv-kweihmann/meta-sca-ci-utils/diskusage@latest
+      

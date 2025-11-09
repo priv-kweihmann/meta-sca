@@ -31,30 +31,42 @@ jobs:
 
     steps:
       - name: setup (container)
-        uses: priv-kweihmann/meta-sca-ci-utils/preparecontainer@latest
+        uses: priv-kweihmann/meta-sca-ci-utils/preparecontainer@2.0
       - name: checkout (poky)
-        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@2.0
         with:
-          repo: https://github.com/yoctoproject/poky.git
+          repo: https://github.com/openembedded/openembedded-core.git
+          branch: ${{ env.SCM_BRANCH }}
+          add-layer: "0"
+      - name: checkout (bitbake)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@2.0
+        with:
+          repo: https://github.com/openembedded/bitbake.git
+          branch: master
+          add-layer: "0"
+      - name: checkout (meta-yocto)
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@2.0
+        with:
+          repo: https://git.yoctoproject.org/meta-yocto.git
           branch: ${{ env.SCM_BRANCH }}
           add-layer: "0"
       - name: checkout (meta-sca)
-        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@latest
+        uses: priv-kweihmann/meta-sca-ci-utils/addlayer@2.0
         with:
           repo: https://github.com/priv-kweihmann/meta-sca.git
           branch: master
       - name: setup layer prio (bitbake config)
-        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
+        uses: priv-kweihmann/meta-sca-ci-utils/addvar@2.0
         with:
           variable: BBFILE_PRIORITY_meta-sca
           value: 100
       - name: setup layer preference (bitbake config)
-        uses: priv-kweihmann/meta-sca-ci-utils/addvar@latest
+        uses: priv-kweihmann/meta-sca-ci-utils/addvar@2.0
         with:
           variable: SCA_DEFAULT_PREFERENCE
           value: 0
       - name: check (packages)
-        uses: priv-kweihmann/meta-sca-ci-utils/packagecheck@latest
+        uses: priv-kweihmann/meta-sca-ci-utils/packagecheck@2.0
         with:
           backoff-time: 60
           blacklist: "blocklist.txt"

@@ -22,10 +22,22 @@ For in-depth configuration please see the other documents in this folder.
 
     You could adjust the path to your specific needs
 
-* [poky](https://git.yoctoproject.org/cgit/cgit.cgi/poky/) release cloned locally
+* [openembedded-core](https://github.com/openembedded/openembedded-core) release cloned locally
 
     ```shell
-    git clone git://git.yoctoproject.org/poky poky
+    git clone https://github.com/openembedded/openembedded-core
+    ```
+
+* [bitbake](https://github.com/openembedded/bitbake) release cloned locally
+
+    ```shell
+    git clone https://github.com/openembedded/bitbake
+    ```
+
+* [meta-yocto](https://git.yoctoproject.org/meta-yocto) release cloned locally
+
+    ```shell
+    git clone hhttps://git.yoctoproject.org/meta-yocto
     ```
 
 * This layer locally cloned
@@ -34,16 +46,18 @@ For in-depth configuration please see the other documents in this folder.
     git clone https://github.com/priv-kweihmann/meta-sca.git meta-sca
     ```
 
-* poky configuration setup
+* configuration setup
 
     ```shell
-    cd /mnt/mydisk/workspace/poky
+    cd /mnt/mydisk/workspace/openembedded-core
     . ./oe-init-build-env
     ```
 
-* add the meta-sca layer
+* add the needed layers
 
     ```shell
+    bitbake-layers add-layer /mnt/mydisk/workspace/meta-yocto/meta-poky
+    bitbake-layers add-layer /mnt/mydisk/workspace/meta-yocto/meta-yocto-bsp
     bitbake-layers add-layer /mnt/mydisk/workspace/meta-sca
     ```
 
@@ -66,7 +80,7 @@ Now it's time to decide what to check on
 * just add 'INHERIT += "sca"' to your __local.conf__
 
     ```shell
-    echo 'INHERIT += "sca"' >> /mnt/mydisk/workspace/poky/build/local.conf
+    echo 'INHERIT += "sca"' >> /mnt/mydisk/workspace/openembedded-core/build/local.conf
     ```
 
 ### Checking on ALL recipes but spare some layer
@@ -74,14 +88,14 @@ Now it's time to decide what to check on
 * just add 'INHERIT += "sca"' to your __local.conf__
 
     ```shell
-    echo 'INHERIT += "sca"' >> /mnt/mydisk/workspace/poky/build/local.conf
+    echo 'INHERIT += "sca"' >> /mnt/mydisk/workspace/openembedded-core/build/local.conf
     ```
 
 * additionally add the names of all layer to **SCA_SPARE_LAYER**.
-  E.g. to disable SCA for all layer shipped with poky
+  E.g. to disable SCA for all layer shipped with openembedded-core
 
     ```shell
-    echo 'SCA_SPARE_LAYER = "core yocto yoctobsp"' >> /mnt/mydisk/workspace/poky/build/local.conf
+    echo 'SCA_SPARE_LAYER = "core yocto yoctobsp"' >> /mnt/mydisk/workspace/openembedded-core/build/local.conf
     ```
 
 ### Checking on selected recipe only
@@ -113,7 +127,7 @@ As soon as the build is done - you might be interested in the results.
 Therefore we use a small python script to print all findings to console
 
 ```shell
-/mnt/mydisk/workspace/meta-sca/scripts/results2console /mnt/mydisk/workspace/poky/build/tmp/deploy/images/*/sca
+/mnt/mydisk/workspace/meta-sca/scripts/results2console /mnt/mydisk/workspace/openembedded-core/build/tmp/deploy/images/*/sca
 ```
 
 an excerpt of the output could look like this
