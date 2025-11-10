@@ -79,7 +79,7 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@2.0
         with:
           repo: https://github.com/priv-kweihmann/meta-sca.git
-          branch: test/ci
+          branch: ${{ env.SCM_BRANCH }}
       - name: setup (bitbake config)
         uses: priv-kweihmann/meta-sca-ci-utils/addvar@2.0
         with:
