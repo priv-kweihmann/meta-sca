@@ -2,9 +2,9 @@
 ## Copyright (c) 2022, Konrad Weihmann
 
 # this class trims down the go compile logs of a failed
-# task to a human comprenable level, by removing all
+# task to a human comprehendible level, by removing all
 # the useless HASH entries - so one is actually able to
-# find the error 
+# find the error
 
 addhandler go_error_handler
 go_error_handler[eventmask] = "bb.build.TaskFailed"
