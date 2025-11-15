@@ -14,8 +14,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "flake8-builtins"
 
-SRC_URI[md5sum] = "810ed53e6a8c1788bf717cf322a93411"
-SRC_URI[sha256sum] = "bab4d458de6b828634f789f84cb31aff2ab5f92cd37b4f3888ffa5e78cd9d373"
+SRC_URI[md5sum] = "90f2bde97f430fcb950c1c6f064ac95a"
+SRC_URI[sha256sum] = "10d29d7a81ba6546a26461e83ce1936644764a678ff6337b97a894ebc4db07c1"
 
 inherit pypi
 inherit pypi-old
