@@ -13,8 +13,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "rdflib"
 
-SRC_URI[md5sum] = "dce6e85ebf83d0a095bc83d1665188ec"
-SRC_URI[sha256sum] = "cf9b7fa25234e8925da8b1fb09700f8349b5f0f100e785fb4260e737308292ac"
+SRC_URI[md5sum] = "24da72d5dbf0ac2e6db366c9d90ae60b"
+SRC_URI[sha256sum] = "c8ee16c31848c19c174aed96185327ea139ca3d392fac7fa882ddf5687f8f533"
 
 inherit pypi
 inherit python_poetry_core
