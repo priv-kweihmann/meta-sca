@@ -9,8 +9,8 @@ DEPENDS += "nativesdk-python3-flake8"
 
 PYPI_PACKAGE = "flake8-pep3101"
 
-SRC_URI[md5sum] = "54314b591034e79d2379fc44aee748ed"
-SRC_URI[sha256sum] = "1b84b61685f1e631f2f710e5d5ed3ca68b5fc45fb9402fa8ae1b8a9a058a3387"
+SRC_URI[md5sum] = "dd2f56e764b4c201bfc4b405f55cae2f"
+SRC_URI[sha256sum] = "15f5978cee8983912a55af16a66f3518eead3ed2df65e3ee5735451e4fe344db"
 
 inherit pypi
 inherit pypi-old
