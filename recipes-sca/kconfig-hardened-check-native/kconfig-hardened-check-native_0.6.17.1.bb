@@ -10,7 +10,7 @@ DEPENDS += "python3-native"
 SRC_URI = "\
     git://github.com/a13xp0p0v/kconfig-hardened-check.git;protocol=https;branch=master \
 "
-SRCREV = "0ebece346f187e7d3589883cc1d194fcd1c3cda8"
+SRCREV = "afc376f2a935994793343cfeb05953583cc30191"
 
 do_compile:prepend() {
     rm -rf ${S}/patches
