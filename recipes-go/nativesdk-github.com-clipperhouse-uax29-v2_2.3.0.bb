@@ -7,6 +7,8 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 # inject the needed sources
 require github.com-clipperhouse-uax29-v2-sources.inc
 
+EXTRA_DEPENDS += "nativesdk-github.com-clipperhouse-stringish"
+
 GO_IMPORT = "github.com/clipperhouse/uax29/v2"
 
 inherit gosrc
