@@ -14,4 +14,5 @@ UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/Task-Weaken-${PV}"
 
 inherit cpan
+inherit cpan-fixups
 inherit_defer nativesdk

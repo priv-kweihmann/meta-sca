@@ -15,4 +15,5 @@ UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/PathTools-${PV}"
 
 inherit cpan
+inherit cpan-fixups
 inherit_defer nativesdk

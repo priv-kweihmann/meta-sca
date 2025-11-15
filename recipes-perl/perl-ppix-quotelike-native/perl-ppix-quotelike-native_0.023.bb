@@ -16,6 +16,8 @@ UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/PPIx-QuoteLike-${PV}"
 
 inherit cpan_build
+inherit cpan-fixups
+inherit cpan-fixups
 inherit_defer native
 
 do_install:append() {

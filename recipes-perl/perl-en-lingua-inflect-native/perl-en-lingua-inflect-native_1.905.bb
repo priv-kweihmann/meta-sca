@@ -15,4 +15,5 @@ UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/Lingua-EN-Inflect-${PV}"
 
 inherit cpan
+inherit cpan-fixups
 inherit_defer native

@@ -14,4 +14,5 @@ UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/Class-Data-Inheritable-${PV}"
 
 inherit cpan
+inherit cpan-fixups
 inherit_defer nativesdk

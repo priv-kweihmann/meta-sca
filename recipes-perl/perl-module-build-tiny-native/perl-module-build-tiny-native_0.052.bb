@@ -19,4 +19,5 @@ UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/Module-Build-Tiny-${PV}"
 
 inherit cpan_build
+inherit cpan-fixups
 inherit_defer native

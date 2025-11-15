@@ -16,6 +16,7 @@ UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/Readonly-${PV}"
 
 inherit cpan_build
+inherit cpan-fixups
 inherit_defer native
 
 do_install:append() {

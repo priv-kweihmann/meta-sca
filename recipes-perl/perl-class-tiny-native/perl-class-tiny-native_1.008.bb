@@ -14,4 +14,5 @@ UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/Class-Tiny-${PV}"
 
 inherit cpan
+inherit cpan-fixups
 inherit_defer native

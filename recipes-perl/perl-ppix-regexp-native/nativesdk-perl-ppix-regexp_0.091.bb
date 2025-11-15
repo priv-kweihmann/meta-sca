@@ -16,6 +16,7 @@ UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/PPIx-Regexp-${PV}"
 
 inherit cpan_build
+inherit cpan-fixups
 inherit_defer nativesdk
 
 do_install:append() {

@@ -13,4 +13,5 @@ UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/Safe-Isa-${PV}"
 
 inherit cpan
+inherit cpan-fixups
 inherit_defer nativesdk

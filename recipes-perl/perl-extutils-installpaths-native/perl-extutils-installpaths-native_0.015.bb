@@ -16,4 +16,5 @@ UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/ExtUtils-InstallPaths-${PV}"
 
 inherit cpan
+inherit cpan-fixups
 inherit_defer native

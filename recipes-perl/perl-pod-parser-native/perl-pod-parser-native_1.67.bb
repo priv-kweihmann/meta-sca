@@ -14,6 +14,7 @@ UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/Pod-Parser-${PV}"
 
 inherit cpan
+inherit cpan-fixups
 inherit_defer native
 
 do_install:append() {

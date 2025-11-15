@@ -21,6 +21,7 @@ UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/PPI-${PV}"
 
 inherit cpan
+inherit cpan-fixups
 inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\

@@ -19,6 +19,7 @@ UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/File-ShareDir-${PV}"
 
 inherit cpan
+inherit cpan-fixups
 inherit_defer native
 
 RDEPENDS:${PN}:class-nativesdk += "\

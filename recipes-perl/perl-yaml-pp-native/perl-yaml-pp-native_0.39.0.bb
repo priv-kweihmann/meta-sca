@@ -13,6 +13,7 @@ UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/YAML-PP-v${PV}"
 
 inherit cpan
+inherit cpan-fixups
 inherit_defer native
 
 UPSTREAM_CHECK_REGEX = "YAML-PP-v(?P<pver>\d+.\d+(.\d+)*).tar.gz"
