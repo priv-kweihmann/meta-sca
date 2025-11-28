@@ -10,7 +10,7 @@ Vulture finds dead code in python code
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_python | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST[python] | Blacklist filter for this tool | space-separated-list | ""
 | SCA_VULTURE_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_VULTURE_MIN_CONFIDENCE | Minimum confidence before reporting a finding | int:0-100 | "80"
 

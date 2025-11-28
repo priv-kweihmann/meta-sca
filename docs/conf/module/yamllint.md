@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_yamllint | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST[yamllint] | Blacklist filter for this tool | space-separated-list | ""
 | SCA_YAMLLINT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_YAMLLINT_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_YAMLLINT_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".yaml"

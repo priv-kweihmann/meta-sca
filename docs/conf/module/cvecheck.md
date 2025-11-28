@@ -14,7 +14,7 @@ So if you tend to include this module, please do it in an appropriate environmen
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_cvecheck | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST[cvecheck] | Blacklist filter for this tool | space-separated-list | ""
 
 ## Supports
 

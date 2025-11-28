@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_perl | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST[perl] | Blacklist filter for this tool | space-separated-list | ""
 | SCA_PERL_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
 | SCA_PERL_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_PERL_FILE_FILTER | File extensions to check | space-separated-list | ".pl"

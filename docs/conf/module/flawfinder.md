@@ -9,7 +9,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_flawfinder | Blacklist filter for this tool | space-separated-list | "linux-*"
+| SCA_BLOCKLIST[flawfinder] | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_FLAWFINDER_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_FLAWFINDER_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_FLAWFINDER_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".c .cpp .h .hpp"

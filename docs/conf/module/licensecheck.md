@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_licensecheck | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST[licensecheck] | Blacklist filter for this tool | space-separated-list | ""
 | SCA_LICENSECHECK_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
 | SCA_LICENSECHECK_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 

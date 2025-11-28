@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_slick | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST[slick] | Blacklist filter for this tool | space-separated-list | ""
 | SCA_SLICK_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
 | SCA_SLICK_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 

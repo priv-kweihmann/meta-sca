@@ -9,7 +9,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_tlv | Blacklist filter for this tool | space-separated-list | "linux-.*"
+| SCA_BLOCKLIST[tlv] | Blacklist filter for this tool | space-separated-list | "linux-.*"
 | SCA_TLV_MINLINES | Minimum number of lines before issue is reported | int | "8"
 | SCA_TLV_MINTOKEN | Minimum number of token in block before issue is reported | int | "25"
 | SCA_TLV_FILES | List of glob-expression for files to check | space-separated-list | "\${SCA_SOURCES_DIR}/\* \${SCA_SOURCES_DIR}/\*\*/\*"
@@ -18,7 +18,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_tlv | Blacklist filter for this tool | space-separated-list | "linux-.*"
+| SCA_BLOCKLIST[tlv] | Blacklist filter for this tool | space-separated-list | "linux-.*"
 | SCA_TLV_MINLINES | Minimum number of lines before issue is reported | int | "8"
 | SCA_TLV_MINTOKEN | Minimum number of token in block before issue is reported | int | "25"
 | SCA_TLV_FILES | List of glob-expression for files to check | space-separated-list | "\${SCA_SOURCES_DIR}/\${sysconfdir}/\* \${SCA_SOURCES_DIR}/\${sysconfdir}/\*\*/\*"

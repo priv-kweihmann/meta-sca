@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_looong | Blacklist filter for this tool | space-separated-list | "linux-.*"
+| SCA_BLOCKLIST[looong] | Blacklist filter for this tool | space-separated-list | "linux-.*"
 | SCA_LOOONG_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
 | SCA_LOOONG_ERR_THRESHOLD | If arg-list lenght exceeds this value issue an error instead of warning | int | "8"
 

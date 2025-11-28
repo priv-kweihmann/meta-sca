@@ -9,7 +9,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_flint | Blacklist filter for this tool | space-separated-list | "linux-*"
+| SCA_BLOCKLIST[flint] | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_FLINT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_FLINT_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_FLINT_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".c .cpp .h .hpp"

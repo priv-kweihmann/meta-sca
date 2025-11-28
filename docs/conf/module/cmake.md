@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_cmake | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST[cmake] | Blacklist filter for this tool | space-separated-list | ""
 | SCA_CMAKE_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_CMAKE_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_CMAKE_LOGFILES | Logfiles to parse | space-separated-list | "do_configure do_compile do_install"

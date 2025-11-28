@@ -18,7 +18,7 @@ This module offers the possibility to issue a warning or an error if a configure
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_multimetric | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST[multimetric] | Blacklist filter for this tool | space-separated-list | ""
 | SCA_MULTIMETRIC_COMPILER_MODULES | List of modules that are generating compiler warnings | space-separated-list | "gcc"
 | SCA_MULTIMETRIC_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_MULTIMETRIC_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""

@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_stank | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST[stank] | Blacklist filter for this tool | space-separated-list | ""
 | SCA_STANK_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
 | SCA_STANK_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_STANK_FILE_FILTER | File extension to scan for | space-separated-list | ".sh .osh .lksh .csh .cshrc .tcsh .tcshrc .fish .fishrc .ion .ionrc .rc .rcrc .tsh .etsh .elv"

@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_scancode | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST[scancode] | Blacklist filter for this tool | space-separated-list | ""
 | SCA_SCANCODE_BAD_CRHOLDER |  Discouraged copyright holders | comma separated regex list | ""
 | SCA_SCANCODE_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
 | SCA_SCANCODE_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""

@@ -446,7 +446,7 @@ SCA_ENABLED_MODULES_RECIPE += "myfoolint"
 # Optionally you can set a global blocklist entry
 # for the tool, if it shouldn't be run on any specific recipe
 # e.g. linux-kernel
-SCA_BLOCKLIST_myfoolint = ""
+SCA_BLOCKLIST[myfoolint] = ""
 ```
 
 **Congratulation** you made it - Now it's time to test your implementation!

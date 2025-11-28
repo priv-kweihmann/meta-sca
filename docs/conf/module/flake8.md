@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_flake8 | Blacklist filter for this tool | space-separated-list | "linux-*"
+| SCA_BLOCKLIST[flake8] | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_FLAKE8_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_FLAKE8_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 

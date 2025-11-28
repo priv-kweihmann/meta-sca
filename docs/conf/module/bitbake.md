@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_bitbake | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST[bitbake] | Blacklist filter for this tool | space-separated-list | ""
 | SCA_BITBAKE_HARDENING | Check on additional hardening | space-separated-list | "debug_tweaks insane_skip security_flags"
 
 ### Hardening checks

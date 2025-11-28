@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_golint | Blacklist filter for this tool | space-separated-list | "linux-*"
+| SCA_BLOCKLIST[golint] | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_GOLINT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_GOLINT_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_GOLINT_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".go"

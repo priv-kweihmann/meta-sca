@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_pylint | Blacklist filter for this tool | space-separated-list | "linux-*"
+| SCA_BLOCKLIST[pylint] | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_PYLINT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_PYLINT_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_PYLINT_HOMEPATH | Directory of python installation | path | \${IMAGE_ROOTFS}/python\${PYTHON_BASEVERSION}
@@ -19,7 +19,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_pylint | Blacklist filter for this tool | space-separated-list | "linux-*"
+| SCA_BLOCKLIST[pylint] | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_PYLINT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_PYLINT_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_PYLINT_HOMEPATH | Directory of python installation | path | \${STAGING_LIBDIR}/python\${PYTHON_BASEVERSION}

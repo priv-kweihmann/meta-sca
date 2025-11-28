@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_pkgqaenc | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST[pkgqaenc] | Blacklist filter for this tool | space-separated-list | ""
 | SCA_PKGQAENC_ACCEPTABLE_DIRS | Directories where packages could install data | space-separated-list | see sca-pkgqaenc.bbclass
 | SCA_PKGQAENC_ACCEPTABLE_SHEBANG | Accepted shebangs in script files | space-separated-list | ""
 | SCA_PKGQAENC_BLOCKLIST_DIRS | Directories where no files should be installed | space-separated-list | \${infodir} \${docdir} \${mandir}

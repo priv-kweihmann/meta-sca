@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_mypy | Blacklist filter for this tool | space-separated-list | "linux-*"
+| SCA_BLOCKLIST[mypy] | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_MYPY_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_MYPY_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 

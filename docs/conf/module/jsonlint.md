@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_jsonlint | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST[jsonlint] | Blacklist filter for this tool | space-separated-list | ""
 | SCA_JSONLINT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_JSONLINT_FILE_FILTER | List of file-extensions to be checked | space-separated-list | ".json"
 

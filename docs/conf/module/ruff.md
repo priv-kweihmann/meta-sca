@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_ruff | Blacklist filter for this tool | space-separated-list | "linux-*"
+| SCA_BLOCKLIST[ruff] | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_RUFF_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_RUFF_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 

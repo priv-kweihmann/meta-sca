@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_setuptoolslint | Blacklist filter for this tool | space-separated-list | "linux-*"
+| SCA_BLOCKLIST[setuptoolslint] | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_SETUPTOOLSLINT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_SETUPTOOLSLINT_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
 | SCA_SETUPTOOLSLINT_LOCAL_PROXY | URL of fake local proxy, to prevent downloading any content | URL | "http://localhost:65533"

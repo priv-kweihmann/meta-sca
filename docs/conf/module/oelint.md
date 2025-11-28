@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_oelint | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST[oelint] | Blacklist filter for this tool | space-separated-list | ""
 | SCA_OELINT_CUSTOM_RULES | Paths to custom rules for oelint | space-separated-list | "\${STAGING_DATADIR_NATIVE}/oelint-rules"
 | SCA_OELINT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_OELINT_EXTRA_KNOWN_MIRRORS | additional known mirror replacements. mirror:replacement without any ${} framing space-separated-list | ""

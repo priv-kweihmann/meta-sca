@@ -8,7 +8,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_cbmc | Blacklist filter for this tool | space-separated-list | ""
+| SCA_BLOCKLIST[cbmc] | Blacklist filter for this tool | space-separated-list | ""
 | SCA_CBMC_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_CBMC_EXTRA_OPTIONS | Extra command-line parameter to pass to cbmc | space-separated-list | ""
 | SCA_CBMC_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""

@@ -10,7 +10,7 @@
 | ------------- |:-------------:| -----:| -----:
 | SCA_BANDIT_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_BANDIT_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
-| SCA_BLOCKLIST_bandit | Blacklist filter for this tool | space-separated-list | "linux-*"
+| SCA_BLOCKLIST[bandit] | Blacklist filter for this tool | space-separated-list | "linux-*"
 
 ## Supports
 

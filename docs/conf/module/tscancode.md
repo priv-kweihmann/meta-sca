@@ -10,7 +10,7 @@
 
 | var | purpose | type | default |
 | ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST_tscancode | Blacklist filter for this tool | space-separated-list | "linux-*"
+| SCA_BLOCKLIST[tscancode] | Blacklist filter for this tool | space-separated-list | "linux-*"
 | SCA_TSCANCODE_CONFIG_FILES | Files to check for configuration symbols (header or KConfig) | space-separated-list | ".config config.h"
 | SCA_TSCANCODE_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | ""
 | SCA_TSCANCODE_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""

@@ -21,7 +21,7 @@ For further explanations on the variables see the manpage of cppcheck
 | SCA_CPPCHECK_CHECK_DEPTH | Depth of analysis - higher value = higher effort | int | "3"
 | SCA_CPPCHECK_ADD_INCLUDES | Additional paths leading to includes | space-separated-list | ""
 | SCA_CPPCHECK_CHECKLEVEL | Check level - normal or exhaustive | space-separated-list | "normal"
-| SCA_BLOCKLIST_cppcheck | Blacklist filter for this tool | space-separated-list | "linux-*"
+| SCA_BLOCKLIST[cppcheck] | Blacklist filter for this tool | space-separated-list | "linux-*"
 
 ## Supports
 
