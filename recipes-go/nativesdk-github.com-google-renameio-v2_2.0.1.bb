@@ -8,5 +8,6 @@ LICENSE = "${@' & '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '')
 require github.com-google-renameio-v2-sources.inc
 
 GO_IMPORT = "github.com/google/renameio/v2"
+
 inherit gosrc
 inherit_defer nativesdk
