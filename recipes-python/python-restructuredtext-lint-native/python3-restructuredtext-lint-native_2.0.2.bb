@@ -9,8 +9,8 @@ DEPENDS += "python3-docutils-native"
 
 PYPI_PACKAGE = "restructuredtext-lint"
 
-SRC_URI[md5sum] = "05aae776c7fe02edb03f3b2601ac6b67"
-SRC_URI[sha256sum] = "1b235c0c922341ab6c530390892eb9e92f90b9b75046063e047cacfb0f050c45"
+SRC_URI[md5sum] = "844f75931a211759762c439c355c1fca"
+SRC_URI[sha256sum] = "dd25209b9e0b726929d8306339faf723734a3137db382bcf27294fa18a6bc52b"
 
 inherit pypi
 inherit pypi-old
