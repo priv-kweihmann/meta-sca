@@ -3,25 +3,26 @@ HOMEPAGE = "https://github.com/python/mypy"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=8d62fd8f8648cb018e52857347e340b9"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=572a4af76db6990f02b2d82f387ea10f"
 
 DEPENDS += "\
-    nativesdk-python3-mypy-extensions \
-    nativesdk-python3-pathspec \
-    nativesdk-python3-types-psutil \
-    nativesdk-python3-types-setuptools \
-    nativesdk-python3-typing-extensions \
+    python3-mypy-extensions-native \
+    python3-librt-native \
+    python3-pathspec-native \
+    python3-types-psutil-native \
+    python3-types-setuptools-native \
+    python3-typing-extensions-native \
 "
 
-SRC_URI[md5sum] = "9ea329f0a99bb98554683680b988c5ea"
-SRC_URI[sha256sum] = "06a398102a5f203d7477b2923dda3634c36727fa5c237d8f859ef90c42a9924b"
+SRC_URI[md5sum] = "328d60a88d056862bda73bce386fb8ab"
+SRC_URI[sha256sum] = "f6b874ca77f733222641e5c46e4711648c4037ea13646fd0cdc814c2eaec2528"
 
 PYPI_PACKAGE = "mypy"
 
 inherit pypi
 inherit sca-description
 inherit python_setuptools_build_meta
-inherit_defer nativesdk
+inherit_defer native
 
 SCA_TOOL_DESCRIPTION = "mypy"
 
