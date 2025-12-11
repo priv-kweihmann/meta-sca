@@ -5,19 +5,19 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=faa39cbd7a7cded9a1436248295de3c2"
 
-DEPENDS += "perl-native"
+DEPENDS += "nativesdk-perl"
 
 SRC_URI:append = " \
     git://salsa.debian.org/debian/devscripts.git;protocol=https;branch=main \
     file://checkbashism.sca.description \
 "
-SRCREV = "0b6c2a53a1706a59796b46fc07cd4c83b5a84eb9"
+SRCREV = "05d95a967cc68a85621430c1b2a14b68299d1f44"
 
 UNPACKDIR ??= "${WORKDIR}/sources"
 UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>\d+\.\d+\.\d+)"
 
 inherit sca-description
-inherit_defer native
+inherit_defer nativesdk
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
