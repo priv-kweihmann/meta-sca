@@ -9,8 +9,8 @@ DEPENDS += "python3-soupsieve-native"
 
 PYPI_PACKAGE = "beautifulsoup4"
 
-SRC_URI[md5sum] = "455746626d9f6ae164fc8a62af7e1906"
-SRC_URI[sha256sum] = "2a98ab9f944a11acee9cc848508ec28d9228abfd522ef0fad6a02a72e0ded69e"
+SRC_URI[md5sum] = "c7e801c7d4e2300c1112eeb0b21ccb9b"
+SRC_URI[sha256sum] = "6292b1c5186d356bba669ef9f7f051757099565ad9ada5dd630bd9de5fa7fb86"
 
 inherit pypi
 inherit python_hatchling
