@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=57943b291c8e54f0e5b648dc17a6f76c"
 
 DEPENDS += "python3-pygments-native"
 
-SRC_URI[sha256sum] = "68b73be68bf8075ec882e035176d5c379d0d7f3401392c6f39c2cc9cd3264d44"
+SRC_URI[sha256sum] = "c5571ce6ca9cfdc7ce9151c3ae79acb418e067812000907616427197648030a3"
 
 inherit pypi
 inherit setuptools3
