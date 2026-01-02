@@ -14,13 +14,13 @@ LIC_FILES_CHKSUM = "\
 SRC_URI = "\
     git://github.com/danmar/cppcheck.git;protocol=https;nobranch=1 \
 "
-SRCREV = "f726f98ed2c3277780ee133ec5338f6352d7b43b"
+SRCREV = "9730a448fb7e9c205b7ec47b7ba88c5406954538"
 
 inherit pkgconfig
 inherit sca-description
-inherit_defer native
+inherit_defer nativesdk
 
-LIBZ3 = "z3-native"
+LIBZ3 = "nativesdk-z3"
 
 PACKAGECONFIG ??= "z3"
 PACKAGECONFIG[z3] = "USE_Z3=yes,,${LIBZ3}"
