@@ -22,13 +22,11 @@ DEPENDS += "\
             python3-flake8-eradicate-native \
             python3-flake8-executable-native \
             python3-flake8-isort-native \
-            python3-flake8-logging-format-native \
             python3-flake8-native \
             python3-flake8-pep3101-native \
             python3-flake8-print-native \
             python3-flake8-quotes-native \
             python3-flake8-rst-docstrings-native \
-            python3-flake8-string-format-native \
             python3-pep8-naming-native \
             python3-pydocstyle-native \
             python3-pygments-native \
@@ -65,12 +63,10 @@ RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-flake8-eradicate \
     nativesdk-python3-flake8-executable \
     nativesdk-python3-flake8-isort \
-    nativesdk-python3-flake8-logging-format \
     nativesdk-python3-flake8-pep3101 \
     nativesdk-python3-flake8-print \
     nativesdk-python3-flake8-quotes \
     nativesdk-python3-flake8-rst-docstrings \
-    nativesdk-python3-flake8-string-format \
     nativesdk-python3-pep8-naming \
     nativesdk-python3-pydocstyle \
     nativesdk-python3-pygments \

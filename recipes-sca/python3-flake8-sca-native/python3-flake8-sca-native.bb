@@ -21,16 +21,12 @@ PACKAGECONFIG ??= "\
                    encodings \
                    eradicate \
                    executable \
-                   expression-complexity \
                    fixme \
-                   functions \
                    mutable \
                    quotes \
                    requirements \
                    return \
-                   secure-coding-standard \
                    strftime \
-                   string-format \
                    use-fstring \
                    variables-names \
                    wemake-python \
@@ -43,16 +39,12 @@ PACKAGECONFIG[dlint] = ",,python3-flake8-dlint-native"
 PACKAGECONFIG[encodings] = ",,python3-flake8-encodings-native"
 PACKAGECONFIG[eradicate] = ",,python3-flake8-eradicate-native"
 PACKAGECONFIG[executable] = ",,python3-flake8-executable-native"
-PACKAGECONFIG[expression-complexity] = ",,python3-flake8-expression-complexity-native"
 PACKAGECONFIG[fixme] = ",,python3-flake8-fixme-native"
-PACKAGECONFIG[functions] = ",,python3-flake8-functions-native"
 PACKAGECONFIG[mutable] = ",,python3-flake8-mutable-native"
 PACKAGECONFIG[quotes] = ",,python3-flake8-quotes-native"
 PACKAGECONFIG[return] = ",,python3-flake8-return-native"
 PACKAGECONFIG[requirements] = ",,python3-flake8-requirements-native"
-PACKAGECONFIG[secure-coding-standard] = ",,python3-flake8-secure-coding-standard-native"
 PACKAGECONFIG[strftime] = ",,python3-flake8-strftime-native"
-PACKAGECONFIG[string-format] = ",,python3-flake8-string-format-native"
 PACKAGECONFIG[use-fstring] = ",,python3-flake8-use-fstring-native"
 PACKAGECONFIG[variables-names] = ",,python3-flake8-variables-names-native"
 PACKAGECONFIG[wemake-python] = ",,python3-wemake-python-styleguide-native"

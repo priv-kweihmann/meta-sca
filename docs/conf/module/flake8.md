@@ -33,7 +33,6 @@ For python2 and python3 installations the following plugins are enabled
 * flake8-eradicate
 * flake8-mutable
 * flake8-quotes
-* flake8-string-format
 
 in python3 installations in addition following plugins are available
 
@@ -71,7 +70,7 @@ __tbd__
 
 * flake8.flake.*
 
-### Error consired as compliance issue
+### Error considered as compliance issue
 
 * n.a.
 
