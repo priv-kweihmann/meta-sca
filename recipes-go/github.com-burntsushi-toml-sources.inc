@@ -1,5 +1,5 @@
 SRC_URI += "git://github.com/BurntSushi/toml;nobranch=1;protocol=https;srcinput=github.com/BurntSushi/toml;srcoutput=github.com/BurntSushi/toml;destsuffix=github.com/BurntSushi/toml;name=github-com-burntsushi-toml"
-SRCREV_github-com-burntsushi-toml = "d97def528e83313822a9f98946334ffccd542bdf"
+SRCREV_github-com-burntsushi-toml = "52534926c55b4cd85b05aee90569dd0668b8cf30"
 
 GOSRC_LICENSE += "\
     MIT \
