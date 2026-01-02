@@ -4,9 +4,12 @@ HOMEPAGE = "https://pypi.org/project/importlib-metadata/"
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=cf73015ea0156450506e8000d1f7fa37"
 
-DEPENDS += "python3-setuptools-scm-native"
+DEPENDS += "\
+    python3-coherent-licensed-native \
+    python3-setuptools-scm-native \
+"
 
 inherit pypi
 inherit pypi-old
@@ -15,7 +18,7 @@ inherit_defer native
 
 PYPI_PACKAGE = "importlib_metadata"
 
-SRC_URI[sha256sum] = "d13b81ad223b890aa16c5471f2ac3056cf76c5f10f82d6f9292f0b415f389000"
+SRC_URI[sha256sum] = "49fef1ae6440c182052f407c8d34a68f72efc36db9ca90dc0113398f2fdde8bb"
 
 S = "${UNPACKDIR}/importlib_metadata-${PV}"
 
