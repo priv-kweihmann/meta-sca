@@ -6,18 +6,18 @@ LICENSE = "Zlib"
 LIC_FILES_CHKSUM = "file://LICENSE.Zlib;md5=b468464f86272d152a351096dfe81653"
 
 DEPENDS += "\
-            python3-chardet-native \
-            python3-pygments-native \
-            "
+    nativesdk-python3-chardet \
+    nativesdk-python3-pygments \
+"
 
 PYPI_PACKAGE = "multimetric"
 
-SRC_URI[sha256sum] = "12ad15733eb11617436c949bc1e71a06a3f3e6c5bfbb28cfdbb2be283934e647"
+SRC_URI[sha256sum] = "7531efefed39a3f156673f46537f623ff4a6e22988c8b4aa86419f93a58f2f2e"
 
 inherit sca-description
 inherit pypi
 inherit python_setuptools_build_meta
-inherit_defer native
+inherit_defer nativesdk
 
 SCA_TOOL_DESCRIPTION = "multimetric"
 
