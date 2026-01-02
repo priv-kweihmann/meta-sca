@@ -58,7 +58,7 @@ yaml = [
 "sarif-om>" = "1.0.4"
 "jschema-to-python>" = "1.2.3"
 
-[entry_points.console_scripts]
+[console_scripts]
 bandit = "bandit.cli.main:main"
 bandit-config-generator = "bandit.cli.config_generator:main"
 bandit-baseline = "bandit.cli.baseline:main"
