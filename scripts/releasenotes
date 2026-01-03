@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 import argparse
 import re
+import sys
 from operator import itemgetter
 
 import github3
+
 
 class ExtendAction(argparse.Action):
 
@@ -18,7 +20,8 @@ def create_parser():
 
     parser.register('action', 'extend', ExtendAction)
 
-    parser.add_argument("--main", default=[], nargs="*", action="extend", help="add a main section entry")
+    parser.add_argument("--main", default=[], nargs="*",
+                        action="extend", help="add a main section entry")
     parser.add_argument("branch", help="branch to query")
     parser.add_argument("tag", help="tag to query from")
     parser.add_argument("username", help="GitHub username")
@@ -37,8 +40,10 @@ def get_commits(_args):
             _tmp = repo.compare_commits(tag.commit.sha, _lastsha).commits
             res += [x for x in _tmp]
             while len(_tmp) >= 250:
-                _tmp = repo.compare_commits(tag.commit.sha, _tmp[0].sha).commits
+                _tmp = repo.compare_commits(
+                    tag.commit.sha, _tmp[0].sha).commits
                 res += [x for x in _tmp]
+            sys.stderr.write(f'{len(res)} commits found since {tag.name}\n')
             return res
     return []
 
@@ -48,22 +53,20 @@ def get_issues_from_commits(_args, commits):
     for c in commits:
         if any([x for x in commits if "This reverts commit {}".format(c.sha) in x.message]):
             continue
-        m = re.search(r"Closes #(?P<id>\d+)", c.message)
-        if m:
+        for m in re.finditer(r"Closes #(?P<id>\d+)", c.message, re.MULTILINE):
             res.add(int(m.group("id")))
-        m = re.search(r"Fixes #(?P<id>\d+)", c.message)
-        if m:
+        for m in re.finditer(r"Fixes #(?P<id>\d+)", c.message, re.MULTILINE):
             res.add(int(m.group("id")))
-        m = re.search(r"Relates to #(?P<id>\d+)", c.message)
-        if m:
+        for m in re.finditer(r"Relates to #(?P<id>\d+)", c.message, re.MULTILINE):
             res.add(int(m.group("id")))
+    sys.stderr.write(f'{len(res)} issues affected\n')
     return list(res)
 
 
-def get_issues(_args):
+def get_issues(_args, foundids):
     login = github3.login(_args.username, _args.token)
     repo = login.repository('priv-kweihmann', 'meta-sca')
-    return repo.issues(state="closed")
+    return [repo.issue(x) for x in foundids]
 
 
 section_map = {
@@ -75,39 +78,49 @@ section_map = {
 }
 
 content_map = {
-    "main": { "index": 0, "title": "Main features", "content": "" },
-    "new": { "index": 1, "title": "New", "content": "" },
-    "deprecation": { "index": 2, "title": "Deprecations", "content": "" },
-    "updates": { "index": 3, "title": "Updates", "content": "" },
-    "fixes": { "index": 4, "title": "Bugfixes", "content": "" },
-    "misc": { "index": 5, "title": "Misc", "content": "" },
-    "thanks": { "index": 6, "title": "Thanks to", "content": "" },
+    "main": {"index": 0, "title": "Main features", "content": ""},
+    "new": {"index": 1, "title": "New", "content": ""},
+    "deprecation": {"index": 2, "title": "Deprecations", "content": ""},
+    "updates": {"index": 3, "title": "Updates", "content": ""},
+    "fixes": {"index": 4, "title": "Bugfixes", "content": ""},
+    "misc": {"index": 5, "title": "Misc", "content": ""},
+    "thanks": {"index": 6, "title": "Thanks to", "content": ""},
 }
+
 
 def __gen_section(id, _list):
     global content_map
     if id in content_map and _list:
-        content_map[id]["content"] = "\n".join(["- {}".format(x) for x in sorted(_list)])
-    
+        content_map[id]["content"] = "\n".join(
+            ["- {}".format(x) for x in sorted(_list)])
+
+
 def __gen_main_section(args):
     global content_map
-    content_map["main"]["content"] = "\n".join(["- {}".format(x) for x in sorted(args.main)])
+    content_map["main"]["content"] = "\n".join(
+        ["- {}".format(x) for x in sorted(args.main)])
+
 
 def __gen_thanks_section(args, _list):
     global content_map
-    content_map["thanks"]["content"] = "\n".join(["- @{}".format(x) for x in sorted(_list)])
+    content_map["thanks"]["content"] = "\n".join(
+        ["- @{}".format(x) for x in sorted(_list)])
+
 
 if __name__ == '__main__':
     _args = create_parser()
     _commitids = get_issues_from_commits(_args, get_commits(_args))
-    _ids = [x for x in get_issues(_args) if x.number in _commitids]
-    _thanks = [x.user.login for x in get_issues(_args) if x.user.login != _args.username and x.number in _commitids]
+    _tickets = get_issues(_args, _commitids)
+    _thanks = [x.user.login for x in _tickets if x.user.login != _args.username]
+
+    sys.stderr.write(
+        f'{len(_commitids)} tickets referenced, {len(_tickets)} tickets closed, {len(_thanks)} contributors found\n')
 
     template = ""
 
     # build sections from arguments
     __gen_main_section(_args)
-    
+
     # other sections
     __gen_thanks_section(_args, _thanks)
 
@@ -115,7 +128,7 @@ if __name__ == '__main__':
     for k, v in section_map.items():
         _id_map = []
         for label in v:
-            for i in _ids:
+            for i in _tickets:
                 _labels = [str(x).upper() for x in i.original_labels if str(x) not in [
                     "Staging", "Update Bot"]]
                 if label in _labels:
