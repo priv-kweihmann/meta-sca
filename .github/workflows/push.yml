@@ -1,23 +1,35 @@
-name: "Package check"
+name: "[whinlater]-push"
 
 on:
-  schedule:
-    - cron: "0 */6 * * *"
-  workflow_dispatch: 
+  pull_request:
+  push:
+    branches:
+      - whinlater
 
 jobs:
   qemux86:
     name: "build"
     env:
       DISTRO: scatest
-      SCM_BRANCH: master
-      BUILD_MAXRUNTIME: 21000
       PYTHONIOENCODING: utf8
       LC_ALL: en_US.UTF-8
       LANG: en_US.UTF-8
       LANGUAGE: en_US.UTF-8
+      SCM_BRANCH: whinlater
+      BUILD_MAXRUNTIME: 3600
 
     runs-on: ubuntu-22.04
+
+    strategy:
+      matrix:
+        testset: [standard, globalinherit]
+        include:
+        - testset: standard
+          BUILD_PARAMFILE: standard
+          BUILD_GLOBALINHERIT: 0
+        - testset: globalinherit
+          BUILD_PARAMFILE: standard
+          BUILD_GLOBALINHERIT: 1
 
     container:
       image: privkweihmann/yocto-sca-minimal:2204
@@ -42,7 +54,7 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@2.0
         with:
           repo: https://github.com/openembedded/bitbake.git
-          branch: master
+          branch: whinlater
           add-layer: "0"
       - name: checkout (meta-yocto)
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@2.0
@@ -54,21 +66,22 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/addlayer@2.0
         with:
           repo: https://github.com/priv-kweihmann/meta-sca.git
-          branch: master
-      - name: setup layer prio (bitbake config)
+          branch: ${{ env.SCM_BRANCH }}
+      - if: matrix.BUILD_GLOBALINHERIT == '1'
+        name: setup (bitbake global inherit)
         uses: priv-kweihmann/meta-sca-ci-utils/addvar@2.0
         with:
-          variable: BBFILE_PRIORITY_meta-sca
-          value: 100
-      - name: setup layer preference (bitbake config)
+          variable: INHERIT
+          operation: " += "
+          value: sca
+      - if: matrix.BUILD_GLOBALINHERIT != '1'
+        name: setup (bitbake config)
         uses: priv-kweihmann/meta-sca-ci-utils/addvar@2.0
         with:
-          variable: SCA_DEFAULT_PREFERENCE
-          value: 0
-      - name: check (packages)
-        uses: priv-kweihmann/meta-sca-ci-utils/packagecheck@2.0
+          variable: SCA_AVAILABLE_MODULES
+          value: /opt/build/sources/meta-sca/test/lang_${{ matrix.BUILD_PARAMFILE }}.txt
+      - name: build (sca-modules)
+        uses: priv-kweihmann/meta-sca-ci-utils/buildstep@2.0
         with:
-          backoff-time: 60
-          blacklist: "blocklist.txt"
-          deploy-token: ${{ secrets.WEBDEPLOY }}
-          user: "priv-kweihmann"
+          target: core-image-minimal-scatest --runall listtasks
+          ignore-exit-codes: 124 137
