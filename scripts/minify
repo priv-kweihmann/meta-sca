@@ -9,6 +9,7 @@ import os
 import shutil
 import tempfile
 import textwrap
+import re
 
 import git
 from git.exc import GitCommandError
@@ -50,6 +51,7 @@ def create_release_map(source, target, excludefile):
                 continue
             _tags_on_branch = source.git.tag(
                 '--sort=v:refname', '--merged', branch.name).split('\n')
+            _tags_on_branch = [x for x in _tags_on_branch if bool(re.search(r'\d', x))]
             for i, v in enumerate(_tags_on_branch):
                 if i >= len(_tags_on_branch) - 1:
                     continue
