@@ -65,7 +65,7 @@ tornado==5.1.1
 traitlets==4.3.2
 tweepy==3.6.0
 urllib3==1.23
-virtualenv==16.0.0
+virtualenv==20.36.1
 wcwidth==0.1.7
 webencodings==0.5.1
 Werkzeug==0.14.1
