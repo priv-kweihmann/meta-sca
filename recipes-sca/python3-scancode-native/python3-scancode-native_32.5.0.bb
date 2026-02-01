@@ -89,7 +89,7 @@ DEPENDS += "\
         "
 
 SRC_URI = "git://github.com/aboutcode-org/scancode-toolkit.git;protocol=https;nobranch=1"
-SRCREV = "9c43698d456bbf055f104aad16f671a18086b801"
+SRCREV = "abd87fb81609ea4a29ab4cdda755c188b8be3601"
 
 
 inherit sca-description
