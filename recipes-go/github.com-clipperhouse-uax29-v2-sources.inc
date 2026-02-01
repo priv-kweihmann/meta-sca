@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/clipperhouse/uax29/v2/@v/v2.3.0.zip;srcoutput=github.com/clipperhouse/uax29/v2;srcinput=github.com/clipperhouse/uax29/v2@v2.3.0;downloadfilename=github-com-clipperhouse-uax29-v2-2.3.0.zip;name=github-com-clipperhouse-uax29-v2"
-SRC_URI[github-com-clipperhouse-uax29-v2.sha256sum] = "511135f99f7f21d94de17848d1fc763be2ba36544ad5a0c1eb24b71f7078e649"
+SRC_URI += "https://proxy.golang.org/github.com/clipperhouse/uax29/v2/@v/v2.4.0.zip;srcoutput=github.com/clipperhouse/uax29/v2;srcinput=github.com/clipperhouse/uax29/v2@v2.4.0;downloadfilename=github-com-clipperhouse-uax29-v2-2.4.0.zip;name=github-com-clipperhouse-uax29-v2"
+SRC_URI[github-com-clipperhouse-uax29-v2.sha256sum] = "e362eae46ce1abea3195d4aec481d53cceea8d02d11531d584182a614549732a"
 
 GOSRC_LICENSE += "\
     MIT \
