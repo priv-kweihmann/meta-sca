@@ -13,7 +13,6 @@ flawfinder
 flint
 gcc
 golint
-it
 jsonlint
 looong
 msgcheck
