@@ -27,7 +27,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             flint \
                             gcc \
                             golint \
-                            it \
                             jsonlint \
                             kconfighard \
                             licensecheck \

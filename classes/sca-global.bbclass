@@ -98,7 +98,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           flint \
                           gcc \
                           golint \
-                          it \
                           jsonlint \
                           kconfighard \
                           licensecheck \
