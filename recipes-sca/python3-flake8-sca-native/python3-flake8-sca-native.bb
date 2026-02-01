@@ -17,7 +17,6 @@ PACKAGECONFIG ??= "\
                    async \
                    comprehensions \
                    datetimez \
-                   dlint \
                    encodings \
                    eradicate \
                    executable \
@@ -35,7 +34,6 @@ PACKAGECONFIG[2020] = ",,python3-flake8-2020-native"
 PACKAGECONFIG[async] = ",,python3-flake8-async-native"
 PACKAGECONFIG[comprehensions] = ",,python3-flake8-comprehensions-native"
 PACKAGECONFIG[datetimez] = ",,python3-flake8-datetimez-native"
-PACKAGECONFIG[dlint] = ",,python3-flake8-dlint-native"
 PACKAGECONFIG[encodings] = ",,python3-flake8-encodings-native"
 PACKAGECONFIG[eradicate] = ",,python3-flake8-eradicate-native"
 PACKAGECONFIG[executable] = ",,python3-flake8-executable-native"

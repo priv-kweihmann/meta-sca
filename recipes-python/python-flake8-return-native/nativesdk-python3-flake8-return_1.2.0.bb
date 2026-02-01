@@ -12,7 +12,10 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "flake8-return"
 
-SRC_URI:append = " file://0001-Use-poetry-core-for-pyproject-based-builds.patch"
+SRC_URI:append = " \
+    file://0001-Use-poetry-core-for-pyproject-based-builds.patch \
+    file://fab98c7245f44d893e5aa5cc7e6dedc1c3097fb7.patch \
+"
 
 SRC_URI[sha256sum] = "68dfa56582cd704febd02ad86dcf5df67e38e0836d62f1ceae7930d76d3dd955"
 

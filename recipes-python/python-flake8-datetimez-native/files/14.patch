@@ -1,0 +1,74 @@
+From 38617d6d9a761053791ff062904a6bbf897537ed Mon Sep 17 00:00:00 2001
+From: Kristinita <Kristinita@users.noreply.github.com>
+Date: Sun, 2 Nov 2025 17:58:03 +0300
+Subject: [PATCH] fix(python314): replace deprecated ast.NameConstant to
+ ast.Constant
+
+https://docs.python.org/3/library/ast.html#ast.AST.end_col_offset
+Signed-off-by: Kristinita <Kristinita@users.noreply.github.com>
+Upstream-Status: Submitted [https://github.com/pjknkda/flake8-datetimez/pull/14]
+---
+ flake8_datetimez.py | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/flake8_datetimez.py b/flake8_datetimez.py
+index 4ccf540..465320d 100644
+--- a/flake8_datetimez.py
++++ b/flake8_datetimez.py
+@@ -71,13 +71,13 @@ def visit_Call(self, node):
+         if (is_datetime_class and node.func.attr == 'datetime') or is_unqualified_datetime_class_call:
+             # ex `datetime(2000, 1, 1, 0, 0, 0, 0, datetime.timezone.utc)`
+             is_case_1 = (len(node.args) == 8
+-                            and not (isinstance(node.args[7], ast.NameConstant)
++                            and not (isinstance(node.args[7], ast.Constant)
+                                     and node.args[7].value is None))
+ 
+             # ex `datetime.datetime(2000, 1, 1, tzinfo=datetime.timezone.utc)`
+             tzinfo_keyword = _get_from_keywords(node.keywords, 'tzinfo')
+             is_case_2 = (tzinfo_keyword is not None
+-                            and not (isinstance(tzinfo_keyword.value, ast.NameConstant)
++                            and not (isinstance(tzinfo_keyword.value, ast.Constant)
+                                     and tzinfo_keyword.value.value is None))
+ 
+             if not (is_case_1 or is_case_2):
+@@ -97,13 +97,13 @@ def visit_Call(self, node):
+                 # ex: `datetime.now(UTC)`
+                 is_case_1 = (len(node.args) == 1
+                              and len(node.keywords) == 0
+-                             and not (isinstance(node.args[0], ast.NameConstant)
++                             and not (isinstance(node.args[0], ast.Constant)
+                                       and node.args[0].value is None))
+ 
+                 # ex: `datetime.now(tz=UTC)`
+                 tz_keyword = _get_from_keywords(node.keywords, 'tz')
+                 is_case_2 = (tz_keyword is not None
+-                             and not (isinstance(tz_keyword.value, ast.NameConstant)
++                             and not (isinstance(tz_keyword.value, ast.Constant)
+                                       and tz_keyword.value.value is None))
+ 
+                 if not (is_case_1 or is_case_2):
+@@ -113,13 +113,13 @@ def visit_Call(self, node):
+                 # ex: `datetime.fromtimestamp(1234, UTC)`
+                 is_case_1 = (len(node.args) == 2
+                              and len(node.keywords) == 0
+-                             and not (isinstance(node.args[1], ast.NameConstant)
++                             and not (isinstance(node.args[1], ast.Constant)
+                                       and node.args[1].value is None))
+ 
+                 # ex: `datetime.fromtimestamp(1234, tz=UTC)`
+                 tz_keyword = _get_from_keywords(node.keywords, 'tz')
+                 is_case_2 = (tz_keyword is not None
+-                             and not (isinstance(tz_keyword.value, ast.NameConstant)
++                             and not (isinstance(tz_keyword.value, ast.Constant)
+                                       and tz_keyword.value.value is None))
+ 
+                 if not (is_case_1 or is_case_2):
+@@ -138,7 +138,7 @@ def visit_Call(self, node):
+                 else:
+                     tzinfo_keyword = _get_from_keywords(pparent.keywords, 'tzinfo')
+                     is_case_1 = (tzinfo_keyword is not None
+-                                 and not (isinstance(tzinfo_keyword.value, ast.NameConstant)
++                                 and not (isinstance(tzinfo_keyword.value, ast.Constant)
+                                           and tzinfo_keyword.value.value is None))
+ 
+                 # ex: `datetime.strptime(...).astimezone()`

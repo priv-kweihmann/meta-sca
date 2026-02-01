@@ -9,7 +9,6 @@ DEPENDS += "\
             python3-astor-native \
             python3-attrs-native \
             python3-cognitive-complexity-native \
-            python3-flake8-annotations-complexity-native \
             python3-flake8-bandit-native \
             python3-flake8-broken-line-native \
             python3-flake8-bugbear-native \
@@ -50,7 +49,6 @@ RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-cognitive-complexity \
     nativesdk-python3-core \
     nativesdk-python3-flake8 \
-    nativesdk-python3-flake8-annotations-complexity \
     nativesdk-python3-flake8-bandit \
     nativesdk-python3-flake8-broken-line \
     nativesdk-python3-flake8-bugbear \

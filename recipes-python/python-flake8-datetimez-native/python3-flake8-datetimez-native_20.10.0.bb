@@ -9,6 +9,8 @@ PYPI_PACKAGE = "flake8-datetimez"
 
 DEPENDS += "python3-flake8-native"
 
+SRC_URI:append = " file://14.patch"
+
 SRC_URI[sha256sum] = "78939f3bcbe2b7fe48235998545c869c27cdfac3f45685099a3f7366c1ffebc6"
 
 inherit pypi

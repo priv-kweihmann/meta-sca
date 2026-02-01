@@ -1,0 +1,27 @@
+From fab98c7245f44d893e5aa5cc7e6dedc1c3097fb7 Mon Sep 17 00:00:00 2001
+From: brandonzorn <v.klimenko.2137@gmail.com>
+Date: Wed, 8 Oct 2025 14:56:09 +0300
+Subject: [PATCH] refactor(ast): replace deprecated NameConstant with Constant
+ (#139)
+
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+Upstream-Status: Backport
+---
+ flake8_return/utils.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/flake8_return/utils.py b/flake8_return/utils.py
+index 8d1df70..a5b36e8 100644
+--- a/flake8_return/utils.py
++++ b/flake8_return/utils.py
+@@ -3,8 +3,8 @@
+ 
+ 
+ def is_none(node: Optional[ast.AST]) -> bool:
+-    return isinstance(node, ast.NameConstant) and node.value is None
++    return isinstance(node, ast.Constant) and node.value is None
+ 
+ 
+ def is_false(node: Optional[ast.AST]) -> bool:
+-    return isinstance(node, ast.NameConstant) and node.value is False
++    return isinstance(node, ast.Constant) and node.value is False
