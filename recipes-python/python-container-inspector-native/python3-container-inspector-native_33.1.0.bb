@@ -14,7 +14,7 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "container-inspector"
 
-SRC_URI[sha256sum] = "09260edb14549648da61260c1559b507e9dcb8296a6324368ba3803ca2011f7c"
+SRC_URI[sha256sum] = "9ada0e8235cb5f48d05d748ab0a20f55991bacd53f8f491e55b8baa05b740501"
 
 inherit pypi
 inherit pypi-old
