@@ -76,7 +76,7 @@ DEPENDS += "\
         python3-soupsieve-native \
         python3-spdx-tools-native \
         python3-text-unidecode-native \
-        python3-toml-native \
+        python3-tomli-native \
         python3-typecode-libmagic-system-provided-native \
         python3-typecode-native \
         python3-typing-extensions-native \

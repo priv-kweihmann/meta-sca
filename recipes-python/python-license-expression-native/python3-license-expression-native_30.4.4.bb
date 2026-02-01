@@ -11,7 +11,6 @@ LIC_FILES_CHKSUM = "\
 DEPENDS += "\
     python3-booleanpy-native \
     python3-setuptools-scm-native \
-    python3-toml-native \
 "
 
 PYPI_PACKAGE = "license-expression"
