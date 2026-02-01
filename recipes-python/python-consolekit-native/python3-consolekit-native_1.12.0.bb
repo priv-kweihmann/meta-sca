@@ -13,7 +13,7 @@ DEPENDS += "\
     python3-typing-extensions-native \
 "
 
-SRC_URI[sha256sum] = "3d91ab37918956d0ebb99916ddb249a4e7d38b59d3de537a5e805a68c2c913c1"
+SRC_URI[sha256sum] = "20ec8e8e5dab4ac5d2a306c15938034f1a23d54385367d1e976c2b271204d814"
 
 inherit pypi
 inherit python_flit_core
