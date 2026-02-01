@@ -19,7 +19,7 @@ DEPENDS += "\
 SRC_URI = "\
     git://github.com/aboutcode-org/commoncode.git;protocol=https;branch=main \
 "
-SRCREV = "a3adbfa3d6dd0e5d5384a952ddeb8df60b1fcb63"
+SRCREV = "cff2a3bf25e4e609941e49a20cd48050ca25fd27"
 
 inherit python_setuptools_build_meta
 inherit_defer native
