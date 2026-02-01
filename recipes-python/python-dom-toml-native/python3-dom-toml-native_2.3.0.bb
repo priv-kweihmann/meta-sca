@@ -10,7 +10,7 @@ DEPENDS += "\
     python3-tomli-native \
 "
 
-SRC_URI[sha256sum] = "5cc0dd10ce2566d35bc1d94a6ef16c062971ff0318c6f3705800d61d2075adac"
+SRC_URI[sha256sum] = "04d1138a7588119ec37ffe59e6474739a7ce7fcfcdf76555a064878ad82e3ae0"
 
 inherit pypi
 inherit pypi-old
