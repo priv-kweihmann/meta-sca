@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/mattn/go-runewidth/@v/v0.0.19.zip;srcoutput=github.com/mattn/go-runewidth;srcinput=github.com/mattn/go-runewidth@v0.0.19;downloadfilename=github-com-mattn-go-runewidth-0.0.19.zip;name=github-com-mattn-go-runewidth"
-SRC_URI[github-com-mattn-go-runewidth.sha256sum] = "4a99857860b6c26557e6d275d737df8bc29a542cc28fb041d47a417515906876"
+SRC_URI += "https://proxy.golang.org/github.com/mattn/go-runewidth/@v/v0.0.20.zip;srcoutput=github.com/mattn/go-runewidth;srcinput=github.com/mattn/go-runewidth@v0.0.20;downloadfilename=github-com-mattn-go-runewidth-0.0.20.zip;name=github-com-mattn-go-runewidth"
+SRC_URI[github-com-mattn-go-runewidth.sha256sum] = "84fe2c88da0c3b9b4439821af1f2e51b7df947288613e771efb1d3cbb38d343a"
 
 GOSRC_LICENSE += "\
     MIT \
