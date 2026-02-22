@@ -12,21 +12,23 @@ DEPENDS += "\
     nativesdk-python3-polib \
 "
 
-SRC_URI[md5sum] = "6abdfb91b2c49cedcc542489305bbb11"
-SRC_URI[sha256sum] = "8cfa89acbee5acd3e70714fbc45d9dc23446a2418624c17b1dcfdf0bdd33bbe0"
+SRC_URI[md5sum] = "42087b04214731b47fd83144f9cbde5d"
+SRC_URI[sha256sum] = "826d447ed9b3d3c9dec0d550a8647a90dfc8932ac5b8a1a619a0c30c7d63d79b"
 
 PYPI_PACKAGE = "dennis"
 
 inherit pypi
-
 inherit sca-description
 inherit setuptools3
 inherit_defer nativesdk
+
 SCA_TOOL_DESCRIPTION = "dennis"
+
 do_install:append() {
     ## This otherwise collides with other modules
     rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/tests/
 }
+
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-click \
     nativesdk-python3-core \
