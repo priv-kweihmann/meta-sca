@@ -11,8 +11,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "isort"
 
-SRC_URI[md5sum] = "19015ed232ba66d8e05a0598a95ff17e"
-SRC_URI[sha256sum] = "5513527951aadb3ac4292a41a16cbc50dd1642432f5e8c20057d414bdafb4187"
+SRC_URI[md5sum] = "a2b6c1cf5942a2d09504e513efea8970"
+SRC_URI[sha256sum] = "fddea59202f231e170e52e71e3510b99c373b6e571b55d9c7b31b679c0fed47c"
 
 inherit pypi
 inherit python_hatchling
