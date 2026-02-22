@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=01441d50dc74476db58a41ac10cb9fa2"
 
 PYPI_PACKAGE = "xmltodict"
 
-SRC_URI[md5sum] = "82d8cb5a934a057e6a8a3449b1d87cce"
-SRC_URI[sha256sum] = "54306780b7c2175a3967cad1db92f218207e5bc1aba697d887807c0fb68b7649"
+SRC_URI[md5sum] = "f0a83032fc31c918a8cd9e60cdb46cb1"
+SRC_URI[sha256sum] = "6d94c9f834dd9e44514162799d344d815a3a4faec913717a9ecbfa5be1bb8e61"
 
 inherit pypi
 inherit setuptools3
