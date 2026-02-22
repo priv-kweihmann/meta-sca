@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=63a78af2900bfcc5ce482f3b8d445898"
 
 PYPI_PACKAGE = "wrapt"
 
-SRC_URI[md5sum] = "6e07593f709e8e09f7afd3506f6560a7"
-SRC_URI[sha256sum] = "757ff1de7e1d8db1839846672aaecf4978af433cc57e808255b83980e9651914"
+SRC_URI[md5sum] = "e6ee7504e97b94afcaa76ba2c7cc916a"
+SRC_URI[sha256sum] = "5fdcb09bf6db023d88f312bd0767594b414655d58090fc1c46b3414415f67fac"
 
 inherit pypi
 inherit python_setuptools_build_meta
