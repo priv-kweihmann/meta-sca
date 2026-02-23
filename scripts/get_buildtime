@@ -1,9 +1,9 @@
 #! /usr/bin/env python3
-## SPDX-License-Identifier: BSD-2-Clause
-## Copyright (c) 2019, Konrad Weihmann
+# SPDX-License-Identifier: BSD-2-Clause
+# Copyright (c) 2019, Konrad Weihmann
 
-## This class get the overall sum of buildtime 
-## needed for a recipe (info is taken from buildstats)
+# This class get the overall sum of buildtime
+# needed for a recipe (info is taken from buildstats)
 
 import argparse
 import glob
@@ -17,13 +17,15 @@ _dict = {
 
 }
 
+
 def create_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('recipename', help="recipes to look for")
     x = parser.parse_args()
     return x
 
-def get_package_info(args, task_desc, threshold=0.0, ignore_task = ["do_fetch", "do_rm_work"]):
+
+def get_package_info(args, task_desc, threshold=0.0, ignore_task=["do_fetch", "do_rm_work"]):
     global _dict
     _time = []
     _tmp = task_desc.split(".")
@@ -33,23 +35,26 @@ def get_package_info(args, task_desc, threshold=0.0, ignore_task = ["do_fetch", 
         return
     for f in glob.glob("*/buildstats/*/{}*/{}".format(recipename, taskname)):
         try:
-            _parentdir = "-".join(os.path.basename(os.path.dirname(f)).split("-")[:-2])
-            if name != _parentdir:
+            _parentdir = "-".join(os.path.basename(os.path.dirname(f)
+                                                   ).split("-")[:-2])
+            if recipename != _parentdir:
                 continue
         except:
             pass
         with open(f) as i:
             for l in i.readlines():
                 if l.find("Elapsed time:") != -1:
-                    _tmp = l.strip("\n").strip().replace("Elapsed time:", "").replace("seconds", "").strip()
+                    _tmp = l.strip("\n").strip().replace(
+                        "Elapsed time:", "").replace("seconds", "").strip()
                     _tmp = float(_tmp)
                     if _tmp >= threshold:
                         _time.append(_tmp)
                     break
     if any(_time):
-        if not task_desc in _dict.keys():
+        if task_desc not in _dict.keys():
             _dict[task_desc] = []
         _dict[task_desc].append(mean(_time))
+
 
 def run_bitbake(args):
     try:
@@ -57,19 +62,21 @@ def run_bitbake(args):
     except:
         pass
     try:
-        subprocess.check_call(["bitbake", "-g", args.recipename], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        ## grep result
+        subprocess.check_call(["bitbake", "-g", args.recipename],
+                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        # grep result
         _tasklist = set()
         with open("task-depends.dot") as i:
             for m in re.finditer(r"^.*->\s+\"(?P<task>.*)\"", i.read(), re.MULTILINE):
                 _tasklist.add(m.group("task"))
         for i in _tasklist:
-            get_package_info(args, i) 
+            get_package_info(args, i)
     except subprocess.CalledProcessError as e:
         sys.stderr.write("ERROR: Can't get needed information\n")
         sys.exit(-1)
 
+
 args = create_parser()
 run_bitbake(args)
-_build_time = sum([mean(v) for k,v in _dict.items()])
+_build_time = sum([mean(v) for k, v in _dict.items()])
 print("{}:{:.2f}".format(args.recipename, _build_time))
