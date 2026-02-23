@@ -1,0 +1,83 @@
+{
+    "buildspeed": 7,
+    "execspeed": 9,
+    "languages": [
+        "rust"
+    ],
+    "uses": [
+        "@rust"
+    ],
+    "quality": 9,
+    "scope": [
+        "security",
+        "style"
+    ],
+    "score": {
+        "security": [
+            "cargodeny.cargodeny.advisory-not-detected",
+            "cargodeny.cargodeny.allowed-by-wrapper",
+            "cargodeny.cargodeny.banned",
+            "cargodeny.cargodeny.build-script-not-allowed",
+            "cargodeny.cargodeny.checksum-mismatch",
+            "cargodeny.cargodeny.default-feature-enabled",
+            "cargodeny.cargodeny.denied-by-extension",
+            "cargodeny.cargodeny.detected-executable",
+            "cargodeny.cargodeny.detected-executable-script",
+            "cargodeny.cargodeny.exact-features-mismatch",
+            "cargodeny.cargodeny.feature-banned",
+            "cargodeny.cargodeny.feature-not-explicitly-allowed",
+            "cargodeny.cargodeny.features-enabled",
+            "cargodeny.cargodeny.non-root-path",
+            "cargodeny.cargodeny.non-utf8-path",
+            "cargodeny.cargodeny.not-allowed",
+            "cargodeny.cargodeny.notice",
+            "cargodeny.cargodeny.path-bypassed",
+            "cargodeny.cargodeny.path-bypassed-by-glob",
+            "cargodeny.cargodeny.skipped",
+            "cargodeny.cargodeny.skipped-by-root",
+            "cargodeny.cargodeny.unable-to-check-path",
+            "cargodeny.cargodeny.unknown-advisory",
+            "cargodeny.cargodeny.unknown-feature",
+            "cargodeny.cargodeny.unmaintained",
+            "cargodeny.cargodeny.unmatched-bypass",
+            "cargodeny.cargodeny.unmatched-glob",
+            "cargodeny.cargodeny.unmatched-path-bypass",
+            "cargodeny.cargodeny.unmatched-root",
+            "cargodeny.cargodeny.unmatched-skip",
+            "cargodeny.cargodeny.unmatched-skip-root",
+            "cargodeny.cargodeny.unmatched-wrapper",
+            "cargodeny.cargodeny.unnecessary-skip",
+            "cargodeny.cargodeny.unresolved-workspace-dependency",
+            "cargodeny.cargodeny.unsound",
+            "cargodeny.cargodeny.unused-workspace-dependency",
+            "cargodeny.cargodeny.unused-wrapper",
+            "cargodeny.cargodeny.vulnerability",
+            "cargodeny.cargodeny.wildcard",
+            "cargodeny.cargodeny.workspace-duplicate",
+            "cargodeny.cargodeny.yanked",
+            "cargodeny.cargodeny.yanked-not-detected"
+        ],
+        "style": [
+            "cargodeny.cargodeny.*",
+            "cargodeny.cargodeny.duplicate"
+        ]
+    },
+    "test": {
+        "integration": [
+            {
+                "cmd": [
+                    "cargo",
+                    "deny",
+                    "--help"
+                ],
+                "returncode": 0
+            }
+        ],
+        "findings": [
+            "lucet"
+        ],
+        "no-findings": [
+            "busybox"
+        ]
+    }
+}

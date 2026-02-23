@@ -981,7 +981,7 @@ inherit cargo
 inherit sca
 inherit cargo-update-recipe-crates
 
-SCA_ENABLED_MODULES = "clippy"
+SCA_ENABLED_MODULES = "cargodeny clippy"
 
 # Compilation of this outdated code
 # is broken

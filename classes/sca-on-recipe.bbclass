@@ -13,6 +13,7 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             bandit \
                             bashate \
                             bitbake \
+                            cargodeny \
                             cbmc \
                             checkbashism \
                             clippy \

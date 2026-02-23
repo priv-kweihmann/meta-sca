@@ -84,6 +84,7 @@ SCA_AVAILABLE_MODULES ?= "\
                           bandit \
                           bashate \
                           bitbake \
+                          cargodeny \
                           cbmc \
                           checkbashism \
                           clippy \
