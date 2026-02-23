@@ -1,13 +1,13 @@
 {
-    "buildspeed": 6,
-    "execspeed": 10,
+    "buildspeed": 7,
+    "execspeed": 7,
     "languages": [
         "rust"
     ],
     "uses": [
-        "rust"
+        "@rust"
     ],
-    "quality": 7,
+    "quality": 9,
     "scope": [
         "security",
         "functional",
@@ -20,7 +20,7 @@
     },
     "test": {
         "integration": [
-            {"cmd": ["cargo-clippy", "--help"], "returncode": 2}
+            {"cmd": ["cargo-clippy", "--help"], "returncode": 0}
         ],
         "findings": [
             "lucet"
