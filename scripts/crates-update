@@ -54,6 +54,8 @@ def get_crates(args):
     res = []
     checksums = {}
     self_provided = set()
+    git_source_format = ''
+
     for root, dirs, _ in os.walk(args.sources):
         for dir in dirs:
             fullpath = os.path.join(root, dir)
@@ -64,8 +66,11 @@ def get_crates(args):
         for file in files:
             fullpath = os.path.join(root, file)
             if file in ['Cargo.lock'] and '/crates/' not in fullpath:
-                res, checksums, git_source_format = parse_crates(
-                    fullpath, self_provided)
+                print(f'Parsing {fullpath}')
+                res_, checksums_, git_source_format_ = parse_crates(fullpath, self_provided)
+                res += res_
+                checksums.update(checksums_)
+                git_source_format += git_source_format_
     return (res, checksums, git_source_format)
 
 
