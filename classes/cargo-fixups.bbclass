@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: BSD-2-Clause
 # Copyright (c) 2024, Konrad Weihmann
 
-CARGO_FIXUP_IGNORE = "/tests/"
+CARGO_FIXUP_IGNORE = "/tests/ /examples/"
 
 python do_cargo_fixup() {
     import subprocess
