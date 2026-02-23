@@ -18,6 +18,7 @@ cspell-user-dict-native
 cvecheck-sca-native
 gcc-sca-native
 github.com-golang-protobuf-native
+lucet
 npmaudit-sca-native
 p7zip-native
 packagegroup-sca-test

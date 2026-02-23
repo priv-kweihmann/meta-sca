@@ -9,6 +9,7 @@ RDEPENDS:${PN} += "\
     ${@oe.utils.ifelse('bandit' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-python3-bandit nativesdk-sca-recipe-bandit-rules', '')} \
     ${@oe.utils.ifelse('bashate' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-python3-bashate nativesdk-sca-recipe-bashate-rules', '')} \
     ${@oe.utils.ifelse('checkbashism' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-checkbashism nativesdk-sca-recipe-checkbashism-rules', '')} \
+    ${@oe.utils.ifelse('clippy' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-clippy-sca nativesdk-sca-recipe-clippy-rules', '')} \
     ${@oe.utils.ifelse('cppcheck' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-cppcheck nativesdk-sca-recipe-cppcheck-rules', '')} \
     ${@oe.utils.ifelse('cpplint' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-cpplint nativesdk-sca-recipe-cpplint-rules', '')} \
     ${@oe.utils.ifelse('darglint' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-python3-darglint nativesdk-sca-recipe-darglint-rules', '')} \

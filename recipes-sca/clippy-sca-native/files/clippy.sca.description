@@ -1,0 +1,32 @@
+{
+    "buildspeed": 6,
+    "execspeed": 10,
+    "languages": [
+        "rust"
+    ],
+    "uses": [
+        "rust"
+    ],
+    "quality": 7,
+    "scope": [
+        "security",
+        "functional",
+        "style"
+    ],
+    "score": {
+        "functional": [
+            "clippy.clippy..*"
+        ]
+    },
+    "test": {
+        "integration": [
+            {"cmd": ["cargo-clippy", "--help"], "returncode": 2}
+        ],
+        "findings": [
+            "lucet"
+        ],
+        "no-findings": [
+            "busybox"
+        ]
+    }
+}
