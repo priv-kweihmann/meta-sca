@@ -8,7 +8,7 @@ PACKAGEGROUP_DISABLE_COMPLEMENTARY = "1"
 RDEPENDS:${PN} += "\
     ${@oe.utils.ifelse('bandit' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-python3-bandit nativesdk-sca-recipe-bandit-rules', '')} \
     ${@oe.utils.ifelse('bashate' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-python3-bashate nativesdk-sca-recipe-bashate-rules', '')} \
-    ${@oe.utils.ifelse('cargodeny' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-cargodeny-sca nativesdk-advisory-db nativesdk-sca-recipe-cargodeny-rules', '')} \
+    ${@oe.utils.ifelse('cargodeny' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-rust-cargo-deny nativesdk-advisory-db nativesdk-sca-recipe-cargodeny-rules', '')} \
     ${@oe.utils.ifelse('checkbashism' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-checkbashism nativesdk-sca-recipe-checkbashism-rules', '')} \
     ${@oe.utils.ifelse('clippy' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-clippy-sca nativesdk-sca-recipe-clippy-rules', '')} \
     ${@oe.utils.ifelse('cppcheck' in (d.getVar('SCA_AVAILABLE_MODULES') or '').split(' '), 'nativesdk-cppcheck nativesdk-sca-recipe-cppcheck-rules', '')} \
