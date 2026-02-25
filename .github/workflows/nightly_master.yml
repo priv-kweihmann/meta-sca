@@ -23,7 +23,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        testset: [standard, kernel, cbmc, cppcheck, license]
+        testset: [standard, kernel, cbmc, cppcheck, license, rust]
         include:
         - testset: standard
           BUILD_PARAMFILE: standard
