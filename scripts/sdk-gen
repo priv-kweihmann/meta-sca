@@ -37,6 +37,7 @@ _notranlate = [
     "python3-handy-archives-native",
     "python3-hatch-requirements-txt-native",
     "python3-hatch-vcs-native",
+    "python3-uv-build-native",
     "python3-mistletoe-native",
     "python3-natsort-native",
     "python3-nose-native",
