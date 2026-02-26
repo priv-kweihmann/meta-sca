@@ -763,3 +763,6 @@ inherit sca-description
 inherit_defer native
 
 SCA_TOOL_DESCRIPTION = "cargodeny"
+
+# nooelint: oelint.vars.insaneskip
+INSANE_SKIP:${PN} += "already-stripped"
