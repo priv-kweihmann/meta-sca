@@ -18,4 +18,7 @@ do_install() {
     install -d ${D}${datadir}/advisory-db-3157b0e258782691
     cp -Ra ${S}/* ${D}${datadir}/advisory-db-3157b0e258782691
     cp -Ra ${S}/.git ${D}${datadir}/advisory-db-3157b0e258782691/
+    chown -R root:root ${D}${datadir}/advisory-db-3157b0e258782691/
 }
+
+FILES:${PN} += "${datadir} ${datadir}/advisory-db-3157b0e258782691/.git"
