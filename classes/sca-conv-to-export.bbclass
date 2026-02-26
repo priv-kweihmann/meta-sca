@@ -33,7 +33,7 @@ def sca_conv_to_export(d, tool):
     return res
 
 def sca_conv_export_get_deployname(d, tool, _format):
-    _exportsuffix = d.getVar("SCA_EXPORT_FORMAT_SUFFIX_{}".format(_format))
+    _exportsuffix = d.getVarFlag("SCA_EXPORT_FORMAT_SUFFIX", _format)
     return "sca_{}_{}.{}".format(_format, tool, _exportsuffix)
 
 def sca_conv_deploy(d, tool):
@@ -45,7 +45,7 @@ def sca_conv_deploy(d, tool):
     _rawsuffix = d.getVarFlag("SCA_RAW_RESULT_FILE", tool)
 
     for _exportformat in clean_split(d, "SCA_EXPORT_FORMAT"):
-        _exportsuffix = d.getVar("SCA_EXPORT_FORMAT_SUFFIX_{}".format(_exportformat))
+        _exportsuffix = d.getVarFlag("SCA_EXPORT_FORMAT_SUFFIX", _exportformat)
 
         os.makedirs(os.path.join(d.getVar("SCA_FINDINGS_DIR"), tool, "raw"),
                     exist_ok=True)
