@@ -11,5 +11,8 @@
     "recipes-python/python-scabot-native/",
     "recipes-python/python-tenacity-native/",
     "recipes-python/python-unidiff-native/",
-    "recipes-python/python-uritemplate-native/"
+    "recipes-python/python-uritemplate-native/",
+    "recipes-sca/rust-cargo-deny-native/",
+    "recipes-sca-rules/sca-recipe-cargodeny-rules-native/",
+    "recipes-sca-rules/sca-recipe-clippy-rules-native/"
 ]
