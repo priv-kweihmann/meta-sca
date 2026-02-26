@@ -6,14 +6,15 @@
 
 ## Configuration
 
-| var | purpose | type | default |
-| ------------- |:-------------:| -----:| -----:
-| SCA_BLOCKLIST[scancode] | Blacklist filter for this tool | space-separated-list | ""
-| SCA_SCANCODE_BAD_CRHOLDER |  Discouraged copyright holders | comma separated regex list | ""
-| SCA_SCANCODE_EXTRA_FATAL | Extra error-IDs leading to build termination when found | space-separated-list | "":
-| SCA_SCANCODE_EXTRA_SUPPRESS | Extra error-IDs to be suppressed | space-separated-list | ""
-| SCA_SCANCODE_LICENSE_FILE_EXCEPTIONS | Files that should be ignored for license info check | comma separated regex list | see `sca-scancode.bbclass` for details
-| SCA_SCANCODE_LICENSE_FILE_MINLENGTH | Minimum length of license info | int | "2"
+| var                                  |                         purpose                         |                       type |                                     default |
+| ------------------------------------ | :-----------------------------------------------------: | -------------------------: | ------------------------------------------: |
+| SCA_BLOCKLIST[scancode]              |             Blacklist filter for this tool              |       space-separated-list |                                          "" |
+| SCA_SCANCODE_BAD_CRHOLDER            |              Discouraged copyright holders              | comma separated regex list |                                          "" |
+| SCA_SCANCODE_EXTRA_FATAL             | Extra error-IDs leading to build termination when found |       space-separated-list |                                         "": |
+| SCA_SCANCODE_EXTRA_SUPPRESS          |            Extra error-IDs to be suppressed             |       space-separated-list |                                          "" |
+| SCA_SCANCODE_LICENSE_FILE_EXCEPTIONS |   Files that should be ignored for license info check   | comma separated regex list |      see `sca-scancode.bbclass` for details |
+| SCA_SCANCODE_LICENSE_FILE_MINLENGTH  |             Minimum length of license info              |                        int |                                         "2" |
+| SCA_SCANCODE_THREADS                 |                    Number of threads                    |                        int | BB_NUMBER_THREADS or 8, which ever is lower |
 
 ## Supports
 

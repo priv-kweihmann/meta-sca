@@ -15,6 +15,7 @@ SCA_SCANCODE_LICENSE_FILE_EXCEPTIONS ?= "\
 "
 
 SCA_SCANCODE_LICENSE_FILE_MINLENGTH ?= "2"
+SCA_SCANCODE_THREADS ?= "${@str(min(int(d.getVar('BB_NUMBER_THREADS') or '0'), 8))}"
 
 SCA_RAW_RESULT_FILE[scancode] = "txt"
 SCA_RAW_RESULT_FILE[scancode_raw] = "json"
@@ -74,7 +75,7 @@ def do_sca_conv_scancode(d):
     sca_add_model_class_list(d, _findings)
     return sca_save_model_to_string(d)
 
-do_sca_scancode[vardepsexclude] += "BB_NUMBER_THREADS"
+do_sca_scancode[vardepsexclude] += "SCA_SCANCODE_THREADS"
 python do_sca_scancode() {
     import os
     import subprocess
@@ -82,7 +83,7 @@ python do_sca_scancode() {
     os.environ["SCANCODE_CACHE"] = d.getVar("T")
     os.environ["SCANCODE_TEMP"] = d.getVar("T")
     _args = ["scancode", "-l", "-c", "--json", sca_raw_result_file(d, "scancode_raw"),
-             "--strip-root", "-n", d.getVar("BB_NUMBER_THREADS"), "--quiet"]
+             "--strip-root", "-n", d.getVar("SCA_SCANCODE_THREADS"), "--quiet"]
 
     ## Run
     out = exec_wrap_check_output(d, _args, [d.getVar("SCA_SOURCES_DIR")])

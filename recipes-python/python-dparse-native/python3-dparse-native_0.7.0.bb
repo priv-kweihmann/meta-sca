@@ -1,5 +1,5 @@
 SUMMARY = "A parser for Python dependency files"
-HOMEPAGE = "https://github.com/pyupio/dparse"
+HOMEPAGE = "https://github.com/nexB/dparse2"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
@@ -9,9 +9,12 @@ DEPENDS += "\
             python3-packaging-native \
             python3-pyyaml-native \
             python3-six-native \
+            python3-tomli-native \
            "
 
 PYPI_PACKAGE = "dparse2"
+
+SRC_URI:append = " file://7.patch"
 
 SRC_URI[sha256sum] = "6bf6872aeaffedcac67ad0abb516630bad045dbdb58505b58d8f796ee91f0a73"
 
