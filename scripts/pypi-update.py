@@ -113,7 +113,7 @@ def update_pkg(args):
             except subprocess.CalledProcessError:
                 pass
 
-    if _updated:
+    if _updated and _recipe_oldname != _recipe_newname:
         os.remove(_recipe_oldname)
     return True
 
