@@ -5,14 +5,14 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=7742d436e18716a43014253ae9f16b7e"
 
-SRC_URI[md5sum] = "cda27bf208953a7c0f27ae6735f0f053"
-SRC_URI[sha256sum] = "cb8277902a1138deeab796ec5bef7076a6e0248ca3607a3f3dee0b6d9e9b8415"
+SRC_URI[md5sum] = "9a27255eb44a93c29593ee4721cee351"
+SRC_URI[sha256sum] = "f9d8b4ce29c69950d323f21dceab4a4d6c694403dffbed7713c4691057e561fe"
 
 PYPI_PACKAGE = "vulture"
 
 inherit pypi
 inherit sca-description
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit_defer native
 
 SCA_TOOL_DESCRIPTION = "vulture"
