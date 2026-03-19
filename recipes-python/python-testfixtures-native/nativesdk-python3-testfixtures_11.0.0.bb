@@ -9,11 +9,11 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=ef9ea9bec729a33fef60ec5ef45edd22"
 
 PYPI_PACKAGE = "testfixtures"
 
-SRC_URI[md5sum] = "47d7c2f5026e0b7212d152cb487e6f40"
-SRC_URI[sha256sum] = "2b9829bf7f42f0ca8600250762e6725575da59af18d9a7f82aae2c97b14f0f66"
+SRC_URI[md5sum] = "b1fccdb2f76814804c6982d5a8aaa1b9"
+SRC_URI[sha256sum] = "06dfeb3792e06c4ea7217e14114391f6c7735c36e0a57e6f4641c6ae5d790ee7"
 
 inherit pypi
-inherit setuptools3
+inherit python_hatchling
 inherit_defer nativesdk
 
 RDEPENDS:${PN}:class-nativesdk += "\
