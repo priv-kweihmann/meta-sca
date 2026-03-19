@@ -12,7 +12,7 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "html5lib"
 
-SRC_URI:append = " file://589.patch"
+SRC_URI:append = " file://589.patch file://594.patch"
 
 SRC_URI[sha256sum] = "b2e5b40261e20f354d198eae92afc10d750afb487ed5e50f9c4eaf07c184146f"
 
