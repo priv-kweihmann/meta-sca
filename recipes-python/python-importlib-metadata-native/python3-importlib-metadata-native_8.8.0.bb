@@ -4,7 +4,7 @@ HOMEPAGE = "https://pypi.org/project/importlib-metadata/"
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=cf73015ea0156450506e8000d1f7fa37"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=affe5a7d8b988c3db245c01075b29e17"
 
 DEPENDS += "\
     python3-coherent-licensed-native \
@@ -18,7 +18,7 @@ inherit_defer native
 
 PYPI_PACKAGE = "importlib_metadata"
 
-SRC_URI[sha256sum] = "49fef1ae6440c182052f407c8d34a68f72efc36db9ca90dc0113398f2fdde8bb"
+SRC_URI[sha256sum] = "d4ae075d546a9c2db36f0ba957f15f9443c9604e57d0785701621cb7ea2ec5d7"
 
 S = "${UNPACKDIR}/importlib_metadata-${PV}"
 
