@@ -15,3 +15,9 @@ inherit pypi
 inherit pypi-old
 inherit python_setuptools_build_meta
 inherit_defer native
+
+do_configure:prepend() {
+    # remove the upper setuptools limit
+    # as this is an ever moving target
+    sed -i "s#,<=[0-9][0-9].[0-9].[0-9]##" ${S}/pyproject.toml
+}
