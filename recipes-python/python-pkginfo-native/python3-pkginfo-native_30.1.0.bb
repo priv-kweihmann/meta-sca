@@ -10,5 +10,5 @@ SRC_URI = "\
 "
 SRCREV = "387a73f88028236978becd4046f999fcf5174c42"
 
-inherit setuptools3
+inherit python_setuptools_build_meta
 inherit_defer native
