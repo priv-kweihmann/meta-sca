@@ -4,7 +4,6 @@ bitbake
 checkbashism
 cmake
 cpplint
-cvecheck
 darglint
 dennis
 detectsecrets

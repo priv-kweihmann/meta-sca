@@ -20,7 +20,6 @@ SCA_ENABLED_MODULES_RECIPE ?= "\
                             cmake \
                             cppcheck \
                             cpplint \
-                            cvecheck \
                             darglint \
                             dennis \
                             detectsecrets \

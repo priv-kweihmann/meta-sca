@@ -15,7 +15,6 @@ bitbake-sca-native
 core-image-minimal-scatest
 cspell
 cspell-user-dict-native
-cvecheck-sca-native
 gcc-sca-native
 github.com-golang-protobuf-native
 lucet

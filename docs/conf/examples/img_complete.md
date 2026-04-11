@@ -43,7 +43,6 @@ SCA_ENABLED_MODULES_RECIPE = "\
                             checkbashism \
                             cppcheck \
                             cpplint \
-                            cvecheck \
                             darglint \
                             dennis \
                             detectsecrets \

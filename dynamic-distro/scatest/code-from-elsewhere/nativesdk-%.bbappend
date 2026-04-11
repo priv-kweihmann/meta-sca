@@ -6,7 +6,6 @@ SCA_ENABLED_MODULES:remove:class-nativesdk = "${@oe.utils.ifelse(not bb.data.inh
 SCA_ENABLED_MODULES:remove:class-nativesdk = "${@oe.utils.ifelse(not bb.data.inherits_class('packagegroup', d), 'cmake', '')}"
 SCA_ENABLED_MODULES:remove:class-nativesdk = "${@oe.utils.ifelse(not bb.data.inherits_class('packagegroup', d), 'cppcheck', '')}"
 SCA_ENABLED_MODULES:remove:class-nativesdk = "${@oe.utils.ifelse(not bb.data.inherits_class('packagegroup', d), 'cpplint', '')}"
-SCA_ENABLED_MODULES:remove:class-nativesdk = "${@oe.utils.ifelse(not bb.data.inherits_class('packagegroup', d), 'cvecheck', '')}"
 SCA_ENABLED_MODULES:remove:class-nativesdk = "${@oe.utils.ifelse(not bb.data.inherits_class('packagegroup', d), 'darglint', '')}"
 SCA_ENABLED_MODULES:remove:class-nativesdk = "${@oe.utils.ifelse(not bb.data.inherits_class('packagegroup', d), 'dennis', '')}"
 SCA_ENABLED_MODULES:remove:class-nativesdk = "${@oe.utils.ifelse(not bb.data.inherits_class('packagegroup', d), 'detectsecrets', '')}"

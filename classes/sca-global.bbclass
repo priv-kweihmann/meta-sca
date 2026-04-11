@@ -91,7 +91,6 @@ SCA_AVAILABLE_MODULES ?= "\
                           cmake \
                           cppcheck \
                           cpplint \
-                          cvecheck \
                           darglint \
                           dennis \
                           detectsecrets \
