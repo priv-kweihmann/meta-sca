@@ -12,6 +12,8 @@ EXTRA_DEPENDS += "\
     nativesdk-github.com-mattn-go-isatty \
     nativesdk-golang.org-x-sys \
 "
+
 GO_IMPORT = "github.com/fatih/color"
+
 inherit gosrc
 inherit_defer nativesdk
