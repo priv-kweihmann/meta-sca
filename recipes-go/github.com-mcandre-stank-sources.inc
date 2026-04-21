@@ -1,11 +1,11 @@
-SRC_URI += "https://proxy.golang.org/github.com/mcandre/stank/@v/v0.0.42.zip;srcoutput=github.com/mcandre/stank;srcinput=github.com/mcandre/stank@v0.0.42;downloadfilename=github-com-mcandre-stank-0.0.42.zip;name=github-com-mcandre-stank"
-SRC_URI[github-com-mcandre-stank.sha256sum] = "a23883fe4dbd1d32a68940f3c37f3410731e728b038d70ef9b20e71463effdb8"
+SRC_URI += "https://proxy.golang.org/github.com/mcandre/stank/@v/v0.0.44.zip;srcoutput=github.com/mcandre/stank;srcinput=github.com/mcandre/stank@v0.0.44;downloadfilename=github-com-mcandre-stank-0.0.44.zip;name=github-com-mcandre-stank"
+SRC_URI[github-com-mcandre-stank.sha256sum] = "1bdad647e67e3a7b97f2a3b3f3795e2b221676a73e706e13ff312cd035f4280f"
 
 GOSRC_LICENSE += "\
-    BSD-2-Clause-Views \
+    0BSD \
 "
 LIC_FILES_CHKSUM += "\
-    file://github.com/mcandre/stank/LICENSE.md;md5=6a55da1ae5d911566ba1a841e39c5a42 \
+    file://github.com/mcandre/stank/LICENSE.md;md5=243a8c3620f02a662c4fed78e2be8ed9 \
 "
 
 GOSRC_INCLUDEGUARD += "github.com-mcandre-stank-sources.inc"
