@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://README.md;beginline=217;endline=220;md5=c6eace11110d0
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/Clone-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "f4059d9ef1a1d05bc545ad79e8683645"
-SRC_URI[sha256sum] = "321d4cd1078e19519600abd7bda2991b468603c58455479e3d2e25a5acb1911f"
+SRC_URI[md5sum] = "792aa8855c32abb22b814cd9182076e5"
+SRC_URI[sha256sum] = "f9732a4a857974db30905233589113003301b585b0cecda29a21cfba5bb014f9"
 
 UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/Clone-${PV}"
