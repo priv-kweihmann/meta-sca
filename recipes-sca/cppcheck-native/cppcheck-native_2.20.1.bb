@@ -14,7 +14,7 @@ LIC_FILES_CHKSUM = "\
 SRC_URI = "\
     git://github.com/danmar/cppcheck.git;protocol=https;nobranch=1 \
 "
-SRCREV = "502c802a69c78f3d8cfd9973aa2108ae169c73b5"
+SRCREV = "b2606ff3123cfafebe12d1621a57e28f270d809e"
 
 inherit pkgconfig
 inherit sca-description
