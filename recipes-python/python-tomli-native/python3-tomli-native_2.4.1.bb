@@ -12,7 +12,7 @@ inherit_defer native
 PYPI_PACKAGE = "tomli"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
-SRC_URI[sha256sum] = "aa89c3f6c277dd275d8e243ad24f3b5e701491a860d5121f2cdd399fbb31fc9c"
+SRC_URI[sha256sum] = "7c7e1a961a0b2f2472c1ac5b69affa0ae1132c39adcb67aba98568702b9cc23f"
 
 RDEPENDS:${PN}:class-nativesdk += "\
     nativesdk-python3-datetime \
