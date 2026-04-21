@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=42b280e18423c22b76d77cbbc6f59b47"
 DEPENDS += "python3-license-expression-native"
 
 SRC_URI = "git://github.com/priv-kweihmann/licensecheck.git;branch=master;protocol=https"
-SRCREV = "ecfaf7bdda88fa0e73a75ffe7b99ca219552e22b"
+SRCREV = "5ae3eb5d793c0c97bb63c0424b161498134419c5"
 
 inherit python_setuptools_build_meta
 inherit_defer native
