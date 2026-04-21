@@ -19,8 +19,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "typecode"
 
-SRC_URI[md5sum] = "0a7c4b18e9c9b50bcb3af85cef771b32"
-SRC_URI[sha256sum] = "fca3617a43c307578656d70634c287c7da32aee3fdee87fbc9dcf1fbd3fb750f"
+SRC_URI[md5sum] = "e26ea3ec908c08d8ac780eb3588990ed"
+SRC_URI[sha256sum] = "42b9477d7d05ba5668768dae46c2d2700d503b6e3791d2cd8003b5d10d0ea330"
 
 inherit pypi
 inherit python_setuptools_build_meta
