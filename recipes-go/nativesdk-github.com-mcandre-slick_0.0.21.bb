@@ -9,7 +9,7 @@ require github.com-mcandre-slick-sources.inc
 
 EXTRA_DEPENDS += "\
     nativesdk-github.com-magefile-mage \
-    nativesdk-github.com-mcandre-mage-extras \
+    nativesdk-github.com-mcandre-mx \
     nativesdk-mvdan.cc-sh-v3 \
 "
 
