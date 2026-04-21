@@ -1,5 +1,5 @@
-SRC_URI += "https://proxy.golang.org/github.com/magefile/mage/@v/v1.16.1.zip;srcoutput=github.com/magefile/mage;srcinput=github.com/magefile/mage@v1.16.1;downloadfilename=github-com-magefile-mage-1.16.1.zip;name=github-com-magefile-mage"
-SRC_URI[github-com-magefile-mage.sha256sum] = "8cf83254293875666b5f2ddade57244d61a2b5eeaf45fc013d203b09bea8f850"
+SRC_URI += "https://proxy.golang.org/github.com/magefile/mage/@v/v1.17.1.zip;srcoutput=github.com/magefile/mage;srcinput=github.com/magefile/mage@v1.17.1;downloadfilename=github-com-magefile-mage-1.17.1.zip;name=github-com-magefile-mage"
+SRC_URI[github-com-magefile-mage.sha256sum] = "cdd2cdaa168901af4a712f0e136e9fc3d4e5f0962ab0a5a6ea1b6e414d626bf0"
 
 GOSRC_LICENSE += "\
     Apache-2.0 \
