@@ -12,8 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "intbitset"
 
-SRC_URI[md5sum] = "d07f5c457e188d1db03d75302c10807f"
-SRC_URI[sha256sum] = "73145ff05e4227c76585ff8550638b6a083cd130010b781045d81af58f7b6920"
+SRC_URI[md5sum] = "4f7ffb83c9888e0390ca44c17ed0a93a"
+SRC_URI[sha256sum] = "f82fafe0bcb4fe7a010d942099b5a84d721d37c897538ed632f788962c1411f8"
 
 inherit pypi
 inherit setuptools3
