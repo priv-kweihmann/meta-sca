@@ -16,10 +16,8 @@ LIC_FILES_CHKSUM = "file://apache-2.0.LICENSE;md5=86d3f3a95c324c9479bd8986968f43
 
 PYPI_PACKAGE = "extractcode"
 
-SRC_URI[md5sum] = "428c307fc9199dfef2c3a284cacc03b0"
-SRC_URI[sha256sum] = "80819392e9bcf8129f74d8904fe8a98c0dfed2782356842737282c0283113d88"
-
-SRC_URI:append = " file://0001-setup.cfg-fix-invalid-version-spec.patch"
+SRC_URI[md5sum] = "864777d0f3d5dcb1b62267e2e950f582"
+SRC_URI[sha256sum] = "e62b75ecf0379beea79cd54d5f1341ac05ec39974e5695ad21d0abb86a0ab6a4"
 
 inherit pypi
 inherit python_setuptools_build_meta
