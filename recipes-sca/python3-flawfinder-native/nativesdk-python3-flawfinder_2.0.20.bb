@@ -5,14 +5,14 @@ DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=0636e73ff0215e8d672dc4c32c317bb3"
 
-DEPENDS += "python3-native"
+DEPENDS += "nativesdk-python3"
 
 SRC_URI += "git://github.com/david-a-wheeler/flawfinder.git;nobranch=1;protocol=https"
-SRCREV = "c57197cd6061453f10a496f30a732bc1905918d1"
+SRCREV = "c4216b74cf2639ffa98503768bd6e4299b5440c9"
 
 inherit sca-description
 inherit setuptools3
-inherit_defer native
+inherit_defer nativesdk
 
 SCA_TOOL_DESCRIPTION = "flawfinder"
 PIP_INSTALL_PACKAGE = "flawfinder"
