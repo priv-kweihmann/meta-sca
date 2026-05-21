@@ -133,6 +133,7 @@ jobs:
         uses: priv-kweihmann/meta-sca-ci-utils/testresults@2.0
         with:
           parameter-file: ${{ matrix.BUILD_PARAMFILE }}
+          clean-skip: "deploy hosttools sysroots-uninative"
         env:
           BUILDNTEST_NOSCABOT: ${{ matrix.BUILDNTEST_NOSCABOT }}
       - if: env.BUILD_EXPORT == '1'
