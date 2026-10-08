@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/python-gitlab/python-gitlab"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "LGPL-3.0-only"
-LIC_FILES_CHKSUM = "file://COPYING;md5=e6a600fd5e1d9cbde2d983680233ad02"
+LIC_FILES_CHKSUM = "file://COPYING;md5=b70895b5c1db69fe9503d38b20b5b91b"
 
 DEPENDS += "\
             python3-requests-native \
@@ -12,7 +12,7 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "python-gitlab"
 
-SRC_URI[sha256sum] = "628529ec4ce1f9a7ba2c145b2cf5e4eeca3015418e504b2e6fba70171b6b1b59"
+SRC_URI[sha256sum] = "d1602164fb58ab280ceef460faf015cec6e7d83bb2d9cbae44ba448adb5568ef"
 
 inherit pypi
 inherit pypi-old

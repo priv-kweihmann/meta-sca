@@ -14,6 +14,9 @@ PYPI_PACKAGE = "requests-toolbelt"
 SRC_URI[md5sum] = "6a8348cfc9991b44e499345db1c6f925"
 SRC_URI[sha256sum] = "7681a0a3d047012b5bdc0ee37d7f8f07ebe76ab08caeccfc3921ce23c88d5bc6"
 
+PYPI_ESCAPE_PACKAGE_NAME = "0"
+
 inherit pypi
+inherit pypi-old
 inherit setuptools3
 inherit_defer native
