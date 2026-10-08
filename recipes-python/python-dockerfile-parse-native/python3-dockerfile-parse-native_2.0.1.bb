@@ -9,6 +9,9 @@ PYPI_PACKAGE = "dockerfile-parse"
 
 SRC_URI[sha256sum] = "3184ccdc513221983e503ac00e1aa504a2aa8f84e5de673c46b0b6eee99ec7bc"
 
+PYPI_ESCAPE_PACKAGE_NAME = "0"
+
 inherit pypi
+inherit pypi-old
 inherit setuptools3
 inherit_defer native

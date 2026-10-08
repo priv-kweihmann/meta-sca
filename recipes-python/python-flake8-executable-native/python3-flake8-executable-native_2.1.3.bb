@@ -15,7 +15,10 @@ PYPI_PACKAGE = "flake8-executable"
 SRC_URI[md5sum] = "045f744bc561759622d8a8a030f5dc6b"
 SRC_URI[sha256sum] = "619fe023e00c3d8e5113521d7200e1ebb04587c12d157f9a2fb167feb8cae66b"
 
+PYPI_ESCAPE_PACKAGE_NAME = "0"
+
 inherit pypi
+inherit pypi-old
 inherit setuptools3
 inherit_defer native
 

@@ -15,7 +15,10 @@ PYPI_PACKAGE = "flake8-print"
 SRC_URI[md5sum] = "b541b0ca61010d3a6fa91a3fb1400a06"
 SRC_URI[sha256sum] = "76915a2a389cc1c0879636c219eb909c38501d3a43cc8dae542081c9ba48bdf9"
 
+PYPI_ESCAPE_PACKAGE_NAME = "0"
+
 inherit pypi
+inherit pypi-old
 inherit python_poetry_core
 inherit_defer nativesdk
 

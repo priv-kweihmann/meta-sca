@@ -19,7 +19,10 @@ SRC_URI:append = " \
 
 SRC_URI[sha256sum] = "68dfa56582cd704febd02ad86dcf5df67e38e0836d62f1ceae7930d76d3dd955"
 
+PYPI_ESCAPE_PACKAGE_NAME = "0"
+
 inherit pypi
+inherit pypi-old
 inherit python_poetry_core
 inherit_defer native
 

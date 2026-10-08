@@ -11,7 +11,10 @@ PYPI_PACKAGE = "flake8-use-fstring"
 
 SRC_URI[sha256sum] = "6550bf722585eb97dffa8343b0f1c372101f5c4ab5b07ebf0edd1c79880cdd39"
 
+PYPI_ESCAPE_PACKAGE_NAME = "0"
+
 inherit pypi
+inherit pypi-old
 inherit setuptools3
 inherit_defer nativesdk
 

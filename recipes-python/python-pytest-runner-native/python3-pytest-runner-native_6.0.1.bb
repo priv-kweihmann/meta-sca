@@ -8,7 +8,10 @@ DEPENDS += "python3-setuptools-scm-native"
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 SRC_URI[sha256sum] = "70d4739585a7008f37bf4933c013fdb327b8878a5a69fcbb3316c88882f0f49b"
 
+PYPI_ESCAPE_PACKAGE_NAME = "0"
+
 inherit pypi
+inherit pypi-old
 inherit python_setuptools_build_meta
 inherit_defer native
 

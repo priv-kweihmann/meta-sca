@@ -15,7 +15,10 @@ SRC_URI:append = " file://0001-Use-poetry-core-for-pyproject-based-builds.patch"
 
 SRC_URI[sha256sum] = "39f6f338d038b301c6fd344b06f2e81e382b68fa03c0560dff0d9b1791a11a2c"
 
+PYPI_ESCAPE_PACKAGE_NAME = "0"
+
 inherit pypi
+inherit pypi-old
 inherit python_poetry_core
 inherit_defer native
 

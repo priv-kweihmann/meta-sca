@@ -16,7 +16,10 @@ PYPI_PACKAGE = "pymaven-patch"
 SRC_URI[md5sum] = "95bff7bf04a69aafaefae7e91c942f94"
 SRC_URI[sha256sum] = "0cf7c93e89f01f0408eb656eec58cb4a228c95e03b3d47cb73d31f899055cd50"
 
+PYPI_ESCAPE_PACKAGE_NAME = "0"
+
 inherit pypi
+inherit pypi-old
 inherit setuptools3
 inherit_defer native
 

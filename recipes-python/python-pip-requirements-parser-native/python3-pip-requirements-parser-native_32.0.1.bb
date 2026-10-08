@@ -15,6 +15,9 @@ PYPI_PACKAGE = "pip-requirements-parser"
 
 SRC_URI[sha256sum] = "b4fa3a7a0be38243123cf9d1f3518da10c51bdb165a2b2985566247f9155a7d3"
 
+PYPI_ESCAPE_PACKAGE_NAME = "0"
+
 inherit pypi
+inherit pypi-old
 inherit python_setuptools_build_meta
 inherit_defer native

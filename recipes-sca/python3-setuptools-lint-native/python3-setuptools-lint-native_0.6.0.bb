@@ -17,7 +17,10 @@ SRC_URI[sha256sum] = "e794e15c7c8dde970b618d9c7ad4588aeaea067f034ccb4ae8facc630b
 
 PYPI_PACKAGE = "setuptools-lint"
 
+PYPI_ESCAPE_PACKAGE_NAME = "0"
+
 inherit pypi
+inherit pypi-old
 inherit sca-description
 inherit setuptools3
 inherit_defer native

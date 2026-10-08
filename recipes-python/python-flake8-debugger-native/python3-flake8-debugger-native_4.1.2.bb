@@ -12,7 +12,10 @@ DEPENDS += "python3-flake8-native"
 SRC_URI[md5sum] = "f5e7dbd23d72358d83942f97d8b68707"
 SRC_URI[sha256sum] = "52b002560941e36d9bf806fca2523dc7fb8560a295d5f1a6e15ac2ded7a73840"
 
+PYPI_ESCAPE_PACKAGE_NAME = "0"
+
 inherit pypi
+inherit pypi-old
 inherit python_poetry_core
 inherit_defer native
 

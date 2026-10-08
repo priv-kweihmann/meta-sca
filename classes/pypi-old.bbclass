@@ -33,7 +33,7 @@ S = "${@pypi_src_workspace(d)}"
 def pypi_normalize_alt(d):
     import re
     pkg = d.getVar('PYPI_PACKAGE')
-    res = [pypi_normalize(d)]
+    res = [pypi_package_normalise(pkg)]
     for item in [(r"[-_.]+", "-"), (r"[-_]+", "-"), (r"[-_.]+", "_"), (r"[-_]+", "_")]:
         res.append(re.sub(item[0], item[1], pkg).lower())
     for item in [(r"[-_.]+", "-"), (r"[-_]+", "-"), (r"[-_.]+", "_"), (r"[-_]+", "_")]:
