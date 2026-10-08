@@ -16,8 +16,8 @@ DEPENDS += "\
     python3-pytest-runner-native \
 "
 
-SRC_URI[md5sum] = "8ca727ebe6134d3abea7f728e0dbcb07"
-SRC_URI[sha256sum] = "1c1b2128bde5ff5e966801413080b6384d42a5782718d528c906dbb6beab94ed"
+SRC_URI[md5sum] = "bcfa36c4506837cc8958d7074e4b17c2"
+SRC_URI[sha256sum] = "235f13dc418c0041c649b42a5c35c99f2ffc6ca8b6a7574958eac5335906a68a"
 
 PYPI_PACKAGE = "pylint"
 
