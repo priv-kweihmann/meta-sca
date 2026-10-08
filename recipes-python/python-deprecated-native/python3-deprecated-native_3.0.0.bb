@@ -3,18 +3,18 @@ HOMEPAGE = "https://github.com/tantale/deprecated"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.rst;md5=44288e26f4896bdab14072d4fa35ff01"
+LIC_FILES_CHKSUM = "file://LICENSE.md;md5=656397bbedec0bd68b9163ff5e53032b"
 
 DEPENDS += "\
-            python3-wrapt-native \
-           "
+    python3-wrapt-native \
+"
 
 PYPI_PACKAGE = "Deprecated"
 
-SRC_URI[md5sum] = "6d3cdba9eae4c15531b046cc4b112cd7"
-SRC_URI[sha256sum] = "b1b50e0ff0c1fddaa5708a2c6b0a6588bb09b892825ab2b214ac9ea9d92a5223"
+SRC_URI[md5sum] = "c4b5257eacc1ecfb22212b910079dc37"
+SRC_URI[sha256sum] = "16850204d3a1e6bb0acd06bff48d96e8b0a0d25d1c52f71705405a0f4894192d"
 
 inherit pypi
 inherit pypi-old
-inherit setuptools3
+inherit python_hatchling
 inherit_defer native
