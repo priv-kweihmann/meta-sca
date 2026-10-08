@@ -15,6 +15,9 @@ PYPI_PACKAGE = "python-dateutil"
 
 SRC_URI[sha256sum] = "78e73e19c63f5b20ffa567001531680d939dc042bf7850431877645523c66709"
 
+PYPI_ESCAPE_PACKAGE_NAME = "0"
+
 inherit pypi
+inherit pypi-old
 inherit python_setuptools_build_meta
 inherit_defer native
