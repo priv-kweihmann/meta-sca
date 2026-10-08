@@ -16,6 +16,7 @@
 .*/recipes-go/github.com-stretchr-objx-native.*
 .*/recipes-go/github.com-stretchr-testify.*
 .*/recipes-go/github.com-urfave-cli-native_.*
+.*/recipes-go/go.yaml.in-yaml-native.*.bb
 .*/recipes-go/google.golang.org-api-native_.*
 .*/recipes-go/gopkg.in-check.v1-native.*
 .*/recipes-go/gopkg.in-yaml.v2.*
@@ -96,6 +97,7 @@
 .*/recipes-python/python-python-dateutil-native/.*
 .*/recipes-python/python-python-gitlab-native/.*
 .*/recipes-python/python-python-magic-native/.*
+.*/recipes-python/python-pytz-native/.*
 .*/recipes-python/python-rdflib-native/python3-rdflib-native.*
 .*/recipes-python/python-requests-toolbelt-native/.*
 .*/recipes-python/python-scabot-native/.*
