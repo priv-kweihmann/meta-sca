@@ -3,12 +3,12 @@ HOMEPAGE = "https://metacpan.org/pod/Clone"
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 LICENSE = "Artistic-1.0 AND GPL-2.0-only"
-LIC_FILES_CHKSUM = "file://README.md;beginline=217;endline=220;md5=c6eace11110d07e007cb7c426d201ddd"
+LIC_FILES_CHKSUM = "file://README.md;beginline=212;endline=219;md5=6d14e4391c97817fc076dd25a84b5cc8"
 
 SRC_URI = "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/Clone-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "792aa8855c32abb22b814cd9182076e5"
-SRC_URI[sha256sum] = "f9732a4a857974db30905233589113003301b585b0cecda29a21cfba5bb014f9"
+SRC_URI[md5sum] = "dfd3f7bffd1c2725f0d114c2ee2880a5"
+SRC_URI[sha256sum] = "f17f66fec97dacca67ac9585701d2d079cfc80539fe6e8160c201c4e55f67507"
 
 UNPACKDIR ??= "${WORKDIR}/sources"
 S = "${UNPACKDIR}/Clone-${PV}"
