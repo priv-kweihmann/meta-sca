@@ -9,8 +9,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=ef9ea9bec729a33fef60ec5ef45edd22"
 
 PYPI_PACKAGE = "testfixtures"
 
-SRC_URI[md5sum] = "60ba50953b539c787c353d0e1de5c38b"
-SRC_URI[sha256sum] = "d807ceb9bdd6ea7cc0663370dd5568339056b35dc15c26effd1ae267e323acf1"
+SRC_URI[md5sum] = "b5f3e814bc973f11ada31177cb64695a"
+SRC_URI[sha256sum] = "cc0108614f88ace8817b587bea06615bdd225fec392ed3de8afabff5d1ef21c7"
 
 inherit pypi
 inherit python_hatchling
