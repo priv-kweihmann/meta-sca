@@ -22,7 +22,7 @@ add_fake_secret() {
 
 IMAGE_ROOTFS_SIZE ?= "8192"
 IMAGE_ROOTFS_EXTRA_SPACE:append = "${@bb.utils.contains("DISTRO_FEATURES", "systemd", " + 4096", "" ,d)}"
-ROOTFS_POSTPROCESS_COMMAND += "add_fake_secret;"
+ROOTFS_POSTPROCESS_COMMAND += "add_fake_secret"
 
 do_devshell[depends] += "${PN}:do_rootfs"
 
