@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE-APACHE;md5=8f7bb094c7232b058c7e9f2e431f389c \
 
 DEPENDS += "zstd-native"
 
-CRATES_LIST = "\
+CRATES_LIST = " \
     crate://crates.io/adler2/2.0.1 \
     crate://crates.io/aho-corasick/1.1.4 \
     crate://crates.io/allocator-api2/0.2.21 \
