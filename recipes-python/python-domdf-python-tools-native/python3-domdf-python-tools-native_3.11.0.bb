@@ -9,7 +9,7 @@ DEPENDS += "\
     python3-hatch-requirements-txt-native \
 "
 
-SRC_URI[sha256sum] = "2ae308d2f4f1e9145f5f4ba57f840fbfd1c2983ee26e4824347789649d3ae298"
+SRC_URI[sha256sum] = "518ac47b27a799a72b01377f21588e41550a59918c25a74fb55fc7d15fbb2434"
 
 inherit pypi
 inherit pypi-old
