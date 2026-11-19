@@ -12,7 +12,7 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "setuptools_git_versioning"
 
-SRC_URI[sha256sum] = "27aa1ad0409b632ee49947ea592cc27e16fbb2a1605cc22efeb7c353fd790b31"
+SRC_URI[sha256sum] = "c5b38f3242027cdc53c9eb6c4c8410496afdd2895eb0507115d44dbb98af48e5"
 
 inherit pypi
 inherit python_setuptools_build_meta
