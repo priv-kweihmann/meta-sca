@@ -8,6 +8,7 @@ LICENSE = "${@' AND '.join(sorted(set(x for x in (d.getVar('GOSRC_LICENSE') or '
 require golang.org-x-tools-sources.inc
 
 EXTRA_DEPENDS += "\
+    nativesdk-github.com-google-go-cmp \
     nativesdk-github.com-yuin-goldmark \
     nativesdk-golang.org-x-mod \
     nativesdk-golang.org-x-net \
