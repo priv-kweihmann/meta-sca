@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=89aea4e17d99a7ca
 
 DEFAULT_PREFERENCE = "${SCA_DEFAULT_PREFERENCE}"
 
-SRC_URI[sha256sum] = "93abf22cf9a62b915f724e433bde702995ac274865425fd4a76d1d9b5828da1a"
+SRC_URI[sha256sum] = "d677119c44fb80cc9be41d8ac731f08bf89974bb1daa49b6688665a9d7224f42"
 
 inherit pypi
 inherit python_setuptools_build_meta
