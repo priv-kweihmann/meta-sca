@@ -12,6 +12,8 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "plugincode"
 
+SRC_URI:append = " file://0001-plugincode-remove-pluggy-interfaces.patch"
+
 SRC_URI[md5sum] = "647da988be37e1e60e20833340170cc7"
 SRC_URI[sha256sum] = "4132d93b1755271c6e226c9da2e2044ff62ebcb873b5e958d66a8ddde9f345fa"
 

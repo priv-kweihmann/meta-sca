@@ -1,0 +1,43 @@
+From fa12d8282fee6ef28dc0f2da89ffc715b7da4d38 Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Thu, 19 Nov 2026 15:06:29 +0100
+Subject: [PATCH] plugincode: remove pluggy interfaces
+
+as suggested by NixOS to move forward
+with latest pluggy releases.
+Should be remove once scancode-toolkit finally
+releases anything new
+
+Upstream-Status: Inappropriate [disable feature]
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+---
+ src/plugincode/__init__.py          | 1 -
+ src/plugincode/location_provider.py | 1 -
+ 2 files changed, 2 deletions(-)
+
+diff --git a/src/plugincode/__init__.py b/src/plugincode/__init__.py
+index 0474723..7fb0089 100644
+--- a/src/plugincode/__init__.py
++++ b/src/plugincode/__init__.py
+@@ -179,7 +179,6 @@ class PluginManager(object):
+         self.stage = stage
+         self.entrypoint = entrypoint
+         self.plugin_base_class = plugin_base_class
+-        self.manager.add_hookspecs(sys.modules[module_qname])
+ 
+         # set to True once this manager is initialized by running its setup()
+         self.initialized = False
+diff --git a/src/plugincode/location_provider.py b/src/plugincode/location_provider.py
+index 7fb8538..4db48ef 100644
+--- a/src/plugincode/location_provider.py
++++ b/src/plugincode/location_provider.py
+@@ -78,7 +78,6 @@ class SimplePluginManager(object):
+         self.manager = PluggyPluginManager(project_name=project_name)
+         self.entrypoint = entrypoint
+         self.plugin_base_class = plugin_base_class
+-        self.manager.add_hookspecs(sys.modules[project_name])
+ 
+         # set to True once this manager is initialized by running its setup()
+         self.initialized = False
+-- 
+2.34.1

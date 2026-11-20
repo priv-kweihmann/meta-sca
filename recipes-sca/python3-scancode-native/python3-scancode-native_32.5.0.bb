@@ -88,7 +88,10 @@ DEPENDS += "\
         python3-zipp-native \
         "
 
-SRC_URI = "git://github.com/aboutcode-org/scancode-toolkit.git;protocol=https;nobranch=1"
+SRC_URI = "\
+    git://github.com/aboutcode-org/scancode-toolkit.git;protocol=https;nobranch=1 \
+    file://0001-licensedcode-remove-pluggy-interfaces.patch \
+"
 SRCREV = "abd87fb81609ea4a29ab4cdda755c188b8be3601"
 
 
